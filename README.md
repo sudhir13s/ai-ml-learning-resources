@@ -75,7 +75,7 @@ release and deployment · monitoring and reliability · governance and economics
 
 ### Specializations (deep-dive curricula)
 - [Computer Vision math](modalities-and-generative-models/computer-vision/README.md) · [Neuroscience & Brain-Inspired AI](specialized-studies/neuroscience-and-brain-inspired-ai/README.md) · [Advanced Research Math](specialized-studies/advanced-mathematics-for-ai-research/README.md) — full what/why/resources curricula
-- [LLM Systems Engineering curriculum](llm_systems_curriculum.md) — 14-chapter inference-stack syllabus
+- [LLM Systems Engineering curriculum](_meta/llm_systems_curriculum.md) — 14-chapter inference-stack syllabus (personal study notebook, held in `_meta/` until absorbed into the chartered sections)
 
 ## 🔗 Sibling projects
 - [AI-ML-intuition](../AI-ML-intuition/) — deep concept pages (the *why*)
