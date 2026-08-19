@@ -58,7 +58,7 @@ updated: 2026-06-22
 
 **In this platform**:
 - Concept page (full explanation): [Optimizers](optimizers.md)
-- Concept depth (the *why*): [AI-ML-intuition 2.05 Gradient Descent & SGD](../../../../AI-ML-intuition/learning-and-optimization/first-order-optimization/gradient-descent-and-stochastic-gradient-descent-intuition.md) · [2.06 SGD with Momentum](../../../../AI-ML-intuition/learning-and-optimization/first-order-optimization/momentum-intuition.md) · [2.07 Adam](../../../../AI-ML-intuition/learning-and-optimization/adaptive-optimization/adam-intuition.md) · [2.08 AdamW](../../../../AI-ML-intuition/learning-and-optimization/adaptive-optimization/adamw-intuition.md)
+- Concept depth (the *why*): [ai-ml-intuitions 2.05 Gradient Descent & SGD](../../../../ai-ml-intuitions/learning-and-optimization/first-order-optimization/gradient-descent-and-stochastic-gradient-descent-intuition.md) · [2.06 SGD with Momentum](../../../../ai-ml-intuitions/learning-and-optimization/first-order-optimization/momentum-intuition.md) · [2.07 Adam](../../../../ai-ml-intuitions/learning-and-optimization/adaptive-optimization/adam-intuition.md) · [2.08 AdamW](../../../../ai-ml-intuitions/learning-and-optimization/adaptive-optimization/adamw-intuition.md)
 - Prerequisite: [02 Backpropagation & Computational Graphs](../../neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs.md)
 - Next concept: [08 Learning-Rate Schedules & Warmup](../learning-rate-schedules-and-warmup/learning-rate-schedules-and-warmup.md)
 - Why it matters for LLMs: [LoRA & PEFT](../../../llms-applications-and-agents/training-and-adaptation/lora-and-parameter-efficient-fine-tuning/lora-and-parameter-efficient-fine-tuning.md) (optimizer-state memory)

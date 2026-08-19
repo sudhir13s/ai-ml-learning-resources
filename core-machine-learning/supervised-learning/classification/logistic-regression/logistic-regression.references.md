@@ -48,6 +48,6 @@ updated: 2026-06-22
 
 **In this platform**:
 - Concept page (full explanation): [Logistic Regression](logistic-regression.md)
-- Concept depth (the *why*): [AI-ML-intuition 3.03 Cross-Entropy / NLL](../../../../../AI-ML-intuition/objectives-and-evaluation/training-objectives/categorical-cross-entropy-intuition.md) · [3.05 Classification Metrics](../../../../../AI-ML-intuition/objectives-and-evaluation/predictive-evaluation/classification-metrics-intuition.md)
+- Concept depth (the *why*): [ai-ml-intuitions 3.03 Cross-Entropy / NLL](../../../../../ai-ml-intuitions/objectives-and-evaluation/training-objectives/categorical-cross-entropy-intuition.md) · [3.05 Classification Metrics](../../../../../ai-ml-intuitions/objectives-and-evaluation/predictive-evaluation/classification-metrics-intuition.md)
 - Related: [Linear Regression](../../regression/linear-regression/linear-regression.md) · [Classification Metrics](../classification-metrics/classification-metrics.md) (the probabilities you threshold) · [Loss Functions](../../../../deep-learning/optimization-and-training/loss-functions/loss-functions.md) (softmax+cross-entropy = multiclass logistic regression)
 - Math prerequisites: [01. Foundations](../../../../foundations/mathematical-foundations/README.md) — sigmoid, maximum likelihood, cross-entropy, gradient descent

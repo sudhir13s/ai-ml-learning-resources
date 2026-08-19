@@ -55,6 +55,6 @@ rule: **fit the imputer on training data only** (compute fill values from train,
 - [Feature Engineering and Selection — **Ch. 8 "Handling Missing Data"**](http://www.feat.engineering/) — **Kuhn & Johnson** — applied imputation in a modeling workflow; free online.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [AI-ML-intuition 0.01 Probability & Bayes](../../../../AI-ML-intuition/foundational-mental-models/probability-and-belief/probability-and-bayes-intuition.md) · [0.03 Expectation, Variance, Covariance](../../../../AI-ML-intuition/foundational-mental-models/probability-and-belief/expectation-variance-and-covariance-intuition.md)
+- Concept depth (the *why*): [ai-ml-intuitions 0.01 Probability & Bayes](../../../../ai-ml-intuitions/foundational-mental-models/probability-and-belief/probability-and-bayes-intuition.md) · [0.03 Expectation, Variance, Covariance](../../../../ai-ml-intuitions/foundational-mental-models/probability-and-belief/expectation-variance-and-covariance-intuition.md)
 - Next concepts: [05 Outlier Detection & Treatment](../outlier-detection-and-treatment/outlier-detection-and-treatment.md) · [13 Data Pipelines](../data-pipelines/data-pipelines.md)
 - Related domain: [03. Supervised Learning](../../../core-machine-learning/supervised-learning/README.md)

@@ -57,5 +57,5 @@ updated: 2026-06-22
 - The nonlinearity that makes it work: [Activation Functions](../../stabilization-and-architectural-blocks/activation-functions/activation-functions.md)
 - Why deep MLPs are hard to train: [Vanishing & Exploding Gradients](../../optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients.md)
 - The MLP at scale (the transformer's FFN is an MLP): [Transformer Architecture](../../attention-and-transformers/transformer-architecture/transformer-architecture.md)
-- The *why* behind the math: [AI-ML-intuition 2.01 Partial Derivatives & the Gradient](../../../../AI-ML-intuition/learning-and-optimization/gradients-and-credit-assignment/partial-derivatives-and-gradients-intuition.md) · [4.14 Activation Functions & Softmax](../../../../AI-ML-intuition/architectural-mechanisms/nonlinear-transformation/activation-functions-and-softmax-intuition.md)
+- The *why* behind the math: [ai-ml-intuitions 2.01 Partial Derivatives & the Gradient](../../../../ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/partial-derivatives-and-gradients-intuition.md) · [4.14 Activation Functions & Softmax](../../../../ai-ml-intuitions/architectural-mechanisms/nonlinear-transformation/activation-functions-and-softmax-intuition.md)
 - Field overview: [Deep Learning](../../README.md)

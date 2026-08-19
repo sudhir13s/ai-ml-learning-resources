@@ -77,4 +77,4 @@ than re-deriving the math.
 
 ## 🔗 In this platform
 - The full math curriculum (phases + specializations): [Maths for AI-ML](maths-for-ai-ml/README.md)
-- Math-as-ML-concepts deep dives: [AI-ML-intuition Module 0–2](../../../AI-ML-intuition/)
+- Math-as-ML-concepts deep dives: [ai-ml-intuitions Module 0–2](../../../ai-ml-intuitions/)

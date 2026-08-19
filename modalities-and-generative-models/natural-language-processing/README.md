@@ -62,4 +62,4 @@ Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its p
 - [Speech and Language Processing (3rd ed.)](https://web.stanford.edu/~jurafsky/slp3/) — **Jurafsky & Martin** — free draft; the field's standard reference.
 
 ## 🔗 In this platform
-- Math: [AI-ML-intuition 1.02 embeddings, 1.15 tokenization, Module 4 attention](../../../AI-ML-intuition/) · LLMs: [LLMs, Applications and Agents](../../llms-applications-and-agents/README.md)
+- Math: [ai-ml-intuitions 1.02 embeddings, 1.15 tokenization, Module 4 attention](../../../ai-ml-intuitions/) · LLMs: [LLMs, Applications and Agents](../../llms-applications-and-agents/README.md)

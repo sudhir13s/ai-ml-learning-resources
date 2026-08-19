@@ -56,6 +56,6 @@ research system (token cost, coordination overhead, evaluation difficulty).
 - [Artificial Intelligence: A Modern Approach — **Ch. 18 "Multiagent Decision Making"**](https://aima.cs.berkeley.edu/) — **Russell & Norvig** — the classical foundations of agents interacting and cooperating.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [AI-ML-intuition 8.03 Agents & Tool Use](../../../../AI-ML-intuition/reasoning-and-agency/agents-and-tools/agent-loop-and-tool-use-intuition.md)
+- Concept depth (the *why*): [ai-ml-intuitions 8.03 Agents & Tool Use](../../../../ai-ml-intuitions/reasoning-and-agency/agents-and-tools/agent-loop-and-tool-use-intuition.md)
 - Prev / next: [04 Planning](../planning/planning.md) · [08 Model Context Protocol (MCP)](../model-context-protocol/model-context-protocol.md) · [09 Agent Frameworks](../agent-frameworks/agent-frameworks.md)
 - Related (canonical home): [Prompting & In-Context Learning](../../reasoning-evaluation-and-alignment/prompting-and-in-context-learning/prompting-and-in-context-learning.md)

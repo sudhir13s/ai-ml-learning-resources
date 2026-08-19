@@ -56,6 +56,6 @@ trap in this area.
 - [Artificial Intelligence: A Modern Approach — **Ch. 2 "Intelligent Agents"**](https://aima.cs.berkeley.edu/) — **Russell & Norvig** — the classic definition of agents, environments, and rationality (free chapter PDFs on the book site).
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [AI-ML-intuition 8.03 Agents & Tool Use](../../../../AI-ML-intuition/reasoning-and-agency/agents-and-tools/agent-loop-and-tool-use-intuition.md)
+- Concept depth (the *why*): [ai-ml-intuitions 8.03 Agents & Tool Use](../../../../ai-ml-intuitions/reasoning-and-agency/agents-and-tools/agent-loop-and-tool-use-intuition.md)
 - Next concepts: [02 ReAct](../reason-and-act/reason-and-act.md) · [03 Tool Use & Function Calling](../tool-use/tool-use.md) · [04 Planning](../planning/planning.md)
 - Related (canonical home): [Prompting & In-Context Learning](../../reasoning-evaluation-and-alignment/prompting-and-in-context-learning/prompting-and-in-context-learning.md) · [Chain-of-Thought](../../reasoning-evaluation-and-alignment/chain-of-thought-and-reasoning/chain-of-thought-and-reasoning.md)

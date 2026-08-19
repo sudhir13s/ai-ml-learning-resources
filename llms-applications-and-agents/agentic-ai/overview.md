@@ -64,4 +64,4 @@ above, then work top to bottom.
 - [LLM Powered Autonomous Agents](https://lilianweng.github.io/posts/2023-06-23-agent/) — **Lilian Weng** — the canonical survey (planning, memory, tools).
 
 ## In this platform
-- Math/mechanism: [AI-ML-intuition 8.03 Agents & Tool Use](/ai-ml/ai-ml-intuitions/reasoning-agency/agent-loop-and-tool-use-intuition)
+- Math/mechanism: [ai-ml-intuitions 8.03 Agents & Tool Use](/ai-ml/ai-ml-intuitions/reasoning-agency/agent-loop-and-tool-use-intuition)

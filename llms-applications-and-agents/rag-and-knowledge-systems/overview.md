@@ -68,4 +68,4 @@ then work top to bottom.
 - [AI Engineering](https://www.oreilly.com/library/view/ai-engineering/9781098166298/) — **Chip Huyen (2025)** — the definitive text on building LLM products (RAG, agents, eval).
 
 ## In this platform
-- Math/mechanism: [AI-ML-intuition 8.02 RAG](/ai-ml/ai-ml-intuitions/memory-retrieval-context/rag-intuition), [8.01 Prompting](/ai-ml/ai-ml-intuitions/reasoning-agency/in-context-learning-and-prompting-intuition)
+- Math/mechanism: [ai-ml-intuitions 8.02 RAG](/ai-ml/ai-ml-intuitions/memory-retrieval-context/rag-intuition), [8.01 Prompting](/ai-ml/ai-ml-intuitions/reasoning-agency/in-context-learning-and-prompting-intuition)
