@@ -109,7 +109,7 @@ each concept is **two files** (canonical example: [kv-cache.md](llms-application
   generic popular tutorials); every link verified. The content page ends with a one-line pointer to
   this companion.
 
-**Frontmatter contract (v2 — field names harmonized with decision-9 / AI-ML-intuition):**
+**Frontmatter contract (v2 — field names harmonized with decision-9 / ai-ml-intuitions):**
 `id`, `topic`, `parent`, `level`, `tier` (core | standard | flagship), `est_minutes`,
 `built_from` (upstream prereq concepts — **renames the old `prereqs` field**), `leads_to`
 (downstream concepts), `interview_frequency`, `template`, `updated`. The hub hero renders
@@ -120,7 +120,7 @@ gold LLM chapters default to `tier: standard`; the owner-approved Flagship short
 `flagship` (pilot: KV-Cache, T-75, which also fixes the explorer/step-player spec format).
 
 This **intentionally inverts** the old "curated links only — don't duplicate depth" rule for
-`concepts/` pages: when a concept has no `AI-ML-intuition` page, its concept page is the canonical
+`concepts/` pages: when a concept has no `ai-ml-intuitions` page, its concept page is the canonical
 deep home. (Topic-level `README.md`s stay link-only as described above.)
 
 ## Sections (chartered, kebab-case — the ordinal `NN. Name` folders are gone)
@@ -164,9 +164,9 @@ chartered sections, after which it is deleted. The root `README.md` is the maste
   stay link-only — don't put concept depth here.
 - **Topic pages** (`<topic>/<topic>.md`): author/raise them to the two-file standard above (deep
   content + separate `<topic>.references.md`). These *are* allowed to carry full depth; they're
-  the canonical deep home for a concept when no `AI-ML-intuition` page exists.
+  the canonical deep home for a concept when no `ai-ml-intuitions` page exists.
 - **Adding a topic**: create `<section>/<sub-area>/<topic>/<topic>.md`, give it `title`,
   `minutes` and a `category` equal to its sub-area folder, add the path to `course.yaml`, and
   add it to that sub-area's `metadata.yaml` `page-order:` at the right position.
-- Cross-link into [`AI-ML-intuition`](../AI-ML-intuition/) (the *why*) and
+- Cross-link into [`ai-ml-intuitions`](../ai-ml-intuitions/) (the *why*) and
   [`AI-ML-problemsets`](../AI-ML-problemsets/) (the *practice*) where those pages exist.

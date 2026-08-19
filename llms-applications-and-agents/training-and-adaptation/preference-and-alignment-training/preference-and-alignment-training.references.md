@@ -54,7 +54,7 @@ updated: 2026-06-22
 **In this platform**:
 - Concept page (full explanation): [RLHF & DPO](preference-and-alignment-training.md)
 - Hands-on project: [RLHF & Alignment workflow](../../../../Practitioner-Workflows/RLHF-and-Alignment/RLHF-and-Alignment.md) (collect pairs → reward model → PPO → DPO, step by step)
-- Concept depth (the *why*): [AI-ML-intuition 6.03 PPO and RLHF](../../../../AI-ML-intuition/decision-making-and-control/stable-policy-optimization/ppo-and-rl-from-human-feedback-intuition.md) · [6.02 Policy Gradients / REINFORCE](../../../../AI-ML-intuition/decision-making-and-control/policy-learning/policy-gradients-intuition.md)
+- Concept depth (the *why*): [ai-ml-intuitions 6.03 PPO and RLHF](../../../../ai-ml-intuitions/decision-making-and-control/stable-policy-optimization/ppo-and-rl-from-human-feedback-intuition.md) · [6.02 Policy Gradients / REINFORCE](../../../../ai-ml-intuitions/decision-making-and-control/policy-learning/policy-gradients-intuition.md)
 - Prerequisites: [Supervised Fine-Tuning](../supervised-fine-tuning/supervised-fine-tuning.md) · [Instruction Tuning](../instruction-tuning/instruction-tuning.md)
 - RL foundations: [Reinforcement Learning](../../../../core-machine-learning/reinforcement-learning/README.md) (PPO & policy gradients)
 - Related: [Hallucination & Alignment Basics](../../reasoning-evaluation-and-alignment/safety-and-alignment/safety-and-alignment.md)

@@ -62,4 +62,4 @@ from "what even is ML?" to shipping your first model.
 - [Mathematics for Machine Learning](https://mml-book.github.io/) — **Deisenroth, Faisal & Ong** — free; the math you'll actually need.
 
 ## 🔗 In this platform
-- Intuition: [AI-ML-intuition](../../AI-ML-intuition/) · Practice: [AI-ML-problemsets](../../AI-ML-problemsets/) · Math: [Foundations](mathematical-foundations/)
+- Intuition: [ai-ml-intuitions](../../ai-ml-intuitions/) · Practice: [AI-ML-problemsets](../../AI-ML-problemsets/) · Math: [Foundations](mathematical-foundations/)

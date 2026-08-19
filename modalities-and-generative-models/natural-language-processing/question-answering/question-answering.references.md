@@ -59,4 +59,4 @@ updated: 2026-06-27
 - The generator backbone (RAG reader): [Seq2Seq & Encoder–Decoder](../sequence-to-sequence-and-encoder-decoder/sequence-to-sequence-and-encoder-decoder.md)
 - How answers are scored (EM/F1): [NLP Evaluation Metrics](../nlp-evaluation-metrics/nlp-evaluation-metrics.md)
 - Resolving conversational follow-ups: [Coreference Resolution](../coreference-resolution/coreference-resolution.md)
-- The *why* behind RAG, in depth: [AI-ML-intuition 8.02 Retrieval-Augmented Generation](../../../../AI-ML-intuition/memory-retrieval-and-context/retrieval-augmented-generation/rag-intuition.md)
+- The *why* behind RAG, in depth: [ai-ml-intuitions 8.02 Retrieval-Augmented Generation](../../../../ai-ml-intuitions/memory-retrieval-and-context/retrieval-augmented-generation/rag-intuition.md)

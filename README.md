@@ -78,6 +78,6 @@ release and deployment · monitoring and reliability · governance and economics
 - [LLM Systems Engineering curriculum](_meta/llm_systems_curriculum.md) — 14-chapter inference-stack syllabus (personal study notebook, held in `_meta/` until absorbed into the chartered sections)
 
 ## 🔗 Sibling projects
-- [AI-ML-intuition](../AI-ML-intuition/) — deep concept pages (the *why*)
+- [ai-ml-intuitions](../ai-ml-intuitions/) — deep concept pages (the *why*)
 - [AI-ML-problemsets](../AI-ML-problemsets/) — problems, labs & build projects (the *practice*)
 - [PyTorch-fundamental-notes](../PyTorch-fundamental-notes/) — PyTorch mechanics

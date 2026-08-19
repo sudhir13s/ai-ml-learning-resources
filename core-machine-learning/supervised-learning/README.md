@@ -63,4 +63,4 @@ Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its p
 - [The Elements of Statistical Learning](https://hastie.su.domains/ElemStatLearn/) — **Hastie et al.** — free; the rigorous reference.
 
 ## 🔗 In this platform
-- Losses & metrics: [AI-ML-intuition Module 3](../../../AI-ML-intuition/objectives-and-evaluation/) · Practice: [problemsets](../../../AI-ML-problemsets/)
+- Losses & metrics: [ai-ml-intuitions Module 3](../../../ai-ml-intuitions/objectives-and-evaluation/) · Practice: [problemsets](../../../AI-ML-problemsets/)

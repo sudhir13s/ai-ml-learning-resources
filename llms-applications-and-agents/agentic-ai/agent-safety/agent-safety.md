@@ -57,6 +57,6 @@ checkpoints, interrupts) and their failure mode (rubber-stamping when humans are
 - [Artificial Intelligence: A Modern Approach — **Ch. 28 "The Future of AI"** (safety & control)](https://aima.cs.berkeley.edu/) — **Russell & Norvig** — value alignment and control, the foundation for agent guardrails.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [AI-ML-intuition 8.03 Agents & Tool Use](../../../../AI-ML-intuition/reasoning-and-agency/agents-and-tools/agent-loop-and-tool-use-intuition.md)
+- Concept depth (the *why*): [ai-ml-intuitions 8.03 Agents & Tool Use](../../../../ai-ml-intuitions/reasoning-and-agency/agents-and-tools/agent-loop-and-tool-use-intuition.md)
 - Prev: [11 Computer-Use & GUI Agents](../coding-and-computer-use-agents/computer-use-and-gui-agents.md) · [12 Agent Evaluation & Benchmarks](../agent-evaluation/agent-evaluation.md)
 - Related (canonical home): [Hallucination & Alignment basics](../../reasoning-evaluation-and-alignment/safety-and-alignment/safety-and-alignment.md) · [RLHF & DPO](../../training-and-adaptation/preference-and-alignment-training/preference-and-alignment-training.md)

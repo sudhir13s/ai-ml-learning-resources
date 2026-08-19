@@ -55,7 +55,7 @@ updated: 2026-07-02
 
 **In this platform**:
 - Concept page (full explanation): [Long-Context vs RAG](long-context-vs-rag.md)
-- Concept depth (the *why*): [AI-ML-intuition 8.02 Retrieval-Augmented Generation](../../../../AI-ML-intuition/memory-retrieval-and-context/retrieval-augmented-generation/rag-intuition.md)
+- Concept depth (the *why*): [ai-ml-intuitions 8.02 Retrieval-Augmented Generation](../../../../ai-ml-intuitions/memory-retrieval-and-context/retrieval-augmented-generation/rag-intuition.md)
 - Foundations: [01 RAG Fundamentals (retrieve-then-generate)](../rag-foundations/rag-foundations.md) · [02 Document Chunking](../chunking/chunking.md) · [05 Hybrid Search (the DenseRetriever the dilution proxy reuses)](../hybrid-search/hybrid-search.md)
 - Measure it: [11 RAG Evaluation (why a smaller focused context scores higher)](../rag-evaluation/rag-evaluation.md)
 - Long-context mechanics: [LLMs — Long-Context Methods (RoPE scaling, ALiBi)](../../llm-model-architectures/long-context-architectures/long-context-architectures.md) · [LLMs — KV Cache (the memory/latency cost of a long prompt)](../../inference-and-runtime/kv-cache/kv-cache.md)

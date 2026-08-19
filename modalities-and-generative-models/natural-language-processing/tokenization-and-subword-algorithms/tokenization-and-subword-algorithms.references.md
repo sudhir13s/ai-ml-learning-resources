@@ -59,7 +59,7 @@ updated: 2026-06-22
 
 **In this platform**:
 - Concept page (full explanation): [Tokenization & Subword Algorithms](tokenization-and-subword-algorithms.md)
-- Concept depth (the *why*): [AI-ML-intuition 1.15 Tokenization & BPE](../../../../AI-ML-intuition/representation/discrete-representations/tokenization-and-bpe-intuition.md)
+- Concept depth (the *why*): [ai-ml-intuitions 1.15 Tokenization & BPE](../../../../ai-ml-intuitions/representation/discrete-representations/tokenization-and-bpe-intuition.md)
 - Comes before this: [01 Text Preprocessing & Normalization](../text-preprocessing-and-normalization/text-preprocessing-and-normalization.md)
 - Builds on this: [05 Word Embeddings (Word2Vec / GloVe / FastText)](../word-embeddings-word2vec-glove-fasttext/word-embeddings-word2vec-glove-fasttext.md) · [06 Contextual Embeddings (ELMo / BERT)](../contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert.md)
 - Puts it to work: [LLMs, Applications and Agents](../../../llms-applications-and-agents/README.md) · [KV Cache (tokens are what fills it)](../../../llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.md)

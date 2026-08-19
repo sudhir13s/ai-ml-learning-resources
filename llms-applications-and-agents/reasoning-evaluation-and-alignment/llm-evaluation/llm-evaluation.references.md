@@ -68,6 +68,6 @@ updated: 2026-06-27
 
 **In this platform**:
 - Concept page (full explanation): [LLM Evaluation & Benchmarks](llm-evaluation.md)
-- Foundations (the *why* behind the math): [NLP Evaluation Metrics (perplexity, BLEU, ROUGE, BERTScore)](../../../../modalities-and-generative-models/natural-language-processing/nlp-evaluation-metrics/nlp-evaluation-metrics.md) · [Information Theory: Entropy & KL Divergence](../../../../AI-ML-intuition/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition.md)
+- Foundations (the *why* behind the math): [NLP Evaluation Metrics (perplexity, BLEU, ROUGE, BERTScore)](../../../../modalities-and-generative-models/natural-language-processing/nlp-evaluation-metrics/nlp-evaluation-metrics.md) · [Information Theory: Entropy & KL Divergence](../../../../ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition.md)
 - Shares the math: [RLHF & DPO](../../training-and-adaptation/preference-and-alignment-training/preference-and-alignment-training.md) (the Bradley–Terry reward model is the same logistic as Elo)
 - Related concepts: [Chain-of-Thought Reasoning](../chain-of-thought-and-reasoning/chain-of-thought-and-reasoning.md) (why GSM8K rewards reasoning) · [Decoding & Sampling](../../inference-and-runtime/decoding-and-sampling/decoding-and-sampling.md) (the sampling that pass@k accounts for) · [Hallucination & Alignment Basics](../safety-and-alignment/safety-and-alignment.md) (why calibration matters)

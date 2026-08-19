@@ -60,7 +60,7 @@ always exist?" is a recurring interview question.
 - [Convex Optimization — **§5.4–5.8 (duality, minimax, saddle points)**](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf) — **Boyd & Vandenberghe** — the minimax-duality math behind zero-sum games, free.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [AI-ML-intuition 5.04 GANs & WGAN](../../../../AI-ML-intuition/generation/adversarial-generation/gans-and-wasserstein-gans-intuition.md) · [6.04 MDPs & Exploration](../../../../AI-ML-intuition/decision-making-and-control/mdps-and-environments/mdps-and-exploration-intuition.md)
+- Concept depth (the *why*): [ai-ml-intuitions 5.04 GANs & WGAN](../../../../ai-ml-intuitions/generation/adversarial-generation/gans-and-wasserstein-gans-intuition.md) · [6.04 MDPs & Exploration](../../../../ai-ml-intuitions/decision-making-and-control/mdps-and-environments/mdps-and-exploration-intuition.md)
 - Prerequisite & related: [04 Convex Analysis & Duality (minimax)](../convex-analysis-and-duality/convex-analysis-and-duality.md) · [14 Causal Inference (interventions)](../causal-inference/causal-inference.md) · [09 Optimal Transport (WGAN)](../optimal-transport-wasserstein/optimal-transport-wasserstein.md)
 - Related domain (multi-agent decisions): [10. Reinforcement Learning](../../../core-machine-learning/reinforcement-learning/README.md)
 </content>

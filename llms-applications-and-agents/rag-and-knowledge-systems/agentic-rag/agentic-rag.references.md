@@ -61,7 +61,7 @@ updated: 2026-07-02
 
 **In this platform**:
 - Concept page (full explanation): [Agentic RAG](agentic-rag.md)
-- Concept depth (the *why*): [AI-ML-intuition 8.03 Agents & Tool Use](../../../../AI-ML-intuition/reasoning-and-agency/agents-and-tools/agent-loop-and-tool-use-intuition.md) · [8.02 Retrieval-Augmented Generation](../../../../AI-ML-intuition/memory-retrieval-and-context/retrieval-augmented-generation/rag-intuition.md)
+- Concept depth (the *why*): [ai-ml-intuitions 8.03 Agents & Tool Use](../../../../ai-ml-intuitions/reasoning-and-agency/agents-and-tools/agent-loop-and-tool-use-intuition.md) · [8.02 Retrieval-Augmented Generation](../../../../ai-ml-intuitions/memory-retrieval-and-context/retrieval-augmented-generation/rag-intuition.md)
 - Foundations this builds on: [RAG Fundamentals (retrieve-then-generate)](../rag-foundations/rag-foundations.md) · [Hybrid Search + the DenseRetriever this reuses](../hybrid-search/hybrid-search.md) · [Query Transformation (multi-query, the decompose idea)](../query-transformation/query-transformation.md)
 - Special cases of this loop: [08 Advanced RAG (Self-RAG grading + retrieve-on-demand)](../advanced-rag/advanced-rag.md)
 - Measure it: [11 RAG Evaluation](../rag-evaluation/rag-evaluation.md) · [14 Guardrails & Hallucination Mitigation](../../reasoning-evaluation-and-alignment/hallucination-and-grounding/hallucination-and-grounding.md)

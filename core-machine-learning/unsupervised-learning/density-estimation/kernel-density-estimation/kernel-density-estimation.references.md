@@ -51,7 +51,7 @@ updated: 2026-06-22
 - Concept page (full explanation): [Kernel Density Estimation](kernel-density-estimation.md)
 - Parametric counterpart (the contrast): [Gaussian Mixture Models & EM](../../clustering/gaussian-mixture-models-and-em/gaussian-mixture-models-and-em.md) — KDE is a GMM with one fixed bump per point
 - Puts it to work: [Anomaly / Outlier Detection](../../anomaly-detection/anomaly-outlier-detection/anomaly-outlier-detection.md) — low estimated density = outlier
-- Method tie: [The Kernel Trick (intuition)](../../../../../AI-ML-intuition/representation/similarity-and-distance/kernel-trick-intuition.md) — the same Gaussian bump, used for inner products rather than density
-- Foundations (the *why*): [Distributions & the Gaussian (intuition)](../../../../../AI-ML-intuition/foundational-mental-models/probability-and-belief/distributions-and-gaussians-intuition.md) — the kernel is usually a Gaussian bump
+- Method tie: [The Kernel Trick (intuition)](../../../../../ai-ml-intuitions/representation/similarity-and-distance/kernel-trick-intuition.md) — the same Gaussian bump, used for inner products rather than density
+- Foundations (the *why*): [Distributions & the Gaussian (intuition)](../../../../../ai-ml-intuitions/foundational-mental-models/probability-and-belief/distributions-and-gaussians-intuition.md) — the kernel is usually a Gaussian bump
 - Prereq math: [Vectors and Vector Spaces](/ai-ml/ai-ml-learning-resources/foundations/vectors-and-vector-spaces/notes-theory) and [Matrices and Matrix Operations](/ai-ml/ai-ml-learning-resources/foundations/matrices-and-matrix-operations/notes-theory)
 - Field overview: [4. Unsupervised Learning](../../README.md)

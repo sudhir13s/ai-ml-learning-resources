@@ -56,5 +56,5 @@ variance with λ, and what A3C's asynchronous parallel actors buy you (decorrela
 - [Algorithms for Reinforcement Learning — **§4 (policy search & actor-critic)**](https://sites.ualberta.ca/~szepesva/papers/RLAlgsInMDPs.pdf) — **Csaba Szepesvári** — the estimation theory behind the critic.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [AI-ML-intuition 6.02 Policy Gradients (REINFORCE)](../../../../../AI-ML-intuition/decision-making-and-control/policy-learning/policy-gradients-intuition.md)
+- Concept depth (the *why*): [ai-ml-intuitions 6.02 Policy Gradients (REINFORCE)](../../../../../ai-ml-intuitions/decision-making-and-control/policy-learning/policy-gradients-intuition.md)
 - Prereq: [09 Policy Gradients (REINFORCE)](../policy-gradients-reinforce/policy-gradients-reinforce.md) · Next: [11 TRPO](../trust-region-policy-optimization-trpo/trust-region-policy-optimization-trpo.md) · [12 PPO](../proximal-policy-optimization-ppo/proximal-policy-optimization-ppo.md)

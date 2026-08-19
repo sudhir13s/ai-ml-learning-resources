@@ -56,7 +56,7 @@ updated: 2026-06-21
 
 **In this platform**:
 - Concept page (full explanation): [Attention Mechanism](attention-mechanism.md)
-- Concept depth (the *why*): [AI-ML-intuition 4.08 Multi-Head Attention Routing](../../../../AI-ML-intuition/architectural-mechanisms/attention-and-routing/multi-head-attention-intuition.md) · [1.06 Scaled Dot-Product Similarity](../../../../AI-ML-intuition/representation/similarity-and-distance/scaled-dot-product-intuition.md)
+- Concept depth (the *why*): [ai-ml-intuitions 4.08 Multi-Head Attention Routing](../../../../ai-ml-intuitions/architectural-mechanisms/attention-and-routing/multi-head-attention-intuition.md) · [1.06 Scaled Dot-Product Similarity](../../../../ai-ml-intuitions/representation/similarity-and-distance/scaled-dot-product-intuition.md)
 - Prerequisite: [14 RNN / LSTM / GRU](../../neural-architectures/rnn-lstm-gru/rnn-lstm-gru.md) (the bottleneck attention fixed)
 - Needed because attention is order-blind: [17 Positional Encoding](../positional-encoding/positional-encoding.md) (sinusoidal, learned, RoPE, ALiBi)
 - Builds into: [16 Transformer Architecture](../transformer-architecture/transformer-architecture.md) — attention wrapped in residual + norm + FFN into a full model

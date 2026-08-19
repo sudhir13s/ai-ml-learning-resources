@@ -54,7 +54,7 @@ updated: 2026-06-27
 
 **In this platform**:
 - Concept page (full explanation): [Prompting & In-Context Learning](prompting-and-in-context-learning.md)
-- Concept depth (the intuition): [Module 8.01 In-Context Learning & Prompting](../../../../AI-ML-intuition/reasoning-and-agency/in-context-behavior/in-context-learning-and-prompting-intuition.md)
+- Concept depth (the intuition): [Module 8.01 In-Context Learning & Prompting](../../../../ai-ml-intuitions/reasoning-and-agency/in-context-behavior/in-context-learning-and-prompting-intuition.md)
 - The next step (a specific prompting technique): [Chain-of-Thought Reasoning](../chain-of-thought-and-reasoning/chain-of-thought-and-reasoning.md)
 - Contrast — methods that change weights: [Supervised Fine-Tuning](../../training-and-adaptation/supervised-fine-tuning/supervised-fine-tuning.md) · [Instruction Tuning](../../training-and-adaptation/instruction-tuning/instruction-tuning.md) · [RLHF & DPO](../../training-and-adaptation/preference-and-alignment-training/preference-and-alignment-training.md)
 - Foundations (the attention that induction heads exploit): [Attention Mechanism](../../../../deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism.md) · [Decoder-only Architecture](../../large-language-model-foundations/decoder-only-models/decoder-only-models.md)

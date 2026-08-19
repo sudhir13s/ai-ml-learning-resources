@@ -64,4 +64,4 @@ path plus the best **free, open** courses, videos, papers, articles, and books f
 - [Designing Machine Learning Systems](https://www.oreilly.com/library/view/designing-machine-learning/9781098107956/) — **Chip Huyen** — the definitive modern text (paid, but chapters/notes are free online).
 
 ## 🔗 In this platform
-- Inference economics: [AI-ML-intuition Module 7](../../AI-ML-intuition/scaling-adaptation-and-efficiency/) · [LLM Systems curriculum](../_meta/llm_systems_curriculum.md)
+- Inference economics: [ai-ml-intuitions Module 7](../../ai-ml-intuitions/scaling-adaptation-and-efficiency/) · [LLM Systems curriculum](../_meta/llm_systems_curriculum.md)

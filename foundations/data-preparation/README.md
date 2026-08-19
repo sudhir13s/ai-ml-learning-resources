@@ -65,4 +65,4 @@ and books for that topic.
 - [Feature Engineering and Selection](http://www.feat.engineering/) — **Kuhn & Johnson** — free online.
 
 ## 🔗 In this platform
-- Why scaling/encoding matters mathematically: [AI-ML-intuition Module 1](../../../AI-ML-intuition/representation/)
+- Why scaling/encoding matters mathematically: [ai-ml-intuitions Module 1](../../../ai-ml-intuitions/representation/)

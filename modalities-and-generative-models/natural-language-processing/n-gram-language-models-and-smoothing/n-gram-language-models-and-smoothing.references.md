@@ -58,4 +58,4 @@ updated: 2026-06-27
 - The successor that fixed the semantics gap: [Word Embeddings: Word2Vec, GloVe, FastText](../word-embeddings-word2vec-glove-fasttext/word-embeddings-word2vec-glove-fasttext.md) — dense vectors so "blue" and "green" relate.
 - Where perplexity is defined alongside the other metrics: [NLP Evaluation Metrics](../nlp-evaluation-metrics/nlp-evaluation-metrics.md).
 - The neural successors to n-gram LMs: [Sequence-to-Sequence and Encoder–Decoder](../sequence-to-sequence-and-encoder-decoder/sequence-to-sequence-and-encoder-decoder.md), and the LLMs in [LLMs, Applications and Agents](../../../llms-applications-and-agents) (same chain-rule objective, learned estimator).
-- The *why* behind autoregressive generation: [AI-ML-intuition 5.05 Autoregressive Generation & Sampling](../../../../AI-ML-intuition/generation/autoregressive-generation/autoregressive-generation-and-sampling-controls-intuition.md).
+- The *why* behind autoregressive generation: [ai-ml-intuitions 5.05 Autoregressive Generation & Sampling](../../../../ai-ml-intuitions/generation/autoregressive-generation/autoregressive-generation-and-sampling-controls-intuition.md).

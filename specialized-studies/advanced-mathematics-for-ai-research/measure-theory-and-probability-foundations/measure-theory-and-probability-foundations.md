@@ -58,6 +58,6 @@ teeth* (convergence modes, Borel–Cantelli, dominated convergence) is exactly t
 
 ## 🔗 In this platform
 - Foundations (the basics this builds on): [Probability & Bayes](../../../foundations/mathematical-foundations/probability-and-bayes-theorem/probability-and-bayes-theorem.md) · [Random Variables & Distributions](../../../foundations/mathematical-foundations/random-variables-and-distributions/random-variables-and-distributions.md) · [Law of Large Numbers & the CLT](../../../foundations/mathematical-foundations/lln-and-clt/lln-and-clt.md)
-- Concept depth (the *why*): [AI-ML-intuition 0.01 Probability & Bayes](../../../../AI-ML-intuition/foundational-mental-models/probability-and-belief/probability-and-bayes-intuition.md) · [0.04 LLN & CLT](../../../../AI-ML-intuition/foundational-mental-models/probability-and-belief/law-of-large-numbers-and-central-limit-theorem-intuition.md)
+- Concept depth (the *why*): [ai-ml-intuitions 0.01 Probability & Bayes](../../../../ai-ml-intuitions/foundational-mental-models/probability-and-belief/probability-and-bayes-intuition.md) · [0.04 LLN & CLT](../../../../ai-ml-intuitions/foundational-mental-models/probability-and-belief/law-of-large-numbers-and-central-limit-theorem-intuition.md)
 - Next concepts: [02 Functional Analysis](../functional-analysis/functional-analysis.md) · [07 Rademacher Complexity & Generalization Bounds](../rademacher-complexity-and-generalization-bounds/rademacher-complexity-and-generalization-bounds.md)
 </content>

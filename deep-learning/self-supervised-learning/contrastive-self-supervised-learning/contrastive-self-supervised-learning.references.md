@@ -61,7 +61,7 @@ updated: 2026-06-22
 
 **In this platform**:
 - Concept page (full explanation): [Contrastive / Self-Supervised Learning](contrastive-self-supervised-learning.md)
-- Foundations (the *why*): [AI-ML-intuition 1.13 Contrastive Learning (SimCLR / InfoNCE)](../../../../AI-ML-intuition/representation/representation-learning/contrastive-learning-intuition.md) · [1.14 Triplet Loss](../../../../AI-ML-intuition/representation/representation-learning/triplet-learning-intuition.md) · [1.02 Dense Embeddings](../../../../AI-ML-intuition/representation/embedding-spaces/dense-embeddings-intuition.md)
-- Loss foundations: [AI-ML-intuition 5.01 Entropy & KL Divergence](../../../../AI-ML-intuition/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition.md) — InfoNCE is a cross-entropy / MI-bound loss
+- Foundations (the *why*): [ai-ml-intuitions 1.13 Contrastive Learning (SimCLR / InfoNCE)](../../../../ai-ml-intuitions/representation/representation-learning/contrastive-learning-intuition.md) · [1.14 Triplet Loss](../../../../ai-ml-intuitions/representation/representation-learning/triplet-learning-intuition.md) · [1.02 Dense Embeddings](../../../../ai-ml-intuitions/representation/embedding-spaces/dense-embeddings-intuition.md)
+- Loss foundations: [ai-ml-intuitions 5.01 Entropy & KL Divergence](../../../../ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition.md) — InfoNCE is a cross-entropy / MI-bound loss
 - Evaluating the representation: [k-Nearest Neighbors](../../../core-machine-learning/supervised-learning/classification/k-nearest-neighbors/k-nearest-neighbors.md) — the k-NN probe for self-supervised embeddings
 - Where it leads: [4. Unsupervised Learning](../../../core-machine-learning/unsupervised-learning/README.md) · [Deep Learning concepts](../../README.md)
