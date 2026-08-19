@@ -1,0 +1,217 @@
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" font-family="DejaVu Sans, Verdana, sans-serif">
+  <!-- Sparse top-2 routing, token by token, on one shared 12s SMIL clock. Seven discrete beats
+       matching the frame schedule of the retired generator tools/make_animations_07.py
+       (an opening overview beat, then
+       one beat per token t1..t6, the last one held), plus a short closing beat that returns to
+       the opening state so the loop does not jump. In each beat the current token lights up
+       blue, its two arrows to the router's chosen experts light up green with the gate value on
+       each arrow (arrow thickness = 1.0 + 3.5 x gate), the two chosen expert boxes light up, and
+       the amber load meter under every expert keeps its running count. The routing table drawn
+       here is exactly the ROUTING list in that script - t1 -> E1 0.70 / E3 0.30, t2 -> E5 0.60 /
+       E2 0.40, t3 -> E8 0.80 / E4 0.20, t4 -> E2 0.60 / E6 0.40, t5 -> E7 0.70 / E1 0.30,
+       t6 -> E4 0.60 / E8 0.40 - illustrative assignments, as the script states, because a
+       randomly-initialised router produces arbitrary ones anyway. The full schematic (8 experts,
+       router, 6 tokens, takeaway) is drawn at t=0, so the first frame already reads. -->
+  <style>
+    .panel { font-size: 13px; font-weight: bold; fill: #1C2530; }
+    .lab   { font-size: 10.5px; fill: #4A5B6E; }
+    .dim   { font-size: 10px; fill: #7C8794; }
+    .box   { font-size: 12px; font-weight: bold; fill: #1C2530; text-anchor: middle; }
+    .gate  { font-size: 10px; font-weight: bold; fill: #2E7A5A; text-anchor: middle; }
+    .cap   { font-size: 11.5px; font-family: "DejaVu Sans Mono", Menlo, monospace; font-weight: bold; fill: #1C2530; text-anchor: middle; }
+  </style>
+
+  <defs>
+    <marker id="tip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#2E7A5A"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="900" height="460" fill="#ffffff"/>
+
+  <text x="450" y="30" text-anchor="middle" class="panel" font-size="14">Sparse routing: each token goes to its top-2 experts</text>
+
+  <!-- ============================ experts ============================ -->
+  <text x="24" y="56" class="lab" font-weight="bold">8 experts</text>
+  <text x="24" y="106" class="dim">load</text>
+
+  <g fill="#4A5B6E" fill-opacity="0.10" stroke="#4A5B6E" stroke-width="1.6">
+    <rect x="70"  y="64" width="76" height="52" rx="5"/>
+    <rect x="168" y="64" width="76" height="52" rx="5"/>
+    <rect x="266" y="64" width="76" height="52" rx="5"/>
+    <rect x="364" y="64" width="76" height="52" rx="5"/>
+    <rect x="462" y="64" width="76" height="52" rx="5"/>
+    <rect x="560" y="64" width="76" height="52" rx="5"/>
+    <rect x="658" y="64" width="76" height="52" rx="5"/>
+    <rect x="756" y="64" width="76" height="52" rx="5"/>
+  </g>
+
+  <!-- the two experts that fire for the current token -->
+  <g fill="#2E7A5A" fill-opacity="0.24" stroke="#2E7A5A" stroke-width="2">
+    <rect x="70"  y="64" width="76" height="52" rx="5" opacity="0"><animate attributeName="opacity" values="0;1;0;0;0;1;0;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="168" y="64" width="76" height="52" rx="5" opacity="0"><animate attributeName="opacity" values="0;0;1;0;1;0;0;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="266" y="64" width="76" height="52" rx="5" opacity="0"><animate attributeName="opacity" values="0;1;0;0;0;0;0;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="364" y="64" width="76" height="52" rx="5" opacity="0"><animate attributeName="opacity" values="0;0;0;1;0;0;1;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="462" y="64" width="76" height="52" rx="5" opacity="0"><animate attributeName="opacity" values="0;0;1;0;0;0;0;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="560" y="64" width="76" height="52" rx="5" opacity="0"><animate attributeName="opacity" values="0;0;0;0;1;0;0;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="658" y="64" width="76" height="52" rx="5" opacity="0"><animate attributeName="opacity" values="0;0;0;0;0;1;0;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="756" y="64" width="76" height="52" rx="5" opacity="0"><animate attributeName="opacity" values="0;0;0;1;0;0;1;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></rect>
+  </g>
+
+  <g class="box">
+    <text x="108" y="88">E1</text><text x="206" y="88">E2</text><text x="304" y="88">E3</text><text x="402" y="88">E4</text>
+    <text x="500" y="88">E5</text><text x="598" y="88">E6</text><text x="696" y="88">E7</text><text x="794" y="88">E8</text>
+  </g>
+
+  <!-- per-expert load meters, inside each box: empty track, then up to two amber ticks -->
+  <g stroke="#D4D9DF" stroke-width="2">
+    <line x1="92"  y1="111" x2="124" y2="111"/><line x1="190" y1="111" x2="222" y2="111"/>
+    <line x1="288" y1="111" x2="320" y2="111"/><line x1="386" y1="111" x2="418" y2="111"/>
+    <line x1="484" y1="111" x2="516" y2="111"/><line x1="582" y1="111" x2="614" y2="111"/>
+    <line x1="680" y1="111" x2="712" y2="111"/><line x1="778" y1="111" x2="810" y2="111"/>
+  </g>
+  <g fill="#7A6528" fill-opacity="0.85">
+    <rect x="95"  y="97" width="12" height="11" opacity="0"><animate attributeName="opacity" values="0;1;1;1;1;1;1;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="109" y="97" width="12" height="11" opacity="0"><animate attributeName="opacity" values="0;0;0;0;0;1;1;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="193" y="97" width="12" height="11" opacity="0"><animate attributeName="opacity" values="0;0;1;1;1;1;1;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="207" y="97" width="12" height="11" opacity="0"><animate attributeName="opacity" values="0;0;0;0;1;1;1;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="291" y="97" width="12" height="11" opacity="0"><animate attributeName="opacity" values="0;1;1;1;1;1;1;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="389" y="97" width="12" height="11" opacity="0"><animate attributeName="opacity" values="0;0;0;1;1;1;1;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="403" y="97" width="12" height="11" opacity="0"><animate attributeName="opacity" values="0;0;0;0;0;0;1;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="487" y="97" width="12" height="11" opacity="0"><animate attributeName="opacity" values="0;0;1;1;1;1;1;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="585" y="97" width="12" height="11" opacity="0"><animate attributeName="opacity" values="0;0;0;0;1;1;1;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="683" y="97" width="12" height="11" opacity="0"><animate attributeName="opacity" values="0;0;0;0;0;1;1;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="781" y="97" width="12" height="11" opacity="0"><animate attributeName="opacity" values="0;0;0;1;1;1;1;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="795" y="97" width="12" height="11" opacity="0"><animate attributeName="opacity" values="0;0;0;0;0;0;1;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></rect>
+  </g>
+
+  <!-- ============================ router ============================ -->
+  <rect x="360" y="206" width="180" height="48" rx="6" fill="#5D4A8A" fill-opacity="0.20" stroke="#5D4A8A" stroke-width="2"/>
+  <text x="450" y="236" class="box">router (top-2)</text>
+
+  <!-- ============================ routing traces ============================ -->
+  <!-- t1 -> E1 0.70, E3 0.30 -->
+  <g opacity="0" fill="none">
+    <animate attributeName="opacity" values="0;0.9;0.18;0.18;0.18;0.18;0.18;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <path d="M175 336 L450 254" stroke="#4A5B6E" stroke-width="1"/>
+    <path d="M450 206 L108 118" stroke="#2E7A5A" stroke-width="3.45" marker-end="url(#tip)"/>
+    <path d="M450 206 L304 118" stroke="#2E7A5A" stroke-width="2.05" marker-end="url(#tip)"/>
+  </g>
+  <g opacity="0" class="gate">
+    <animate attributeName="opacity" values="0;1;0;0;0;0;0;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <rect x="266" y="152" width="26" height="15" rx="3" fill="#FBFCFD"/><text x="279" y="163">0.7</text>
+    <rect x="364" y="152" width="26" height="15" rx="3" fill="#FBFCFD"/><text x="377" y="163">0.3</text>
+  </g>
+
+  <!-- t2 -> E5 0.60, E2 0.40 -->
+  <g opacity="0" fill="none">
+    <animate attributeName="opacity" values="0;0;0.9;0.18;0.18;0.18;0.18;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <path d="M285 336 L450 254" stroke="#4A5B6E" stroke-width="1"/>
+    <path d="M450 206 L500 118" stroke="#2E7A5A" stroke-width="3.1" marker-end="url(#tip)"/>
+    <path d="M450 206 L206 118" stroke="#2E7A5A" stroke-width="2.4" marker-end="url(#tip)"/>
+  </g>
+  <g opacity="0" class="gate">
+    <animate attributeName="opacity" values="0;0;1;0;0;0;0;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <rect x="462" y="152" width="26" height="15" rx="3" fill="#FBFCFD"/><text x="475" y="163">0.6</text>
+    <rect x="315" y="152" width="26" height="15" rx="3" fill="#FBFCFD"/><text x="328" y="163">0.4</text>
+  </g>
+
+  <!-- t3 -> E8 0.80, E4 0.20 -->
+  <g opacity="0" fill="none">
+    <animate attributeName="opacity" values="0;0;0;0.9;0.18;0.18;0.18;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <path d="M395 336 L450 254" stroke="#4A5B6E" stroke-width="1"/>
+    <path d="M450 206 L794 118" stroke="#2E7A5A" stroke-width="3.8" marker-end="url(#tip)"/>
+    <path d="M450 206 L402 118" stroke="#2E7A5A" stroke-width="1.7" marker-end="url(#tip)"/>
+  </g>
+  <g opacity="0" class="gate">
+    <animate attributeName="opacity" values="0;0;0;1;0;0;0;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <rect x="609" y="152" width="26" height="15" rx="3" fill="#FBFCFD"/><text x="622" y="163">0.8</text>
+    <rect x="413" y="152" width="26" height="15" rx="3" fill="#FBFCFD"/><text x="426" y="163">0.2</text>
+  </g>
+
+  <!-- t4 -> E2 0.60, E6 0.40 -->
+  <g opacity="0" fill="none">
+    <animate attributeName="opacity" values="0;0;0;0;0.9;0.18;0.18;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <path d="M505 336 L450 254" stroke="#4A5B6E" stroke-width="1"/>
+    <path d="M450 206 L206 118" stroke="#2E7A5A" stroke-width="3.1" marker-end="url(#tip)"/>
+    <path d="M450 206 L598 118" stroke="#2E7A5A" stroke-width="2.4" marker-end="url(#tip)"/>
+  </g>
+  <g opacity="0" class="gate">
+    <animate attributeName="opacity" values="0;0;0;0;1;0;0;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <rect x="315" y="152" width="26" height="15" rx="3" fill="#FBFCFD"/><text x="328" y="163">0.6</text>
+    <rect x="511" y="152" width="26" height="15" rx="3" fill="#FBFCFD"/><text x="524" y="163">0.4</text>
+  </g>
+
+  <!-- t5 -> E7 0.70, E1 0.30 -->
+  <g opacity="0" fill="none">
+    <animate attributeName="opacity" values="0;0;0;0;0;0.9;0.18;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <path d="M615 336 L450 254" stroke="#4A5B6E" stroke-width="1"/>
+    <path d="M450 206 L696 118" stroke="#2E7A5A" stroke-width="3.45" marker-end="url(#tip)"/>
+    <path d="M450 206 L108 118" stroke="#2E7A5A" stroke-width="2.05" marker-end="url(#tip)"/>
+  </g>
+  <g opacity="0" class="gate">
+    <animate attributeName="opacity" values="0;0;0;0;0;1;0;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <rect x="560" y="152" width="26" height="15" rx="3" fill="#FBFCFD"/><text x="573" y="163">0.7</text>
+    <rect x="266" y="152" width="26" height="15" rx="3" fill="#FBFCFD"/><text x="279" y="163">0.3</text>
+  </g>
+
+  <!-- t6 -> E4 0.60, E8 0.40 -->
+  <g opacity="0" fill="none">
+    <animate attributeName="opacity" values="0;0;0;0;0;0;0.9;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <path d="M725 336 L450 254" stroke="#4A5B6E" stroke-width="1"/>
+    <path d="M450 206 L402 118" stroke="#2E7A5A" stroke-width="3.1" marker-end="url(#tip)"/>
+    <path d="M450 206 L794 118" stroke="#2E7A5A" stroke-width="2.4" marker-end="url(#tip)"/>
+  </g>
+  <g opacity="0" class="gate">
+    <animate attributeName="opacity" values="0;0;0;0;0;0;1;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <rect x="413" y="152" width="26" height="15" rx="3" fill="#FBFCFD"/><text x="426" y="163">0.6</text>
+    <rect x="609" y="152" width="26" height="15" rx="3" fill="#FBFCFD"/><text x="622" y="163">0.4</text>
+  </g>
+
+  <!-- ============================ tokens ============================ -->
+  <text x="24" y="360" class="lab" font-weight="bold">tokens</text>
+
+  <g fill="#C7CDD4" fill-opacity="0.25" stroke="#C7CDD4" stroke-width="1.5">
+    <rect x="141" y="336" width="68" height="38" rx="5"/>
+    <rect x="251" y="336" width="68" height="38" rx="5"/>
+    <rect x="361" y="336" width="68" height="38" rx="5"/>
+    <rect x="471" y="336" width="68" height="38" rx="5"/>
+    <rect x="581" y="336" width="68" height="38" rx="5"/>
+    <rect x="691" y="336" width="68" height="38" rx="5"/>
+  </g>
+  <!-- already routed -->
+  <g fill="#4A5B6E" fill-opacity="0.16" stroke="#4A5B6E" stroke-width="1.5">
+    <rect x="141" y="336" width="68" height="38" rx="5" opacity="0"><animate attributeName="opacity" values="0;0;1;1;1;1;1;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="251" y="336" width="68" height="38" rx="5" opacity="0"><animate attributeName="opacity" values="0;0;0;1;1;1;1;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="361" y="336" width="68" height="38" rx="5" opacity="0"><animate attributeName="opacity" values="0;0;0;0;1;1;1;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="471" y="336" width="68" height="38" rx="5" opacity="0"><animate attributeName="opacity" values="0;0;0;0;0;1;1;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="581" y="336" width="68" height="38" rx="5" opacity="0"><animate attributeName="opacity" values="0;0;0;0;0;0;1;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></rect>
+  </g>
+  <!-- the token being routed right now -->
+  <g fill="#3A6B96" fill-opacity="0.30" stroke="#3A6B96" stroke-width="2">
+    <rect x="141" y="336" width="68" height="38" rx="5" opacity="0"><animate attributeName="opacity" values="0;1;0;0;0;0;0;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="251" y="336" width="68" height="38" rx="5" opacity="0"><animate attributeName="opacity" values="0;0;1;0;0;0;0;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="361" y="336" width="68" height="38" rx="5" opacity="0"><animate attributeName="opacity" values="0;0;0;1;0;0;0;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="471" y="336" width="68" height="38" rx="5" opacity="0"><animate attributeName="opacity" values="0;0;0;0;1;0;0;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="581" y="336" width="68" height="38" rx="5" opacity="0"><animate attributeName="opacity" values="0;0;0;0;0;1;0;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="691" y="336" width="68" height="38" rx="5" opacity="0"><animate attributeName="opacity" values="0;0;0;0;0;0;1;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></rect>
+  </g>
+  <g class="box">
+    <text x="175" y="360">t1</text><text x="285" y="360">t2</text><text x="395" y="360">t3</text>
+    <text x="505" y="360">t4</text><text x="615" y="360">t5</text><text x="725" y="360">t6</text>
+  </g>
+
+  <!-- ============================ per-beat caption ============================ -->
+  <g class="cap">
+    <text x="450" y="404">every token used only 2 of 8 experts &#8212; that&#8217;s the sparsity win<animate attributeName="opacity" values="1;0;0;0;0;0;0;1" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+    <text x="450" y="404" opacity="0">t1:  y = 0.7&#183;E1(x) + 0.3&#183;E3(x)<animate attributeName="opacity" values="0;1;0;0;0;0;0;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+    <text x="450" y="404" opacity="0">t2:  y = 0.6&#183;E5(x) + 0.4&#183;E2(x)<animate attributeName="opacity" values="0;0;1;0;0;0;0;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+    <text x="450" y="404" opacity="0">t3:  y = 0.8&#183;E8(x) + 0.2&#183;E4(x)<animate attributeName="opacity" values="0;0;0;1;0;0;0;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+    <text x="450" y="404" opacity="0">t4:  y = 0.6&#183;E2(x) + 0.4&#183;E6(x)<animate attributeName="opacity" values="0;0;0;0;1;0;0;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+    <text x="450" y="404" opacity="0">t5:  y = 0.7&#183;E7(x) + 0.3&#183;E1(x)<animate attributeName="opacity" values="0;0;0;0;0;1;0;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+    <text x="450" y="404" opacity="0">t6:  y = 0.6&#183;E4(x) + 0.4&#183;E8(x)<animate attributeName="opacity" values="0;0;0;0;0;0;1;0" keyTimes="0;0.09;0.22;0.35;0.48;0.61;0.73;0.94" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+  </g>
+
+  <text x="450" y="428" text-anchor="middle" class="lab">Arrow thickness is the gate value, and the token&#8217;s output is the gate-weighted combine of just those two experts.</text>
+  <text x="450" y="445" text-anchor="middle" class="lab">The amber meters are the running per-expert load: 12 dispatches (6 tokens &#215; 2) spread <tspan font-weight="bold" fill="#1C2530">unevenly</tspan> over 8 experts &#8212; the load-balancing problem.</text>
+</svg>

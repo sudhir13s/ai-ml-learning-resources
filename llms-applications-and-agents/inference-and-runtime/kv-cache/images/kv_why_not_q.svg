@@ -1,4 +1,5 @@
 <svg viewBox="0 0 860 440" xmlns="http://www.w3.org/2000/svg" font-family="DejaVu Sans, Verdana, sans-serif">
+  <rect x="0" y="0" width="860" height="440" fill="#ffffff"/>
   <!-- ONE decode step, animated in 4 phases (12s loop, SMIL discrete):
        (1) the new token's q,k,v are projected;
        (2) q interrogates EVERY cached key (score arrows light up);

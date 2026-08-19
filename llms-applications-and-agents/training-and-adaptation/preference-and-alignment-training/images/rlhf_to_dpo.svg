@@ -1,0 +1,131 @@
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" font-family="DejaVu Sans, Verdana, sans-serif">
+  <!-- From RLHF to DPO, animated on one 12s SMIL clock (calcMode="discrete" phases). This is the
+       retired manim scene RLHFtoDPO (tools/manim_rlhf_to_dpo.py), re-authored as SVG: same nodes,
+       same edges, same wording, same phase order, with the scene's run_times rescaled from its
+       16.2s runtime onto the house 12s loop. The whole RLHF wiring is already drawn at t=0, so
+       the first frame reads as a complete diagram; the animation is emphasis, then collapse.
+       t=0.00-0.41  a green halo walks the RLHF loop: policy, prompt, reward model, critic,
+                    frozen reference on its KL leash - caption "RLHF: 4 models + an RL loop".
+       t=0.41-0.53  the critic, the PPO loop and the responses edge fall away; the reward model
+                    folds into the policy as the implicit reward beta*log(pi/pi_ref).
+       t=0.53-0.72  preference pairs appear and a single direct DPO gradient replaces the loop;
+                    a brace marks the two surviving models.
+       t=0.78-1.00  caption becomes "DPO: no reward model, no RL loop - 2 models" and the thesis
+                    line "Same optimal policy - reached directly." lands; then the loop resets. -->
+  <style>
+    .title  { font-size: 18px; font-weight: bold; fill: #1C2530; }
+    .sub    { font-size: 12.5px; fill: #4A5B6E; }
+    .node   { font-size: 13px; font-weight: bold; fill: #1C2530; }
+    .nodesm { font-size: 11px; fill: #4A5B6E; }
+    .edge   { font-size: 11px; fill: #4A5B6E; }
+    .cap    { font-size: 15px; font-weight: bold; }
+  </style>
+
+  <rect x="0" y="0" width="900" height="460" fill="#ffffff"/>
+
+  <defs>
+    <marker id="aSlate" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#4A5B6E"/>
+    </marker>
+    <marker id="aRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#8B3B4A"/>
+    </marker>
+    <marker id="aPurple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#5D4A8A"/>
+    </marker>
+  </defs>
+
+  <text x="450" y="30" class="title" text-anchor="middle">From RLHF to DPO</text>
+
+  <!-- the closing thesis line (phase E) -->
+  <text x="450" y="54" class="sub" text-anchor="middle" font-weight="bold" fill="#1C2530" opacity="0">Same optimal policy &#8212; reached directly.
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.889;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+
+  <!-- ===================== the RL loop: PPO edge (phases A only) ===================== -->
+  <g opacity="1">
+    <animate attributeName="opacity" values="1;0;1" keyTimes="0;0.407;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <path d="M706 112 C 660 78, 470 82, 390 134" fill="none" stroke="#8B3B4A" stroke-width="2.2" marker-end="url(#aRed)"/>
+    <text x="547" y="76" class="edge" fill="#8B3B4A" font-weight="bold" text-anchor="middle">PPO update (RL loop)</text>
+  </g>
+
+  <!-- ===================== the implicit reward (phase B onward) ===================== -->
+  <text x="380" y="126" class="edge" fill="#7A6528" font-weight="bold" text-anchor="middle" opacity="0">implicit reward  &#946;&#183;log(&#960; / &#960;_ref)
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.525;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+
+  <!-- ===================== nodes that never leave ===================== -->
+  <rect x="40" y="150" width="110" height="54" rx="8" fill="#2E7A5A" fill-opacity="0.14" stroke="#2E7A5A" stroke-width="2"/>
+  <text x="95" y="182" class="node" text-anchor="middle">Prompt</text>
+
+  <rect x="300" y="140" width="160" height="74" rx="8" fill="#3A6B96" fill-opacity="0.14" stroke="#3A6B96" stroke-width="2"/>
+  <text x="380" y="171" class="node" text-anchor="middle">Policy</text>
+  <text x="380" y="192" class="nodesm" text-anchor="middle">&#960;_&#952;</text>
+
+  <rect x="290" y="300" width="180" height="64" rx="8" fill="#4A5B6E" fill-opacity="0.14" stroke="#4A5B6E" stroke-width="2"/>
+  <text x="380" y="326" class="node" text-anchor="middle">Reference</text>
+  <text x="380" y="346" class="nodesm" text-anchor="middle">&#960;_ref (frozen)</text>
+
+  <path d="M152 177 L294 177" fill="none" stroke="#4A5B6E" stroke-width="2" marker-end="url(#aSlate)"/>
+
+  <line x1="380" y1="216" x2="380" y2="296" stroke="#4A5B6E" stroke-width="2.2" stroke-dasharray="6 4"/>
+  <text x="390" y="262" class="edge">KL leash</text>
+
+  <!-- ===================== nodes that fall away when DPO arrives ===================== -->
+  <g>
+    <animate attributeName="opacity" values="1;0;1" keyTimes="0;0.457;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <rect x="640" y="110" width="150" height="64" rx="8" fill="#7A6528" fill-opacity="0.14" stroke="#7A6528" stroke-width="2"/>
+    <text x="715" y="136" class="node" text-anchor="middle">Reward</text>
+    <text x="715" y="156" class="node" text-anchor="middle">Model</text>
+    <path d="M462 160 L634 140" fill="none" stroke="#4A5B6E" stroke-width="2" marker-end="url(#aSlate)"/>
+    <text x="549" y="132" class="edge" text-anchor="middle">responses</text>
+  </g>
+
+  <g>
+    <animate attributeName="opacity" values="1;0;1" keyTimes="0;0.407;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <rect x="645" y="300" width="140" height="56" rx="8" fill="#8B3B4A" fill-opacity="0.14" stroke="#8B3B4A" stroke-width="2"/>
+    <text x="715" y="323" class="node" text-anchor="middle">Value /</text>
+    <text x="715" y="343" class="node" text-anchor="middle">Critic</text>
+    <text x="715" y="375" class="edge" fill="#8B3B4A" text-anchor="middle">baseline for the PPO update</text>
+  </g>
+
+  <!-- ===================== what DPO puts in their place ===================== -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.568;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <rect x="620" y="190" width="190" height="68" rx="8" fill="#5D4A8A" fill-opacity="0.14" stroke="#5D4A8A" stroke-width="2"/>
+    <text x="715" y="218" class="node" text-anchor="middle">Preference pairs</text>
+    <text x="715" y="238" class="nodesm" text-anchor="middle">(chosen vs rejected)</text>
+  </g>
+
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.617;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <path d="M614 202 L468 202" fill="none" stroke="#5D4A8A" stroke-width="2.6" marker-end="url(#aPurple)"/>
+    <text x="540" y="188" class="edge" font-size="10.5" fill="#5D4A8A" font-weight="bold" text-anchor="middle">DPO loss: one direct gradient</text>
+  </g>
+
+  <!-- the two surviving models -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.716;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <path d="M284 140 C 272 140, 276 244, 264 252 C 276 260, 272 364, 284 364" fill="none" stroke="#2E7A5A" stroke-width="2.2"/>
+    <text x="254" y="257" class="node" fill="#2E7A5A" text-anchor="end">2 models</text>
+  </g>
+
+  <!-- ===================== the walking emphasis halo ===================== -->
+  <rect x="294" y="134" width="172" height="86" rx="12" fill="none" stroke="#2E7A5A" stroke-width="2.6" opacity="1">
+    <animate attributeName="opacity" values="1;1;1;1;1;0;1;0;1" keyTimes="0;0.105;0.185;0.235;0.284;0.407;0.617;0.716;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="x"       values="294;34;634;639;284;284;284;284;294"        keyTimes="0;0.105;0.185;0.235;0.284;0.407;0.617;0.716;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="y"       values="134;144;104;294;294;294;134;134;134"       keyTimes="0;0.105;0.185;0.235;0.284;0.407;0.617;0.716;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="width"   values="172;122;162;152;192;192;192;192;172"       keyTimes="0;0.105;0.185;0.235;0.284;0.407;0.617;0.716;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="height"  values="86;66;76;68;76;76;236;236;86"              keyTimes="0;0.105;0.185;0.235;0.284;0.407;0.617;0.716;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- ===================== the two captions ===================== -->
+  <text x="450" y="404" class="cap" fill="#7A6528" text-anchor="middle">RLHF: 4 models + an RL loop
+    <animate attributeName="opacity" values="1;0;1" keyTimes="0;0.778;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="450" y="404" class="cap" fill="#2E7A5A" text-anchor="middle" opacity="0">DPO: no reward model, no RL loop  &#183;  2 models
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.778;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+
+  <text x="450" y="436" class="sub" text-anchor="middle" fill="#7C8794">The reward model never disappears — it is absorbed into the policy, which is why the same optimum is reachable without it.</text>
+</svg>

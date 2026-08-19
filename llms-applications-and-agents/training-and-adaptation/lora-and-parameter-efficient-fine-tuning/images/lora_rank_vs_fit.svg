@@ -1,0 +1,149 @@
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" font-family="DejaVu Sans, Verdana, sans-serif">
+  <!-- The LoRA rank sweep, revealed one r at a time over a 12s SMIL loop - the same reveal order
+       and the same beats as the asset this replaces (the retired make_animations_12: seven frames
+       per rank, fourteen on the cliff at r = 4, then a hold). Both series are the measured sweep
+       pasted into tools/make_figures_12.py as RANK_SWEEP / RANK_SWEEP_LOSS from lora_peft.py:
+       trainable params 2rd at d = 1024 -> 2,048 / 4,096 / 8,192 / 16,384 / 32,768 / 65,536, and
+       final fit loss -> 2.7211e-01 / 1.7230e-01 / 8.5932e-07 / 2.1496e-07 / 1.0558e-07 /
+       1.3950e-07 for r = 1, 2, 4, 8, 16, 32. The synthetic task's true update rank is 4, which is
+       exactly where the loss drops five orders of magnitude. Left axis linear in params, right
+       axis log in loss, x axis log base 2 - the same three scales the figure used. Axes, title,
+       legend and the r = 1 point are on screen at t=0. -->
+  <style>
+    .title  { font-size: 15px; font-weight: bold; fill: #1C2530; }
+    .axname { font-size: 11.5px; fill: #1C2530; }
+    .tick   { font-size: 10px; font-family: "DejaVu Sans Mono", Menlo, monospace; fill: #4A5B6E; }
+    .tickg  { font-size: 10px; font-family: "DejaVu Sans Mono", Menlo, monospace; fill: #2E7A5A; }
+    .tickr  { font-size: 10px; font-family: "DejaVu Sans Mono", Menlo, monospace; fill: #8B3B4A; }
+    .lab    { font-size: 10.5px; fill: #4A5B6E; }
+    .note   { font-size: 10.5px; fill: #1C2530; }
+    .read   { font-size: 12px; font-family: "DejaVu Sans Mono", Menlo, monospace; font-weight: bold; fill: #1C2530; }
+  </style>
+
+  <rect x="0" y="0" width="900" height="460" fill="#ffffff"/>
+
+  <text x="450" y="32" text-anchor="middle" class="title">Rank vs (params, fit): the cliff sits at the true intrinsic rank</text>
+
+  <!-- ========== grid + axes ========== -->
+  <g stroke="#D4D9DF" stroke-width="0.8">
+    <line x1="105" y1="360.0" x2="800" y2="360.0"/>
+    <line x1="105" y1="296.4" x2="800" y2="296.4"/>
+    <line x1="105" y1="232.7" x2="800" y2="232.7"/>
+    <line x1="105" y1="169.1" x2="800" y2="169.1"/>
+    <line x1="105" y1="105.5" x2="800" y2="105.5"/>
+  </g>
+  <line x1="105" y1="80" x2="105" y2="360" stroke="#2E7A5A" stroke-width="1.2"/>
+  <line x1="800" y1="80" x2="800" y2="360" stroke="#8B3B4A" stroke-width="1.2"/>
+  <line x1="105" y1="360" x2="800" y2="360" stroke="#4A5B6E" stroke-width="1.2"/>
+
+  <g class="tickg" text-anchor="end">
+    <text x="98" y="364">0</text>
+    <text x="98" y="300">16,384</text>
+    <text x="98" y="236">32,768</text>
+    <text x="98" y="173">49,152</text>
+    <text x="98" y="109">65,536</text>
+  </g>
+  <g class="tickr" text-anchor="start">
+    <text x="808" y="345">1e-07</text>
+    <text x="808" y="307">1e-06</text>
+    <text x="808" y="269">1e-05</text>
+    <text x="808" y="231">1e-04</text>
+    <text x="808" y="194">1e-03</text>
+    <text x="808" y="156">1e-02</text>
+    <text x="808" y="118">1e-01</text>
+  </g>
+  <g class="tick" text-anchor="middle">
+    <text x="144.6" y="380">1</text>
+    <text x="267.8" y="380">2</text>
+    <text x="390.9" y="380">4</text>
+    <text x="514.1" y="380">8</text>
+    <text x="637.2" y="380">16</text>
+    <text x="760.4" y="380">32</text>
+  </g>
+  <text x="452" y="404" text-anchor="middle" class="axname">LoRA rank r  (log scale, base 2)</text>
+  <text x="26" y="220" text-anchor="middle" class="axname" fill="#2E7A5A" transform="rotate(-90 26 220)">trainable params (2rd)</text>
+  <text x="876" y="220" text-anchor="middle" class="axname" fill="#8B3B4A" transform="rotate(-90 876 220)">final fit loss (log)</text>
+
+  <!-- ========== legend ========== -->
+  <line x1="132" y1="246" x2="164" y2="246" stroke="#2E7A5A" stroke-width="2.2"/>
+  <circle cx="148" cy="246" r="4.5" fill="#2E7A5A"/>
+  <text x="172" y="250" class="lab" fill="#2E7A5A">params</text>
+  <line x1="132" y1="268" x2="164" y2="268" stroke="#8B3B4A" stroke-width="2.2"/>
+  <rect x="144" y="264" width="8" height="8" fill="#8B3B4A"/>
+  <text x="172" y="272" class="lab" fill="#8B3B4A">loss</text>
+
+  <!-- ========== r = 1 : on screen at t=0 ========== -->
+  <circle cx="144.6" cy="352.0" r="4.5" fill="#2E7A5A"/>
+  <rect x="140.6" y="94.0" width="8" height="8" fill="#8B3B4A"/>
+
+  <!-- ========== r = 2 ========== -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.1077;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <line x1="144.6" y1="352.0" x2="267.8" y2="344.1" stroke="#2E7A5A" stroke-width="2.2"/>
+    <circle cx="267.8" cy="344.1" r="4.5" fill="#2E7A5A"/>
+    <line x1="144.6" y1="98.0" x2="267.8" y2="105.5" stroke="#8B3B4A" stroke-width="2.2"/>
+    <rect x="263.8" y="101.5" width="8" height="8" fill="#8B3B4A"/>
+  </g>
+
+  <!-- ========== r = 4 : the cliff ========== -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.2154;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <line x1="390.9" y1="80" x2="390.9" y2="360" stroke="#4A5B6E" stroke-width="1.2" stroke-dasharray="6 4"/>
+    <line x1="267.8" y1="344.1" x2="390.9" y2="328.2" stroke="#2E7A5A" stroke-width="2.2"/>
+    <circle cx="390.9" cy="328.2" r="4.5" fill="#2E7A5A"/>
+    <line x1="267.8" y1="105.5" x2="390.9" y2="305.8" stroke="#8B3B4A" stroke-width="2.2"/>
+    <rect x="386.9" y="301.8" width="8" height="8" fill="#8B3B4A"/>
+    <text x="402" y="168" class="note">true update rank = 4</text>
+    <text x="402" y="184" class="note">fit collapses here;</text>
+    <text x="402" y="200" class="note">more rank only adds params</text>
+  </g>
+
+  <!-- ========== r = 8 ========== -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.4308;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <line x1="390.9" y1="328.2" x2="514.1" y2="296.4" stroke="#2E7A5A" stroke-width="2.2"/>
+    <circle cx="514.1" cy="296.4" r="4.5" fill="#2E7A5A"/>
+    <line x1="390.9" y1="305.8" x2="514.1" y2="328.6" stroke="#8B3B4A" stroke-width="2.2"/>
+    <rect x="510.1" y="324.6" width="8" height="8" fill="#8B3B4A"/>
+  </g>
+
+  <!-- ========== r = 16 ========== -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.5385;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <line x1="514.1" y1="296.4" x2="637.2" y2="232.7" stroke="#2E7A5A" stroke-width="2.2"/>
+    <circle cx="637.2" cy="232.7" r="4.5" fill="#2E7A5A"/>
+    <line x1="514.1" y1="328.6" x2="637.2" y2="340.2" stroke="#8B3B4A" stroke-width="2.2"/>
+    <rect x="633.2" y="336.2" width="8" height="8" fill="#8B3B4A"/>
+  </g>
+
+  <!-- ========== r = 32 ========== -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.6462;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <line x1="637.2" y1="232.7" x2="760.4" y2="105.5" stroke="#2E7A5A" stroke-width="2.2"/>
+    <circle cx="760.4" cy="105.5" r="4.5" fill="#2E7A5A"/>
+    <line x1="637.2" y1="340.2" x2="760.4" y2="335.7" stroke="#8B3B4A" stroke-width="2.2"/>
+    <rect x="756.4" y="331.7" width="8" height="8" fill="#8B3B4A"/>
+  </g>
+
+  <!-- ========== the readout, one message per revealed rank ========== -->
+  <g class="read" text-anchor="middle">
+    <text x="452" y="436" opacity="1">r = 1:  under the true rank &#8594; underfits (loss 2.7e-01)
+      <animate attributeName="opacity" values="1;0;0;0;0;0;1" keyTimes="0;0.1077;0.2154;0.4308;0.5385;0.6462;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="452" y="436" opacity="0">r = 2:  under the true rank &#8594; underfits (loss 1.7e-01)
+      <animate attributeName="opacity" values="0;1;0;0;0;0;0" keyTimes="0;0.1077;0.2154;0.4308;0.5385;0.6462;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="452" y="436" opacity="0">r = 4:  hits the true rank &#8594; loss falls off a cliff (8.6e-07)
+      <animate attributeName="opacity" values="0;0;1;0;0;0;0" keyTimes="0;0.1077;0.2154;0.4308;0.5385;0.6462;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="452" y="436" opacity="0">r = 8:  past the true rank &#8594; 16,384 params, no better fit
+      <animate attributeName="opacity" values="0;0;0;1;0;0;0" keyTimes="0;0.1077;0.2154;0.4308;0.5385;0.6462;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="452" y="436" opacity="0">r = 16:  past the true rank &#8594; 32,768 params, no better fit
+      <animate attributeName="opacity" values="0;0;0;0;1;0;0" keyTimes="0;0.1077;0.2154;0.4308;0.5385;0.6462;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="452" y="436" opacity="0">r = 32:  past the true rank &#8594; 65,536 params, no better fit
+      <animate attributeName="opacity" values="0;0;0;0;0;1;0" keyTimes="0;0.1077;0.2154;0.4308;0.5385;0.6462;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+  </g>
+</svg>

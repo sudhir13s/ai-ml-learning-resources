@@ -1,0 +1,183 @@
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" font-family="DejaVu Sans, Verdana, sans-serif">
+  <!-- The HyDE jump, animated on a 12s SMIL loop. Left: the real 2D PCA projection of the
+       11-passage Helios-7 corpus (the same all-MiniLM-L6-v2 embeddings the chapter measures),
+       with the gold answer doc[8] as a star, the raw question as a blue dot, and the retrieval
+       probe travelling from question-space into the gold's neighbourhood. Right: the chapter's
+       own measured read-outs - cos(question, gold) = 0.761 with RAW top-3 ids [10, 8, 0] (gold
+       at rank #2), and cos(HyDE, gold) = 0.938 with HyDE top-3 ids [8, 10, 0] (gold at rank #1),
+       a lift of +0.177. Every number and every id is a pasted output of
+       code/07-Query-Transformation-HyDE-Multi-Query.ipynb; the point coordinates are the real
+       PCA-2D positions and only the travel BETWEEN the two endpoints is interpolated. The raw
+       question, the whole corpus and the raw read-out are drawn at t=0, so the first frame is
+       already a complete, readable figure. -->
+  <style>
+    .panel  { font-size: 13px; font-weight: bold; fill: #1C2530; }
+    .lab    { font-size: 10.5px; fill: #4A5B6E; }
+    .tick   { font-size: 10px; fill: #7C8794; }
+    .mono   { font-size: 10.5px; font-family: "DejaVu Sans Mono", Menlo, monospace; fill: #1C2530; }
+    .monodim{ font-size: 10.5px; font-family: "DejaVu Sans Mono", Menlo, monospace; fill: #7C8794; }
+    .score  { font-size: 12px; font-family: "DejaVu Sans Mono", Menlo, monospace; font-weight: bold; fill: #2E7A5A; }
+    .bad    { font-size: 12px; font-family: "DejaVu Sans Mono", Menlo, monospace; font-weight: bold; fill: #8B3B4A; }
+    .tag    { font-size: 10.5px; font-weight: bold; }
+  </style>
+
+  <defs>
+    <marker id="arw7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#4A5B6E"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="900" height="460" fill="#ffffff"/>
+  <rect x="10" y="10" width="468" height="440" rx="6" fill="#fbfbfc" stroke="#D4D9DF"/>
+  <rect x="488" y="10" width="402" height="440" rx="6" fill="#fbfbfc" stroke="#D4D9DF"/>
+
+  <!-- ===================== LEFT: the embedding space (real PCA-2D) ===================== -->
+  <text x="24" y="34" class="panel">1. The embedding space</text>
+  <text x="464" y="34" class="lab" text-anchor="end">11 passages, all-MiniLM-L6-v2, PCA to 2D</text>
+
+  <!-- phase headline: the three states of the probe -->
+  <text x="24" y="54" class="tag" fill="#3A6B96">RAW QUESTION — embedded in question-space
+    <animate attributeName="opacity" values="1;0;1" keyTimes="0;0.35;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="24" y="54" class="tag" fill="#7A6528" opacity="0">HyDE: rewritten as a hypothetical ANSWER, travelling…
+    <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.35;0.58;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="24" y="54" class="tag" fill="#2E7A5A" opacity="0">HYPOTHETICAL ANSWER — landed in the gold's neighbourhood
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.58;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+
+  <!-- grid + axes -->
+  <g stroke="#D4D9DF" stroke-width="0.7">
+    <line x1="110.8" y1="76" x2="110.8" y2="366"/>
+    <line x1="171.7" y1="76" x2="171.7" y2="366"/>
+    <line x1="232.6" y1="76" x2="232.6" y2="366"/>
+    <line x1="293.6" y1="76" x2="293.6" y2="366"/>
+    <line x1="354.5" y1="76" x2="354.5" y2="366"/>
+    <line x1="415.4" y1="76" x2="415.4" y2="366"/>
+    <line x1="62" y1="360.7" x2="452" y2="360.7"/>
+    <line x1="62" y1="307.5" x2="452" y2="307.5"/>
+    <line x1="62" y1="254.3" x2="452" y2="254.3"/>
+    <line x1="62" y1="201.0" x2="452" y2="201.0"/>
+    <line x1="62" y1="147.8" x2="452" y2="147.8"/>
+    <line x1="62" y1="94.6" x2="452" y2="94.6"/>
+  </g>
+  <line x1="62" y1="76" x2="62" y2="366" stroke="#D4D9DF" stroke-width="1.2"/>
+  <line x1="62" y1="366" x2="452" y2="366" stroke="#D4D9DF" stroke-width="1.2"/>
+  <g class="tick" text-anchor="middle">
+    <text x="110.8" y="380">-0.4</text>
+    <text x="171.7" y="380">-0.2</text>
+    <text x="232.6" y="380">0.0</text>
+    <text x="293.6" y="380">0.2</text>
+    <text x="354.5" y="380">0.4</text>
+    <text x="415.4" y="380">0.6</text>
+  </g>
+  <g class="tick" text-anchor="end">
+    <text x="57" y="364">-0.6</text>
+    <text x="57" y="311">-0.4</text>
+    <text x="57" y="258">-0.2</text>
+    <text x="57" y="204">0.0</text>
+    <text x="57" y="151">0.2</text>
+    <text x="57" y="98">0.4</text>
+  </g>
+  <text x="257" y="396" class="lab" text-anchor="middle">principal component 1</text>
+  <text x="26" y="221" class="lab" text-anchor="middle" transform="rotate(-90 26 221)">principal component 2</text>
+
+  <!-- the ten non-gold corpus passages -->
+  <g fill="#4A5B6E" fill-opacity="0.55" stroke="#1C2530" stroke-width="0.5">
+    <circle cx="100.1" cy="252.1" r="5"/>
+    <circle cx="186.9" cy="121.2" r="5"/>
+    <circle cx="188.4" cy="134.5" r="5"/>
+    <circle cx="214.3" cy="93.8" r="5"/>
+    <circle cx="215.9" cy="113.2" r="5"/>
+    <circle cx="226.5" cy="100.5" r="5"/>
+    <circle cx="395.6" cy="153.7" r="5"/>
+    <circle cx="410.9" cy="201.0" r="5"/>
+    <circle cx="394.1" cy="275.5" r="5"/>
+    <circle cx="421.5" cy="335.4" r="5"/>
+  </g>
+
+  <!-- the gold answer, doc[8] -->
+  <path d="M98.6 281.2 L102.1 291.0 L112.5 291.2 L104.2 297.6 L107.3 307.6 L98.6 301.5 L89.9 307.6 L93.0 297.6 L84.7 291.2 L95.1 291.0 Z"
+        fill="#2E7A5A" stroke="#1C2530" stroke-width="1.1"/>
+  <text x="114" y="304" class="tag" fill="#2E7A5A">gold answer — doc[8] "Error E-4011 …"</text>
+
+  <!-- the ghost of where the question started -->
+  <circle cx="83.3" cy="250.3" r="7.5" fill="#3A6B96" fill-opacity="0.35" stroke="#1C2530" stroke-width="0.8"/>
+  <text x="96" y="240" class="tag" fill="#3A6B96">raw question</text>
+
+  <!-- the travel trail, laid down dot by dot as the probe crosses -->
+  <g fill="#7A6528">
+    <circle cx="83.3" cy="258.0" r="3.4" opacity="0">
+      <animate attributeName="opacity" values="0;0.55;0;0" keyTimes="0;0.28;0.99;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="83.3" cy="265.7" r="3.4" opacity="0">
+      <animate attributeName="opacity" values="0;0.55;0;0" keyTimes="0;0.38;0.99;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="83.3" cy="273.4" r="3.4" opacity="0">
+      <animate attributeName="opacity" values="0;0.55;0;0" keyTimes="0;0.48;0.99;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="83.3" cy="281.1" r="3.4" opacity="0">
+      <animate attributeName="opacity" values="0;0.55;0;0" keyTimes="0;0.56;0.99;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- the retrieval probe: holds on the question, eases across, holds on the hypothetical -->
+  <g>
+    <animateTransform attributeName="transform" type="translate"
+                      values="0 0;0 0;0 38.5;0 38.5;0 0" keyTimes="0;0.185;0.667;0.99;1"
+                      dur="12s" repeatCount="indefinite"/>
+    <circle cx="83.3" cy="250.3" r="9" fill="#3A6B96" stroke="#1C2530" stroke-width="1.2">
+      <animate attributeName="opacity" values="1;0;1" keyTimes="0;0.35;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </circle>
+    <path d="M83.3 240.3 L93.3 250.3 L83.3 260.3 L73.3 250.3 Z" fill="#7A6528" stroke="#1C2530" stroke-width="1.2" opacity="0">
+      <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.35;0.58;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </path>
+    <path d="M83.3 240.3 L93.3 250.3 L83.3 260.3 L73.3 250.3 Z" fill="#2E7A5A" stroke="#1C2530" stroke-width="1.2" opacity="0">
+      <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.58;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <text x="24" y="412" class="lab">The two endpoints are real all-MiniLM embeddings projected by PCA;</text>
+  <text x="24" y="427" class="lab">only the travel between them is interpolated. Axes are principal</text>
+  <text x="24" y="442" class="lab">components — the geometry (who is near whom) is what is faithful.</text>
+
+  <!-- ===================== RIGHT: what the probe actually retrieves ===================== -->
+  <text x="502" y="34" class="panel">2. What the probe retrieves</text>
+  <text x="874" y="34" class="lab" text-anchor="end">the exact-code probe</text>
+
+  <text x="502" y="58" class="lab">query — asked in question-space</text>
+  <rect x="502" y="64" width="376" height="26" rx="4" fill="#3A6B96" fill-opacity="0.14" stroke="#3A6B96"/>
+  <text x="512" y="81" class="mono">"What telemetry error did Helios-7 report?"</text>
+
+  <rect x="502" y="98" width="376" height="66" rx="4" fill="#8B3B4A" fill-opacity="0.10" stroke="#8B3B4A" stroke-dasharray="5 4"/>
+  <text x="512" y="116" class="bad">cos(question, gold) = 0.761</text>
+  <text x="512" y="134" class="monodim">RAW  top-3 ids [10, 8, 0]</text>
+  <text x="512" y="152" class="monodim">the chatty same-topic line wins; gold doc[8] is rank #2</text>
+
+  <path d="M530 170 L530 190" stroke="#4A5B6E" stroke-width="1.4" marker-end="url(#arw7)"/>
+  <text x="546" y="186" class="lab">an LLM writes the answer it thinks is true</text>
+
+  <text x="502" y="210" class="lab">hypothetical answer — written in answer-space</text>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.42;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <rect x="502" y="216" width="376" height="42" rx="4" fill="#7A6528" fill-opacity="0.14" stroke="#7A6528"/>
+    <text x="512" y="233" class="mono">"Helios-7 reported telemetry error E-4011, which</text>
+    <text x="512" y="249" class="mono">appeared in its telemetry stream during operations."</text>
+  </g>
+
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.62;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <rect x="502" y="268" width="376" height="66" rx="4" fill="#2E7A5A" fill-opacity="0.16" stroke="#2E7A5A" stroke-width="1.6"/>
+    <text x="512" y="286" class="score">cos(HyDE, gold) = 0.938   (lift +0.177)</text>
+    <text x="512" y="304" class="mono">HyDE top-3 ids [8, 10, 0]</text>
+    <text x="512" y="322" class="mono">gold doc[8] climbs to rank #1</text>
+  </g>
+
+  <text x="502" y="366" class="lab">Nothing about the corpus, the encoder or the index</text>
+  <text x="502" y="381" class="lab">changed between those two retrievals. Only the probe</text>
+  <text x="502" y="396" class="lab">changed — from a question to something answer-shaped —</text>
+  <text x="502" y="411" class="lab">and that is the whole of HyDE.</text>
+
+  <text x="502" y="428" class="tick">Measured run — see code/07-Query-Transformation-</text>
+  <text x="502" y="442" class="tick">HyDE-Multi-Query.ipynb, sections 1 and 2.</text>
+</svg>

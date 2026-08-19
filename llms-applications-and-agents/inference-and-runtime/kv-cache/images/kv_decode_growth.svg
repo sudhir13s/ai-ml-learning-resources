@@ -1,4 +1,5 @@
 <svg viewBox="0 0 860 430" xmlns="http://www.w3.org/2000/svg" font-family="DejaVu Sans, Verdana, sans-serif">
+  <rect x="0" y="0" width="860" height="430" fill="#ffffff"/>
   <!-- Animated: 6 decode steps loop (12s). Left: without cache, step t re-projects
        ALL t tokens (red triangle = O(n^2) total work). Right: with cache, step t
        projects 1 new token (green) and reads the rest back (grey) — and the cache

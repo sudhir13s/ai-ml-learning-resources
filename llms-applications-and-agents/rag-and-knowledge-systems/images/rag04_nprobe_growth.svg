@@ -1,0 +1,201 @@
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" font-family="DejaVu Sans, Verdana, sans-serif">
+  <!-- The recall/speed knob turning, as one 12s SMIL loop over six nprobe settings
+       (1, 2, 3, 5, 8, 12). Same 2D schematic the retired tools/make_animation_04.py drew and
+       with its exact numbers: 1,200 vectors from N(0, 3.0) with numpy seed 3, cut into 30
+       cells by Lloyd's k-means (seed 3), query at (3.067, -1.517). Cell centroids, the
+       probe order 21, 8, 23, 19, 0, 7, 14, 20, 24, 12, 26, 5, the query's 10 true
+       neighbours, the vectors scanned and recall@10 per nprobe are all replayed from that
+       run. nprobe = 1 is drawn at t=0, so the first frame already reads. -->
+  <style>
+    .panel  { font-size: 13px; font-weight: bold; fill: #1C2530; }
+    .lab    { font-size: 10.5px; fill: #4A5B6E; }
+    .mono   { font-size: 10.5px; font-family: "DejaVu Sans Mono", Menlo, monospace; fill: #1C2530; }
+    .monodim{ font-size: 10.5px; font-family: "DejaVu Sans Mono", Menlo, monospace; fill: #7C8794; }
+    .score  { font-size: 10.5px; font-family: "DejaVu Sans Mono", Menlo, monospace; font-weight: bold; fill: #2E7A5A; }
+    .bad    { font-size: 10.5px; font-family: "DejaVu Sans Mono", Menlo, monospace; fill: #8B3B4A; }
+  </style>
+
+  <rect x="0" y="0" width="900" height="460" fill="#ffffff"/>
+  <rect x="10" y="10" width="420" height="440" rx="6" fill="#fbfbfc" stroke="#D4D9DF"/>
+  <rect x="440" y="10" width="450" height="440" rx="6" fill="#fbfbfc" stroke="#D4D9DF"/>
+
+  <!-- ==================== LEFT: the probed region expanding ==================== -->
+  <text x="26" y="32" class="panel">The probed region grows with nprobe</text>
+  <text x="26" y="48" class="lab">30 IVF cells · dot = cell centroid · star = query · shaded = scanned</text>
+
+  <rect x="26" y="64" width="388" height="372" fill="#ffffff" stroke="#D4D9DF"/>
+
+  <!-- which setting of the knob is showing -->
+  <text x="36" y="86" class="mono">nprobe = 1 · 1 of 30 cells · 54 vectors (4%)
+    <animate attributeName="opacity" values="1;0;0;1" keyTimes="0;0.14;0.97;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="36" y="86" class="mono" opacity="0">nprobe = 2 · 2 of 30 cells · 104 vectors (9%)
+    <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.14;0.28;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="36" y="86" class="mono" opacity="0">nprobe = 3 · 3 of 30 cells · 163 vectors (14%)
+    <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.28;0.42;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="36" y="86" class="mono" opacity="0">nprobe = 5 · 5 of 30 cells · 249 vectors (21%)
+    <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.42;0.56;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="36" y="86" class="mono" opacity="0">nprobe = 8 · 8 of 30 cells · 390 vectors (32%)
+    <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.56;0.70;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="36" y="86" class="mono" opacity="0">nprobe = 12 · 12 of 30 cells · 578 vectors (48%)
+    <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.70;0.97;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+
+  <!-- probed cells, switching on in probe order -->
+  <g fill="#3A6B96" fill-opacity="0.18" stroke="#3A6B96">
+    <circle cx="241.0" cy="291.8" r="19"/>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.14;0.97;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+      <circle cx="248.9" cy="256.2" r="19"/>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.14;0.28;0.97;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+      <circle cx="217.3" cy="274.5" r="19"/>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.28;0.42;0.97;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+      <circle cx="291.1" cy="278.5" r="19"/>
+      <circle cx="221.2" cy="243.6" r="19"/>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.42;0.56;0.97;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+      <circle cx="207.7" cy="308.6" r="19"/>
+      <circle cx="275.9" cy="229.4" r="19"/>
+      <circle cx="242.4" cy="222.2" r="19"/>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.56;0.70;0.97;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+      <circle cx="267.2" cy="328.0" r="19"/>
+      <circle cx="193.3" cy="257.6" r="19"/>
+      <circle cx="178.9" cy="279.2" r="19"/>
+      <circle cx="188.8" cy="233.2" r="19"/>
+    </g>
+  </g>
+
+  <!-- all 30 cell centroids -->
+  <g fill="#7C8794">
+    <circle cx="221.2" cy="243.6" r="3"/><circle cx="234.0" cy="192.8" r="3"/><circle cx="175.2" cy="210.9" r="3"/>
+    <circle cx="101.1" cy="270.0" r="3"/><circle cx="279.1" cy="178.5" r="3"/><circle cx="188.8" cy="233.2" r="3"/>
+    <circle cx="202.9" cy="180.5" r="3"/><circle cx="207.7" cy="308.6" r="3"/><circle cx="248.9" cy="256.2" r="3"/>
+    <circle cx="215.7" cy="367.7" r="3"/><circle cx="135.7" cy="214.2" r="3"/><circle cx="151.7" cy="250.9" r="3"/>
+    <circle cx="193.3" cy="257.6" r="3"/><circle cx="121.2" cy="322.7" r="3"/><circle cx="275.9" cy="229.4" r="3"/>
+    <circle cx="142.1" cy="379.2" r="3"/><circle cx="172.1" cy="113.3" r="3"/><circle cx="327.6" cy="236.2" r="3"/>
+    <circle cx="159.5" cy="172.9" r="3"/><circle cx="291.1" cy="278.5" r="3"/><circle cx="242.4" cy="222.2" r="3"/>
+    <circle cx="241.0" cy="291.8" r="3"/><circle cx="93.0" cy="186.9" r="3"/><circle cx="217.3" cy="274.5" r="3"/>
+    <circle cx="267.2" cy="328.0" r="3"/><circle cx="208.1" cy="214.0" r="3"/><circle cx="178.9" cy="279.2" r="3"/>
+    <circle cx="146.6" cy="290.3" r="3"/><circle cx="175.4" cy="328.3" r="3"/><circle cx="231.2" cy="149.3" r="3"/>
+  </g>
+
+  <!-- the query, and the neighbourhood the right panel zooms into -->
+  <path d="M249.3 265.5 L251.9 271.9 L258.8 272.4 L253.6 276.9 L255.2 283.6 L249.3 280.0 L243.4 283.6 L245.0 276.9 L239.8 272.4 L246.7 271.9 Z"
+        fill="#7A6528" stroke="#1C2530" stroke-width="1.2"/>
+  <rect x="236.3" y="263.4" width="23.7" height="23.7" fill="none" stroke="#1C2530" stroke-dasharray="3 3"/>
+  <path d="M262 275.2 L426 275.2" stroke="#4A5B6E" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <text x="266" y="270" class="lab">zoomed at right</text>
+
+  <text x="220" y="447" class="lab" text-anchor="middle">2D schematic of the routing — the real 384-D cliff is in the static figure</text>
+
+  <!-- ==================== RIGHT: the zoom and the numbers ==================== -->
+  <text x="456" y="32" class="panel">Zoom: the query's 10 true neighbours</text>
+  <text x="456" y="48" class="lab">they straddle two cells, which is exactly why nprobe = 1 misses five of them</text>
+
+  <rect x="565" y="62" width="200" height="200" fill="#ffffff" stroke="#D4D9DF"/>
+  <line x1="565" y1="135.7" x2="765" y2="180.4" stroke="#4A5B6E" stroke-width="1.2" stroke-dasharray="5 4"/>
+
+  <!-- the 5 neighbours that live in cell 8 (probe 2): missed at nprobe = 1 -->
+  <g fill="#3A6B96">
+    <circle cx="724.2" cy="161.9" r="4"/><circle cx="620.4" cy="122.6" r="4"/><circle cx="657.0" cy="94.8" r="4"/>
+    <circle cx="602.0" cy="122.0" r="4"/><circle cx="600.2" cy="124.6" r="4"/>
+  </g>
+  <g fill="none" stroke="#8B3B4A" stroke-width="2">
+    <animate attributeName="opacity" values="1;0;0;1" keyTimes="0;0.14;0.97;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <circle cx="724.2" cy="161.9" r="9"/><circle cx="620.4" cy="122.6" r="9"/><circle cx="657.0" cy="94.8" r="9"/>
+    <circle cx="602.0" cy="122.0" r="9"/><circle cx="600.2" cy="124.6" r="9"/>
+  </g>
+  <g fill="none" stroke="#2E7A5A" stroke-width="2" opacity="0">
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.14;0.97;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <circle cx="724.2" cy="161.9" r="9"/><circle cx="620.4" cy="122.6" r="9"/><circle cx="657.0" cy="94.8" r="9"/>
+    <circle cx="602.0" cy="122.0" r="9"/><circle cx="600.2" cy="124.6" r="9"/>
+  </g>
+
+  <!-- the 5 neighbours in cell 21 (probe 1): found from the first probe on -->
+  <g fill="#5D4A8A">
+    <circle cx="711.4" cy="215.6" r="4"/><circle cx="633.4" cy="219.1" r="4"/><circle cx="599.0" cy="159.7" r="4"/>
+    <circle cx="734.4" cy="220.8" r="4"/><circle cx="592.9" cy="177.0" r="4"/>
+  </g>
+  <g fill="none" stroke="#2E7A5A" stroke-width="2">
+    <circle cx="711.4" cy="215.6" r="9"/><circle cx="633.4" cy="219.1" r="9"/><circle cx="599.0" cy="159.7" r="9"/>
+    <circle cx="734.4" cy="220.8" r="9"/><circle cx="592.9" cy="177.0" r="9"/>
+  </g>
+
+  <path d="M674.5 152.5 L677.7 160.1 L685.9 160.8 L679.6 166.2 L681.6 174.2 L674.5 169.9 L667.5 174.2 L669.4 166.2 L663.1 160.8 L671.3 160.1 Z"
+        fill="#7A6528" stroke="#1C2530" stroke-width="1.2"/>
+
+  <text x="558" y="96" class="lab" text-anchor="end">cell 8</text>
+  <text x="558" y="111" class="lab" text-anchor="end">probe 2</text>
+  <text x="558" y="228" class="lab" text-anchor="end">cell 21</text>
+  <text x="558" y="243" class="lab" text-anchor="end">probe 1</text>
+  <text x="772" y="120" class="lab">cell boundary</text>
+  <text x="772" y="196" class="lab">ring: green =</text>
+  <text x="772" y="211" class="lab">found, red =</text>
+  <text x="772" y="226" class="lab">still missed</text>
+
+  <text x="456" y="278" class="bad">nprobe = 1 → one cell scanned, 5 of the 10 neighbours found
+    <animate attributeName="opacity" values="1;0;0;1" keyTimes="0;0.14;0.97;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="456" y="278" class="score" opacity="0">nprobe ≥ 2 → the second cell is scanned too, 10 of 10 found
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.14;0.97;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+
+  <!-- the numbers, one row per nprobe, the live row highlighted -->
+  <rect x="456" y="311" width="418" height="20" rx="3" fill="#7A6528" fill-opacity="0.16" stroke="#7A6528">
+    <animate attributeName="y" values="311;333;355;377;399;421;421;311" keyTimes="0;0.14;0.28;0.42;0.56;0.70;0.97;1"
+             calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </rect>
+
+  <text x="500" y="302" class="monodim" text-anchor="end">nprobe</text>
+  <text x="590" y="302" class="monodim" text-anchor="end">cells</text>
+  <text x="700" y="302" class="monodim" text-anchor="end">scanned</text>
+  <text x="780" y="302" class="monodim" text-anchor="end">% corpus</text>
+  <text x="866" y="302" class="monodim" text-anchor="end">recall@10</text>
+
+  <text x="500" y="326" class="mono" text-anchor="end">1</text>
+  <text x="590" y="326" class="mono" text-anchor="end">1/30</text>
+  <text x="700" y="326" class="mono" text-anchor="end">54</text>
+  <text x="780" y="326" class="mono" text-anchor="end">4%</text>
+  <text x="866" y="326" class="bad" text-anchor="end">0.5</text>
+
+  <text x="500" y="348" class="mono" text-anchor="end">2</text>
+  <text x="590" y="348" class="mono" text-anchor="end">2/30</text>
+  <text x="700" y="348" class="mono" text-anchor="end">104</text>
+  <text x="780" y="348" class="mono" text-anchor="end">9%</text>
+  <text x="866" y="348" class="score" text-anchor="end">1.0</text>
+
+  <text x="500" y="370" class="mono" text-anchor="end">3</text>
+  <text x="590" y="370" class="mono" text-anchor="end">3/30</text>
+  <text x="700" y="370" class="mono" text-anchor="end">163</text>
+  <text x="780" y="370" class="mono" text-anchor="end">14%</text>
+  <text x="866" y="370" class="score" text-anchor="end">1.0</text>
+
+  <text x="500" y="392" class="mono" text-anchor="end">5</text>
+  <text x="590" y="392" class="mono" text-anchor="end">5/30</text>
+  <text x="700" y="392" class="mono" text-anchor="end">249</text>
+  <text x="780" y="392" class="mono" text-anchor="end">21%</text>
+  <text x="866" y="392" class="score" text-anchor="end">1.0</text>
+
+  <text x="500" y="414" class="mono" text-anchor="end">8</text>
+  <text x="590" y="414" class="mono" text-anchor="end">8/30</text>
+  <text x="700" y="414" class="mono" text-anchor="end">390</text>
+  <text x="780" y="414" class="mono" text-anchor="end">32%</text>
+  <text x="866" y="414" class="score" text-anchor="end">1.0</text>
+
+  <text x="500" y="436" class="mono" text-anchor="end">12</text>
+  <text x="590" y="436" class="mono" text-anchor="end">12/30</text>
+  <text x="700" y="436" class="mono" text-anchor="end">578</text>
+  <text x="780" y="436" class="mono" text-anchor="end">48%</text>
+  <text x="866" y="436" class="score" text-anchor="end">1.0</text>
+</svg>

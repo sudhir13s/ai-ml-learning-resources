@@ -1,0 +1,117 @@
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" font-family="DejaVu Sans, Verdana, sans-serif">
+  <!-- Animated distillation-temperature sweep (12s SMIL loop). Every bar height is the chapter's
+       own softmax_with_temperature(TEACHER_LOGITS, T) over CLASSES = cat, dog, lynx, car, plane
+       with TEACHER_LOGITS = [8, 5, 4, 1, 0] (imported from make_figures_11, so the animation and
+       the static figure agree). Measured probabilities:
+         T=1  cat .935  dog .047  lynx .017  car .001  plane .000
+         T=2  cat .711  dog .159  lynx .096  car .021  plane .013
+         T=3  cat .556  dog .205  lynx .147  car .054  plane .039
+         T=4  cat .465  dog .220  lynx .171  car .081  plane .063
+         T=5  cat .409  dog .224  lynx .184  car .101  plane .083
+         T=8  cat .325  dog .223  lynx .197  car .135  plane .119
+       The loop follows the generator's schedule: hold at T=1, soften up to T=8, hold, sharpen
+       back to T=1. T=1 is drawn at t=0, so the first frame is the hard, uninformative teacher. -->
+  <style>
+    .title { font-size: 14px; font-weight: bold; fill: #1C2530; }
+    .ax    { font-size: 10.5px; fill: #4A5B6E; }
+    .cls   { font-size: 12px; fill: #1C2530; }
+    .read  { font-size: 12.5px; font-family: "DejaVu Sans Mono", Menlo, monospace; font-weight: bold; fill: #1C2530; }
+    .note  { font-size: 10.5px; fill: #4A5B6E; }
+  </style>
+
+  <rect x="0" y="0" width="900" height="460" fill="#ffffff"/>
+  <text x="410" y="30" text-anchor="middle" class="title">Distillation temperature reveals dark knowledge</text>
+
+  <!-- y grid + axis -->
+  <g stroke="#D4D9DF" stroke-width="0.8">
+    <line x1="120" y1="80"  x2="700" y2="80"/>
+    <line x1="120" y1="140" x2="700" y2="140"/>
+    <line x1="120" y1="200" x2="700" y2="200"/>
+    <line x1="120" y1="260" x2="700" y2="260"/>
+    <line x1="120" y1="320" x2="700" y2="320"/>
+  </g>
+  <line x1="120" y1="60" x2="120" y2="380" stroke="#4A5B6E" stroke-width="1.2"/>
+  <line x1="120" y1="380" x2="700" y2="380" stroke="#4A5B6E" stroke-width="1.2"/>
+  <g class="ax" text-anchor="end">
+    <text x="112" y="384">0.0</text><text x="112" y="324">0.2</text><text x="112" y="264">0.4</text>
+    <text x="112" y="204">0.6</text><text x="112" y="144">0.8</text><text x="112" y="84">1.0</text>
+  </g>
+  <text x="40" y="220" class="ax" transform="rotate(-90 40 220)" text-anchor="middle">teacher probability</text>
+
+  <!-- ============ the five class bars ============ -->
+  <!-- cat (argmax) -->
+  <rect x="140" width="72" fill="#3A6B96" stroke="#ffffff" stroke-width="1.5" y="99.5" height="280.5">
+    <animate attributeName="y" values="99.5;99.5;166.7;213.2;240.5;257.3;282.5;282.5;257.3;213.2;166.7;99.5" keyTimes="0;0.14;0.24;0.32;0.4;0.47;0.53;0.66;0.76;0.85;0.93;1" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="height" values="280.5;280.5;213.3;166.8;139.5;122.7;97.5;97.5;122.7;166.8;213.3;280.5" keyTimes="0;0.14;0.24;0.32;0.4;0.47;0.53;0.66;0.76;0.85;0.93;1" dur="12s" repeatCount="indefinite"/>
+  </rect>
+  <!-- dog -->
+  <rect x="260" width="72" fill="#7A6528" stroke="#ffffff" stroke-width="1.5" y="365.9" height="14.1">
+    <animate attributeName="y" values="365.9;365.9;332.3;318.5;314.0;312.8;313.1;313.1;312.8;318.5;332.3;365.9" keyTimes="0;0.14;0.24;0.32;0.4;0.47;0.53;0.66;0.76;0.85;0.93;1" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="height" values="14.1;14.1;47.7;61.5;66.0;67.2;66.9;66.9;67.2;61.5;47.7;14.1" keyTimes="0;0.14;0.24;0.32;0.4;0.47;0.53;0.66;0.76;0.85;0.93;1" dur="12s" repeatCount="indefinite"/>
+  </rect>
+  <!-- lynx -->
+  <rect x="380" width="72" fill="#7A6528" stroke="#ffffff" stroke-width="1.5" y="374.9" height="5.1">
+    <animate attributeName="y" values="374.9;374.9;351.2;335.9;328.7;324.8;320.9;320.9;324.8;335.9;351.2;374.9" keyTimes="0;0.14;0.24;0.32;0.4;0.47;0.53;0.66;0.76;0.85;0.93;1" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="height" values="5.1;5.1;28.8;44.1;51.3;55.2;59.1;59.1;55.2;44.1;28.8;5.1" keyTimes="0;0.14;0.24;0.32;0.4;0.47;0.53;0.66;0.76;0.85;0.93;1" dur="12s" repeatCount="indefinite"/>
+  </rect>
+  <!-- car -->
+  <rect x="500" width="72" fill="#7A6528" stroke="#ffffff" stroke-width="1.5" y="379.7" height="0.3">
+    <animate attributeName="y" values="379.7;379.7;373.7;363.8;355.7;349.7;339.5;339.5;349.7;363.8;373.7;379.7" keyTimes="0;0.14;0.24;0.32;0.4;0.47;0.53;0.66;0.76;0.85;0.93;1" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="height" values="0.3;0.3;6.3;16.2;24.3;30.3;40.5;40.5;30.3;16.2;6.3;0.3" keyTimes="0;0.14;0.24;0.32;0.4;0.47;0.53;0.66;0.76;0.85;0.93;1" dur="12s" repeatCount="indefinite"/>
+  </rect>
+  <!-- plane -->
+  <rect x="620" width="72" fill="#7A6528" stroke="#ffffff" stroke-width="1.5" y="380" height="0">
+    <animate attributeName="y" values="380;380;376.1;368.3;361.1;355.1;344.3;344.3;355.1;368.3;376.1;380" keyTimes="0;0.14;0.24;0.32;0.4;0.47;0.53;0.66;0.76;0.85;0.93;1" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="height" values="0;0;3.9;11.7;18.9;24.9;35.7;35.7;24.9;11.7;3.9;0" keyTimes="0;0.14;0.24;0.32;0.4;0.47;0.53;0.66;0.76;0.85;0.93;1" dur="12s" repeatCount="indefinite"/>
+  </rect>
+
+  <g class="cls" text-anchor="middle">
+    <text x="176" y="400">cat</text><text x="296" y="400">dog</text><text x="416" y="400">lynx</text>
+    <text x="536" y="400">car</text><text x="656" y="400">plane</text>
+  </g>
+
+  <!-- ============ the measured readout (one per sampled temperature) ============ -->
+  <g class="read" text-anchor="middle">
+    <text x="410" y="432">T = 1.0    cat = 0.94    dark knowledge: dog=0.05, lynx=0.02
+      <animate attributeName="opacity" values="1;1;0;0;0;0;0;0;0;0;0;1" keyTimes="0;0.14;0.24;0.32;0.4;0.47;0.53;0.66;0.76;0.85;0.93;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="410" y="432" opacity="0">T = 2.0    cat = 0.71    dark knowledge: dog=0.16, lynx=0.10
+      <animate attributeName="opacity" values="0;0;1;0;0;0;0;0;0;0;1;0" keyTimes="0;0.14;0.24;0.32;0.4;0.47;0.53;0.66;0.76;0.85;0.93;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="410" y="432" opacity="0">T = 3.0    cat = 0.56    dark knowledge: dog=0.20, lynx=0.15
+      <animate attributeName="opacity" values="0;0;0;1;0;0;0;0;0;1;0;0" keyTimes="0;0.14;0.24;0.32;0.4;0.47;0.53;0.66;0.76;0.85;0.93;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="410" y="432" opacity="0">T = 4.0    cat = 0.47    dark knowledge: dog=0.22, lynx=0.17
+      <animate attributeName="opacity" values="0;0;0;0;1;0;0;0;0;0;0;0" keyTimes="0;0.14;0.24;0.32;0.4;0.47;0.53;0.66;0.76;0.85;0.93;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="410" y="432" opacity="0">T = 5.0    cat = 0.41    dark knowledge: dog=0.22, lynx=0.18
+      <animate attributeName="opacity" values="0;0;0;0;0;1;0;0;1;0;0;0" keyTimes="0;0.14;0.24;0.32;0.4;0.47;0.53;0.66;0.76;0.85;0.93;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="410" y="432" opacity="0">T = 8.0    cat = 0.32    dark knowledge: dog=0.22, lynx=0.20
+      <animate attributeName="opacity" values="0;0;0;0;0;0;1;1;0;0;0;0" keyTimes="0;0.14;0.24;0.32;0.4;0.47;0.53;0.66;0.76;0.85;0.93;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+  </g>
+
+  <!-- ============ right-hand explanation ============ -->
+  <text x="716" y="86" class="note" font-weight="bold" fill="#1C2530">Why raise T at all?</text>
+  <text x="716" y="108" class="note">The hard label says only</text>
+  <text x="716" y="124" class="note">&#8220;cat&#8221;. The teacher knows</text>
+  <text x="716" y="140" class="note">more than that: it thinks a</text>
+  <text x="716" y="156" class="note">lynx resembles a cat far</text>
+  <text x="716" y="172" class="note">more than a plane does.</text>
+
+  <text x="716" y="204" class="note" font-weight="bold" fill="#1C2530">At T = 1</text>
+  <text x="716" y="224" class="note">cat takes 0.94 of the mass;</text>
+  <text x="716" y="240" class="note">that ranking is numerically</text>
+  <text x="716" y="256" class="note">invisible to the student.</text>
+
+  <text x="716" y="288" class="note" font-weight="bold" fill="#1C2530">At T = 8</text>
+  <text x="716" y="308" class="note">dog 0.22 and lynx 0.20 lift</text>
+  <text x="716" y="324" class="note">clear of car 0.14 and plane</text>
+  <text x="716" y="340" class="note">0.12 — the similarity</text>
+  <text x="716" y="356" class="note">structure is now a signal.</text>
+
+  <text x="716" y="386" class="note" font-style="italic">Soft targets carry ranking</text>
+  <text x="716" y="402" class="note" font-style="italic">information a one-hot label</text>
+  <text x="716" y="418" class="note" font-style="italic">throws away.</text>
+</svg>

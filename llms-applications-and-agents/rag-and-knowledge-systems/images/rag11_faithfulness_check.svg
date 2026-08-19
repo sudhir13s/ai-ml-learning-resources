@@ -1,0 +1,88 @@
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" font-family="DejaVu Sans, Verdana, sans-serif">
+  <!-- Faithfulness, animated as DECOMPOSE -> check each claim -> aggregate (12s SMIL loop).
+       Same data as the retired code/make_animation_11.py: the retrieved top-3 context and the
+       three claims of UNFAITHFUL_ANSWER are replayed from code/11-RAG-Evaluation.ipynb, whose
+       printed output is: [SUPPORTED 0.848] resolution claim, [SUPPORTED 0.933] launch claim,
+       [UNSUPPORTED 0.487] solar-panels claim, support threshold 0.5, faithfulness = 0.667
+       (2/3). Every cosine and the score below are those pasted numbers - nothing is invented.
+       t=0 already shows the context and all three unchecked claims, so the first frame reads. -->
+  <style>
+    .panel  { font-size: 13px; font-weight: bold; fill: #1C2530; }
+    .lab    { font-size: 10.5px; fill: #4A5B6E; }
+    .mono   { font-size: 10.5px; font-family: "DejaVu Sans Mono", Menlo, monospace; fill: #1C2530; }
+    .monodim{ font-size: 10.5px; font-family: "DejaVu Sans Mono", Menlo, monospace; fill: #7C8794; }
+    .score  { font-size: 11px; font-family: "DejaVu Sans Mono", Menlo, monospace; font-weight: bold; fill: #2E7A5A; }
+    .bad    { font-size: 11px; font-family: "DejaVu Sans Mono", Menlo, monospace; font-weight: bold; fill: #8B3B4A; }
+    .big    { font-size: 13px; font-family: "DejaVu Sans Mono", Menlo, monospace; font-weight: bold; fill: #2E7A5A; }
+  </style>
+
+  <rect x="0" y="0" width="900" height="460" fill="#ffffff"/>
+  <text x="450" y="26" text-anchor="middle" class="panel" font-size="14">Faithfulness: decompose the answer, check each claim against the context</text>
+
+  <!-- ===================== the retrieved context every claim is graded against ===================== -->
+  <text x="24" y="50" class="lab" font-weight="bold" fill="#3A6B96">retrieved context — the real top-3 for "What is the ground resolution of the Helios-7 imager, and when was it launched?"</text>
+  <rect x="24" y="58" width="852" height="56" rx="4" fill="#3A6B96" fill-opacity="0.10" stroke="#3A6B96"/>
+  <text x="36" y="75" class="mono">doc[1]  Helios-7 carries a hyperspectral imager with a ground resolution of 4 meters.</text>
+  <text x="36" y="91" class="mono">doc[0]  The Helios-7 satellite was launched on March 3rd, 2024 from the Kourou spaceport.</text>
+  <text x="36" y="107" class="mono">doc[10] The Helios-7 ground team spent the afternoon investigating several telemetry errors and console warnings.</text>
+
+  <text x="876" y="134" text-anchor="end" class="lab" fill="#7A6528" font-style="italic">support cosine ≥ 0.5 = supported</text>
+
+  <!-- ===================== claim 1 — supported, cos 0.848 ===================== -->
+  <rect x="24" y="142" width="560" height="46" rx="4" fill="#fbfbfc" stroke="#D4D9DF"/>
+  <text x="36" y="170" class="mono" fill="#7C8794">claim 1: The Helios-7 imager has a ground resolution of 4 meters.
+    <animate attributeName="fill" values="#7C8794;#1C2530;#1C2530" keyTimes="0;0.15;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;1;1" keyTimes="0;0.15;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <rect x="24" y="142" width="560" height="46" rx="4" fill="#2E7A5A" fill-opacity="0.15" stroke="#2E7A5A"/>
+    <text x="608" y="170" class="score">cos 0.848   ✓ SUPPORTED</text>
+  </g>
+
+  <!-- ===================== claim 2 — supported, cos 0.933 ===================== -->
+  <rect x="24" y="196" width="560" height="46" rx="4" fill="#fbfbfc" stroke="#D4D9DF"/>
+  <text x="36" y="224" class="mono" fill="#7C8794">claim 2: Helios-7 launched on March 3rd, 2024 from the Kourou spaceport.
+    <animate attributeName="fill" values="#7C8794;#1C2530;#1C2530" keyTimes="0;0.35;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;1;1" keyTimes="0;0.35;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <rect x="24" y="196" width="560" height="46" rx="4" fill="#2E7A5A" fill-opacity="0.15" stroke="#2E7A5A"/>
+    <text x="608" y="224" class="score">cos 0.933   ✓ SUPPORTED</text>
+  </g>
+
+  <!-- ===================== claim 3 — the hallucination, cos 0.487 ===================== -->
+  <rect x="24" y="250" width="560" height="46" rx="4" fill="#fbfbfc" stroke="#D4D9DF"/>
+  <text x="36" y="278" class="mono" fill="#7C8794">claim 3: Helios-7 is powered entirely by solar panels.
+    <animate attributeName="fill" values="#7C8794;#1C2530;#1C2530" keyTimes="0;0.55;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;1;1" keyTimes="0;0.55;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <rect x="24" y="250" width="560" height="46" rx="4" fill="#8B3B4A" fill-opacity="0.15" stroke="#8B3B4A"/>
+    <text x="608" y="278" class="bad">cos 0.487   ✗ HALLUCINATED</text>
+  </g>
+
+  <!-- ===================== the fraction assembling, one claim at a time ===================== -->
+  <rect x="250" y="314" width="400" height="38" rx="6" fill="#2E7A5A" fill-opacity="0.12" stroke="#2E7A5A"/>
+  <g text-anchor="middle">
+    <text x="450" y="339" class="big" fill="#7C8794">faithfulness = supported / total = 0/0
+      <animate attributeName="opacity" values="1;0;0" keyTimes="0;0.15;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="450" y="339" class="big" opacity="0">faithfulness = supported / total = 1/1 = 1.000
+      <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.15;0.35;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="450" y="339" class="big" opacity="0">faithfulness = supported / total = 2/2 = 1.000
+      <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.35;0.55;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="450" y="339" class="big" opacity="0">faithfulness = supported / total = 2/3 = 0.667
+      <animate attributeName="opacity" values="0;1;1" keyTimes="0;0.55;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+  </g>
+
+  <text x="450" y="378" text-anchor="middle" class="bad" font-style="italic" opacity="0">the hallucinated 'solar panels' claim drags faithfulness below 1.0 — a fluent answer, caught
+    <animate attributeName="opacity" values="0;1;1" keyTimes="0;0.72;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+
+  <text x="450" y="410" text-anchor="middle" class="lab">One claim per sentence, each scored by its best cosine to any context sentence: two claims paraphrase</text>
+  <text x="450" y="425" text-anchor="middle" class="lab">a retrieved sentence and clear the 0.5 bar; the fabricated one has nothing to match, so the fraction falls.</text>
+  <text x="450" y="447" text-anchor="middle" class="lab" font-size="9.5" font-style="italic" fill="#7C8794">claims, support cosines and the score are REAL rag_evaluation.py output; the claim-split and the support JUDGE are illustrative LLM stand-ins</text>
+</svg>

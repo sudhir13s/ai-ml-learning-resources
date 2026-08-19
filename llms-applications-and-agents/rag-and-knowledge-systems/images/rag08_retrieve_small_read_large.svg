@@ -1,0 +1,89 @@
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" font-family="DejaVu Sans, Verdana, sans-serif">
+  <!-- "Retrieve small, read large", animated on a 12s SMIL loop in four beats: a query arrives and
+       searches the small child sentences; the #1 child lights up (child[5], cosine 0.662 - the real
+       all-MiniLM score from advanced_rag.py over the chapter-2 Helios-7 document); the child then
+       EXPANDS into its parent section (# Orbit), the surrounding sentence materialising around it;
+       and that whole section - not the fragment - is what is fed to the LLM. The child text, the
+       parent heading, the sibling sentence and the cosine are all real outputs; nothing is invented.
+       The query and the retrieved child are drawn at t=0, so the first frame already reads. -->
+  <style>
+    .panel  { font-size: 13px; font-weight: bold; fill: #1C2530; }
+    .lab    { font-size: 10.5px; fill: #4A5B6E; }
+    .mono   { font-size: 11px; font-family: "DejaVu Sans Mono", Menlo, monospace; fill: #1C2530; }
+    .monolit{ font-size: 11px; font-family: "DejaVu Sans Mono", Menlo, monospace; font-weight: bold; fill: #ffffff; }
+    .score  { font-size: 11px; font-family: "DejaVu Sans Mono", Menlo, monospace; font-weight: bold; fill: #7A6528; }
+    .head   { font-size: 14px; font-weight: bold; }
+    .cap    { font-size: 11px; font-style: italic; }
+    .foot   { font-size: 10px; fill: #7C8794; font-style: italic; }
+  </style>
+
+  <defs>
+    <marker id="arw8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#4A5B6E"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="900" height="460" fill="#ffffff"/>
+  <rect x="10" y="10" width="880" height="440" rx="6" fill="#fbfbfc" stroke="#D4D9DF"/>
+
+  <!-- ===================== the phase headline ===================== -->
+  <text x="450" y="40" text-anchor="middle" class="head" fill="#4A5B6E">A query arrives — search the SMALL child sentences
+    <animate attributeName="opacity" values="1;0;1" keyTimes="0;0.22;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="450" y="40" text-anchor="middle" class="head" fill="#7A6528" opacity="0">Sharp retrieval: the #1 child sentence lights up
+    <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.22;0.34;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="450" y="40" text-anchor="middle" class="head" fill="#2E7A5A" opacity="0">Retrieve small, READ LARGE: the child expands to its parent section
+    <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.34;0.58;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="450" y="40" text-anchor="middle" class="head" fill="#2E7A5A" opacity="0">The full parent section — self-contained context — is fed to the LLM
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.58;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+
+  <!-- ===================== the query (visible from t=0) ===================== -->
+  <rect x="170" y="60" width="560" height="30" rx="4" fill="#4A5B6E" fill-opacity="0.13" stroke="#4A5B6E"/>
+  <text x="450" y="79" text-anchor="middle" class="mono">query: "What keeps the local solar time of each pass roughly constant?"</text>
+  <path d="M450 92 L450 126" stroke="#4A5B6E" stroke-width="1.4" marker-end="url(#arw8)"/>
+  <text x="462" y="112" class="lab">cosine search runs over the child sentences, not the sections</text>
+
+  <!-- ===================== the parent section, growing around the child ===================== -->
+  <rect x="140" y="232" width="620" height="52" rx="5" fill="#2E7A5A" fill-opacity="0.14" stroke="#2E7A5A" stroke-width="1.5" opacity="0">
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.34;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="y" values="232;232;150;150;232" keyTimes="0;0.34;0.58;0.99;1" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="height" values="52;52;196;196;52" keyTimes="0;0.34;0.58;0.99;1" dur="12s" repeatCount="indefinite"/>
+  </rect>
+
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.46;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <text x="156" y="174" class="mono" font-weight="bold" fill="#2E7A5A">PARENT  # Orbit</text>
+    <text x="450" y="204" text-anchor="middle" class="mono">Helios-7 completes one orbit of Earth every 97 minutes in a sun-synchronous orbit.</text>
+  </g>
+
+  <!-- ===================== the retrieved child ===================== -->
+  <rect x="160" y="232" width="580" height="52" rx="4" fill="#3A6B96" stroke="#1C2530" stroke-width="1.1">
+    <animate attributeName="fill" values="#3A6B96;#7A6528;#3A6B96" keyTimes="0;0.22;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </rect>
+  <text x="450" y="252" text-anchor="middle" class="monolit">child[5]: "This orbit keeps the local solar time of each pass</text>
+  <text x="450" y="270" text-anchor="middle" class="monolit">roughly constant for stable imaging."</text>
+
+  <text x="450" y="300" text-anchor="middle" class="score" opacity="0">retrieved  (cos 0.662)
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.22;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+
+  <text x="450" y="366" text-anchor="middle" class="lab" opacity="0">the top-3 children include 5 and 4 — both from this one section
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.58;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+
+  <!-- ===================== the caption that carries the lesson ===================== -->
+  <text x="450" y="390" text-anchor="middle" class="cap" fill="#8B3B4A" opacity="0">…but alone it opens with "This orbit" — which orbit? a context-starved FRAGMENT
+    <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.22;0.34;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="450" y="390" text-anchor="middle" class="cap" fill="#2E7A5A" opacity="0">the parent supplies the referent ("sun-synchronous orbit") the fragment lacked
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.46;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+
+  <text x="450" y="414" text-anchor="middle" class="lab">Retrieve on the SMALL unit so the match stays sharp; read the LARGE unit so the generator gets context.</text>
+  <text x="450" y="429" text-anchor="middle" class="lab">The unit you index and the unit you put in the prompt need not be the same chunk.</text>
+
+  <text x="450" y="447" text-anchor="middle" class="foot">child index, parent section, and cosine are REAL all-MiniLM outputs over the chapter-2 document</text>
+</svg>

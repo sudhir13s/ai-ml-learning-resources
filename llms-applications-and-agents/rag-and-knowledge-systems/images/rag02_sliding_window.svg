@@ -1,0 +1,194 @@
+<svg viewBox="0 0 900 440" xmlns="http://www.w3.org/2000/svg" font-family="DejaVu Sans, Verdana, sans-serif">
+  <!-- A sliding window lays down chunks twice, in one 12s SMIL loop: LEFT is pass 1 (no
+       overlap, step = 4), RIGHT is pass 2 (overlap = 2, step = 2). Same toy the chapter's
+       overlap figure uses and the same data the retired code/make_animation_02.py drew:
+       10 document tokens, WINDOW = 4, the fact occupying tokens 3-4, so pass 1 starts at
+       0, 4, 8 and pass 2 at 0, 2, 4, 6, 8; the only window that contains BOTH fact tokens
+       is pass 2's chunk 1 (tokens 2-5). Nothing here is invented — every start, width and
+       verdict follows from those three constants. The token strip, the fact and both
+       verdict slots are drawn at t=0, so the first frame already reads without motion. -->
+  <style>
+    .panel  { font-size: 13px; font-weight: bold; fill: #1C2530; }
+    .lab    { font-size: 10.5px; fill: #4A5B6E; }
+    .mono   { font-size: 10.5px; font-family: "DejaVu Sans Mono", Menlo, monospace; fill: #1C2530; }
+    .tok    { font-size: 10px; font-family: "DejaVu Sans Mono", Menlo, monospace; fill: #4A5B6E; }
+    .chunk  { font-size: 10.5px; fill: #1C2530; }
+    .good   { font-size: 12px; font-weight: bold; fill: #2E7A5A; }
+    .bad    { font-size: 12px; font-weight: bold; fill: #8B3B4A; }
+  </style>
+
+  <rect x="0" y="0" width="900" height="440" fill="#ffffff"/>
+  <rect x="10" y="10" width="433" height="420" rx="6" fill="#fbfbfc" stroke="#D4D9DF"/>
+  <rect x="457" y="10" width="433" height="420" rx="6" fill="#fbfbfc" stroke="#D4D9DF"/>
+
+  <defs>
+    <marker id="tip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#4A5B6E"/>
+    </marker>
+  </defs>
+
+  <!-- ======================= LEFT: pass 1, no overlap ======================= -->
+  <text x="28" y="32" class="panel">Pass 1 — NO overlap</text>
+  <text x="205" y="32" class="lab">step = 4 → starts 0, 4, 8</text>
+
+  <text x="28" y="52" class="lab">window = 4 tokens · one box per token · the fact lives on tokens 3–4</text>
+
+  <!-- token strip -->
+  <g>
+    <rect x="28.0" y="70" width="35.5" height="30" fill="#EEF1F4" stroke="#D4D9DF"/><text x="45.7" y="90" class="tok" text-anchor="middle">0</text>
+    <rect x="67.5" y="70" width="35.5" height="30" fill="#EEF1F4" stroke="#D4D9DF"/><text x="85.2" y="90" class="tok" text-anchor="middle">1</text>
+    <rect x="107.0" y="70" width="35.5" height="30" fill="#EEF1F4" stroke="#D4D9DF"/><text x="124.7" y="90" class="tok" text-anchor="middle">2</text>
+    <rect x="146.5" y="70" width="35.5" height="30" fill="#EEF1F4" stroke="#D4D9DF"/><text x="164.2" y="90" class="tok" text-anchor="middle">3</text>
+    <rect x="186.0" y="70" width="35.5" height="30" fill="#EEF1F4" stroke="#D4D9DF"/><text x="203.7" y="90" class="tok" text-anchor="middle">4</text>
+    <rect x="225.5" y="70" width="35.5" height="30" fill="#EEF1F4" stroke="#D4D9DF"/><text x="243.2" y="90" class="tok" text-anchor="middle">5</text>
+    <rect x="265.0" y="70" width="35.5" height="30" fill="#EEF1F4" stroke="#D4D9DF"/><text x="282.7" y="90" class="tok" text-anchor="middle">6</text>
+    <rect x="304.5" y="70" width="35.5" height="30" fill="#EEF1F4" stroke="#D4D9DF"/><text x="322.2" y="90" class="tok" text-anchor="middle">7</text>
+    <rect x="344.0" y="70" width="35.5" height="30" fill="#EEF1F4" stroke="#D4D9DF"/><text x="361.7" y="90" class="tok" text-anchor="middle">8</text>
+    <rect x="383.5" y="70" width="35.5" height="30" fill="#EEF1F4" stroke="#D4D9DF"/><text x="401.2" y="90" class="tok" text-anchor="middle">9</text>
+  </g>
+  <rect x="146.5" y="70" width="75" height="30" fill="#7A6528" fill-opacity="0.35" stroke="#7A6528" stroke-width="1.5"/>
+  <text x="184" y="63" class="lab" text-anchor="middle" fill="#1C2530">the fact</text>
+
+  <!-- the window sliding across: 0 -> 4 -> 8 -->
+  <rect y="66" height="38" width="158" fill="none" stroke="#1C2530" stroke-width="1.6" stroke-dasharray="6 4" x="28">
+    <animate attributeName="x" values="28;28;186;344;344;28" keyTimes="0;0.04;0.12;0.20;0.36;1"
+             calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="width" values="158;158;158;79;79;158" keyTimes="0;0.04;0.12;0.20;0.36;1"
+             calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;1;0;1" keyTimes="0;0.36;0.40;1"
+             calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- the cut that shatters the fact -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.16;0.20;0.97;1"
+             calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <line x1="186" y1="60" x2="186" y2="112" stroke="#8B3B4A" stroke-width="1.6" stroke-dasharray="4 3"/>
+    <text x="192" y="118" class="lab" fill="#8B3B4A">the cut — token 3 left, token 4 right</text>
+  </g>
+
+  <!-- chunks laid down: chunk 0 [0..3], chunk 1 [4..7], chunk 2 [8..9] -->
+  <g>
+    <rect x="28" y="130" width="158" height="28" fill="#3A6B96" fill-opacity="0.4" stroke="#3A6B96"/>
+    <text x="107" y="148" class="chunk" text-anchor="middle">chunk 0</text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.12;0.15;0.97;1"
+             calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <rect x="186" y="170" width="158" height="28" fill="#5D4A8A" fill-opacity="0.4" stroke="#5D4A8A"/>
+    <text x="265" y="188" class="chunk" text-anchor="middle">chunk 1</text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.20;0.23;0.97;1"
+             calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <rect x="344" y="130" width="79" height="28" fill="#2E7A5A" fill-opacity="0.4" stroke="#2E7A5A"/>
+    <text x="383.5" y="148" class="chunk" text-anchor="middle">chunk 2</text>
+  </g>
+
+  <!-- verdict, pass 1 -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.24;0.28;0.97;1"
+             calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <rect x="28" y="226" width="395" height="34" rx="5" fill="#8B3B4A" fill-opacity="0.13" stroke="#8B3B4A" stroke-dasharray="5 4"/>
+    <text x="225.5" y="248" class="bad" text-anchor="middle">✗ the fact is SPLIT across chunks — unretrievable</text>
+  </g>
+
+  <text x="28" y="292" class="lab">No window ever contains both token 3 and token 4: the only</text>
+  <text x="28" y="307" class="lab">starts are 0, 4 and 8, and every one of them puts the cut</text>
+  <text x="28" y="322" class="lab">straight through the fact.</text>
+
+  <text x="28" y="356" class="lab">Half a fact retrieves like no fact. The chunk that answers</text>
+  <text x="28" y="371" class="lab">"who reversed the scale" holds the verb without the name,</text>
+  <text x="28" y="386" class="lab">and the chunk with the name has lost the claim.</text>
+
+  <text x="28" y="416" class="lab">Toy: 10 tokens, window = 4, fact on tokens 3–4.</text>
+
+  <!-- ======================= RIGHT: pass 2, overlap = 2 ======================= -->
+  <text x="475" y="32" class="panel">Pass 2 — overlap = 2</text>
+  <text x="655" y="32" class="lab">step = 2 → starts 0, 2, 4, 6, 8</text>
+
+  <text x="475" y="52" class="lab">same document, same 4-token window — only the step changed</text>
+
+  <g>
+    <rect x="475.0" y="70" width="35.5" height="30" fill="#EEF1F4" stroke="#D4D9DF"/><text x="492.7" y="90" class="tok" text-anchor="middle">0</text>
+    <rect x="514.5" y="70" width="35.5" height="30" fill="#EEF1F4" stroke="#D4D9DF"/><text x="532.2" y="90" class="tok" text-anchor="middle">1</text>
+    <rect x="554.0" y="70" width="35.5" height="30" fill="#EEF1F4" stroke="#D4D9DF"/><text x="571.7" y="90" class="tok" text-anchor="middle">2</text>
+    <rect x="593.5" y="70" width="35.5" height="30" fill="#EEF1F4" stroke="#D4D9DF"/><text x="611.2" y="90" class="tok" text-anchor="middle">3</text>
+    <rect x="633.0" y="70" width="35.5" height="30" fill="#EEF1F4" stroke="#D4D9DF"/><text x="650.7" y="90" class="tok" text-anchor="middle">4</text>
+    <rect x="672.5" y="70" width="35.5" height="30" fill="#EEF1F4" stroke="#D4D9DF"/><text x="690.2" y="90" class="tok" text-anchor="middle">5</text>
+    <rect x="712.0" y="70" width="35.5" height="30" fill="#EEF1F4" stroke="#D4D9DF"/><text x="729.7" y="90" class="tok" text-anchor="middle">6</text>
+    <rect x="751.5" y="70" width="35.5" height="30" fill="#EEF1F4" stroke="#D4D9DF"/><text x="769.2" y="90" class="tok" text-anchor="middle">7</text>
+    <rect x="791.0" y="70" width="35.5" height="30" fill="#EEF1F4" stroke="#D4D9DF"/><text x="808.7" y="90" class="tok" text-anchor="middle">8</text>
+    <rect x="830.5" y="70" width="35.5" height="30" fill="#EEF1F4" stroke="#D4D9DF"/><text x="848.2" y="90" class="tok" text-anchor="middle">9</text>
+  </g>
+  <rect x="593.5" y="70" width="75" height="30" fill="#7A6528" fill-opacity="0.35" stroke="#7A6528" stroke-width="1.5"/>
+  <text x="631" y="63" class="lab" text-anchor="middle" fill="#1C2530">the fact</text>
+
+  <!-- the window sliding across: 0 -> 2 -> 4 -> 6 -> 8 -->
+  <rect y="66" height="38" width="158" fill="none" stroke="#1C2530" stroke-width="1.6" stroke-dasharray="6 4" x="475" opacity="0">
+    <animate attributeName="x" values="475;475;554;633;712;791;791;475" keyTimes="0;0.40;0.47;0.54;0.61;0.68;0.84;1"
+             calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="width" values="158;158;158;158;158;79;79;158" keyTimes="0;0.40;0.47;0.54;0.61;0.68;0.84;1"
+             calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.40;0.44;0.80;0.84;1"
+             calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- chunks: 0 [0..3], 1 [2..5] holds the fact, 2 [4..7], 3 [6..9], 4 [8..9] -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.40;0.43;0.97;1"
+             calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <rect x="475" y="130" width="158" height="28" fill="#3A6B96" fill-opacity="0.4" stroke="#3A6B96"/>
+    <text x="554" y="148" class="chunk" text-anchor="middle">chunk 0</text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.47;0.50;0.97;1"
+             calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <rect x="554" y="170" width="158" height="28" fill="#5D4A8A" fill-opacity="0.75" stroke="#2E7A5A" stroke-width="2.4"/>
+    <text x="633" y="188" class="chunk" text-anchor="middle" font-weight="bold" fill="#ffffff">chunk 1  ✓ holds fact</text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.54;0.57;0.97;1"
+             calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <rect x="633" y="130" width="158" height="28" fill="#2E7A5A" fill-opacity="0.4" stroke="#2E7A5A"/>
+    <text x="712" y="148" class="chunk" text-anchor="middle">chunk 2</text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.61;0.64;0.97;1"
+             calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <rect x="712" y="170" width="158" height="28" fill="#4A5B6E" fill-opacity="0.4" stroke="#4A5B6E"/>
+    <text x="791" y="188" class="chunk" text-anchor="middle">chunk 3</text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.68;0.71;0.97;1"
+             calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <rect x="791" y="130" width="79" height="28" fill="#7A6528" fill-opacity="0.4" stroke="#7A6528"/>
+    <text x="830.5" y="148" class="chunk" text-anchor="middle">chunk 4</text>
+  </g>
+
+  <!-- the seam that rescues the fact -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.50;0.54;0.97;1"
+             calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <path d="M633 108 L633 166" stroke="#2E7A5A" stroke-width="1.4" marker-end="url(#tip)"/>
+    <text x="475" y="216" class="lab" fill="#2E7A5A">chunk 1 spans tokens 2–5, so it re-includes the seam</text>
+  </g>
+
+  <!-- verdict, pass 2 -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.72;0.76;0.97;1"
+             calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <rect x="475" y="226" width="395" height="34" rx="5" fill="#2E7A5A" fill-opacity="0.18" stroke="#2E7A5A" stroke-width="1.6"/>
+    <text x="672.5" y="248" class="good" text-anchor="middle">✓ the fact lands WHOLE in a chunk — retrievable</text>
+  </g>
+
+  <text x="475" y="292" class="lab">Overlap does not chunk better; it chunks the same document</text>
+  <text x="475" y="307" class="lab">more often. Every boundary now appears twice — once as an</text>
+  <text x="475" y="322" class="lab">edge and once in the middle of the next window.</text>
+
+  <text x="475" y="356" class="lab">Index cards again: cut mid-thought and the card is useless,</text>
+  <text x="475" y="371" class="lab">so let each card start a little before the last one ended.</text>
+  <text x="475" y="386" class="lab">The price is 5 chunks instead of 3 — index size for recall.</text>
+
+  <text x="475" y="416" class="lab">Same toy, overlap = 2 → step = window − overlap = 2.</text>
+</svg>

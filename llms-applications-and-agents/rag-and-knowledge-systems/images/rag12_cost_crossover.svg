@@ -1,0 +1,103 @@
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" font-family="DejaVu Sans, Verdana, sans-serif">
+  <!-- The stuff-vs-RAG cost crossover, animated over a 12s SMIL loop: a marker sweeps the
+       corpus-size axis while the live readout steps through the real sweep. Same data as the
+       retired code/make_animation_12.py, which is the chapter's own cost arithmetic in
+       code/long_context_vs_rag.py: 100 tokens/chunk, RAG retrieves k=5 plus 200 tokens of
+       overhead = 700 tokens/query = $0.0021 at $3.00/Mtok (flat, blue); stuffing costs
+       corpus x 100 tokens (red), so the crossover is the first integer corpus size whose
+       token bill exceeds 700 — 8 chunks — and the sweep ends at 1,585 chunks = 226.4x RAG.
+       Both curves are fully drawn at t=0, so the first frame is already the whole picture. -->
+  <style>
+    .panel  { font-size: 13px; font-weight: bold; fill: #1C2530; }
+    .lab    { font-size: 10.5px; fill: #4A5B6E; }
+    .tick   { font-size: 10px; font-family: "DejaVu Sans Mono", Menlo, monospace; fill: #4A5B6E; }
+    .mono   { font-size: 10.5px; font-family: "DejaVu Sans Mono", Menlo, monospace; fill: #1C2530; }
+    .readout{ font-size: 11px; font-family: "DejaVu Sans Mono", Menlo, monospace; font-weight: bold; }
+  </style>
+
+  <rect x="0" y="0" width="900" height="460" fill="#ffffff"/>
+  <defs>
+    <marker id="dot" viewBox="0 0 6 6" refX="3" refY="3" markerWidth="5" markerHeight="5">
+      <circle cx="3" cy="3" r="2.3" fill="#8B3B4A"/>
+    </marker>
+  </defs>
+
+  <text x="450" y="26" text-anchor="middle" class="panel" font-size="14">Long-context (stuff) vs RAG: cost per query as the corpus grows</text>
+
+  <!-- ============================== axes and grid ============================== -->
+  <g stroke="#D4D9DF" stroke-width="0.8">
+    <line x1="92" y1="56" x2="92" y2="330"/><line x1="326.5" y1="56" x2="326.5" y2="330"/>
+    <line x1="560.9" y1="56" x2="560.9" y2="330"/><line x1="795.4" y1="56" x2="795.4" y2="330"/>
+    <line x1="92" y1="56" x2="866" y2="56"/><line x1="92" y1="124.5" x2="866" y2="124.5"/>
+    <line x1="92" y1="193" x2="866" y2="193"/><line x1="92" y1="261.5" x2="866" y2="261.5"/>
+  </g>
+  <line x1="92" y1="56" x2="92" y2="330" stroke="#4A5B6E" stroke-width="1.2"/>
+  <line x1="92" y1="330" x2="866" y2="330" stroke="#4A5B6E" stroke-width="1.2"/>
+  <g class="tick" text-anchor="middle">
+    <text x="92" y="346">1</text><text x="326.5" y="346">10</text>
+    <text x="560.9" y="346">100</text><text x="795.4" y="346">1,000</text>
+  </g>
+  <g class="tick" text-anchor="end">
+    <text x="84" y="333">$0.0001</text><text x="84" y="264.5">$0.001</text>
+    <text x="84" y="196">$0.01</text><text x="84" y="127.5">$0.1</text><text x="84" y="59">$1</text>
+  </g>
+  <text x="479" y="368" text-anchor="middle" class="lab">corpus size (chunks, log scale)</text>
+  <text x="26" y="193" text-anchor="middle" class="lab" transform="rotate(-90 26 193)">input cost per query, USD (log)</text>
+
+  <!-- ====================== the two cost curves (static, full) ====================== -->
+  <line x1="92" y1="239.4" x2="866" y2="239.4" stroke="#3A6B96" stroke-width="2.2"/>
+  <polyline fill="none" stroke="#8B3B4A" stroke-width="2.2"
+            marker-start="url(#dot)" marker-mid="url(#dot)" marker-end="url(#dot)"
+            points="92,297.3 162.6,276.7 203.9,264.6 233.2,256.1 255.9,249.4 290.2,239.4 303.7,235.5 326.5,228.8 345,223.4 360.7,218.8 380.5,213 402,206.7 419.8,201.6 438.3,196.1 456.9,190.7 477.3,184.7 496.3,179.2 515.5,173.6 534.3,168.1 553.6,162.5 573.4,156.7 592.3,151.2 611.3,145.6 630.5,140 650.1,134.3 669,128.7 688.5,123 707.6,117.5 726.9,111.8 746.1,106.2 765.3,100.6 784.6,95 803.8,89.4 823.1,83.7 842.3,78.1"/>
+
+  <!-- legend -->
+  <line x1="104" y1="72" x2="130" y2="72" stroke="#3A6B96" stroke-width="2.2"/>
+  <text x="138" y="76" class="lab">RAG: retrieve k=5 — flat 700 tok/query = $0.0021, whatever the corpus size</text>
+  <line x1="104" y1="92" x2="130" y2="92" stroke="#8B3B4A" stroke-width="2.2"/>
+  <text x="138" y="96" class="lab">stuff the whole corpus — 100 tok/chunk, re-paid on every single query</text>
+  <text x="866" y="72" text-anchor="end" class="lab" fill="#2E7A5A" font-style="italic" font-weight="bold">OUR MEASUREMENT (real cost arithmetic)</text>
+
+  <!-- ===================== the crossover, lit once the sweep passes it ===================== -->
+  <g opacity="0.3">
+    <animate attributeName="opacity" values="0.3;1;1" keyTimes="0;0.26;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <line x1="303.7" y1="56" x2="303.7" y2="330" stroke="#7A6528" stroke-width="1.4" stroke-dasharray="5 4"/>
+    <text x="316" y="276" class="lab" fill="#7A6528" font-weight="bold">crossover ≈ 8 chunks</text>
+    <text x="316" y="291" class="lab" fill="#7A6528" font-weight="bold">RAG wins on every query beyond here</text>
+  </g>
+
+  <!-- ===================== the sweeping corpus-size marker ===================== -->
+  <circle cx="92" cy="297.3" r="6.5" fill="#7A6528" stroke="#1C2530" stroke-width="1.2">
+    <animate attributeName="cx" values="92;842.3;842.3" keyTimes="0;0.92;1" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="297.3;78.1;78.1" keyTimes="0;0.92;1" dur="12s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- ===================== the live cost-gap readout ===================== -->
+  <rect x="486" y="296" width="372" height="28" rx="4" fill="#ffffff" stroke="#4A5B6E"/>
+  <g text-anchor="middle">
+    <text x="672" y="314" class="readout" fill="#4A5B6E">at 1 chunks: stuffing = 0.1× RAG → stuffing cheaper
+      <animate attributeName="opacity" values="1;0;0" keyTimes="0;0.173;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="672" y="314" class="readout" fill="#4A5B6E" opacity="0">at 4 chunks: stuffing = 0.6× RAG → stuffing cheaper
+      <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.173;0.26;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="672" y="314" class="readout" fill="#2E7A5A" opacity="0">at 8 chunks: stuffing = 1.1× RAG → RAG cheaper
+      <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.26;0.402;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="672" y="314" class="readout" fill="#2E7A5A" opacity="0">at 25 chunks: stuffing = 3.6× RAG → RAG cheaper
+      <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.402;0.566;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="672" y="314" class="readout" fill="#2E7A5A" opacity="0">at 93 chunks: stuffing = 13.3× RAG → RAG cheaper
+      <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.566;0.731;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="672" y="314" class="readout" fill="#2E7A5A" opacity="0">at 350 chunks: stuffing = 50.0× RAG → RAG cheaper
+      <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.731;0.92;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="672" y="314" class="readout" fill="#2E7A5A" opacity="0">at 1,585 chunks: stuffing = 226.4× RAG → RAG cheaper
+      <animate attributeName="opacity" values="0;1;1" keyTimes="0;0.92;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+  </g>
+
+  <text x="450" y="394" text-anchor="middle" class="lab">Price cancels on both sides, so the crossover is pure token arithmetic: the first corpus size whose</text>
+  <text x="450" y="409" text-anchor="middle" class="lab">bill (chunks × 100 tokens) beats RAG's fixed 700 — and past it the gap widens without bound.</text>
+  <text x="450" y="437" text-anchor="middle" class="lab" font-size="9.5" font-style="italic" fill="#7C8794">every dollar figure is the chapter's own cost arithmetic — code/long_context_vs_rag.py, replayed over its 35-point log-spaced corpus sweep</text>
+</svg>

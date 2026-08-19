@@ -1,0 +1,119 @@
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" font-family="DejaVu Sans, Verdana, sans-serif">
+  <!-- The LoRA low-rank update, built up in four phases on one 12s SMIL clock. It replays the
+       staging of the manim scene this asset replaces (LoRADecomposition in
+       the retired manim_lora_decomposition scene): (1) the frozen pretrained weight W0 plus a full d x d
+       update, captioned d^2 = 1,048,576 params; (2) the claim that the update can be factored;
+       (3) the d x d square is dropped and the two skinny factors B (d x r) and A (r x d) take
+       its place, captioned 2rd = 16,384 params with the rank bottleneck r = 8 marked; (4) the
+       punchline 1,048,576 -> 16,384 (64x fewer) and the forward pass h = W0.x + (alpha/r).B.A.x.
+       Every number - d = 1024, r = 8, alpha = 16, 1,048,576, 16,384, 64x - is the constant set
+       shared by the chapter's lora_peft.py and tools/make_figures_12.py (IN_FEATURES =
+       OUT_FEATURES = 1024, LORA_RANK = 8); nothing is invented. The right-hand cost bars draw
+       those same two counts to scale, so the 16,384-param sliver is literally 1/64 the length of
+       the full-fine-tuning bar. Phase 1 is on screen at t=0, so the first frame already reads,
+       and the clock returns to phase 1 before it loops. -->
+  <style>
+    .panel  { font-size: 13px; font-weight: bold; fill: #1C2530; }
+    .lab    { font-size: 10.5px; fill: #4A5B6E; }
+    .mono   { font-size: 10.5px; font-family: "DejaVu Sans Mono", Menlo, monospace; fill: #1C2530; }
+    .title  { font-size: 15px; font-weight: bold; fill: #1C2530; }
+    .box    { font-size: 15px; font-weight: bold; fill: #1C2530; }
+    .boxsub { font-size: 11px; fill: #1C2530; }
+    .op     { font-size: 22px; font-weight: bold; fill: #1C2530; }
+    .redcap { font-size: 11.5px; font-weight: bold; fill: #8B3B4A; }
+    .grncap { font-size: 11.5px; font-weight: bold; fill: #2E7A5A; }
+    .purcap { font-size: 11px; font-weight: bold; fill: #5D4A8A; }
+    .punch  { font-size: 15px; font-weight: bold; fill: #1C2530; }
+    .eq     { font-size: 12.5px; font-family: "DejaVu Sans Mono", Menlo, monospace; fill: #3A6B96; }
+    .claim  { font-size: 12px; font-weight: bold; fill: #3A6B96; }
+  </style>
+
+  <rect x="0" y="0" width="900" height="460" fill="#ffffff"/>
+  <rect x="10" y="52" width="490" height="398" rx="6" fill="#fbfbfc" stroke="#D4D9DF"/>
+  <rect x="512" y="52" width="378" height="398" rx="6" fill="#fbfbfc" stroke="#D4D9DF"/>
+
+  <text x="450" y="32" text-anchor="middle" class="title">LoRA: freeze W, learn a low-rank update</text>
+
+  <!-- ==================== LEFT: the matrices ==================== -->
+  <text x="26" y="76" class="panel">The update, before and after factoring</text>
+
+  <!-- the frozen pretrained weight — on screen for the whole loop -->
+  <rect x="40" y="130" width="150" height="150" rx="4" fill="#4A5B6E" fill-opacity="0.16" stroke="#4A5B6E" stroke-width="2.5"/>
+  <text x="115" y="200" text-anchor="middle" class="box">W&#8320;</text>
+  <text x="115" y="220" text-anchor="middle" class="boxsub">(d&#215;d)</text>
+  <text x="115" y="302" text-anchor="middle" class="lab">pretrained &#8212; frozen</text>
+  <text x="115" y="318" text-anchor="middle" class="lab">d = 1024</text>
+  <text x="215" y="213" text-anchor="middle" class="op">+</text>
+
+  <!-- phase 1: the full d x d update (0 -> 0.50, restored 0.88 -> 1) -->
+  <g>
+    <animate attributeName="opacity" values="1;0;1;1" keyTimes="0;0.50;0.88;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <rect x="250" y="130" width="150" height="150" rx="4" fill="#8B3B4A" fill-opacity="0.16" stroke="#8B3B4A" stroke-width="2.5"/>
+    <text x="325" y="200" text-anchor="middle" class="box">&#916;W</text>
+    <text x="325" y="220" text-anchor="middle" class="boxsub">(d&#215;d)</text>
+    <text x="325" y="302" text-anchor="middle" class="redcap">full fine-tuning:</text>
+    <text x="325" y="318" text-anchor="middle" class="redcap">d&#178; = 1,048,576 params</text>
+  </g>
+
+  <!-- phase 3: the same update factored through a rank-r bottleneck (0.50 -> 0.88) -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.50;0.88;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <text x="249" y="104" text-anchor="middle" class="purcap">r = 8</text>
+    <text x="249" y="118" text-anchor="middle" class="purcap">the bottleneck</text>
+    <path d="M249 124 L249 130" stroke="#5D4A8A" stroke-width="1.4"/>
+    <rect x="233" y="130" width="33" height="150" rx="3" fill="#2E7A5A" fill-opacity="0.18" stroke="#2E7A5A" stroke-width="2.5"/>
+    <text x="249" y="200" text-anchor="middle" class="boxsub">B</text>
+    <text x="249" y="216" text-anchor="middle" class="lab" font-size="9.5">d&#215;r</text>
+    <text x="298" y="213" text-anchor="middle" class="op">&#183;</text>
+    <rect x="325" y="188" width="150" height="33" rx="3" fill="#2E7A5A" fill-opacity="0.18" stroke="#2E7A5A" stroke-width="2.5"/>
+    <text x="400" y="209" text-anchor="middle" class="boxsub">A  (r&#215;d)</text>
+    <text x="354" y="302" text-anchor="middle" class="grncap">LoRA:</text>
+    <text x="354" y="318" text-anchor="middle" class="grncap">2rd = 16,384 params</text>
+  </g>
+
+  <!-- phase 2: the claim being made (0.27 -> 0.72) -->
+  <text x="255" y="360" text-anchor="middle" class="claim" opacity="0">
+    <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.27;0.72;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    LoRA: factor &#916;W = B &#183; A through a thin rank-r bottleneck
+  </text>
+
+  <!-- phase 4: the forward pass (0.72 -> 0.88) -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.72;0.88;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <text x="255" y="356" text-anchor="middle" class="eq">h = W&#8320;&#183;x  +  (&#945;/r)&#183;B&#183;A&#183;x</text>
+    <text x="255" y="376" text-anchor="middle" class="lab">W&#8320; never changes; only B and A carry gradients (&#945; = 16)</text>
+  </g>
+
+  <text x="26" y="412" class="lab">B is initialised to zero, so at step 0 the adapted layer is</text>
+  <text x="26" y="428" class="lab">bit-for-bit the pretrained layer; A is Kaiming-uniform.</text>
+
+  <!-- ==================== RIGHT: the cost, drawn to scale ==================== -->
+  <text x="530" y="76" class="panel">What that costs, per layer</text>
+  <text x="530" y="94" class="lab">bar length &#8733; trainable parameters</text>
+
+  <rect x="530" y="118" width="340" height="30" rx="3" fill="#8B3B4A" fill-opacity="0.18" stroke="#8B3B4A" stroke-width="1.8"/>
+  <text x="530" y="168" class="mono" fill="#8B3B4A">full fine-tuning &#8212; d&#178; = 1,048,576</text>
+
+  <!-- phase 3: the LoRA sliver, same 0.50 -> 0.88 window as the factors -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.50;0.88;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <rect x="530" y="198" width="5.3" height="30" rx="1" fill="#2E7A5A" stroke="#2E7A5A" stroke-width="1.4"/>
+    <text x="546" y="220" class="mono" fill="#2E7A5A">&#8592; LoRA, r = 8 &#8212; 2rd = 16,384</text>
+    <text x="530" y="248" class="lab">the whole adapter is that sliver: 1/64 of the bar above</text>
+  </g>
+
+  <line x1="530" y1="278" x2="870" y2="278" stroke="#D4D9DF"/>
+
+  <!-- phase 4: the punchline (0.72 -> 0.88) -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.72;0.88;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <rect x="530" y="298" width="340" height="52" rx="5" fill="#2E7A5A" fill-opacity="0.14" stroke="#2E7A5A" stroke-width="1.6"/>
+    <text x="700" y="322" text-anchor="middle" class="punch">1,048,576 &#8594; 16,384</text>
+    <text x="700" y="341" text-anchor="middle" class="grncap">trainable params  (64&#215; fewer)</text>
+  </g>
+
+  <text x="530" y="382" class="lab">Rank is the only knob: r trades adapter capacity against</text>
+  <text x="530" y="398" class="lab">2rd parameters. The frozen d&#178; weights are never copied,</text>
+  <text x="530" y="414" class="lab">never optimised, and never carry optimiser state &#8212; which</text>
+  <text x="530" y="430" class="lab">is where most of the memory saving actually comes from.</text>
+</svg>
