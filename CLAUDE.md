@@ -1,4 +1,4 @@
-# Project: AI-ML-learning-resources
+# Project: ai-ml-learning-resources
 
 > Reference notes for Claude. The **curated resource library** of the platform (renamed from
 > `AI-study-notes-and-links`, 2026-06-11).
@@ -154,8 +154,9 @@ re-homed into `llms-applications-and-agents/` (and, for FlashAttention, into
 `world-models-and-embodied-intelligence/` is chartered but has no content yet, so it is
 deliberately absent rather than stubbed.
 
-`llm_systems_curriculum.md` is the 14-chapter LLM-systems syllabus. The root `README.md` is
-the master index.
+`_meta/llm_systems_curriculum.md` is the 14-chapter LLM-systems syllabus — a personal study
+notebook parked in `_meta/` (owner ruling 2026-08-19) until its content is absorbed into the
+chartered sections, after which it is deleted. The root `README.md` is the master index.
 
 ## How to help here
 - **Sub-area `README.md`s**: add/curate resources, keep the bar high (best explainer, free, with

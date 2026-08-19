@@ -71,10 +71,10 @@
 # core-machine-learning. That differs from the charter's "49 second-level sub-area
 # folders" sentence, which assumed the unresolved two-level reading.
 #
-# ROOT-FOLDER NAME — the module root is still `AI-ML-learning-resources/` (this
-# repo's own name); the charter's target `learning-resources/` needs the shared
-# WIRED_COURSES `moduleDir`/`moduleRoute` values changed, which a declaration PR
-# is not permitted to touch.
+# ROOT-FOLDER NAME — RESOLVED by owner ruling 2026-08-19 (T-307.1): folder, GitHub
+# repo, module id and route unify on `ai-ml-learning-resources`, overriding the
+# charter's earlier `learning-resources` target. The rename wave updates
+# `.gitmodules`, WIRED_COURSES `moduleDir`/`moduleId`, and the charter in one ripple.
 #
 # SCOPE — seven of the charter's eight sections are declared. NOT DECLARED,
 # deliberately:
@@ -115,7 +115,10 @@ apiVersion: estate/v2
 kind: Course
 
 metadata:
-  id: learning-resources
+  # Owner ruling 2026-08-19 (T-307.1): folder, GitHub repo, module id and route all
+  # unify on ONE name — `ai-ml-learning-resources` — overriding the charter's shorter
+  # `learning-resources`. The blueprint index records the override in place.
+  id: ai-ml-learning-resources
   title: AI/ML Learning Resources
 
 spec:
