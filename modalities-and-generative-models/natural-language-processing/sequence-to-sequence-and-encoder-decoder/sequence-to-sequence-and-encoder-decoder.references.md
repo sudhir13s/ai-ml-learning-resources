@@ -67,4 +67,4 @@ updated: 2026-06-27
 - Prior NLP step: [N-gram Language Models and Smoothing](../n-gram-language-models-and-smoothing/n-gram-language-models-and-smoothing.md) — the statistical predecessor neural seq2seq replaced.
 - Puts it to work: [Machine Translation](../machine-translation/machine-translation.md) · [Text Summarization](../text-summarization/text-summarization.md) · [Decoding Strategies](../decoding-strategies/decoding-strategies.md) · [NLP Evaluation Metrics](../nlp-evaluation-metrics/nlp-evaluation-metrics.md)
 - Connects forward: [KV Cache](../../../llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.md) — how encoder–decoder (and decoder-only) inference caches K/V, including the cross-attention cache.
-- Concept depth (the *why* behind attention scores): [ai-ml-intuitions 1.06 Scaled Dot-Product (attention scores)](../../../../ai-ml-intuitions/representation/similarity-and-distance/scaled-dot-product-intuition.md)
+- Concept depth (the *why* behind attention scores): [ai-ml-intuitions 4.16 Scaled Dot-Product Attention](../../../../ai-ml-intuitions/architectural-mechanisms/attention-and-routing/scaled-dot-product-attention-intuition.md)
