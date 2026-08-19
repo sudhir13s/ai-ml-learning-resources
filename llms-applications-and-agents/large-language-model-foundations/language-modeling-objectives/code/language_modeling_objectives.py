@@ -157,7 +157,7 @@ def demo_training() -> float:
     return loss.item()
 
 
-# --- Figure-support helpers (seeded; imported by make_figures_01.py / make_animation_01.py) ---
+# --- Figure-support helpers (seeded; imported by make_figures_01.py) ---
 # These produce the SAME numbers the page and notebook show, so every figure is reproducible
 # from this one source of truth and can never silently drift from the prose. They add no new
 # behaviour to the demos above -- they only expose the existing quantities as return values.

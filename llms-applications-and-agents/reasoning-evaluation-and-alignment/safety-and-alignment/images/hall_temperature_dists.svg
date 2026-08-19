@@ -1,0 +1,141 @@
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" font-family="DejaVu Sans, Verdana, sans-serif">
+  <!-- The temperature dial swept across the toy answer distribution, on one 12s SMIL clock:
+       hold at T = 0.50, sweep up to T = 1.00, hold, sweep up to T = 2.00, hold, then sweep
+       back down to T = 0.50 and loop — the same up-up-back sweep with holds at 0.5 / 1.0 /
+       2.0 that the GIF ran. The bar heights are interpolated continuously between the exact
+       softmax(z / T) values of the chapter's own toy question: ANSWER_VOCAB = (Austen,
+       Bronte, Dickens, Eliot, Hardy, Gaskell) with BASE_LOGITS = (4.0, 2.2, 2.0, 1.8, 1.6,
+       1.4) and SUPPORTED_IDX = 0, from code/hallucination_alignment.py. The supported
+       answer holds 0.93 of the mass at T = 0.50, 0.63 at T = 1.00 and only 0.37 at
+       T = 2.00 — the rest has leaked onto answers nothing supports. t = 0 is the readable
+       T = 0.50 frame. -->
+  <style>
+    .panel { font-size: 13px; font-weight: bold; fill: #1C2530; }
+    .lab   { font-size: 10.5px; fill: #4A5B6E; }
+    .name  { font-size: 11.5px; font-weight: bold; fill: #1C2530; }
+    .read  { font-size: 11.5px; font-family: "DejaVu Sans Mono", Menlo, monospace; font-weight: bold; fill: #1C2530; }
+  </style>
+
+  <rect x="0" y="0" width="900" height="460" fill="#ffffff"/>
+
+  <text x="450" y="26" text-anchor="middle" class="panel">Temperature bleeds mass off the supported answer</text>
+
+  <!-- the dial being swept, drawn so the sweep itself is visible -->
+  <text x="590" y="52" text-anchor="end" class="lab">temperature T</text>
+  <line x1="600" y1="48" x2="800" y2="48" stroke="#4A5B6E" stroke-width="1.4"/>
+  <g stroke="#4A5B6E" stroke-width="1">
+    <line x1="600" y1="43" x2="600" y2="53"/>
+    <line x1="666.7" y1="43" x2="666.7" y2="53"/>
+    <line x1="733.3" y1="43" x2="733.3" y2="53"/>
+    <line x1="800" y1="43" x2="800" y2="53"/>
+  </g>
+  <g class="lab" text-anchor="middle">
+    <text x="600" y="68">0.5</text>
+    <text x="666.7" y="68">1.0</text>
+    <text x="733.3" y="68">1.5</text>
+    <text x="800" y="68">2.0</text>
+  </g>
+  <circle cx="600" cy="48" r="6" fill="#7A6528">
+    <animate attributeName="cx" values="600;600;616.7;633.3;650;666.7;666.7;700;733.3;766.7;800;800;766.7;733.3;700;666.7;650;633.3;616.7;600" keyTimes="0;0.1;0.15;0.2;0.25;0.3;0.4;0.45;0.5;0.55;0.6;0.7;0.75;0.8;0.85;0.9;0.925;0.95;0.975;1" dur="12s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- probability axis: p = 0 at y = 360, p = 1.0 at y = 80 (280 px per unit) -->
+  <g stroke="#D4D9DF" stroke-width="0.8">
+    <line x1="120" y1="304" x2="800" y2="304"/>
+    <line x1="120" y1="248" x2="800" y2="248"/>
+    <line x1="120" y1="192" x2="800" y2="192"/>
+    <line x1="120" y1="136" x2="800" y2="136"/>
+    <line x1="120" y1="80" x2="800" y2="80"/>
+  </g>
+  <line x1="120" y1="80" x2="120" y2="360" stroke="#4A5B6E" stroke-width="1.1"/>
+  <line x1="120" y1="360" x2="800" y2="360" stroke="#4A5B6E" stroke-width="1.1"/>
+  <g class="lab" text-anchor="end">
+    <text x="113" y="364">0.0</text>
+    <text x="113" y="308">0.2</text>
+    <text x="113" y="252">0.4</text>
+    <text x="113" y="196">0.6</text>
+    <text x="113" y="140">0.8</text>
+    <text x="113" y="84">1.0</text>
+  </g>
+  <text x="52" y="220" class="lab" text-anchor="middle" transform="rotate(-90 52 220)">probability</text>
+
+  <!-- six bars: the supported answer in green, the five unsupported distractors in red -->
+  <rect x="135.7" y="98.7" width="82" height="261.3" fill="#2E7A5A" stroke="#ffffff" stroke-width="1">
+    <animate attributeName="y" values="98.7;98.7;119.4;142.2;163.7;182.4;182.4;211.3;231.2;245.3;255.6;255.6;245.3;231.2;211.3;182.4;163.7;142.2;119.4;98.7" keyTimes="0;0.1;0.15;0.2;0.25;0.3;0.4;0.45;0.5;0.55;0.6;0.7;0.75;0.8;0.85;0.9;0.925;0.95;0.975;1" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="height" values="261.3;261.3;240.6;217.8;196.3;177.6;177.6;148.7;128.8;114.7;104.4;104.4;114.7;128.8;148.7;177.6;196.3;217.8;240.6;261.3" keyTimes="0;0.1;0.15;0.2;0.25;0.3;0.4;0.45;0.5;0.55;0.6;0.7;0.75;0.8;0.85;0.9;0.925;0.95;0.975;1" dur="12s" repeatCount="indefinite"/>
+  </rect>
+
+  <rect x="249" y="352.9" width="82" height="7.1" fill="#8B3B4A" stroke="#ffffff" stroke-width="1">
+    <animate attributeName="y" values="352.9;352.9;346.5;340.2;334.9;330.6;330.6;324.7;321.2;319.0;317.6;317.6;319.0;321.2;324.7;330.6;334.9;340.2;346.5;352.9" keyTimes="0;0.1;0.15;0.2;0.25;0.3;0.4;0.45;0.5;0.55;0.6;0.7;0.75;0.8;0.85;0.9;0.925;0.95;0.975;1" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="height" values="7.1;7.1;13.5;19.8;25.1;29.4;29.4;35.3;38.8;41.0;42.4;42.4;41.0;38.8;35.3;29.4;25.1;19.8;13.5;7.1" keyTimes="0;0.1;0.15;0.2;0.25;0.3;0.4;0.45;0.5;0.55;0.6;0.7;0.75;0.8;0.85;0.9;0.925;0.95;0.975;1" dur="12s" repeatCount="indefinite"/>
+  </rect>
+
+  <rect x="362.3" y="355.2" width="82" height="4.8" fill="#8B3B4A" stroke="#ffffff" stroke-width="1">
+    <animate attributeName="y" values="355.2;355.2;350.2;344.9;340.0;336.0;336.0;330.0;326.1;323.4;321.6;321.6;323.4;326.1;330.0;336.0;340.0;344.9;350.2;355.2" keyTimes="0;0.1;0.15;0.2;0.25;0.3;0.4;0.45;0.5;0.55;0.6;0.7;0.75;0.8;0.85;0.9;0.925;0.95;0.975;1" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="height" values="4.8;4.8;9.8;15.1;20.0;24.0;24.0;30.0;33.9;36.6;38.4;38.4;36.6;33.9;30.0;24.0;20.0;15.1;9.8;4.8" keyTimes="0;0.1;0.15;0.2;0.25;0.3;0.4;0.45;0.5;0.55;0.6;0.7;0.75;0.8;0.85;0.9;0.925;0.95;0.975;1" dur="12s" repeatCount="indefinite"/>
+  </rect>
+
+  <rect x="475.7" y="356.8" width="82" height="3.2" fill="#8B3B4A" stroke="#ffffff" stroke-width="1">
+    <animate attributeName="y" values="356.8;356.8;352.9;348.4;344.1;340.3;340.3;334.4;330.3;327.4;325.2;325.2;327.4;330.3;334.4;340.3;344.1;348.4;352.9;356.8" keyTimes="0;0.1;0.15;0.2;0.25;0.3;0.4;0.45;0.5;0.55;0.6;0.7;0.75;0.8;0.85;0.9;0.925;0.95;0.975;1" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="height" values="3.2;3.2;7.1;11.6;15.9;19.7;19.7;25.6;29.7;32.6;34.8;34.8;32.6;29.7;25.6;19.7;15.9;11.6;7.1;3.2" keyTimes="0;0.1;0.15;0.2;0.25;0.3;0.4;0.45;0.5;0.55;0.6;0.7;0.75;0.8;0.85;0.9;0.925;0.95;0.975;1" dur="12s" repeatCount="indefinite"/>
+  </rect>
+
+  <rect x="589" y="357.8" width="82" height="2.2" fill="#8B3B4A" stroke="#ffffff" stroke-width="1">
+    <animate attributeName="y" values="357.8;357.8;354.8;351.1;347.4;343.9;343.9;338.2;334.0;330.9;328.6;328.6;330.9;334.0;338.2;343.9;347.4;351.1;354.8;357.8" keyTimes="0;0.1;0.15;0.2;0.25;0.3;0.4;0.45;0.5;0.55;0.6;0.7;0.75;0.8;0.85;0.9;0.925;0.95;0.975;1" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="height" values="2.2;2.2;5.2;8.9;12.6;16.1;16.1;21.8;26.0;29.1;31.4;31.4;29.1;26.0;21.8;16.1;12.6;8.9;5.2;2.2" keyTimes="0;0.1;0.15;0.2;0.25;0.3;0.4;0.45;0.5;0.55;0.6;0.7;0.75;0.8;0.85;0.9;0.925;0.95;0.975;1" dur="12s" repeatCount="indefinite"/>
+  </rect>
+
+  <rect x="702.3" y="358.6" width="82" height="1.4" fill="#8B3B4A" stroke="#ffffff" stroke-width="1">
+    <animate attributeName="y" values="358.6;358.6;356.2;353.2;349.9;346.8;346.8;341.4;337.2;334.0;331.5;331.5;334.0;337.2;341.4;346.8;349.9;353.2;356.2;358.6" keyTimes="0;0.1;0.15;0.2;0.25;0.3;0.4;0.45;0.5;0.55;0.6;0.7;0.75;0.8;0.85;0.9;0.925;0.95;0.975;1" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="height" values="1.4;1.4;3.8;6.8;10.1;13.2;13.2;18.6;22.8;26.0;28.5;28.5;26.0;22.8;18.6;13.2;10.1;6.8;3.8;1.4" keyTimes="0;0.1;0.15;0.2;0.25;0.3;0.4;0.45;0.5;0.55;0.6;0.7;0.75;0.8;0.85;0.9;0.925;0.95;0.975;1" dur="12s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- the six answers -->
+  <g text-anchor="middle">
+    <text x="176.7" y="380" class="name">Austen</text>
+    <text x="176.7" y="396" class="lab" fill="#2E7A5A">(supported)</text>
+    <text x="290" y="380" class="name">Bronte</text>
+    <text x="290" y="396" class="lab" fill="#8B3B4A">(wrong)</text>
+    <text x="403.3" y="380" class="name">Dickens</text>
+    <text x="403.3" y="396" class="lab" fill="#8B3B4A">(wrong)</text>
+    <text x="516.7" y="380" class="name">Eliot</text>
+    <text x="516.7" y="396" class="lab" fill="#8B3B4A">(wrong)</text>
+    <text x="630" y="380" class="name">Hardy</text>
+    <text x="630" y="396" class="lab" fill="#8B3B4A">(wrong)</text>
+    <text x="743.3" y="380" class="name">Gaskell</text>
+    <text x="743.3" y="396" class="lab" fill="#8B3B4A">(wrong)</text>
+  </g>
+
+  <!-- readout: one line per sampled temperature, only one visible at a time -->
+  <g text-anchor="middle" class="read">
+    <text x="450" y="428" opacity="1">T = 0.50    supported (green) mass = 0.93    → the rest leaks onto wrong answers (red)
+      <animate attributeName="opacity" values="1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1" keyTimes="0;0.1;0.15;0.2;0.25;0.3;0.4;0.45;0.5;0.55;0.6;0.7;0.75;0.8;0.85;0.9;0.925;0.95;0.975;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="450" y="428" opacity="0">T = 0.63    supported (green) mass = 0.86    → the rest leaks onto wrong answers (red)
+      <animate attributeName="opacity" values="0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0" keyTimes="0;0.1;0.15;0.2;0.25;0.3;0.4;0.45;0.5;0.55;0.6;0.7;0.75;0.8;0.85;0.9;0.925;0.95;0.975;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="450" y="428" opacity="0">T = 0.75    supported (green) mass = 0.78    → the rest leaks onto wrong answers (red)
+      <animate attributeName="opacity" values="0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0" keyTimes="0;0.1;0.15;0.2;0.25;0.3;0.4;0.45;0.5;0.55;0.6;0.7;0.75;0.8;0.85;0.9;0.925;0.95;0.975;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="450" y="428" opacity="0">T = 0.88    supported (green) mass = 0.70    → the rest leaks onto wrong answers (red)
+      <animate attributeName="opacity" values="0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0" keyTimes="0;0.1;0.15;0.2;0.25;0.3;0.4;0.45;0.5;0.55;0.6;0.7;0.75;0.8;0.85;0.9;0.925;0.95;0.975;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="450" y="428" opacity="0">T = 1.00    supported (green) mass = 0.63    → the rest leaks onto wrong answers (red)
+      <animate attributeName="opacity" values="0;0;0;0;0;1;1;0;0;0;0;0;0;0;0;1;0;0;0;0" keyTimes="0;0.1;0.15;0.2;0.25;0.3;0.4;0.45;0.5;0.55;0.6;0.7;0.75;0.8;0.85;0.9;0.925;0.95;0.975;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="450" y="428" opacity="0">T = 1.25    supported (green) mass = 0.53    → the rest leaks onto wrong answers (red)
+      <animate attributeName="opacity" values="0;0;0;0;0;0;0;1;0;0;0;0;0;0;1;0;0;0;0;0" keyTimes="0;0.1;0.15;0.2;0.25;0.3;0.4;0.45;0.5;0.55;0.6;0.7;0.75;0.8;0.85;0.9;0.925;0.95;0.975;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="450" y="428" opacity="0">T = 1.50    supported (green) mass = 0.46    → the rest leaks onto wrong answers (red)
+      <animate attributeName="opacity" values="0;0;0;0;0;0;0;0;1;0;0;0;0;1;0;0;0;0;0;0" keyTimes="0;0.1;0.15;0.2;0.25;0.3;0.4;0.45;0.5;0.55;0.6;0.7;0.75;0.8;0.85;0.9;0.925;0.95;0.975;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="450" y="428" opacity="0">T = 1.75    supported (green) mass = 0.41    → the rest leaks onto wrong answers (red)
+      <animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;1;0;0;1;0;0;0;0;0;0;0" keyTimes="0;0.1;0.15;0.2;0.25;0.3;0.4;0.45;0.5;0.55;0.6;0.7;0.75;0.8;0.85;0.9;0.925;0.95;0.975;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="450" y="428" opacity="0">T = 2.00    supported (green) mass = 0.37    → the rest leaks onto wrong answers (red)
+      <animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;0;1;1;0;0;0;0;0;0;0;0" keyTimes="0;0.1;0.15;0.2;0.25;0.3;0.4;0.45;0.5;0.55;0.6;0.7;0.75;0.8;0.85;0.9;0.925;0.95;0.975;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+  </g>
+
+  <text x="450" y="450" text-anchor="middle" class="lab">Softmax never assigns zero to a wrong answer, and raising T only widens that residue — which is the mechanism behind the rising unsupported-claim rate.</text>
+</svg>

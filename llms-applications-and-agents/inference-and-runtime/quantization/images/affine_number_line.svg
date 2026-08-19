@@ -1,0 +1,115 @@
+<svg viewBox="0 0 900 392" xmlns="http://www.w3.org/2000/svg" font-family="DejaVu Sans, Verdana, sans-serif">
+  <!-- The affine int8 map made literal, animated over a 12s SMIL loop: the six real values sit on
+       the number line from t=0 (so the first frame reads on its own), then one at a time each drops
+       onto its nearest tick of the int8 ruler — an amber arrow, a red square at x̂ = s·q, and the
+       integer q that is actually stored — before the full picture holds for the last third of the
+       loop. Same values, scale and grid as the chapter's static figure (tools/make_figures_10.py,
+       fig_affine_number_line): x = [-1.50, -0.30, 0.00,
+       0.42, 0.95, 2.10]; symmetric scale s = max|x|/127 = 0.016535 (0.01654 as the title rounds it),
+       zero-point z = 0; q = round(x/s) = [-91, -18, 0, 25, 57, 127]; x̂ = s·q = [-1.50472, -0.29764,
+       0.00000, 0.41339, 0.94252, 2.10000]. The grey ruler is the real q·s grid at 0.016535 spacing,
+       clipped to [-1.7, 2.3] exactly as the generator clipped it. -->
+  <style>
+    .title { font-size: 12.5px; fill: #4A5B6E; }
+    .lab   { font-size: 10.5px; fill: #4A5B6E; }
+    .mono  { font-size: 10.5px; font-family: "DejaVu Sans Mono", Menlo, monospace; fill: #4A5B6E; }
+    .tick  { font-size: 10px; fill: #4A5B6E; }
+  </style>
+
+  <defs>
+    <pattern id="int8grid" patternUnits="userSpaceOnUse" x="407.143" y="110" width="3.18897" height="230">
+      <rect x="0" y="0" width="0.6" height="230" fill="#D4D9DF"/>
+    </pattern>
+    <marker id="snap" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#7A6528"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="900" height="392" fill="#ffffff"/>
+
+  <text x="450" y="28" text-anchor="middle" class="title">Affine int8 (symmetric): s = max|x|/127 = 0.01654, z = 0</text>
+  <text x="450" y="46" text-anchor="middle" class="title">each x rounds to the nearest grid point q·s; the gap is the quantization error</text>
+
+  <!-- legend (fixed from the first frame, as in the generator) -->
+  <circle cx="80" cy="76" r="5.5" fill="#3A6B96"/>
+  <text x="94" y="80" class="lab">real value  x</text>
+  <rect x="74.5" y="90.5" width="11" height="11" fill="#8B3B4A"/>
+  <text x="94" y="100" class="lab">dequantized  x̂ = s·q</text>
+
+  <!-- the int8 ruler: every q·s tick between -1.7 and 2.3 -->
+  <rect x="79.3" y="110" width="771.4" height="230" fill="url(#int8grid)"/>
+
+  <!-- the zero line the values live on, and the axis -->
+  <line x1="60" y1="215" x2="870" y2="215" stroke="#4A5B6E" stroke-width="1.2"/>
+  <line x1="60" y1="340" x2="870" y2="340" stroke="#4A5B6E" stroke-width="1"/>
+  <g class="tick" text-anchor="middle" fill="#4A5B6E">
+    <text x="117.86" y="358">-1.5</text>
+    <text x="214.29" y="358">-1.0</text>
+    <text x="310.71" y="358">-0.5</text>
+    <text x="407.14" y="358">0.0</text>
+    <text x="503.57" y="358">0.5</text>
+    <text x="600.00" y="358">1.0</text>
+    <text x="696.43" y="358">1.5</text>
+    <text x="792.86" y="358">2.0</text>
+  </g>
+
+  <!-- the six real values, present from t=0 -->
+  <g fill="#3A6B96">
+    <circle cx="117.86" cy="180" r="5.5"/>
+    <circle cx="349.29" cy="180" r="5.5"/>
+    <circle cx="407.14" cy="180" r="5.5"/>
+    <circle cx="488.14" cy="180" r="5.5"/>
+    <circle cx="590.36" cy="180" r="5.5"/>
+    <circle cx="812.14" cy="180" r="5.5"/>
+  </g>
+  <g class="mono" text-anchor="middle" fill="#3A6B96">
+    <text x="117.86" y="164">-1.50</text>
+    <text x="349.29" y="164">-0.30</text>
+    <text x="407.14" y="164">0.00</text>
+    <text x="488.14" y="164">0.42</text>
+    <text x="590.36" y="164">0.95</text>
+    <text x="812.14" y="164">2.10</text>
+  </g>
+
+  <!-- one snap per phase: arrow down to the grid, red square at x̂, the stored integer q -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.118;0.138;1" dur="12s" repeatCount="indefinite"/>
+    <path d="M117.86 192 L116.95 238" stroke="#7A6528" stroke-width="1.1" marker-end="url(#snap)"/>
+    <rect x="111.45" y="244.5" width="11" height="11" fill="#8B3B4A"/>
+    <text x="116.95" y="292" text-anchor="middle" class="mono">q=-91</text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.225;0.245;1" dur="12s" repeatCount="indefinite"/>
+    <path d="M349.29 192 L349.74 238" stroke="#7A6528" stroke-width="1.1" marker-end="url(#snap)"/>
+    <rect x="344.24" y="244.5" width="11" height="11" fill="#8B3B4A"/>
+    <text x="349.74" y="292" text-anchor="middle" class="mono">q=-18</text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.332;0.352;1" dur="12s" repeatCount="indefinite"/>
+    <path d="M407.14 192 L407.14 238" stroke="#7A6528" stroke-width="1.1" marker-end="url(#snap)"/>
+    <rect x="401.64" y="244.5" width="11" height="11" fill="#8B3B4A"/>
+    <text x="407.14" y="292" text-anchor="middle" class="mono">q=0</text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.439;0.459;1" dur="12s" repeatCount="indefinite"/>
+    <path d="M488.14 192 L486.87 238" stroke="#7A6528" stroke-width="1.1" marker-end="url(#snap)"/>
+    <rect x="481.37" y="244.5" width="11" height="11" fill="#8B3B4A"/>
+    <text x="486.87" y="292" text-anchor="middle" class="mono">q=25</text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.546;0.566;1" dur="12s" repeatCount="indefinite"/>
+    <path d="M590.36 192 L588.91 238" stroke="#7A6528" stroke-width="1.1" marker-end="url(#snap)"/>
+    <rect x="583.41" y="244.5" width="11" height="11" fill="#8B3B4A"/>
+    <text x="588.91" y="292" text-anchor="middle" class="mono">q=57</text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.653;0.673;1" dur="12s" repeatCount="indefinite"/>
+    <path d="M812.14 192 L812.14 238" stroke="#7A6528" stroke-width="1.1" marker-end="url(#snap)"/>
+    <rect x="806.64" y="244.5" width="11" height="11" fill="#8B3B4A"/>
+    <text x="812.14" y="292" text-anchor="middle" class="mono">q=127</text>
+    <line x1="812.14" y1="150" x2="812.14" y2="170" stroke="#8B3B4A" stroke-width="1" stroke-dasharray="4 3"/>
+    <text x="866" y="144" text-anchor="end" class="lab" fill="#8B3B4A">the loudest value pins the scale: q = 127</text>
+  </g>
+
+  <text x="450" y="382" text-anchor="middle" class="lab">The stored tensor is the integer row q; x̂ = s·q is what you get back, and the arrow is the error — never more than half a tick, |x − x̂| ≤ s/2 = 0.00827.</text>
+</svg>

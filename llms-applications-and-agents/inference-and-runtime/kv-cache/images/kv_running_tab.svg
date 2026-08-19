@@ -1,4 +1,5 @@
 <svg viewBox="0 0 860 400" xmlns="http://www.w3.org/2000/svg" font-family="DejaVu Sans, Verdana, sans-serif">
+  <rect x="0" y="0" width="860" height="400" fill="#ffffff"/>
   <!-- Animated running-tab intuition (12s loop, 4 rounds, SMIL discrete).
        Left: no tab — every round the bartender re-adds EVERY receipt (whole pile
        flashes red, re-added counter climbs 1,3,6,10). Right: the tab — one line

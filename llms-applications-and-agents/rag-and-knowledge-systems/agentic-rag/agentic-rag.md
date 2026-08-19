@@ -130,7 +130,7 @@ the cook when the dish *needs* judgment — a compound or open-ended query — a
 card when the dish is always the same (a simple lookup). Using the cook for toast is the
 **over-agentic** mistake we'll name later.
 
-![The ReAct loop stepping through the compound query: a Thought appears (reason about what's needed), an Action fires (pick a tool — retrieve or calculator), the tool's real Observation comes back, and the running answer assembles fact by fact — retrieve the period, compute the count, retrieve the resolution, finish. The trace, tools, retrieval and arithmetic are the real agent's own output; only the Thought text is an illustrative LLM-policy stand-in.](../images/rag10_react_loop.gif)
+![The ReAct loop stepping through the compound query: a Thought appears (reason about what's needed), an Action fires (pick a tool — retrieve or calculator), the tool's real Observation comes back, and the running answer assembles fact by fact — retrieve the period, compute the count, retrieve the resolution, finish. The trace, tools, retrieval and arithmetic are the real agent's own output; only the Thought text is an illustrative LLM-policy stand-in. Hand-authored animated SVG (loops).](../images/rag10_react_loop.svg)
 
 ---
 

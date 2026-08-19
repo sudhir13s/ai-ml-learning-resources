@@ -1,0 +1,158 @@
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" font-family="DejaVu Sans, Verdana, sans-serif">
+  <!-- max|DeltaW| over 300 training steps, drawn on over a 12s SMIL loop. The trace is the
+       measured run this asset replaces: seed 0, d = 1024, r = 8, alpha = 16, 256 synthetic
+       samples whose true update has rank 4, Adam at lr 1e-2 - i.e. the same seeded construction
+       order as the chapter's lora_peft.py, reproduced from the retired make_animations_12
+       generator's _delta_growth_history(). Every plotted value is that run: 0.0000 at step 0 (B = 0), a
+       peak of 0.0939 at step 15, a dip to 0.0632 at step 29, then a plateau of 0.0679 that holds
+       from about step 150 to step 300. The curve is revealed left to right at a rate linear in
+       training step (0 -> 9.8s), the marker rides the same path, and the readout under the plot
+       reports the step and the value at the marker. The axes, the title, the step-0 annotation
+       and the green step-0 marker are static, so t=0 already carries the point of the figure. -->
+  <style>
+    .title  { font-size: 15px; font-weight: bold; fill: #1C2530; }
+    .axname { font-size: 11.5px; fill: #1C2530; }
+    .tick   { font-size: 10px; font-family: "DejaVu Sans Mono", Menlo, monospace; fill: #4A5B6E; }
+    .lab    { font-size: 10.5px; fill: #4A5B6E; }
+    .note   { font-size: 10.5px; fill: #1C2530; }
+    .read   { font-size: 12px; font-family: "DejaVu Sans Mono", Menlo, monospace; font-weight: bold; fill: #1C2530; }
+  </style>
+
+  <rect x="0" y="0" width="900" height="460" fill="#ffffff"/>
+
+  <text x="450" y="32" text-anchor="middle" class="title">&#916;W starts at exactly 0 (B = 0), then the adapter walks away</text>
+
+  <!-- ========== grid ========== -->
+  <g stroke="#D4D9DF" stroke-width="0.8">
+    <line x1="100" y1="372" x2="870" y2="372"/>
+    <line x1="100" y1="314" x2="870" y2="314"/>
+    <line x1="100" y1="256" x2="870" y2="256"/>
+    <line x1="100" y1="198" x2="870" y2="198"/>
+    <line x1="100" y1="140" x2="870" y2="140"/>
+    <line x1="100" y1="82"  x2="870" y2="82"/>
+    <line x1="228.3" y1="78" x2="228.3" y2="372"/>
+    <line x1="356.7" y1="78" x2="356.7" y2="372"/>
+    <line x1="485.0" y1="78" x2="485.0" y2="372"/>
+    <line x1="613.3" y1="78" x2="613.3" y2="372"/>
+    <line x1="741.7" y1="78" x2="741.7" y2="372"/>
+    <line x1="870.0" y1="78" x2="870.0" y2="372"/>
+  </g>
+
+  <!-- ========== axes ========== -->
+  <line x1="100" y1="78" x2="100" y2="372" stroke="#4A5B6E" stroke-width="1.2"/>
+  <line x1="100" y1="372" x2="870" y2="372" stroke="#4A5B6E" stroke-width="1.2"/>
+
+  <g class="tick" text-anchor="end">
+    <text x="92" y="376">0.00</text>
+    <text x="92" y="318">0.02</text>
+    <text x="92" y="260">0.04</text>
+    <text x="92" y="202">0.06</text>
+    <text x="92" y="144">0.08</text>
+    <text x="92" y="86">0.10</text>
+  </g>
+  <g class="tick" text-anchor="middle">
+    <text x="100" y="390">0</text>
+    <text x="228.3" y="390">50</text>
+    <text x="356.7" y="390">100</text>
+    <text x="485.0" y="390">150</text>
+    <text x="613.3" y="390">200</text>
+    <text x="741.7" y="390">250</text>
+    <text x="870.0" y="390">300</text>
+  </g>
+  <text x="485" y="412" text-anchor="middle" class="axname">training step</text>
+  <text x="30" y="225" text-anchor="middle" class="axname" transform="rotate(-90 30 225)">max|&#916;W| = max|(&#945;/r)&#183;B&#183;A|</text>
+
+  <!-- ========== the curve, drawn on left to right ========== -->
+  <path id="curve" fill="none" stroke="#5D4A8A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"
+        stroke-dasharray="1073.4" stroke-dashoffset="1073.4"
+        d="M 100.0 372.0 L 105.1 346.5 L 110.3 297.2 L 115.4 236.2 L 120.5 172.9 L 125.7 141.8 L 130.8 124.4 L 135.9 101.5 L 141.1 105.2 L 146.2 132.6 L 151.3 142.7 L 156.5 150.2 L 161.6 169.5 L 166.7 174.7 L 171.9 185.9 L 177.0 186.7 L 182.1 184.0 L 187.3 183.7 L 192.4 179.6 L 197.5 172.8 L 202.7 171.3 L 228.3 168.7 L 254.0 177.2 L 279.7 174.3 L 305.3 174.1 L 331.0 175.6 L 356.7 174.2 L 382.3 175.0 L 408.0 174.8 L 433.7 175.0 L 459.3 175.0 L 485.0 175.0 L 510.7 175.1 L 536.3 175.1 L 562.0 175.1 L 587.7 175.1 L 613.3 175.1 L 639.0 175.2 L 664.7 175.2 L 690.3 175.2 L 716.0 175.2 L 741.7 175.2 L 767.3 175.2 L 793.0 175.2 L 818.7 175.2 L 844.3 175.2 L 870.0 175.3">
+    <animate attributeName="stroke-dashoffset" dur="12s" repeatCount="indefinite"
+      values="1073.4;1047.4;997.8;936.6;873.1;841.6;823.4;799.9;793.6;765.7;754.4;745.3;725.4;718.0;705.7;700.5;694.7;689.6;683.0;674.4;669.1;643.3;616.3;590.4;564.8;539.1;513.3;487.7;462.0;436.3;410.7;385.0;359.3;333.7;308.0;282.3;256.7;231.0;205.3;179.7;154.0;128.3;102.7;77.0;51.3;25.7;0.0;0"
+      keyTimes="0.0000;0.0055;0.0109;0.0164;0.0219;0.0273;0.0328;0.0383;0.0437;0.0492;0.0547;0.0601;0.0656;0.0711;0.0765;0.0820;0.0875;0.0929;0.0984;0.1039;0.1093;0.1367;0.1640;0.1913;0.2187;0.2460;0.2733;0.3007;0.3280;0.3553;0.3827;0.4100;0.4373;0.4647;0.4920;0.5193;0.5467;0.5740;0.6013;0.6287;0.6560;0.6833;0.7107;0.7380;0.7653;0.7927;0.8200;1"/>
+  </path>
+
+  <!-- ========== the marker riding the same path, at the same step-linear rate ========== -->
+  <g>
+    <circle cx="0" cy="0" r="5.5" fill="#5D4A8A"/>
+    <animateMotion dur="12s" repeatCount="indefinite" calcMode="linear"
+      keyPoints="0.0000;0.0242;0.0704;0.1275;0.1866;0.2159;0.2329;0.2548;0.2606;0.2866;0.2972;0.3057;0.3242;0.3311;0.3425;0.3474;0.3528;0.3576;0.3637;0.3717;0.3766;0.4007;0.4259;0.4499;0.4738;0.4978;0.5217;0.5457;0.5696;0.5935;0.6174;0.6413;0.6652;0.6891;0.7131;0.7370;0.7609;0.7848;0.8087;0.8326;0.8565;0.8804;0.9044;0.9283;0.9522;0.9761;1.0000;1"
+      keyTimes="0.0000;0.0055;0.0109;0.0164;0.0219;0.0273;0.0328;0.0383;0.0437;0.0492;0.0547;0.0601;0.0656;0.0711;0.0765;0.0820;0.0875;0.0929;0.0984;0.1039;0.1093;0.1367;0.1640;0.1913;0.2187;0.2460;0.2733;0.3007;0.3280;0.3553;0.3827;0.4100;0.4373;0.4647;0.4920;0.5193;0.5467;0.5740;0.6013;0.6287;0.6560;0.6833;0.7107;0.7380;0.7653;0.7927;0.8200;1"
+      path="M 100.0 372.0 L 105.1 346.5 L 110.3 297.2 L 115.4 236.2 L 120.5 172.9 L 125.7 141.8 L 130.8 124.4 L 135.9 101.5 L 141.1 105.2 L 146.2 132.6 L 151.3 142.7 L 156.5 150.2 L 161.6 169.5 L 166.7 174.7 L 171.9 185.9 L 177.0 186.7 L 182.1 184.0 L 187.3 183.7 L 192.4 179.6 L 197.5 172.8 L 202.7 171.3 L 228.3 168.7 L 254.0 177.2 L 279.7 174.3 L 305.3 174.1 L 331.0 175.6 L 356.7 174.2 L 382.3 175.0 L 408.0 174.8 L 433.7 175.0 L 459.3 175.0 L 485.0 175.0 L 510.7 175.1 L 536.3 175.1 L 562.0 175.1 L 587.7 175.1 L 613.3 175.1 L 639.0 175.2 L 664.7 175.2 L 690.3 175.2 L 716.0 175.2 L 741.7 175.2 L 767.3 175.2 L 793.0 175.2 L 818.7 175.2 L 844.3 175.2 L 870.0 175.3"/>
+  </g>
+
+  <!-- ========== the point of the figure: step 0 is exactly zero ========== -->
+  <circle cx="100" cy="372" r="6.5" fill="#2E7A5A"/>
+  <path d="M196 236 C 160 260, 118 330, 106 366" fill="none" stroke="#4A5B6E" stroke-width="1.2" marker-end="url(#arw)"/>
+  <defs>
+    <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#4A5B6E"/>
+    </marker>
+  </defs>
+  <text x="200" y="228" class="note">step 0: max|&#916;W| = 0</text>
+  <text x="200" y="244" class="note">(B = 0 &#8594; the adapted layer</text>
+  <text x="200" y="260" class="note">IS the pretrained layer)</text>
+
+  <!-- ========== the readout, stepped in lockstep with the reveal ========== -->
+  <g class="read" text-anchor="middle">
+    <text x="450" y="442" opacity="1">step   0/300    max|&#916;W| = 0.0000
+      <animate attributeName="opacity" dur="12s" repeatCount="indefinite" calcMode="discrete"
+        values="1;0;0;0;0;0;0;0;0;0;0;0;1"
+        keyTimes="0;0.0137;0.0273;0.0410;0.0547;0.0820;0.1367;0.2733;0.4100;0.5467;0.6833;0.8200;1"/>
+    </text>
+    <text x="450" y="442" opacity="0">step   5/300    max|&#916;W| = 0.0368
+      <animate attributeName="opacity" dur="12s" repeatCount="indefinite" calcMode="discrete"
+        values="0;1;0;0;0;0;0;0;0;0;0;0;0"
+        keyTimes="0;0.0137;0.0273;0.0410;0.0547;0.0820;0.1367;0.2733;0.4100;0.5467;0.6833;0.8200;1"/>
+    </text>
+    <text x="450" y="442" opacity="0">step  10/300    max|&#916;W| = 0.0794
+      <animate attributeName="opacity" dur="12s" repeatCount="indefinite" calcMode="discrete"
+        values="0;0;1;0;0;0;0;0;0;0;0;0;0"
+        keyTimes="0;0.0137;0.0273;0.0410;0.0547;0.0820;0.1367;0.2733;0.4100;0.5467;0.6833;0.8200;1"/>
+    </text>
+    <text x="450" y="442" opacity="0">step  15/300    max|&#916;W| = 0.0939  &#8592; peak
+      <animate attributeName="opacity" dur="12s" repeatCount="indefinite" calcMode="discrete"
+        values="0;0;0;1;0;0;0;0;0;0;0;0;0"
+        keyTimes="0;0.0137;0.0273;0.0410;0.0547;0.0820;0.1367;0.2733;0.4100;0.5467;0.6833;0.8200;1"/>
+    </text>
+    <text x="450" y="442" opacity="0">step  20/300    max|&#916;W| = 0.0791
+      <animate attributeName="opacity" dur="12s" repeatCount="indefinite" calcMode="discrete"
+        values="0;0;0;0;1;0;0;0;0;0;0;0;0"
+        keyTimes="0;0.0137;0.0273;0.0410;0.0547;0.0820;0.1367;0.2733;0.4100;0.5467;0.6833;0.8200;1"/>
+    </text>
+    <text x="450" y="442" opacity="0">step  30/300    max|&#916;W| = 0.0639
+      <animate attributeName="opacity" dur="12s" repeatCount="indefinite" calcMode="discrete"
+        values="0;0;0;0;0;1;0;0;0;0;0;0;0"
+        keyTimes="0;0.0137;0.0273;0.0410;0.0547;0.0820;0.1367;0.2733;0.4100;0.5467;0.6833;0.8200;1"/>
+    </text>
+    <text x="450" y="442" opacity="0">step  50/300    max|&#916;W| = 0.0701
+      <animate attributeName="opacity" dur="12s" repeatCount="indefinite" calcMode="discrete"
+        values="0;0;0;0;0;0;1;0;0;0;0;0;0"
+        keyTimes="0;0.0137;0.0273;0.0410;0.0547;0.0820;0.1367;0.2733;0.4100;0.5467;0.6833;0.8200;1"/>
+    </text>
+    <text x="450" y="442" opacity="0">step 100/300    max|&#916;W| = 0.0682
+      <animate attributeName="opacity" dur="12s" repeatCount="indefinite" calcMode="discrete"
+        values="0;0;0;0;0;0;0;1;0;0;0;0;0"
+        keyTimes="0;0.0137;0.0273;0.0410;0.0547;0.0820;0.1367;0.2733;0.4100;0.5467;0.6833;0.8200;1"/>
+    </text>
+    <text x="450" y="442" opacity="0">step 150/300    max|&#916;W| = 0.0679
+      <animate attributeName="opacity" dur="12s" repeatCount="indefinite" calcMode="discrete"
+        values="0;0;0;0;0;0;0;0;1;0;0;0;0"
+        keyTimes="0;0.0137;0.0273;0.0410;0.0547;0.0820;0.1367;0.2733;0.4100;0.5467;0.6833;0.8200;1"/>
+    </text>
+    <text x="450" y="442" opacity="0">step 200/300    max|&#916;W| = 0.0679
+      <animate attributeName="opacity" dur="12s" repeatCount="indefinite" calcMode="discrete"
+        values="0;0;0;0;0;0;0;0;0;1;0;0;0"
+        keyTimes="0;0.0137;0.0273;0.0410;0.0547;0.0820;0.1367;0.2733;0.4100;0.5467;0.6833;0.8200;1"/>
+    </text>
+    <text x="450" y="442" opacity="0">step 250/300    max|&#916;W| = 0.0679
+      <animate attributeName="opacity" dur="12s" repeatCount="indefinite" calcMode="discrete"
+        values="0;0;0;0;0;0;0;0;0;0;1;0;0"
+        keyTimes="0;0.0137;0.0273;0.0410;0.0547;0.0820;0.1367;0.2733;0.4100;0.5467;0.6833;0.8200;1"/>
+    </text>
+    <text x="450" y="442" opacity="0">step 300/300    max|&#916;W| = 0.0678
+      <animate attributeName="opacity" dur="12s" repeatCount="indefinite" calcMode="discrete"
+        values="0;0;0;0;0;0;0;0;0;0;0;1;0"
+        keyTimes="0;0.0137;0.0273;0.0410;0.0547;0.0820;0.1367;0.2733;0.4100;0.5467;0.6833;0.8200;1"/>
+    </text>
+  </g>
+</svg>

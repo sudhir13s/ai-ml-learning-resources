@@ -1,0 +1,173 @@
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" font-family="DejaVu Sans, Verdana, sans-serif">
+  <!-- Autoregressive generation, animated in 5 discrete steps on one 12s SMIL clock.
+       Step e (e = 1..5) shows the sequence after e tokens have been emitted: the tokens
+       already generated are blue, the token emitted on THIS step is green, and the
+       positions not yet generated are grey "?". The lower panel is the next-token
+       distribution the step samples from. Every value is the toy setup the chapter, the
+       notebook and the static figures share: VOCAB = ["the","cat","sat","on","mat"] and
+       the emitted sequence "the cat sat on mat" from code/language_modeling_objectives.py,
+       with the fixed peaked distribution p(true) = 1.00 / 1.16 = 0.86 and p(other) =
+       0.04 / 1.16 = 0.03 for every other token. Nothing is invented. At t = 0 the first
+       token is already emitted, so the opening frame reads on its own. -->
+  <style>
+    .panel  { font-size: 13px; font-weight: bold; fill: #1C2530; }
+    .lab    { font-size: 10.5px; fill: #4A5B6E; }
+    .tok    { font-size: 15px; font-weight: bold; fill: #ffffff; }
+    .tokdim { font-size: 15px; font-weight: bold; fill: #7C8794; }
+    .axis   { font-size: 10.5px; fill: #4A5B6E; }
+    .step   { font-size: 12px; font-weight: bold; fill: #2E7A5A; }
+    .done   { font-size: 12px; font-weight: bold; fill: #3A6B96; }
+  </style>
+
+  <rect x="0" y="0" width="900" height="460" fill="#ffffff"/>
+
+  <text x="450" y="28" text-anchor="middle" class="panel">Autoregressive generation: one token at a time, conditioned on the past</text>
+
+  <!-- ===================== the sequence built so far ===================== -->
+  <!-- box i spans x = 155 + 120i, width 110. Fill: green on the step that emitted it,
+       blue once it is past, grey while it is still unwritten. -->
+  <g>
+    <rect x="155" y="48" width="110" height="42" rx="4" fill="#2E7A5A" stroke="#ffffff" stroke-width="1.2">
+      <animate attributeName="fill" values="#2E7A5A;#3A6B96;#3A6B96;#3A6B96;#3A6B96;#2E7A5A" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </rect>
+    <text x="210" y="76" text-anchor="middle" class="tok">the</text>
+  </g>
+
+  <g>
+    <rect x="275" y="48" width="110" height="42" rx="4" fill="#EAECEF" stroke="#ffffff" stroke-width="1.2">
+      <animate attributeName="fill" values="#EAECEF;#2E7A5A;#3A6B96;#3A6B96;#3A6B96;#EAECEF" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </rect>
+    <text x="330" y="76" text-anchor="middle" class="tokdim" opacity="1">?
+      <animate attributeName="opacity" values="1;0;0;0;0;1" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="330" y="76" text-anchor="middle" class="tok" opacity="0">cat
+      <animate attributeName="opacity" values="0;1;1;1;1;0" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+  </g>
+
+  <g>
+    <rect x="395" y="48" width="110" height="42" rx="4" fill="#EAECEF" stroke="#ffffff" stroke-width="1.2">
+      <animate attributeName="fill" values="#EAECEF;#EAECEF;#2E7A5A;#3A6B96;#3A6B96;#EAECEF" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </rect>
+    <text x="450" y="76" text-anchor="middle" class="tokdim" opacity="1">?
+      <animate attributeName="opacity" values="1;1;0;0;0;1" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="450" y="76" text-anchor="middle" class="tok" opacity="0">sat
+      <animate attributeName="opacity" values="0;0;1;1;1;0" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+  </g>
+
+  <g>
+    <rect x="515" y="48" width="110" height="42" rx="4" fill="#EAECEF" stroke="#ffffff" stroke-width="1.2">
+      <animate attributeName="fill" values="#EAECEF;#EAECEF;#EAECEF;#2E7A5A;#3A6B96;#EAECEF" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </rect>
+    <text x="570" y="76" text-anchor="middle" class="tokdim" opacity="1">?
+      <animate attributeName="opacity" values="1;1;1;0;0;1" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="570" y="76" text-anchor="middle" class="tok" opacity="0">on
+      <animate attributeName="opacity" values="0;0;0;1;1;0" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+  </g>
+
+  <g>
+    <rect x="635" y="48" width="110" height="42" rx="4" fill="#EAECEF" stroke="#ffffff" stroke-width="1.2">
+      <animate attributeName="fill" values="#EAECEF;#EAECEF;#EAECEF;#EAECEF;#2E7A5A;#EAECEF" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </rect>
+    <text x="690" y="76" text-anchor="middle" class="tokdim" opacity="1">?
+      <animate attributeName="opacity" values="1;1;1;1;0;1" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="690" y="76" text-anchor="middle" class="tok" opacity="0">mat
+      <animate attributeName="opacity" values="0;0;0;0;1;0" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+  </g>
+
+  <!-- the context bracket: spans exactly the tokens the next prediction may see -->
+  <g opacity="1">
+    <animate attributeName="opacity" values="1;1;1;1;0;1" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <line x1="155" y1="100" x2="265" y2="100" stroke="#4A5B6E" stroke-width="1.4">
+      <animate attributeName="x2" values="265;385;505;625;625;265" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </line>
+    <text x="210" y="116" text-anchor="middle" class="lab">context so far (the past) — see only this
+      <animate attributeName="x" values="210;270;330;390;390;210" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+  </g>
+
+  <!-- ===================== the next-token distribution ===================== -->
+  <!-- one step caption per phase; only one is visible at a time -->
+  <text x="450" y="142" text-anchor="middle" class="step" opacity="1">step 2: predict next token  →  emit 'cat'  (p = 0.86)
+    <animate attributeName="opacity" values="1;0;0;0;0;1" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="450" y="142" text-anchor="middle" class="step" opacity="0">step 3: predict next token  →  emit 'sat'  (p = 0.86)
+    <animate attributeName="opacity" values="0;1;0;0;0;0" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="450" y="142" text-anchor="middle" class="step" opacity="0">step 4: predict next token  →  emit 'on'  (p = 0.86)
+    <animate attributeName="opacity" values="0;0;1;0;0;0" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="450" y="142" text-anchor="middle" class="step" opacity="0">step 5: predict next token  →  emit 'mat'  (p = 0.86)
+    <animate attributeName="opacity" values="0;0;0;1;0;0" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="450" y="142" text-anchor="middle" class="done" opacity="0">sequence complete — 'the cat sat on mat' generated left-to-right
+    <animate attributeName="opacity" values="0;0;0;0;1;0" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+
+  <!-- gridlines and axes: p = 0 at y = 408, p = 1.05 at y = 158 (238.1 px per unit p) -->
+  <g stroke="#D4D9DF" stroke-width="0.8">
+    <line x1="150" y1="169.9" x2="800" y2="169.9"/>
+    <line x1="150" y1="217.5" x2="800" y2="217.5"/>
+    <line x1="150" y1="265.1" x2="800" y2="265.1"/>
+    <line x1="150" y1="312.8" x2="800" y2="312.8"/>
+    <line x1="150" y1="360.4" x2="800" y2="360.4"/>
+  </g>
+  <g class="axis" text-anchor="end">
+    <text x="143" y="173">1.0</text>
+    <text x="143" y="221">0.8</text>
+    <text x="143" y="269">0.6</text>
+    <text x="143" y="316">0.4</text>
+    <text x="143" y="364">0.2</text>
+    <text x="143" y="412">0.0</text>
+  </g>
+  <line x1="150" y1="158" x2="150" y2="408" stroke="#4A5B6E" stroke-width="1.1"/>
+  <line x1="150" y1="408" x2="800" y2="408" stroke="#4A5B6E" stroke-width="1.1"/>
+  <text x="70" y="283" class="axis" text-anchor="middle" transform="rotate(-90 70 283)">p(next token)</text>
+
+  <!-- five bars: p = 0.86 for the arg-max token (green), p = 0.03 for every other, all
+       zero on the final frame where nothing is left to predict -->
+  <rect x="175" y="399.8" width="70" height="8.2" fill="#4A5B6E" fill-opacity="0.4" stroke="#ffffff" stroke-width="0.8">
+    <animate attributeName="y" values="399.8;399.8;399.8;399.8;408;399.8" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="height" values="8.2;8.2;8.2;8.2;0;8.2" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="295" y="202.8" width="70" height="205.2" fill="#2E7A5A" fill-opacity="1" stroke="#ffffff" stroke-width="0.8">
+    <animate attributeName="y" values="202.8;399.8;399.8;399.8;408;202.8" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="height" values="205.2;8.2;8.2;8.2;0;205.2" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="fill" values="#2E7A5A;#4A5B6E;#4A5B6E;#4A5B6E;#4A5B6E;#2E7A5A" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="fill-opacity" values="1;0.4;0.4;0.4;0.4;1" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="415" y="399.8" width="70" height="8.2" fill="#4A5B6E" fill-opacity="0.4" stroke="#ffffff" stroke-width="0.8">
+    <animate attributeName="y" values="399.8;202.8;399.8;399.8;408;399.8" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="height" values="8.2;205.2;8.2;8.2;0;8.2" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="fill" values="#4A5B6E;#2E7A5A;#4A5B6E;#4A5B6E;#4A5B6E;#4A5B6E" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="fill-opacity" values="0.4;1;0.4;0.4;0.4;0.4" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="535" y="399.8" width="70" height="8.2" fill="#4A5B6E" fill-opacity="0.4" stroke="#ffffff" stroke-width="0.8">
+    <animate attributeName="y" values="399.8;399.8;202.8;399.8;408;399.8" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="height" values="8.2;8.2;205.2;8.2;0;8.2" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="fill" values="#4A5B6E;#4A5B6E;#2E7A5A;#4A5B6E;#4A5B6E;#4A5B6E" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="fill-opacity" values="0.4;0.4;1;0.4;0.4;0.4" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="655" y="399.8" width="70" height="8.2" fill="#4A5B6E" fill-opacity="0.4" stroke="#ffffff" stroke-width="0.8">
+    <animate attributeName="y" values="399.8;399.8;399.8;202.8;408;399.8" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="height" values="8.2;8.2;8.2;205.2;0;8.2" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="fill" values="#4A5B6E;#4A5B6E;#4A5B6E;#2E7A5A;#4A5B6E;#4A5B6E" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="fill-opacity" values="0.4;0.4;0.4;1;0.4;0.4" keyTimes="0;0.162;0.324;0.485;0.647;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </rect>
+
+  <g class="axis" text-anchor="middle" font-size="11">
+    <text x="210" y="426">'the'</text>
+    <text x="330" y="426">'cat'</text>
+    <text x="450" y="426">'sat'</text>
+    <text x="570" y="426">'on'</text>
+    <text x="690" y="426">'mat'</text>
+  </g>
+
+  <text x="450" y="450" text-anchor="middle" class="lab">Each emitted token is appended to the context, and the next prediction conditions on that longer past — see only backwards, predict forward.</text>
+</svg>

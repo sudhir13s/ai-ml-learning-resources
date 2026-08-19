@@ -1,0 +1,151 @@
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" font-family="DejaVu Sans, Verdana, sans-serif">
+  <!-- Contrastive training, replayed as one 12s SMIL loop. Every coordinate is a real
+       snapshot of the chapter's own DenseBiEncoder + InfoNCE run (code/embedding_models.py,
+       SEED = 0, Adam lr = 0.03, temperature as shipped), trained on the four PARAPHRASE_PAIRS
+       and projected onto the FIXED 2D basis the run's converged geometry defines - the same
+       recipe the retired code/make_animation_03.py used, so the markers trace the same path
+       the GIF did. The loss and the two cosines in the right-hand table are that run's own
+       numbers at those steps. Markers start at their step-0 positions, so t=0 is readable. -->
+  <style>
+    .panel  { font-size: 13px; font-weight: bold; fill: #1C2530; }
+    .lab    { font-size: 10.5px; fill: #4A5B6E; }
+    .mono   { font-size: 10.5px; font-family: "DejaVu Sans Mono", Menlo, monospace; fill: #1C2530; }
+    .monodim{ font-size: 10.5px; font-family: "DejaVu Sans Mono", Menlo, monospace; fill: #7C8794; }
+    .score  { font-size: 10.5px; font-family: "DejaVu Sans Mono", Menlo, monospace; font-weight: bold; fill: #2E7A5A; }
+  </style>
+
+  <rect x="0" y="0" width="900" height="460" fill="#ffffff"/>
+  <rect x="10" y="10" width="460" height="440" rx="6" fill="#fbfbfc" stroke="#D4D9DF"/>
+  <rect x="484" y="10" width="406" height="440" rx="6" fill="#fbfbfc" stroke="#D4D9DF"/>
+
+  <!-- ===================== LEFT: the embedding space, moving ===================== -->
+  <text x="28" y="34" class="panel">Contrastive training pulls paraphrases together</text>
+  <text x="28" y="50" class="lab">circle = query · square = its paraphrase passage · colour = pair</text>
+
+  <rect x="45" y="55" width="380" height="380" fill="#ffffff" stroke="#D4D9DF"/>
+  <line x1="235" y1="55" x2="235" y2="435" stroke="#EEF1F4"/>
+  <line x1="45" y1="245" x2="425" y2="245" stroke="#EEF1F4"/>
+
+  <!-- connectors (each query to its own passage) -->
+  <g fill="none" stroke-width="1.4" opacity="0.55">
+    <path stroke="#3A6B96" d="M184.5 196.2 L209.4 167.0">
+      <animate attributeName="d" dur="12s" repeatCount="indefinite"
+        keyTimes="0;0.08;0.16;0.26;0.38;0.52;0.96;0.98;1"
+        values="M184.5 196.2 L209.4 167.0;M165.2 156.4 L138.0 150.9;M156.6 145.2 L133.2 155.4;M151.7 139.4 L131.1 156.6;M149.2 139.1 L131.1 156.2;M146.1 137.3 L133.5 150.6;M146.1 137.3 L133.5 150.6;M184.5 196.2 L209.4 167.0;M184.5 196.2 L209.4 167.0"/>
+    </path>
+    <path stroke="#2E7A5A" d="M323.1 209.9 L307.9 229.5">
+      <animate attributeName="d" dur="12s" repeatCount="indefinite"
+        keyTimes="0;0.08;0.16;0.26;0.38;0.52;0.96;0.98;1"
+        values="M323.1 209.9 L307.9 229.5;M337.8 238.6 L354.8 176.0;M334.3 233.1 L358.9 171.7;M333.8 227.3 L363.0 170.6;M334.5 222.9 L364.7 169.8;M336.0 211.3 L365.5 165.8;M336.0 211.3 L365.5 165.8;M323.1 209.9 L307.9 229.5;M323.1 209.9 L307.9 229.5"/>
+    </path>
+    <path stroke="#7A6528" d="M167.2 297.6 L176.4 289.9">
+      <animate attributeName="d" dur="12s" repeatCount="indefinite"
+        keyTimes="0;0.08;0.16;0.26;0.38;0.52;0.96;0.98;1"
+        values="M167.2 297.6 L176.4 289.9;M138.5 344.3 L147.7 333.3;M139.5 344.2 L146.1 332.3;M139.0 344.3 L142.4 332.8;M138.1 344.2 L139.8 332.6;M136.2 344.2 L134.0 332.1;M136.2 344.2 L134.0 332.1;M167.2 297.6 L176.4 289.9;M167.2 297.6 L176.4 289.9"/>
+    </path>
+    <path stroke="#5D4A8A" d="M273.8 294.3 L262.4 313.8">
+      <animate attributeName="d" dur="12s" repeatCount="indefinite"
+        keyTimes="0;0.08;0.16;0.26;0.38;0.52;0.96;0.98;1"
+        values="M273.8 294.3 L262.4 313.8;M294.9 350.3 L304.6 315.1;M300.2 345.6 L303.0 319.9;M305.3 342.0 L305.0 323.7;M307.3 341.0 L306.9 324.0;M308.8 341.4 L311.4 323.5;M308.8 341.4 L311.4 323.5;M273.8 294.3 L262.4 313.8;M273.8 294.3 L262.4 313.8"/>
+    </path>
+  </g>
+
+  <!-- queries (circles) -->
+  <g stroke="#1C2530" stroke-width="1">
+    <circle r="9" fill="#3A6B96" transform="translate(184.5,196.2)">
+      <animateTransform attributeName="transform" type="translate" dur="12s" repeatCount="indefinite"
+        keyTimes="0;0.08;0.16;0.26;0.38;0.52;0.96;0.98;1"
+        values="184.5 196.2;165.2 156.4;156.6 145.2;151.7 139.4;149.2 139.1;146.1 137.3;146.1 137.3;184.5 196.2;184.5 196.2"/>
+    </circle>
+    <circle r="9" fill="#2E7A5A" transform="translate(323.1,209.9)">
+      <animateTransform attributeName="transform" type="translate" dur="12s" repeatCount="indefinite"
+        keyTimes="0;0.08;0.16;0.26;0.38;0.52;0.96;0.98;1"
+        values="323.1 209.9;337.8 238.6;334.3 233.1;333.8 227.3;334.5 222.9;336.0 211.3;336.0 211.3;323.1 209.9;323.1 209.9"/>
+    </circle>
+    <circle r="9" fill="#7A6528" transform="translate(167.2,297.6)">
+      <animateTransform attributeName="transform" type="translate" dur="12s" repeatCount="indefinite"
+        keyTimes="0;0.08;0.16;0.26;0.38;0.52;0.96;0.98;1"
+        values="167.2 297.6;138.5 344.3;139.5 344.2;139.0 344.3;138.1 344.2;136.2 344.2;136.2 344.2;167.2 297.6;167.2 297.6"/>
+    </circle>
+    <circle r="9" fill="#5D4A8A" transform="translate(273.8,294.3)">
+      <animateTransform attributeName="transform" type="translate" dur="12s" repeatCount="indefinite"
+        keyTimes="0;0.08;0.16;0.26;0.38;0.52;0.96;0.98;1"
+        values="273.8 294.3;294.9 350.3;300.2 345.6;305.3 342.0;307.3 341.0;308.8 341.4;308.8 341.4;273.8 294.3;273.8 294.3"/>
+    </circle>
+  </g>
+
+  <!-- passages (squares) -->
+  <g stroke="#1C2530" stroke-width="1">
+    <rect x="-8" y="-8" width="16" height="16" fill="#3A6B96" transform="translate(209.4,167.0)">
+      <animateTransform attributeName="transform" type="translate" dur="12s" repeatCount="indefinite"
+        keyTimes="0;0.08;0.16;0.26;0.38;0.52;0.96;0.98;1"
+        values="209.4 167.0;138.0 150.9;133.2 155.4;131.1 156.6;131.1 156.2;133.5 150.6;133.5 150.6;209.4 167.0;209.4 167.0"/>
+    </rect>
+    <rect x="-8" y="-8" width="16" height="16" fill="#2E7A5A" transform="translate(307.9,229.5)">
+      <animateTransform attributeName="transform" type="translate" dur="12s" repeatCount="indefinite"
+        keyTimes="0;0.08;0.16;0.26;0.38;0.52;0.96;0.98;1"
+        values="307.9 229.5;354.8 176.0;358.9 171.7;363.0 170.6;364.7 169.8;365.5 165.8;365.5 165.8;307.9 229.5;307.9 229.5"/>
+    </rect>
+    <rect x="-8" y="-8" width="16" height="16" fill="#7A6528" transform="translate(176.4,289.9)">
+      <animateTransform attributeName="transform" type="translate" dur="12s" repeatCount="indefinite"
+        keyTimes="0;0.08;0.16;0.26;0.38;0.52;0.96;0.98;1"
+        values="176.4 289.9;147.7 333.3;146.1 332.3;142.4 332.8;139.8 332.6;134.0 332.1;134.0 332.1;176.4 289.9;176.4 289.9"/>
+    </rect>
+    <rect x="-8" y="-8" width="16" height="16" fill="#5D4A8A" transform="translate(262.4,313.8)">
+      <animateTransform attributeName="transform" type="translate" dur="12s" repeatCount="indefinite"
+        keyTimes="0;0.08;0.16;0.26;0.38;0.52;0.96;0.98;1"
+        values="262.4 313.8;304.6 315.1;303.0 319.9;305.0 323.7;306.9 324.0;311.4 323.5;311.4 323.5;262.4 313.8;262.4 313.8"/>
+    </rect>
+  </g>
+
+  <text x="235" y="447" class="lab" text-anchor="middle">2D projection on a fixed basis from the converged geometry</text>
+
+  <!-- ===================== RIGHT: the four pairs and the numbers ===================== -->
+  <text x="502" y="34" class="panel">The four pairs — no shared content words</text>
+
+  <rect x="502" y="46" width="10" height="10" fill="#3A6B96" stroke="#1C2530"/>
+  <text x="520" y="55" class="mono">"how do I reset my password"</text>
+  <text x="520" y="69" class="monodim">"I forgot my login credentials"</text>
+
+  <rect x="502" y="80" width="10" height="10" fill="#2E7A5A" stroke="#1C2530"/>
+  <text x="520" y="89" class="mono">"the car will not start"</text>
+  <text x="520" y="103" class="monodim">"my automobile won't turn on"</text>
+
+  <rect x="502" y="114" width="10" height="10" fill="#7A6528" stroke="#1C2530"/>
+  <text x="520" y="123" class="mono">"what is the refund policy"</text>
+  <text x="520" y="137" class="monodim">"how do I get my money back"</text>
+
+  <rect x="502" y="148" width="10" height="10" fill="#5D4A8A" stroke="#1C2530"/>
+  <text x="520" y="157" class="mono">"the flight was delayed"</text>
+  <text x="520" y="171" class="monodim">"my plane departed late"</text>
+
+  <text x="502" y="204" class="panel">What the run reports at each snapshot</text>
+
+  <!-- the highlight bar walks down the table in step with the motion -->
+  <rect x="502" y="222" width="372" height="20" rx="3" fill="#2E7A5A" fill-opacity="0.14" stroke="#2E7A5A">
+    <animate attributeName="y" dur="12s" repeatCount="indefinite" calcMode="discrete"
+      keyTimes="0;0.08;0.16;0.26;0.38;0.52;0.96;0.98;1"
+      values="222;244;266;288;310;332;332;222;222"/>
+  </rect>
+
+  <g class="monodim" text-anchor="end">
+    <text x="548" y="216">step</text><text x="648" y="216">loss</text>
+    <text x="756" y="216">cos(q,p)</text><text x="864" y="216">cos(other)</text>
+  </g>
+  <g class="mono" text-anchor="end">
+    <text x="548" y="236">0</text><text x="648" y="236">3.8620</text><text x="756" y="236">+0.154</text><text x="864" y="236">+0.094</text>
+    <text x="548" y="258">12</text><text x="648" y="258">0.0058</text><text x="756" y="258">+0.535</text><text x="864" y="258">-0.117</text>
+    <text x="548" y="280">24</text><text x="648" y="280">0.0021</text><text x="756" y="280">+0.529</text><text x="864" y="280">-0.140</text>
+    <text x="548" y="302">48</text><text x="648" y="302">0.0007</text><text x="756" y="302">+0.542</text><text x="864" y="302">-0.155</text>
+    <text x="548" y="324">96</text><text x="648" y="324">0.0003</text><text x="756" y="324">+0.578</text><text x="864" y="324">-0.175</text>
+  </g>
+  <g class="score" text-anchor="end">
+    <text x="548" y="346">480</text><text x="648" y="346">0.0000</text><text x="756" y="346">+0.647</text><text x="864" y="346">-0.208</text>
+  </g>
+  <text x="502" y="366" class="lab">cos(q,p) = a query against its own paraphrase;</text>
+  <text x="502" y="381" class="lab">cos(other) = the same query against the other three.</text>
+
+  <text x="502" y="405" class="lab">One loss does both jobs. InfoNCE raises the true pair's score</text>
+  <text x="502" y="420" class="lab">against every other passage in the batch, so a query and its</text>
+  <text x="502" y="435" class="lab">paraphrase converge while the four pairs push apart.</text>
+</svg>

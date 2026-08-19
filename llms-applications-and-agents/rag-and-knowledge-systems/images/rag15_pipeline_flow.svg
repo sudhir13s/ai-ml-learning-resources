@@ -1,0 +1,137 @@
+<svg viewBox="0 0 900 462" xmlns="http://www.w3.org/2000/svg" font-family="DejaVu Sans, Verdana, sans-serif">
+  <!-- One app.run() animated over a 12s SMIL loop: the five chain steps light up left to right
+       (ROUTE -> RETRIEVE -> RERANK -> GUARDRAIL -> GENERATE), each adding its field to the state
+       ribbon (query -> +route -> +retrieved -> +context -> +grounding -> +answer) and printing its
+       real trace line, then the answer assembles and holds. Every trace line, the route cosine
+       0.552, the retrieved candidates [1, 0, 2, 10], the reranked survivors [1, 10] and the
+       guardrail's context relevance 0.817 are pasted output of code/orchestration.py, as executed
+       in code/15-LLM-App-Orchestration.ipynb; only the GENERATE answer text is an illustrative LLM
+       stand-in, as the footer states. t=0 already shows the query, the full chain and the state
+       ribbon, so the first frame reads on its own. -->
+  <style>
+    .title  { font-size: 14px; font-weight: bold; fill: #1C2530; }
+    .panel  { font-size: 13px; font-weight: bold; fill: #1C2530; }
+    .lab    { font-size: 10.5px; fill: #4A5B6E; }
+    .mono   { font-size: 10.5px; font-family: "DejaVu Sans Mono", Menlo, monospace; fill: #1C2530; }
+    .monodim{ font-size: 10.5px; font-family: "DejaVu Sans Mono", Menlo, monospace; fill: #7C8794; }
+    .node   { font-size: 11px; font-weight: bold; fill: #ffffff; }
+    .field  { font-size: 11.5px; font-family: "DejaVu Sans Mono", Menlo, monospace; font-weight: bold; fill: #1C2530; }
+    .ans    { font-size: 11.5px; font-family: "DejaVu Sans Mono", Menlo, monospace; font-weight: bold; fill: #2E7A5A; }
+  </style>
+
+  <defs>
+    <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#1C2530"/>
+    </marker>
+    <marker id="arwdim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#D4D9DF"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="900" height="462" fill="#ffffff"/>
+
+  <text x="450" y="28" text-anchor="middle" class="title">Orchestration: state flows through the chain, one step at a time</text>
+  <text x="30" y="52" class="mono" fill="#3A6B96" font-weight="bold">query: What is the ground resolution of the Helios-7 imager?</text>
+
+  <!-- ===================== the chain: five nodes, grey until reached ===================== -->
+  <g>
+    <rect x="30" y="66" width="152" height="46" rx="4" fill="#4A5B6E" fill-opacity="0.22" stroke="#D4D9DF"/>
+    <text x="106" y="94" text-anchor="middle" class="node" fill="#7C8794">ROUTE</text>
+    <rect x="202" y="66" width="152" height="46" rx="4" fill="#4A5B6E" fill-opacity="0.22" stroke="#D4D9DF"/>
+    <text x="278" y="94" text-anchor="middle" class="node" fill="#7C8794">RETRIEVE</text>
+    <rect x="374" y="66" width="152" height="46" rx="4" fill="#4A5B6E" fill-opacity="0.22" stroke="#D4D9DF"/>
+    <text x="450" y="94" text-anchor="middle" class="node" fill="#7C8794">RERANK</text>
+    <rect x="546" y="66" width="152" height="46" rx="4" fill="#4A5B6E" fill-opacity="0.22" stroke="#D4D9DF"/>
+    <text x="622" y="94" text-anchor="middle" class="node" fill="#7C8794">GUARDRAIL</text>
+    <rect x="718" y="66" width="152" height="46" rx="4" fill="#4A5B6E" fill-opacity="0.22" stroke="#D4D9DF"/>
+    <text x="794" y="94" text-anchor="middle" class="node" fill="#7C8794">GENERATE</text>
+    <path d="M184 89 L200 89" stroke="#D4D9DF" stroke-width="1.5" marker-end="url(#arwdim)"/>
+    <path d="M356 89 L372 89" stroke="#D4D9DF" stroke-width="1.5" marker-end="url(#arwdim)"/>
+    <path d="M528 89 L544 89" stroke="#D4D9DF" stroke-width="1.5" marker-end="url(#arwdim)"/>
+    <path d="M700 89 L716 89" stroke="#D4D9DF" stroke-width="1.5" marker-end="url(#arwdim)"/>
+  </g>
+
+  <!-- each node lights (full-strength fill, white label) when it runs, and stays lit -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.06;0.08;1" dur="12s" repeatCount="indefinite"/>
+    <rect x="30" y="66" width="152" height="46" rx="4" fill="#7A6528" stroke="#1C2530" stroke-width="1.4"/>
+    <text x="106" y="94" text-anchor="middle" class="node">ROUTE</text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.19;0.21;1" dur="12s" repeatCount="indefinite"/>
+    <path d="M184 89 L200 89" stroke="#1C2530" stroke-width="1.5" marker-end="url(#arw)"/>
+    <rect x="202" y="66" width="152" height="46" rx="4" fill="#3A6B96" stroke="#1C2530" stroke-width="1.4"/>
+    <text x="278" y="94" text-anchor="middle" class="node">RETRIEVE</text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.32;0.34;1" dur="12s" repeatCount="indefinite"/>
+    <path d="M356 89 L372 89" stroke="#1C2530" stroke-width="1.5" marker-end="url(#arw)"/>
+    <rect x="374" y="66" width="152" height="46" rx="4" fill="#3A6B96" stroke="#1C2530" stroke-width="1.4"/>
+    <text x="450" y="94" text-anchor="middle" class="node">RERANK</text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.45;0.47;1" dur="12s" repeatCount="indefinite"/>
+    <path d="M528 89 L544 89" stroke="#1C2530" stroke-width="1.5" marker-end="url(#arw)"/>
+    <rect x="546" y="66" width="152" height="46" rx="4" fill="#2E7A5A" stroke="#1C2530" stroke-width="1.4"/>
+    <text x="622" y="94" text-anchor="middle" class="node">GUARDRAIL</text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.58;0.60;1" dur="12s" repeatCount="indefinite"/>
+    <path d="M700 89 L716 89" stroke="#1C2530" stroke-width="1.5" marker-end="url(#arw)"/>
+    <rect x="718" y="66" width="152" height="46" rx="4" fill="#5D4A8A" stroke="#1C2530" stroke-width="1.4"/>
+    <text x="794" y="94" text-anchor="middle" class="node">GENERATE</text>
+  </g>
+
+  <!-- ===================== the state ribbon, assembling underneath ===================== -->
+  <rect x="30" y="130" width="840" height="38" rx="4" fill="#3A6B96" fill-opacity="0.07" stroke="#3A6B96"/>
+  <text x="42" y="154" class="field" fill="#4A5B6E">state:</text>
+  <text x="100" y="154" class="field">query</text>
+  <text x="170" y="154" class="field" opacity="0">+route
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.08;0.10;1" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="248" y="154" class="field" opacity="0">+retrieved
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.21;0.23;1" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="360" y="154" class="field" opacity="0">+context
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.34;0.36;1" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="456" y="154" class="field" opacity="0">+grounding
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.47;0.49;1" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="572" y="154" class="field" opacity="0">+answer
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.60;0.62;1" dur="12s" repeatCount="indefinite"/>
+  </text>
+
+  <!-- ===================== the real trace, revealed as each step completes ===================== -->
+  <text x="30" y="196" class="panel">trace:</text>
+  <text x="94" y="196" class="lab">real orchestration.py output, one line per step that ran</text>
+
+  <text x="44" y="220" class="mono" opacity="0">[route] 'What is the ground resolution of...' -&gt; 'rag' (cosine 0.552)
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.08;0.10;1" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="44" y="242" class="mono" opacity="0">[retrieve] top-4 candidates: [1, 0, 2, 10]
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.21;0.23;1" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="44" y="264" class="mono" opacity="0">[rerank] kept top-2: [1, 10]
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.34;0.36;1" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="44" y="286" class="mono" opacity="0">[guardrail] context relevance 0.817 -&gt; context is on-topic -&gt; allow
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.47;0.49;1" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="44" y="308" class="mono" opacity="0">[generate] from doc pool [1, 10]
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.60;0.62;1" dur="12s" repeatCount="indefinite"/>
+  </text>
+
+  <!-- ===================== the answer, on the hold ===================== -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.71;0.75;1" dur="12s" repeatCount="indefinite"/>
+    <rect x="30" y="330" width="840" height="42" rx="5" fill="#2E7A5A" fill-opacity="0.12" stroke="#2E7A5A" stroke-width="1.6"/>
+    <text x="450" y="356" text-anchor="middle" class="ans">ANSWER: Helios-7 carries a hyperspectral imager with a ground resolution of 4 meters.</text>
+  </g>
+
+  <text x="30" y="398" class="lab">One app.run(...) wired four real steps and produced a five-line trace: you can see the route it took,</text>
+  <text x="30" y="414" class="lab">what it retrieved, what survived reranking, and the guardrail's verdict — the observability a single</text>
+  <text x="30" y="430" class="lab">glue function cannot give you.</text>
+
+  <text x="450" y="452" text-anchor="middle" class="lab" font-style="italic">trace lines, route score and grounding are REAL orchestration.py output; only the GENERATE answer text is an illustrative LLM stand-in</text>
+</svg>

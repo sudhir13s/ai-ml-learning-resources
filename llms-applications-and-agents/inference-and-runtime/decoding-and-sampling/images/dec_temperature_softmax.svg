@@ -1,0 +1,144 @@
+<svg viewBox="0 0 900 456" xmlns="http://www.w3.org/2000/svg" font-family="DejaVu Sans, Verdana, sans-serif">
+  <!-- The temperature dial, swept over a 12s SMIL loop: the same peaked next-token distribution
+       (logits 5.0, 8.0, 4.0, 3.5, 3.0, 2.5, 2.0, 1.5, 1.0, 0.5 over the toy 10-word vocab of
+       decoding_sampling.py) is re-softmaxed at each step of the sweep T = 0.5 -> 1.0 -> 2.0 -> 0.5,
+       holding on the three anchor temperatures the static figure marks. Every bar height is
+       softmax(z/T) and every read-out is entropy_bits of that same distribution, so the numbers
+       match the chapter's static figure (tools/make_figures_18.py) exactly at its three marked
+       anchors (T=0.5: "cat" holds 0.997 of the mass, 0.03 bits;
+       T=1.0: 0.913, 0.61 bits; T=2.0: 0.571, 2.20 bits). Bars turn amber above T=1, as in the GIF.
+       t=0 shows the T=0.5 frame in full, so the asset reads paused. -->
+  <style>
+    .title { font-size: 14px; font-weight: bold; fill: #1C2530; }
+    .lab   { font-size: 10.5px; fill: #4A5B6E; }
+    .axis  { font-size: 10.5px; fill: #4A5B6E; }
+    .tokn  { font-size: 11px; font-family: "DejaVu Sans Mono", Menlo, monospace; fill: #1C2530; }
+    .read  { font-size: 13px; font-family: "DejaVu Sans Mono", Menlo, monospace; font-weight: bold; fill: #1C2530; }
+  </style>
+
+  <rect x="0" y="0" width="900" height="456" fill="#ffffff"/>
+
+  <text x="30" y="32" class="title">Temperature reshapes the next-token softmax</text>
+
+  <!-- the dial: a marker sliding along the swept temperature range -->
+  <text x="628" y="34" text-anchor="end" class="lab">temperature sweep</text>
+  <line x1="640" y1="30" x2="865" y2="30" stroke="#4A5B6E" stroke-width="2"/>
+  <line x1="640.0" y1="24" x2="640.0" y2="36" stroke="#4A5B6E" stroke-width="1"/>
+  <text x="640.0" y="52" text-anchor="middle" class="lab">0.5</text>
+  <line x1="715.0" y1="24" x2="715.0" y2="36" stroke="#4A5B6E" stroke-width="1"/>
+  <text x="715.0" y="52" text-anchor="middle" class="lab">1.0</text>
+  <line x1="865.0" y1="24" x2="865.0" y2="36" stroke="#4A5B6E" stroke-width="1"/>
+  <text x="865.0" y="52" text-anchor="middle" class="lab">2.0</text>
+  <circle cx="640.0" cy="30" r="6" fill="#1C2530">
+    <animate attributeName="cx" values="640.0;640.0;640.0;655.0;670.0;685.0;700.0;715.0;715.0;715.0;745.0;775.0;805.0;835.0;865.0;865.0;865.0;805.0;745.0;670.0;640.0" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- probability axis -->
+  <line x1="90" y1="360" x2="860" y2="360" stroke="#D4D9DF" stroke-width="0.8"/>
+  <text x="82" y="364" text-anchor="end" class="axis">0.0</text>
+  <line x1="90" y1="304" x2="860" y2="304" stroke="#D4D9DF" stroke-width="0.8"/>
+  <text x="82" y="308" text-anchor="end" class="axis">0.2</text>
+  <line x1="90" y1="248" x2="860" y2="248" stroke="#D4D9DF" stroke-width="0.8"/>
+  <text x="82" y="252" text-anchor="end" class="axis">0.4</text>
+  <line x1="90" y1="192" x2="860" y2="192" stroke="#D4D9DF" stroke-width="0.8"/>
+  <text x="82" y="196" text-anchor="end" class="axis">0.6</text>
+  <line x1="90" y1="136" x2="860" y2="136" stroke="#D4D9DF" stroke-width="0.8"/>
+  <text x="82" y="140" text-anchor="end" class="axis">0.8</text>
+  <line x1="90" y1="80" x2="860" y2="80" stroke="#D4D9DF" stroke-width="0.8"/>
+  <text x="82" y="84" text-anchor="end" class="axis">1.0</text>
+  <line x1="90" y1="80" x2="90" y2="360" stroke="#4A5B6E" stroke-width="1"/>
+  <line x1="90" y1="360" x2="860" y2="360" stroke="#4A5B6E" stroke-width="1"/>
+  <text x="46" y="220" class="axis" transform="rotate(-90 46 220)" text-anchor="middle">probability</text>
+  <text x="475" y="410" text-anchor="middle" class="axis">next-token candidates</text>
+
+  <!-- one bar per vocabulary token; height = softmax(z/T) at the current step of the sweep,
+       and the whole row turns amber together whenever the sweep is above T = 1 -->
+  <g fill="#3A6B96">
+    <animate attributeName="fill" values="#3A6B96;#3A6B96;#3A6B96;#3A6B96;#3A6B96;#3A6B96;#3A6B96;#3A6B96;#3A6B96;#3A6B96;#7A6528;#7A6528;#7A6528;#7A6528;#7A6528;#7A6528;#7A6528;#7A6528;#7A6528;#3A6B96;#3A6B96" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <rect x="101.5" y="359.3" width="54" height="0.7">
+      <animate attributeName="y" values="359.3;359.3;359.3;358.1;356.2;353.7;350.6;347.3;347.3;347.3;340.6;334.7;330.1;326.7;324.3;324.3;324.3;330.1;340.6;356.2;359.3" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+      <animate attributeName="height" values="0.7;0.7;0.7;1.9;3.8;6.3;9.4;12.7;12.7;12.7;19.4;25.3;29.9;33.3;35.7;35.7;35.7;29.9;19.4;3.8;0.7" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="178.5" y="80.8" width="54" height="279.2">
+      <animate attributeName="y" values="80.8;80.8;80.8;82.5;85.5;90.2;96.6;104.4;104.4;104.4;123.3;144.2;164.8;183.6;200.2;200.2;200.2;164.8;123.3;85.5;80.8" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+      <animate attributeName="height" values="279.2;279.2;279.2;277.5;274.5;269.8;263.4;255.6;255.6;255.6;236.7;215.8;195.2;176.4;159.8;159.8;159.8;195.2;236.7;274.5;279.2" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="255.5" y="359.9" width="54" height="0.1">
+      <animate attributeName="y" values="359.9;359.9;359.9;359.6;359.1;358.2;356.9;355.3;355.3;355.3;351.6;347.6;344.0;340.9;338.4;338.4;338.4;344.0;351.6;359.1;359.9" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+      <animate attributeName="height" values="0.1;0.1;0.1;0.4;0.9;1.8;3.1;4.7;4.7;4.7;8.4;12.4;16.0;19.1;21.6;21.6;21.6;16.0;8.4;0.9;0.1" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="332.5" y="360.0" width="54" height="0.0">
+      <animate attributeName="y" values="360.0;360.0;360.0;359.8;359.6;359.0;358.2;357.2;357.2;357.2;354.4;351.3;348.3;345.5;343.2;343.2;343.2;348.3;354.4;359.6;360.0" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+      <animate attributeName="height" values="0.0;0.0;0.0;0.2;0.4;1.0;1.8;2.8;2.8;2.8;5.6;8.7;11.7;14.5;16.8;16.8;16.8;11.7;5.6;0.4;0.0" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="409.5" y="360.0" width="54" height="0.0">
+      <animate attributeName="y" values="360.0;360.0;360.0;359.9;359.8;359.5;359.0;358.3;358.3;358.3;356.3;353.9;351.4;349.0;346.9;346.9;346.9;351.4;356.3;359.8;360.0" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+      <animate attributeName="height" values="0.0;0.0;0.0;0.1;0.2;0.5;1.0;1.7;1.7;1.7;3.7;6.1;8.6;11.0;13.1;13.1;13.1;8.6;3.7;0.2;0.0" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="486.5" y="360.0" width="54" height="0.0">
+      <animate attributeName="y" values="360.0;360.0;360.0;360.0;359.9;359.7;359.4;359.0;359.0;359.0;357.6;355.8;353.7;351.7;349.8;349.8;349.8;353.7;357.6;359.9;360.0" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+      <animate attributeName="height" values="0.0;0.0;0.0;0.0;0.1;0.3;0.6;1.0;1.0;1.0;2.4;4.2;6.3;8.3;10.2;10.2;10.2;6.3;2.4;0.1;0.0" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="563.5" y="360.0" width="54" height="0.0">
+      <animate attributeName="y" values="360.0;360.0;360.0;360.0;359.9;359.9;359.7;359.4;359.4;359.4;358.4;357.0;355.4;353.7;352.0;352.0;352.0;355.4;358.4;359.9;360.0" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+      <animate attributeName="height" values="0.0;0.0;0.0;0.0;0.1;0.1;0.3;0.6;0.6;0.6;1.6;3.0;4.6;6.3;8.0;8.0;8.0;4.6;1.6;0.1;0.0" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="640.5" y="360.0" width="54" height="0.0">
+      <animate attributeName="y" values="360.0;360.0;360.0;360.0;360.0;359.9;359.8;359.6;359.6;359.6;358.9;357.9;356.6;355.2;353.8;353.8;353.8;356.6;358.9;360.0;360.0" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+      <animate attributeName="height" values="0.0;0.0;0.0;0.0;0.0;0.1;0.2;0.4;0.4;0.4;1.1;2.1;3.4;4.8;6.2;6.2;6.2;3.4;1.1;0.0;0.0" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="717.5" y="360.0" width="54" height="0.0">
+      <animate attributeName="y" values="360.0;360.0;360.0;360.0;360.0;360.0;359.9;359.8;359.8;359.8;359.3;358.5;357.5;356.4;355.2;355.2;355.2;357.5;359.3;360.0;360.0" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+      <animate attributeName="height" values="0.0;0.0;0.0;0.0;0.0;0.0;0.1;0.2;0.2;0.2;0.7;1.5;2.5;3.6;4.8;4.8;4.8;2.5;0.7;0.0;0.0" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="794.5" y="360.0" width="54" height="0.0">
+      <animate attributeName="y" values="360.0;360.0;360.0;360.0;360.0;360.0;359.9;359.9;359.9;359.9;359.5;359.0;358.2;357.3;356.2;356.2;356.2;358.2;359.5;360.0;360.0" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+      <animate attributeName="height" values="0.0;0.0;0.0;0.0;0.0;0.0;0.1;0.1;0.1;0.1;0.5;1.0;1.8;2.7;3.8;3.8;3.8;1.8;0.5;0.0;0.0" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  <text x="128.5" y="378" text-anchor="middle" class="tokn">the</text>
+  <text x="205.5" y="378" text-anchor="middle" class="tokn">cat</text>
+  <text x="282.5" y="378" text-anchor="middle" class="tokn">sat</text>
+  <text x="359.5" y="378" text-anchor="middle" class="tokn">on</text>
+  <text x="436.5" y="378" text-anchor="middle" class="tokn">mat</text>
+  <text x="513.5" y="378" text-anchor="middle" class="tokn">dog</text>
+  <text x="590.5" y="378" text-anchor="middle" class="tokn">ran</text>
+  <text x="667.5" y="378" text-anchor="middle" class="tokn">fast</text>
+  <text x="744.5" y="378" text-anchor="middle" class="tokn">blue</text>
+  <text x="821.5" y="378" text-anchor="middle" class="tokn">sky</text>
+
+  <!-- the read-out: the current temperature, the entropy of that same distribution, the regime -->
+  <text x="450" y="440" text-anchor="middle" class="read">T = 0.50  ·  entropy = 0.03 bits  ·  sharpening &#8594; trust the top
+    <animate attributeName="opacity" values="1;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="450" y="440" text-anchor="middle" class="read" opacity="0">T = 0.60  ·  entropy = 0.08 bits  ·  sharpening &#8594; trust the top
+    <animate attributeName="opacity" values="0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="450" y="440" text-anchor="middle" class="read" opacity="0">T = 0.70  ·  entropy = 0.17 bits  ·  sharpening &#8594; trust the top
+    <animate attributeName="opacity" values="0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="450" y="440" text-anchor="middle" class="read" opacity="0">T = 0.80  ·  entropy = 0.29 bits  ·  sharpening &#8594; trust the top
+    <animate attributeName="opacity" values="0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="450" y="440" text-anchor="middle" class="read" opacity="0">T = 0.90  ·  entropy = 0.44 bits  ·  sharpening &#8594; trust the top
+    <animate attributeName="opacity" values="0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="450" y="440" text-anchor="middle" class="read" opacity="0">T = 1.00  ·  entropy = 0.61 bits  ·  the model's own distribution
+    <animate attributeName="opacity" values="0;0;0;0;0;0;0;1;1;1;0;0;0;0;0;0;0;0;0;0;0" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="450" y="440" text-anchor="middle" class="read" opacity="0">T = 1.20  ·  entropy = 0.99 bits  ·  flattening &#8594; spread it around
+    <animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;1;0;0" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="450" y="440" text-anchor="middle" class="read" opacity="0">T = 1.40  ·  entropy = 1.36 bits  ·  flattening &#8594; spread it around
+    <animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="450" y="440" text-anchor="middle" class="read" opacity="0">T = 1.60  ·  entropy = 1.69 bits  ·  flattening &#8594; spread it around
+    <animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;1;0;0;0" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="450" y="440" text-anchor="middle" class="read" opacity="0">T = 1.80  ·  entropy = 1.97 bits  ·  flattening &#8594; spread it around
+    <animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="450" y="440" text-anchor="middle" class="read" opacity="0">T = 2.00  ·  entropy = 2.20 bits  ·  flattening &#8594; spread it around
+    <animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;1;1;0;0;0;0" keyTimes="0.00;0.05;0.10;0.15;0.20;0.25;0.30;0.35;0.40;0.45;0.50;0.55;0.60;0.65;0.70;0.75;0.80;0.85;0.90;0.95;1.00" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+</svg>

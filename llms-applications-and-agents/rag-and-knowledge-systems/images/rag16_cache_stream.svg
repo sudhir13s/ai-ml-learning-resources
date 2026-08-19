@@ -1,0 +1,174 @@
+<svg viewBox="0 0 900 466" xmlns="http://www.w3.org/2000/svg" font-family="DejaVu Sans, Verdana, sans-serif">
+  <!-- The eight-query stream animated over a 12s SMIL loop: one query arrives per phase, a cold
+       MISS lights red and drops an entry into the cache store, a repeat or paraphrase lights green
+       and is served from it, and the running hit rate / cost saved / latency saved climb with each
+       verdict. Every string and number replays the code/caching_cost.py run as executed in
+       code/16-Caching-and-Cost-Optimization.ipynb: the verdicts MISS(cold), MISS cos 0.577, HIT 1.000, HIT 0.920,
+       MISS 0.743, HIT 0.844, HIT 0.974, HIT 1.000 at tau = 0.8; hit rate 5/8 = 0.625; a full call
+       costs $0.002280 and a hit $0.000036, so each hit saves $0.002244 and 795 ms (800 ms - 5 ms),
+       giving $0.01122 and 3975 ms over the stream. Only the answer text a MISS computes and the
+       exact latency constants are illustrative. The first query and its readout are drawn at t=0,
+       so the first frame is already readable. -->
+  <style>
+    .title  { font-size: 14px; font-weight: bold; fill: #1C2530; }
+    .panel  { font-size: 13px; font-weight: bold; fill: #1C2530; }
+    .lab    { font-size: 10.5px; fill: #4A5B6E; }
+    .mono   { font-size: 10.5px; font-family: "DejaVu Sans Mono", Menlo, monospace; fill: #1C2530; }
+    .monodim{ font-size: 10.5px; font-family: "DejaVu Sans Mono", Menlo, monospace; fill: #7C8794; }
+    .hit    { font-size: 10.5px; font-family: "DejaVu Sans Mono", Menlo, monospace; font-weight: bold; fill: #2E7A5A; }
+    .miss   { font-size: 10.5px; font-family: "DejaVu Sans Mono", Menlo, monospace; font-weight: bold; fill: #8B3B4A; }
+    .entry  { font-size: 10.5px; font-weight: bold; fill: #ffffff; }
+    .read   { font-size: 13px; font-family: "DejaVu Sans Mono", Menlo, monospace; font-weight: bold; fill: #2E7A5A; }
+    .money  { font-size: 11.5px; font-family: "DejaVu Sans Mono", Menlo, monospace; font-weight: bold; fill: #1C2530; }
+  </style>
+
+  <rect x="0" y="0" width="900" height="466" fill="#ffffff"/>
+
+  <text x="450" y="26" text-anchor="middle" class="title">Semantic cache: repeats and paraphrases stream in as HITS, the hit rate climbs</text>
+  <text x="30" y="52" class="panel">query stream</text>
+  <text x="140" y="52" class="lab">cosine to the nearest cached query, HIT when it clears τ = 0.8</text>
+  <text x="745" y="52" text-anchor="middle" class="panel" fill="#3A6B96">cache store</text>
+
+  <!-- the empty stream slots, so the shape of the run is visible from t=0 -->
+  <g fill="none" stroke="#D4D9DF">
+    <rect x="30" y="62" width="560" height="34" rx="4"/>
+    <rect x="30" y="100" width="560" height="34" rx="4"/>
+    <rect x="30" y="138" width="560" height="34" rx="4"/>
+    <rect x="30" y="176" width="560" height="34" rx="4"/>
+    <rect x="30" y="214" width="560" height="34" rx="4"/>
+    <rect x="30" y="252" width="560" height="34" rx="4"/>
+    <rect x="30" y="290" width="560" height="34" rx="4"/>
+    <rect x="30" y="328" width="560" height="34" rx="4"/>
+  </g>
+
+  <!-- 1: cold miss -> stores entry 1 (visible at t=0) -->
+  <g>
+    <rect x="30" y="62" width="560" height="34" rx="4" fill="#8B3B4A" fill-opacity="0.16" stroke="#8B3B4A"/>
+    <text x="42" y="84" class="mono">What is the ground resolution of the Helios-7 imager?</text>
+    <text x="404" y="84" class="miss">MISS (cold cache)</text>
+  </g>
+  <!-- 2: miss against the one cached query -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.100;0.115;1" dur="12s" repeatCount="indefinite"/>
+    <rect x="30" y="100" width="560" height="34" rx="4" fill="#8B3B4A" fill-opacity="0.16" stroke="#8B3B4A"/>
+    <text x="42" y="122" class="mono">When was Helios-7 launched?</text>
+    <text x="404" y="122" class="miss">MISS (cos 0.577 &lt; 0.8)</text>
+  </g>
+  <!-- 3: exact repeat -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.215;0.230;1" dur="12s" repeatCount="indefinite"/>
+    <rect x="30" y="138" width="560" height="34" rx="4" fill="#2E7A5A" fill-opacity="0.16" stroke="#2E7A5A"/>
+    <text x="42" y="160" class="mono">What is the ground resolution of the Helios-7 imager?</text>
+    <text x="404" y="160" class="hit">HIT  (cos 1.000)  repeat</text>
+  </g>
+  <!-- 4: paraphrase of the imager question -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.330;0.345;1" dur="12s" repeatCount="indefinite"/>
+    <rect x="30" y="176" width="560" height="34" rx="4" fill="#2E7A5A" fill-opacity="0.16" stroke="#2E7A5A"/>
+    <text x="42" y="198" class="mono">How fine is the Helios-7 imager's ground resolution?</text>
+    <text x="404" y="198" class="hit">HIT  (cos 0.920)  paraphrase</text>
+  </g>
+  <!-- 5: third distinct question -> misses cold, stores entry 3 -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.445;0.460;1" dur="12s" repeatCount="indefinite"/>
+    <rect x="30" y="214" width="560" height="34" rx="4" fill="#8B3B4A" fill-opacity="0.16" stroke="#8B3B4A"/>
+    <text x="42" y="236" class="mono">Who is the Helios-7 project lead?</text>
+    <text x="404" y="236" class="miss">MISS (cos 0.743 &lt; 0.8)</text>
+  </g>
+  <!-- 6: paraphrase of the launch question -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.560;0.575;1" dur="12s" repeatCount="indefinite"/>
+    <rect x="30" y="252" width="560" height="34" rx="4" fill="#2E7A5A" fill-opacity="0.16" stroke="#2E7A5A"/>
+    <text x="42" y="274" class="mono">What date did Helios-7 lift off?</text>
+    <text x="404" y="274" class="hit">HIT  (cos 0.844)  paraphrase</text>
+  </g>
+  <!-- 7: paraphrase of the project-lead question -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.675;0.690;1" dur="12s" repeatCount="indefinite"/>
+    <rect x="30" y="290" width="560" height="34" rx="4" fill="#2E7A5A" fill-opacity="0.16" stroke="#2E7A5A"/>
+    <text x="42" y="312" class="mono">Who leads the Helios-7 project?</text>
+    <text x="404" y="312" class="hit">HIT  (cos 0.974)  paraphrase</text>
+  </g>
+  <!-- 8: exact repeat -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.790;0.805;1" dur="12s" repeatCount="indefinite"/>
+    <rect x="30" y="328" width="560" height="34" rx="4" fill="#2E7A5A" fill-opacity="0.16" stroke="#2E7A5A"/>
+    <text x="42" y="350" class="mono">When was Helios-7 launched?</text>
+    <text x="404" y="350" class="hit">HIT  (cos 1.000)  repeat</text>
+  </g>
+
+  <!-- ===================== the cache store: one entry per cold miss ===================== -->
+  <rect x="620" y="62" width="250" height="238" rx="5" fill="#3A6B96" fill-opacity="0.07" stroke="#3A6B96"/>
+  <g>
+    <rect x="634" y="78" width="222" height="46" rx="4" fill="#3A6B96" fill-opacity="0.85" stroke="#1C2530" stroke-width="0.8"/>
+    <text x="745" y="97" text-anchor="middle" class="entry">entry 1</text>
+    <text x="745" y="113" text-anchor="middle" class="entry" font-weight="normal" font-size="10">ground resolution</text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.100;0.115;1" dur="12s" repeatCount="indefinite"/>
+    <rect x="634" y="140" width="222" height="46" rx="4" fill="#3A6B96" fill-opacity="0.85" stroke="#1C2530" stroke-width="0.8"/>
+    <text x="745" y="159" text-anchor="middle" class="entry">entry 2</text>
+    <text x="745" y="175" text-anchor="middle" class="entry" font-weight="normal" font-size="10">launch date</text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.445;0.460;1" dur="12s" repeatCount="indefinite"/>
+    <rect x="634" y="202" width="222" height="46" rx="4" fill="#3A6B96" fill-opacity="0.85" stroke="#1C2530" stroke-width="0.8"/>
+    <text x="745" y="221" text-anchor="middle" class="entry">entry 3</text>
+    <text x="745" y="237" text-anchor="middle" class="entry" font-weight="normal" font-size="10">project lead</text>
+  </g>
+  <text x="745" y="272" text-anchor="middle" class="lab">three distinct questions —</text>
+  <text x="745" y="288" text-anchor="middle" class="lab">each pays the full call exactly once</text>
+
+  <!-- ===================== running hit rate (one readout per phase) ===================== -->
+  <rect x="620" y="314" width="250" height="38" rx="5" fill="#2E7A5A" fill-opacity="0.10" stroke="#2E7A5A"/>
+  <text x="745" y="339" text-anchor="middle" class="read">hit rate: 0/1 = 0.000
+    <animate attributeName="opacity" values="1;0;0;0;0;0;0;0;1" keyTimes="0;0.115;0.230;0.345;0.460;0.575;0.690;0.805;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="745" y="339" text-anchor="middle" class="read" opacity="0">hit rate: 0/2 = 0.000
+    <animate attributeName="opacity" values="0;1;0;0;0;0;0;0;0" keyTimes="0;0.115;0.230;0.345;0.460;0.575;0.690;0.805;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="745" y="339" text-anchor="middle" class="read" opacity="0">hit rate: 1/3 = 0.333
+    <animate attributeName="opacity" values="0;0;1;0;0;0;0;0;0" keyTimes="0;0.115;0.230;0.345;0.460;0.575;0.690;0.805;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="745" y="339" text-anchor="middle" class="read" opacity="0">hit rate: 2/4 = 0.500
+    <animate attributeName="opacity" values="0;0;0;1;0;0;0;0;0" keyTimes="0;0.115;0.230;0.345;0.460;0.575;0.690;0.805;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="745" y="339" text-anchor="middle" class="read" opacity="0">hit rate: 2/5 = 0.400
+    <animate attributeName="opacity" values="0;0;0;0;1;0;0;0;0" keyTimes="0;0.115;0.230;0.345;0.460;0.575;0.690;0.805;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="745" y="339" text-anchor="middle" class="read" opacity="0">hit rate: 3/6 = 0.500
+    <animate attributeName="opacity" values="0;0;0;0;0;1;0;0;0" keyTimes="0;0.115;0.230;0.345;0.460;0.575;0.690;0.805;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="745" y="339" text-anchor="middle" class="read" opacity="0">hit rate: 4/7 = 0.571
+    <animate attributeName="opacity" values="0;0;0;0;0;0;1;0;0" keyTimes="0;0.115;0.230;0.345;0.460;0.575;0.690;0.805;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="745" y="339" text-anchor="middle" class="read" opacity="0">hit rate: 5/8 = 0.625
+    <animate attributeName="opacity" values="0;0;0;0;0;0;0;1;0" keyTimes="0;0.115;0.230;0.345;0.460;0.575;0.690;0.805;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+
+  <!-- ===================== running savings ===================== -->
+  <text x="310" y="392" text-anchor="middle" class="money">cost saved so far: $0.00000  ·  latency saved: 0 ms
+    <animate attributeName="opacity" values="1;1;0;0;0;0;0;0;1" keyTimes="0;0.115;0.230;0.345;0.460;0.575;0.690;0.805;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="310" y="392" text-anchor="middle" class="money" opacity="0">cost saved so far: $0.00224  ·  latency saved: 795 ms
+    <animate attributeName="opacity" values="0;0;1;0;0;0;0;0;0" keyTimes="0;0.115;0.230;0.345;0.460;0.575;0.690;0.805;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="310" y="392" text-anchor="middle" class="money" opacity="0">cost saved so far: $0.00449  ·  latency saved: 1590 ms
+    <animate attributeName="opacity" values="0;0;0;1;1;0;0;0;0" keyTimes="0;0.115;0.230;0.345;0.460;0.575;0.690;0.805;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="310" y="392" text-anchor="middle" class="money" opacity="0">cost saved so far: $0.00673  ·  latency saved: 2385 ms
+    <animate attributeName="opacity" values="0;0;0;0;0;1;0;0;0" keyTimes="0;0.115;0.230;0.345;0.460;0.575;0.690;0.805;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="310" y="392" text-anchor="middle" class="money" opacity="0">cost saved so far: $0.00898  ·  latency saved: 3180 ms
+    <animate attributeName="opacity" values="0;0;0;0;0;0;1;0;0" keyTimes="0;0.115;0.230;0.345;0.460;0.575;0.690;0.805;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="310" y="392" text-anchor="middle" class="money" opacity="0">cost saved so far: $0.01122  ·  latency saved: 3975 ms
+    <animate attributeName="opacity" values="0;0;0;0;0;0;0;1;0" keyTimes="0;0.115;0.230;0.345;0.460;0.575;0.690;0.805;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+
+  <text x="310" y="418" text-anchor="middle" class="lab" fill="#2E7A5A" font-weight="bold" font-style="italic" opacity="0">final: 5/8 hits — repeats and paraphrases served for ~free ($0.018240 → $0.007020, 61.5% cut)
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.790;0.805;1" dur="12s" repeatCount="indefinite"/>
+  </text>
+
+  <text x="450" y="450" text-anchor="middle" class="lab" font-style="italic">hit/miss verdicts, cosines, hit rate and cost/latency saved are REAL caching_cost.py output; only the answer text and the exact latency constants are illustrative</text>
+</svg>

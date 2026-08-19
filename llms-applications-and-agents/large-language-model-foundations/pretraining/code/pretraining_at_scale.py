@@ -249,7 +249,7 @@ def demo_mfu(model: nn.Module) -> float:
 #
 # These are PURE, additive helpers: they reproduce the exact same seeded runs as the demos above
 # (same SEED, same recipe, same construction order) but RETURN the full per-step traces instead of
-# only printing every REPORT_EVERY-th row -- so make_figures_02.py / make_animation_02.py can plot
+# only printing every REPORT_EVERY-th row -- so make_figures_02.py can plot
 # the real numbers the page reports, never orphan values. They do not change any existing behavior.
 # =============================================================================
 

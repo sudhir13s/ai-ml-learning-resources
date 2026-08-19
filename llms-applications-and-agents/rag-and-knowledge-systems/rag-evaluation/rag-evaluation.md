@@ -114,7 +114,7 @@ resolution?" and get "the project lead is Dr. Amara Okoye" — every word is gro
 relevance are **orthogonal axes**: you need both high. That is exactly why the triad has three legs,
 not one.
 
-![The faithfulness check in motion: the answer is decomposed into claims, each claim is checked against the retrieved context one at a time (its support cosine and verdict appear), and the running faithfulness fraction assembles claim by claim — ending at 2/3 = 0.67 because the "solar panels" claim has no support in the context. Claims, cosines, and the score are the real pipeline's output; the claim-split and support judge are illustrative LLM stand-ins.](../images/rag11_faithfulness_check.gif)
+![The faithfulness check in motion: the answer is decomposed into claims, each claim is checked against the retrieved context one at a time (its support cosine and verdict appear), and the running faithfulness fraction assembles claim by claim — ending at 2/3 = 0.67 because the "solar panels" claim has no support in the context. Claims, cosines, and the score are the real pipeline's output; the claim-split and support judge are illustrative LLM stand-ins. Hand-authored animated SVG (loops).](../images/rag11_faithfulness_check.svg)
 
 ---
 

@@ -1,0 +1,154 @@
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" font-family="DejaVu Sans, Verdana, sans-serif">
+  <!-- Multi-hop traversal on the Helios-7 knowledge graph, animated on a 12s SMIL loop. The graph is
+       the real one built in graph_rag.py - the same 10 entities and 10 (subject, relation, object)
+       triples - laid out at the same spring positions the figures use. The highlight walks the real
+       networkx shortest path from the query's start entity to its answer entity, one hop per beat:
+       hyperspectral imager -[carries]-> Helios-7 -[led_by]-> Dr. Amara Okoye -[based_in]-> Nairobi
+       office. Each relation label is the edge's own `relation` attribute. The whole graph and the
+       start entity are drawn at t=0, so the first frame is already readable. -->
+  <style>
+    .head  { font-size: 14px; font-weight: bold; }
+    .q     { font-size: 11px; font-style: italic; fill: #1C2530; }
+    .lab   { font-size: 10.5px; fill: #4A5B6E; }
+    .nodedim { font-size: 10px; font-weight: bold; fill: #4A5B6E; }
+    .nodelit { font-size: 10px; font-weight: bold; fill: #ffffff; }
+    .rel   { font-size: 10.5px; font-family: "DejaVu Sans Mono", Menlo, monospace; font-weight: bold; fill: #2E7A5A; }
+    .path  { font-size: 11px; font-family: "DejaVu Sans Mono", Menlo, monospace; font-weight: bold; }
+    .foot  { font-size: 10px; fill: #7C8794; font-style: italic; }
+  </style>
+
+  <rect x="0" y="0" width="900" height="460" fill="#ffffff"/>
+  <rect x="10" y="10" width="880" height="440" rx="6" fill="#fbfbfc" stroke="#D4D9DF"/>
+
+  <!-- ===================== phase headline ===================== -->
+  <text x="450" y="34" text-anchor="middle" class="head" fill="#7A6528">Multi-hop query: start at the entity the query mentions
+    <animate attributeName="opacity" values="1;0;1" keyTimes="0;0.18;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="450" y="34" text-anchor="middle" class="head" fill="#3A6B96" opacity="0">HOP 1: follow the edge to connect the next fact
+    <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.18;0.38;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="450" y="34" text-anchor="middle" class="head" fill="#3A6B96" opacity="0">HOP 2: follow the edge to connect the next fact
+    <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.38;0.58;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="450" y="34" text-anchor="middle" class="head" fill="#2E7A5A" opacity="0">Arrived: the graph connected facts across documents
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.58;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="450" y="54" text-anchor="middle" class="q">"Where is the team based that leads the satellite carrying the hyperspectral imager?"</text>
+
+  <!-- ===================== the ten relations (the full graph, dim) ===================== -->
+  <g stroke="#D4D9DF" stroke-width="1.4">
+    <line x1="287.3" y1="225.0" x2="329.2" y2="369.9"/>
+    <line x1="287.3" y1="225.0" x2="99.8" y2="142.0"/>
+    <line x1="287.3" y1="225.0" x2="547.4" y2="164.8"/>
+    <line x1="547.4" y1="164.8" x2="794.6" y2="170.8"/>
+    <line x1="287.3" y1="225.0" x2="462.6" y2="97.5"/>
+    <line x1="287.3" y1="225.0" x2="99.8" y2="350.9"/>
+    <line x1="464.4" y1="249.5" x2="190.3" y2="263.6"/>
+    <line x1="190.3" y1="263.6" x2="287.3" y2="225.0"/>
+    <line x1="754.4" y1="262.5" x2="794.6" y2="170.8"/>
+    <line x1="754.4" y1="262.5" x2="464.4" y2="249.5"/>
+  </g>
+
+  <!-- ===================== the traversed edges, lit one hop at a time ===================== -->
+  <g stroke="#2E7A5A" stroke-width="3.4" stroke-linecap="round">
+    <line x1="462.6" y1="97.5" x2="287.3" y2="225.0" opacity="0">
+      <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.18;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </line>
+    <line x1="287.3" y1="225.0" x2="547.4" y2="164.8" opacity="0">
+      <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.38;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </line>
+    <line x1="547.4" y1="164.8" x2="794.6" y2="170.8" opacity="0">
+      <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.58;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </line>
+  </g>
+
+  <!-- ===================== the ten entities, dim ===================== -->
+  <g fill="#4A5B6E" fill-opacity="0.14" stroke="#7C8794" stroke-width="1">
+    <circle cx="462.6" cy="97.5" r="28"/>
+    <circle cx="99.8" cy="142.0" r="28"/>
+    <circle cx="547.4" cy="164.8" r="28"/>
+    <circle cx="794.6" cy="170.8" r="28"/>
+    <circle cx="287.3" cy="225.0" r="28"/>
+    <circle cx="190.3" cy="263.6" r="28"/>
+    <circle cx="464.4" cy="249.5" r="28"/>
+    <circle cx="754.4" cy="262.5" r="28"/>
+    <circle cx="99.8" cy="350.9" r="28"/>
+    <circle cx="329.2" cy="369.9" r="28"/>
+  </g>
+  <g class="nodedim" text-anchor="middle">
+    <text x="462.6" y="101">imager</text>
+    <text x="99.8" y="145.5">Ariane 6</text>
+    <text x="547.4" y="168.3">Dr. Okoye</text>
+    <text x="794.6" y="168">Nairobi</text>
+    <text x="794.6" y="180">office</text>
+    <text x="287.3" y="228.5">Helios-7</text>
+    <text x="190.3" y="267">telemetry</text>
+    <text x="464.4" y="253">E-4011</text>
+    <text x="754.4" y="259.5">ground</text>
+    <text x="754.4" y="271.5">team</text>
+    <text x="99.8" y="354.5">orbit</text>
+    <text x="329.2" y="373.5">Kourou</text>
+  </g>
+
+  <!-- ===================== the path entities, lit in order ===================== -->
+  <g stroke="#1C2530" stroke-width="1.6">
+    <circle cx="462.6" cy="97.5" r="28" fill="#7A6528"/>
+    <circle cx="287.3" cy="225.0" r="28" fill="#3A6B96" opacity="0">
+      <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.18;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="547.4" cy="164.8" r="28" fill="#3A6B96" opacity="0">
+      <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.38;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="794.6" cy="170.8" r="28" fill="#2E7A5A" opacity="0">
+      <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.58;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  <g class="nodelit" text-anchor="middle">
+    <text x="462.6" y="101">imager</text>
+    <text x="287.3" y="228.5" opacity="0">Helios-7
+      <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.18;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="547.4" y="168.3" opacity="0">Dr. Okoye
+      <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.38;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.58;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+      <text x="794.6" y="168">Nairobi</text>
+      <text x="794.6" y="180">office</text>
+    </g>
+  </g>
+
+  <!-- ===================== the relation on the most recently lit edge ===================== -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.18;0.38;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <rect x="330" y="150" width="90" height="20" rx="4" fill="#ffffff" stroke="#2E7A5A"/>
+    <text x="375" y="164" text-anchor="middle" class="rel">-[carries]-&gt;</text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.38;0.58;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <rect x="371" y="185" width="93" height="20" rx="4" fill="#ffffff" stroke="#2E7A5A"/>
+    <text x="417.5" y="199" text-anchor="middle" class="rel">-[led_by]-&gt;</text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.58;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <rect x="620" y="158" width="102" height="20" rx="4" fill="#ffffff" stroke="#2E7A5A"/>
+    <text x="671" y="172" text-anchor="middle" class="rel">-[based_in]-&gt;</text>
+  </g>
+
+  <!-- ===================== the path assembled so far ===================== -->
+  <text x="450" y="407" text-anchor="middle" class="path" fill="#1C2530">path so far:  imager
+    <animate attributeName="opacity" values="1;0;1" keyTimes="0;0.18;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="450" y="407" text-anchor="middle" class="path" fill="#1C2530" opacity="0">path so far:  imager  Helios-7
+    <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.18;0.38;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="450" y="407" text-anchor="middle" class="path" fill="#1C2530" opacity="0">path so far:  imager  Helios-7  Dr. Okoye
+    <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.38;0.58;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="450" y="407" text-anchor="middle" class="path" fill="#2E7A5A" opacity="0">path so far:  imager  Helios-7  Dr. Okoye  Nairobi office
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.58;0.99" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+
+  <text x="450" y="428" text-anchor="middle" class="lab">No single chunk mentions both the imager and the office — flat top-k retrieves the endpoints and stops there.</text>
+  <text x="450" y="445" text-anchor="middle" class="foot">real networkx graph + real shortest path; entity/relation extraction is an illustrative LLM stand-in</text>
+</svg>

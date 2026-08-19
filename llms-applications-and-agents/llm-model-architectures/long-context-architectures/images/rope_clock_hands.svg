@@ -1,0 +1,185 @@
+<svg viewBox="0 0 900 470" xmlns="http://www.w3.org/2000/svg" font-family="DejaVu Sans, Verdana, sans-serif">
+  <!-- RoPE's clock hands, turning continuously on a 12s SMIL clock. The token position m
+       sweeps 0 -> 15 over the first 9.9s and the last 2.1s hold the final state (the same
+       sweep/hold proportion the GIF used). Each dial is one frequency pair rotating by
+       theta = m * base^(-2i/d), with base = 10,000, d = HEAD_DIM = 8 and the training
+       window TRAIN_LEN = 16 — the constants in tools/make_figures_08.py, which the
+       chapter's static figure uses too. So the fast pair i=0 turns 1.000 rad per token
+       (15.00 rad, nearly two and a half full turns, across the window), the medium pair
+       i=1 turns 0.100 rad per token (1.50 rad), and the slowest pair i=3 turns 0.001 rad
+       per token — 0.015 rad in total, a hand that has barely left its starting mark. The
+       angle-vs-position lines below trace the same two extremes the static figure plots.
+       At t = 0 the dials, axes, labels and the faint full traces are all already drawn. -->
+  <style>
+    .panel { font-size: 13px; font-weight: bold; fill: #1C2530; }
+    .lab   { font-size: 10.5px; fill: #4A5B6E; }
+    .mono  { font-size: 11px; font-family: "DejaVu Sans Mono", Menlo, monospace; fill: #1C2530; }
+    .fast  { font-size: 11px; font-weight: bold; fill: #3A6B96; }
+    .med   { font-size: 11px; font-weight: bold; fill: #2E7A5A; }
+    .slow  { font-size: 11px; font-weight: bold; fill: #5D4A8A; }
+  </style>
+
+  <rect x="0" y="0" width="900" height="470" fill="#ffffff"/>
+
+  <text x="450" y="24" text-anchor="middle" class="panel">RoPE clock-hands: each feature pair rotates at its own speed</text>
+
+  <!-- ===================== three dials ===================== -->
+  <text x="180" y="52" text-anchor="middle" class="fast">fast pair (i = 0) — 1.000 rad / token</text>
+  <text x="450" y="52" text-anchor="middle" class="med">medium pair (i = 1) — 0.100 rad / token</text>
+  <text x="720" y="52" text-anchor="middle" class="slow">slow pair (i = 3) — 0.001 rad / token</text>
+
+  <g fill="none" stroke="#4A5B6E" stroke-width="1.4">
+    <circle cx="180" cy="122" r="56"/>
+    <circle cx="450" cy="122" r="56"/>
+    <circle cx="720" cy="122" r="56"/>
+  </g>
+  <!-- quarter-turn ticks, so a hand's angle can be read off the face -->
+  <g stroke="#D4D9DF" stroke-width="1">
+    <line x1="124" y1="122" x2="236" y2="122"/><line x1="180" y1="66" x2="180" y2="178"/>
+    <line x1="394" y1="122" x2="506" y2="122"/><line x1="450" y1="66" x2="450" y2="178"/>
+    <line x1="664" y1="122" x2="776" y2="122"/><line x1="720" y1="66" x2="720" y2="178"/>
+  </g>
+
+  <!-- hands: SVG rotates clockwise, so a negative angle reproduces the maths convention
+       (counter-clockwise from +x). 15.000 rad = 859.44 deg, 1.500 rad = 85.94 deg,
+       0.015 rad = 0.86 deg. -->
+  <g stroke="#3A6B96" stroke-width="3" stroke-linecap="round">
+    <line x1="180" y1="122" x2="230" y2="122">
+      <animateTransform attributeName="transform" type="rotate" values="0 180 122;-859.44 180 122;-859.44 180 122" keyTimes="0;0.826;1" dur="12s" repeatCount="indefinite"/>
+    </line>
+  </g>
+  <circle cx="230" cy="122" r="6" fill="#3A6B96">
+    <animateTransform attributeName="transform" type="rotate" values="0 180 122;-859.44 180 122;-859.44 180 122" keyTimes="0;0.826;1" dur="12s" repeatCount="indefinite"/>
+  </circle>
+
+  <g stroke="#2E7A5A" stroke-width="3" stroke-linecap="round">
+    <line x1="450" y1="122" x2="500" y2="122">
+      <animateTransform attributeName="transform" type="rotate" values="0 450 122;-85.94 450 122;-85.94 450 122" keyTimes="0;0.826;1" dur="12s" repeatCount="indefinite"/>
+    </line>
+  </g>
+  <circle cx="500" cy="122" r="6" fill="#2E7A5A">
+    <animateTransform attributeName="transform" type="rotate" values="0 450 122;-85.94 450 122;-85.94 450 122" keyTimes="0;0.826;1" dur="12s" repeatCount="indefinite"/>
+  </circle>
+
+  <g stroke="#5D4A8A" stroke-width="3" stroke-linecap="round">
+    <line x1="720" y1="122" x2="770" y2="122">
+      <animateTransform attributeName="transform" type="rotate" values="0 720 122;-0.86 720 122;-0.86 720 122" keyTimes="0;0.826;1" dur="12s" repeatCount="indefinite"/>
+    </line>
+  </g>
+  <circle cx="770" cy="122" r="6" fill="#5D4A8A">
+    <animateTransform attributeName="transform" type="rotate" values="0 720 122;-0.86 720 122;-0.86 720 122" keyTimes="0;0.826;1" dur="12s" repeatCount="indefinite"/>
+  </circle>
+
+  <g fill="#1C2530">
+    <circle cx="180" cy="122" r="4"/><circle cx="450" cy="122" r="4"/><circle cx="720" cy="122" r="4"/>
+  </g>
+
+  <!-- per-dial angle readouts, sampled at m = 0, 3, 6, 9, 12, 15; only one row is visible
+       at a time. The slow dial is printed to 3 decimals because at 2 decimals its whole
+       journey rounds to 0.01 rad — which is the point being made, not a rendering bug. -->
+  <g text-anchor="middle" class="mono">
+    <g opacity="1">
+      <animate attributeName="opacity" values="1;0;0;0;0;0;1" keyTimes="0;0.165;0.330;0.496;0.661;0.826;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+      <text x="450" y="200" font-weight="bold">token position  m = 0</text>
+      <text x="180" y="220" fill="#3A6B96">θ =  0.00 rad</text>
+      <text x="450" y="220" fill="#2E7A5A">θ =  0.00 rad</text>
+      <text x="720" y="220" fill="#5D4A8A">θ =  0.000 rad</text>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1;0;0;0;0;0" keyTimes="0;0.165;0.330;0.496;0.661;0.826;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+      <text x="450" y="200" font-weight="bold">token position  m = 3</text>
+      <text x="180" y="220" fill="#3A6B96">θ =  3.00 rad</text>
+      <text x="450" y="220" fill="#2E7A5A">θ =  0.30 rad</text>
+      <text x="720" y="220" fill="#5D4A8A">θ =  0.003 rad</text>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;0;1;0;0;0;0" keyTimes="0;0.165;0.330;0.496;0.661;0.826;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+      <text x="450" y="200" font-weight="bold">token position  m = 6</text>
+      <text x="180" y="220" fill="#3A6B96">θ =  6.00 rad</text>
+      <text x="450" y="220" fill="#2E7A5A">θ =  0.60 rad</text>
+      <text x="720" y="220" fill="#5D4A8A">θ =  0.006 rad</text>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;0;0;1;0;0;0" keyTimes="0;0.165;0.330;0.496;0.661;0.826;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+      <text x="450" y="200" font-weight="bold">token position  m = 9</text>
+      <text x="180" y="220" fill="#3A6B96">θ =  9.00 rad</text>
+      <text x="450" y="220" fill="#2E7A5A">θ =  0.90 rad</text>
+      <text x="720" y="220" fill="#5D4A8A">θ =  0.009 rad</text>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;0;0;0;1;0;0" keyTimes="0;0.165;0.330;0.496;0.661;0.826;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+      <text x="450" y="200" font-weight="bold">token position  m = 12</text>
+      <text x="180" y="220" fill="#3A6B96">θ = 12.00 rad</text>
+      <text x="450" y="220" fill="#2E7A5A">θ =  1.20 rad</text>
+      <text x="720" y="220" fill="#5D4A8A">θ =  0.012 rad</text>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;0;0;0;0;1;0" keyTimes="0;0.165;0.330;0.496;0.661;0.826;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+      <text x="450" y="200" font-weight="bold">token position  m = 15  (end of the training window)</text>
+      <text x="180" y="220" fill="#3A6B96">θ = 15.00 rad</text>
+      <text x="450" y="220" fill="#2E7A5A">θ =  1.50 rad</text>
+      <text x="720" y="220" fill="#5D4A8A">θ =  0.015 rad</text>
+    </g>
+  </g>
+
+  <!-- ===================== angle vs position ===================== -->
+  <!-- theta = -0.5 at y = 402, theta = 15.5 at y = 232 (10.625 px per rad) -->
+  <g stroke="#D4D9DF" stroke-width="0.8">
+    <line x1="110" y1="396.7" x2="800" y2="396.7"/>
+    <line x1="110" y1="343.4" x2="800" y2="343.4"/>
+    <line x1="110" y1="290.2" x2="800" y2="290.2"/>
+    <line x1="110" y1="237.3" x2="800" y2="237.3"/>
+  </g>
+  <line x1="110" y1="232" x2="110" y2="402" stroke="#4A5B6E" stroke-width="1.1"/>
+  <line x1="110" y1="402" x2="800" y2="402" stroke="#4A5B6E" stroke-width="1.1"/>
+  <g class="lab" text-anchor="end">
+    <text x="103" y="400">0</text>
+    <text x="103" y="347">5</text>
+    <text x="103" y="294">10</text>
+    <text x="103" y="241">15</text>
+  </g>
+  <text x="46" y="317" class="lab" text-anchor="middle" transform="rotate(-90 46 317)">rotation angle θ (rad)</text>
+  <g class="lab" text-anchor="middle">
+    <text x="110" y="420">0</text>
+    <text x="248" y="420">3</text>
+    <text x="386" y="420">6</text>
+    <text x="524" y="420">9</text>
+    <text x="662" y="420">12</text>
+    <text x="800" y="420">15</text>
+  </g>
+  <text x="450" y="438" text-anchor="middle" class="lab">token position m</text>
+
+  <!-- the complete traces, faint, so the first frame reads on its own -->
+  <line x1="110" y1="396.7" x2="800" y2="237.3" stroke="#3A6B96" stroke-width="2.2" opacity="0.2"/>
+  <line x1="110" y1="396.7" x2="800" y2="396.5" stroke="#5D4A8A" stroke-width="2.2" opacity="0.2"/>
+
+  <defs>
+    <clipPath id="trace">
+      <rect x="104" y="228" width="6" height="178">
+        <animate attributeName="width" values="6;696;696" keyTimes="0;0.826;1" dur="12s" repeatCount="indefinite"/>
+      </rect>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#trace)">
+    <line x1="110" y1="396.7" x2="800" y2="237.3" stroke="#3A6B96" stroke-width="2.2"/>
+    <g fill="#3A6B96">
+      <circle cx="110" cy="396.7" r="3.2"/><circle cx="156" cy="386.1" r="3.2"/><circle cx="202" cy="375.4" r="3.2"/>
+      <circle cx="248" cy="364.8" r="3.2"/><circle cx="294" cy="354.2" r="3.2"/><circle cx="340" cy="343.6" r="3.2"/>
+      <circle cx="386" cy="332.9" r="3.2"/><circle cx="432" cy="322.3" r="3.2"/><circle cx="478" cy="311.7" r="3.2"/>
+      <circle cx="524" cy="301.1" r="3.2"/><circle cx="570" cy="290.4" r="3.2"/><circle cx="616" cy="279.8" r="3.2"/>
+      <circle cx="662" cy="269.2" r="3.2"/><circle cx="708" cy="258.6" r="3.2"/><circle cx="754" cy="247.9" r="3.2"/>
+      <circle cx="800" cy="237.3" r="3.2"/>
+    </g>
+    <line x1="110" y1="396.7" x2="800" y2="396.5" stroke="#5D4A8A" stroke-width="2.2"/>
+    <g fill="#5D4A8A">
+      <rect x="107" y="393.7" width="6" height="6"/><rect x="245" y="393.7" width="6" height="6"/>
+      <rect x="383" y="393.6" width="6" height="6"/><rect x="521" y="393.6" width="6" height="6"/>
+      <rect x="659" y="393.6" width="6" height="6"/><rect x="797" y="393.5" width="6" height="6"/>
+    </g>
+  </g>
+
+  <text x="128" y="252" class="fast">fast pair (i = 0): angle = position</text>
+  <text x="128" y="268" class="slow">slow pair (i = 3): barely rotates</text>
+
+  <text x="450" y="458" text-anchor="middle" class="lab">Fast pairs separate neighbouring tokens; slow pairs still read as "early in the sequence" 15 tokens on — one scheme, both scales.</text>
+</svg>

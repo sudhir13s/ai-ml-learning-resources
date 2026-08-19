@@ -1,0 +1,152 @@
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" font-family="DejaVu Sans, Verdana, sans-serif">
+  <!-- Reward over-optimization, animated on one 12s SMIL clock. A clip rectangle sweeps left to
+       right over the plot, so the two curves are DRAWN as the policy drifts: the proxy reward
+       (red) climbs monotonically while true quality (green) peaks and falls, and the shaded
+       reward-hacking gap between them is revealed by the same sweep. Timing mirrors the frame
+       schedule of the retired GIF generator tools/make_animations_15.py: draw to the sweet spot (t=0..0.315), hold there
+       (to 0.423), drift past it (to 0.874), hold on the danger (to 1.0). Every number is that
+       script's own curve: proxy = 3.6*(1 - exp(-KL/2.6)), true = proxy - 0.085*KL^1.55, so the
+       peak sits at KL = 4.08 with true quality 2.10, and at KL = 10 the proxy reads 3.52 while
+       true quality has fallen to 0.51. The full curves are also drawn as dim dashed ghosts, so
+       t=0 is already a readable frame: axes, legend, key values and both shapes are present. -->
+  <style>
+    .panel  { font-size: 13px; font-weight: bold; fill: #1C2530; }
+    .title  { font-size: 15px; font-weight: bold; fill: #1C2530; }
+    .lab    { font-size: 10.5px; fill: #4A5B6E; }
+    .axis   { font-size: 11px; fill: #4A5B6E; }
+    .mono   { font-size: 10.5px; font-family: "DejaVu Sans Mono", Menlo, monospace; fill: #1C2530; }
+    .monodim{ font-size: 10.5px; font-family: "DejaVu Sans Mono", Menlo, monospace; fill: #7C8794; }
+    .state  { font-size: 11.5px; font-weight: bold; }
+  </style>
+
+  <rect x="0" y="0" width="900" height="460" fill="#ffffff"/>
+
+  <text x="90" y="30" class="title">Reward over-optimization: why RLHF needs a KL leash</text>
+
+  <!-- ================= plot frame, ticks, axis labels ================= -->
+  <line x1="90" y1="60" x2="90" y2="400" stroke="#4A5B6E" stroke-width="1.2"/>
+  <line x1="90" y1="400" x2="700" y2="400" stroke="#4A5B6E" stroke-width="1.2"/>
+
+  <g class="axis" text-anchor="middle">
+    <text x="90" y="418">0</text>
+    <text x="212" y="418">2</text>
+    <text x="334" y="418">4</text>
+    <text x="456" y="418">6</text>
+    <text x="578" y="418">8</text>
+    <text x="700" y="418">10</text>
+  </g>
+  <g class="axis" text-anchor="end">
+    <text x="83" y="404">0</text>
+    <text x="83" y="312">1</text>
+    <text x="83" y="220">2</text>
+    <text x="83" y="128">3</text>
+  </g>
+  <g stroke="#D4D9DF" stroke-width="1">
+    <line x1="90" y1="308" x2="700" y2="308"/>
+    <line x1="90" y1="216" x2="700" y2="216"/>
+    <line x1="90" y1="124" x2="700" y2="124"/>
+  </g>
+  <text x="395" y="440" class="axis" text-anchor="middle">KL divergence from the reference model  (how far the policy has drifted)</text>
+  <text x="30" y="230" class="axis" transform="rotate(-90 30 230)" text-anchor="middle">reward</text>
+
+  <!-- ================= dim ghosts of the full curves (present at t=0) ================= -->
+  <g fill="none" stroke-width="1.6" stroke-dasharray="4 5" opacity="0.4">
+    <path stroke="#8B3B4A" d="M90.0 400.0 L105.2 369.7 L120.5 342.1 L135.8 317.1 L151.0 294.4 L166.2 273.7 L181.5 255.0 L196.8 237.9 L212.0 222.5 L227.2 208.4 L242.5 195.7 L257.8 184.1 L273.0 173.5 L288.2 164.0 L303.5 155.3 L318.8 147.4 L334.0 140.2 L349.2 133.7 L364.5 127.8 L379.8 122.4 L395.0 117.5 L410.2 113.1 L425.5 109.1 L440.8 105.4 L456.0 102.1 L471.2 99.1 L486.5 96.3 L501.8 93.9 L517.0 91.6 L532.2 89.5 L547.5 87.7 L562.8 86.0 L578.0 84.4 L593.2 83.0 L608.5 81.8 L623.8 80.6 L639.0 79.6 L654.2 78.6 L669.5 77.8 L684.8 77.0 L700.0 76.3"/>
+    <path stroke="#2E7A5A" d="M90.0 400.0 L105.2 370.6 L120.5 344.8 L135.8 322.1 L151.0 302.2 L166.2 284.8 L181.5 269.6 L196.8 256.5 L212.0 245.3 L227.2 235.9 L242.5 228.0 L257.8 221.5 L273.0 216.4 L288.2 212.5 L303.5 209.7 L318.8 208.0 L334.0 207.2 L349.2 207.3 L364.5 208.2 L379.8 209.8 L395.0 212.2 L410.2 215.2 L425.5 218.8 L440.8 223.0 L456.0 227.7 L471.2 232.8 L486.5 238.5 L501.8 244.6 L517.0 251.0 L532.2 257.9 L547.5 265.1 L562.8 272.7 L578.0 280.5 L593.2 288.7 L608.5 297.2 L623.8 305.9 L639.0 315.0 L654.2 324.2 L669.5 333.7 L684.8 343.4 L700.0 353.4"/>
+  </g>
+
+  <!-- ================= the sweep: one clip drives both curves and the gap ================= -->
+  <defs>
+    <clipPath id="sweep">
+      <rect x="90" y="52" width="0" height="352">
+        <animate attributeName="width" values="0;249.1;249.1;610;610" keyTimes="0;0.315;0.423;0.874;1" dur="12s" repeatCount="indefinite"/>
+      </rect>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#sweep)">
+    <!-- reward-hacking gap: proxy above, true below, from the sweet spot onward -->
+    <path fill="#8B3B4A" fill-opacity="0.13" stroke="none" d="M339.1 138.0 L354.3 131.7 L369.6 126.0 L384.8 120.7 L400.1 116.0 L415.3 111.7 L430.6 107.8 L445.8 104.3 L461.1 101.1 L476.3 98.1 L491.6 95.5 L506.8 93.1 L522.1 90.9 L537.3 88.9 L552.6 87.1 L567.8 85.5 L583.1 84.0 L598.3 82.6 L613.6 81.4 L628.8 80.3 L644.1 79.2 L659.3 78.3 L674.6 77.5 L689.8 76.7 L700.0 76.3 L700.0 353.4 L689.8 346.7 L674.6 336.9 L659.3 327.3 L644.1 318.0 L628.8 308.9 L613.6 300.1 L598.3 291.5 L583.1 283.2 L567.8 275.2 L552.6 267.6 L537.3 260.2 L522.1 253.3 L506.8 246.7 L491.6 240.4 L476.3 234.7 L461.1 229.3 L445.8 224.5 L430.6 220.1 L415.3 216.3 L400.1 213.1 L384.8 210.5 L369.6 208.6 L354.3 207.5 L339.1 207.1 Z"/>
+    <path fill="none" stroke="#8B3B4A" stroke-width="2.6" d="M90.0 400.0 L105.2 369.7 L120.5 342.1 L135.8 317.1 L151.0 294.4 L166.2 273.7 L181.5 255.0 L196.8 237.9 L212.0 222.5 L227.2 208.4 L242.5 195.7 L257.8 184.1 L273.0 173.5 L288.2 164.0 L303.5 155.3 L318.8 147.4 L334.0 140.2 L349.2 133.7 L364.5 127.8 L379.8 122.4 L395.0 117.5 L410.2 113.1 L425.5 109.1 L440.8 105.4 L456.0 102.1 L471.2 99.1 L486.5 96.3 L501.8 93.9 L517.0 91.6 L532.2 89.5 L547.5 87.7 L562.8 86.0 L578.0 84.4 L593.2 83.0 L608.5 81.8 L623.8 80.6 L639.0 79.6 L654.2 78.6 L669.5 77.8 L684.8 77.0 L700.0 76.3"/>
+    <path fill="none" stroke="#2E7A5A" stroke-width="2.6" d="M90.0 400.0 L105.2 370.6 L120.5 344.8 L135.8 322.1 L151.0 302.2 L166.2 284.8 L181.5 269.6 L196.8 256.5 L212.0 245.3 L227.2 235.9 L242.5 228.0 L257.8 221.5 L273.0 216.4 L288.2 212.5 L303.5 209.7 L318.8 208.0 L334.0 207.2 L349.2 207.3 L364.5 208.2 L379.8 209.8 L395.0 212.2 L410.2 215.2 L425.5 218.8 L440.8 223.0 L456.0 227.7 L471.2 232.8 L486.5 238.5 L501.8 244.6 L517.0 251.0 L532.2 257.9 L547.5 265.1 L562.8 272.7 L578.0 280.5 L593.2 288.7 L608.5 297.2 L623.8 305.9 L639.0 315.0 L654.2 324.2 L669.5 333.7 L684.8 343.4 L700.0 353.4"/>
+  </g>
+
+  <!-- leading dots, in lockstep with the sweep -->
+  <circle r="5.5" fill="#8B3B4A" cx="90" cy="400">
+    <animate attributeName="cx" dur="12s" repeatCount="indefinite"
+      keyTimes="0.0000;0.0386;0.0772;0.1157;0.1543;0.1929;0.2315;0.2700;0.3150;0.4230;0.4548;0.4929;0.5310;0.5691;0.6072;0.6453;0.6835;0.7216;0.7597;0.7978;0.8359;0.8740;1.0000"
+      values="90.0;120.5;151.0;181.5;212.0;242.5;273.0;303.5;339.1;339.1;364.5;395.0;425.5;456.0;486.5;517.0;547.5;578.0;608.5;639.0;669.5;700.0;700.0"/>
+    <animate attributeName="cy" dur="12s" repeatCount="indefinite"
+      keyTimes="0.0000;0.0386;0.0772;0.1157;0.1543;0.1929;0.2315;0.2700;0.3150;0.4230;0.4548;0.4929;0.5310;0.5691;0.6072;0.6453;0.6835;0.7216;0.7597;0.7978;0.8359;0.8740;1.0000"
+      values="400.0;342.1;294.4;255.0;222.5;195.7;173.5;155.3;138.0;138.0;127.8;117.5;109.1;102.1;96.3;91.6;87.7;84.4;81.8;79.6;77.8;76.3;76.3"/>
+  </circle>
+  <circle r="5.5" fill="#2E7A5A" cx="90" cy="400">
+    <animate attributeName="cx" dur="12s" repeatCount="indefinite"
+      keyTimes="0.0000;0.0386;0.0772;0.1157;0.1543;0.1929;0.2315;0.2700;0.3150;0.4230;0.4548;0.4929;0.5310;0.5691;0.6072;0.6453;0.6835;0.7216;0.7597;0.7978;0.8359;0.8740;1.0000"
+      values="90.0;120.5;151.0;181.5;212.0;242.5;273.0;303.5;339.1;339.1;364.5;395.0;425.5;456.0;486.5;517.0;547.5;578.0;608.5;639.0;669.5;700.0;700.0"/>
+    <animate attributeName="cy" dur="12s" repeatCount="indefinite"
+      keyTimes="0.0000;0.0386;0.0772;0.1157;0.1543;0.1929;0.2315;0.2700;0.3150;0.4230;0.4548;0.4929;0.5310;0.5691;0.6072;0.6453;0.6835;0.7216;0.7597;0.7978;0.8359;0.8740;1.0000"
+      values="400.0;344.8;302.2;269.6;245.3;228.0;216.4;209.7;207.1;207.1;208.2;212.2;218.8;227.7;238.5;251.0;265.1;280.5;297.2;315.0;333.7;353.4;353.4"/>
+  </circle>
+
+  <!-- the KL leash + the sweet-spot marker: both arrive exactly at the peak -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.315;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <line x1="339.1" y1="60" x2="339.1" y2="400" stroke="#4A5B6E" stroke-width="1.4" stroke-dasharray="6 4"/>
+    <text x="345" y="72" class="lab" font-weight="bold">KL leash</text>
+    <circle cx="339.1" cy="207.1" r="7" fill="#7A6528" stroke="#1C2530" stroke-width="0.8"/>
+  </g>
+
+  <!-- legend (lower right, as in the generator) -->
+  <g>
+    <line x1="400" y1="366" x2="428" y2="366" stroke="#8B3B4A" stroke-width="2.6"/>
+    <text x="436" y="370" class="lab">Proxy reward (what the reward model says)</text>
+    <line x1="400" y1="386" x2="428" y2="386" stroke="#2E7A5A" stroke-width="2.6"/>
+    <text x="436" y="390" class="lab">True quality (actual human preference)</text>
+  </g>
+
+  <!-- the three-state commentary, in the generator's own words -->
+  <g class="state" fill="#2E7A5A">
+    <animate attributeName="opacity" values="1;0;1" keyTimes="0;0.315;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <text x="108" y="83">policy drifting from the reference &#8594;</text>
+    <text x="108" y="99">both proxy and true quality rising</text>
+  </g>
+  <g class="state" fill="#3A6B96" opacity="0">
+    <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.315;0.423;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <text x="108" y="83">KL leash &#8594; stop here &#10003;</text>
+    <text x="108" y="99">true quality is at its peak</text>
+  </g>
+  <g class="state" fill="#8B3B4A" opacity="0">
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.423;0.999" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <text x="108" y="83">no leash &#8594; reward hacking</text>
+    <text x="108" y="99">proxy still &#8593; but true quality &#8595;</text>
+  </g>
+
+  <!-- ================= key values panel ================= -->
+  <rect x="716" y="60" width="170" height="340" rx="6" fill="#fbfbfc" stroke="#D4D9DF"/>
+  <text x="728" y="82" class="panel">Key values</text>
+
+  <text x="728" y="106" class="lab" font-weight="bold" fill="#3A6B96">sweet spot</text>
+  <text x="728" y="124" class="mono">KL    = 4.08</text>
+  <text x="728" y="140" class="mono" fill="#2E7A5A">true  = 2.10  peak</text>
+  <text x="728" y="156" class="mono" fill="#8B3B4A">proxy = 2.85</text>
+
+  <line x1="728" y1="174" x2="874" y2="174" stroke="#D4D9DF"/>
+
+  <text x="728" y="196" class="lab" font-weight="bold" fill="#8B3B4A">drifted to KL = 10</text>
+  <text x="728" y="214" class="mono" fill="#8B3B4A">proxy = 3.52 &#8593;</text>
+  <text x="728" y="230" class="mono" fill="#2E7A5A">true  = 0.51 &#8595;</text>
+  <text x="728" y="246" class="mono">gap   = 3.02</text>
+
+  <line x1="728" y1="264" x2="874" y2="264" stroke="#D4D9DF"/>
+
+  <text x="728" y="286" class="lab">That gap is reward</text>
+  <text x="728" y="301" class="lab">hacking: the model</text>
+  <text x="728" y="316" class="lab">scores better on the</text>
+  <text x="728" y="331" class="lab">proxy and answers</text>
+  <text x="728" y="346" class="lab">worse for the human.</text>
+  <text x="728" y="374" class="lab" fill="#7C8794">The KL penalty is what</text>
+  <text x="728" y="389" class="lab" fill="#7C8794">stops the drift early.</text>
+
+  <text x="90" y="456" class="lab" fill="#7C8794">Curves are schematic; the shape — proxy monotone up, true quality peak-then-fall — is the measured finding of Gao et al. 2022.</text>
+</svg>

@@ -1,0 +1,133 @@
+<svg viewBox="0 0 900 470" xmlns="http://www.w3.org/2000/svg" font-family="DejaVu Sans, Verdana, sans-serif">
+  <!-- Animated alpha-fusion dial (12s SMIL loop). The dial sweeps 0 -> 1, holds at pure dense,
+       settles back to 0.6 and holds - the same schedule the generator used. Every rank shown is
+       the chapter's own measured result over the 11-passage Helios-7 corpus:
+         exact-code probe  ("What telemetry error did Helios-7 report?", gold = doc[8])
+             SPARSE top-3 (8, 10, 9)  gold #1     DENSE top-3 (10, 8, 0)  gold #2
+         paraphrase probe  ("How did the vehicle gain height after blast-off?", gold = doc[9])
+             SPARSE  gold MISS (BM25 = 0.000)     DENSE top-3 (9, 1, 0)   gold #1
+             equal-weighted normalized sum still ranks the gold #6
+         alpha = 0.6 is the only setting where BOTH golds sit at #1 (MRR 1.000, recall@3 1.000);
+         pure sparse scores MRR 0.500, pure dense MRR 0.750.
+       DEVIATION, stated: the GIF drew fused-score bars for all 11 passages. faiss is unavailable
+       here, so the per-passage fused magnitudes could not be recomputed and are NOT invented -
+       this SVG animates the RANK LADDER instead, which is the quantity the GIF's caption and the
+       page actually reason about. alpha = 0 is drawn at t=0, so the first frame already reads. -->
+  <style>
+    .title  { font-size: 14.5px; font-weight: bold; }
+    .panel  { font-size: 12.5px; font-weight: bold; fill: #1C2530; }
+    .lab    { font-size: 10.5px; fill: #4A5B6E; }
+    .rank   { font-size: 10px; font-family: "DejaVu Sans Mono", Menlo, monospace; fill: #7C8794; }
+    .chip   { font-size: 10px; font-family: "DejaVu Sans Mono", Menlo, monospace; fill: #ffffff; font-weight: bold; }
+    .stat   { font-size: 12px; font-weight: bold; }
+    .dial   { font-size: 13px; font-family: "DejaVu Sans Mono", Menlo, monospace; font-weight: bold; fill: #1C2530; }
+    .cap    { font-size: 10.5px; fill: #4A5B6E; }
+  </style>
+
+  <rect x="0" y="0" width="900" height="470" fill="#ffffff"/>
+
+  <!-- ================= regime banner (four states) ================= -->
+  <g text-anchor="middle" class="title">
+    <text x="450" y="28" fill="#7A6528">alpha = 0.00  ·  pure SPARSE (BM25) — paraphrase stranded at #6
+      <animate attributeName="opacity" values="1;0;0;0;0;0;0" keyTimes="0;0.118;0.284;0.355;0.464;0.62;0.737" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="450" y="28" fill="#5D4A8A" opacity="0">blending…
+      <animate attributeName="opacity" values="0;1;0;1;0;1;0" keyTimes="0;0.118;0.284;0.355;0.464;0.62;0.737" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="450" y="28" fill="#2E7A5A" opacity="0">BLEND — BOTH golds at #1 &#10003; (only the middle does this)
+      <animate attributeName="opacity" values="0;0;1;0;0;0;1" keyTimes="0;0.118;0.284;0.355;0.464;0.62;0.737" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+    <text x="450" y="28" fill="#3A6B96" opacity="0">alpha = 1.00  ·  pure DENSE — exact-code drops to #2
+      <animate attributeName="opacity" values="0;0;0;0;1;0;0" keyTimes="0;0.118;0.284;0.355;0.464;0.62;0.737" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+  </g>
+
+  <!-- ================= the alpha dial ================= -->
+  <text x="180" y="66" text-anchor="end" class="lab" font-weight="bold">alpha</text>
+  <line x1="250" y1="62" x2="650" y2="62" stroke="#D4D9DF" stroke-width="6" stroke-linecap="round"/>
+  <text x="250" y="82" text-anchor="middle" class="lab">0 = pure BM25 (lexical)</text>
+  <text x="650" y="82" text-anchor="middle" class="lab">1 = pure dense (semantic)</text>
+  <circle cy="62" r="9" fill="#5D4A8A" stroke="#ffffff" stroke-width="2" cx="250">
+    <animate attributeName="cx" values="250;650;650;490;490" keyTimes="0;0.474;0.561;0.737;1" dur="12s" repeatCount="indefinite"/>
+  </circle>
+  <g class="dial" text-anchor="start">
+    <text x="672" y="67">0.00<animate attributeName="opacity" values="1;0;0;0;0;0;0;0;0" keyTimes="0;0.118;0.237;0.284;0.355;0.464;0.62;0.7;0.737" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+    <text x="672" y="67" opacity="0">0.25<animate attributeName="opacity" values="0;1;0;0;0;0;0;0;0" keyTimes="0;0.118;0.237;0.284;0.355;0.464;0.62;0.7;0.737" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+    <text x="672" y="67" opacity="0">0.50<animate attributeName="opacity" values="0;0;1;0;0;0;0;0;0" keyTimes="0;0.118;0.237;0.284;0.355;0.464;0.62;0.7;0.737" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+    <text x="672" y="67" opacity="0">0.60<animate attributeName="opacity" values="0;0;0;1;0;0;0;0;1" keyTimes="0;0.118;0.237;0.284;0.355;0.464;0.62;0.7;0.737" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+    <text x="672" y="67" opacity="0">0.75<animate attributeName="opacity" values="0;0;0;0;1;0;0;0;0" keyTimes="0;0.118;0.237;0.284;0.355;0.464;0.62;0.7;0.737" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+    <text x="672" y="67" opacity="0">1.00<animate attributeName="opacity" values="0;0;0;0;0;1;0;0;0" keyTimes="0;0.118;0.237;0.284;0.355;0.464;0.62;0.7;0.737" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+    <text x="672" y="67" opacity="0">0.85<animate attributeName="opacity" values="0;0;0;0;0;0;1;0;0" keyTimes="0;0.118;0.237;0.284;0.355;0.464;0.62;0.7;0.737" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+    <text x="672" y="67" opacity="0">0.70<animate attributeName="opacity" values="0;0;0;0;0;0;0;1;0" keyTimes="0;0.118;0.237;0.284;0.355;0.464;0.62;0.7;0.737" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+  </g>
+
+  <!-- ================= LEFT panel : exact-code probe ================= -->
+  <text x="40" y="104" class="panel">exact-code probe</text>
+  <text x="175" y="104" class="lab">&#8220;What telemetry error did Helios-7 report?&#8221;  ·  gold = doc[8]</text>
+  <g class="rank" text-anchor="end">
+    <text x="62" y="134">#1</text><text x="62" y="158">#2</text><text x="62" y="182">#3</text>
+    <text x="62" y="206">#4</text><text x="62" y="230">#5</text><text x="62" y="254">#6</text>
+    <text x="62" y="278">#7</text><text x="62" y="302">#8</text><text x="62" y="326">#9</text>
+    <text x="62" y="350">#10</text><text x="62" y="374">#11</text>
+  </g>
+  <g fill="#EEF1F4" stroke="#D4D9DF">
+    <rect x="70" y="120" width="330" height="20"/><rect x="70" y="144" width="330" height="20"/>
+    <rect x="70" y="168" width="330" height="20"/><rect x="70" y="192" width="330" height="20"/>
+    <rect x="70" y="216" width="330" height="20"/><rect x="70" y="240" width="330" height="20"/>
+    <rect x="70" y="264" width="330" height="20"/><rect x="70" y="288" width="330" height="20"/>
+    <rect x="70" y="312" width="330" height="20"/><rect x="70" y="336" width="330" height="20"/>
+    <rect x="70" y="360" width="330" height="20"/>
+  </g>
+  <!-- the gold chip : #1 everywhere except at pure dense, where it slips to #2 -->
+  <g>
+    <rect x="70" width="330" height="20" rx="4" fill="#3A6B96" y="120">
+      <animate attributeName="y" values="120;144;120" keyTimes="0;0.464;0.57" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </rect>
+    <text x="80" class="chip" y="134">doc[8]  &#8220;…flagged Error E-4011…&#8221;  (the exact code)
+      <animate attributeName="y" values="134;158;134" keyTimes="0;0.464;0.57" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+  </g>
+  <text x="70" y="400" class="stat" fill="#2E7A5A">&#10003; at #1
+    <animate attributeName="opacity" values="1;0;1" keyTimes="0;0.464;0.57" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="70" y="400" class="stat" fill="#8B3B4A" opacity="0">gold at #2 — dense blurred the exact token
+    <animate attributeName="opacity" values="0;1;0" keyTimes="0;0.464;0.57" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+
+  <!-- ================= RIGHT panel : paraphrase probe ================= -->
+  <text x="470" y="104" class="panel">paraphrase probe</text>
+  <text x="600" y="104" class="lab">&#8220;How did the vehicle gain height after blast-off?&#8221;  ·  gold = doc[9]</text>
+  <g class="rank" text-anchor="end">
+    <text x="492" y="134">#1</text><text x="492" y="158">#2</text><text x="492" y="182">#3</text>
+    <text x="492" y="206">#4</text><text x="492" y="230">#5</text><text x="492" y="254">#6</text>
+    <text x="492" y="278">#7</text><text x="492" y="302">#8</text><text x="492" y="326">#9</text>
+    <text x="492" y="350">#10</text><text x="492" y="374">#11</text>
+  </g>
+  <g fill="#EEF1F4" stroke="#D4D9DF">
+    <rect x="500" y="120" width="330" height="20"/><rect x="500" y="144" width="330" height="20"/>
+    <rect x="500" y="168" width="330" height="20"/><rect x="500" y="192" width="330" height="20"/>
+    <rect x="500" y="216" width="330" height="20"/><rect x="500" y="240" width="330" height="20"/>
+    <rect x="500" y="264" width="330" height="20"/><rect x="500" y="288" width="330" height="20"/>
+    <rect x="500" y="312" width="330" height="20"/><rect x="500" y="336" width="330" height="20"/>
+    <rect x="500" y="360" width="330" height="20"/>
+  </g>
+  <!-- the gold chip : stranded at #6 while sparse dominates, snaps to #1 once alpha crosses ~0.55 -->
+  <g>
+    <rect x="500" width="330" height="20" rx="4" fill="#2E7A5A" y="240">
+      <animate attributeName="y" values="240;120" keyTimes="0;0.261" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </rect>
+    <text x="510" class="chip" y="254">doc[9]  &#8220;Climbing steadily, Helios-7 rose skyward…&#8221;
+      <animate attributeName="y" values="254;134" keyTimes="0;0.261" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    </text>
+  </g>
+  <text x="500" y="400" class="stat" fill="#8B3B4A">gold at #6 — BM25 scores it exactly 0.000
+    <animate attributeName="opacity" values="1;0" keyTimes="0;0.261" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="500" y="400" class="stat" fill="#2E7A5A" opacity="0">&#10003; at #1
+    <animate attributeName="opacity" values="0;1" keyTimes="0;0.261" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+
+  <!-- ================= takeaway ================= -->
+  <text x="450" y="434" text-anchor="middle" class="cap">Neither endpoint serves both probes: pure sparse scores <tspan font-weight="bold">MRR 0.500</tspan>, pure dense <tspan font-weight="bold">MRR 0.750</tspan>.</text>
+  <text x="450" y="456" text-anchor="middle" class="cap">Only the blended middle — <tspan font-weight="bold" fill="#2E7A5A">alpha = 0.6</tspan> — reaches <tspan font-weight="bold" fill="#2E7A5A">MRR 1.000 and recall@3 1.000</tspan>, which is why alpha is a knob you tune, not a constant you assume.</text>
+</svg>

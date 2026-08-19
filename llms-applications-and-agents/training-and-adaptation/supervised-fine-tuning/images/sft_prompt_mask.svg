@@ -1,0 +1,120 @@
+<svg viewBox="0 0 900 340" xmlns="http://www.w3.org/2000/svg" font-family="DejaVu Sans, Verdana, sans-serif">
+  <!-- Animated SFT prompt masking (12s SMIL loop). The token stream is the chapter's own:
+       DEMOS[0] = ("translate hello to french", "bonjour") tokenized by build_tokenizer, giving the
+       9 tokens <s> <user> translate hello to french <assistant> bonjour </s> with N_PROMPT = 7 and
+       labels [-100 x7, 4, 0]. The loop replays the generator's schedule exactly: frame 0 shows the
+       naive state (loss on every token), then the 7 prompt tokens flip to -100 one at a time, then
+       the PROMPT / RESPONSE headers and the boundary rule appear and hold. Frame 0 is drawn at
+       t=0, so the first frame already reads as the naive "loss everywhere" state. -->
+  <style>
+    .title { font-size: 14px; font-weight: bold; fill: #1C2530; }
+    .tok   { font-size: 11px; font-weight: bold; fill: #ffffff; font-family: "DejaVu Sans Mono", Menlo, monospace; }
+    .idx   { font-size: 9.5px; fill: #1C2530; }
+    .lossl { font-size: 10px; font-weight: bold; fill: #2E7A5A; font-family: "DejaVu Sans Mono", Menlo, monospace; }
+    .maskl { font-size: 10px; font-weight: bold; fill: #8B3B4A; font-family: "DejaVu Sans Mono", Menlo, monospace; }
+    .hdr   { font-size: 11.5px; font-weight: bold; }
+    .cap   { font-size: 10.5px; fill: #4A5B6E; }
+  </style>
+
+  <rect x="0" y="0" width="900" height="340" fill="#ffffff"/>
+
+  <!-- title swaps once masking begins -->
+  <text x="450" y="36" text-anchor="middle" class="title">Naive: loss on every token
+    <animate attributeName="opacity" values="1;0;0;0;0;0;0;0;0" keyTimes="0;0.15;0.225;0.3;0.375;0.45;0.525;0.6;0.675" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="450" y="36" text-anchor="middle" class="title" opacity="0">SFT prompt masking: loss is computed ONLY on response tokens
+    <animate attributeName="opacity" values="0;1;1;1;1;1;1;1;1" keyTimes="0;0.15;0.225;0.3;0.375;0.45;0.525;0.6;0.675" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </text>
+
+  <!-- section headers + boundary, revealed on the final frame -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;0;0;0;0;0;0;1" keyTimes="0;0.15;0.225;0.3;0.375;0.45;0.525;0.6;0.675" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+    <text x="360" y="88" text-anchor="middle" class="hdr" fill="#4A5B6E">PROMPT  (masked, label = &#8722;100)</text>
+    <text x="765" y="88" text-anchor="middle" class="hdr" fill="#2E7A5A">RESPONSE  (loss here only)</text>
+    <line x1="674" y1="96" x2="674" y2="215" stroke="#7A6528" stroke-width="2" stroke-dasharray="6 4"/>
+  </g>
+
+  <!-- token index row -->
+  <g class="idx" text-anchor="middle">
+    <text x="82" y="115">0</text><text x="173" y="115">1</text><text x="264" y="115">2</text>
+    <text x="355" y="115">3</text><text x="446" y="115">4</text><text x="537" y="115">5</text>
+    <text x="628" y="115">6</text><text x="719" y="115">7</text><text x="810" y="115">8</text>
+  </g>
+
+  <!-- ============ prompt tokens 0-6 : green underneath, slate mask flipping on ============ -->
+  <!-- token 0 : <s> -->
+  <rect x="42" y="125" width="80" height="52" rx="6" fill="#2E7A5A" stroke="#ffffff" stroke-width="1.5"/>
+  <rect x="42" y="125" width="80" height="52" rx="6" fill="#4A5B6E" stroke="#ffffff" stroke-width="1.5" opacity="0">
+    <animate attributeName="opacity" values="0;1;1;1;1;1;1;1;1" keyTimes="0;0.15;0.225;0.3;0.375;0.45;0.525;0.6;0.675" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </rect>
+  <text x="82" y="156" text-anchor="middle" class="tok">&lt;s&gt;</text>
+  <text x="82" y="200" text-anchor="middle" class="lossl">loss<animate attributeName="opacity" values="1;0;0;0;0;0;0;0;0" keyTimes="0;0.15;0.225;0.3;0.375;0.45;0.525;0.6;0.675" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+  <text x="82" y="200" text-anchor="middle" class="maskl" opacity="0">&#8722;100<animate attributeName="opacity" values="0;1;1;1;1;1;1;1;1" keyTimes="0;0.15;0.225;0.3;0.375;0.45;0.525;0.6;0.675" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+
+  <!-- token 1 : <user> -->
+  <rect x="133" y="125" width="80" height="52" rx="6" fill="#2E7A5A" stroke="#ffffff" stroke-width="1.5"/>
+  <rect x="133" y="125" width="80" height="52" rx="6" fill="#4A5B6E" stroke="#ffffff" stroke-width="1.5" opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;1;1;1;1;1" keyTimes="0;0.15;0.225;0.3;0.375;0.45;0.525;0.6;0.675" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </rect>
+  <text x="173" y="156" text-anchor="middle" class="tok">&lt;user&gt;</text>
+  <text x="173" y="200" text-anchor="middle" class="lossl">loss<animate attributeName="opacity" values="1;1;0;0;0;0;0;0;0" keyTimes="0;0.15;0.225;0.3;0.375;0.45;0.525;0.6;0.675" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+  <text x="173" y="200" text-anchor="middle" class="maskl" opacity="0">&#8722;100<animate attributeName="opacity" values="0;0;1;1;1;1;1;1;1" keyTimes="0;0.15;0.225;0.3;0.375;0.45;0.525;0.6;0.675" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+
+  <!-- token 2 : translate -->
+  <rect x="224" y="125" width="80" height="52" rx="6" fill="#2E7A5A" stroke="#ffffff" stroke-width="1.5"/>
+  <rect x="224" y="125" width="80" height="52" rx="6" fill="#4A5B6E" stroke="#ffffff" stroke-width="1.5" opacity="0">
+    <animate attributeName="opacity" values="0;0;0;1;1;1;1;1;1" keyTimes="0;0.15;0.225;0.3;0.375;0.45;0.525;0.6;0.675" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </rect>
+  <text x="264" y="156" text-anchor="middle" class="tok" font-size="9.5">translate</text>
+  <text x="264" y="200" text-anchor="middle" class="lossl">loss<animate attributeName="opacity" values="1;1;1;0;0;0;0;0;0" keyTimes="0;0.15;0.225;0.3;0.375;0.45;0.525;0.6;0.675" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+  <text x="264" y="200" text-anchor="middle" class="maskl" opacity="0">&#8722;100<animate attributeName="opacity" values="0;0;0;1;1;1;1;1;1" keyTimes="0;0.15;0.225;0.3;0.375;0.45;0.525;0.6;0.675" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+
+  <!-- token 3 : hello -->
+  <rect x="315" y="125" width="80" height="52" rx="6" fill="#2E7A5A" stroke="#ffffff" stroke-width="1.5"/>
+  <rect x="315" y="125" width="80" height="52" rx="6" fill="#4A5B6E" stroke="#ffffff" stroke-width="1.5" opacity="0">
+    <animate attributeName="opacity" values="0;0;0;0;1;1;1;1;1" keyTimes="0;0.15;0.225;0.3;0.375;0.45;0.525;0.6;0.675" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </rect>
+  <text x="355" y="156" text-anchor="middle" class="tok">hello</text>
+  <text x="355" y="200" text-anchor="middle" class="lossl">loss<animate attributeName="opacity" values="1;1;1;1;0;0;0;0;0" keyTimes="0;0.15;0.225;0.3;0.375;0.45;0.525;0.6;0.675" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+  <text x="355" y="200" text-anchor="middle" class="maskl" opacity="0">&#8722;100<animate attributeName="opacity" values="0;0;0;0;1;1;1;1;1" keyTimes="0;0.15;0.225;0.3;0.375;0.45;0.525;0.6;0.675" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+
+  <!-- token 4 : to -->
+  <rect x="406" y="125" width="80" height="52" rx="6" fill="#2E7A5A" stroke="#ffffff" stroke-width="1.5"/>
+  <rect x="406" y="125" width="80" height="52" rx="6" fill="#4A5B6E" stroke="#ffffff" stroke-width="1.5" opacity="0">
+    <animate attributeName="opacity" values="0;0;0;0;0;1;1;1;1" keyTimes="0;0.15;0.225;0.3;0.375;0.45;0.525;0.6;0.675" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </rect>
+  <text x="446" y="156" text-anchor="middle" class="tok">to</text>
+  <text x="446" y="200" text-anchor="middle" class="lossl">loss<animate attributeName="opacity" values="1;1;1;1;1;0;0;0;0" keyTimes="0;0.15;0.225;0.3;0.375;0.45;0.525;0.6;0.675" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+  <text x="446" y="200" text-anchor="middle" class="maskl" opacity="0">&#8722;100<animate attributeName="opacity" values="0;0;0;0;0;1;1;1;1" keyTimes="0;0.15;0.225;0.3;0.375;0.45;0.525;0.6;0.675" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+
+  <!-- token 5 : french -->
+  <rect x="497" y="125" width="80" height="52" rx="6" fill="#2E7A5A" stroke="#ffffff" stroke-width="1.5"/>
+  <rect x="497" y="125" width="80" height="52" rx="6" fill="#4A5B6E" stroke="#ffffff" stroke-width="1.5" opacity="0">
+    <animate attributeName="opacity" values="0;0;0;0;0;0;1;1;1" keyTimes="0;0.15;0.225;0.3;0.375;0.45;0.525;0.6;0.675" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </rect>
+  <text x="537" y="156" text-anchor="middle" class="tok">french</text>
+  <text x="537" y="200" text-anchor="middle" class="lossl">loss<animate attributeName="opacity" values="1;1;1;1;1;1;0;0;0" keyTimes="0;0.15;0.225;0.3;0.375;0.45;0.525;0.6;0.675" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+  <text x="537" y="200" text-anchor="middle" class="maskl" opacity="0">&#8722;100<animate attributeName="opacity" values="0;0;0;0;0;0;1;1;1" keyTimes="0;0.15;0.225;0.3;0.375;0.45;0.525;0.6;0.675" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+
+  <!-- token 6 : <assistant> -->
+  <rect x="588" y="125" width="80" height="52" rx="6" fill="#2E7A5A" stroke="#ffffff" stroke-width="1.5"/>
+  <rect x="588" y="125" width="80" height="52" rx="6" fill="#4A5B6E" stroke="#ffffff" stroke-width="1.5" opacity="0">
+    <animate attributeName="opacity" values="0;0;0;0;0;0;0;1;1" keyTimes="0;0.15;0.225;0.3;0.375;0.45;0.525;0.6;0.675" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+  </rect>
+  <text x="628" y="156" text-anchor="middle" class="tok" font-size="8.5">&lt;assistant&gt;</text>
+  <text x="628" y="200" text-anchor="middle" class="lossl">loss<animate attributeName="opacity" values="1;1;1;1;1;1;1;0;0" keyTimes="0;0.15;0.225;0.3;0.375;0.45;0.525;0.6;0.675" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+  <text x="628" y="200" text-anchor="middle" class="maskl" opacity="0">&#8722;100<animate attributeName="opacity" values="0;0;0;0;0;0;0;1;1" keyTimes="0;0.15;0.225;0.3;0.375;0.45;0.525;0.6;0.675" calcMode="discrete" dur="12s" repeatCount="indefinite"/></text>
+
+  <!-- ============ response tokens 7-8 : never masked ============ -->
+  <rect x="679" y="125" width="80" height="52" rx="6" fill="#2E7A5A" stroke="#ffffff" stroke-width="1.5"/>
+  <text x="719" y="156" text-anchor="middle" class="tok">bonjour</text>
+  <text x="719" y="200" text-anchor="middle" class="lossl">loss</text>
+
+  <rect x="770" y="125" width="80" height="52" rx="6" fill="#2E7A5A" stroke="#ffffff" stroke-width="1.5"/>
+  <text x="810" y="156" text-anchor="middle" class="tok">&lt;/s&gt;</text>
+  <text x="810" y="200" text-anchor="middle" class="lossl">loss</text>
+
+  <text x="450" y="252" text-anchor="middle" class="cap"><tspan font-weight="bold" fill="#2E7A5A">green = this token contributes to the loss</tspan>   ·   <tspan font-weight="bold" fill="#4A5B6E">slate = label set to &#8722;100, ignored by cross-entropy</tspan></text>
+  <text x="450" y="280" text-anchor="middle" class="cap">The model still READS the whole prompt — masking changes what it is scored on, not what it attends to.</text>
+  <text x="450" y="306" text-anchor="middle" class="cap">Without the mask, SFT spends most of its gradient learning to reproduce instructions instead of answers.</text>
+</svg>
