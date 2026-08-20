@@ -514,4 +514,4 @@ ElasticNet pair (w0,w1)=(0.81,0.82)  |w0-w1|=0.004  (shared → grouping)
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Regularization for Linear Models — references and further reading](regularization-linear-models.references.md)**
+**→ [Regularization for Linear Models — references and further reading](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/regression/regularization-linear-models/regularization-linear-models#references-further-reading)**

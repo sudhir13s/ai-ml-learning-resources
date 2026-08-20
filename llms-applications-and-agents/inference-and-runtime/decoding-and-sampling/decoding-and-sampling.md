@@ -387,4 +387,4 @@ A few realities of how this is deployed:
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Decoding & Sampling — references and further reading](decoding-and-sampling.references.md)**
+**→ [Decoding & Sampling — references and further reading](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/decoding-and-sampling/decoding-and-sampling#references-further-reading)**

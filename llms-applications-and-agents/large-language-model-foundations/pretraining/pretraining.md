@@ -486,4 +486,4 @@ A few production realities worth carrying into an interview:
 
 The curated link library for this topic — videos, courses, articles, papers, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Pretraining at Scale — references and further reading](pretraining.references.md)**
+**→ [Pretraining at Scale — references and further reading](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/pretraining/pretraining#references-further-reading)**

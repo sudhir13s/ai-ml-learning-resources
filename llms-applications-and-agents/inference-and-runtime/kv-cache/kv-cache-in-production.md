@@ -192,4 +192,4 @@ Back to the [main page](/ai-ml/ai-ml-learning-resources/llms-applications-and-ag
 
 ## References
 
-Shared with the topic's companion file — see [KV Cache — references and further reading](kv-cache.references.md) (vLLM, SGLang, TensorRT-LLM, speculative-decoding, and serving-survey entries).
+Shared with the topic's companion file — see [KV Cache — references and further reading](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache#references-further-reading) (vLLM, SGLang, TensorRT-LLM, speculative-decoding, and serving-survey entries).

@@ -596,4 +596,4 @@ Once you've answered "why OOF?", interviewers probe the edges. The crisp answers
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Stacking & Blending — references and further reading](stacking-and-blending.references.md)**
+**→ [Stacking & Blending — references and further reading](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/stacking-and-blending/stacking-and-blending#references-further-reading)**

@@ -603,4 +603,4 @@ A few finer points that interviewers probe and that practitioners trip over — 
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Naive Bayes — references and further reading](naive-bayes.references.md)**
+**→ [Naive Bayes — references and further reading](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/naive-bayes/naive-bayes#references-further-reading)**

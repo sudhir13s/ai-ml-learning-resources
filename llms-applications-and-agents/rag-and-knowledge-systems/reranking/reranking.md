@@ -371,4 +371,4 @@ Re-ranking is a standard final stage in real-world retrieval, with a few well-tr
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Re-ranking with Cross-Encoders — references and further reading](reranking.references.md)**
+**→ [Re-ranking with Cross-Encoders — references and further reading](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking#references-further-reading)**

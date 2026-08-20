@@ -647,4 +647,4 @@ Read across any row and you can state, in one breath, *what* the fix does and *w
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Vanishing / Exploding Gradients — references and further reading](vanishing-exploding-gradients.references.md)**
+**→ [Vanishing / Exploding Gradients — references and further reading](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients#references-further-reading)**

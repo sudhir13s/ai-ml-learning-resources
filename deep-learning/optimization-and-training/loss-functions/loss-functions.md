@@ -563,4 +563,4 @@ Loss bugs are insidious because the loss still *looks* like it's training — it
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Loss Functions — references and further reading](loss-functions.references.md)**
+**→ [Loss Functions — references and further reading](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/loss-functions/loss-functions#references-further-reading)**

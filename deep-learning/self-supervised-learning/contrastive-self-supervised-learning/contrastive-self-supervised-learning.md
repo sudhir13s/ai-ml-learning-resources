@@ -473,4 +473,4 @@ step 299: NT-Xent=0.0451  positive-pair cos=+1.000
 
 The curated link library for this topic — videos, courses, articles, the primary papers (Oord, Chen, He, Grill, Chen & He, Zbontar, Wang & Isola, Radford), books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Contrastive / Self-Supervised Learning — references and further reading](contrastive-self-supervised-learning.references.md)**
+**→ [Contrastive / Self-Supervised Learning — references and further reading](/ai-ml/ai-ml-learning-resources/deep-learning/self-supervised-learning/contrastive-self-supervised-learning/contrastive-self-supervised-learning#references-further-reading)**

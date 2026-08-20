@@ -452,4 +452,4 @@ Ex4 solve: w = [1. 0.]  b = -2.00  margin = 2.00  scores = [ 1.  1. -1. -2.]
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Support Vector Machines — references and further reading](support-vector-machines.references.md)**
+**→ [Support Vector Machines — references and further reading](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/support-vector-machines/support-vector-machines#references-further-reading)**

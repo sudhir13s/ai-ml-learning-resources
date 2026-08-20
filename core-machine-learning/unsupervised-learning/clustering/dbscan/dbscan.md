@@ -597,4 +597,4 @@ The same handful of mistakes account for almost every "DBSCAN gave me garbage" r
 
 The curated link library for this topic — videos, courses, interactive explainers, articles, the founding papers (Ester 1996, OPTICS 1999, HDBSCAN 2013), and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [DBSCAN — references and further reading](dbscan.references.md)**
+**→ [DBSCAN — references and further reading](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/dbscan/dbscan#references-further-reading)**

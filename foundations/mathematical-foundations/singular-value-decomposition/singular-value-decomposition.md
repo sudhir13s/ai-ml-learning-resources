@@ -330,4 +330,4 @@ Everything on this page is produced by real code you can run and teach from — 
 
 The curated link library for this topic — videos, courses, articles, papers, and books, all free/open — lives in a companion file so it can be reused as a standalone reference list, and every "Source / derivation" citation above appears in it:
 
-**→ [Singular Value Decomposition — references and further reading](singular-value-decomposition.references.md)**
+**→ [Singular Value Decomposition — references and further reading](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/singular-value-decomposition/singular-value-decomposition#references-further-reading)**

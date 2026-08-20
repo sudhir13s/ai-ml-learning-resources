@@ -516,4 +516,4 @@ decision trades against. Master those trades, and you can build a retrieval syst
 The curated link library for this topic — videos, courses, articles, papers, and internal
 cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Caching & Cost Optimization — references and further reading](caching-and-cost-optimization.references.md)**
+**→ [Caching & Cost Optimization — references and further reading](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/caching-and-cost-optimization/caching-and-cost-optimization#references-further-reading)**

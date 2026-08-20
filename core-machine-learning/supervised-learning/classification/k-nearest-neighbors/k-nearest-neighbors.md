@@ -607,4 +607,4 @@ A handful of points that separate "I read the kNN tutorial" from "I understand k
 
 The curated link library for this topic — start-here path, videos, interactive demos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [k-Nearest Neighbors — references and further reading](k-nearest-neighbors.references.md)**
+**→ [k-Nearest Neighbors — references and further reading](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/k-nearest-neighbors/k-nearest-neighbors#references-further-reading)**

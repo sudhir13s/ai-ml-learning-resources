@@ -366,4 +366,4 @@ Everything on this page is produced by real code you can run and teach from — 
 
 The curated link library for this topic — start-here path, videos, courses, articles, and the source/derivation citations above — lives in a companion file so it can be reused as a standalone reference list, and every "Source / derivation" citation on this page appears in it:
 
-**→ [Feature Scaling & Normalization — references and further reading](feature-scaling-and-normalization.references.md)**
+**→ [Feature Scaling & Normalization — references and further reading](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/feature-scaling-and-normalization/feature-scaling-and-normalization#references-further-reading)**

@@ -101,7 +101,7 @@ The tree tries every (feature, threshold) pair and keeps the split with the **hi
 
 > **Note:** **Gini vs entropy** barely changes the resulting tree in practice — they agree on the chosen split the vast majority of the time. Gini is slightly cheaper (no logarithms) and is scikit-learn's **CART** default; entropy is Quinlan's **ID3 / C4.5** choice and has a clean "bits of information" interpretation. Pick Gini for speed, entropy if you want the information-theoretic story; don't agonize over it.
 
-> **Source / derivation:** information-gain (entropy) tree induction is **Induction of Decision Trees** (Quinlan 1986, ID3) and its successor **C4.5** (Quinlan 1993); the Gini-based **CART** is Breiman, Friedman, Olshen & Stone, *Classification and Regression Trees* (1984). The unified textbook treatment is **The Elements of Statistical Learning** Ch. 9.2 and **An Introduction to Statistical Learning** Ch. 8.1 — all in the [references](decision-trees.references.md).
+> **Source / derivation:** information-gain (entropy) tree induction is **Induction of Decision Trees** (Quinlan 1986, ID3) and its successor **C4.5** (Quinlan 1993); the Gini-based **CART** is Breiman, Friedman, Olshen & Stone, *Classification and Regression Trees* (1984). The unified textbook treatment is **The Elements of Statistical Learning** Ch. 9.2 and **An Introduction to Statistical Learning** Ch. 8.1 — all in the [references](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/decision-trees/decision-trees#references-further-reading).
 
 ---
 
@@ -210,7 +210,7 @@ graph TD
 
 > **Note:** when you use `DecisionTreeClassifier` or `DecisionTreeRegressor` in scikit-learn, you are using a **CART** variant — **binary** splits, **Gini** by default (or entropy if you ask), cost-complexity pruning via `ccp_alpha`. ID3/C4.5's multi-way splits and gain ratio are not in scikit-learn; if someone says "the tree split into three branches," they're describing ID3/C4.5, not CART.
 
-> **Source / derivation:** **ID3** — Quinlan, "Induction of Decision Trees," *Machine Learning* 1(1), 1986; **C4.5** — Quinlan, *C4.5: Programs for Machine Learning*, 1993 (gain ratio, continuous features, pruning); **CART** — Breiman, Friedman, Olshen & Stone, *Classification and Regression Trees*, 1984 (binary splits, Gini/variance, cost-complexity pruning) — the basis of scikit-learn's trees. The greedy heuristic is forced by the hardness result **Hyafil & Rivest (1976)**, "Constructing Optimal Binary Decision Trees is NP-complete." All four are linked in the [references](decision-trees.references.md).
+> **Source / derivation:** **ID3** — Quinlan, "Induction of Decision Trees," *Machine Learning* 1(1), 1986; **C4.5** — Quinlan, *C4.5: Programs for Machine Learning*, 1993 (gain ratio, continuous features, pruning); **CART** — Breiman, Friedman, Olshen & Stone, *Classification and Regression Trees*, 1984 (binary splits, Gini/variance, cost-complexity pruning) — the basis of scikit-learn's trees. The greedy heuristic is forced by the hardness result **Hyafil & Rivest (1976)**, "Constructing Optimal Binary Decision Trees is NP-complete." All four are linked in the [references](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/decision-trees/decision-trees#references-further-reading).
 
 ---
 
@@ -440,4 +440,4 @@ The MDI high-cardinality trap is not hypothetical. On a controlled experiment �
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Decision Trees — references and further reading](decision-trees.references.md)**
+**→ [Decision Trees — references and further reading](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/decision-trees/decision-trees#references-further-reading)**

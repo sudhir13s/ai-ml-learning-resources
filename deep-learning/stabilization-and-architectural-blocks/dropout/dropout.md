@@ -475,4 +475,4 @@ When you reach for dropout in a real model, here's the order of operations that 
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Dropout — references and further reading](dropout.references.md)**
+**→ [Dropout — references and further reading](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/dropout/dropout#references-further-reading)**

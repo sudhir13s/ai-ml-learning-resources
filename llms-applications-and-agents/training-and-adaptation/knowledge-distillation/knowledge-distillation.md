@@ -415,4 +415,4 @@ Distillation is everywhere small-but-capable models come from:
 
 The curated link library for this topic — videos, courses, articles, papers, and interactive demos — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Knowledge Distillation — references and further reading](knowledge-distillation.references.md)**
+**→ [Knowledge Distillation — references and further reading](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/knowledge-distillation/knowledge-distillation#references-further-reading)**

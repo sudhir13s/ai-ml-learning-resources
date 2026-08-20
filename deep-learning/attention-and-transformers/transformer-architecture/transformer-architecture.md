@@ -858,4 +858,4 @@ Read the table top-to-bottom and you've traced a token from id to logit; read th
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Transformer Architecture — references and further reading](transformer-architecture.references.md)**
+**→ [Transformer Architecture — references and further reading](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture#references-further-reading)**

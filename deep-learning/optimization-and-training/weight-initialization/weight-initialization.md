@@ -611,4 +611,4 @@ Hold that one sentence — *unit variance at every layer, in both directions* �
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Weight Initialization — references and further reading](weight-initialization.references.md)**
+**→ [Weight Initialization — references and further reading](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/weight-initialization/weight-initialization#references-further-reading)**

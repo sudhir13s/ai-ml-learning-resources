@@ -588,4 +588,4 @@ And the load-bearing caveat: a cosine matcher cites by **topic**, not **entailme
 The curated link library for this topic — videos, courses, articles, papers, and internal
 cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Citations & Attribution — references and further reading](citations-and-attribution.references.md)**
+**→ [Citations & Attribution — references and further reading](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/citations-and-attribution/citations-and-attribution#references-further-reading)**

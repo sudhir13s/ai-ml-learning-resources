@@ -607,4 +607,4 @@ unicode  equal raw? False | equal after NFC? True
 
 The curated link library for this topic — start-here path, videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Text Preprocessing & Normalization — references and further reading](text-preprocessing-and-normalization.references.md)**
+**→ [Text Preprocessing & Normalization — references and further reading](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/text-preprocessing-and-normalization/text-preprocessing-and-normalization#references-further-reading)**

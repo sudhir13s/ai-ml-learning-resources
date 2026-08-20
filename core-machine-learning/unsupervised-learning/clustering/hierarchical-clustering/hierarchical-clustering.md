@@ -605,4 +605,4 @@ A few finer points that separate a textbook answer from a real understanding:
 
 The curated link library for this topic — the suggested learning path, videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Hierarchical Clustering — references and further reading](hierarchical-clustering.references.md)**
+**→ [Hierarchical Clustering — references and further reading](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/hierarchical-clustering/hierarchical-clustering#references-further-reading)**

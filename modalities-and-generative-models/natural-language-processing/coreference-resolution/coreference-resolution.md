@@ -612,4 +612,4 @@ The clusters reproduce **Worked example 1** exactly — `{John, his, he, him}` a
 
 The curated link library for this topic — the suggested path, videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Coreference Resolution — references and further reading](coreference-resolution.references.md)**
+**→ [Coreference Resolution — references and further reading](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/coreference-resolution/coreference-resolution#references-further-reading)**

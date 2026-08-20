@@ -431,4 +431,4 @@ That decoupling is what enables three things the field now takes for granted:
 
 The curated link library for this topic — videos, courses, articles, papers, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [LoRA & PEFT — references and further reading](lora-and-parameter-efficient-fine-tuning.references.md)**
+**→ [LoRA & PEFT — references and further reading](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/lora-and-parameter-efficient-fine-tuning/lora-and-parameter-efficient-fine-tuning#references-further-reading)**

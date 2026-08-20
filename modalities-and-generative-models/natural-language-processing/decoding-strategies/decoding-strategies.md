@@ -603,4 +603,4 @@ NUCLEUS distinct-2 = 1.000 ->  I love pizza.
 
 The curated link library for this topic — the suggested learning path, videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Decoding Strategies — references and further reading](decoding-strategies.references.md)**
+**→ [Decoding Strategies — references and further reading](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/decoding-strategies/decoding-strategies#references-further-reading)**

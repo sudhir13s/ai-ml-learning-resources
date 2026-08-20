@@ -597,4 +597,4 @@ HI: 27 GPT-4 tokens
 
 The curated link library for this topic — videos, courses, articles, the original papers, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Tokenization & Subword Algorithms — references and further reading](tokenization-and-subword-algorithms.references.md)**
+**→ [Tokenization & Subword Algorithms — references and further reading](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/tokenization-and-subword-algorithms/tokenization-and-subword-algorithms#references-further-reading)**

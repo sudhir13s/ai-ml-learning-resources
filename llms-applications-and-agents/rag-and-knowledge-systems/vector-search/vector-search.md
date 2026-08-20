@@ -394,4 +394,4 @@ Real systems, with **verified** specifics:
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Vector Databases & ANN Indexes — references and further reading](vector-search.references.md)**
+**→ [Vector Databases & ANN Indexes — references and further reading](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search#references-further-reading)**

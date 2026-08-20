@@ -446,4 +446,4 @@ Inside this tab, the ordering knob you just measured is the subject of the next 
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [RAG Fundamentals — references and further reading](rag-foundations.references.md)**
+**→ [RAG Fundamentals — references and further reading](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-foundations/rag-foundations#references-further-reading)**

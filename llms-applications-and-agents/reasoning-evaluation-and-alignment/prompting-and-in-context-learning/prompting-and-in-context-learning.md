@@ -381,4 +381,4 @@ How ICL shows up in real systems, concretely:
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Prompting & In-Context Learning — references and further reading](prompting-and-in-context-learning.references.md)**
+**→ [Prompting & In-Context Learning — references and further reading](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/prompting-and-in-context-learning/prompting-and-in-context-learning#references-further-reading)**

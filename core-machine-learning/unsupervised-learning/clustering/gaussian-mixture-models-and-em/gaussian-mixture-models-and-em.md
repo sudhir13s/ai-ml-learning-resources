@@ -131,7 +131,7 @@ Read it as "of all the probability mass landing on $x_n$, what fraction came fro
 
 > **Gotcha:** compute the Gaussian densities in **log-space** and combine with **log-sum-exp**, never as raw products/sums. In high dimensions $\mathcal N(x;\mu,\Sigma)$ underflows to $0.0$, and then $\gamma = 0/0 = $ NaN. Every real-world implementation (scikit-learn included) works with $\log\mathcal N$ and a numerically stable normalizer — a classic from-scratch bug otherwise.
 
-> **Source / derivation:** the GMM responsibilities, the closed-form M-step, and the lower-bound (ELBO) view follow **Bishop, *Pattern Recognition and Machine Learning*, Ch. 9 "Mixture Models and EM"**; the general EM algorithm and its monotonicity guarantee are **Dempster, Laird & Rubin (1977), *Maximum Likelihood from Incomplete Data via the EM Algorithm*** (*J. Royal Statistical Society B*); the free-energy / ELBO justification used in Steps 1–4 is **Neal & Hinton (1998)**; a modern textbook treatment is **Murphy, *Probabilistic Machine Learning*** and *An Introduction to Statistical Learning*, **Ch. 12**. All are free and linked in the [references](gaussian-mixture-models-and-em.references.md).
+> **Source / derivation:** the GMM responsibilities, the closed-form M-step, and the lower-bound (ELBO) view follow **Bishop, *Pattern Recognition and Machine Learning*, Ch. 9 "Mixture Models and EM"**; the general EM algorithm and its monotonicity guarantee are **Dempster, Laird & Rubin (1977), *Maximum Likelihood from Incomplete Data via the EM Algorithm*** (*J. Royal Statistical Society B*); the free-energy / ELBO justification used in Steps 1–4 is **Neal & Hinton (1998)**; a modern textbook treatment is **Murphy, *Probabilistic Machine Learning*** and *An Introduction to Statistical Learning*, **Ch. 12**. All are free and linked in the [references](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/gaussian-mixture-models-and-em/gaussian-mixture-models-and-em#references-further-reading).
 
 ---
 
@@ -629,4 +629,4 @@ A GMM is the right tool for *Gaussian-ish, possibly-elliptical, possibly-overlap
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Gaussian Mixture Models & EM — references and further reading](gaussian-mixture-models-and-em.references.md)**
+**→ [Gaussian Mixture Models & EM — references and further reading](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/gaussian-mixture-models-and-em/gaussian-mixture-models-and-em#references-further-reading)**

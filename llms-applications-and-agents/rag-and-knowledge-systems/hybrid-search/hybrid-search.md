@@ -420,4 +420,4 @@ Hybrid search is a first-class feature in essentially every modern retrieval eng
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Hybrid Search (BM25 + Dense) — references and further reading](hybrid-search.references.md)**
+**→ [Hybrid Search (BM25 + Dense) — references and further reading](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search#references-further-reading)**

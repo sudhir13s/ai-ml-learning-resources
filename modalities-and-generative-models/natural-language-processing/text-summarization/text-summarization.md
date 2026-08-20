@@ -527,4 +527,4 @@ abstractive ROUGE-1=0.39 R-2=0.14 R-L=0.22
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Text Summarization — references and further reading](text-summarization.references.md)**
+**→ [Text Summarization — references and further reading](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/text-summarization/text-summarization#references-further-reading)**

@@ -452,4 +452,4 @@ OLS: singular X^T X (no unique solution)  ->  Ridge solves it: w = [-0.023  0.17
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Linear Regression — references and further reading](linear-regression.references.md)**
+**→ [Linear Regression — references and further reading](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/regression/linear-regression/linear-regression#references-further-reading)**

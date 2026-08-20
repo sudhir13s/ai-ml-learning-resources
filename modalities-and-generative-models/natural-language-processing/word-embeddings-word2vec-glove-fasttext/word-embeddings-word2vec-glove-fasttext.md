@@ -625,4 +625,4 @@ The honest practitioner summary: **word2vec and GloVe give near-identical qualit
 
 The curated link library for this topic — videos, courses, interactive demos, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Word Embeddings — references and further reading](word-embeddings-word2vec-glove-fasttext.references.md)**
+**→ [Word Embeddings — references and further reading](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/word-embeddings-word2vec-glove-fasttext/word-embeddings-word2vec-glove-fasttext#references-further-reading)**

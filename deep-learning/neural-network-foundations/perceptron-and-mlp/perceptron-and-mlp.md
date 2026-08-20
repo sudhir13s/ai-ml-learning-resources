@@ -400,4 +400,4 @@ Read the four blocks against the theory: **(1)** the perceptron rule converges o
 
 The curated link library for this topic — videos, courses, articles, the foundational papers (McCulloch–Pitts, Rosenblatt, Minsky–Papert, Cybenko/Hornik, Rumelhart et al.), books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Perceptron and MLP — references and further reading](perceptron-and-mlp.references.md)**
+**→ [Perceptron and MLP — references and further reading](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/perceptron-and-mlp/perceptron-and-mlp#references-further-reading)**

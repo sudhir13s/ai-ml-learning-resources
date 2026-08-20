@@ -463,4 +463,4 @@ max_features=20  mean tree-corr rho=0.60  test acc=0.898
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Random Forests — references and further reading](random-forests.references.md)**
+**→ [Random Forests — references and further reading](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/random-forests/random-forests#references-further-reading)**

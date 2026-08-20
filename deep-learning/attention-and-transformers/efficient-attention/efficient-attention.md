@@ -387,4 +387,4 @@ What FlashAttention actually buys, with verified figures:
 
 The curated link library for this topic — videos, courses, articles, papers, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Efficient Attention (FlashAttention) — references and further reading](efficient-attention.references.md)**
+**→ [Efficient Attention (FlashAttention) — references and further reading](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/efficient-attention/efficient-attention#references-further-reading)**

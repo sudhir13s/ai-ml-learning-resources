@@ -745,4 +745,4 @@ score std | softmax max w | grad-norm at scores
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Attention Mechanism — references and further reading](attention-mechanism.references.md)**
+**→ [Attention Mechanism — references and further reading](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism#references-further-reading)**

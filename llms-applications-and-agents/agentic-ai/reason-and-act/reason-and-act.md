@@ -390,4 +390,4 @@ Everything on this page is produced by real code you can run and teach from — 
 
 The curated link library for this topic — the ReAct paper and its ablations, the reasoning and tool-use lineage, videos, courses, and the framework implementations — lives in a companion file so it can be reused as a standalone reference list, and every "Source / derivation" citation above appears in it:
 
-**→ [ReAct — references and further reading](reason-and-act.references.md)**
+**→ [ReAct — references and further reading](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/reason-and-act/reason-and-act#references-further-reading)**
