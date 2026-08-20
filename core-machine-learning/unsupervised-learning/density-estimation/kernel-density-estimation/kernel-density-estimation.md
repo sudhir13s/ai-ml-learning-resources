@@ -627,4 +627,4 @@ Output:
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Kernel Density Estimation — references and further reading](kernel-density-estimation.references.md)**
+**→ [Kernel Density Estimation — references and further reading](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/density-estimation/kernel-density-estimation/kernel-density-estimation#references-further-reading)**

@@ -614,4 +614,4 @@ Probing more cells **monotonically raises recall** — the latency–recall dial
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Information Retrieval & Semantic Search — references and further reading](information-retrieval-and-semantic-search.references.md)**
+**→ [Information Retrieval & Semantic Search — references and further reading](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/information-retrieval-and-semantic-search/information-retrieval-and-semantic-search#references-further-reading)**

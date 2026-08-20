@@ -230,4 +230,4 @@ SGD: ||w - true_mean|| = 0.061  (-> 0)
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Gradient Descent — references and further reading](gradient-descent-theory.references.md)**
+**→ [Gradient Descent — references and further reading](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/gradient-descent-theory/gradient-descent-theory#references-further-reading)**

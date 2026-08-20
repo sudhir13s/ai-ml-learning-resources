@@ -35,7 +35,7 @@ Doubles as a **dataset** for the interview-prep app, so formats must stay consis
 > **GOLD STANDARD — MUST (no exceptions).** The KV-Cache pages are the ratified gold standard for
 > every concept page. **Before creating or modifying ANY `concepts/` file** — yourself or via any
 > specialist skill / subagent you invoke — **first read both gold-standard files**
-> ([05-KV-Cache.md](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) + [05-KV-Cache.references.md](llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.references.md))
+> ([05-KV-Cache.md](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) + [05-KV-Cache.references.md](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache#references-further-reading))
 > and match them. **Before marking the work done, verify the result against them**: section flow
 > present & in order, visuals generated and rendering (PNGs viewed, mermaid validates), code runs in
 > `~/.uv/envs/ml-py312`, every reference link verified, bold-not-highlight, no emoji in headings,
@@ -57,7 +57,7 @@ Doubles as a **dataset** for the interview-prep app, so formats must stay consis
 
 Each topic's `concepts/` folder holds the **deep, blog-quality teaching pages**. As of 2026-06-21
 each concept is **two files** (canonical example: [kv-cache.md](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache)
-+ [05-KV-Cache.references.md](llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.references.md)):
++ [05-KV-Cache.references.md](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache#references-further-reading)):
 
 - **`NN-Concept.md` — the content.** A progressive, intuition-first page written in the voice of a
   researcher-teacher writing a tech blog (style bar = Practitioner-Workflows `RLHF-and-Alignment.md`).

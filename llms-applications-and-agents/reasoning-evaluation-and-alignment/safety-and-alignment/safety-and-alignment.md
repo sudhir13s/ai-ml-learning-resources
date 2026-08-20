@@ -474,4 +474,4 @@ The capstone insight: **there is no single place to "fix hallucination."** It is
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Hallucination & Alignment Basics — references and further reading](safety-and-alignment.references.md)**
+**→ [Hallucination & Alignment Basics — references and further reading](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/safety-and-alignment/safety-and-alignment#references-further-reading)**

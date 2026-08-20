@@ -497,4 +497,4 @@ Evaluation is not an academic afterthought — it's load-bearing infrastructure:
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [LLM Evaluation & Benchmarks — references and further reading](llm-evaluation.references.md)**
+**→ [LLM Evaluation & Benchmarks — references and further reading](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/llm-evaluation/llm-evaluation#references-further-reading)**

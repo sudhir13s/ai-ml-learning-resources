@@ -527,4 +527,4 @@ says "*this specific* orbital claim follows from the source." That gap is the ce
 The curated link library for this topic — videos, courses, articles, papers, and internal
 cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Guardrails & Hallucination Mitigation — references and further reading](hallucination-and-grounding.references.md)**
+**→ [Guardrails & Hallucination Mitigation — references and further reading](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/hallucination-and-grounding/hallucination-and-grounding#references-further-reading)**

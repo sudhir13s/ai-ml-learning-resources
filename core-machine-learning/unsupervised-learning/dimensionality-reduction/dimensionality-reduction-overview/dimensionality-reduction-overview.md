@@ -582,4 +582,4 @@ The mistakes that turn PCA from a help into a quiet liability — worth a checkl
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links (including the non-linear siblings **t-SNE** and **UMAP**) — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Dimensionality Reduction — references and further reading](dimensionality-reduction-overview.references.md)**
+**→ [Dimensionality Reduction — references and further reading](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/dimensionality-reduction-overview/dimensionality-reduction-overview#references-further-reading)**

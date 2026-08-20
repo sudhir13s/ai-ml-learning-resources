@@ -355,4 +355,4 @@ The growth of these corpora makes Law 1 visible: the **number and diversity of i
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Instruction Tuning — references and further reading](instruction-tuning.references.md)**
+**→ [Instruction Tuning — references and further reading](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/instruction-tuning/instruction-tuning#references-further-reading)**

@@ -630,4 +630,4 @@ A few that come up constantly, answered tightly:
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [t-SNE — references and further reading](t-sne.references.md)**
+**→ [t-SNE — references and further reading](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/t-sne/t-sne#references-further-reading)**

@@ -631,4 +631,4 @@ The basic frequent-itemset machinery generalizes in directions interviewers occa
 
 The curated link library for this topic — videos, courses, articles, the original papers (Agrawal–Imieliński–Swami 1993, Apriori 1994, FP-Growth 2000, Eclat 2000), books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Association Rule Learning — references and further reading](association-rule-learning.references.md)**
+**→ [Association Rule Learning — references and further reading](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/association-rules/association-rule-learning/association-rule-learning#references-further-reading)**

@@ -543,4 +543,4 @@ all asserts passed: recovered exponent, interior optimum, 6ND arithmetic, and th
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Scaling Laws — references and further reading](scaling-laws.references.md)**
+**→ [Scaling Laws — references and further reading](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/scaling-laws/scaling-laws#references-further-reading)**

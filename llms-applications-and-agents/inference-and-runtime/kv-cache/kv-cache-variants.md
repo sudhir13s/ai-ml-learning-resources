@@ -213,4 +213,4 @@ Next: [Chapter 2 — the optimization ladder](/ai-ml/ai-ml-learning-resources/ll
 
 ## References
 
-Shared with the topic's companion file — see [KV Cache — references and further reading](kv-cache.references.md) (GQA, MLA/DeepSeek-V2, KIVI, StreamingLLM, and Mistral entries).
+Shared with the topic's companion file — see [KV Cache — references and further reading](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache#references-further-reading) (GQA, MLA/DeepSeek-V2, KIVI, StreamingLLM, and Mistral entries).

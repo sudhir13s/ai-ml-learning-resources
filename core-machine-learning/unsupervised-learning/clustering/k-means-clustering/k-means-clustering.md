@@ -51,7 +51,7 @@ $$J(\{c_i\}, \{\mu_c\}) \;=\; \sum_{i=1}^{n} \big\lVert x_i - \mu_{c_i} \big\rVe
 
 Read it left to right: for every point, take the squared distance to **its own** cluster's center, and add them all up. A small $J$ means every point sits close to its center — tight, compact clusters. A large $J$ means points are stranded far from their centers. **Minimizing $J$ is the entire goal of k-means.**
 
-> **Source / derivation:** the within-cluster sum-of-squares objective and the coordinate-descent view (fix centers → optimal assignment is nearest-centroid; fix assignments → optimal center is the mean) follow *An Introduction to Statistical Learning*, **Ch. 12.4 "Clustering Methods"** (James, Witten, Hastie, Tibshirani & Taylor) and *The Elements of Statistical Learning* **§14.3**. Both are free PDFs, linked in the [references](k-means-clustering.references.md).
+> **Source / derivation:** the within-cluster sum-of-squares objective and the coordinate-descent view (fix centers → optimal assignment is nearest-centroid; fix assignments → optimal center is the mean) follow *An Introduction to Statistical Learning*, **Ch. 12.4 "Clustering Methods"** (James, Witten, Hastie, Tibshirani & Taylor) and *The Elements of Statistical Learning* **§14.3**. Both are free PDFs, linked in the [references](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/k-means-clustering/k-means-clustering#references-further-reading).
 
 > **Note:** the distance is **squared** Euclidean, and that's not cosmetic — it's the load-bearing choice. Squaring is what makes the optimal center the *mean* (we derive this next), ties k-means to *variance*, and makes it lean toward equal-sized round clusters. Swap squared-$L_2$ for $L_1$ and you get **k-medians** (centers become coordinate-wise medians); swap the mean-center for an actual data point and you get **k-medoids**. The objective you pick *is* the algorithm.
 
@@ -65,7 +65,7 @@ A useful reframing: because $J$ sums squared distances to cluster means, $J \pro
 
 The algorithm that minimizes $J$ is **Lloyd's algorithm** (1957, published 1982). It's the alternating minimization the tip above hinted at:
 
-> **Source / derivation:** the iterative assign-then-update loop is Stuart **Lloyd's** least-squares quantization for PCM, written at Bell Labs in **1957** and finally published in *IEEE Transactions on Information Theory* in **1982**. The name "k-means" comes from **MacQueen (1967)**, who gave an online (one-point-at-a-time) variant. See Lloyd (1982) and MacQueen (1967) in the [references](k-means-clustering.references.md); a modern textbook treatment is *An Introduction to Statistical Learning*, **Ch. 12.4** (James, Witten, Hastie, Tibshirani & Taylor).
+> **Source / derivation:** the iterative assign-then-update loop is Stuart **Lloyd's** least-squares quantization for PCM, written at Bell Labs in **1957** and finally published in *IEEE Transactions on Information Theory* in **1982**. The name "k-means" comes from **MacQueen (1967)**, who gave an online (one-point-at-a-time) variant. See Lloyd (1982) and MacQueen (1967) in the [references](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/k-means-clustering/k-means-clustering#references-further-reading); a modern textbook treatment is *An Introduction to Statistical Learning*, **Ch. 12.4** (James, Witten, Hastie, Tibshirani & Taylor).
 
 1. **Initialize** $k$ centroids $\mu_1, \dots, \mu_k$ (random points, or k-means++ — below).
 2. **Assign step.** Hold the centroids fixed. Assign each point to its **nearest** centroid:
@@ -174,7 +174,7 @@ The histogram makes the case viscerally: with **random** seeding, a fair share o
 
 ## k-means++: spread the seeds with D² sampling
 
-> **Source / derivation:** the $D^2$-weighted seeding rule and the $\mathbb{E}[J_{\text{++}}] \le 8(\ln k + 2)\,J_{\text{OPT}}$ guarantee are from **Arthur & Vassilvitskii (2007)**, *"k-means++: The Advantages of Careful Seeding"* (SODA). The **greedy** variant used in `code/kmeans.py` (and by scikit-learn) — sample $2 + \lfloor\ln k\rfloor$ candidates per step and keep the one that lowers the potential most — is the same paper's practical recommendation. Linked in the [references](k-means-clustering.references.md).
+> **Source / derivation:** the $D^2$-weighted seeding rule and the $\mathbb{E}[J_{\text{++}}] \le 8(\ln k + 2)\,J_{\text{OPT}}$ guarantee are from **Arthur & Vassilvitskii (2007)**, *"k-means++: The Advantages of Careful Seeding"* (SODA). The **greedy** variant used in `code/kmeans.py` (and by scikit-learn) — sample $2 + \lfloor\ln k\rfloor$ candidates per step and keep the one that lowers the potential most — is the same paper's practical recommendation. Linked in the [references](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/k-means-clustering/k-means-clustering#references-further-reading).
 
 **k-means++** (Arthur & Vassilvitskii, 2007) seeds the centroids so they start far apart, using a probabilistic rule that's both simple and provably good. Let $D(x)$ be the distance from point $x$ to the **nearest centroid already chosen**. The procedure:
 
@@ -482,4 +482,4 @@ Running the full module (`python kmeans.py`) prints the measured proof of every 
 
 The curated link library for this topic — start-here path, videos, interactive demos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [K-Means Clustering — references and further reading](k-means-clustering.references.md)**
+**→ [K-Means Clustering — references and further reading](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/k-means-clustering/k-means-clustering#references-further-reading)**

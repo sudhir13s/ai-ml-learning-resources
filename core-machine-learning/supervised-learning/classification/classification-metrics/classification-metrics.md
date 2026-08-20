@@ -603,4 +603,4 @@ Every step is one idea from this page — base rate → curves → cost-driven t
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Classification Metrics — references and further reading](classification-metrics.references.md)**
+**→ [Classification Metrics — references and further reading](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/classification-metrics/classification-metrics#references-further-reading)**

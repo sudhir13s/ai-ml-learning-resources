@@ -515,4 +515,4 @@ no attention (1 vector) |       0.7% |       0.0%
 
 The curated link library for this topic — the suggested learning path, videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Sequence-to-Sequence & Encoder–Decoder — references and further reading](sequence-to-sequence-and-encoder-decoder.references.md)**
+**→ [Sequence-to-Sequence & Encoder–Decoder — references and further reading](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sequence-to-sequence-and-encoder-decoder/sequence-to-sequence-and-encoder-decoder#references-further-reading)**

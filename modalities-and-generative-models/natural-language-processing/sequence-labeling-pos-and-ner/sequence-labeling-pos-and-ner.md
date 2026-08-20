@@ -545,4 +545,4 @@ weighted avg       0.50      0.50      0.50         2
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Sequence Labeling — references and further reading](sequence-labeling-pos-and-ner.references.md)**
+**→ [Sequence Labeling — references and further reading](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sequence-labeling-pos-and-ner/sequence-labeling-pos-and-ner#references-further-reading)**

@@ -690,4 +690,4 @@ The deeper reason the idea endures is that it solved the right problem at the ri
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Residual / Skip Connections — references and further reading](residual-skip-connections.references.md)**
+**→ [Residual / Skip Connections — references and further reading](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/residual-skip-connections/residual-skip-connections#references-further-reading)**

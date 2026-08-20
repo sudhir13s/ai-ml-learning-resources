@@ -156,7 +156,7 @@ $$
 
 Read it against the intuition: for each action we took, $\nabla_\theta \log \pi_\theta(a_t\mid s_t)$ is the direction in parameter space that makes that action *more probable*; we sum those directions over the episode and scale the whole thing by the return $R(\tau)$. Good episodes ($R$ large) push their actions up hard; bad episodes push theirs down. Exactly "trial, then reinforce what worked."
 
-> **Source / derivation:** the score-function estimator and the REINFORCE update are Williams, *Simple Statistical Gradient-Following Algorithms for Connectionist Reinforcement Learning* (1992); the **policy-gradient theorem** (with function approximation, and the compatible-features result) is Sutton, McAllester, Singh & Mansour, *Policy Gradient Methods for Reinforcement Learning with Function Approximation* (NeurIPS 2000); the modern textbook treatment is Sutton & Barto, *Reinforcement Learning: An Introduction* (2nd ed., 2018), Chapter 13. All in the [references](policy-gradients-reinforce.references.md).
+> **Source / derivation:** the score-function estimator and the REINFORCE update are Williams, *Simple Statistical Gradient-Following Algorithms for Connectionist Reinforcement Learning* (1992); the **policy-gradient theorem** (with function approximation, and the compatible-features result) is Sutton, McAllester, Singh & Mansour, *Policy Gradient Methods for Reinforcement Learning with Function Approximation* (NeurIPS 2000); the modern textbook treatment is Sutton & Barto, *Reinforcement Learning: An Introduction* (2nd ed., 2018), Chapter 13. All in the [references](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/policy-learning/policy-gradients-reinforce/policy-gradients-reinforce#references-further-reading).
 
 ### Reward-to-go: causality gives the first variance cut
 
@@ -328,4 +328,4 @@ REINFORCE has a sharp set of traps, and every one shows up in interviews and in 
 
 The curated link library for this topic — the start-here path, videos, courses, articles, papers, and books, plus internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Policy Gradients (REINFORCE) — references and further reading](policy-gradients-reinforce.references.md)**
+**→ [Policy Gradients (REINFORCE) — references and further reading](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/policy-learning/policy-gradients-reinforce/policy-gradients-reinforce#references-further-reading)**

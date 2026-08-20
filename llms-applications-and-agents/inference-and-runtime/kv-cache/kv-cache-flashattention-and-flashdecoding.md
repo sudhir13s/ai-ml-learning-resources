@@ -156,4 +156,4 @@ Next: [Chapter 4 — the KV cache in production](/ai-ml/ai-ml-learning-resources
 
 ## References
 
-Shared with the topic's companion file — see [KV Cache — references and further reading](kv-cache.references.md) (FlashAttention, FlashDecoding, and serving-kernel entries).
+Shared with the topic's companion file — see [KV Cache — references and further reading](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache#references-further-reading) (FlashAttention, FlashDecoding, and serving-kernel entries).

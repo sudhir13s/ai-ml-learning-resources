@@ -751,4 +751,4 @@ A grab-bag of the mistakes that actually bite, gathered in one place:
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Normalization — references and further reading](normalization.references.md)**
+**→ [Normalization — references and further reading](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/normalization/normalization#references-further-reading)**

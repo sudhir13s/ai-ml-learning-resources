@@ -588,4 +588,4 @@ Every step is one idea from this page applied in order. That's the whole job.
 
 The curated link library for this topic — start-here path, videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Sentence & Document Embeddings — references and further reading](sentence-and-document-embeddings.references.md)**
+**→ [Sentence & Document Embeddings — references and further reading](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sentence-and-document-embeddings/sentence-and-document-embeddings#references-further-reading)**

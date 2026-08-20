@@ -411,4 +411,4 @@ A few production realities worth carrying into an interview:
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Language Modeling Objectives — references and further reading](language-modeling-objectives.references.md)**
+**→ [Language Modeling Objectives — references and further reading](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/language-modeling-objectives/language-modeling-objectives#references-further-reading)**

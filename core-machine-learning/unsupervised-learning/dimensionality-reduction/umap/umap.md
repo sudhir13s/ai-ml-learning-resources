@@ -602,4 +602,4 @@ The honest one-paragraph summary for an interview: *"UMAP turns the data into a 
 
 The curated link library for this topic — start-here path, videos, interactive demos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [UMAP — references and further reading](umap.references.md)**
+**→ [UMAP — references and further reading](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/umap/umap#references-further-reading)**

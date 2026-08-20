@@ -243,7 +243,7 @@ Two boxed rules — *"outer-product the upstream error with the input to get the
 
 > **Tip:** the bias $b$ in $z = Wx + b$ is the easiest of all: $z_i = (Wx)_i + b_i$ so $\partial z_i/\partial b_i = 1$, giving $\boxed{\partial L/\partial b = \delta}$ directly. For a *batch* of examples, the bias receives the **sum** of $\delta$ over the batch (the bias fans out to every example — the copy gate again).
 
-> **Source / derivation:** the vector-Jacobian-product view of reverse-mode autodiff — propagating a cotangent $v^\top J$ through each layer's Jacobian without ever forming it — is the formalism of *Automatic Differentiation in Machine Learning: a Survey* (Baydin et al., 2018) and the JAX *Autodiff Cookbook*; the matmul rules $\partial L/\partial W=\delta x^\top,\ \partial L/\partial x=W^\top\delta$ are the standard linear-layer VJPs (Goodfellow, Bengio & Courville, *Deep Learning*, §6.5). Both in the [references](backpropagation-and-computational-graphs.references.md).
+> **Source / derivation:** the vector-Jacobian-product view of reverse-mode autodiff — propagating a cotangent $v^\top J$ through each layer's Jacobian without ever forming it — is the formalism of *Automatic Differentiation in Machine Learning: a Survey* (Baydin et al., 2018) and the JAX *Autodiff Cookbook*; the matmul rules $\partial L/\partial W=\delta x^\top,\ \partial L/\partial x=W^\top\delta$ are the standard linear-layer VJPs (Goodfellow, Bengio & Courville, *Deep Learning*, §6.5). Both in the [references](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs#references-further-reading).
 
 ---
 
@@ -310,7 +310,7 @@ graph TD
     classDef frozen fill:#4A5B6E,stroke:#3A4B5E,color:#fff
 ```
 
-> **Source / derivation:** backprop for neural nets is *Learning representations by back-propagating errors* (Rumelhart, Hinton & Williams, Nature 1986); these **four equations** in exactly this $\delta$-form are derived in Michael Nielsen's *Neural Networks and Deep Learning*, Ch. 2; the rigorous general-computational-graph / reverse-mode treatment is Goodfellow, Bengio & Courville, *Deep Learning*, §6.5 ("Back-Propagation and Other Differentiation Algorithms"); the reverse-mode-autodiff view (the VJP chain, forward vs reverse mode) is *Automatic Differentiation in Machine Learning: a Survey* (Baydin et al., 2018); the computational-graph framing is Olah's *Calculus on Computational Graphs* and *Dive into Deep Learning* §5.3. All in the [references](backpropagation-and-computational-graphs.references.md).
+> **Source / derivation:** backprop for neural nets is *Learning representations by back-propagating errors* (Rumelhart, Hinton & Williams, Nature 1986); these **four equations** in exactly this $\delta$-form are derived in Michael Nielsen's *Neural Networks and Deep Learning*, Ch. 2; the rigorous general-computational-graph / reverse-mode treatment is Goodfellow, Bengio & Courville, *Deep Learning*, §6.5 ("Back-Propagation and Other Differentiation Algorithms"); the reverse-mode-autodiff view (the VJP chain, forward vs reverse mode) is *Automatic Differentiation in Machine Learning: a Survey* (Baydin et al., 2018); the computational-graph framing is Olah's *Calculus on Computational Graphs* and *Dive into Deep Learning* §5.3. All in the [references](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs#references-further-reading).
 
 ---
 
@@ -727,4 +727,4 @@ The last block is the point of the whole page made concrete: feed the from-scrat
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Backpropagation & Computational Graphs — references and further reading](backpropagation-and-computational-graphs.references.md)**
+**→ [Backpropagation & Computational Graphs — references and further reading](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs#references-further-reading)**

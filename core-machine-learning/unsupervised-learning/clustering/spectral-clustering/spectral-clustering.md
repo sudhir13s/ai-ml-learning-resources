@@ -603,4 +603,4 @@ Pick whichever story you like — they converge on the same five-step recipe: **
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Spectral Clustering — references and further reading](spectral-clustering.references.md)**
+**→ [Spectral Clustering — references and further reading](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/spectral-clustering/spectral-clustering#references-further-reading)**

@@ -29,7 +29,7 @@ I'm going to teach this the way I'd teach it at a whiteboard: start with the bar
 
 > **Note:** an autoencoder is **self-supervised**, not unsupervised in the loose sense — there *is* a target, it's just the input itself. The label is free. That's why autoencoders sit at the root of modern self-supervised pretraining (denoising AEs → BERT's masked-LM intuition; masked autoencoders → modern vision pretraining).
 
-The companion **[references file](autoencoders.references.md)** holds every link (videos, courses, papers, books) — this page is the explanation.
+The companion **[references file](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/autoencoders/autoencoders#references-further-reading)** holds every link (videos, courses, papers, books) — this page is the explanation.
 
 ---
 
@@ -527,4 +527,4 @@ VAE: reconstruction ≈ 4.1   | KL ≈ 0.5    | -ELBO ≈ 4.6
 
 The curated link library for this topic — start-here path, videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Autoencoders — references and further reading](autoencoders.references.md)**
+**→ [Autoencoders — references and further reading](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/autoencoders/autoencoders#references-further-reading)**

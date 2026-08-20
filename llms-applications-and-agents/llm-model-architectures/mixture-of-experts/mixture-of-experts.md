@@ -580,4 +580,4 @@ WITH aux | util% = [13.5, 14.4, 12.0,  8.6, 16.6,  8.3, 13.4, 13.2] | max 16.6% 
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Mixture-of-Experts — references and further reading](mixture-of-experts.references.md)**
+**→ [Mixture-of-Experts — references and further reading](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/llm-model-architectures/mixture-of-experts/mixture-of-experts#references-further-reading)**

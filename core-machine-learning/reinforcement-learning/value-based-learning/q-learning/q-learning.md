@@ -131,7 +131,7 @@ $$
 
 Read the two pieces against the intuition. The **immediate reward** $r$ is what you collect on this step. The **$\gamma \max_{a'} Q^*(s',a')$** term is the discounted value of the *best* thing you can do from where you land — the bootstrap. The $\max_{a'}$ is the mathematical fingerprint of "then play as well as possible forever after." This equation has a unique solution $Q^*$; the trouble is the expectation $\sum_{s',r} P(\cdot)$ — computing it needs the model $P$, which model-free agents do not have.
 
-> **Source / derivation:** the optimality principle and the Bellman optimality equation are Bellman's, *Dynamic Programming* (1957); the action-value ($Q$) formulation and its use for model-free control are developed in Sutton & Barto, *Reinforcement Learning: An Introduction* (2nd ed., 2018), Chapter 3 (value functions) and Chapter 6 (temporal-difference learning). Both in the [references](q-learning.references.md).
+> **Source / derivation:** the optimality principle and the Bellman optimality equation are Bellman's, *Dynamic Programming* (1957); the action-value ($Q$) formulation and its use for model-free control are developed in Sutton & Barto, *Reinforcement Learning: An Introduction* (2nd ed., 2018), Chapter 3 (value functions) and Chapter 6 (temporal-difference learning). Both in the [references](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/value-based-learning/q-learning/q-learning#references-further-reading).
 
 ### From Bellman to Q-learning: replace the expectation with a sample
 
@@ -174,7 +174,7 @@ Q-learning's convergence is not free — it is a theorem with hypotheses. Watkin
 
 Intuitively: **explore enough to see everything, and anneal the learning rate so the estimates stop bouncing and settle.** This is *why* we decay $\varepsilon$ (and can decay $\alpha$): the two knobs from the intuition section are exactly the two hypotheses of the convergence theorem. And it is honest to note the guarantee is **asymptotic** — it says the table converges eventually, not that it is optimal after any fixed budget.
 
-> **Source / derivation:** the Q-learning algorithm and its convergence proof are Watkins, *Learning from Delayed Rewards* (PhD thesis, 1989), and Watkins & Dayan, *Q-learning*, Machine Learning 8 (1992); the stochastic-approximation view and the TD-control treatment are Sutton & Barto (2018), §6.5. All in the [references](q-learning.references.md).
+> **Source / derivation:** the Q-learning algorithm and its convergence proof are Watkins, *Learning from Delayed Rewards* (PhD thesis, 1989), and Watkins & Dayan, *Q-learning*, Machine Learning 8 (1992); the stochastic-approximation view and the TD-control treatment are Sutton & Barto (2018), §6.5. All in the [references](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/value-based-learning/q-learning/q-learning#references-further-reading).
 
 ---
 
@@ -303,4 +303,4 @@ Q-learning has a predictable set of traps, and every one shows up in interviews 
 
 The curated link library for this topic — the start-here path, videos, courses, articles, papers, and books, plus internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Q-Learning — references and further reading](q-learning.references.md)**
+**→ [Q-Learning — references and further reading](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/value-based-learning/q-learning/q-learning#references-further-reading)**

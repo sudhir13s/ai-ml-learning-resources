@@ -548,4 +548,4 @@ reference <R_(m-n) q, k> = 1.178293  (matches → relative-only)
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Positional Encoding — references and further reading](positional-encoding.references.md)**
+**→ [Positional Encoding — references and further reading](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/positional-encoding/positional-encoding#references-further-reading)**

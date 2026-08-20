@@ -506,4 +506,4 @@ warmup+cosine is 23.1x lower
 
 The curated link library for this topic — start-here path, videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Learning-Rate Schedules & Warmup — references and further reading](learning-rate-schedules-and-warmup.references.md)**
+**→ [Learning-Rate Schedules & Warmup — references and further reading](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/learning-rate-schedules-and-warmup/learning-rate-schedules-and-warmup#references-further-reading)**

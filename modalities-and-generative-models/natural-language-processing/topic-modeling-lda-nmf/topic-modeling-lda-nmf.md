@@ -684,4 +684,4 @@ The coherent topic wins on both measures — its words really do travel together
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Topic Modeling — references and further reading](topic-modeling-lda-nmf.references.md)**
+**→ [Topic Modeling — references and further reading](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/topic-modeling-lda-nmf/topic-modeling-lda-nmf#references-further-reading)**

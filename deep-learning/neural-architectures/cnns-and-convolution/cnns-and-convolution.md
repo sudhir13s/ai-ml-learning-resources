@@ -98,7 +98,7 @@ Cross-correlation (what we wrote first, with $i+m,\,j+n$) does *not* flip. The f
 
 > **See it live:** [CNN Explainer](https://poloclub.github.io/cnn-explainer/) (Georgia Tech) runs a real trained CNN in your browser — hover any neuron and watch the exact patch-times-kernel sum that produced it, layer by layer. For the operation in pure signal-processing terms, [3Blue1Brown's "But what is a convolution?"](https://www.youtube.com/watch?v=KuXjwB4LzSA) is the clearest visual definition anywhere.
 
-> **Source / derivation:** the convolution/cross-correlation layer, the priors it encodes, and its arithmetic are Goodfellow, Bengio & Courville, *Deep Learning*, Ch. 9 ("Convolutional Networks") and *Dive into Deep Learning* Ch. 7; CS231n's "Convolutional Networks" notes are the canonical sizing reference; the exhaustive arithmetic of shapes (stride/pad/dilation/transposed) is Dumoulin & Visin, *A guide to convolution arithmetic for deep learning* (2016). All in the [references](cnns-and-convolution.references.md).
+> **Source / derivation:** the convolution/cross-correlation layer, the priors it encodes, and its arithmetic are Goodfellow, Bengio & Courville, *Deep Learning*, Ch. 9 ("Convolutional Networks") and *Dive into Deep Learning* Ch. 7; CS231n's "Convolutional Networks" notes are the canonical sizing reference; the exhaustive arithmetic of shapes (stride/pad/dilation/transposed) is Dumoulin & Visin, *A guide to convolution arithmetic for deep learning* (2016). All in the [references](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/cnns-and-convolution/cnns-and-convolution#references-further-reading).
 
 ---
 
@@ -128,7 +128,7 @@ Stacking conv layers lets the network compose simple local patterns into complex
 
 > **Tip:** "Why a CNN over an MLP for images?" answer in three words — **locality, weight-sharing, translation-equivariance** — then deliver the parameter-count punchline (~270-million-fold fewer weights, *and* the count doesn't grow with image size). That's the whole question, asked in a dozen disguises.
 
-> **Source / derivation:** the three priors — sparse interactions, parameter sharing, and equivariant representations — and pooling's approximate invariance are Goodfellow, Bengio & Courville, *Deep Learning*, §9.2–9.3 ("Motivation" and "Pooling"). In the [references](cnns-and-convolution.references.md).
+> **Source / derivation:** the three priors — sparse interactions, parameter sharing, and equivariant representations — and pooling's approximate invariance are Goodfellow, Bengio & Courville, *Deep Learning*, §9.2–9.3 ("Motivation" and "Pooling"). In the [references](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/cnns-and-convolution/cnns-and-convolution#references-further-reading).
 
 ---
 
@@ -187,7 +187,7 @@ Two patterns are worth memorizing because they recur everywhere:
 
 > **Gotcha:** **padding modes** differ subtly. PyTorch's `padding="same"` only works for stride 1; with even kernels "same" is ambiguous (you'd need asymmetric padding). TensorFlow's `"SAME"` silently pads asymmetrically and can place the extra pad on the right/bottom — a classic source of off-by-one feature-map mismatches when porting a model between frameworks. When in doubt, compute the formula by hand.
 
-> **Source / derivation:** the output-size formula and every stride/padding/dilation/transposed variant are derived and animated in Dumoulin & Visin, *A guide to convolution arithmetic for deep learning* (2016), and tabulated in the Stanford CS231n convolutional-networks notes. In the [references](cnns-and-convolution.references.md).
+> **Source / derivation:** the output-size formula and every stride/padding/dilation/transposed variant are derived and animated in Dumoulin & Visin, *A guide to convolution arithmetic for deep learning* (2016), and tabulated in the Stanford CS231n convolutional-networks notes. In the [references](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/cnns-and-convolution/cnns-and-convolution#references-further-reading).
 
 ---
 
@@ -284,7 +284,7 @@ The code implements this backward pass from scratch (as a direct scatter, provab
 
 > **Note:** the headline to remember: **forward conv, backward (transposed) conv.** Grad-w.r.t.-input is a transposed convolution; grad-w.r.t.-kernel is a convolution of input with the upstream gradient; grad-w.r.t.-bias is a spatial sum. Autograd does all of this for you, but knowing the *structure* explains why transposed convolutions exist and why CNN training is no slower (per FLOP) than the forward pass.
 
-> **Source / derivation:** convolution as a differentiable layer, its backward pass as convolutions, and pooling's backward routing are Goodfellow, Bengio & Courville, *Deep Learning*, §9.5 ("Convolution and Pooling as an Infinitely Strong Prior") and the CS231n notes; the reverse-mode/VJP machinery it plugs into is the sibling [Backpropagation](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs) page. In the [references](cnns-and-convolution.references.md).
+> **Source / derivation:** convolution as a differentiable layer, its backward pass as convolutions, and pooling's backward routing are Goodfellow, Bengio & Courville, *Deep Learning*, §9.5 ("Convolution and Pooling as an Infinitely Strong Prior") and the CS231n notes; the reverse-mode/VJP machinery it plugs into is the sibling [Backpropagation](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs) page. In the [references](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/cnns-and-convolution/cnns-and-convolution#references-further-reading).
 
 ---
 
@@ -448,7 +448,7 @@ A natural question: **why did CNNs explode in 2012 and not in 1998?** The *archi
 
 > **Gotcha:** the single most important architectural idea *after* convolution itself is the **residual connection**. Before it, plain nets past ~20 layers got *worse*, not better — not from overfitting but because gradients degraded across so many layers (the [vanishing-gradient](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients) problem). Skip connections give the gradient a clean identity highway back to early layers. That's why every deep model since 2015 — CNNs *and* Transformers — uses them. Full treatment in **[Residual / Skip Connections](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/residual-skip-connections/residual-skip-connections)**.
 
-> **Source / derivation:** the convolutional network and the conv→pool→FC template are LeCun, Bottou, Bengio & Haffner, *Gradient-Based Learning Applied to Document Recognition* (1998), building on LeCun et al., *Backpropagation Applied to Handwritten Zip Code Recognition* (1989) — the first end-to-end trained convnet; the depth lineage is AlexNet (Krizhevsky et al. 2012), VGG (Simonyan & Zisserman 2014), Inception (Szegedy et al. 2014), ResNet (He et al. 2015), and MobileNet/depthwise-separable (Howard et al. 2017). All in the [references](cnns-and-convolution.references.md).
+> **Source / derivation:** the convolutional network and the conv→pool→FC template are LeCun, Bottou, Bengio & Haffner, *Gradient-Based Learning Applied to Document Recognition* (1998), building on LeCun et al., *Backpropagation Applied to Handwritten Zip Code Recognition* (1989) — the first end-to-end trained convnet; the depth lineage is AlexNet (Krizhevsky et al. 2012), VGG (Simonyan & Zisserman 2014), Inception (Szegedy et al. 2014), ResNet (He et al. 2015), and MobileNet/depthwise-separable (Howard et al. 2017). All in the [references](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/cnns-and-convolution/cnns-and-convolution#references-further-reading).
 
 ---
 
@@ -666,4 +666,4 @@ The mechanics are clean, but a predictable set of mistakes bites practitioners a
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [CNNs & Convolution — references and further reading](cnns-and-convolution.references.md)**
+**→ [CNNs & Convolution — references and further reading](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/cnns-and-convolution/cnns-and-convolution#references-further-reading)**

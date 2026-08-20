@@ -547,4 +547,4 @@ Read the output as the whole page in miniature. The two *different* senses of `b
 
 The curated link library for this topic — start-here path, videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Contextual Embeddings — references and further reading](contextual-embeddings-elmo-bert.references.md)**
+**→ [Contextual Embeddings — references and further reading](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert#references-further-reading)**

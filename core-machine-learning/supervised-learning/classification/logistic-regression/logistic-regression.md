@@ -415,4 +415,4 @@ Given a fresh binary-classification problem, here's the end-to-end playbook — 
 
 The curated link library for this topic — start-here path, videos, interactive/visual resources, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Logistic Regression — references and further reading](logistic-regression.references.md)**
+**→ [Logistic Regression — references and further reading](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/logistic-regression/logistic-regression#references-further-reading)**

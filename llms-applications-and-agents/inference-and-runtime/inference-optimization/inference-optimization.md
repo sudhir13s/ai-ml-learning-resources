@@ -436,4 +436,4 @@ Tying the levers to systems you can run today:
 
 The curated link library for this topic — videos, courses, articles, papers, and interactive tools, including every cited formula source — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Inference Optimization & Serving — references and further reading](inference-optimization.references.md)**
+**→ [Inference Optimization & Serving — references and further reading](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/inference-optimization/inference-optimization#references-further-reading)**

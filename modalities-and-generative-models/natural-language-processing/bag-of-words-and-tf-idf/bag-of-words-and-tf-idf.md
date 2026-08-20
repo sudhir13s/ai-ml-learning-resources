@@ -547,4 +547,4 @@ The ideas have a clean lineage worth knowing for interviews:
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Bag-of-Words & TF-IDF — references and further reading](bag-of-words-and-tf-idf.references.md)**
+**→ [Bag-of-Words & TF-IDF — references and further reading](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/bag-of-words-and-tf-idf/bag-of-words-and-tf-idf#references-further-reading)**

@@ -481,4 +481,4 @@ Concrete, verified anchors:
 
 The curated link library for this topic — papers (with the formula sources cited above), videos, courses, articles, and interactive explainers — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Quantization — references and further reading](quantization.references.md)**
+**→ [Quantization — references and further reading](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/quantization/quantization#references-further-reading)**

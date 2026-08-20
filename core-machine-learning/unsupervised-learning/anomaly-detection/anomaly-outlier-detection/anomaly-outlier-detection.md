@@ -661,4 +661,4 @@ And **never trust accuracy** — under 1% prevalence it rewards predicting "norm
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Anomaly / Outlier Detection — references and further reading](anomaly-outlier-detection.references.md)**
+**→ [Anomaly / Outlier Detection — references and further reading](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/anomaly-detection/anomaly-outlier-detection/anomaly-outlier-detection#references-further-reading)**

@@ -402,4 +402,4 @@ Tying the techniques to models you've heard of. Note that **every** one of these
 
 The curated link library for this topic — videos, courses, articles, papers, and interactive visualisations — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Long-Context Methods — references and further reading](long-context-architectures.references.md)**
+**→ [Long-Context Methods — references and further reading](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/llm-model-architectures/long-context-architectures/long-context-architectures#references-further-reading)**

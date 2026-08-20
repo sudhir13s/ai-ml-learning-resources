@@ -599,4 +599,4 @@ The mistakes that show up in real projects (and interview follow-ups) almost alw
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Regression Metrics — references and further reading](regression-metrics.references.md)**
+**→ [Regression Metrics — references and further reading](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/regression/regression-metrics/regression-metrics#references-further-reading)**

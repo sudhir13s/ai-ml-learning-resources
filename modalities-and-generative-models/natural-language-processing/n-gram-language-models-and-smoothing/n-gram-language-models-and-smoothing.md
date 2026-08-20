@@ -618,4 +618,4 @@ The fixes for these limits *are* the next several pages of NLP. The cure for (2)
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [N-gram Language Models and Smoothing — references and further reading](n-gram-language-models-and-smoothing.references.md)**
+**→ [N-gram Language Models and Smoothing — references and further reading](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/n-gram-language-models-and-smoothing/n-gram-language-models-and-smoothing#references-further-reading)**

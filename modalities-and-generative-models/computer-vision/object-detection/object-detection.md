@@ -133,7 +133,7 @@ The intersection rectangle is built from the *inner* edges — its top-left is t
 
 IoU is scale-free (a number in $[0, 1]$) and is the currency of both jobs still to come: **NMS** uses it to decide which boxes are duplicates (IoU above a threshold → same object → suppress), and **AP** uses it to decide which detections *count* as correct (IoU with a ground-truth box $\ge 0.5$ → a hit). Our from-scratch IoU matrix matches `torchvision.ops.box_iou` to $0.00\text{e}{+}0$ — it *is* the standard IoU, not a look-alike.
 
-> **Source / derivation:** IoU (the Jaccard index of two boxes) and the mean-Average-Precision protocol built on it are the PASCAL VOC evaluation standard — Everingham, Van Gool, Williams, Winn & Zisserman, *The PASCAL Visual Object Classes (VOC) Challenge* (2010) — extended by the COCO benchmark's stricter multi-threshold metric, Lin, Maire, Belongie, Hays, Perona, Ramanan, Dollár & Zitnick, *Microsoft COCO: Common Objects in Context* (2014). Both in the [references](object-detection.references.md).
+> **Source / derivation:** IoU (the Jaccard index of two boxes) and the mean-Average-Precision protocol built on it are the PASCAL VOC evaluation standard — Everingham, Van Gool, Williams, Winn & Zisserman, *The PASCAL Visual Object Classes (VOC) Challenge* (2010) — extended by the COCO benchmark's stricter multi-threshold metric, Lin, Maire, Belongie, Hays, Perona, Ramanan, Dollár & Zitnick, *Microsoft COCO: Common Objects in Context* (2014). Both in the [references](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/object-detection/object-detection#references-further-reading).
 
 ### NMS: collapsing the duplicate boxes
 
@@ -164,7 +164,7 @@ where $(a_x, a_y, a_w, a_h)$ and $(g_x, g_y, g_w, g_h)$ are the anchor and groun
 
 ![Anchors and box regression, made spatial. Nine anchors — 3 scales × 3 aspect ratios — are tiled at a single feature-map cell (grey), giving the detector a rack of reference boxes to correct rather than coordinates to invent. The matcher assigns the best-overlapping anchor (amber, dashed) to the object (green), and the regression head predicts a correction $t = (t_x, t_y, t_w, t_h)$ — the red arrow — that nudges that anchor's center and size onto the ground-truth box. The correction shown, $t = (0.44, -0.31, -0.04, 0.08)$, is the *actual* value the module's `encode_boxes` returns for this anchor/object pair, not a hand-drawn guess: the small centre shift (in anchor-size units) and near-zero log-space size deltas say "this anchor is already about the right size and shape — just move it a little."](images/cv07_anchors.png)
 
-> **Source / derivation:** learned region proposals via a Region Proposal Network over anchors, and the $(t_x, t_y, t_w, t_h)$ box parametrization, are Ren, He, Girshick & Sun, *Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks* (2015), building on Girshick, Donahue, Darrell & Malik, *Rich feature hierarchies (R-CNN)* (2014) and Girshick, *Fast R-CNN* (2015). Both in the [references](object-detection.references.md).
+> **Source / derivation:** learned region proposals via a Region Proposal Network over anchors, and the $(t_x, t_y, t_w, t_h)$ box parametrization, are Ren, He, Girshick & Sun, *Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks* (2015), building on Girshick, Donahue, Darrell & Malik, *Rich feature hierarchies (R-CNN)* (2014) and Girshick, *Fast R-CNN* (2015). Both in the [references](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/object-detection/object-detection#references-further-reading).
 
 ### Average Precision: scoring the ranked list
 
@@ -200,7 +200,7 @@ Two AP quantities you must distinguish:
 
 On our single real image the strong detector scores **mAP@0.5 = 1.00** and **COCO mAP@[.5:.95] = 0.975** — the stricter bar costs it a little (the second remote's box isn't pixel-perfect at IoU 0.95). Be honest about what that means: a *single easy image is illustrative, not a benchmark*. Real mAP is measured over thousands of images; here the point is the *machinery* (the matching, the curve, the threshold dependence) and that it reproduces the hand-verified worked example, not the specific 1.00.
 
-> **Source / derivation:** the precision-recall-based Average Precision protocol, per-class AP and mAP, and the IoU-matching rule are the PASCAL VOC standard (Everingham et al., 2010); the stricter **mAP@[.5:.95]** averaged over ten IoU thresholds is the COCO metric (Lin et al., 2014). Both in the [references](object-detection.references.md).
+> **Source / derivation:** the precision-recall-based Average Precision protocol, per-class AP and mAP, and the IoU-matching rule are the PASCAL VOC standard (Everingham et al., 2010); the stricter **mAP@[.5:.95]** averaged over ten IoU thresholds is the COCO metric (Lin et al., 2014). Both in the [references](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/object-detection/object-detection#references-further-reading).
 
 ---
 
@@ -310,7 +310,7 @@ Detection has a predictable set of traps, and every one shows up in interviews a
 
 The architecture story is a steady push to do more in one shared pass. **R-CNN** (2014) ran a CNN on ~2000 *selective-search* region proposals — accurate but painfully slow (one CNN per region). **Fast R-CNN** (2015) ran the CNN *once* and pooled features per region (RoI pooling) — one backbone pass, big speedup. **Faster R-CNN** (2015) replaced selective search with a *learned* **Region Proposal Network** over anchors — proposals became part of the network, making it end-to-end and the two-stage standard. **YOLO** (2016) threw out the proposal stage entirely, dividing the image into a grid and predicting boxes and classes in a **single pass** — real-time detection. **SSD** (2016) added multi-scale one-stage prediction. **RetinaNet** (2017) fixed one-stage's accuracy gap with **focal loss**, taming the background imbalance. **DETR** (2020) reframed detection as *set prediction* with a transformer, **removing anchors and NMS** altogether. Each step moved work into the shared computation or removed a hand-designed heuristic — and the IoU/NMS/AP core you built here underlies all of them (DETR excepted for NMS).
 
-> **Source / derivation:** the one-stage, single-pass reformulation of detection is Redmon, Divvala, Girshick & Farhadi, *You Only Look Once: Unified, Real-Time Object Detection* (2016); the focal-loss fix for foreground/background imbalance in dense one-stage detectors is Lin, Goyal, Girshick, He & Dollár, *Focal Loss for Dense Object Detection (RetinaNet)* (2017); the anchor-and-NMS-free set-prediction reformulation is Carion, Massa, Synnaeve, Usunier, Kirillov & Zagoruyko, *End-to-End Object Detection with Transformers (DETR)* (2020). All in the [references](object-detection.references.md).
+> **Source / derivation:** the one-stage, single-pass reformulation of detection is Redmon, Divvala, Girshick & Farhadi, *You Only Look Once: Unified, Real-Time Object Detection* (2016); the focal-loss fix for foreground/background imbalance in dense one-stage detectors is Lin, Goyal, Girshick, He & Dollár, *Focal Loss for Dense Object Detection (RetinaNet)* (2017); the anchor-and-NMS-free set-prediction reformulation is Carion, Massa, Synnaeve, Usunier, Kirillov & Zagoruyko, *End-to-End Object Detection with Transformers (DETR)* (2020). All in the [references](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/object-detection/object-detection#references-further-reading).
 
 ---
 
@@ -337,4 +337,4 @@ The architecture story is a steady push to do more in one shared pass. **R-CNN**
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Object Detection — references and further reading](object-detection.references.md)**
+**→ [Object Detection — references and further reading](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/object-detection/object-detection#references-further-reading)**

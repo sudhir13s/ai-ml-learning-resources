@@ -145,7 +145,7 @@ graph TB
 
 *Why* does freezing the backbone work at all? Because low-level visual features are **general**. Yosinski et al. (2014) measured exactly this: the first-layer filters a network learns are near-universal edge and color detectors — almost identical across tasks — and transferability degrades only gradually as you move up toward the task-specific top. Freeze the general early layers, replace the specific top, and you keep everything worth keeping. That empirical result is the license for the entire practice.
 
-> **Source / derivation:** the transferability of learned features — that lower layers are general and upper layers task-specific, and that transferring + fine-tuning beats training from scratch — is Yosinski, Clune, Bengio & Lipson, *How transferable are features in deep neural networks?* (2014); the pretrained backbone we use is a ResNet-18 (He, Zhang, Ren & Sun, *Deep Residual Learning for Image Recognition*, 2016). Both in the [references](image-classification.references.md).
+> **Source / derivation:** the transferability of learned features — that lower layers are general and upper layers task-specific, and that transferring + fine-tuning beats training from scratch — is Yosinski, Clune, Bengio & Lipson, *How transferable are features in deep neural networks?* (2014); the pretrained backbone we use is a ResNet-18 (He, Zhang, Ren & Sun, *Deep Residual Learning for Image Recognition*, 2016). Both in the [references](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/image-classification/image-classification#references-further-reading).
 
 ### Normalization: match the backbone's diet
 
@@ -159,7 +159,7 @@ Augmentation applies transforms that change the pixels but not the label — ran
 
 A single accuracy number is an *average*, and averages hide structure. Two failure modes matter. First, **class imbalance**: if 95% of your images are class A, a model that always predicts A scores 95% accuracy while being useless — which is why imbalanced problems demand precision/recall, balanced accuracy, or per-class metrics instead (see [Imbalanced Data](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/imbalanced-data/imbalanced-data) and the classification-metrics intuition). Second, even on a *balanced* dataset, overall accuracy averages over classes that behave very differently — some easy, some hard. The confusion matrix and per-class accuracy expose exactly which classes fail and what they're confused *with*, information the headline number destroys. This is the on-ramp to the specialized metrics that dominate downstream vision tasks — mAP and IoU for [detection and segmentation](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/detection-and-segmentation-metrics/detection-and-segmentation-metrics), where a single "accuracy" makes even less sense.
 
-> **Source / derivation:** the classification task, the data-driven paradigm, and top-1/top-5 evaluation on the benchmark that defined the field are Deng et al., *ImageNet: A Large-Scale Hierarchical Image Database* (2009) and the deep-CNN result that launched modern classification, Krizhevsky, Sutskever & Hinton, *ImageNet Classification with Deep Convolutional Neural Networks* (AlexNet, 2012). Both in the [references](image-classification.references.md).
+> **Source / derivation:** the classification task, the data-driven paradigm, and top-1/top-5 evaluation on the benchmark that defined the field are Deng et al., *ImageNet: A Large-Scale Hierarchical Image Database* (2009) and the deep-CNN result that launched modern classification, Krizhevsky, Sutskever & Hinton, *ImageNet Classification with Deep Convolutional Neural Networks* (AlexNet, 2012). Both in the [references](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/image-classification/image-classification#references-further-reading).
 
 ---
 
@@ -307,4 +307,4 @@ The workflow is clean, but a predictable set of mistakes bites practitioners —
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Image Classification — references and further reading](image-classification.references.md)**
+**→ [Image Classification — references and further reading](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/image-classification/image-classification#references-further-reading)**

@@ -539,4 +539,4 @@ Adaptive gradient weight beta*sigma(-margin)  (big when the model is wrong):
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [RLHF & DPO — references and further reading](preference-and-alignment-training.references.md)**
+**→ [RLHF & DPO — references and further reading](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/preference-and-alignment-training/preference-and-alignment-training#references-further-reading)**

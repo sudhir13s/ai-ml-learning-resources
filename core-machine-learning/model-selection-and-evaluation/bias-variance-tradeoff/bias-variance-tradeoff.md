@@ -574,4 +574,4 @@ A short list of the traps that catch people — each is a frequent interview "go
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Bias–Variance Tradeoff — references and further reading](bias-variance-tradeoff.references.md)**
+**→ [Bias–Variance Tradeoff — references and further reading](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/bias-variance-tradeoff/bias-variance-tradeoff#references-further-reading)**

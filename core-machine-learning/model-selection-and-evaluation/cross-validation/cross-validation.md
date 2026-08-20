@@ -553,4 +553,4 @@ A few beliefs that sound right and trip up even experienced practitioners:
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Cross-Validation — references and further reading](cross-validation.references.md)**
+**→ [Cross-Validation — references and further reading](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/cross-validation/cross-validation#references-further-reading)**

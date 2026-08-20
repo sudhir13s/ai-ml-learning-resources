@@ -341,4 +341,4 @@ Everything on this page is produced by real code you can run and teach from — 
 
 The curated link library for this topic — start-here path, videos, courses, articles, papers, and books, all free/open — lives in a companion file so it can be reused as a standalone reference list, and every "Source / derivation" citation above appears in it:
 
-**→ [How Models Learn — references and further reading](how-models-learn.references.md)**
+**→ [How Models Learn — references and further reading](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/how-models-learn/how-models-learn#references-further-reading)**

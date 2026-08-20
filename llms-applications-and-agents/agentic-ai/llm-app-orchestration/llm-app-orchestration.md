@@ -507,4 +507,4 @@ state, and a trace** — the four things that make an app robust, testable, and 
 The curated link library for this topic — videos, courses, articles, papers, and internal
 cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [LLM App Orchestration — references and further reading](llm-app-orchestration.references.md)**
+**→ [LLM App Orchestration — references and further reading](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/llm-app-orchestration/llm-app-orchestration#references-further-reading)**

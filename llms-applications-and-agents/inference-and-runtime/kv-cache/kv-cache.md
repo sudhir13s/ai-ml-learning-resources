@@ -424,4 +424,4 @@ The cache is where a surprising number of production incidents live. The five th
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [KV Cache — references and further reading](kv-cache.references.md)**
+**→ [KV Cache — references and further reading](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache#references-further-reading)**

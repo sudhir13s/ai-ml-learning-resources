@@ -186,4 +186,4 @@ Next: [Chapter 3 — FlashAttention and FlashDecoding](/ai-ml/ai-ml-learning-res
 
 ## References
 
-Shared with the topic's companion file — see [KV Cache — references and further reading](kv-cache.references.md) (vLLM/PagedAttention, SGLang/RadixAttention, StreamingLLM, KIVI entries).
+Shared with the topic's companion file — see [KV Cache — references and further reading](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache#references-further-reading) (vLLM/PagedAttention, SGLang/RadixAttention, StreamingLLM, KIVI entries).

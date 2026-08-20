@@ -669,4 +669,4 @@ our Adam matches torch: True | max diff: 4.77e-07
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Optimizers — references and further reading](optimizers.references.md)**
+**→ [Optimizers — references and further reading](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/optimizers#references-further-reading)**

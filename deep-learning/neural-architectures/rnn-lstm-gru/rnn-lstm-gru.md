@@ -698,4 +698,4 @@ The story in three rows: at a 10-step gap both models nail it. At **30 and 50 st
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [RNN / LSTM / GRU — references and further reading](rnn-lstm-gru.references.md)**
+**→ [RNN / LSTM / GRU — references and further reading](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/rnn-lstm-gru/rnn-lstm-gru#references-further-reading)**

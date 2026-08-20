@@ -602,4 +602,4 @@ The theory is clean; the bugs are sneaky. These are the activation-related mista
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Activation Functions — references and further reading](activation-functions.references.md)**
+**→ [Activation Functions — references and further reading](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/activation-functions/activation-functions#references-further-reading)**

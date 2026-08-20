@@ -485,4 +485,4 @@ A page on tuning is incomplete without the failure modes, because most wasted sw
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Hyperparameter Tuning — references and further reading](hyperparameter-tuning.references.md)**
+**→ [Hyperparameter Tuning — references and further reading](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/hyperparameter-tuning/hyperparameter-tuning#references-further-reading)**

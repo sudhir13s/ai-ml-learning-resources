@@ -632,4 +632,4 @@ The reasoning I'd actually run when handed a new text-classification task:
 
 The curated link library for this topic — start-here path, videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Text Classification & Sentiment Analysis — references and further reading](text-classification-and-sentiment-analysis.references.md)**
+**→ [Text Classification & Sentiment Analysis — references and further reading](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/text-classification-and-sentiment-analysis/text-classification-and-sentiment-analysis#references-further-reading)**

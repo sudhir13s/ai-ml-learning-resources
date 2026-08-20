@@ -477,4 +477,4 @@ Everything on this page is produced by real code you can run and teach from — 
 
 The curated link library for this topic — the function-calling specs (OpenAI, Anthropic), the learned-tool-use and correct-call-evaluation papers, the chat-template-with-tools docs, videos, courses, and the forward-link to MCP — lives in a companion file so it can be reused as a standalone reference list, and every "Source / derivation" citation above appears in it:
 
-**→ [Tool Use & Function Calling — references and further reading](tool-use.references.md)**
+**→ [Tool Use & Function Calling — references and further reading](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/tool-use/tool-use#references-further-reading)**

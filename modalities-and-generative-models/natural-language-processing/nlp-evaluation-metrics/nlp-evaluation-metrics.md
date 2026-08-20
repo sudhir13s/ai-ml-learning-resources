@@ -488,4 +488,4 @@ graph TD
 
 The curated link library for this topic — start-here path, videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [NLP Evaluation Metrics — references and further reading](nlp-evaluation-metrics.references.md)**
+**→ [NLP Evaluation Metrics — references and further reading](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/nlp-evaluation-metrics/nlp-evaluation-metrics#references-further-reading)**
