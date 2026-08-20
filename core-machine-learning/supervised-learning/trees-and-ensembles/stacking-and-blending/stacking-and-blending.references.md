@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Stacking & Blending — references and further reading
 
-> Companion link library for **[Stacking & Blending](stacking-and-blending.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
+> Companion link library for **[Stacking & Blending](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/stacking-and-blending/stacking-and-blending)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Ensemble Learning: Bagging, Boosting & Stacking in 4 minutes](https://www.youtube.com/watch?v=eLt4a8-316E) (**AssemblyAI**). *See where stacking sits among ensembles: a meta-model on top of base models.*
@@ -48,8 +48,8 @@ updated: 2026-06-22
 - [Dive into Deep Learning — model combination context](https://d2l.ai/) — **Zhang et al.** — ensembling among modern methods, with runnable code.
 
 **In this platform**:
-- Concept page (full explanation): [Stacking & Blending](stacking-and-blending.md)
-- The three ensemble families: [Bagging](../bagging/bagging.md) (average copies → ↓variance) · [Random Forests](../random-forests/random-forests.md) (bagging + feature randomness) · [Gradient Boosting (XGBoost)](../gradient-boosting-xgboost/gradient-boosting-xgboost.md) (chain copies → ↓bias) — stacking combines *different* algorithms via a learned meta-learner.
-- The heart of leak-free stacking: [Cross-Validation](../../../model-selection-and-evaluation/cross-validation/cross-validation.md) — out-of-fold predictions are k-fold CV repurposed as meta-features.
-- The error-decomposition lens: [Bias–Variance Tradeoff](../../../model-selection-and-evaluation/bias-variance-tradeoff/bias-variance-tradeoff.md) — why decorrelated (diverse) base learners make combination pay off.
-- Concept depth (the *why*): [ai-ml-intuitions 3.08 Ensembles (Bagging/Boosting)](../../../../../ai-ml-intuitions/architectural-mechanisms/composition/bagging-and-boosting-intuition.md) · [3.07 Bias–Variance & Generalization](../../../../../ai-ml-intuitions/objectives-and-evaluation/generalization/bias-variance-tradeoff-intuition.md)
+- Concept page (full explanation): [Stacking & Blending](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/stacking-and-blending/stacking-and-blending)
+- The three ensemble families: [Bagging](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/bagging/bagging) (average copies → ↓variance) · [Random Forests](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/random-forests/random-forests) (bagging + feature randomness) · [Gradient Boosting (XGBoost)](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/gradient-boosting-xgboost/gradient-boosting-xgboost) (chain copies → ↓bias) — stacking combines *different* algorithms via a learned meta-learner.
+- The heart of leak-free stacking: [Cross-Validation](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/cross-validation/cross-validation) — out-of-fold predictions are k-fold CV repurposed as meta-features.
+- The error-decomposition lens: [Bias–Variance Tradeoff](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/bias-variance-tradeoff/bias-variance-tradeoff) — why decorrelated (diverse) base learners make combination pay off.
+- Concept depth (the *why*): [ai-ml-intuitions 3.08 Ensembles (Bagging/Boosting)](/ai-ml/ai-ml-intuitions/architectural-mechanisms/composition/bagging-and-boosting-intuition) · [3.07 Bias–Variance & Generalization](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/generalization/bias-variance-tradeoff-intuition)

@@ -305,10 +305,10 @@ which is exactly what retrieval does.
 it dilutes the signal (our dilution proxy) and gives the model more rope to hallucinate or cite the
 wrong passage, *lowering* answer quality even when the answer is technically present. **Fix:** a smaller,
 focused, retrieved context typically scores *higher* on the RAGAS metrics from
-[chapter 11](../rag-evaluation/rag-evaluation.md) than a giant stuffed one.
+[chapter 11](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-evaluation/rag-evaluation) than a giant stuffed one.
 
 **5) Latency and cache implications.** A long prompt has a long prefill (compute-bound) and a large KV
-cache ([ch. KV-Cache](../../inference-and-runtime/kv-cache/kv-cache.md)), so latency and memory grow with
+cache ([ch. KV-Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache)), so latency and memory grow with
 context. **Prompt caching** helps *if the long prefix is reused across queries* — you pay to process it
 once and cache it — but it does **not** fix lost-in-the-middle, and it only helps when the same big
 context is queried repeatedly. **Fix:** use caching for a shared, static long prefix; use retrieval

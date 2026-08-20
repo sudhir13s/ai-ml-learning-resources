@@ -8,7 +8,7 @@ updated: 2026-06-27
 
 # Instruction Tuning — references and further reading
 
-> Companion link library for **[Instruction Tuning](instruction-tuning.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity. All links are free / no-paywall.
+> Companion link library for **[Instruction Tuning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/instruction-tuning/instruction-tuning)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity. All links are free / no-paywall.
 
 **Start here — suggested path**:
 1. **See where it fits** — watch [Deep Dive into LLMs like ChatGPT](https://www.youtube.com/watch?v=7xTGNNLPyMI) (**Andrej Karpathy**). *Instruction/SFT data is what turns a base model into something you can ask things of — the whole post-training pipeline in one talk.*
@@ -52,8 +52,8 @@ updated: 2026-06-27
 - [A Survey of Large Language Models — §5 Instruction Tuning & Alignment](https://arxiv.org/abs/2303.18223) — **Zhao et al. (2023)** — book-length reference; the instruction-tuning section maps the dataset/method landscape.
 
 **In this platform**:
-- Concept page (full explanation): [Instruction Tuning](instruction-tuning.md)
-- Reuses its loss from: [Supervised Fine-Tuning (SFT)](../supervised-fine-tuning/supervised-fine-tuning.md) — the masked next-token cross-entropy this chapter applies over a diverse mix.
-- The next stage (different objective): [RLHF & DPO](../preference-and-alignment-training/preference-and-alignment-training.md) — preference optimization for helpfulness/harmlessness.
-- Related concepts: [Prompting & In-Context Learning](../../reasoning-evaluation-and-alignment/prompting-and-in-context-learning/prompting-and-in-context-learning.md) · [Chain-of-Thought Reasoning](../../reasoning-evaluation-and-alignment/chain-of-thought-and-reasoning/chain-of-thought-and-reasoning.md) · [LoRA / PEFT](../lora-and-parameter-efficient-fine-tuning/lora-and-parameter-efficient-fine-tuning.md) (how instruction tuning is run cheaply)
-- Language-modeling foundation: [Language Modeling Objectives](../../large-language-model-foundations/language-modeling-objectives/language-modeling-objectives.md) — the next-token objective instruction tuning specializes
+- Concept page (full explanation): [Instruction Tuning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/instruction-tuning/instruction-tuning)
+- Reuses its loss from: [Supervised Fine-Tuning (SFT)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/supervised-fine-tuning/supervised-fine-tuning) — the masked next-token cross-entropy this chapter applies over a diverse mix.
+- The next stage (different objective): [RLHF & DPO](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/preference-and-alignment-training/preference-and-alignment-training) — preference optimization for helpfulness/harmlessness.
+- Related concepts: [Prompting & In-Context Learning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/prompting-and-in-context-learning/prompting-and-in-context-learning) · [Chain-of-Thought Reasoning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/chain-of-thought-and-reasoning/chain-of-thought-and-reasoning) · [LoRA / PEFT](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/lora-and-parameter-efficient-fine-tuning/lora-and-parameter-efficient-fine-tuning) (how instruction tuning is run cheaply)
+- Language-modeling foundation: [Language Modeling Objectives](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/language-modeling-objectives/language-modeling-objectives) — the next-token objective instruction tuning specializes

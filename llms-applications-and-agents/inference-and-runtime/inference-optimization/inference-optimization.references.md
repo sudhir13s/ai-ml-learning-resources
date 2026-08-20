@@ -8,7 +8,7 @@ updated: 2026-06-26
 
 # Inference Optimization & Serving — references and further reading
 
-> Companion link library for **[Inference Optimization & Serving](inference-optimization.md)** (the concept page). Curated, free/open sources only — external references *and* internal cross-links — kept separate so it can be reused as a standalone reading list. Grouped by type, best-first within each group. Every cited formula source from the page (PagedAttention, Orca, speculative decoding, roofline, KV-cache size) appears below as a clickable entry.
+> Companion link library for **[Inference Optimization & Serving](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/inference-optimization/inference-optimization)** (the concept page). Curated, free/open sources only — external references *and* internal cross-links — kept separate so it can be reused as a standalone reading list. Grouped by type, best-first within each group. Every cited formula source from the page (PagedAttention, Orca, speculative decoding, roofline, KV-cache size) appears below as a clickable entry.
 
 **Start here — suggested path**:
 1. **See the serving picture** — watch [Inference, Serving, PagedAttention and vLLM](https://www.youtube.com/watch?v=3TBT4WPkDaw) (**AI Makerspace**). *Why KV-cache memory dominates and how paging + batching fix it.*
@@ -53,9 +53,9 @@ updated: 2026-06-26
 - [vLLM Documentation](https://docs.vllm.ai/en/latest/) — **vLLM project** — comprehensive, free reference for PagedAttention, continuous batching, chunked prefill, prefix caching, and speculative decoding config.
 
 **In this platform**:
-- Concept page (full explanation): [Inference Optimization & Serving](inference-optimization.md)
-- The memory object being served: [KV Cache](../kv-cache/kv-cache.md) — prefill/decode split, the memory-bound decode arithmetic, and the four cache-shrinking levers this page builds on.
-- The decode loop being served: [Decoder-only Architecture](../../large-language-model-foundations/decoder-only-models/decoder-only-models.md) · [Decoding & Sampling](../decoding-and-sampling/decoding-and-sampling.md)
+- Concept page (full explanation): [Inference Optimization & Serving](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/inference-optimization/inference-optimization)
+- The memory object being served: [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) — prefill/decode split, the memory-bound decode arithmetic, and the four cache-shrinking levers this page builds on.
+- The decode loop being served: [Decoder-only Architecture](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/decoder-only-models/decoder-only-models) · [Decoding & Sampling](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/decoding-and-sampling/decoding-and-sampling)
 - The kernels under the engine: [Efficient Attention (FlashAttention)](../../../../deep-learning/attention-and-transformers/efficient-attention/efficient-attention.md)
-- Cutting the bytes streamed: [Quantization](../quantization/quantization.md)
+- Cutting the bytes streamed: [Quantization](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/quantization/quantization)
 - Foundations (the *why* behind K, Q, V): [Attention Mechanism](../../../../deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism.md) · [Transformer Architecture](../../../../deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture.md)

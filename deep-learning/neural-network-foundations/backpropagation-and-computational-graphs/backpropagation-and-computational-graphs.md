@@ -30,9 +30,9 @@ This page is the complete, worked-from-scratch tour: we feel the waste, build th
 
 Intuition first, then the graph, the gates, the derivations, the full hand-traced example, and code whose hand-derived gradients match PyTorch to the bit.
 
-> **Note:** "backpropagation" is specifically the *gradient computation* — the backward pass. It is **not** the weight update; that's the [optimizer](../../optimization-and-training/optimizers/optimizers.md)'s job (SGD, Adam…). Backprop produces $\partial L/\partial\theta$; the optimizer decides what to do with it ($\theta \leftarrow \theta - \eta\,\partial L/\partial\theta$ and friends). Keeping these two separate avoids a common interview muddle — *backprop and SGD are not the same thing.*
+> **Note:** "backpropagation" is specifically the *gradient computation* — the backward pass. It is **not** the weight update; that's the [optimizer](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/optimizers)'s job (SGD, Adam…). Backprop produces $\partial L/\partial\theta$; the optimizer decides what to do with it ($\theta \leftarrow \theta - \eta\,\partial L/\partial\theta$ and friends). Keeping these two separate avoids a common interview muddle — *backprop and SGD are not the same thing.*
 
-> **Note:** this page focuses on the algorithm. For the *consequences* of the backward product — why deep nets used to be untrainable — see the sibling [Vanishing & Exploding Gradients](../../optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients.md); for the activations whose derivatives gate the flow, [Activation Functions](../../stabilization-and-architectural-blocks/activation-functions/activation-functions.md); for what consumes the gradient, [Optimizers](../../optimization-and-training/optimizers/optimizers.md); and for the network being differentiated, [Perceptron & MLP](../perceptron-and-mlp/perceptron-and-mlp.md). We point to them rather than repeat them.
+> **Note:** this page focuses on the algorithm. For the *consequences* of the backward product — why deep nets used to be untrainable — see the sibling [Vanishing & Exploding Gradients](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients); for the activations whose derivatives gate the flow, [Activation Functions](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/activation-functions/activation-functions); for what consumes the gradient, [Optimizers](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/optimizers); and for the network being differentiated, [Perceptron & MLP](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/perceptron-and-mlp/perceptron-and-mlp). We point to them rather than repeat them.
 
 ---
 
@@ -212,7 +212,7 @@ graph LR
 2. $\dfrac{\partial a}{\partial z} = a(1-a) = 0.7311 \cdot 0.2689 = 0.1966$, so $\dfrac{\partial L}{\partial z} = 0.7311 \cdot 0.1966 = 0.1437$.
 3. Through $z = wx + b$ (add then multiply): $\dfrac{\partial L}{\partial w} = \dfrac{\partial L}{\partial z}\cdot x = 0.1437 \cdot 2 = \mathbf{0.2875}$; $\dfrac{\partial L}{\partial b} = 0.1437 \cdot 1 = \mathbf{0.1437}$; $\dfrac{\partial L}{\partial x} = 0.1437 \cdot w = \mathbf{-0.1437}$.
 
-PyTorch's autograd returns exactly `dL/dw = 0.2875, dL/db = 0.1437, dL/dx = -0.1437` — the hand trace is correct. Notice the sigmoid's $a(1-a)$ factor peaks at $0.25$ (when $a=0.5$): every sigmoid a gradient passes through shrinks it by **at most** a quarter. Stack a few of these and the gradient withers — the seed of the [vanishing-gradient](../../optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients.md) problem, made concrete by a single number.
+PyTorch's autograd returns exactly `dL/dw = 0.2875, dL/db = 0.1437, dL/dx = -0.1437` — the hand trace is correct. Notice the sigmoid's $a(1-a)$ factor peaks at $0.25$ (when $a=0.5$): every sigmoid a gradient passes through shrinks it by **at most** a quarter. Stack a few of these and the gradient withers — the seed of the [vanishing-gradient](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients) problem, made concrete by a single number.
 
 ---
 
@@ -460,7 +460,7 @@ Products of many numbers are unstable. If the factors are consistently **less th
 
 This single phenomenon — the backward product drifting away from 1 — motivates a huge fraction of deep-learning design: **ReLU**-like activations (local gradient exactly 1 in the active region, so they don't shrink the product), **residual connections** (an additive gradient shortcut — the add gate hands $\delta$ straight back, so the product has a "$+\,1$" path that never vanishes), **normalization** (batch/layer norm, which keeps $z$ in a healthy range so $\sigma'$ stays alive and conditions the weight matrices), careful **initialization** (He/Xavier, which set the weight scale so the product starts near 1), and **gradient clipping** for the exploding side.
 
-> **Tip:** *"why didn't deep networks work before ~2010?"* → vanishing gradients through sigmoids/tanh, compounded by poor initialization. ReLU + better init (He/Xavier) + residual connections + normalization are the fixes that made depth trainable — and they all exist to keep that backward product near 1. The full story is the sibling page, [Vanishing & Exploding Gradients](../../optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients.md); here the point is just that the recurrence *is* a product, and products are fragile.
+> **Tip:** *"why didn't deep networks work before ~2010?"* → vanishing gradients through sigmoids/tanh, compounded by poor initialization. ReLU + better init (He/Xavier) + residual connections + normalization are the fixes that made depth trainable — and they all exist to keep that backward product near 1. The full story is the sibling page, [Vanishing & Exploding Gradients](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients); here the point is just that the recurrence *is* a product, and products are fragile.
 
 ---
 
@@ -516,7 +516,7 @@ The error is a **U**: too-large $\epsilon$ leaves $O(\epsilon^2)$ **truncation e
 
 ## Backprop through time (BPTT)
 
-[RNNs](../../neural-architectures/rnn-lstm-gru/rnn-lstm-gru.md) reuse the **same** weight matrix at every timestep. To train them you **unroll** the network over the sequence into a (deep) feed-forward graph and backprop through it — *backprop through time*. Because the weight is shared across steps, its gradient is the **sum** of the per-step contributions (the copy/fan-out gate, applied over time rather than over space):
+[RNNs](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/rnn-lstm-gru/rnn-lstm-gru) reuse the **same** weight matrix at every timestep. To train them you **unroll** the network over the sequence into a (deep) feed-forward graph and backprop through it — *backprop through time*. Because the weight is shared across steps, its gradient is the **sum** of the per-step contributions (the copy/fan-out gate, applied over time rather than over space):
 
 ```mermaid
 graph LR
@@ -564,7 +564,7 @@ You rarely hand-derive gradients in practice; **autograd** does it for you, usin
 - **Memory.** The backward pass needs the **cached activations** ($a^{l-1}$, $z^l$) from the forward pass to evaluate the local gradients. So activation memory scales with depth × batch × width and is often the **dominant** training-memory cost — frequently *more* than the weights themselves. This is why you can run inference at a large batch but OOM in training at the same batch: training holds the whole forward tape.
 - **Gradient checkpointing** trades compute for memory: discard most activations during the forward pass and **recompute** them on the fly during backward. This cuts activation memory from $O(\text{depth})$ toward $O(\sqrt{\text{depth}})$ at the cost of roughly one extra forward pass. It's essential for very deep models and long sequences, and it's why you can fine-tune large models on modest GPUs.
 
-> **Note:** this activation-memory cost is why batch size is capped in training, and why checkpointing, mixed precision, and [LoRA/PEFT](../../../llms-applications-and-agents/training-and-adaptation/lora-and-parameter-efficient-fine-tuning/lora-and-parameter-efficient-fine-tuning.md) all matter — they each attack the memory the backward pass demands (recompute instead of store; fewer bits per activation; far fewer trainable parameters whose gradients and optimizer state you keep).
+> **Note:** this activation-memory cost is why batch size is capped in training, and why checkpointing, mixed precision, and [LoRA/PEFT](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/lora-and-parameter-efficient-fine-tuning/lora-and-parameter-efficient-fine-tuning) all matter — they each attack the memory the backward pass demands (recompute instead of store; fewer bits per activation; far fewer trainable parameters whose gradients and optimizer state you keep).
 
 ---
 
@@ -580,7 +580,7 @@ It then sat under-used for two decades: the gradients **vanished** through sigmo
 
 ## Where it is used
 
-- **Every neural network trained by gradient descent** — [MLPs](../perceptron-and-mlp/perceptron-and-mlp.md), [CNNs](../../neural-architectures/cnns-and-convolution/cnns-and-convolution.md), [RNNs](../../neural-architectures/rnn-lstm-gru/rnn-lstm-gru.md), transformers — uses backprop to get the gradient, then an [optimizer](../../optimization-and-training/optimizers/optimizers.md) to apply it. The same two boxed matmul rules cover the bulk of the work; the rest is per-op VJPs from the table above.
+- **Every neural network trained by gradient descent** — [MLPs](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/perceptron-and-mlp/perceptron-and-mlp), [CNNs](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/cnns-and-convolution/cnns-and-convolution), [RNNs](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/rnn-lstm-gru/rnn-lstm-gru), transformers — uses backprop to get the gradient, then an [optimizer](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/optimizers) to apply it. The same two boxed matmul rules cover the bulk of the work; the rest is per-op VJPs from the table above.
 - **Convolutions** are linear, so their backward pass is itself a convolution: the gradient w.r.t. the input is a (full) convolution of the upstream gradient with the **flipped** kernel, and the gradient w.r.t. the kernel is a correlation of the input with the upstream gradient. Frameworks implement these as their own fast kernels, but it's still just the matmul VJP in disguise (a convolution is a structured, weight-shared matrix multiply — so the **shared kernel's** gradient is a *sum* over all spatial positions, the copy gate over space).
 - **Attention** (Q·Kᵀ → softmax → ·V) is a composition of matmuls and a softmax, so its backward pass is the matmul VJP plus the softmax VJP from the table; memory-efficient kernels like FlashAttention recompute parts of the forward pass during backward (a fused form of gradient checkpointing) to avoid storing the full attention matrix.
 - **Backprop through time (BPTT)** for recurrent nets (above), and its truncated variant for long sequences.
@@ -596,7 +596,7 @@ In practice you write the forward pass and call `.backward()`; the skill is read
 2. **Keep the loss a scalar** (or pass an explicit upstream gradient to `backward()`) — reverse mode seeds at one scalar output.
 3. **Use `no_grad()` for eval/inference** — skip building a tape you won't use, saving memory and time.
 4. **Use the fused `cross_entropy`** (not separate `softmax` + `log`) — for the clean $\hat y - y$ gradient and log-sum-exp stability.
-5. **Watch gradient norms** — vanishing/exploding signals → reach for ReLU/residuals/normalization/clipping (and read the [sibling page](../../optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients.md)).
+5. **Watch gradient norms** — vanishing/exploding signals → reach for ReLU/residuals/normalization/clipping (and read the [sibling page](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients)).
 6. **Gradient-check any custom backward** you write — centered difference, $\epsilon\approx10^{-5}$, float64, relative error.
 7. **Beware in-place ops** on tensors the backward pass needs — they silently (or loudly) corrupt gradients.
 
@@ -702,7 +702,7 @@ The last block is the point of the whole page made concrete: feed the from-scrat
 
 ## Recap and rapid-fire
 
-**If you remember nothing else:** backprop is reverse-mode autodiff on the computational graph — a forward pass that caches values, then a backward pass where each node sends **upstream × local gradient** to its inputs (summing at fan-outs). It's the chain rule plus **dynamic programming**: each $\delta$ is computed once and reused everywhere, so *all* gradients come out in one pass — because the loss is one scalar (many inputs, one output → reverse mode wins). It computes a chain of **vector-Jacobian products**, never a Jacobian. The softmax+CE gradient is $\hat y - y$; the matmul gradients are $\delta x^\top$ and $W^\top\delta$. And it's the *gradient computation* only — the [optimizer](../../optimization-and-training/optimizers/optimizers.md) does the update.
+**If you remember nothing else:** backprop is reverse-mode autodiff on the computational graph — a forward pass that caches values, then a backward pass where each node sends **upstream × local gradient** to its inputs (summing at fan-outs). It's the chain rule plus **dynamic programming**: each $\delta$ is computed once and reused everywhere, so *all* gradients come out in one pass — because the loss is one scalar (many inputs, one output → reverse mode wins). It computes a chain of **vector-Jacobian products**, never a Jacobian. The softmax+CE gradient is $\hat y - y$; the matmul gradients are $\delta x^\top$ and $W^\top\delta$. And it's the *gradient computation* only — the [optimizer](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/optimizers) does the update.
 
 **Quick-fire — say these out loud:**
 

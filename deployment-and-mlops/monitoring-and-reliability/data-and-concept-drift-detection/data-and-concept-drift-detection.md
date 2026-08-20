@@ -29,7 +29,7 @@ drift as proxies), and the response (alert → root-cause → retrain). The trig
 2. **Learn the tests** — read [Evidently: Data Drift Detection Deep Dive](https://learn.evidentlyai.com/ml-observability-course/module-2-ml-monitoring-metrics/data-drift-deep-dive). *KS, PSI, Chi-square, JS/Wasserstein — which test for which data type.*
 3. **Detect it in code** — watch [Detect Data Drift Using Evidently](https://www.youtube.com/watch?v=WXu4NRG5WQU) and [Evidently in Jupyter: data & prediction drift](https://www.youtube.com/watch?v=g0Z2e-IqmmU). *Running the tests and reading the reports.*
 4. **Read the theory** — skim [A Survey on Concept Drift Adaptation](https://eprints.bournemouth.ac.uk/22491/). *Drift types (sudden/gradual/recurring) and adaptation strategies — the rigorous backbone.*
-5. **Close the loop** — connect drift to retraining via [07 CI/CD for ML & CT](../../release-and-deployment/cicd-for-ml-and-continuous-training/cicd-for-ml-and-continuous-training.md). *Drift detected → continuous-training pipeline fires.*
+5. **Close the loop** — connect drift to retraining via [07 CI/CD for ML & CT](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/release-and-deployment/cicd-for-ml-and-continuous-training/cicd-for-ml-and-continuous-training). *Drift detected → continuous-training pipeline fires.*
 
 ## 🎓 Courses (free)
 - [Evidently — ML Observability Course (Module 2: Drift)](https://learn.evidentlyai.com/ml-observability-course/module-2-ml-monitoring-metrics/data-drift-deep-dive) — **Evidently AI** — the statistical drift tests, hands-on.
@@ -56,6 +56,6 @@ drift as proxies), and the response (alert → root-cause → retrain). The trig
 - [Machine Learning Engineering — **Ch. 9 "Monitoring & Maintenance"** (distribution shift)](http://www.mlebook.com/wiki/doku.php) — **Andriy Burkov** — read-first chapters free.
 
 ## 🔗 In this platform
-- Builds on: [11 Model Monitoring & Observability](../model-monitoring-and-observability/model-monitoring-and-observability.md)
-- Next concepts: [07 CI/CD for ML & CT](../../release-and-deployment/cicd-for-ml-and-continuous-training/cicd-for-ml-and-continuous-training.md) · [14 A/B Testing · Shadow & Canary](../../release-and-deployment/ab-testing-shadow-and-canary-deployment/ab-testing-shadow-and-canary-deployment.md)
-- Related concept (covered elsewhere): distribution-shift theory & generalization → [01. Foundations](../../../foundations/mathematical-foundations/README.md)
+- Builds on: [11 Model Monitoring & Observability](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/monitoring-and-reliability/model-monitoring-and-observability/model-monitoring-and-observability)
+- Next concepts: [07 CI/CD for ML & CT](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/release-and-deployment/cicd-for-ml-and-continuous-training/cicd-for-ml-and-continuous-training) · [14 A/B Testing · Shadow & Canary](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/release-and-deployment/ab-testing-shadow-and-canary-deployment/ab-testing-shadow-and-canary-deployment)
+- Related concept (covered elsewhere): distribution-shift theory & generalization → [01. Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme)

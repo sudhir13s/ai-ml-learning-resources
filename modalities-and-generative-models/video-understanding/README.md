@@ -10,8 +10,8 @@ updated: 2026-07-14
 # Video Understanding
 > Models that *watch* — temporal representation, action recognition, video-language reasoning,
 > and the systems tricks that make hour-long video tractable. Video *generation* lives in
-> [Diffusion](../diffusion-models/README.md); classic optical flow lives in
-> [Computer Vision](../computer-vision/README.md).
+> [Diffusion](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/readme); classic optical flow lives in
+> [Computer Vision](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/readme).
 
 **⭐ Start here:** [VideoMAE: Masked Autoencoders are Data-Efficient Learners for Self-Supervised Video Pre-Training](https://arxiv.org/abs/2203.12602) — **Tong et al. (2022)** — the self-supervised recipe modern video backbones start from.
 
@@ -35,10 +35,10 @@ Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its p
 
 ### Related concepts (covered in another section)
 > Kept in their canonical home to avoid repetition.
-- **Optical flow & classic video features** → [Computer Vision · Optical Flow & Video](../computer-vision/README.md)
-- **Object tracking & detection backbones** → [Computer Vision](../computer-vision/README.md)
-- **Video diffusion / generation** → [Diffusion · Video Diffusion Models](../diffusion-models/README.md)
-- **VLM fusion architectures** → [Multimodal](../multimodal-learning/README.md)
+- **Optical flow & classic video features** → [Computer Vision · Optical Flow & Video](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/readme)
+- **Object tracking & detection backbones** → [Computer Vision](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/readme)
+- **Video diffusion / generation** → [Diffusion · Video Diffusion Models](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/readme)
+- **VLM fusion architectures** → [Multimodal](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/multimodal-learning/readme)
 
 ## 🎥 Videos
 - [CS231n Lecture — Video Understanding](https://www.youtube.com/watch?v=A9D6NXBJdwU) — **Stanford CS231n** — the standard academic overview of temporal architectures.
@@ -52,4 +52,4 @@ Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its p
 - [Video classification with Transformers](https://huggingface.co/docs/transformers/tasks/video_classification) — **Hugging Face** — hands-on fine-tuning path.
 
 ## 🔗 In this platform
-- Backbones: [Computer Vision](../computer-vision/README.md) · Reasoning side: [Multimodal](../multimodal-learning/README.md)
+- Backbones: [Computer Vision](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/readme) · Reasoning side: [Multimodal](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/multimodal-learning/readme)

@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Scaling Laws — references and further reading
 
-> Companion link library for **[Scaling Laws](scaling-laws.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author (the paper's own authors) or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
+> Companion link library for **[Scaling Laws](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/scaling-laws/scaling-laws)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author (the paper's own authors) or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
 1. **Get the intuition** — watch [Chinchilla Scaling Laws explained](https://www.youtube.com/watch?v=TYCw8QSNT9w) (**Cloudvala**). *Why "bigger isn't always better" and what compute-optimal means, visually.*
@@ -50,9 +50,9 @@ updated: 2026-06-22
 - [A Survey of Large Language Models](https://arxiv.org/abs/2303.18223) — **Zhao et al. (2023)** — §3 surveys scaling-law findings across models (a free, book-length reference).
 
 **In this platform**:
-- Concept page (full explanation): [Scaling Laws](scaling-laws.md)
-- The phase these laws govern: [Pretraining at Scale](../pretraining/pretraining.md) · [Language Modeling Objectives](../language-modeling-objectives/language-modeling-objectives.md)
-- The architecture being scaled: [Decoder-only Architecture](../decoder-only-models/decoder-only-models.md)
-- Why inference cost reshapes the optimum: [KV Cache](../../inference-and-runtime/kv-cache/kv-cache.md) · [Inference Optimization & Serving](../../inference-and-runtime/inference-optimization/inference-optimization.md) · [Quantization](../../inference-and-runtime/quantization/quantization.md)
-- A different way to scale parameters cheaply: [Mixture-of-Experts](../../llm-model-architectures/mixture-of-experts/mixture-of-experts.md)
-- Concept depth (the *why*): [Module 7.01 Neural Scaling Laws / Chinchilla](../../../../ai-ml-intuitions/scaling-adaptation-and-efficiency/scaling-behavior/neural-scaling-laws-and-chinchilla-intuition.md)
+- Concept page (full explanation): [Scaling Laws](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/scaling-laws/scaling-laws)
+- The phase these laws govern: [Pretraining at Scale](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/pretraining/pretraining) · [Language Modeling Objectives](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/language-modeling-objectives/language-modeling-objectives)
+- The architecture being scaled: [Decoder-only Architecture](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/decoder-only-models/decoder-only-models)
+- Why inference cost reshapes the optimum: [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) · [Inference Optimization & Serving](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/inference-optimization/inference-optimization) · [Quantization](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/quantization/quantization)
+- A different way to scale parameters cheaply: [Mixture-of-Experts](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/llm-model-architectures/mixture-of-experts/mixture-of-experts)
+- Concept depth (the *why*): [Module 7.01 Neural Scaling Laws / Chinchilla](/ai-ml/ai-ml-intuitions/scaling-adaptation-and-efficiency/scaling-behavior/neural-scaling-laws-and-chinchilla-intuition)

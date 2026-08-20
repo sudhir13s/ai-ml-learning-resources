@@ -8,7 +8,7 @@ updated: 2026-07-02
 
 # Singular Value Decomposition — references and further reading
 
-> Companion link library for **[Singular Value Decomposition](singular-value-decomposition.md)**
+> Companion link library for **[Singular Value Decomposition](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/singular-value-decomposition/singular-value-decomposition)**
 > (the concept page). Kept separate so it can be reused as a standalone reference list. Grouped by
 > type, best-first. Everything here is **free / open** — no paywall. Every source cited under a
 > "Source / derivation" line on the concept page appears here, so each formula is traceable to a
@@ -54,8 +54,8 @@ updated: 2026-07-02
 - [Numerical Linear Algebra — Lecture 4 "The Singular Value Decomposition"](https://people.maths.ox.ac.uk/trefethen/lec4.ps) — **Trefethen & Bau** — the exact SVD lecture (with [Lecture 5, "More on the SVD"](https://people.maths.ox.ac.uk/trefethen/lec5.ps)) deriving the SVD and its geometry rigorously; the standard numerical reference, posted free by the author.
 
 **🔗 In this platform**:
-- Concept page (full explanation): [Singular Value Decomposition](singular-value-decomposition.md)
-- Prerequisite (the *why* behind Σ² and eigenvectors of `AᵀA`): [04 Eigenvalues & Eigenvectors](../eigenvalues-and-eigenvectors/eigenvalues-and-eigenvectors.md) · [05 Matrix Decompositions](../matrix-decompositions/matrix-decompositions.md)
-- Foundations it rests on: [02 Matrices & Matrix Operations](../matrices-and-matrix-operations/matrices-and-matrix-operations.md) · [03 Norms, Inner Products & Orthogonality](../norms-inner-products-and-orthogonality/norms-inner-products-and-orthogonality.md)
-- Where it goes next: [07 PCA — the math](../principal-component-analysis-math/principal-component-analysis-math.md)
-- Applied downstream: dimensionality reduction and latent factors → [Unsupervised Learning](../../../core-machine-learning/unsupervised-learning/README.md); low-rank adaptation of LLM weights → [LoRA & PEFT](../../../llms-applications-and-agents/training-and-adaptation/lora-and-parameter-efficient-fine-tuning/lora-and-parameter-efficient-fine-tuning.md)
+- Concept page (full explanation): [Singular Value Decomposition](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/singular-value-decomposition/singular-value-decomposition)
+- Prerequisite (the *why* behind Σ² and eigenvectors of `AᵀA`): [04 Eigenvalues & Eigenvectors](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/eigenvalues-and-eigenvectors/eigenvalues-and-eigenvectors) · [05 Matrix Decompositions](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/matrix-decompositions/matrix-decompositions)
+- Foundations it rests on: [02 Matrices & Matrix Operations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/matrices-and-matrix-operations/matrices-and-matrix-operations) · [03 Norms, Inner Products & Orthogonality](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/norms-inner-products-and-orthogonality/norms-inner-products-and-orthogonality)
+- Where it goes next: [07 PCA — the math](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/principal-component-analysis-math/principal-component-analysis-math)
+- Applied downstream: dimensionality reduction and latent factors → [Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme); low-rank adaptation of LLM weights → [LoRA & PEFT](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/lora-and-parameter-efficient-fine-tuning/lora-and-parameter-efficient-fine-tuning)

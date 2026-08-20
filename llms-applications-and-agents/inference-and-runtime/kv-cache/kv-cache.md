@@ -149,7 +149,7 @@ graph LR
 - **Prefill** — all $N$ prompt tokens at once; a big dense matmul that keeps the compute units busy. **Compute-bound**; sets **time-to-first-token (TTFT)**.
 - **Decode** — one token at a time; the dominant cost is *reading weights and cache out of memory* to do very little math. **Memory-bound**; sets **time-per-output-token (TPOT)**.
 
-> **Tip:** this split is why serving dashboards report **two latency numbers** (TTFT and TPOT) — different bottlenecks, so optimizing one rarely helps the other. How engines juggle the two phases (chunked prefill, continuous batching, speculative decoding, disaggregation) is [chapter 4](kv-cache-in-production.md).
+> **Tip:** this split is why serving dashboards report **two latency numbers** (TTFT and TPOT) — different bottlenecks, so optimizing one rarely helps the other. How engines juggle the two phases (chunked prefill, continuous batching, speculative decoding, disaggregation) is [chapter 4](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache-in-production).
 
 ---
 
@@ -165,7 +165,7 @@ The word "append" hides a production detail worth knowing:
 
 - In a real engine it is an **in-place write into a pre-allocated buffer** — allocate once, write the new token's K/V into the next slot, bump a length counter, free on completion.
 - Growing the tensor with `torch.cat` every step (as the teaching code below does for clarity) re-allocates and copies the whole cache per token — turning the $O(n)$ win back into an $O(n^2)$ disaster.
-- The cache is **never freed mid-sequence** — a naive engine therefore reserves worst-case length per request and wastes most of it, exactly the fragmentation problem **PagedAttention** solves ([chapter 2](kv-cache-optimization-stack.md)).
+- The cache is **never freed mid-sequence** — a naive engine therefore reserves worst-case length per request and wastes most of it, exactly the fragmentation problem **PagedAttention** solves ([chapter 2](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache-optimization-stack)).
 
 > **Watch it grow:** this [interactive KV-cache explainer](https://mbrenndoerfer.com/writing/kv-cache-transformer-attention-optimization) animates the cache filling during prefill and growing by one token per decode step.
 
@@ -181,7 +181,7 @@ One formula decides what you can serve — interviewers ask you to derive it on 
 $$\text{cache bytes} \;=\; 2 \times n_{\text{layers}} \times n_{\text{kv\_heads}} \times d_{\text{head}} \times \text{seq\_len} \times \text{batch} \times \text{bytes per element}$$
 
 - The leading **2** stores both **K** and **V**; everything else is "how many numbers, at what precision."
-- It holds for MHA, MQA, and GQA — vary $n_{\text{kv\_heads}}$. **MLA breaks it**: no per-head K/V at all — substitute the latent width $d_c + d_R$ and drop the leading 2 ([chapter 1](kv-cache-variants.md)).
+- It holds for MHA, MQA, and GQA — vary $n_{\text{kv\_heads}}$. **MLA breaks it**: no per-head K/V at all — substitute the latent width $d_c + d_R$ and drop the leading 2 ([chapter 1](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache-variants)).
 
 > **Source / derivation:** the formula falls out of the per-layer attention shapes in [Vaswani et al., *Attention Is All You Need* (2017)](https://arxiv.org/abs/1706.03762) §3.2, and is worked through in [kipply, *Transformer Inference Arithmetic*](https://kipp.ly/transformer-inference-arithmetic/) and [EleutherAI, *Transformer Math 101*](https://blog.eleuther.ai/transformer-math/) — all in the references.
 
@@ -204,7 +204,7 @@ $$2 \times 32 \times 32 \times 128 \times 2 \;=\; 524{,}288 \text{ bytes} \;\app
 
 - $131072 \times 0.5\,\text{MiB} = \mathbf{64\ GiB}$ for **one** sequence — it alone overflows an 80 GB GPU once weights are loaded.
 - GQA-8 cuts it to 16 GiB; an FP8 cache halves that to 8 GiB; paging allocates only what's actually used.
-- "128K context" is served by **the whole stack at once** (GQA + quantized cache + paging), never one trick — the stack is [chapter 2](kv-cache-optimization-stack.md).
+- "128K context" is served by **the whole stack at once** (GQA + quantized cache + paging), never one trick — the stack is [chapter 2](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache-optimization-stack).
 
 <!-- EXPLORER: kv-cache-memory -->
 > **Interactive explorer — the KV-cache memory calculator.** The formula as sliders: pick a model preset, drag **KV heads** (MHA 32 → GQA 8 → MQA 1), **cache dtype** (FP16 → FP8 → INT4), **context length**, and **batch size** — watch cache-per-token, total cache vs the weights, and **how many concurrent requests fit on an 80 GB GPU** respond instantly. Without the widget, work the formula by hand as in the three examples above.
@@ -345,12 +345,12 @@ Every serving decision is one of these dials. For each: what to *expect*, how it
 
 - *Expected:* cache shrinks 4× (or 32×); requests-per-GPU scale by the same factor; long-context decode speeds up — fewer bytes stream per step.
 - *Failure:* the quality loss is not uniform — it concentrates in **long-context retrieval** (needle-in-haystack lookups suffer first, because fewer distinct K/V views of the past are kept); mild at GQA-8, noticeable at MQA-1. Adoption isn't free either: a pretrained MHA checkpoint needs an **up-training run** (mean-pool the KV heads, continue training on a few percent of the original tokens) — a deployment-timeline cost, not a config flag.
-- *Trade:* a small, retrieval-shaped quality delta plus one up-training bill for a 4× capacity/throughput win — why every modern open model ships GQA from pretraining. Mechanics in [chapter 1](kv-cache-variants.md).
+- *Trade:* a small, retrieval-shaped quality delta plus one up-training bill for a 4× capacity/throughput win — why every modern open model ships GQA from pretraining. Mechanics in [chapter 1](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache-variants).
 
 **What if the cache is quantized FP16 → FP8 → INT4?**
 
 - *Expected:* bytes halve, then halve again; in the bandwidth-bound regime that converts near-directly into TPOT speedup and 2–4× more requests in memory.
-- *Failure:* K is more outlier-prone than V — naive INT4-K collapses quality on long-context retrieval; you need per-channel scales for K and often higher effective precision for K than V (the KIVI split — [chapter 1](kv-cache-variants.md)).
+- *Failure:* K is more outlier-prone than V — naive INT4-K collapses quality on long-context retrieval; you need per-channel scales for K and often higher effective precision for K than V (the KIVI split — [chapter 1](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache-variants)).
 - *Trade:* a quality tail-risk that must be **evaluated, not assumed** — quantize the cache only after long-context evals are in place.
 
 **What if you cap the cache with a sliding window (keep the last 4K only)?**
@@ -365,7 +365,7 @@ Every serving decision is one of these dials. For each: what to *expect*, how it
 
 ## Where it is used — and where it is not
 
-**Used:** essentially every autoregressive LLM at **inference** time. Every serving stack — [vLLM](https://github.com/vllm-project/vllm), TGI, TensorRT-LLM, llama.cpp — is built around a KV cache, and most of their cleverness is in *managing* it ([chapter 4](kv-cache-in-production.md)).
+**Used:** essentially every autoregressive LLM at **inference** time. Every serving stack — [vLLM](https://github.com/vllm-project/vllm), TGI, TensorRT-LLM, llama.cpp — is built around a KV cache, and most of their cleverness is in *managing* it ([chapter 4](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache-in-production)).
 
 **Not used / not needed:**
 
@@ -383,16 +383,16 @@ Every serving decision is one of these dials. For each: what to *expect*, how it
 
 The core above is complete on its own; each chapter below takes one dimension to production depth. Read them in order the first time — each builds on the last:
 
-1. **[Variants of the KV cache](kv-cache-variants.md)** — what you store: MHA → MQA → GQA → MLA, quantized caches (FP8/INT8/KIVI), sliding windows and attention sinks, and the real-model table (Llama, Mistral, DeepSeek).
-2. **[The optimization ladder](kv-cache-optimization-stack.md)** — the levels every serving stack climbs: naive recompute → cached → pre-allocated → **PagedAttention** → prefix caching → quantized → windowed/offloaded — and how to size a deployment at each level.
-3. **[FlashAttention and FlashDecoding](kv-cache-flashattention-and-flashdecoding.md)** — the kernel side: tiling, online softmax, why exact attention never needs the $n \times n$ matrix, and how a single decode query saturates a GPU against a long cache.
-4. **[The KV cache in production](kv-cache-in-production.md)** — serving engines, continuous batching, chunked prefill, speculative decoding, disaggregated prefill/decode, the metrics that matter (TTFT/TPOT/goodput), and the incident playbook.
+1. **[Variants of the KV cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache-variants)** — what you store: MHA → MQA → GQA → MLA, quantized caches (FP8/INT8/KIVI), sliding windows and attention sinks, and the real-model table (Llama, Mistral, DeepSeek).
+2. **[The optimization ladder](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache-optimization-stack)** — the levels every serving stack climbs: naive recompute → cached → pre-allocated → **PagedAttention** → prefix caching → quantized → windowed/offloaded — and how to size a deployment at each level.
+3. **[FlashAttention and FlashDecoding](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache-flashattention-and-flashdecoding)** — the kernel side: tiling, online softmax, why exact attention never needs the $n \times n$ matrix, and how a single decode query saturates a GPU against a long cache.
+4. **[The KV cache in production](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache-in-production)** — serving engines, continuous batching, chunked prefill, speculative decoding, disaggregated prefill/decode, the metrics that matter (TTFT/TPOT/goodput), and the incident playbook.
 
 ---
 
 ## Production failure modes
 
-The cache is where a surprising number of production incidents live. The five that page you at 2 a.m. — each dissected with detection and mitigation in [chapter 4](kv-cache-in-production.md):
+The cache is where a surprising number of production incidents live. The five that page you at 2 a.m. — each dissected with detection and mitigation in [chapter 4](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache-in-production):
 
 - **Context bleed** — the cache isn't reset between requests (or a pooled buffer is reused without clearing); one user's tokens leak into another's generation. A correctness *and* privacy bug — key the cache strictly to the request.
 - **OOM under load spikes** — the cache grows with concurrency × length; a burst of long requests overflows VRAM *mid-generation* unless the engine has admission control and preemption.

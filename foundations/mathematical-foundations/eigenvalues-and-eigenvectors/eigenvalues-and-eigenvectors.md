@@ -30,7 +30,7 @@ PCA from the covariance eigenvectors" and "what does a negative/zero eigenvalue 
 2. **Compute a few** — watch [StatQuest / Professor Dave: finding eigenvalues & eigenvectors](https://www.youtube.com/watch?v=TQvxWaQnrqI), then do [Khan: eigen-everything](https://www.khanacademy.org/math/linear-algebra/alternate-bases/eigen-everything/v/linear-algebra-introduction-to-eigenvalues-and-eigenvectors). *The characteristic polynomial `det(A − λI) = 0` by hand.*
 3. **Diagonalization & spectral theorem** — read [MML Ch. 4.2–4.4](https://mml-book.github.io/book/mml-book.pdf). *Eigendecomposition, symmetric ⇒ orthogonal eigenvectors (the fact PCA relies on).*
 4. **The full lecture** — watch [MIT 18.06: Eigenvalues & Eigenvectors (Lec 21)](https://www.youtube.com/watch?v=lXNXrLcoerU). *Strang ties eigenvalues to stability, powers of a matrix, and diagonalization.*
-5. **Connect to ML** — read [ai-ml-intuitions 1.05 Spectral Methods (PCA/SVD)](../../../../ai-ml-intuitions/representation/dimensionality-and-latent-structure/pca-and-svd-intuition.md). *Where eigen-thinking becomes dimensionality reduction.*
+5. **Connect to ML** — read [ai-ml-intuitions 1.05 Spectral Methods (PCA/SVD)](/ai-ml/ai-ml-intuitions/representation/dimensionality-and-latent-structure/pca-and-svd-intuition). *Where eigen-thinking becomes dimensionality reduction.*
 
 ## 🎓 Courses (free)
 - [MIT 18.06 — Eigenvalues & Eigenvectors (Lec 21–22)](https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/) — **Gilbert Strang (MIT OCW)** — diagonalization, powers, and the spectral theorem.
@@ -55,7 +55,7 @@ PCA from the covariance eigenvectors" and "what does a negative/zero eigenvalue 
 - [Introduction to Applied Linear Algebra (VMLS) — **eigenvalues & dynamics**](https://web.stanford.edu/~boyd/vmls/vmls.pdf) — **Boyd & Vandenberghe** — applied eigen-analysis.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 1.05 Spectral Methods (PCA/SVD)](../../../../ai-ml-intuitions/representation/dimensionality-and-latent-structure/pca-and-svd-intuition.md) · [1.04 Graph Representations (Laplacian spectrum)](../../../../ai-ml-intuitions/representation/embedding-spaces/graph-representations-intuition.md)
-- Curriculum context: [Maths for AI-ML — Phase 1 (Linear Algebra)](../maths-for-ai-ml/README.md)
-- Prereq: [02 Matrices & Matrix Operations](../matrices-and-matrix-operations/matrices-and-matrix-operations.md) · Next: [05 Matrix Decompositions](../matrix-decompositions/matrix-decompositions.md) · [06 SVD](../singular-value-decomposition/singular-value-decomposition.md) · [07 PCA (math)](../principal-component-analysis-math/principal-component-analysis-math.md)
+- Concept depth (the *why*): [ai-ml-intuitions 1.05 Spectral Methods (PCA/SVD)](/ai-ml/ai-ml-intuitions/representation/dimensionality-and-latent-structure/pca-and-svd-intuition) · [1.04 Graph Representations (Laplacian spectrum)](/ai-ml/ai-ml-intuitions/representation/embedding-spaces/graph-representations-intuition)
+- Curriculum context: [Maths for AI-ML — Phase 1 (Linear Algebra)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
+- Prereq: [02 Matrices & Matrix Operations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/matrices-and-matrix-operations/matrices-and-matrix-operations) · Next: [05 Matrix Decompositions](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/matrix-decompositions/matrix-decompositions) · [06 SVD](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/singular-value-decomposition/singular-value-decomposition) · [07 PCA (math)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/principal-component-analysis-math/principal-component-analysis-math)
 </content>

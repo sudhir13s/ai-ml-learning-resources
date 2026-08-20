@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Loss Functions — references and further reading
 
-> Companion link library for **[Loss Functions](loss-functions.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity. Every link verified live.
+> Companion link library for **[Loss Functions](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/loss-functions/loss-functions)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity. Every link verified live.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Cross Entropy](https://www.youtube.com/watch?v=6ArSys5qHAU) (**StatQuest**). *Why we penalize confident-and-wrong predictions hard.*
@@ -55,10 +55,10 @@ updated: 2026-06-22
 - [Huber loss](https://en.wikipedia.org/wiki/Huber_loss) — **Wikipedia** — the definition, the smooth-L1 connection, and the $\delta$ crossover, with the original Huber (1964) citation.
 
 **In this platform**:
-- Concept page (full explanation): [Loss Functions](loss-functions.md)
-- Prerequisite: [Activation Functions](../../stabilization-and-architectural-blocks/activation-functions/activation-functions.md) (softmax — the partner that pairs with cross-entropy)
-- The gradient in context: [Backpropagation & Computational Graphs](../../neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs.md) (the $\hat y - y$ vector seeds the backward pass) · [Optimizers](../optimizers/optimizers.md) (what minimizes the loss surface)
-- Related theory: [Cross-Entropy & KL Divergence](../../../foundations/mathematical-foundations/cross-entropy-and-kl-divergence/cross-entropy-and-kl-divergence.md) (the information-theory foundation) · [Regularization](../regularization/regularization.md) (penalized loss = MAP under a prior; label smoothing)
-- Loss vs metric (evaluation side): [Classification Metrics](../../../core-machine-learning/supervised-learning/classification/classification-metrics/classification-metrics.md) · [Regression Metrics](../../../core-machine-learning/supervised-learning/regression/regression-metrics/regression-metrics.md)
-- Concept depth (the *why*): [ai-ml-intuitions 3.01 MSE / L2 Loss](../../../../ai-ml-intuitions/objectives-and-evaluation/training-objectives/mean-squared-error-intuition.md) · [3.03 Cross-Entropy / NLL](../../../../ai-ml-intuitions/objectives-and-evaluation/training-objectives/categorical-cross-entropy-intuition.md) · [3.04 Maximum Likelihood](../../../../ai-ml-intuitions/objectives-and-evaluation/statistical-objectives/maximum-likelihood-intuition.md)
-- Field overview: [Deep Learning](../../README.md)
+- Concept page (full explanation): [Loss Functions](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/loss-functions/loss-functions)
+- Prerequisite: [Activation Functions](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/activation-functions/activation-functions) (softmax — the partner that pairs with cross-entropy)
+- The gradient in context: [Backpropagation & Computational Graphs](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs) (the $\hat y - y$ vector seeds the backward pass) · [Optimizers](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/optimizers) (what minimizes the loss surface)
+- Related theory: [Cross-Entropy & KL Divergence](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/cross-entropy-and-kl-divergence/cross-entropy-and-kl-divergence) (the information-theory foundation) · [Regularization](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/regularization/regularization) (penalized loss = MAP under a prior; label smoothing)
+- Loss vs metric (evaluation side): [Classification Metrics](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/classification-metrics/classification-metrics) · [Regression Metrics](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/regression/regression-metrics/regression-metrics)
+- Concept depth (the *why*): [ai-ml-intuitions 3.01 MSE / L2 Loss](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/training-objectives/mean-squared-error-intuition) · [3.03 Cross-Entropy / NLL](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/training-objectives/categorical-cross-entropy-intuition) · [3.04 Maximum Likelihood](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/statistical-objectives/maximum-likelihood-intuition)
+- Field overview: [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

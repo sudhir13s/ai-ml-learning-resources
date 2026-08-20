@@ -8,7 +8,7 @@ updated: 2026-07-03
 
 # Q-Learning — references and further reading
 
-> Companion link library for **[Q-Learning](q-learning.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is free / open (no paywall) and from a primary author or a recognized deep explainer — chosen for depth on *Q-learning specifically* (the off-policy TD-control update, its Bellman-optimality derivation, convergence, and the SARSA contrast), not popularity.
+> Companion link library for **[Q-Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/value-based-learning/q-learning/q-learning)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is free / open (no paywall) and from a primary author or a recognized deep explainer — chosen for depth on *Q-learning specifically* (the off-policy TD-control update, its Bellman-optimality derivation, convergence, and the SARSA contrast), not popularity.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch ⭐ [RL Course, Lecture 5: Model-Free Control](https://www.youtube.com/watch?v=0g4j2k_Ggc4) by **David Silver (DeepMind)**. *Derives Q-learning and SARSA side by side — the cleanest on-policy-vs-off-policy explanation anywhere.*
@@ -50,13 +50,13 @@ updated: 2026-07-03
 - [Grokking Deep Reinforcement Learning — value-based methods](https://github.com/mimoralea/gdrl) — **Miguel Morales** — the accompanying code (notebooks) is fully open and builds Q-learning, SARSA, and Double Q-learning from scratch.
 
 **In this platform**:
-- Concept page (full explanation): [Q-Learning](q-learning.md)
+- Concept page (full explanation): [Q-Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/value-based-learning/q-learning/q-learning)
 - Runnable code: [the module `q_learning.py`](code/q_learning.py) · [the step-by-step notebook](code/q-learning.ipynb) — from-scratch tabular Q-learning on real Gymnasium `FrozenLake-v1` and `CliffWalking-v1`, with value iteration as ground truth and the learned greedy policy asserted equal to the DP optimum (gap 0; greedy return −13 = V* on the cliff); every number measured, none fabricated.
-- The framework it lives in: [01 Markov Decision Processes](../../foundations/markov-decision-processes/markov-decision-processes.md) — states, actions, transitions, reward, and $\gamma$, the language Q-learning is written in.
-- The equations it approximates: [02 Bellman Equations](../../foundations/bellman-equations/bellman-equations.md) — the Bellman optimality equation for $Q^*$ that the Q-learning target samples.
-- The ground truth it is checked against: [03 Dynamic Programming (Value & Policy Iteration)](../../foundations/dynamic-programming-value-and-policy-iteration/dynamic-programming-value-and-policy-iteration.md) — the model-based optimum this page proves Q-learning recovers.
-- The learning update it uses: [05 Temporal-Difference Learning](../temporal-difference-learning/temporal-difference-learning.md) — TD prediction; Q-learning is TD *control* with a greedy target.
-- The on-policy contrast: [07 SARSA](../sarsa/sarsa.md) — the same loop with an on-policy target; the CliffWalking Example 6.6 counterpart.
-- The exploration knob: [14 Exploration vs Exploitation](../../foundations/exploration-vs-exploitation/exploration-vs-exploitation.md) — ε-greedy and the trade-off that satisfies Q-learning's "visit everything" convergence condition.
-- Where it scales next: [08 Deep Q-Networks (DQN)](../deep-q-networks-dqn/deep-q-networks-dqn.md) — Q-learning with a neural network replacing the table, for large or continuous state spaces.
-- Field overview: [Reinforcement Learning](../../README.md)
+- The framework it lives in: [01 Markov Decision Processes](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/foundations/markov-decision-processes/markov-decision-processes) — states, actions, transitions, reward, and $\gamma$, the language Q-learning is written in.
+- The equations it approximates: [02 Bellman Equations](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/foundations/bellman-equations/bellman-equations) — the Bellman optimality equation for $Q^*$ that the Q-learning target samples.
+- The ground truth it is checked against: [03 Dynamic Programming (Value & Policy Iteration)](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/foundations/dynamic-programming-value-and-policy-iteration/dynamic-programming-value-and-policy-iteration) — the model-based optimum this page proves Q-learning recovers.
+- The learning update it uses: [05 Temporal-Difference Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/value-based-learning/temporal-difference-learning/temporal-difference-learning) — TD prediction; Q-learning is TD *control* with a greedy target.
+- The on-policy contrast: [07 SARSA](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/value-based-learning/sarsa/sarsa) — the same loop with an on-policy target; the CliffWalking Example 6.6 counterpart.
+- The exploration knob: [14 Exploration vs Exploitation](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/foundations/exploration-vs-exploitation/exploration-vs-exploitation) — ε-greedy and the trade-off that satisfies Q-learning's "visit everything" convergence condition.
+- Where it scales next: [08 Deep Q-Networks (DQN)](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/value-based-learning/deep-q-networks-dqn/deep-q-networks-dqn) — Q-learning with a neural network replacing the table, for large or continuous state spaces.
+- Field overview: [Reinforcement Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/readme)

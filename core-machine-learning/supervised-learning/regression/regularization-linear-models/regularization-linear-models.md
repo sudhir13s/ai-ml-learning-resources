@@ -28,7 +28,7 @@ I'm going to teach this the way I'd actually derive it on a whiteboard for a tea
 - **derive** Ridge and Lasso as **MAP** estimates under a Gaussian and a Laplace prior;
 - reason about the **bias–variance** trade regularization makes, why **standardization is mandatory**, and how to choose $\lambda$ by cross-validation (with the **one-standard-error rule**).
 
-> **Note:** there's a sibling page on **[Regularization for deep nets](../../../../deep-learning/optimization-and-training/regularization/regularization.md)** (L1/L2 as weight decay, dropout, early stopping, label smoothing). This page is the **linear-model** deep dive — Ridge, Lasso, Elastic-Net, with the closed forms and geometry that only linear models give you. The L2 idea reappears there as *weight decay*; here we can actually **solve it in closed form** and *see* the geometry, which is the whole reason linear regularization is the best place to learn the concept.
+> **Note:** there's a sibling page on **[Regularization for deep nets](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/regularization/regularization)** (L1/L2 as weight decay, dropout, early stopping, label smoothing). This page is the **linear-model** deep dive — Ridge, Lasso, Elastic-Net, with the closed forms and geometry that only linear models give you. The L2 idea reappears there as *weight decay*; here we can actually **solve it in closed form** and *see* the geometry, which is the whole reason linear regularization is the best place to learn the concept.
 
 ---
 
@@ -267,7 +267,7 @@ The expected test error is $\text{bias}^2 + \text{variance} + \text{irreducible 
 
 ![Train error rising monotonically with lambda while test (cross-validation) error traces a U — high on the left from overfitting, falling to a minimum at the sweet-spot lambda, then rising on the right from underfitting — with the best-lambda and the one-standard-error-rule lambda both marked.](images/reglin_error_vs_lambda.png)
 
-Notice the asymmetry in the plot: **training** error only ever *increases* with $\lambda$ (more constraint = worse training fit, always), while **test** error falls then rises. The gap between them is the variance you're paying for — and the minimum of the test curve is where regularization has bought you the most generalization. (For the full decomposition, see [Bias–Variance Tradeoff](../../../model-selection-and-evaluation/bias-variance-tradeoff/bias-variance-tradeoff.md).)
+Notice the asymmetry in the plot: **training** error only ever *increases* with $\lambda$ (more constraint = worse training fit, always), while **test** error falls then rises. The gap between them is the variance you're paying for — and the minimum of the test curve is where regularization has bought you the most generalization. (For the full decomposition, see [Bias–Variance Tradeoff](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/bias-variance-tradeoff/bias-variance-tradeoff).)
 
 > **Note:** there's a famous theoretical guarantee underneath this picture (the **Stein** result): for $p \ge 3$ features, there *always* exists a $\lambda > 0$ whose shrunk estimator beats OLS on expected test error. Regularization isn't merely a heuristic — under squared loss, *some* shrinkage is provably better than none. The only question is *how much*, which is what cross-validation answers.
 
@@ -281,7 +281,7 @@ Notice the asymmetry in the plot: **training** error only ever *increases* with 
 
 > **Gotcha:** forgetting to standardize is the **#1 practical bug** with regularized linear models. The model still runs and returns numbers — they're just silently wrong, because the penalty fell unevenly across features with different scales. Always pipe `StandardScaler` → `Ridge/Lasso/ElasticNet`, and fit the scaler on the **training fold only** (inside cross-validation) to avoid leaking test statistics.
 
-**Choosing λ by cross-validation.** $\lambda$ is a hyperparameter — you can't read it off the training loss (which always prefers $\lambda=0$). Use **k-fold cross-validation**: for each candidate $\lambda$, average the validation error across folds and pick the $\lambda$ that minimizes it (scikit-learn's `RidgeCV`, `LassoCV`, `ElasticNetCV` do this on a $\lambda$-grid efficiently). A refinement worth knowing — the **one-standard-error rule**: instead of the exact minimum, pick the **largest** $\lambda$ (the *simplest*, most-regularized model) whose CV error is within **one standard error** of the minimum. Since the CV estimate is itself noisy, this favors a simpler, more robust model that's statistically indistinguishable from the best — and it's the principled default in ESL. (See [Cross-Validation](../../../model-selection-and-evaluation/cross-validation/cross-validation.md) for the mechanics.)
+**Choosing λ by cross-validation.** $\lambda$ is a hyperparameter — you can't read it off the training loss (which always prefers $\lambda=0$). Use **k-fold cross-validation**: for each candidate $\lambda$, average the validation error across folds and pick the $\lambda$ that minimizes it (scikit-learn's `RidgeCV`, `LassoCV`, `ElasticNetCV` do this on a $\lambda$-grid efficiently). A refinement worth knowing — the **one-standard-error rule**: instead of the exact minimum, pick the **largest** $\lambda$ (the *simplest*, most-regularized model) whose CV error is within **one standard error** of the minimum. Since the CV estimate is itself noisy, this favors a simpler, more robust model that's statistically indistinguishable from the best — and it's the principled default in ESL. (See [Cross-Validation](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/cross-validation/cross-validation) for the mechanics.)
 
 > **Tip:** in the U-curve figure the two vertical lines are exactly these: the green line is `argmin` (best CV error), the amber line is the one-SE-rule $\lambda$ — visibly stronger regularization (a simpler model) at no meaningful cost in error. When models tie, prefer the simpler one; that's the whole spirit of regularization, applied to choosing $\lambda$ itself.
 
@@ -346,7 +346,7 @@ Both zero the three noise features (sparsity is preserved). But Lasso's choice b
 
 ## Where it's used, and which to reach for
 
-**Used:** everywhere a linear or generalized-linear model is fit on real data — Ridge/Lasso/Elastic-Net are the default regularizers for **linear and logistic regression**, in scikit-learn, statsmodels, glmnet, and every production tabular pipeline. The L2 idea generalizes far beyond: it's **weight decay** in deep nets (the [DL regularization page](../../../../deep-learning/optimization-and-training/regularization/regularization.md)), the kernel-ridge penalty, and the prior in Bayesian regression.
+**Used:** everywhere a linear or generalized-linear model is fit on real data — Ridge/Lasso/Elastic-Net are the default regularizers for **linear and logistic regression**, in scikit-learn, statsmodels, glmnet, and every production tabular pipeline. The L2 idea generalizes far beyond: it's **weight decay** in deep nets (the [DL regularization page](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/regularization/regularization)), the kernel-ridge penalty, and the prior in Bayesian regression.
 
 **Which to choose:**
 
@@ -368,7 +368,7 @@ with $R(w)=\tfrac12\lVert w\rVert_2^2$ for L2 or $\lVert w\rVert_1$ for L1. The 
 
 > **Gotcha:** scikit-learn's `LogisticRegression` parameterizes strength by `C = 1/λ` — the **inverse**. A *small* `C` means *strong* regularization, the opposite of `alpha` in `Ridge`/`Lasso` (where *large* `alpha` is strong). It also regularizes by **default** (`C=1.0`), so an "un-regularized" logistic regression needs `C=1e9` or `penalty=None`. Two of the most common silent bugs in the library — know which knob you're turning.
 
-This generalizes further: the **L2 penalty is everywhere** in ML — it's the $\lambda\lVert w\rVert^2$ in soft-margin **SVMs**, the **weight decay** term in every deep-net optimizer ([DL regularization](../../../../deep-learning/optimization-and-training/regularization/regularization.md)), and the Gaussian prior in Bayesian models. Learn it once here, in closed form, and you recognize it everywhere.
+This generalizes further: the **L2 penalty is everywhere** in ML — it's the $\lambda\lVert w\rVert^2$ in soft-margin **SVMs**, the **weight decay** term in every deep-net optimizer ([DL regularization](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/regularization/regularization)), and the Gaussian prior in Bayesian models. Learn it once here, in closed form, and you recognize it everywhere.
 
 ---
 

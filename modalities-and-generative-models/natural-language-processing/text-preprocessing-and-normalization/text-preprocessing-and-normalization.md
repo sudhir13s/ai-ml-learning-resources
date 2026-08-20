@@ -32,7 +32,7 @@ By the end you'll be able to:
 - explain the **modern shift to minimal preprocessing** for BERT/LLMs — and *why* "less is more" there but not for classical models;
 - avoid the **train/inference and leakage** mistakes that quietly poison real pipelines.
 
-> **Note:** preprocessing is *adjacent* to tokenization, not the same thing. **Normalization** decides *what the characters and words look like*; **tokenization** decides *how the cleaned text is split into the units a model consumes*. This page covers the cleanup; the splitting — BPE, WordPiece, SentencePiece, Unigram — is its own deep topic in [Tokenization & Subword Algorithms](../tokenization-and-subword-algorithms/tokenization-and-subword-algorithms.md). Wherever a step is really "a tokenization decision," we point there rather than duplicate it.
+> **Note:** preprocessing is *adjacent* to tokenization, not the same thing. **Normalization** decides *what the characters and words look like*; **tokenization** decides *how the cleaned text is split into the units a model consumes*. This page covers the cleanup; the splitting — BPE, WordPiece, SentencePiece, Unigram — is its own deep topic in [Tokenization & Subword Algorithms](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/tokenization-and-subword-algorithms/tokenization-and-subword-algorithms). Wherever a step is really "a tokenization decision," we point there rather than duplicate it.
 
 ---
 
@@ -165,7 +165,7 @@ Before you normalize words you have to find them. **Sentence segmentation** spli
 - **Helps:** every downstream step operates on tokens, so you need *some* segmentation. For languages with spaces (English) a rule-based splitter gets you far.
 - **Hurts / is hard:** languages *without* spaces (Chinese, Japanese, Thai) need a learned segmenter; naive splitting fails entirely. And how you split `New York`, `don't`, or `state-of-the-art` is itself a modeling choice.
 
-This is genuinely the same machinery as tokenization, so we keep it brief here — the full treatment of **how text becomes the integer tokens a model consumes** (rule-based vs subword) lives in [Tokenization & Subword Algorithms](../tokenization-and-subword-algorithms/tokenization-and-subword-algorithms.md). For the rest of this page, assume we can split into tokens and focus on *normalizing* them.
+This is genuinely the same machinery as tokenization, so we keep it brief here — the full treatment of **how text becomes the integer tokens a model consumes** (rule-based vs subword) lives in [Tokenization & Subword Algorithms](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/tokenization-and-subword-algorithms/tokenization-and-subword-algorithms). For the rest of this page, assume we can split into tokens and focus on *normalizing* them.
 
 ### Step 1 — Case folding (lowercasing)
 
@@ -298,9 +298,9 @@ Everything above describes the **classical** pipeline. Modern neural and transfo
 
 **Why heavy cleaning hurts transformers.** A pretrained transformer (BERT, GPT, Llama) is the opposite:
 
-1. **The subword tokenizer already handles morphology.** BPE/WordPiece split `running` into `run` + `##ning`, so the model *sees* the shared `run` root with no stemming required. Stemming first would just corrupt the input the tokenizer expects. (This is exactly the subword idea from [Tokenization & Subword Algorithms](../tokenization-and-subword-algorithms/tokenization-and-subword-algorithms.md).)
+1. **The subword tokenizer already handles morphology.** BPE/WordPiece split `running` into `run` + `##ning`, so the model *sees* the shared `run` root with no stemming required. Stemming first would just corrupt the input the tokenizer expects. (This is exactly the subword idea from [Tokenization & Subword Algorithms](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/tokenization-and-subword-algorithms/tokenization-and-subword-algorithms).)
 2. **It was pretrained on raw-ish text.** The model learned its statistics over text *with* casing, punctuation, and stopwords. Feeding it aggressively cleaned text creates a **train/serve distribution mismatch** — it's now seeing inputs unlike anything in pretraining.
-3. **It actively uses the signal cleaning would delete.** Casing tells a cased BERT that `Apple` is likely an entity; punctuation gives the model clause structure; stopwords (`not`, `of`, `the`) carry the syntactic and negation signal that self-attention is built to exploit. Lowercase + de-stopword + stem and you've stripped out exactly the features the model relies on. This is why **contextual** models ([Contextual Embeddings: ELMo & BERT](../contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert.md)) want minimal preprocessing where bag-of-words models wanted maximal.
+3. **It actively uses the signal cleaning would delete.** Casing tells a cased BERT that `Apple` is likely an entity; punctuation gives the model clause structure; stopwords (`not`, `of`, `the`) carry the syntactic and negation signal that self-attention is built to exploit. Lowercase + de-stopword + stem and you've stripped out exactly the features the model relies on. This is why **contextual** models ([Contextual Embeddings: ELMo & BERT](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert)) want minimal preprocessing where bag-of-words models wanted maximal.
 
 So the modern recipe is: **strip true boilerplate (HTML, control chars), apply a light Unicode normalize (often NFC), then hand raw-ish text straight to the model's own tokenizer — and otherwise leave it alone.** No lowercasing (unless you specifically chose an uncased model), no stopword removal, no stemming, no lemmatization.
 
@@ -358,7 +358,7 @@ Take the word list and apply each method, predicting where they disagree, then c
 
 The pattern is unmistakable: **they agree on simple regular suffixes (`running`→`run`) and on already-base forms (`best`), and disagree on (a) irregulars (`better`/`good`, `mice`/`mouse`, `are`/`be`), (b) cases where the stemmer over-stems into a different word (`organization`/`organ`), and (c) cases where the stemmer just produces garbage (`studi`).** If a human will read the output, or it feeds a model as a feature, the lemma is better. If it's an internal search index and speed/recall rule, the stem is fine.
 
-> **Gotcha:** lemmatization needs the **right POS**. `WordNetLemmatizer` defaults to noun, so `lemmatize("running")` returns `running` (noun reading) unless you pass `pos="v"` to get `run`. In a real pipeline you run a POS tagger first and feed its tag to the lemmatizer — otherwise you get half-lemmatized output and wonder why. (POS tagging itself is the topic of [Sequence Labeling: POS & NER](../sequence-labeling-pos-and-ner/sequence-labeling-pos-and-ner.md).)
+> **Gotcha:** lemmatization needs the **right POS**. `WordNetLemmatizer` defaults to noun, so `lemmatize("running")` returns `running` (noun reading) unless you pass `pos="v"` to get `run`. In a real pipeline you run a POS tagger first and feed its tag to the lemmatizer — otherwise you get half-lemmatized output and wonder why. (POS tagging itself is the topic of [Sequence Labeling: POS & NER](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sequence-labeling-pos-and-ner/sequence-labeling-pos-and-ner).)
 
 ---
 
@@ -377,7 +377,7 @@ Read it carefully:
 - **Stopword removal** barely changes the vocabulary *count* (stopwords are *few distinct words*, just very frequent — exactly the Zipf head) but nudges accuracy **up** ~0.7 points — it removed high-magnitude, low-information dimensions, so the classifier's geometry improved.
 - **Stemming** is the big vocabulary cut: 12,259 → **8,814**, about a **1.4× reduction**, by merging inflected forms (`run`/`running`/`ran` → one feature). Accuracy holds (even ticks up) — the merged features are denser and the model has fewer, better dimensions.
 
-So on a **topic-classification** task with a **classical** model, aggressive cleaning is a measurable win: ~30% smaller feature space at equal-or-better accuracy. **This is the case where the textbook pipeline earns its keep** — and it feeds directly into the [Bag-of-Words & TF-IDF](../bag-of-words-and-tf-idf/bag-of-words-and-tf-idf.md) representations that consume these tokens.
+So on a **topic-classification** task with a **classical** model, aggressive cleaning is a measurable win: ~30% smaller feature space at equal-or-better accuracy. **This is the case where the textbook pipeline earns its keep** — and it feeds directly into the [Bag-of-Words & TF-IDF](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/bag-of-words-and-tf-idf/bag-of-words-and-tf-idf) representations that consume these tokens.
 
 > **Tip:** the win is *task-dependent*. Re-run this on a **sentiment** task and remove `not` as a stopword and you'd watch accuracy *drop*, because you deleted the negation signal. The same operation helps one task and hurts another — which is the entire point.
 
@@ -428,7 +428,7 @@ Preprocessing is *fit* on data just like a model, and the same discipline applie
 
 - **Classical / bag-of-words pipelines (TF-IDF + LogReg/SVM/NB), topic modeling, classical IR/search** — **use the full pipeline.** Lowercase, Unicode-normalize, drop stopwords, stem or lemmatize. The model can't do this itself and benefits measurably (Worked example 3).
 - **Transformers / pretrained LLMs (BERT, GPT, Llama)** — **minimal.** Strip boilerplate, light Unicode normalize, hand raw-ish text to the model's tokenizer. No lowercasing/stemming/stopword removal (Worked example 4).
-- **Sequence-labeling tasks (POS, NER, parsing)** — **keep case and punctuation**; never strip stopwords (function words are the structure). See [Sequence Labeling: POS & NER](../sequence-labeling-pos-and-ner/sequence-labeling-pos-and-ner.md).
+- **Sequence-labeling tasks (POS, NER, parsing)** — **keep case and punctuation**; never strip stopwords (function words are the structure). See [Sequence Labeling: POS & NER](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sequence-labeling-pos-and-ner/sequence-labeling-pos-and-ner).
 - **Sentiment / social text** — **keep negation, punctuation, and emoji**; they're the signal.
 - **Multilingual corpora** — language-detect first, then route to the correct per-language stopword list / stemmer / tokenizer.
 

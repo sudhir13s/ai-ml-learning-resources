@@ -8,7 +8,7 @@ updated: 2026-06-27
 
 # LLM Evaluation & Benchmarks — references and further reading
 
-> Companion link library for **[LLM Evaluation & Benchmarks](llm-evaluation.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is free / open-access; every paper is linked by its arXiv ID. Sources cited in the page's `Source / derivation` blockquotes all appear in **Papers** (or **Books**) below.
+> Companion link library for **[LLM Evaluation & Benchmarks](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/llm-evaluation/llm-evaluation)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is free / open-access; every paper is linked by its arXiv ID. Sources cited in the page's `Source / derivation` blockquotes all appear in **Papers** (or **Books**) below.
 
 **Start here — suggested path**:
 1. **Get the landscape** — watch [What are LLM Benchmarks?](https://www.youtube.com/watch?v=kDY4TodQwbg) (**IBM Technology**). *MMLU, scoring, and what benchmarks do and don't measure.*
@@ -67,7 +67,7 @@ updated: 2026-06-27
 - [OpenAI evals](https://github.com/openai/evals) — **OpenAI** — framework for writing and running custom evals, including LLM-as-judge graders.
 
 **In this platform**:
-- Concept page (full explanation): [LLM Evaluation & Benchmarks](llm-evaluation.md)
-- Foundations (the *why* behind the math): [NLP Evaluation Metrics (perplexity, BLEU, ROUGE, BERTScore)](../../../../modalities-and-generative-models/natural-language-processing/nlp-evaluation-metrics/nlp-evaluation-metrics.md) · [Information Theory: Entropy & KL Divergence](../../../../ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition.md)
-- Shares the math: [RLHF & DPO](../../training-and-adaptation/preference-and-alignment-training/preference-and-alignment-training.md) (the Bradley–Terry reward model is the same logistic as Elo)
-- Related concepts: [Chain-of-Thought Reasoning](../chain-of-thought-and-reasoning/chain-of-thought-and-reasoning.md) (why GSM8K rewards reasoning) · [Decoding & Sampling](../../inference-and-runtime/decoding-and-sampling/decoding-and-sampling.md) (the sampling that pass@k accounts for) · [Hallucination & Alignment Basics](../safety-and-alignment/safety-and-alignment.md) (why calibration matters)
+- Concept page (full explanation): [LLM Evaluation & Benchmarks](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/llm-evaluation/llm-evaluation)
+- Foundations (the *why* behind the math): [NLP Evaluation Metrics (perplexity, BLEU, ROUGE, BERTScore)](../../../../modalities-and-generative-models/natural-language-processing/nlp-evaluation-metrics/nlp-evaluation-metrics.md) · [Information Theory: Entropy & KL Divergence](/ai-ml/ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition)
+- Shares the math: [RLHF & DPO](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/preference-and-alignment-training/preference-and-alignment-training) (the Bradley–Terry reward model is the same logistic as Elo)
+- Related concepts: [Chain-of-Thought Reasoning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/chain-of-thought-and-reasoning/chain-of-thought-and-reasoning) (why GSM8K rewards reasoning) · [Decoding & Sampling](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/decoding-and-sampling/decoding-and-sampling) (the sampling that pass@k accounts for) · [Hallucination & Alignment Basics](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/safety-and-alignment/safety-and-alignment) (why calibration matters)

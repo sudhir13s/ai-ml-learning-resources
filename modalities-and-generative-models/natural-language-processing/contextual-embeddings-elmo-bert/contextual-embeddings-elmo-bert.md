@@ -38,7 +38,7 @@ Contextual embeddings are the fix, and they reset the entire field of NLP when t
 
 To feel why contextual models had to exist, you have to feel the wound they heal.
 
-A static embedding ([word2vec](../word-embeddings-word2vec-glove-fasttext/word-embeddings-word2vec-glove-fasttext.md), GloVe, fastText) is a **lookup table**: a matrix $E \in \mathbb{R}^{|V| \times d}$ with one row per vocabulary *type*. Training slides over a corpus and nudges each row so that words appearing in similar contexts end up close — the celebrated `king − man + woman ≈ queen` geometry. But notice the unit of representation: it is the **word type** (the string), not the **word token** (this particular occurrence). The string `bank` gets **one** row, full stop. Whatever the corpus's contexts for `bank` were — riversides, vaults, the verb "to bank a plane" — they are all crammed into that single row, and what you get is their **frequency-weighted average**.
+A static embedding ([word2vec](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/word-embeddings-word2vec-glove-fasttext/word-embeddings-word2vec-glove-fasttext), GloVe, fastText) is a **lookup table**: a matrix $E \in \mathbb{R}^{|V| \times d}$ with one row per vocabulary *type*. Training slides over a corpus and nudges each row so that words appearing in similar contexts end up close — the celebrated `king − man + woman ≈ queen` geometry. But notice the unit of representation: it is the **word type** (the string), not the **word token** (this particular occurrence). The string `bank` gets **one** row, full stop. Whatever the corpus's contexts for `bank` were — riversides, vaults, the verb "to bank a plane" — they are all crammed into that single row, and what you get is their **frequency-weighted average**.
 
 This averaging has three concrete failures:
 
@@ -126,7 +126,7 @@ The picture makes ELMo's signature claim concrete: because lower layers carry sy
 
 ## The shift to transformers, and BERT's central problem
 
-ELMo proved contextual representations were transformative, but it had two structural weaknesses. First, its bidirectionality was **shallow**: the forward and backward LMs are trained independently and only their *outputs* are concatenated, so no single representation was ever built while *jointly* attending left and right — each direction is blind to the other during encoding. Second, **LSTMs are sequential** — slow to train, and they struggle to carry information across long distances. The [Transformer](../../../deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture.md) had just shown that **self-attention** beats recurrence on both counts: every token attends to every other in parallel, regardless of distance.
+ELMo proved contextual representations were transformative, but it had two structural weaknesses. First, its bidirectionality was **shallow**: the forward and backward LMs are trained independently and only their *outputs* are concatenated, so no single representation was ever built while *jointly* attending left and right — each direction is blind to the other during encoding. Second, **LSTMs are sequential** — slow to train, and they struggle to carry information across long distances. The [Transformer](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture) had just shown that **self-attention** beats recurrence on both counts: every token attends to every other in parallel, regardless of distance.
 
 So the obvious next step was: build a deep contextual model on a transformer **encoder**. But this immediately runs into a wall, and the wall *is* the key insight of BERT.
 
@@ -140,7 +140,7 @@ BERT — *Bidirectional Encoder Representations from Transformers* (Devlin et al
 
 The MLM is the engine of BERT. The procedure:
 
-1. Tokenize the input (WordPiece [subwords](../tokenization-and-subword-algorithms/tokenization-and-subword-algorithms.md); see the tokenization page for why subwords).
+1. Tokenize the input (WordPiece [subwords](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/tokenization-and-subword-algorithms/tokenization-and-subword-algorithms); see the tokenization page for why subwords).
 2. Randomly choose **15%** of token positions.
 3. Replace those positions (mostly) with a special `[MASK]` token.
 4. Run the **bidirectional** transformer encoder — every token attends to every other.
@@ -238,14 +238,14 @@ The full input embedding for each token is the **sum of three** learned embeddin
 
 ## Encoder-only: what BERT *is* architecturally
 
-BERT is a stack of **transformer encoder** blocks — the *left half* of the original Transformer, with **no decoder and no causal mask**. (For the block internals — multi-head self-attention, residual + layer-norm, the position-wise FFN — see the [Transformer Architecture](../../../deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture.md) page; I won't re-derive them here.) Two reference sizes:
+BERT is a stack of **transformer encoder** blocks — the *left half* of the original Transformer, with **no decoder and no causal mask**. (For the block internals — multi-head self-attention, residual + layer-norm, the position-wise FFN — see the [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture) page; I won't re-derive them here.) Two reference sizes:
 
 - **BERT-base** — 12 layers, hidden size 768, 12 attention heads, ~110M parameters.
 - **BERT-large** — 24 layers, hidden size 1024, 16 heads, ~340M parameters.
 
 The defining property is **no causal masking**: every token's self-attention sees the entire sequence, both directions. That's the architectural reason BERT is an *understanding* model — it builds representations with full context — and the reason it **cannot generate** text autoregressively (it has no notion of "next token"; it was never trained to extend a sequence). Encoder-only models are for **classification, tagging, span extraction, retrieval, and embeddings** — not free-form generation.
 
-> **Note:** this is also why a [KV cache](../../../llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.md) — the workhorse of decoder inference — is **irrelevant** to BERT: there's no autoregressive loop to cache across. BERT processes the whole sequence in one parallel pass and you're done.
+> **Note:** this is also why a [KV cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) — the workhorse of decoder inference — is **irrelevant** to BERT: there's no autoregressive loop to cache across. BERT processes the whole sequence in one parallel pass and you're done.
 
 ---
 
@@ -402,7 +402,7 @@ There's a famous, costly mistake here. To embed a *sentence* for **semantic simi
 
 The fix is **Sentence-BERT (SBERT)** (Reimers & Gurevych, 2019): fine-tune BERT in a **Siamese/triplet** setup — run two sentences through the *same* BERT, mean-pool each, and train with a loss (classification, regression, or triplet) that pulls semantically similar pairs **close** and dissimilar pairs **apart**. The result is pooled embeddings that are **directly cosine-comparable in milliseconds** — and it also solves a brutal scaling problem: comparing 10,000 sentences pairwise with a cross-encoder BERT takes ~65 hours, while SBERT precomputes 10,000 vectors and compares them in seconds.
 
-This page is about *contextual word/token* embeddings; the full sentence-embedding story — bi-encoders vs cross-encoders, the Siamese training, USE — lives on its own page: **[Sentence & Document Embeddings](../sentence-and-document-embeddings/sentence-and-document-embeddings.md)**. The one-line takeaway to carry from here: **don't use raw BERT `[CLS]` for semantic similarity — use a model fine-tuned for it (SBERT).**
+This page is about *contextual word/token* embeddings; the full sentence-embedding story — bi-encoders vs cross-encoders, the Siamese training, USE — lives on its own page: **[Sentence & Document Embeddings](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sentence-and-document-embeddings/sentence-and-document-embeddings)**. The one-line takeaway to carry from here: **don't use raw BERT `[CLS]` for semantic similarity — use a model fine-tuned for it (SBERT).**
 
 > **Tip:** the contrast in one breath — **token tasks** (NER, QA spans, masked-word probing) read **per-token** contextual vectors, where raw BERT is excellent. **Sentence-similarity tasks** need a **single sentence vector in a well-shaped metric space**, where raw BERT is poor and SBERT is the answer. Same encoder, two very different ways of reading it out.
 

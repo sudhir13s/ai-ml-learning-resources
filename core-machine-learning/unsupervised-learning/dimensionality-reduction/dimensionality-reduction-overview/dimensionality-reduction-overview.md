@@ -38,7 +38,7 @@ Intuition and pictures first, then the math (derived, with sources), then runnab
 Adding features feels free — more information, surely a better model. It is not. As dimension $d$ grows, several pathologies appear at once, collectively the **curse of dimensionality**:
 
 - **Volume explodes; data evaporates.** To cover the unit cube at fixed density you need $\propto r^d$ points. In 1-D, ten points per unit gives fine coverage; in 100-D you'd need $10^{100}$ to match it. Real datasets are therefore unimaginably **sparse** in high-D — every point is alone in a vast emptiness.
-- **Distances stop discriminating.** The ratio $(\text{dist}_{\max} - \text{dist}_{\min}) / \text{dist}_{\min} \to 0$ as $d \to \infty$ for many distributions: the nearest and farthest neighbours become **nearly equidistant**, so distance-based methods ([k-NN](../../../supervised-learning/classification/k-nearest-neighbors/k-nearest-neighbors.md), k-means, kernels) lose their footing.
+- **Distances stop discriminating.** The ratio $(\text{dist}_{\max} - \text{dist}_{\min}) / \text{dist}_{\min} \to 0$ as $d \to \infty$ for many distributions: the nearest and farthest neighbours become **nearly equidistant**, so distance-based methods ([k-NN](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/k-nearest-neighbors/k-nearest-neighbors), k-means, kernels) lose their footing.
 - **Overfitting and multicollinearity.** More features than you can support means a model can memorize noise; highly **correlated** columns make linear-model coefficients unstable (the matrix $X^\top X$ becomes near-singular).
 - **Cost.** Storage, compute, and human attention all scale with $d$. You cannot *plot* 64-D data; you can plot 2-D.
 
@@ -301,8 +301,8 @@ The **linear** family — fast, transparent, reusable transforms:
 
 The **non-linear / manifold** family — bend to the data's shape, mostly for visualization:
 
-- **t-SNE** — preserves *local* neighbourhoods, produces clean clusters for **visualization only**; stochastic, no reusable transform. (See the dedicated page: **[t-SNE](../t-sne/t-sne.md)**.)
-- **UMAP** — faster, scales to millions, preserves more *global* structure, and **can transform new points**. (See the dedicated page: **[UMAP](../umap/umap.md)**.)
+- **t-SNE** — preserves *local* neighbourhoods, produces clean clusters for **visualization only**; stochastic, no reusable transform. (See the dedicated page: **[t-SNE](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/t-sne/t-sne)**.)
+- **UMAP** — faster, scales to millions, preserves more *global* structure, and **can transform new points**. (See the dedicated page: **[UMAP](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/umap/umap)**.)
 - **Isomap** — preserves **geodesic** (along-the-manifold) distances via a neighbour graph; unrolls a Swiss roll correctly.
 - **LLE** (Locally Linear Embedding) — preserves each point's reconstruction from its local neighbours.
 - **Autoencoders** — a neural net that compresses through a bottleneck and reconstructs; the **learned, non-linear** generalization of PCA (a linear autoencoder with squared loss *recovers* the PCA subspace).

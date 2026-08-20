@@ -54,6 +54,6 @@ encoding (must be fit inside cross-validation / with smoothing).
 - [Python Data Science Handbook — **§5.4 "Feature Engineering" (Categorical Features)**](https://jakevdp.github.io/PythonDataScienceHandbook/05.04-feature-engineering.html) — **Jake VanderPlas** — practical one-hot with DictVectorizer.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 1.01 One-Hot Encoding](../../../../ai-ml-intuitions/representation/discrete-representations/one-hot-encoding-intuition.md) · [1.02 Dense Embeddings](../../../../ai-ml-intuitions/representation/embedding-spaces/dense-embeddings-intuition.md)
-- Next concepts: [06 Feature Engineering](../feature-engineering/feature-engineering.md) · [11 Data Leakage](../data-leakage/data-leakage.md)
-- Related domain: [01. Foundations](../../mathematical-foundations/README.md)
+- Concept depth (the *why*): [ai-ml-intuitions 1.01 One-Hot Encoding](/ai-ml/ai-ml-intuitions/representation/discrete-representations/one-hot-encoding-intuition) · [1.02 Dense Embeddings](/ai-ml/ai-ml-intuitions/representation/embedding-spaces/dense-embeddings-intuition)
+- Next concepts: [06 Feature Engineering](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/feature-engineering/feature-engineering) · [11 Data Leakage](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/data-leakage/data-leakage)
+- Related domain: [01. Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme)

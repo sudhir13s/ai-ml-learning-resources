@@ -45,7 +45,7 @@ measure it with **citation precision and recall**. By the end you'll be able to:
 > *precision/recall* numbers are **real and measured** — every one is printed by an executed
 > notebook cell and asserted before it's claimed. The **claim decomposition** (splitting an answer
 > into claims) and the **generator** are **illustrative stand-ins** for an LLM — this environment is
-> encoder-only. And the carried caveat from [ch8](../advanced-rag/advanced-rag.md)/[ch11](../rag-evaluation/rag-evaluation.md):
+> encoder-only. And the carried caveat from [ch8](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/advanced-rag/advanced-rag)/[ch11](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-evaluation/rag-evaluation):
 > encoder cosine measures **topical** similarity, not **entailment** — so it can (and here does)
 > assign a **false citation**. That gap is the reason production attribution uses an NLI judge.
 
@@ -211,7 +211,7 @@ the code computes.
 > **Source / derivation:** [ALCE — *Enabling LLMs to Generate Text with Citations*, Gao et al. 2023 (EMNLP)](https://arxiv.org/abs/2305.14627)
 > defines citation quality with a support function $\phi$ realized by an **NLI entailment model**;
 > our cosine $\phi$ is the computable proxy for that entailment check (the same encoder-cosine
-> groundedness proxy carried from [ch8](../advanced-rag/advanced-rag.md)/[ch11](../rag-evaluation/rag-evaluation.md)).
+> groundedness proxy carried from [ch8](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/advanced-rag/advanced-rag)/[ch11](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-evaluation/rag-evaluation)).
 > The "attributable iff the source supports the statement" definition of attribution is [AIS —
 > *Measuring Attribution in NLG*, Rashkin et al. 2021](https://arxiv.org/abs/2112.12870), applied to
 > QA by [*Attributed QA*, Bohnet et al. 2022](https://arxiv.org/abs/2212.08037).
@@ -248,7 +248,7 @@ never be *rewarded* for citing something unsupportable, only *penalized* for it.
 > support). Our per-claim single-citation form is the same quantities specialized to one gold passage
 > per claim, computed on the cosine proxy in place of ALCE's NLI $\phi$.
 
-> **Note:** these mirror the retrieval precision/recall from [ch11](../rag-evaluation/rag-evaluation.md),
+> **Note:** these mirror the retrieval precision/recall from [ch11](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-evaluation/rag-evaluation),
 > but on a *different object*: ch11 measured whether the **retriever** fetched the right chunks; here
 > we measure whether the **attributor** cited the right passage for each *claim in the answer*. A
 > pipeline can have perfect retrieval and still cite badly.

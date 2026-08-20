@@ -18,40 +18,40 @@ learning path plus the best **free, open** courses, videos, papers, articles, an
 > **✅ ready.** New to RL? Start with the field overview below, then work top to bottom.
 
 ### Foundations — the formalism
-1. ✅ [Markov Decision Processes (states · actions · rewards · transitions)](foundations/markov-decision-processes/markov-decision-processes.md)
-2. ✅ [Bellman Equations (expectation & optimality)](foundations/bellman-equations/bellman-equations.md)
-3. ✅ [Dynamic Programming — Value & Policy Iteration](foundations/dynamic-programming-value-and-policy-iteration/dynamic-programming-value-and-policy-iteration.md)
+1. ✅ [Markov Decision Processes (states · actions · rewards · transitions)](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/foundations/markov-decision-processes/markov-decision-processes)
+2. ✅ [Bellman Equations (expectation & optimality)](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/foundations/bellman-equations/bellman-equations)
+3. ✅ [Dynamic Programming — Value & Policy Iteration](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/foundations/dynamic-programming-value-and-policy-iteration/dynamic-programming-value-and-policy-iteration)
 
 ### Tabular model-free learning
-4. ✅ [Monte Carlo Methods (first-visit · every-visit · MC control)](value-based-learning/monte-carlo-methods/monte-carlo-methods.md)
-5. ✅ [Temporal-Difference Learning (TD(0) · TD(λ) · n-step)](value-based-learning/temporal-difference-learning/temporal-difference-learning.md)
-6. ✅ [Q-Learning (off-policy TD control)](value-based-learning/q-learning/q-learning.md)
-7. ✅ [SARSA (on-policy TD control)](value-based-learning/sarsa/sarsa.md)
+4. ✅ [Monte Carlo Methods (first-visit · every-visit · MC control)](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/value-based-learning/monte-carlo-methods/monte-carlo-methods)
+5. ✅ [Temporal-Difference Learning (TD(0) · TD(λ) · n-step)](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/value-based-learning/temporal-difference-learning/temporal-difference-learning)
+6. ✅ [Q-Learning (off-policy TD control)](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/value-based-learning/q-learning/q-learning)
+7. ✅ [SARSA (on-policy TD control)](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/value-based-learning/sarsa/sarsa)
 
 ### Deep RL — value-based
-8. ✅ [Deep Q-Networks (DQN + Double · Dueling · Prioritized · Rainbow)](value-based-learning/deep-q-networks-dqn/deep-q-networks-dqn.md)
+8. ✅ [Deep Q-Networks (DQN + Double · Dueling · Prioritized · Rainbow)](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/value-based-learning/deep-q-networks-dqn/deep-q-networks-dqn)
 
 ### Deep RL — policy-based & actor-critic
-9. ✅ [Policy Gradients (REINFORCE)](policy-learning/policy-gradients-reinforce/policy-gradients-reinforce.md)
-10. ✅ [Actor-Critic (A2C · A3C · GAE)](policy-learning/actor-critic-a2c-a3c/actor-critic-a2c-a3c.md)
-11. ✅ [Trust Region Policy Optimization (TRPO)](policy-learning/trust-region-policy-optimization-trpo/trust-region-policy-optimization-trpo.md)
-12. ✅ [Proximal Policy Optimization (PPO)](policy-learning/proximal-policy-optimization-ppo/proximal-policy-optimization-ppo.md)
-13. ✅ [Continuous Control — DDPG · TD3 · SAC](policy-learning/continuous-control-ddpg-td3-sac/continuous-control-ddpg-td3-sac.md)
+9. ✅ [Policy Gradients (REINFORCE)](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/policy-learning/policy-gradients-reinforce/policy-gradients-reinforce)
+10. ✅ [Actor-Critic (A2C · A3C · GAE)](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/policy-learning/actor-critic-a2c-a3c/actor-critic-a2c-a3c)
+11. ✅ [Trust Region Policy Optimization (TRPO)](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/policy-learning/trust-region-policy-optimization-trpo/trust-region-policy-optimization-trpo)
+12. ✅ [Proximal Policy Optimization (PPO)](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/policy-learning/proximal-policy-optimization-ppo/proximal-policy-optimization-ppo)
+13. ✅ [Continuous Control — DDPG · TD3 · SAC](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/policy-learning/continuous-control-ddpg-td3-sac/continuous-control-ddpg-td3-sac)
 
 ### Exploration & decision-making
-14. ✅ [Exploration vs Exploitation (ε-greedy · UCB · Thompson · intrinsic)](foundations/exploration-vs-exploitation/exploration-vs-exploitation.md)
-15. ✅ [Multi-Armed Bandits (stochastic · contextual)](foundations/multi-armed-bandits/multi-armed-bandits.md)
+14. ✅ [Exploration vs Exploitation (ε-greedy · UCB · Thompson · intrinsic)](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/foundations/exploration-vs-exploitation/exploration-vs-exploitation)
+15. ✅ [Multi-Armed Bandits (stochastic · contextual)](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/foundations/multi-armed-bandits/multi-armed-bandits)
 
 ### Advanced paradigms
-16. ✅ [Model-Based RL (Dyna · MPC · MuZero)](model-based-reinforcement-learning/model-based-rl/model-based-rl.md)
-17. ✅ [Offline RL (batch RL · CQL · distribution shift)](offline-reinforcement-learning/offline-rl/offline-rl.md)
-18. ✅ [Reward Shaping (potential-based · sparse rewards · HER)](foundations/reward-shaping/reward-shaping.md)
-19. ✅ [Multi-Agent RL (MADDPG · self-play · cooperation/competition)](multi-agent-reinforcement-learning/multi-agent-rl/multi-agent-rl.md)
+16. ✅ [Model-Based RL (Dyna · MPC · MuZero)](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/model-based-reinforcement-learning/model-based-rl/model-based-rl)
+17. ✅ [Offline RL (batch RL · CQL · distribution shift)](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/offline-reinforcement-learning/offline-rl/offline-rl)
+18. ✅ [Reward Shaping (potential-based · sparse rewards · HER)](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/foundations/reward-shaping/reward-shaping)
+19. ✅ [Multi-Agent RL (MADDPG · self-play · cooperation/competition)](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/multi-agent-reinforcement-learning/multi-agent-rl/multi-agent-rl)
 
 ### Related concepts (canonical home is another section)
 > These topics are used across many areas, so they're kept in one place to avoid repetition.
-- **RLHF / alignment for LLMs** — reward models, PPO-on-language, DPO → [LLMs, Applications and Agents](../../llms-applications-and-agents/README.md). *RL owns the policy-gradient / PPO **mechanics** ([12 PPO](policy-learning/proximal-policy-optimization-ppo/proximal-policy-optimization-ppo.md)); the LLM-alignment RLHF card lives in the LLMs section and links back here.*
-- **Deep learning prerequisites** — backprop, optimizers, function approximation → [05. Deep Learning](../../deep-learning/README.md)
+- **RLHF / alignment for LLMs** — reward models, PPO-on-language, DPO → [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme). *RL owns the policy-gradient / PPO **mechanics** ([12 PPO](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/policy-learning/proximal-policy-optimization-ppo/proximal-policy-optimization-ppo)); the LLM-alignment RLHF card lives in the LLMs section and links back here.*
+- **Deep learning prerequisites** — backprop, optimizers, function approximation → [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
 
 ## 🎓 Courses (free)
 - [DeepMind x UCL: RL Lecture Series](https://www.youtube.com/playlist?list=PLqYmG7hTraZDVH599EItlEWsUOsJbAodm) — **David Silver / DeepMind** — the classic, by an AlphaGo author.

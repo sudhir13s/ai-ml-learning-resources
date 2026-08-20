@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Positional Encoding — references and further reading
 
-> Companion link library for **[Positional Encoding](positional-encoding.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
+> Companion link library for **[Positional Encoding](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/positional-encoding/positional-encoding)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Positional embeddings in transformers EXPLAINED](https://www.youtube.com/watch?v=1biZfFLPRSY) (**AI Coffee Break with Letitia**). *Why order matters and what the encoding adds.*
@@ -51,9 +51,9 @@ updated: 2026-06-22
 - [Speech and Language Processing, 3rd ed. — Ch. 9 "Transformers"](https://web.stanford.edu/~jurafsky/slp3/) — **Jurafsky & Martin** — positional encoding within the transformer, free online draft.
 
 **In this platform**:
-- Concept page (full explanation): [Positional Encoding](positional-encoding.md)
-- Prerequisites (the *why* behind Q, K, V and the block): [Attention Mechanism](../attention-mechanism/attention-mechanism.md) · [Transformer Architecture](../transformer-architecture/transformer-architecture.md)
-- Builds on this (RoPE caching, long context): [KV Cache](../../../llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.md)
-- Concept depth (the *why*): [ai-ml-intuitions 1.03 Positional Encoding](../../../../ai-ml-intuitions/representation/embedding-spaces/positional-representations-intuition.md)
-- Field overview: [Deep Learning](../../README.md)
-- Related domain: [LLMs, Applications and Agents](../../../llms-applications-and-agents/README.md) (RoPE/ALiBi for long-context models)
+- Concept page (full explanation): [Positional Encoding](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/positional-encoding/positional-encoding)
+- Prerequisites (the *why* behind Q, K, V and the block): [Attention Mechanism](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism) · [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture)
+- Builds on this (RoPE caching, long context): [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache)
+- Concept depth (the *why*): [ai-ml-intuitions 1.03 Positional Encoding](/ai-ml/ai-ml-intuitions/representation/embedding-spaces/positional-representations-intuition)
+- Field overview: [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
+- Related domain: [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme) (RoPE/ALiBi for long-context models)

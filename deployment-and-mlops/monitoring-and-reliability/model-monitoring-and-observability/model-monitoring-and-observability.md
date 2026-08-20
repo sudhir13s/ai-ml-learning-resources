@@ -29,7 +29,7 @@ late or absent), and the tool stack (Evidently, Prometheus, Grafana). Drift dete
 2. **Monitoring vs observability** — read [Evidently: What is ML Monitoring & Observability](https://learn.evidentlyai.com/ml-observability-course/module-1-introduction/ml-monitoring-observability). *Why "that it broke" (monitoring) and "why it broke" (observability) are different.*
 3. **Build a dashboard** — work [Made With ML: Monitoring](https://madewithml.com/courses/mlops/monitoring/), then watch [Evidently AI: ML Monitoring & Observability Tutorial](https://www.youtube.com/watch?v=cgc3dSEAel0). *Turns the theory into a real metrics dashboard.*
 4. **Batch vs online monitoring** — watch [Evidently: Batch architecture dashboard](https://www.youtube.com/watch?v=u4Mcu0hXfMA) and [Online architecture dashboard](https://www.youtube.com/watch?v=2hTRXEOJF8k). *Two deployment shapes, two monitoring designs.*
-5. **Go to drift** — move to [12 Data & Concept Drift Detection](../data-and-concept-drift-detection/data-and-concept-drift-detection.md). *The statistical heart of why model quality degrades.*
+5. **Go to drift** — move to [12 Data & Concept Drift Detection](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/monitoring-and-reliability/data-and-concept-drift-detection/data-and-concept-drift-detection). *The statistical heart of why model quality degrades.*
 
 ## 🎓 Courses (free)
 - [Made With ML — Monitoring](https://madewithml.com/courses/mlops/monitoring/) — **Goku Mohandas** — monitor performance, data, and drift in a real system.
@@ -55,5 +55,5 @@ late or absent), and the tool stack (Evidently, Prometheus, Grafana). Drift dete
 - [Machine Learning Engineering — **Ch. 9 "Model Serving, Monitoring & Maintenance"**](http://www.mlebook.com/wiki/doku.php) — **Andriy Burkov** — read-first chapters free.
 
 ## 🔗 In this platform
-- Builds on: [01 ML Lifecycle & MLOps Maturity](../../lifecycle-and-reproducibility/ml-lifecycle-and-mlops-maturity/ml-lifecycle-and-mlops-maturity.md) · [09 Model Serving](../../packaging-and-serving/model-serving/model-serving.md)
-- Next concepts: [12 Data & Concept Drift Detection](../data-and-concept-drift-detection/data-and-concept-drift-detection.md) · [13 Model Registry & Governance](../../governance-and-economics/model-registry-and-governance/model-registry-and-governance.md)
+- Builds on: [01 ML Lifecycle & MLOps Maturity](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/lifecycle-and-reproducibility/ml-lifecycle-and-mlops-maturity/ml-lifecycle-and-mlops-maturity) · [09 Model Serving](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/model-serving/model-serving)
+- Next concepts: [12 Data & Concept Drift Detection](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/monitoring-and-reliability/data-and-concept-drift-detection/data-and-concept-drift-detection) · [13 Model Registry & Governance](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/governance-and-economics/model-registry-and-governance/model-registry-and-governance)

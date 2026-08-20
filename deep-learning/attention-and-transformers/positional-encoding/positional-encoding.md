@@ -16,7 +16,7 @@ category: attention-and-transformers
 
 # Positional Encoding: teaching a bag of words its order
 
-Take the sentence *"dog bites man"* and shuffle it into *"man bites dog."* To you those are different events. To the core of a transformer — **self-[attention](../attention-mechanism/attention-mechanism.md)** — they are *the same set of three word-vectors*, and it would compute the **same** representation for "bites" in both. Attention is a content-based lookup: it scores every token against every other and blends their values, but **nowhere in `softmax(QKᵀ)V` is there a notion of *where* a token sits.** That is not a small bug; it is a structural fact. A transformer, on its own, reads your sentence as a **bag of words**.
+Take the sentence *"dog bites man"* and shuffle it into *"man bites dog."* To you those are different events. To the core of a transformer — **self-[attention](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism)** — they are *the same set of three word-vectors*, and it would compute the **same** representation for "bites" in both. Attention is a content-based lookup: it scores every token against every other and blends their values, but **nowhere in `softmax(QKᵀ)V` is there a notion of *where* a token sits.** That is not a small bug; it is a structural fact. A transformer, on its own, reads your sentence as a **bag of words**.
 
 **Positional encoding** is how we put the order back. It is the small signal — added to the embeddings, or folded into the attention scores — that tells the model token 5 is token 5, and that token 5 is three steps after token 2. This page derives *why* the problem exists from the attention equation itself, then builds up the whole family of solutions in the order the field discovered them: **sinusoidal → learned → relative → RoPE → ALiBi**, plus how modern systems *stretch* these to contexts longer than they were trained on. By the end you'll be able to:
 
@@ -31,7 +31,7 @@ Take the sentence *"dog bites man"* and shuffle it into *"man bites dog."* To yo
 
 Intuition first, then the derivations, then code you can run.
 
-> **Note:** positional encoding exists **only because** self-attention threw away order to gain its superpower — any-to-any, fully parallel token mixing (see [Attention Mechanism](../attention-mechanism/attention-mechanism.md) and [Transformer Architecture](../transformer-architecture/transformer-architecture.md)). RNNs never needed it: they *process* tokens in order, so order is baked into the computation. The transformer trades that implicit order for parallelism and then **buys order back explicitly**. Keep that trade in mind — it explains the entire topic.
+> **Note:** positional encoding exists **only because** self-attention threw away order to gain its superpower — any-to-any, fully parallel token mixing (see [Attention Mechanism](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism) and [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture)). RNNs never needed it: they *process* tokens in order, so order is baked into the computation. The transformer trades that implicit order for parallelism and then **buys order back explicitly**. Keep that trade in mind — it explains the entire topic.
 
 ---
 
@@ -159,7 +159,7 @@ The transformer **adds** $PE$ to the token embedding: $h^{(0)}_{pos} = \text{Emb
 - **Concatenation costs dimensions.** Concatenating a $d_p$-dim position vector would force the model to either grow $d$ (more parameters everywhere) or shrink the token embedding to make room — a strictly worse use of the budget. Addition keeps $d$ fixed and lets the model decide how much capacity to spend on position.
 - **It empirically works at least as well.** Vaswani et al. tried learned embeddings *and* tested concatenation-style variants; added sinusoids matched learned ones and cost zero parameters, so addition won.
 
-> **Gotcha:** "addition corrupts the embedding" is a tempting but wrong intuition. The right frame is *superposition*: the residual stream carries many features at once in different linear directions, and the attention/FFN read out the ones they need. Position is just one more feature riding the stream. (This same superposition view explains why residual streams work at all — see [Transformer Architecture](../transformer-architecture/transformer-architecture.md).)
+> **Gotcha:** "addition corrupts the embedding" is a tempting but wrong intuition. The right frame is *superposition*: the residual stream carries many features at once in different linear directions, and the attention/FFN read out the ones they need. Position is just one more feature riding the stream. (This same superposition view explains why residual streams work at all — see [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture).)
 
 Concretely: if the word feature lives mostly in some directions of the $d$-space and the position feature in (mostly) *other* directions, then a projection $W_k$ can have rows that read one and ignore the other — the sum $\text{emb} + PE$ keeps both legible. In a 2-dim cartoon, putting "what" on the $x$-axis and "where" on the $y$-axis, their sum is a single point from which either coordinate is trivially recoverable; only if the two signals shared the *same* direction would addition destroy information. High dimension makes near-orthogonal placement easy, which is why the model never has to choose between knowing a token's identity and knowing its position.
 
@@ -304,7 +304,7 @@ The score is **identical** for all three — it genuinely sees only the offset, 
 
 - **Relative for free, where it counts.** The relative offset is baked into the **score**, the exact quantity attention uses — no added input vector, no extra parameters, no separate bias table.
 - **Norm-preserving.** Rotations are orthogonal, so $\|R_m q\| = \|q\|$ — RoPE never inflates or shrinks the query/key magnitudes, keeping training stable (a problem additive schemes can have).
-- **Plays nicely with efficient kernels.** RoPE is applied to $q,k$ *before* the dot product, as a cheap elementwise rotation; it composes cleanly with FlashAttention and the [KV cache](../../../llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.md) (you cache the *rotated* keys).
+- **Plays nicely with efficient kernels.** RoPE is applied to $q,k$ *before* the dot product, as a cheap elementwise rotation; it composes cleanly with FlashAttention and the [KV cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) (you cache the *rotated* keys).
 - **Extrapolates far better than absolute** — and, crucially, its frequencies can be **rescaled** at inference to *extend* the context (next section), a lever that absolute schemes don't offer.
 
 > **Gotcha:** two RoPE pitfalls bite people. (1) **Layout matters** — implementations differ on whether the rotated pairs are *interleaved* $(x_0,x_1),(x_2,x_3),\dots$ or *split-half* $(x_0,x_{d/2}),\dots$; mixing a model's checkpoint with the wrong convention silently corrupts every score. (2) RoPE is applied to **$q$ and $k$ only, never $v$** — values carry content, not position, so you rotate what's *compared*, not what's *returned*. Rotating $v$ is a classic bug.
@@ -408,12 +408,12 @@ The trajectory reads top-to-bottom: **absolute → relative**, **input-side → 
 ## Where it's used, and where it isn't
 
 - **Every transformer that processes sequences** needs *some* position signal — there is no transformer LLM without one (NoPE decoders being the rare, deliberate exception that leans on the causal mask).
-- **Decoder-only LLMs** (the dominant design — see [Transformer Architecture](../transformer-architecture/transformer-architecture.md)) almost universally use **RoPE** today, often with YaRN/NTK scaling for long context.
+- **Decoder-only LLMs** (the dominant design — see [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture)) almost universally use **RoPE** today, often with YaRN/NTK scaling for long context.
 - **Encoder-only** models (BERT family) historically use **learned absolute**; newer ones (DeBERTa) use relative.
 - **Encoder–decoder** (T5) uses the **bucketed scalar bias**.
 - **Vision Transformers** add a (usually learned) positional embedding to image patches — same problem, since patch attention is just as permutation-equivariant; 2D-aware and RoPE variants exist for images.
 
-> **Note:** the position scheme is **architectural** — baked in at pretraining. You generally can't swap a learned-absolute model to RoPE without retraining, and even RoPE context-extension (PI/YaRN) usually wants a fine-tune. When choosing a base model for long context, **check its positional scheme** the way you'd check its KV-head count for serving (see [KV Cache](../../../llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.md)) — it's a first-class capability constraint, not a runtime knob.
+> **Note:** the position scheme is **architectural** — baked in at pretraining. You generally can't swap a learned-absolute model to RoPE without retraining, and even RoPE context-extension (PI/YaRN) usually wants a fine-tune. When choosing a base model for long context, **check its positional scheme** the way you'd check its KV-head count for serving (see [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache)) — it's a first-class capability constraint, not a runtime knob.
 
 ---
 
@@ -429,7 +429,7 @@ The trajectory reads top-to-bottom: **absolute → relative**, **input-side → 
 **Step 2 — get the wiring right for the scheme.**
 
 - *Absolute (sinusoidal/learned):* compute/look up $PE(pos)$ and **add** it to the token embedding *once*, at the input, before block 0.
-- *RoPE:* apply the rotation to **$q$ and $k$ inside every attention layer**, *after* the $W_q,W_k$ projection and *before* the dot product — and to **neither $v$ nor the residual stream**. Cache the *rotated* keys in the [KV cache](../../../llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.md).
+- *RoPE:* apply the rotation to **$q$ and $k$ inside every attention layer**, *after* the $W_q,W_k$ projection and *before* the dot product — and to **neither $v$ nor the residual stream**. Cache the *rotated* keys in the [KV cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache).
 - *ALiBi:* precompute the $-m(i-j)$ bias matrix per head and **add it to the scores** before softmax (it composes with the causal mask).
 
 **Step 3 — if extending context, rescale, then evaluate.** Apply PI / NTK-aware / YaRN to the RoPE frequencies for the target length, do a short long-context fine-tune if you can, and **measure long-context retrieval quality** (e.g. needle-in-a-haystack), not just that it runs.

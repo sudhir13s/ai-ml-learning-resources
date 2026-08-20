@@ -59,6 +59,6 @@ go straight to vetted sources instead of secondhand summaries.
 - [Dive into Deep Learning](https://d2l.ai/) — **Zhang et al.** — when a conference paper is dense, d2l's chapters are the readable, runnable companion.
 
 ## 🔗 In this platform
-- Per-concept index: [Frontier & Staying Current — concepts](../README.md)
-- Pair with: [01 How to Read ML Papers](../how-to-read-ml-papers/how-to-read-ml-papers.md) · [02 arXiv & Papers with Code](../arxiv-and-papers-with-code/arxiv-and-papers-with-code.md) · [11 Evaluating Hype vs Substance](../evaluating-hype-vs-substance/evaluating-hype-vs-substance.md)
-- Subfield venues map onto: [06. NLP](../../../modalities-and-generative-models/natural-language-processing/README.md) · [07. Computer Vision](../../../modalities-and-generative-models/computer-vision/README.md)
+- Per-concept index: [Frontier & Staying Current — concepts](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/readme)
+- Pair with: [01 How to Read ML Papers](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/how-to-read-ml-papers/how-to-read-ml-papers) · [02 arXiv & Papers with Code](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/arxiv-and-papers-with-code/arxiv-and-papers-with-code) · [11 Evaluating Hype vs Substance](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/evaluating-hype-vs-substance/evaluating-hype-vs-substance)
+- Subfield venues map onto: [06. NLP](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/readme) · [07. Computer Vision](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/readme)

@@ -16,7 +16,7 @@ category: density-estimation
 
 # Kernel Density Estimation: a histogram that forgot its bins
 
-Suppose someone hands you 200 measurements — reaction times, sensor readings, gene expression levels — and asks the deceptively simple question: *what is the probability density that produced these numbers?* Not "what's the mean," not "fit me a Gaussian," but the whole shape: where the mass piles up, whether there are one bump or two, how heavy the tails are. If you already believed the data were Gaussian you'd estimate a mean and a variance and be done. If you believed they came from a handful of Gaussians you'd fit a [Gaussian mixture](../../clustering/gaussian-mixture-models-and-em/gaussian-mixture-models-and-em.md). But what if you *refuse to assume any parametric form at all* and want the data to speak for itself?
+Suppose someone hands you 200 measurements — reaction times, sensor readings, gene expression levels — and asks the deceptively simple question: *what is the probability density that produced these numbers?* Not "what's the mean," not "fit me a Gaussian," but the whole shape: where the mass piles up, whether there are one bump or two, how heavy the tails are. If you already believed the data were Gaussian you'd estimate a mean and a variance and be done. If you believed they came from a handful of Gaussians you'd fit a [Gaussian mixture](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/gaussian-mixture-models-and-em/gaussian-mixture-models-and-em). But what if you *refuse to assume any parametric form at all* and want the data to speak for itself?
 
 That refusal is the entire premise of **Kernel Density Estimation (KDE)** — the workhorse **non-parametric** density estimator. Its idea is almost embarrassingly simple: **drop a small smooth bump on top of every data point, then add the bumps up.** Where points cluster, the bumps overlap and pile into a peak; where points are sparse, the bumps are thin and the estimate sags toward zero. The result is a smooth curve that traces the data's shape without ever committing to a formula for it. KDE is the smooth, bin-free descendant of the humble histogram, and the engine behind density-based anomaly scoring, violin plots, mean-shift clustering, and naive-Bayes class densities.
 
@@ -411,7 +411,7 @@ Crucially, run a likelihood cross-validation on this same kind of data and it pi
 KDE is less a standalone "model" than a versatile primitive. The main uses:
 
 - **Non-parametric density estimation** — the direct job: estimate $p(x)$ when you won't assume a form. Used in econometrics, signal processing, astronomy (luminosity functions), and anywhere a smooth empirical density is wanted.
-- **Anomaly / novelty detection** — fit a KDE to "normal" data; a new point with **low estimated density** is an outlier or novelty. This is a density-based detector, complementary to the isolation/distance methods in [Anomaly / Outlier Detection](../../anomaly-detection/anomaly-outlier-detection/anomaly-outlier-detection.md). scikit-learn's `KernelDensity.score_samples` is a standard novelty scorer; thresholding it flags rare points.
+- **Anomaly / novelty detection** — fit a KDE to "normal" data; a new point with **low estimated density** is an outlier or novelty. This is a density-based detector, complementary to the isolation/distance methods in [Anomaly / Outlier Detection](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/anomaly-detection/anomaly-outlier-detection/anomaly-outlier-detection). scikit-learn's `KernelDensity.score_samples` is a standard novelty scorer; thresholding it flags rare points.
 - **Data visualization** — the smooth alternative to the histogram. **Violin plots** are mirrored KDEs; **ridgeline (joyplot)** plots stack KDEs; 2-D KDEs draw the smooth contour clouds you see in scatter overlays. This is probably KDE's most common everyday appearance.
 - **Generative sampling** — because a Gaussian KDE *is* an equal-weight mixture of Gaussians, you can sample from it directly: pick a data point uniformly, then draw from $\mathcal N(x_i, h^2)$. This is exactly the **smoothed bootstrap** — resampling with a little Gaussian jitter.
 - **Class-conditional densities for classification** — fit a separate KDE per class to model $p(x \mid y)$, combine with class priors via Bayes' rule, and you have a **non-parametric naive Bayes / QDA** classifier (Jake VanderPlas's "KDE Bayesian classifier"). No Gaussian-per-class assumption needed.
@@ -438,7 +438,7 @@ graph TD
 
 > **Note:** the term **Parzen window** is a synonym for KDE you'll meet in the pattern-recognition literature (after Parzen's 1962 paper). When people say "Parzen-window density estimate" they mean exactly $\hat f_h$ above. The "window" is the kernel; the "window width" is the bandwidth.
 
-> **Tip:** there's a clean conceptual bridge to the [kernel trick](../../../../../ai-ml-intuitions/representation/similarity-and-distance/kernel-trick-intuition.md) in SVMs/Gaussian processes — both place a similarity kernel between a query point and the data. But they answer different questions: KDE's kernel sums to an *unnormalized density* (how much data is near $x$?), while the SVM kernel computes an *inner product in feature space* (how similar are two points?). Same Gaussian bump, different jobs — don't conflate them.
+> **Tip:** there's a clean conceptual bridge to the [kernel trick](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/kernel-trick-intuition) in SVMs/Gaussian processes — both place a similarity kernel between a query point and the data. But they answer different questions: KDE's kernel sums to an *unnormalized density* (how much data is near $x$?), while the SVM kernel computes an *inner product in feature space* (how similar are two points?). Same Gaussian bump, different jobs — don't conflate them.
 
 ---
 
@@ -479,7 +479,7 @@ Output:
   point [-6.   1. ]  log-density= -32.40  -> ANOMALY
 ```
 
-The two far-off points score a log-density around $-33$ to $-36$, dozens of nats below the normal points (~$-2$) and far under the threshold ($-5.7$) — flagged cleanly. This is the same idea behind density-based detectors in [Anomaly / Outlier Detection](../../anomaly-detection/anomaly-outlier-detection/anomaly-outlier-detection.md); KDE supplies the density, the threshold supplies the decision.
+The two far-off points score a log-density around $-33$ to $-36$, dozens of nats below the normal points (~$-2$) and far under the threshold ($-5.7$) — flagged cleanly. This is the same idea behind density-based detectors in [Anomaly / Outlier Detection](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/anomaly-detection/anomaly-outlier-detection/anomaly-outlier-detection); KDE supplies the density, the threshold supplies the decision.
 
 > **Gotcha:** this works beautifully in 2-D as shown — and degrades in high dimensions for exactly the curse-of-dimensionality reason. A KDE novelty detector on a 100-D feature vector will assign *everything* a near-zero density (all points are in the empty tails), so the scores stop discriminating. For high-D novelty detection, reduce dimension first or use isolation/one-class methods built for it.
 
@@ -514,7 +514,7 @@ It helps to place KDE between its crude ancestor and its parametric cousin.
 | High dimensions | poor (curse) | far better (parametric) |
 | Extrapolation | none beyond data | yes (smooth tails) |
 
-> **Note:** the one-line summary: **KDE is a GMM with one component per data point, equal weights, and a single shared bandwidth instead of learned means and covariances.** GMM *learns where the bumps go and how wide each is* (and uses few of them); KDE *fixes the bumps on the data and uses all of them*. Use KDE when you want maximum flexibility in low dimensions with no fitting; use a GMM when you want a compact, interpretable, data-efficient model that scales to higher dimensions. They are the two ends of the density-estimation spectrum, and [GMM/EM](../../clustering/gaussian-mixture-models-and-em/gaussian-mixture-models-and-em.md) is the natural next page.
+> **Note:** the one-line summary: **KDE is a GMM with one component per data point, equal weights, and a single shared bandwidth instead of learned means and covariances.** GMM *learns where the bumps go and how wide each is* (and uses few of them); KDE *fixes the bumps on the data and uses all of them*. Use KDE when you want maximum flexibility in low dimensions with no fitting; use a GMM when you want a compact, interpretable, data-efficient model that scales to higher dimensions. They are the two ends of the density-estimation spectrum, and [GMM/EM](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/gaussian-mixture-models-and-em/gaussian-mixture-models-and-em) is the natural next page.
 
 ---
 
@@ -597,7 +597,7 @@ Output:
 (4) CV-optimal h = 0.2931  vs Silverman h = 0.6111  (CV smaller: bimodal truth)
 ```
 
-> **Note:** the headline is line (1): **`match=True`** — our three-line `kde()` reproduces scikit-learn's optimized estimator exactly, because there is no hidden machinery; KDE really is "average a kernel per point." Line (4) is the practical lesson: **Silverman over-smoothed the bimodal data (0.61) and cross-validation correctly pulled the bandwidth down (0.29)** to resolve the two modes — the [bias–variance](../../../model-selection-and-evaluation/bias-variance-tradeoff/bias-variance-tradeoff.md) story playing out on real data.
+> **Note:** the headline is line (1): **`match=True`** — our three-line `kde()` reproduces scikit-learn's optimized estimator exactly, because there is no hidden machinery; KDE really is "average a kernel per point." Line (4) is the practical lesson: **Silverman over-smoothed the bimodal data (0.61) and cross-validation correctly pulled the bandwidth down (0.29)** to resolve the two modes — the [bias–variance](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/bias-variance-tradeoff/bias-variance-tradeoff) story playing out on real data.
 
 > **Tip:** for production density estimation, prefer `scipy.stats.gaussian_kde` (quick, auto-bandwidth) or `sklearn.neighbors.KernelDensity` (multiple kernels, tree-accelerated, integrates with `GridSearchCV`). The from-scratch version above is for understanding; the libraries handle large $n$, multiple dimensions, and bandwidth selection for you.
 

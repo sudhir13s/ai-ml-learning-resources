@@ -39,7 +39,7 @@ Intuition and pictures first, then the linkage math (with sources), then four wo
 
 ## The problem: you don't always know k, and the data is often nested
 
-[K-means](../k-means-clustering/k-means-clustering.md) is fast and excellent — when you know $k$ and your clusters are roughly spherical blobs of similar size. But two things break that bargain constantly:
+[K-means](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/k-means-clustering/k-means-clustering) is fast and excellent — when you know $k$ and your clusters are roughly spherical blobs of similar size. But two things break that bargain constantly:
 
 1. **You don't know $k$.** In exploratory work — a new gene-expression dataset, a fresh customer base, an unlabeled corpus — the *number* of natural groups is exactly what you're trying to discover. Re-running k-means for every candidate $k$ and squinting at an elbow plot is a workaround, not an answer.
 2. **The structure is a hierarchy, not a partition.** Biological taxa nest (species → genus → family → order). Documents nest (a sub-topic inside a topic inside a field). A flat list of $k$ clusters throws that nesting away. You want the *tree*.
@@ -301,7 +301,7 @@ The silhouette **peaks at $k=2$**, not the biologically correct $k=3$ — becaus
 
 Where it sits among the clustering families:
 
-| | **Hierarchical (agglomerative)** | **[K-means](../k-means-clustering/k-means-clustering.md)** | **[DBSCAN](../dbscan/dbscan.md)** | **[GMM / EM](../gaussian-mixture-models-and-em/gaussian-mixture-models-and-em.md)** |
+| | **Hierarchical (agglomerative)** | **[K-means](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/k-means-clustering/k-means-clustering)** | **[DBSCAN](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/dbscan/dbscan)** | **[GMM / EM](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/gaussian-mixture-models-and-em/gaussian-mixture-models-and-em)** |
 |---|---|---|---|---|
 | **Pick $k$ upfront?** | **No** — cut the tree after | Yes | No ($\varepsilon$, minPts instead) | Yes |
 | **Cluster shape** | depends on linkage (Ward→spherical, single→arbitrary) | spherical, equal-ish size | arbitrary, density-defined | ellipsoidal (full covariance) |

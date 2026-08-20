@@ -60,8 +60,8 @@ deterministic, invertible map.
 - [Understanding Deep Learning — **Ch. 18 "Diffusion models"**](https://udlbook.github.io/udlbook/) — **Simon Prince** — free PDF; the score/SDE connection with clean figures.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 5.03 Diffusion Models](../../../../ai-ml-intuitions/generation/diffusion-and-score-models/diffusion-forward-and-reverse-process-intuition.md)
-- Prereq: [05 Diffusion Models (DDPM)](../diffusion-models-ddpm/diffusion-models-ddpm.md) (the equivalent noise-prediction view)
-- Next concepts: [07 Latent Diffusion & Stable Diffusion](../latent-diffusion-stable-diffusion/latent-diffusion-stable-diffusion.md) · [13 Sampling & Guidance Techniques](../sampling-and-guidance-techniques/sampling-and-guidance-techniques.md) (DDIM / ODE samplers)
-- Compare with: [09 Energy-Based Models](../../generative-models/energy-based-models/energy-based-models.md) (also score/energy-based, sampled by Langevin)
-- Field overview: [9. Generative AI](../../generative-models/README.md)
+- Concept depth (the *why*): [ai-ml-intuitions 5.03 Diffusion Models](/ai-ml/ai-ml-intuitions/generation/diffusion-and-score-models/diffusion-forward-and-reverse-process-intuition)
+- Prereq: [05 Diffusion Models (DDPM)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/diffusion-models-ddpm/diffusion-models-ddpm) (the equivalent noise-prediction view)
+- Next concepts: [07 Latent Diffusion & Stable Diffusion](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/latent-diffusion-stable-diffusion/latent-diffusion-stable-diffusion) · [13 Sampling & Guidance Techniques](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/sampling-and-guidance-techniques/sampling-and-guidance-techniques) (DDIM / ODE samplers)
+- Compare with: [09 Energy-Based Models](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/energy-based-models/energy-based-models) (also score/energy-based, sampled by Langevin)
+- Field overview: [9. Generative AI](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/readme)

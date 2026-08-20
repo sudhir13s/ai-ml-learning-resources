@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Learning-Rate Schedules & Warmup — references and further reading
 
-> Companion link library for **[Learning-Rate Schedules & Warmup](learning-rate-schedules-and-warmup.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer, chosen for depth on *this* topic.
+> Companion link library for **[Learning-Rate Schedules & Warmup](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/learning-rate-schedules-and-warmup/learning-rate-schedules-and-warmup)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer, chosen for depth on *this* topic.
 
 **Start here — suggested path**:
 1. **Build the intuition** — watch [Learning Rate Decay (C2W2L09)](https://www.youtube.com/watch?v=QzulmoOg2JE) (**Andrew Ng**). *Why shrinking the step late helps you settle into a minimum — the clearest 5-minute motivation.*
@@ -50,10 +50,10 @@ updated: 2026-06-22
 - [Deep Learning — §8.3 "Basic Algorithms" (learning-rate selection)](https://www.deeplearningbook.org/contents/optimization.html) — **Goodfellow, Bengio & Courville** — why the LR dominates and how decay schedules are chosen.
 
 **In this platform**:
-- Concept page (full explanation): [Learning-Rate Schedules & Warmup](learning-rate-schedules-and-warmup.md)
-- Prerequisite — the update rules schedules modulate: [Optimizers (SGD · Momentum · Adam · AdamW)](../optimizers/optimizers.md)
-- Prerequisite — where the gradient comes from: [Backpropagation & Computational Graphs](../../neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs.md)
-- Why warmup matters for transformers: [Transformer Architecture](../../attention-and-transformers/transformer-architecture/transformer-architecture.md)
-- Builds on this: [Hyperparameter Tuning](../hyperparameter-tuning/hyperparameter-tuning.md) (the LR is the top hyperparameter to tune) · [Normalization](../../stabilization-and-architectural-blocks/normalization/normalization.md) (interacts with early-training stability)
-- The *why* (concept depth): [ai-ml-intuitions 2.09 Learning Rate Schedules](../../../../ai-ml-intuitions/learning-and-optimization/adaptive-optimization/learning-rate-schedules-intuition.md)
-- Field overview: [Deep Learning](../../README.md)
+- Concept page (full explanation): [Learning-Rate Schedules & Warmup](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/learning-rate-schedules-and-warmup/learning-rate-schedules-and-warmup)
+- Prerequisite — the update rules schedules modulate: [Optimizers (SGD · Momentum · Adam · AdamW)](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/optimizers)
+- Prerequisite — where the gradient comes from: [Backpropagation & Computational Graphs](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs)
+- Why warmup matters for transformers: [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture)
+- Builds on this: [Hyperparameter Tuning](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/hyperparameter-tuning/hyperparameter-tuning) (the LR is the top hyperparameter to tune) · [Normalization](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/normalization/normalization) (interacts with early-training stability)
+- The *why* (concept depth): [ai-ml-intuitions 2.09 Learning Rate Schedules](/ai-ml/ai-ml-intuitions/learning-and-optimization/adaptive-optimization/learning-rate-schedules-intuition)
+- Field overview: [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

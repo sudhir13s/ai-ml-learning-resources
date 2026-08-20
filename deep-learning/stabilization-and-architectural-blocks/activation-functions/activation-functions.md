@@ -113,7 +113,7 @@ That shared shape is the whole problem: **saturation → vanishing gradients.** 
 
 Sigmoid carries a **second**, subtler flaw: it is **not zero-centered** — its output is always positive. Why does that hurt? Consider a neuron $z = \sum_i w_i a_i + b$ where every input $a_i$ comes from a previous sigmoid, so every $a_i > 0$. During backprop, $\partial L/\partial w_i = (\partial L/\partial z)\cdot a_i$. Since all $a_i$ share the same (positive) sign, the gradients of **all** the incoming weights share the sign of the single scalar $\partial L/\partial z$ — they must **all** increase together or **all** decrease together. The optimizer can't move them in mixed directions in one step, so it has to take a **zig-zag** staircase toward the optimum instead of a straight line. Tanh, being centered on $0$, lets activations be positive *or* negative and fixes exactly this. Both flaws — saturation and the positivity bias — are why these two squashing functions were eventually retired from hidden layers.
 
-> *Where this comes from: the saturation / vanishing-gradient analysis of sigmoid/tanh — and why it cripples deep nets — is **Understanding the difficulty of training deep feedforward neural networks** (Glorot & Bengio 2010), which also gave us Xavier/Glorot initialization. The zig-zag argument for zero-centering appears in **CS231n**. Both are in the references; see also our [Vanishing / Exploding Gradients](../../optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients.md) page for the layer-by-layer product in full.*
+> *Where this comes from: the saturation / vanishing-gradient analysis of sigmoid/tanh — and why it cripples deep nets — is **Understanding the difficulty of training deep feedforward neural networks** (Glorot & Bengio 2010), which also gave us Xavier/Glorot initialization. The zig-zag argument for zero-centering appears in **CS231n**. Both are in the references; see also our [Vanishing / Exploding Gradients](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients) page for the layer-by-layer product in full.*
 
 ---
 
@@ -249,7 +249,7 @@ This is why frameworks expose `log_softmax` and `cross_entropy` as **fused** ops
 
 **For binary or multi-label outputs**, use **sigmoid per class** instead of softmax. Softmax forces the classes to **compete** (they must sum to 1 — more "cat" means less "dog"); a multi-label image that is *both* "beach" and "sunset" needs **independent** probabilities, which is exactly $K$ independent sigmoids.
 
-> *Where this comes from: softmax, its Jacobian, and the cross-entropy pairing are derived in **d2l.ai** Ch. 4 and Brandon Rohrer's "Softmax from scratch" (references); the max-subtraction is the standard **log-sum-exp** trick. The clean softmax+cross-entropy gradient $(\hat y - y)$ is derived on our [Loss Functions](../../optimization-and-training/loss-functions/loss-functions.md) page.*
+> *Where this comes from: softmax, its Jacobian, and the cross-entropy pairing are derived in **d2l.ai** Ch. 4 and Brandon Rohrer's "Softmax from scratch" (references); the max-subtraction is the standard **log-sum-exp** trick. The clean softmax+cross-entropy gradient $(\hat y - y)$ is derived on our [Loss Functions](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/loss-functions/loss-functions) page.*
 
 ### The Jacobian of softmax (derived)
 
@@ -342,7 +342,7 @@ graph TD
 
 > **Tip:** the default recipe to memorize — **ReLU** for hidden layers (CNNs/MLPs), **GELU or SiLU** for transformer hidden layers, **SwiGLU** for an LLM feed-forward block; **softmax** for mutually-exclusive multi-class output, **sigmoid-per-class** for binary/multi-label, **no activation (identity)** for a regression output. If ReLUs are dying, switch to **Leaky ReLU / PReLU / GELU**. When in doubt for a new architecture, start with ReLU (simplest, robust) and try GELU/SiLU if you want the last percent.
 
-> **Note:** activation choice is coupled to **initialization** and **normalization** — get the pairing wrong and you re-introduce the very vanishing/exploding-gradient problem the activation was meant to dodge. ReLU pairs with **He (Kaiming) init** (variance scaled by $2/n_{\text{in}}$ to compensate for ReLU zeroing half its inputs); tanh/sigmoid pair with **Xavier/Glorot init**; SELU demands **LeCun-normal**. See [Vanishing / Exploding Gradients](../../optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients.md).
+> **Note:** activation choice is coupled to **initialization** and **normalization** — get the pairing wrong and you re-introduce the very vanishing/exploding-gradient problem the activation was meant to dodge. ReLU pairs with **He (Kaiming) init** (variance scaled by $2/n_{\text{in}}$ to compensate for ReLU zeroing half its inputs); tanh/sigmoid pair with **Xavier/Glorot init**; SELU demands **LeCun-normal**. See [Vanishing / Exploding Gradients](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients).
 
 ---
 
@@ -549,7 +549,7 @@ Jacobian max |auto - formula| = 1.49e-08
 - **Softmax** — the output of every multi-class classifier, and the **next-token head** of every LLM (with temperature for sampling).
 - **Identity (no activation)** — regression output heads, and the value branch inside attention (no activation between the scores' softmax and the value mix).
 
-> **Gotcha:** "what activation does the transformer use?" has **two** answers and people give one. The **FFN** uses GELU/SiLU/SwiGLU; the **attention** sublayer uses **softmax** (over the scores) and has **no** pointwise activation between $QK^\top$ and the value product. Naming only one misses half the architecture. See [Transformer Architecture](../../attention-and-transformers/transformer-architecture/transformer-architecture.md) for where each sits.
+> **Gotcha:** "what activation does the transformer use?" has **two** answers and people give one. The **FFN** uses GELU/SiLU/SwiGLU; the **attention** sublayer uses **softmax** (over the scores) and has **no** pointwise activation between $QK^\top$ and the value product. Naming only one misses half the architecture. See [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture) for where each sits.
 
 ---
 

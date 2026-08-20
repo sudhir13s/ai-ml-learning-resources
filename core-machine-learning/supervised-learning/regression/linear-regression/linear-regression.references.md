@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Linear Regression — references and further reading
 
-> Companion link library for **[Linear Regression](linear-regression.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
+> Companion link library for **[Linear Regression](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/regression/linear-regression/linear-regression)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Linear Regression](https://www.youtube.com/watch?v=nk2CQITm_eo) (**StatQuest**), then play with [MLU-Explain: Linear Regression](https://mlu-explain.github.io/linear-regression/). *See the line, residuals, and R² move before any algebra.*
@@ -49,7 +49,7 @@ updated: 2026-06-22
 - [Dive into Deep Learning — Ch. 3 "Linear Neural Networks for Regression"](https://d2l.ai/chapter_linear-regression/index.html) — **Zhang et al.** — frames linear regression as a one-layer net, with runnable code.
 
 **In this platform**:
-- Concept page (full explanation): [Linear Regression](linear-regression.md)
-- Concept depth (the *why*): [ai-ml-intuitions 3.01 MSE / L2 Loss](../../../../../ai-ml-intuitions/objectives-and-evaluation/training-objectives/mean-squared-error-intuition.md) · [2.05 Gradient Descent & SGD](../../../../../ai-ml-intuitions/learning-and-optimization/first-order-optimization/gradient-descent-and-stochastic-gradient-descent-intuition.md)
-- Related: [Logistic Regression](../../classification/logistic-regression/logistic-regression.md) (linear regression through a sigmoid) · [Loss Functions](../../../../deep-learning/optimization-and-training/loss-functions/loss-functions.md) (MSE = Gaussian MLE) · [Regularization (Linear Models)](../regularization-linear-models/regularization-linear-models.md) (Ridge/Lasso)
-- Math prerequisites: [01. Foundations](../../../../foundations/mathematical-foundations/README.md) — linear algebra, gradient descent, maximum likelihood
+- Concept page (full explanation): [Linear Regression](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/regression/linear-regression/linear-regression)
+- Concept depth (the *why*): [ai-ml-intuitions 3.01 MSE / L2 Loss](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/training-objectives/mean-squared-error-intuition) · [2.05 Gradient Descent & SGD](/ai-ml/ai-ml-intuitions/learning-and-optimization/first-order-optimization/gradient-descent-and-stochastic-gradient-descent-intuition)
+- Related: [Logistic Regression](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/logistic-regression/logistic-regression) (linear regression through a sigmoid) · [Loss Functions](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/loss-functions/loss-functions) (MSE = Gaussian MLE) · [Regularization (Linear Models)](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/regression/regularization-linear-models/regularization-linear-models) (Ridge/Lasso)
+- Math prerequisites: [01. Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme) — linear algebra, gradient descent, maximum likelihood

@@ -8,7 +8,7 @@ updated: 2026-07-03
 
 # CNNs & Convolution — references and further reading
 
-> Companion link library for **[CNNs & Convolution](cnns-and-convolution.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is free / open (no paywall) and from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
+> Companion link library for **[CNNs & Convolution](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/cnns-and-convolution/cnns-and-convolution)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is free / open (no paywall) and from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [But what is a convolution?](https://www.youtube.com/watch?v=KuXjwB4LzSA) (**3Blue1Brown**), then play with [CNN Explainer](https://poloclub.github.io/cnn-explainer/). *See the operation, then watch real feature maps light up interactively.*
@@ -57,13 +57,13 @@ updated: 2026-07-03
 - [Deep Learning — Ch. 9 "Convolutional Networks"](https://www.deeplearningbook.org/contents/convnets.html) — **Goodfellow, Bengio & Courville** — the rigorous treatment of convolution, pooling, and the priors CNNs encode (the source for this page's derivations).
 
 **In this platform**:
-- Concept page (full explanation): [CNNs & Convolution](cnns-and-convolution.md)
+- Concept page (full explanation): [CNNs & Convolution](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/cnns-and-convolution/cnns-and-convolution)
 - Runnable code: [the from-scratch convolution module `cnn.py`](code/cnn.py) · [the step-by-step notebook](code/cnns-and-convolution.ipynb) — the module implements conv forward *and* backward, gradient-checks and autograd-checks them, cross-checks against `scipy`/`torch`, and trains a CNN against a larger MLP on real digits; the notebook runs it one measurement at a time.
-- Concept depth (the *why*): [ai-ml-intuitions 4.13 Convolution](../../../../ai-ml-intuitions/architectural-mechanisms/locality-and-weight-sharing/convolution-intuition.md)
-- The backward pass a conv plugs into: [02 Backpropagation & Computational Graphs](../../neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs.md) — a conv layer's backward pass *is* backprop; all three of its gradients are themselves convolutions (the matmul VJP, specialized to a weight-shared sparse matrix)
-- The dense layer a conv replaces: [01 Perceptron & MLP](../../neural-network-foundations/perceptron-and-mlp/perceptron-and-mlp.md)
-- Normalization in conv blocks: [11 Normalization](../../stabilization-and-architectural-blocks/normalization/normalization.md) (BatchNorm normalizes per channel over batch+space — natural for weight-shared kernels)
-- What made CNNs go deep: [18 Residual / Skip Connections](../../stabilization-and-architectural-blocks/residual-skip-connections/residual-skip-connections.md) (ResNet) · the problem they solve: [06 Vanishing & Exploding Gradients](../../optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients.md)
-- The CNN-vs-Transformer trade: [15 Attention Mechanism](../../attention-and-transformers/attention-mechanism/attention-mechanism.md) · forward to [09 LLMs](../../../llms-applications-and-agents/README.md) (ViT and multimodal models)
-- Where CNNs go next: [Computer Vision](../../../modalities-and-generative-models/computer-vision/README.md) (detection, segmentation, modern backbones) · biological inspiration: [Neuroscience & Brain-Inspired AI](../../../specialized-studies/neuroscience-and-brain-inspired-ai/README.md) (Hubel & Wiesel's edge-selective cells → CNN first-layer filters)
-- Field overview: [Deep Learning](../../README.md)
+- Concept depth (the *why*): [ai-ml-intuitions 4.13 Convolution](/ai-ml/ai-ml-intuitions/architectural-mechanisms/locality-and-weight-sharing/convolution-intuition)
+- The backward pass a conv plugs into: [02 Backpropagation & Computational Graphs](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs) — a conv layer's backward pass *is* backprop; all three of its gradients are themselves convolutions (the matmul VJP, specialized to a weight-shared sparse matrix)
+- The dense layer a conv replaces: [01 Perceptron & MLP](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/perceptron-and-mlp/perceptron-and-mlp)
+- Normalization in conv blocks: [11 Normalization](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/normalization/normalization) (BatchNorm normalizes per channel over batch+space — natural for weight-shared kernels)
+- What made CNNs go deep: [18 Residual / Skip Connections](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/residual-skip-connections/residual-skip-connections) (ResNet) · the problem they solve: [06 Vanishing & Exploding Gradients](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients)
+- The CNN-vs-Transformer trade: [15 Attention Mechanism](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism) · forward to [09 LLMs](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme) (ViT and multimodal models)
+- Where CNNs go next: [Computer Vision](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/readme) (detection, segmentation, modern backbones) · biological inspiration: [Neuroscience & Brain-Inspired AI](/ai-ml/ai-ml-learning-resources/specialized-studies/neuroscience-and-brain-inspired-ai/readme) (Hubel & Wiesel's edge-selective cells → CNN first-layer filters)
+- Field overview: [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

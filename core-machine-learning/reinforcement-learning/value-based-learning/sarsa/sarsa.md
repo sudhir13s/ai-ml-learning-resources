@@ -54,5 +54,5 @@ shows (SARSA takes the safe path, Q-learning the risky optimal one), and what Ex
 - [Algorithms for Reinforcement Learning — **§3.2 (TD control)**](https://sites.ualberta.ca/~szepesva/papers/RLAlgsInMDPs.pdf) — **Csaba Szepesvári** — on-policy vs off-policy TD control theory.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 6.01 Bellman Optimality & Q-Learning](../../../../../ai-ml-intuitions/decision-making-and-control/value-learning/bellman-equation-and-q-learning-intuition.md)
-- Prereq: [05 Temporal-Difference Learning](../temporal-difference-learning/temporal-difference-learning.md) · Contrast: [06 Q-Learning](../q-learning/q-learning.md)
+- Concept depth (the *why*): [ai-ml-intuitions 6.01 Bellman Optimality & Q-Learning](/ai-ml/ai-ml-intuitions/decision-making-and-control/value-learning/bellman-equation-and-q-learning-intuition)
+- Prereq: [05 Temporal-Difference Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/value-based-learning/temporal-difference-learning/temporal-difference-learning) · Contrast: [06 Q-Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/value-based-learning/q-learning/q-learning)

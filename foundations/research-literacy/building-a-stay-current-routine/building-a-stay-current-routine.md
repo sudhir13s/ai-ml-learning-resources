@@ -57,6 +57,6 @@ interview answer instead of "I try to read Twitter."
 - [Understanding Deep Learning](https://udlbook.github.io/udlbook/) — **Simon Prince** — a free textbook that keeps your fundamentals sharp as the frontier moves.
 
 ## 🔗 In this platform
-- Per-concept index: [Frontier & Staying Current — concepts](../README.md)
-- This card ties together: [01 How to Read Papers](../how-to-read-ml-papers/how-to-read-ml-papers.md) · [02 arXiv & Papers with Code](../arxiv-and-papers-with-code/arxiv-and-papers-with-code.md) · [04 Newsletters & Blogs](../newsletters-and-blogs-to-follow/newsletters-and-blogs-to-follow.md) · [05 Following Researchers](../following-researchers-and-communities/following-researchers-and-communities.md)
-- Anchor to fundamentals: [05. Deep Learning](../../../deep-learning/README.md) · [04. Unsupervised Learning](../../../core-machine-learning/unsupervised-learning/)
+- Per-concept index: [Frontier & Staying Current — concepts](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/readme)
+- This card ties together: [01 How to Read Papers](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/how-to-read-ml-papers/how-to-read-ml-papers) · [02 arXiv & Papers with Code](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/arxiv-and-papers-with-code/arxiv-and-papers-with-code) · [04 Newsletters & Blogs](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/newsletters-and-blogs-to-follow/newsletters-and-blogs-to-follow) · [05 Following Researchers](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/following-researchers-and-communities/following-researchers-and-communities)
+- Anchor to fundamentals: [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme) · [04. Unsupervised Learning](../../../core-machine-learning/unsupervised-learning/)

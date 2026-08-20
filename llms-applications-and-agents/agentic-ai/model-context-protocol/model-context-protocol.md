@@ -56,6 +56,6 @@ discovery layer*, not a replacement for the model deciding what to call), and th
 - [Artificial Intelligence: A Modern Approach — **Ch. 2 "Intelligent Agents"** (agent–environment interface)](https://aima.cs.berkeley.edu/) — **Russell & Norvig** — MCP is a modern standard for the sensor/actuator interface between agent and environment.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 8.03 Agents & Tool Use](../../../../ai-ml-intuitions/reasoning-and-agency/agents-and-tools/agent-loop-and-tool-use-intuition.md)
-- Prev / next: [03 Tool Use & Function Calling](../tool-use/tool-use.md) · [09 Agent Frameworks](../agent-frameworks/agent-frameworks.md)
-- Related (canonical home): [Prompting & In-Context Learning](../../reasoning-evaluation-and-alignment/prompting-and-in-context-learning/prompting-and-in-context-learning.md)
+- Concept depth (the *why*): [ai-ml-intuitions 8.03 Agents & Tool Use](/ai-ml/ai-ml-intuitions/reasoning-and-agency/agents-and-tools/agent-loop-and-tool-use-intuition)
+- Prev / next: [03 Tool Use & Function Calling](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/tool-use/tool-use) · [09 Agent Frameworks](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/agent-frameworks/agent-frameworks)
+- Related (canonical home): [Prompting & In-Context Learning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/prompting-and-in-context-learning/prompting-and-in-context-learning)

@@ -58,6 +58,6 @@ to *use* surveys (and their limits — they age fast and reflect the authors' fr
 - [Understanding Deep Learning](https://udlbook.github.io/udlbook/) — **Simon Prince** — a free textbook that consolidates many surveys into a coherent map.
 
 ## 🔗 In this platform
-- Per-concept index: [Frontier & Staying Current — concepts](../README.md)
-- Pair with: [01 How to Read ML Papers](../how-to-read-ml-papers/how-to-read-ml-papers.md) · [02 arXiv & Papers with Code](../arxiv-and-papers-with-code/arxiv-and-papers-with-code.md) · [09 Building a Stay-Current Routine](../building-a-stay-current-routine/building-a-stay-current-routine.md)
-- Surveys map onto frontier domains: [LLMs, Applications and Agents](../../../llms-applications-and-agents/README.md) · [16. RAG & LLM Applications](../../../llms-applications-and-agents/rag-and-knowledge-systems/overview.md)
+- Per-concept index: [Frontier & Staying Current — concepts](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/readme)
+- Pair with: [01 How to Read ML Papers](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/how-to-read-ml-papers/how-to-read-ml-papers) · [02 arXiv & Papers with Code](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/arxiv-and-papers-with-code/arxiv-and-papers-with-code) · [09 Building a Stay-Current Routine](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/building-a-stay-current-routine/building-a-stay-current-routine)
+- Surveys map onto frontier domains: [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme) · [16. RAG & LLM Applications](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/overview)

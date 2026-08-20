@@ -31,7 +31,7 @@ shatter a set? what's the VC dimension of intervals / half-spaces?"). It's the b
 2. **See where it comes from** — watch [Lecture 5: Training vs Testing](https://www.youtube.com/watch?v=SEYAnnLazMU) and [Lecture 6: Theory of Generalization](https://www.youtube.com/watch?v=6FWRijsmLtE). *The growth function and Sauer's lemma that VC dimension controls.*
 3. **Read it rigorously** — work [Understanding Machine Learning, Ch. 6 (VC dimension)](https://www.cs.huji.ac.il/~shais/UnderstandingMachineLearning/understanding-machine-learning-theory-algorithms.pdf). *Sauer–Shelah lemma and the fundamental theorem of PAC learning.*
 4. **Prove the bound** — derive the VC generalization bound and Sauer's lemma from those chapters. *The polynomial-bound-from-finite-VC argument is the technical core.*
-5. **Push to data-dependent capacity** — see why VC can be loose for deep nets, then move to [Rademacher complexity](../rademacher-complexity-and-generalization-bounds/rademacher-complexity-and-generalization-bounds.md). *VC is worst-case; Rademacher is the tighter, distribution-aware successor.*
+5. **Push to data-dependent capacity** — see why VC can be loose for deep nets, then move to [Rademacher complexity](/ai-ml/ai-ml-learning-resources/specialized-studies/advanced-mathematics-for-ai-research/rademacher-complexity-and-generalization-bounds/rademacher-complexity-and-generalization-bounds). *VC is worst-case; Rademacher is the tighter, distribution-aware successor.*
 
 ## 🎓 Courses (free)
 - [Learning From Data (Caltech CS156) — VC lectures](https://work.caltech.edu/telecourse.html) — **Yaser Abu-Mostafa (Caltech)** — the canonical lectures on shattering, growth function, and VC bounds, free.
@@ -58,7 +58,7 @@ shatter a set? what's the VC dimension of intervals / half-spaces?"). It's the b
 - [Foundations of Machine Learning — companion site (Ch. 3: Rademacher & VC)](https://www.cs.nyu.edu/~mohri/mlbook/) — **Mohri, Rostamizadeh & Talwalkar** — rigorous VC/Rademacher chapter with free errata & slides.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 3.07 Bias–Variance & Generalization](../../../../ai-ml-intuitions/objectives-and-evaluation/generalization/bias-variance-tradeoff-intuition.md) · [3.08 Ensembles (Bagging/Boosting)](../../../../ai-ml-intuitions/architectural-mechanisms/composition/bagging-and-boosting-intuition.md)
-- Prerequisite & next: [05 Statistical Learning Theory (PAC)](../statistical-learning-theory-pac/statistical-learning-theory-pac.md) · [07 Rademacher Complexity & Generalization Bounds](../rademacher-complexity-and-generalization-bounds/rademacher-complexity-and-generalization-bounds.md)
-- Related domain: [03. Supervised Learning](../../../core-machine-learning/supervised-learning/README.md)
+- Concept depth (the *why*): [ai-ml-intuitions 3.07 Bias–Variance & Generalization](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/generalization/bias-variance-tradeoff-intuition) · [3.08 Ensembles (Bagging/Boosting)](/ai-ml/ai-ml-intuitions/architectural-mechanisms/composition/bagging-and-boosting-intuition)
+- Prerequisite & next: [05 Statistical Learning Theory (PAC)](/ai-ml/ai-ml-learning-resources/specialized-studies/advanced-mathematics-for-ai-research/statistical-learning-theory-pac/statistical-learning-theory-pac) · [07 Rademacher Complexity & Generalization Bounds](/ai-ml/ai-ml-learning-resources/specialized-studies/advanced-mathematics-for-ai-research/rademacher-complexity-and-generalization-bounds/rademacher-complexity-and-generalization-bounds)
+- Related domain: [03. Supervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/readme)
 </content>

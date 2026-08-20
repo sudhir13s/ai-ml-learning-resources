@@ -41,7 +41,7 @@ Four production engines dominate; each is a different bet on cache management.
 | TensorRT-LLM | compile it all | fused kernels, paged KV, FP8-first on Hopper, in-flight batching |
 | llama.cpp | fit on anything | aggressive cache quantization (down to 4-bit), CPU/GPU split, unified memory |
 
-- The convergent evolution is the tell: **every** serious engine independently arrived at paged cache + continuous batching + prefix reuse — the ladder of [chapter 2](kv-cache-optimization-stack.md) is not optional at scale.
+- The convergent evolution is the tell: **every** serious engine independently arrived at paged cache + continuous batching + prefix reuse — the ladder of [chapter 2](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache-optimization-stack) is not optional at scale.
 
 ---
 
@@ -92,7 +92,7 @@ gantt
 
 The two phases have opposite bottlenecks — at sufficient scale you stop running them on the same GPUs.
 
-- **Why:** prefill is compute-bound, decode memory-bound ([main page](kv-cache.md)). On shared GPUs, chunked prefill only *softens* the interference; heavy prompt traffic still bleeds into TPOT.
+- **Why:** prefill is compute-bound, decode memory-bound ([main page](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache)). On shared GPUs, chunked prefill only *softens* the interference; heavy prompt traffic still bleeds into TPOT.
 - **How:** a **prefill pool** digests prompts and produces KV caches; the blocks are **shipped over the interconnect** (NVLink/RDMA) to a **decode pool** that streams tokens; each pool scales and is hardware-tuned independently.
 
 ```mermaid
@@ -110,7 +110,7 @@ graph LR
 ```
 
 *The cache is the interface between the pools — which is why paged, addressable blocks are the precondition for the architecture.*
-- **The cache is the interface:** what travels between the pools is exactly the request's KV blocks — which is why paged, addressable layouts ([chapter 2](kv-cache-optimization-stack.md)) are the precondition for the architecture.
+- **The cache is the interface:** what travels between the pools is exactly the request's KV blocks — which is why paged, addressable layouts ([chapter 2](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache-optimization-stack)) are the precondition for the architecture.
 - **When:** worth it when prompt and generation traffic are both heavy and TTFT/TPOT targets are strict — the regime of the largest deployments; small deployments should exhaust chunked prefill first.
 
 ---
@@ -120,7 +120,7 @@ graph LR
 Four numbers on every serious serving dashboard, and what the cache does to each.
 
 - **TTFT** (time-to-first-token) — prefill latency. Prefix-cache hits collapse it; long-prompt bursts inflate it; chunked prefill trades a little of it for everyone else's TPOT.
-- **TPOT** (time-per-output-token) — decode latency ≈ bytes-streamed-per-step ÷ effective bandwidth. Rises with context length (the cache term), falls with GQA/FP8/windowing and better kernels ([chapter 3](kv-cache-flashattention-and-flashdecoding.md)).
+- **TPOT** (time-per-output-token) — decode latency ≈ bytes-streamed-per-step ÷ effective bandwidth. Rises with context length (the cache term), falls with GQA/FP8/windowing and better kernels ([chapter 3](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache-flashattention-and-flashdecoding)).
 - **Cache utilization** — fraction of KV memory holding *live* tokens. Low → fragmentation or over-reservation (climb to L3); pinned at 100% → preemption churn is next.
 - **Goodput** — throughput that *met its latency SLO*, the honest number. Raw tokens/sec rises with batch size right up until cache pressure triggers preemption storms and p99 detonates — goodput is what catches it.
 
@@ -146,7 +146,7 @@ The five classic KV-cache incidents — mechanism, detection, mitigation. (The m
 
 **3. Silent quality loss from a quantized cache.**
 
-- *Mechanism:* FP8/INT8/INT4 cache enabled for capacity; K's outlier channels degrade long-context retrieval quietly ([chapter 1](kv-cache-variants.md)).
+- *Mechanism:* FP8/INT8/INT4 cache enabled for capacity; K's outlier channels degrade long-context retrieval quietly ([chapter 1](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache-variants)).
 - *Detection:* only visible in **evals** — win-rate and needle-in-haystack before/after; perplexity barely moves.
 - *Mitigation:* gate the flag on long-context evals; prefer FP8 before INT; keep K at higher effective precision than V.
 
@@ -160,7 +160,7 @@ The five classic KV-cache incidents — mechanism, detection, mitigation. (The m
 
 - *Mechanism:* GPUs budgeted from parameter count; the per-request cache (the number that actually caps concurrency) never entered the spreadsheet.
 - *Detection:* the fleet OOMs or preempts at a fraction of the projected load.
-- *Mitigation:* size from the formula — weights + overhead + (cache/token × expected length × target concurrency); the [main page's Worked example 2](kv-cache.md) is the template.
+- *Mitigation:* size from the formula — weights + overhead + (cache/token × expected length × target concurrency); the [main page's Worked example 2](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) is the template.
 
 ---
 
@@ -186,7 +186,7 @@ Before an LLM service takes real traffic, the cache questions to have answers fo
 - Watch **goodput and preemption rate**, not raw throughput — the cache redline announces itself there first.
 - The five incidents (bleed, OOM, silent quant loss, stale prefix, mis-sized capacity) are all one root cause: treating the cache as an implementation detail instead of the system's primary state.
 
-Back to the [main page](kv-cache.md) · previous: [Chapter 3 — FlashAttention and FlashDecoding](kv-cache-flashattention-and-flashdecoding.md).
+Back to the [main page](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) · previous: [Chapter 3 — FlashAttention and FlashDecoding](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache-flashattention-and-flashdecoding).
 
 ---
 

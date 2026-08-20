@@ -59,6 +59,6 @@ evaluation to cut overestimation), **Dueling** (split value/advantage streams), 
 - [Dive into Deep Learning — **Ch. 17 (Reinforcement Learning)**](https://d2l.ai/chapter_reinforcement-learning/index.html) — **Zhang et al.** — value iteration → Q-learning with runnable code, a stepping stone to DQN.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 6.01 Bellman Optimality & Q-Learning](../../../../../ai-ml-intuitions/decision-making-and-control/value-learning/bellman-equation-and-q-learning-intuition.md)
-- Prereq: [06 Q-Learning](../q-learning/q-learning.md) · Alternative family: [09 Policy Gradients (REINFORCE)](../../policy-learning/policy-gradients-reinforce/policy-gradients-reinforce.md)
-- Related domain: [05. Deep Learning](../../../../deep-learning/README.md)
+- Concept depth (the *why*): [ai-ml-intuitions 6.01 Bellman Optimality & Q-Learning](/ai-ml/ai-ml-intuitions/decision-making-and-control/value-learning/bellman-equation-and-q-learning-intuition)
+- Prereq: [06 Q-Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/value-based-learning/q-learning/q-learning) · Alternative family: [09 Policy Gradients (REINFORCE)](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/policy-learning/policy-gradients-reinforce/policy-gradients-reinforce)
+- Related domain: [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

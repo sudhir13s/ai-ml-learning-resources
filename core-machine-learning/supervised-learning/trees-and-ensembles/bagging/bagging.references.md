@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Bagging — references and further reading
 
-> Companion link library for **[Bagging (Bootstrap Aggregating)](bagging.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
+> Companion link library for **[Bagging (Bootstrap Aggregating)](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/bagging/bagging)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Bootstrapping Main Ideas](https://www.youtube.com/watch?v=Xz0x-8-cgaQ) (**StatQuest**). *The bootstrap — resampling with replacement — that bagging is built on.*
@@ -48,7 +48,7 @@ updated: 2026-06-22
 - [The Elements of Statistical Learning — Ch. 8.7 "Bagging"](https://hastie.su.domains/ElemStatLearn/) — **Hastie, Tibshirani & Friedman** — the rigorous variance-reduction analysis.
 
 **In this platform**:
-- Concept page (full explanation): [Bagging](bagging.md)
-- Concept depth (the *why*): [ai-ml-intuitions 3.08 Ensembles (Bagging/Boosting)](../../../../../ai-ml-intuitions/architectural-mechanisms/composition/bagging-and-boosting-intuition.md) · [3.07 Bias–Variance & Generalization](../../../../../ai-ml-intuitions/objectives-and-evaluation/generalization/bias-variance-tradeoff-intuition.md)
-- Related: [Decision Trees](../decision-trees/decision-trees.md) (the unstable learner you bag) · [Random Forests](../random-forests/random-forests.md) (bagging + feature subsampling) · [Bias–Variance Tradeoff](../../../model-selection-and-evaluation/bias-variance-tradeoff/bias-variance-tradeoff.md) · [Gradient Boosting](../gradient-boosting-xgboost/gradient-boosting-xgboost.md) (boosting cuts bias; bagging cuts variance)
-- Math prerequisites: [01. Foundations](../../../../foundations/mathematical-foundations/README.md) — the bootstrap, variance of an average, independence
+- Concept page (full explanation): [Bagging](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/bagging/bagging)
+- Concept depth (the *why*): [ai-ml-intuitions 3.08 Ensembles (Bagging/Boosting)](/ai-ml/ai-ml-intuitions/architectural-mechanisms/composition/bagging-and-boosting-intuition) · [3.07 Bias–Variance & Generalization](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/generalization/bias-variance-tradeoff-intuition)
+- Related: [Decision Trees](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/decision-trees/decision-trees) (the unstable learner you bag) · [Random Forests](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/random-forests/random-forests) (bagging + feature subsampling) · [Bias–Variance Tradeoff](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/bias-variance-tradeoff/bias-variance-tradeoff) · [Gradient Boosting](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/gradient-boosting-xgboost/gradient-boosting-xgboost) (boosting cuts bias; bagging cuts variance)
+- Math prerequisites: [01. Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme) — the bootstrap, variance of an average, independence

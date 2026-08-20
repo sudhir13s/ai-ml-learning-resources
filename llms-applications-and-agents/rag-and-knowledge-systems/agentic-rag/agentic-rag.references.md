@@ -8,7 +8,7 @@ updated: 2026-07-02
 
 # Agentic RAG — references and further reading
 
-> Companion link library for **[Agentic RAG](agentic-rag.md)** (the concept page). External
+> Companion link library for **[Agentic RAG](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/agentic-rag/agentic-rag)** (the concept page). External
 > sources *and* internal cross-links, kept separate so it can be reused as a standalone list. Grouped
 > by type, best-first. Every entry is free/open (no paywall) and chosen for depth on *this* topic —
 > putting an LLM in a decision loop over retrieval: the ReAct loop, tool use, routing, multi-step /
@@ -51,7 +51,7 @@ updated: 2026-07-02
 - [Reflexion: Language Agents with Verbal Reinforcement Learning](https://arxiv.org/abs/2303.11366) — **Shinn, Cassano, Berman, Gopinath, Narasimhan & Yao (2023)** — the *critique-and-revise-the-trace* extension: the agent reflects on failures and improves on retry (the self-correction lever).
 - [Toolformer: Language Models Can Teach Themselves to Use Tools](https://arxiv.org/abs/2302.04761) — **Schick, Dwivedi-Yu, Dessì, Raileanu, Lomeli, Zettlemoyer, Cancedda & Scialom (2023)** — learning *when and how* to call tools (retriever, calculator, search) from the trace — the tool-use foundation the router/registry generalize.
 - [Agentic Retrieval-Augmented Generation: A Survey](https://arxiv.org/abs/2501.09136) — **Singh, Ehtesham, Kumar & Khoei (2025)** — the map of agentic RAG patterns (routing, tools, single- vs multi-agent) — the reference for the whole design space.
-- [Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection](https://arxiv.org/abs/2310.11511) — **Asai, Wu, Wang, Sil & Hajishirzi (2023)** — on-demand retrieval + self-critique via reflection tokens; an agentic-RAG cornerstone (built in [chapter 8](../advanced-rag/advanced-rag.md)) and a policy over the loop here.
+- [Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection](https://arxiv.org/abs/2310.11511) — **Asai, Wu, Wang, Sil & Hajishirzi (2023)** — on-demand retrieval + self-critique via reflection tokens; an agentic-RAG cornerstone (built in [chapter 8](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/advanced-rag/advanced-rag)) and a policy over the loop here.
 - [Adaptive-RAG: Learning to Adapt Retrieval-Augmented LLMs through Question Complexity](https://arxiv.org/abs/2403.14403) — **Jeong, Baek, Cho, Hwang & Park (2024)** — route simple queries to a one-shot path and complex ones to the multi-step loop — the fix for the over-agentic / cost pitfall, and the routing math's learned counterpart.
 - [Corrective Retrieval Augmented Generation (CRAG)](https://arxiv.org/abs/2401.15884) — **Yan, Gu, Zhu & Ling (2024)** — a lightweight retrieval evaluator + web-search fallback: the self-correcting policy, plug-and-play over any RAG.
 - [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401) — **Lewis et al. (2020)** — the original RAG the agent generalizes from a fixed pipeline into a loop.
@@ -60,9 +60,9 @@ updated: 2026-07-02
 - [Speech and Language Processing, 3rd ed. — Ch. 14 "Question Answering & Information Retrieval"](https://web.stanford.edu/~jurafsky/slp3/14.pdf) — **Jurafsky & Martin** — the retrieve-then-read foundation the agent loop wraps, free PDF.
 
 **In this platform**:
-- Concept page (full explanation): [Agentic RAG](agentic-rag.md)
-- Concept depth (the *why*): [ai-ml-intuitions 8.03 Agents & Tool Use](../../../../ai-ml-intuitions/reasoning-and-agency/agents-and-tools/agent-loop-and-tool-use-intuition.md) · [8.02 Retrieval-Augmented Generation](../../../../ai-ml-intuitions/memory-retrieval-and-context/retrieval-augmented-generation/rag-intuition.md)
-- Foundations this builds on: [RAG Fundamentals (retrieve-then-generate)](../rag-foundations/rag-foundations.md) · [Hybrid Search + the DenseRetriever this reuses](../hybrid-search/hybrid-search.md) · [Query Transformation (multi-query, the decompose idea)](../query-transformation/query-transformation.md)
-- Special cases of this loop: [08 Advanced RAG (Self-RAG grading + retrieve-on-demand)](../advanced-rag/advanced-rag.md)
-- Measure it: [11 RAG Evaluation](../rag-evaluation/rag-evaluation.md) · [14 Guardrails & Hallucination Mitigation](../../reasoning-evaluation-and-alignment/hallucination-and-grounding/hallucination-and-grounding.md)
-- Related domain: [12. Agentic AI](../../agentic-ai/overview.md) (the general agent loop this specializes for retrieval)
+- Concept page (full explanation): [Agentic RAG](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/agentic-rag/agentic-rag)
+- Concept depth (the *why*): [ai-ml-intuitions 8.03 Agents & Tool Use](/ai-ml/ai-ml-intuitions/reasoning-and-agency/agents-and-tools/agent-loop-and-tool-use-intuition) · [8.02 Retrieval-Augmented Generation](/ai-ml/ai-ml-intuitions/memory-retrieval-and-context/retrieval-augmented-generation/rag-intuition)
+- Foundations this builds on: [RAG Fundamentals (retrieve-then-generate)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-foundations/rag-foundations) · [Hybrid Search + the DenseRetriever this reuses](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search) · [Query Transformation (multi-query, the decompose idea)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/query-transformation/query-transformation)
+- Special cases of this loop: [08 Advanced RAG (Self-RAG grading + retrieve-on-demand)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/advanced-rag/advanced-rag)
+- Measure it: [11 RAG Evaluation](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-evaluation/rag-evaluation) · [14 Guardrails & Hallucination Mitigation](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/hallucination-and-grounding/hallucination-and-grounding)
+- Related domain: [12. Agentic AI](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/overview) (the general agent loop this specializes for retrieval)

@@ -58,6 +58,6 @@ instances) and instance segmentation. U-Net in particular is ubiquitous in medic
 - [Computer Vision: Algorithms and Applications, 2nd ed. — **Ch. 6.4 (Semantic segmentation)**](https://szeliski.org/Book/) — **Richard Szeliski** — segmentation in context, free.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 4.13 Convolution](../../../../ai-ml-intuitions/architectural-mechanisms/locality-and-weight-sharing/convolution-intuition.md) — atrous/transposed conv are convolution variants.
-- Foundation: [Pooling & Receptive Fields](../pooling-and-receptive-fields/pooling-and-receptive-fields.md) (why we downsample then upsample) · [Classic CNN Architectures](../classic-cnn-architectures/classic-cnn-architectures.md)
-- Next concepts: [09 Instance Segmentation](../instance-segmentation/instance-segmentation.md) · [10 Detection & Segmentation Metrics](../detection-and-segmentation-metrics/detection-and-segmentation-metrics.md)
+- Concept depth (the *why*): [ai-ml-intuitions 4.13 Convolution](/ai-ml/ai-ml-intuitions/architectural-mechanisms/locality-and-weight-sharing/convolution-intuition) — atrous/transposed conv are convolution variants.
+- Foundation: [Pooling & Receptive Fields](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/pooling-and-receptive-fields/pooling-and-receptive-fields) (why we downsample then upsample) · [Classic CNN Architectures](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/classic-cnn-architectures/classic-cnn-architectures)
+- Next concepts: [09 Instance Segmentation](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/instance-segmentation/instance-segmentation) · [10 Detection & Segmentation Metrics](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/detection-and-segmentation-metrics/detection-and-segmentation-metrics)

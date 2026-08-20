@@ -55,6 +55,6 @@ the architecture. Feast is the canonical open-source example.
 - [Machine Learning Engineering — **Ch. 4 "Feature Engineering"**](http://www.mlebook.com/wiki/doku.php) — **Andriy Burkov** — feature lifecycle and serving; read-first chapters free.
 
 ## 🔗 In this platform
-- Builds on: [04 Data & Model Versioning](../../lifecycle-and-reproducibility/data-and-model-versioning/data-and-model-versioning.md)
-- Next concepts: [06 ML Pipelines & Orchestration](../ml-pipelines-and-orchestration/ml-pipelines-and-orchestration.md) · [11 Model Monitoring & Observability](../../monitoring-and-reliability/model-monitoring-and-observability/model-monitoring-and-observability.md)
-- Related concept (covered elsewhere): feature engineering theory → [02. Data_Preprocessing](../../../foundations/data-preparation/README.md)
+- Builds on: [04 Data & Model Versioning](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/lifecycle-and-reproducibility/data-and-model-versioning/data-and-model-versioning)
+- Next concepts: [06 ML Pipelines & Orchestration](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/data-and-training-platforms/ml-pipelines-and-orchestration/ml-pipelines-and-orchestration) · [11 Model Monitoring & Observability](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/monitoring-and-reliability/model-monitoring-and-observability/model-monitoring-and-observability)
+- Related concept (covered elsewhere): feature engineering theory → [02. Data_Preprocessing](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/readme)

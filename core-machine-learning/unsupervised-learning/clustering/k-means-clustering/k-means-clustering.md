@@ -39,7 +39,7 @@ Supervised learning hands you $(x, y)$ pairs and asks you to predict $y$. **Clus
 
 That immediately raises a question: *what makes a partition good?* You have to commit to a definition before you can optimize anything. K-means makes one specific, consequential choice: **a good cluster is a compact, round blob around a center point.** Concretely, it measures a cluster's quality by how tightly its points hug a single representative point — the **centroid** — using squared Euclidean distance. Everything else in k-means follows mechanically from that one decision, including all of its strengths *and* every one of its failure modes.
 
-> **Gotcha:** because k-means has to be *told* how many groups to find — the **k** is an input, not something it discovers — choosing k is a first-class problem, not an afterthought. We give it a whole section below. Algorithms like [DBSCAN](../dbscan/dbscan.md) discover the number of clusters from density instead; that's their main selling point against k-means.
+> **Gotcha:** because k-means has to be *told* how many groups to find — the **k** is an input, not something it discovers — choosing k is a first-class problem, not an afterthought. We give it a whole section below. Algorithms like [DBSCAN](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/dbscan/dbscan) discover the number of clusters from density instead; that's their main selling point against k-means.
 
 ---
 
@@ -278,9 +278,9 @@ And one structural limit on top of those: k-means only ever produces **convex, l
 
 The figure is the lesson, and the numbers put a scale on it. We *know* the true labels here, so we can score k-means against them with the **adjusted Rand index** (1.0 = perfect recovery, 0 = chance). On the **two moons**, the true clusters are interleaving crescents — non-convex — and k-means slices a straight line through both because it can only draw convex boundaries: **ARI = 0.27**, barely above chance. On the **anisotropic blobs**, the true clusters are diagonal stripes, but k-means' round-cluster bias carves them into Voronoi cells that cut *across* the stripes: **ARI = 0.66** — better, but still far from the ~1.0 it scores on round blobs. Neither failure is a bug; both are the *direct, predictable consequence* of the spherical-equal-cluster assumption. This is exactly the setup for the next algorithms you learn:
 
-- **[DBSCAN](../dbscan/dbscan.md)** clusters by *density* and recovers arbitrary shapes (the moons) — and discovers $k$ itself.
-- **[Gaussian Mixture Models](../gaussian-mixture-models-and-em/gaussian-mixture-models-and-em.md)** give each cluster its own *covariance* (shape + orientation), handling the anisotropic blobs.
-- **[Spectral clustering](../spectral-clustering/spectral-clustering.md)** maps the data into a space where non-convex clusters become separable, then runs k-means there.
+- **[DBSCAN](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/dbscan/dbscan)** clusters by *density* and recovers arbitrary shapes (the moons) — and discovers $k$ itself.
+- **[Gaussian Mixture Models](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/gaussian-mixture-models-and-em/gaussian-mixture-models-and-em)** give each cluster its own *covariance* (shape + orientation), handling the anisotropic blobs.
+- **[Spectral clustering](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/spectral-clustering/spectral-clustering)** maps the data into a space where non-convex clusters become separable, then runs k-means there.
 
 > **Tip:** the clean interview answer to "when does k-means fail?" is the trio — **non-spherical** shapes (moons, rings), **unequal sizes/densities**, and anything **non-convex** — *because* the algorithm minimizes squared distance to a mean and therefore can only draw convex, equal-ish round cells. Naming the *cause* (the objective), not just the symptoms, is what separates a good answer from a great one.
 
@@ -326,7 +326,7 @@ So k-means is GMM-EM with the modeling power stripped down to bare bones. That s
 
 $$O(n \cdot k \cdot d \cdot i),$$
 
-**linear in the number of points** — which is exactly why k-means scales to large datasets where pairwise-distance methods (like [hierarchical clustering](../hierarchical-clustering/hierarchical-clustering.md) at $O(n^2)$) don't. That linear cost, plus the simplicity, is why k-means endures as a baseline.
+**linear in the number of points** — which is exactly why k-means scales to large datasets where pairwise-distance methods (like [hierarchical clustering](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/hierarchical-clustering/hierarchical-clustering) at $O(n^2)$) don't. That linear cost, plus the simplicity, is why k-means endures as a baseline.
 
 > **Tip:** a quick decision guide. Big data → **mini-batch**. Outliers or a non-Euclidean metric → **k-medoids/k-medians**. Need cluster shapes or soft memberships → **GMM**. Non-convex shapes or unknown $k$ → **DBSCAN / spectral**. Plain round blobs and you know $k$ → **k-means** is the right, fast default.
 
@@ -455,7 +455,7 @@ Running the full module (`python kmeans.py`) prints the measured proof of every 
 
 > **Note:** every claim on this page is in that output. **(1)** on the controlled blobs, $J$ falls $1882.6 \to 948.9$ and then *holds* — monotonic decrease and convergence, with the `assert` guaranteeing it never rises. **(2)** on **real Wine**, our from-scratch inertia equals scikit-learn's to three decimals ($1277.928 = 1277.928$) and the partitions are identical up to a permutation (**ARI = 1.000**) — the from-scratch loop *is* the real algorithm. **(3)** k-means++ is **~2.5× tighter** than random on the 12-cluster layout (std 185 vs 465). **(4)** on Wine the silhouette **peaks at $k=3$** (0.285), the true cultivar count — and that k=3 clustering matches the real labels at **ARI 0.897**. **(5)** k-means **fails honestly** on non-convex (moons, ARI 0.27) and anisotropic (ARI 0.66) structure. The theory isn't aspirational; it's reproducible.
 
-> **Tip:** to feel the failure modes for yourself, open the notebook and swap the moons for `make_moons(noise=0.05)` in the last steps — the silhouette will *refuse* to strongly prefer the true $k=2$, because k-means can't represent crescents. That refusal is the algorithm honestly telling you it's the wrong tool. Then try [DBSCAN](../dbscan/dbscan.md) on the same data and watch it nail both moons.
+> **Tip:** to feel the failure modes for yourself, open the notebook and swap the moons for `make_moons(noise=0.05)` in the last steps — the silhouette will *refuse* to strongly prefer the true $k=2$, because k-means can't represent crescents. That refusal is the algorithm honestly telling you it's the wrong tool. Then try [DBSCAN](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/dbscan/dbscan) on the same data and watch it nail both moons.
 
 ---
 

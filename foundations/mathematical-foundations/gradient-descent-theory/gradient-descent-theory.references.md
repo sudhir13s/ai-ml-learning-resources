@@ -8,7 +8,7 @@ updated: 2026-06-21
 
 # Gradient Descent — references and further reading
 
-> Companion link library for **[Gradient Descent — theory & convergence](gradient-descent-theory.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
+> Companion link library for **[Gradient Descent — theory & convergence](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/gradient-descent-theory/gradient-descent-theory)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
 
 **Start here — suggested path**:
 1. **Intuition** — watch [Gradient Descent, Step-by-Step](https://www.youtube.com/watch?v=sDv4f4s2SB8) (**StatQuest**) and [how neural networks learn](https://www.youtube.com/watch?v=IHZwWFHWa-w) (**3Blue1Brown**). *The "roll downhill" picture and the role of the step size.*
@@ -42,8 +42,8 @@ updated: 2026-06-21
 - [Mathematics for Machine Learning — Ch. 7.1 (Gradient Descent)](https://mml-book.github.io/book/mml-book.pdf) — **Deisenroth, Faisal & Ong** — gradient descent and step-size intuition for ML (free PDF).
 
 **In this platform**:
-- Concept page (full explanation): [Gradient Descent — theory & convergence](gradient-descent-theory.md)
-- Concept depth (the *why*): [ai-ml-intuitions 2.05 Gradient Descent & SGD](../../../../ai-ml-intuitions/learning-and-optimization/first-order-optimization/gradient-descent-and-stochastic-gradient-descent-intuition.md)
-- Applied next layer: [Optimizers](../../../deep-learning/optimization-and-training/optimizers/optimizers.md) (momentum, Adam, AdamW, LR schedules) — what fixes the zig-zag
-- Prereqs: [Derivatives & Gradients](../derivatives-and-gradients/derivatives-and-gradients.md) · [Convexity](../convexity/convexity.md)
-- Curriculum context: [Maths for AI-ML — Phase 5 (Optimization)](../maths-for-ai-ml/README.md)
+- Concept page (full explanation): [Gradient Descent — theory & convergence](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/gradient-descent-theory/gradient-descent-theory)
+- Concept depth (the *why*): [ai-ml-intuitions 2.05 Gradient Descent & SGD](/ai-ml/ai-ml-intuitions/learning-and-optimization/first-order-optimization/gradient-descent-and-stochastic-gradient-descent-intuition)
+- Applied next layer: [Optimizers](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/optimizers) (momentum, Adam, AdamW, LR schedules) — what fixes the zig-zag
+- Prereqs: [Derivatives & Gradients](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/derivatives-and-gradients/derivatives-and-gradients) · [Convexity](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/convexity/convexity)
+- Curriculum context: [Maths for AI-ML — Phase 5 (Optimization)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)

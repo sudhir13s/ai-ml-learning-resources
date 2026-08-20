@@ -74,7 +74,7 @@ $$m_{\text{new}} = \max(m_{\text{old}}, m_{\text{tile}}), \quad \ell_{\text{new}
 
 ![What IO-awareness buys: attention memory traffic and peak memory vs sequence length, naive kernel vs FlashAttention — the O(n²) HBM traffic term is gone.](../../../../deep-learning/attention-and-transformers/efficient-attention/images/fa_memory_savings.png)
 
-> **Gotcha:** FlashAttention is a *kernel*, not an architecture. It composes with every variant in [chapter 1](kv-cache-variants.md) — GQA, MLA, quantized caches — because it only changes how the bytes are scheduled, never which bytes exist.
+> **Gotcha:** FlashAttention is a *kernel*, not an architecture. It composes with every variant in [chapter 1](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache-variants) — GQA, MLA, quantized caches — because it only changes how the bytes are scheduled, never which bytes exist.
 
 ---
 
@@ -132,7 +132,7 @@ The ideas above kept compounding; knowing the names lets you read a serving-engi
 
 The cache stack and the kernel stack multiply; neither substitutes for the other.
 
-- The **cache levers** ([chapters 1](kv-cache-variants.md)–[2](kv-cache-optimization-stack.md)) set *how many bytes* must move per step: KV heads × bits × tokens × allocation efficiency.
+- The **cache levers** ([chapters 1](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache-variants)–[2](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache-optimization-stack)) set *how many bytes* must move per step: KV heads × bits × tokens × allocation efficiency.
 - The **kernels** set *what fraction of peak bandwidth* you move them at: tiling, split-K parallelism, paged-layout gathers.
 - A production long-context stack always names both: **"GQA + paging + FP8 cache, read by FlashAttention/FlashDecoding-class kernels"** — the recurring recipe behind every "128K context" product claim.
 - Rough mental model: $\text{TPOT} \approx \dfrac{\text{bytes held per step (levers)}}{\text{effective bandwidth (kernels)}}$ — two independent numerators of the same fraction.
@@ -150,7 +150,7 @@ The cache stack and the kernel stack multiply; neither substitutes for the other
 - The lineage (FA-2/FA-3, FlashDecoding++, FlashInfer) keeps chasing the same target: stream the cache once at full bandwidth, in whatever paged/quantized/grouped shape it's in.
 - Cache levers shrink the bytes; kernels raise the bandwidth — **compose both** or leave speed on the table.
 
-Next: [Chapter 4 — the KV cache in production](kv-cache-in-production.md): schedulers, metrics, and the incidents.
+Next: [Chapter 4 — the KV cache in production](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache-in-production): schedulers, metrics, and the incidents.
 
 ---
 

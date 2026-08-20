@@ -17,34 +17,34 @@ Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its p
 > **✅ ready.** New to NLP? Start with the field overview above, then work top to bottom.
 
 ### Representation & classical models
-1. ✅ [Text Preprocessing & Normalization (tokenize, stem, lemmatize, stopwords)](text-preprocessing-and-normalization/text-preprocessing-and-normalization.md)
-2. ✅ [Tokenization & Subword Algorithms (BPE · WordPiece · SentencePiece · Unigram)](tokenization-and-subword-algorithms/tokenization-and-subword-algorithms.md)
-3. ✅ [Bag-of-Words & TF-IDF](bag-of-words-and-tf-idf/bag-of-words-and-tf-idf.md)
-4. ✅ [N-gram Language Models & Smoothing](n-gram-language-models-and-smoothing/n-gram-language-models-and-smoothing.md)
-5. ✅ [Word Embeddings — Word2Vec · GloVe · FastText](word-embeddings-word2vec-glove-fasttext/word-embeddings-word2vec-glove-fasttext.md)
-6. ✅ [Contextual Embeddings (ELMo · BERT-as-embeddings)](contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert.md)
-7. ✅ [Sentence & Document Embeddings (Sentence-BERT · USE)](sentence-and-document-embeddings/sentence-and-document-embeddings.md)
+1. ✅ [Text Preprocessing & Normalization (tokenize, stem, lemmatize, stopwords)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/text-preprocessing-and-normalization/text-preprocessing-and-normalization)
+2. ✅ [Tokenization & Subword Algorithms (BPE · WordPiece · SentencePiece · Unigram)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/tokenization-and-subword-algorithms/tokenization-and-subword-algorithms)
+3. ✅ [Bag-of-Words & TF-IDF](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/bag-of-words-and-tf-idf/bag-of-words-and-tf-idf)
+4. ✅ [N-gram Language Models & Smoothing](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/n-gram-language-models-and-smoothing/n-gram-language-models-and-smoothing)
+5. ✅ [Word Embeddings — Word2Vec · GloVe · FastText](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/word-embeddings-word2vec-glove-fasttext/word-embeddings-word2vec-glove-fasttext)
+6. ✅ [Contextual Embeddings (ELMo · BERT-as-embeddings)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert)
+7. ✅ [Sentence & Document Embeddings (Sentence-BERT · USE)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sentence-and-document-embeddings/sentence-and-document-embeddings)
 
 ### Sequence modeling & tasks
-8. ✅ [Sequence-to-Sequence & Encoder–Decoder for MT](sequence-to-sequence-and-encoder-decoder/sequence-to-sequence-and-encoder-decoder.md) *(applies the DL attention/transformer to language)*
-9. ✅ [Sequence Labeling — POS & NER (HMM/CRF → neural)](sequence-labeling-pos-and-ner/sequence-labeling-pos-and-ner.md)
-10. ✅ [Text Classification & Sentiment Analysis](text-classification-and-sentiment-analysis/text-classification-and-sentiment-analysis.md)
-11. ✅ [Question Answering (extractive & generative)](question-answering/question-answering.md)
-12. ✅ [Machine Translation](machine-translation/machine-translation.md)
-13. ✅ [Text Summarization (extractive & abstractive)](text-summarization/text-summarization.md)
-14. ✅ [Coreference Resolution](coreference-resolution/coreference-resolution.md)
-15. ✅ [Topic Modeling (LDA · NMF)](topic-modeling-lda-nmf/topic-modeling-lda-nmf.md)
-16. ✅ [Information Retrieval & Semantic Search](information-retrieval-and-semantic-search/information-retrieval-and-semantic-search.md)
+8. ✅ [Sequence-to-Sequence & Encoder–Decoder for MT](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sequence-to-sequence-and-encoder-decoder/sequence-to-sequence-and-encoder-decoder) *(applies the DL attention/transformer to language)*
+9. ✅ [Sequence Labeling — POS & NER (HMM/CRF → neural)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sequence-labeling-pos-and-ner/sequence-labeling-pos-and-ner)
+10. ✅ [Text Classification & Sentiment Analysis](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/text-classification-and-sentiment-analysis/text-classification-and-sentiment-analysis)
+11. ✅ [Question Answering (extractive & generative)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/question-answering/question-answering)
+12. ✅ [Machine Translation](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/machine-translation/machine-translation)
+13. ✅ [Text Summarization (extractive & abstractive)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/text-summarization/text-summarization)
+14. ✅ [Coreference Resolution](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/coreference-resolution/coreference-resolution)
+15. ✅ [Topic Modeling (LDA · NMF)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/topic-modeling-lda-nmf/topic-modeling-lda-nmf)
+16. ✅ [Information Retrieval & Semantic Search](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/information-retrieval-and-semantic-search/information-retrieval-and-semantic-search)
 
 ### Generation & evaluation
-17. ✅ [Decoding Strategies (greedy · beam · top-k · top-p/nucleus · temperature)](decoding-strategies/decoding-strategies.md)
-18. ✅ [NLP Evaluation Metrics (BLEU · ROUGE · METEOR · perplexity · BERTScore · F1/EM)](nlp-evaluation-metrics/nlp-evaluation-metrics.md)
+17. ✅ [Decoding Strategies (greedy · beam · top-k · top-p/nucleus · temperature)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/decoding-strategies/decoding-strategies)
+18. ✅ [NLP Evaluation Metrics (BLEU · ROUGE · METEOR · perplexity · BERTScore · F1/EM)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/nlp-evaluation-metrics/nlp-evaluation-metrics)
 
 ### Related concepts (canonical home is another section)
 > These topics are used across many areas, so they're kept in one place to avoid repetition.
-- **Architectures & mechanisms** — Attention · Transformers · Positional Encodings · RNN / LSTM / GRU → [Deep Learning](../../deep-learning/README.md)
-- **Large language models** — BERT · GPT · T5 / BART · Fine-tuning · Prompting · RLHF → [LLMs](../../llms-applications-and-agents/README.md)
-- **Retrieval-augmented generation** → [RAG & LLM Applications](../../llms-applications-and-agents/rag-and-knowledge-systems/overview.md)
+- **Architectures & mechanisms** — Attention · Transformers · Positional Encodings · RNN / LSTM / GRU → [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
+- **Large language models** — BERT · GPT · T5 / BART · Fine-tuning · Prompting · RLHF → [LLMs](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme)
+- **Retrieval-augmented generation** → [RAG & LLM Applications](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/overview)
 
 ## 🎓 Courses (free)
 - [CS224N: NLP with Deep Learning](https://web.stanford.edu/class/cs224n/) — **Stanford (Manning)** — the definitive university NLP course; lectures on YouTube.
@@ -62,4 +62,4 @@ Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its p
 - [Speech and Language Processing (3rd ed.)](https://web.stanford.edu/~jurafsky/slp3/) — **Jurafsky & Martin** — free draft; the field's standard reference.
 
 ## 🔗 In this platform
-- Math: [ai-ml-intuitions 1.02 embeddings, 1.15 tokenization, Module 4 attention](../../../ai-ml-intuitions/) · LLMs: [LLMs, Applications and Agents](../../llms-applications-and-agents/README.md)
+- Math: [ai-ml-intuitions 1.02 embeddings, 1.15 tokenization, Module 4 attention](../../../ai-ml-intuitions/) · LLMs: [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme)

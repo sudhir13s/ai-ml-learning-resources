@@ -57,6 +57,6 @@ pipeline, eval protocol) — and the reproducibility crisis means knowing *why* 
 - [Understanding Deep Learning](https://udlbook.github.io/udlbook/) — **Simon Prince** — free PDF with notebooks; the math + code pairing that supports faithful re-implementation.
 
 ## 🔗 In this platform
-- Per-concept index: [Frontier & Staying Current — concepts](../README.md)
-- Pair with: [01 How to Read ML Papers](../how-to-read-ml-papers/how-to-read-ml-papers.md) · [02 arXiv & Papers with Code](../arxiv-and-papers-with-code/arxiv-and-papers-with-code.md) · [06 Benchmarks & Leaderboards](../benchmarks-and-leaderboards-to-watch/benchmarks-and-leaderboards-to-watch.md)
-- Frameworks for running the code: [11. Tools and Frameworks](../../tools-and-frameworks/) · [12. Deployment & MLOps](../../../deployment-and-mlops/README.md)
+- Per-concept index: [Frontier & Staying Current — concepts](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/readme)
+- Pair with: [01 How to Read ML Papers](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/how-to-read-ml-papers/how-to-read-ml-papers) · [02 arXiv & Papers with Code](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/arxiv-and-papers-with-code/arxiv-and-papers-with-code) · [06 Benchmarks & Leaderboards](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/benchmarks-and-leaderboards-to-watch/benchmarks-and-leaderboards-to-watch)
+- Frameworks for running the code: [11. Tools and Frameworks](../../tools-and-frameworks/) · [12. Deployment & MLOps](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/readme)

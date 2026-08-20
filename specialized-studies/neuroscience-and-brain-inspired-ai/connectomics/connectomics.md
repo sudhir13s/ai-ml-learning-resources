@@ -58,6 +58,6 @@ honest caveat — a static map doesn't give you the dynamics.
 - [Neuronal Dynamics — **Ch. 12 (Neuronal Populations)**](https://neuronaldynamics.epfl.ch/online/Ch12.html) — **Gerstner et al.** — population/circuit structure and its dynamics, free online.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 1.04 Graph Representations](../../../../ai-ml-intuitions/representation/embedding-spaces/graph-representations-intuition.md) — the graph formalism a connectome is analyzed with.
-- Prereqs in this section: [01 Biological Neurons & Synapses](../biological-neurons-and-synapses/biological-neurons-and-synapses.md)
-- Related domains: [05. Deep Learning](../../../deep-learning/README.md) · [07. Computer Vision](../../../modalities-and-generative-models/computer-vision/README.md)
+- Concept depth (the *why*): [ai-ml-intuitions 1.04 Graph Representations](/ai-ml/ai-ml-intuitions/representation/embedding-spaces/graph-representations-intuition) — the graph formalism a connectome is analyzed with.
+- Prereqs in this section: [01 Biological Neurons & Synapses](/ai-ml/ai-ml-learning-resources/specialized-studies/neuroscience-and-brain-inspired-ai/biological-neurons-and-synapses/biological-neurons-and-synapses)
+- Related domains: [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme) · [07. Computer Vision](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/readme)

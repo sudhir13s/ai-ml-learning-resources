@@ -275,7 +275,7 @@ LoRA shrinks the **gradients and optimizer state** (only $A, B$ are trained). Bu
 
 **QLoRA** removes that wall by quantizing the frozen base to **4 bits**. Three ideas combine:
 
-- **4-bit NF4 (NormalFloat-4).** A 4-bit datatype whose 16 quantization levels are placed at the *quantiles of a normal distribution* — because neural-net weights are roughly Gaussian, this spends precision where the weights actually are, beating uniform INT4. The base is stored in NF4; it is **dequantized on the fly** to bf16 for each matmul, then discarded. (See [Quantization](../../inference-and-runtime/quantization/quantization.md) for NF4 and the dequant mechanics.)
+- **4-bit NF4 (NormalFloat-4).** A 4-bit datatype whose 16 quantization levels are placed at the *quantiles of a normal distribution* — because neural-net weights are roughly Gaussian, this spends precision where the weights actually are, beating uniform INT4. The base is stored in NF4; it is **dequantized on the fly** to bf16 for each matmul, then discarded. (See [Quantization](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/quantization/quantization) for NF4 and the dequant mechanics.)
 - **Double quantization.** Even the *quantization constants* (one scale per block of weights) take space. QLoRA quantizes those constants too — a second, cheaper quantization — shaving the last ~0.4 bits/param.
 - **Paged optimizers.** Use NVIDIA unified memory to **page** optimizer state to CPU RAM during memory spikes (e.g. a long sequence), so a transient peak doesn't OOM the run.
 
@@ -395,7 +395,7 @@ That decoupling is what enables three things the field now takes for granted:
 
 1. **Democratized fine-tuning.** QLoRA put 65B fine-tuning on hardware a hobbyist can rent. The open-weights fine-tune ecosystem (the thousands of task- and persona-specific models on the Hub) exists because LoRA made each one cheap.
 2. **Multi-tenant serving.** One base, a directory of adapters, per-customer behavior — the storage and serving math only works because the unit of customization is a patch, not a model.
-3. **A composable adaptation stack.** LoRA is the parameter-efficient layer that **SFT** (supervised fine-tuning) and preference methods build on. In practice you rarely full-fine-tune for SFT or DPO — you LoRA-tune. (See [Supervised Fine-Tuning](../supervised-fine-tuning/supervised-fine-tuning.md).)
+3. **A composable adaptation stack.** LoRA is the parameter-efficient layer that **SFT** (supervised fine-tuning) and preference methods build on. In practice you rarely full-fine-tune for SFT or DPO — you LoRA-tune. (See [Supervised Fine-Tuning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/supervised-fine-tuning/supervised-fine-tuning).)
 
 ---
 

@@ -8,7 +8,7 @@ updated: 2026-07-02
 
 # GraphRAG — references and further reading
 
-> Companion link library for **[GraphRAG](graph-rag.md)** (the concept page). External sources *and* internal cross-links, kept separate so it can be reused as a standalone list. Grouped by type, best-first. Every entry is free/open (no paywall) and chosen for depth on *this* topic — knowledge-graph construction, multi-hop traversal (local search), community detection (modularity / Louvain / Leiden), and global query-focused summarization.
+> Companion link library for **[GraphRAG](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/graph-rag/graph-rag)** (the concept page). External sources *and* internal cross-links, kept separate so it can be reused as a standalone list. Grouped by type, best-first. Every entry is free/open (no paywall) and chosen for depth on *this* topic — knowledge-graph construction, multi-hop traversal (local search), community detection (modularity / Louvain / Leiden), and global query-focused summarization.
 
 **Start here — suggested path**:
 1. **Get the core idea** — read [the GraphRAG paper](https://arxiv.org/abs/2404.16130) (**Edge et al. 2024**), abstract + §1–2. *Why flat RAG fails on global questions, and the local→global (entity graph → community summaries → map-reduce) design.*
@@ -51,7 +51,7 @@ updated: 2026-07-02
 - [Networks, Crowds, and Markets (Easley & Kleinberg) — Ch. 3 "Strong and Weak Ties" / community structure](https://www.cs.cornell.edu/home/kleinber/networks-book/) — **Easley & Kleinberg (Cambridge, free online)** — graph community structure and clustering, the network-science foundation under modularity.
 
 **In this platform**:
-- Concept page (full explanation): [GraphRAG](graph-rag.md)
-- Foundations this builds on: [RAG Fundamentals](../rag-foundations/rag-foundations.md) · [Embedding Models for Retrieval (the flat-RAG baseline)](../embedding-models/embedding-models.md) · [Hybrid Search + RRF](../hybrid-search/hybrid-search.md) · [Advanced RAG (Parent-Doc · Self-RAG)](../advanced-rag/advanced-rag.md)
-- Composes with: [Agentic RAG (multi-hop reasoning as an agent loop)](../agentic-rag/agentic-rag.md)
-- Measure it: [RAG Evaluation (multi-hop and global-answer quality)](../rag-evaluation/rag-evaluation.md)
+- Concept page (full explanation): [GraphRAG](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/graph-rag/graph-rag)
+- Foundations this builds on: [RAG Fundamentals](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-foundations/rag-foundations) · [Embedding Models for Retrieval (the flat-RAG baseline)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/embedding-models/embedding-models) · [Hybrid Search + RRF](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search) · [Advanced RAG (Parent-Doc · Self-RAG)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/advanced-rag/advanced-rag)
+- Composes with: [Agentic RAG (multi-hop reasoning as an agent loop)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/agentic-rag/agentic-rag)
+- Measure it: [RAG Evaluation (multi-hop and global-answer quality)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-evaluation/rag-evaluation)

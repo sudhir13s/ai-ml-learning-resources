@@ -55,5 +55,5 @@ question. Expect the DAG model, idempotency and retries, why data pipelines diff
 - [Machine Learning Engineering — **Ch. 7–8** (model deployment & pipelines)](http://www.mlebook.com/wiki/doku.php) — **Andriy Burkov** — read-first chapters free.
 
 ## 🔗 In this platform
-- Builds on: [01 ML Lifecycle & MLOps Maturity](../../lifecycle-and-reproducibility/ml-lifecycle-and-mlops-maturity/ml-lifecycle-and-mlops-maturity.md) · [05 Feature Stores](../feature-stores/feature-stores.md)
-- Next concepts: [07 CI/CD for ML & CT](../../release-and-deployment/cicd-for-ml-and-continuous-training/cicd-for-ml-and-continuous-training.md) · [10 Scaling Inference](../../packaging-and-serving/scaling-inference/scaling-inference.md)
+- Builds on: [01 ML Lifecycle & MLOps Maturity](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/lifecycle-and-reproducibility/ml-lifecycle-and-mlops-maturity/ml-lifecycle-and-mlops-maturity) · [05 Feature Stores](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/data-and-training-platforms/feature-stores/feature-stores)
+- Next concepts: [07 CI/CD for ML & CT](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/release-and-deployment/cicd-for-ml-and-continuous-training/cicd-for-ml-and-continuous-training) · [10 Scaling Inference](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/scaling-inference/scaling-inference)

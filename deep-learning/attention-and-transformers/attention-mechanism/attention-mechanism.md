@@ -27,7 +27,7 @@ I'm going to teach this the way I'd actually walk a strong teammate through it a
 - explain **multi-head** attention, why it helps, and walk its **shapes** end to end;
 - implement **causal and padding masks** and know which silent bug each prevents;
 - analyze the **$O(n^2)$ cost** and name the variants — **KV cache**, **FlashAttention**, **MQA/GQA**, **sparse**, **linear** — that exist because of it;
-- connect attention forward to the [KV cache](../../../llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.md), [FlashAttention](../efficient-attention/efficient-attention.md), the full [Transformer](../transformer-architecture/transformer-architecture.md), and [positional encoding](../positional-encoding/positional-encoding.md).
+- connect attention forward to the [KV cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache), [FlashAttention](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/efficient-attention/efficient-attention), the full [Transformer](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture), and [positional encoding](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/positional-encoding/positional-encoding).
 
 Intuition first, then the math, then code you can run.
 
@@ -37,12 +37,12 @@ Intuition first, then the math, then code you can run.
 
 ## The problem: one fixed vector can't hold a whole sequence
 
-Before attention, sequence-to-sequence models ([RNN/LSTM/GRU](../../neural-architectures/rnn-lstm-gru/rnn-lstm-gru.md)) translated by having an **encoder** compress the entire input into a single fixed-length **context vector** $c$, which the **decoder** then unrolled token by token. The whole meaning of *"The agreement on the European Economic Area was signed in August 1992"* had to survive in one vector of, say, 512 numbers — and the decoder saw nothing else.
+Before attention, sequence-to-sequence models ([RNN/LSTM/GRU](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/rnn-lstm-gru/rnn-lstm-gru)) translated by having an **encoder** compress the entire input into a single fixed-length **context vector** $c$, which the **decoder** then unrolled token by token. The whole meaning of *"The agreement on the European Economic Area was signed in August 1992"* had to survive in one vector of, say, 512 numbers — and the decoder saw nothing else.
 
 Two things break, and they break worse the longer the sentence:
 
 1. **The information bottleneck.** A fixed-size vector is a fixed-size bucket. The longer the source sentence, the more gets crushed out of that bucket, and translation quality (BLEU) falls off a cliff past ~30 tokens. You are asking 512 numbers to losslessly summarize an arbitrarily long sentence — they can't.
-2. **The distance problem.** An RNN carries information token-by-token, so a dependency between word 1 and word 30 must survive **30 sequential hops** through the hidden state. That is exactly the regime where gradients vanish (see [vanishing gradients](../../optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients.md)), so the model *structurally* struggles to connect distant words.
+2. **The distance problem.** An RNN carries information token-by-token, so a dependency between word 1 and word 30 must survive **30 sequential hops** through the hidden state. That is exactly the regime where gradients vanish (see [vanishing gradients](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients)), so the model *structurally* struggles to connect distant words.
 
 Attention ([Bahdanau et al., 2014](https://arxiv.org/abs/1409.0473)) removes the bucket. Keep **all** of the encoder's per-token hidden states $h_1, \dots, h_m$ — don't compress them into one vector — and at each decoding step let the decoder build a *fresh, weighted blend* of them, heavy on the words that matter for the word it's about to produce. Instead of *"here is my one summary of the source,"* the encoder now says *"here is every word's representation; reach for whichever ones you need, right now."*
 
@@ -174,14 +174,14 @@ The mechanism is identical; only the *source* of Q, K, V changes — and that on
   $$Q = X_{\text{dec}}W_q,\quad K = X_{\text{enc}}W_k,\quad V = X_{\text{enc}}W_v.$$
   This is how a translator's decoder "reads" the source sentence, and how multimodal models let text attend to image features. Here $n$ (decoder length) and $m$ (encoder length) genuinely differ.
 
-> **Note:** the three attention blocks in a full encoder–decoder transformer are: **encoder self-attention** (bidirectional, no mask), **decoder masked self-attention** (causal), and **decoder→encoder cross-attention**. A decoder-only LLM (GPT-style) keeps only the middle one. Knowing which block is which — and which mask each carries — is a classic interview checkpoint. The full assembly is the subject of the [Transformer Architecture](../transformer-architecture/transformer-architecture.md) page; here we stay zoomed in on the attention operation itself.
+> **Note:** the three attention blocks in a full encoder–decoder transformer are: **encoder self-attention** (bidirectional, no mask), **decoder masked self-attention** (causal), and **decoder→encoder cross-attention**. A decoder-only LLM (GPT-style) keeps only the middle one. Knowing which block is which — and which mask each carries — is a classic interview checkpoint. The full assembly is the subject of the [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture) page; here we stay zoomed in on the attention operation itself.
 
 ### Bidirectional vs causal — the same self-attention with one mask
 
 Cutting across self vs cross is a second axis that decides what a model is *for*: whether a token may look **forward** as well as back.
 
 - **Bidirectional** self-attention (BERT-style encoders) — *no mask*. Every token attends to every other token, past **and** future. Great for *understanding* a fixed input (classification, NER, retrieval embeddings) where the whole sequence is available at once. You cannot generate left-to-right with it, because token $i$ has already seen the answer.
-- **Causal** self-attention (GPT-style decoders) — *triangular mask*. Token $i$ attends only to $\le i$, never to the future. This is what lets the model **generate**: at each step it predicts the next token from the past alone, exactly as it will at inference. It's also what makes the [KV cache](../../../llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.md) valid (past K/V never change).
+- **Causal** self-attention (GPT-style decoders) — *triangular mask*. Token $i$ attends only to $\le i$, never to the future. This is what lets the model **generate**: at each step it predicts the next token from the past alone, exactly as it will at inference. It's also what makes the [KV cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) valid (past K/V never change).
 
 | | Bidirectional (encoder) | Causal (decoder) |
 |---|---|---|
@@ -405,7 +405,7 @@ The lesson: the *capacity to attend differently per head* is what the model spen
 
 Two masks turn the same attention into different behaviors, by setting forbidden scores to $-\infty$ **before** the softmax (so their normalized weights become exactly 0):
 
-- **Causal (look-ahead) mask** — for autoregressive generation, token $i$ must not see tokens $>i$ (it would be cheating: peeking at the answer it's trying to predict). Mask the **upper triangle** of the $n\times n$ score matrix. This single change is the *only* structural difference between an **encoder** (bidirectional, no mask) and a **decoder** (causal) — and it is exactly what makes the [KV cache](../../../llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.md) valid at inference: because token $i$'s representation never depends on future tokens, a token's K and V are frozen forever once computed.
+- **Causal (look-ahead) mask** — for autoregressive generation, token $i$ must not see tokens $>i$ (it would be cheating: peeking at the answer it's trying to predict). Mask the **upper triangle** of the $n\times n$ score matrix. This single change is the *only* structural difference between an **encoder** (bidirectional, no mask) and a **decoder** (causal) — and it is exactly what makes the [KV cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) valid at inference: because token $i$'s representation never depends on future tokens, a token's K and V are frozen forever once computed.
 - **Padding mask** — batches pad shorter sequences up to a common length so they fit in one tensor; real tokens must not attend to those pad positions (they carry no information). Mask the padded **key** columns. Both masks can be applied at once (logical OR of the two forbidden sets).
 
 ```mermaid
@@ -432,7 +432,7 @@ The 63% that the pad was stealing is **redistributed** across the three real tok
 
 > **Gotcha:** masking with $-\infty$ must happen **before** softmax so renormalization redistributes weight only among the *allowed* positions. Masking *after* softmax (zeroing the forbidden weights) leaves each row no longer summing to 1 — exactly the Example-5 failure — a subtle bug that quietly degrades quality without ever crashing. The principled order is: scores → scale → mask (add $-\infty$) → softmax → ·V.
 
-> **Note:** the causal mask is why a decoder can be **trained in parallel** (teacher forcing) yet behave autoregressively: all $n$ positions are scored at once, but the triangular mask makes position $i$'s output depend only on $\le i$, identical to having generated them one at a time. At *inference* the [KV cache](../../../llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.md) drops the mask entirely — the cache only ever holds past tokens, so causality is automatic and there's nothing to mask.
+> **Note:** the causal mask is why a decoder can be **trained in parallel** (teacher forcing) yet behave autoregressively: all $n$ positions are scored at once, but the triangular mask makes position $i$'s output depend only on $\le i$, identical to having generated them one at a time. At *inference* the [KV cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) drops the mask entirely — the cache only ever holds past tokens, so causality is automatic and there's nothing to mask.
 
 ---
 
@@ -467,15 +467,15 @@ o_{\text{new}} = e^{m-m_{\text{new}}}\, o + \textstyle\sum_{j\in\text{block}} e^
 
 After the last block, $o/\ell$ is *exactly* the softmax-weighted sum you'd have gotten from the full row — no approximation, and the $n\times n$ matrix never existed in slow memory. This is the same numerically-stable subtract-the-max softmax from earlier, just computed incrementally.
 
-> **Note:** this is checkable in a few lines: run the block recurrence above over a 20-key example and compare to a plain `softmax(scores) @ V` — they agree to `~6e-08` (float rounding), confirming FlashAttention is *exact*. The dedicated [FlashAttention](../efficient-attention/efficient-attention.md) page builds the full tiled kernel; the takeaway here is simply that the global softmax can be computed block-by-block, which is what frees attention from the $O(n^2)$-memory materialization.
+> **Note:** this is checkable in a few lines: run the block recurrence above over a 20-key example and compare to a plain `softmax(scores) @ V` — they agree to `~6e-08` (float rounding), confirming FlashAttention is *exact*. The dedicated [FlashAttention](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/efficient-attention/efficient-attention) page builds the full tiled kernel; the takeaway here is simply that the global softmax can be computed block-by-block, which is what frees attention from the $O(n^2)$-memory materialization.
 
-> **Note:** the online-softmax trick FlashAttention is built on is the *same* numerically-stable, subtract-the-max softmax from earlier — just computed incrementally as blocks stream by, with a correction factor that fixes up the partial sums when a new block's max exceeds the old running max. FlashAttention attacks the **compute/IO** side of the cost; the [KV cache](../../../llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.md) attacks the **inference-memory** side. A real long-context stack uses both. The dedicated [FlashAttention](../efficient-attention/efficient-attention.md) page derives the tiling and online softmax in full.
+> **Note:** the online-softmax trick FlashAttention is built on is the *same* numerically-stable, subtract-the-max softmax from earlier — just computed incrementally as blocks stream by, with a correction factor that fixes up the partial sums when a new block's max exceeds the old running max. FlashAttention attacks the **compute/IO** side of the cost; the [KV cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) attacks the **inference-memory** side. A real long-context stack uses both. The dedicated [FlashAttention](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/efficient-attention/efficient-attention) page derives the tiling and online softmax in full.
 
 ---
 
 ## Efficient attention variants: which lever for which bottleneck
 
-Most modern attention research is about beating the $O(n^2)$ cost or shrinking the inference-time [KV cache](../../../llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.md). Which lever you pull depends entirely on *which* bottleneck is hurting you:
+Most modern attention research is about beating the $O(n^2)$ cost or shrinking the inference-time [KV cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache). Which lever you pull depends entirely on *which* bottleneck is hurting you:
 
 ```mermaid
 graph TD
@@ -495,9 +495,9 @@ graph TD
     classDef data fill:#3A6B96,stroke:#2A5B86,color:#fff
 ```
 
-- **KV cache** (inference) — don't recompute past tokens' K and V each decode step; store and reuse them. Turns per-step generation cost from $O(n)$ recompute into $O(1)$. The single most important inference optimization; covered in depth on the [KV Cache](../../../llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.md) page.
+- **KV cache** (inference) — don't recompute past tokens' K and V each decode step; store and reuse them. Turns per-step generation cost from $O(n)$ recompute into $O(1)$. The single most important inference optimization; covered in depth on the [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) page.
 - **MQA / GQA / MLA** — share K/V across query heads (or compress them to a latent) to shrink the KV cache. An *inference-memory* win, not an asymptotic one — GQA cuts the cache ~8×, the lever that makes long-context 70B models servable.
-- **[FlashAttention](../efficient-attention/efficient-attention.md)** — computes *exact* attention but tiles the work to avoid ever materializing the $n\times n$ matrix in slow memory; a large constant-factor speedup and an $O(n)$-memory win.
+- **[FlashAttention](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/efficient-attention/efficient-attention)** — computes *exact* attention but tiles the work to avoid ever materializing the $n\times n$ matrix in slow memory; a large constant-factor speedup and an $O(n)$-memory win.
 - **Sparse / local attention** (sliding-window, strided, [BigBird](https://arxiv.org/abs/2007.14062), [Longformer](https://arxiv.org/abs/2004.05150)) — each token attends to a *subset* of positions, dropping cost toward $O(n\sqrt n)$ or $O(n)$ at some quality cost on truly global dependencies.
 - **Linear attention** ([Performer](https://arxiv.org/abs/2009.14794), kernel methods) — reorder the computation $(QK^\top)V \to Q(K^\top V)$ via a feature map to avoid the $n\times n$ matrix entirely, reaching $O(n)$ — approximate, with accuracy trade-offs.
 
@@ -528,7 +528,7 @@ That's a problem: word order carries meaning. The fix is to inject **positional 
 - **RoPE** (rotary) — rotate Q and K by a position-dependent angle so the dot product depends on *relative* position; the dominant choice in modern LLMs.
 - **ALiBi** — add a position-distance bias straight to the attention scores, with strong length extrapolation.
 
-> **Gotcha:** because attention is permutation-equivariant, **forget positional encoding and the model treats your sentence as a bag of words** — it will train and the loss will go down, but it can't distinguish "dog bites man" from "man bites dog." This is the single most consequential thing attention *can't* do on its own, and exactly why every transformer adds position. The four schemes above are the subject of the [Positional Encoding](../positional-encoding/positional-encoding.md) page.
+> **Gotcha:** because attention is permutation-equivariant, **forget positional encoding and the model treats your sentence as a bag of words** — it will train and the loss will go down, but it can't distinguish "dog bites man" from "man bites dog." This is the single most consequential thing attention *can't* do on its own, and exactly why every transformer adds position. The four schemes above are the subject of the [Positional Encoding](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/positional-encoding/positional-encoding) page.
 
 ---
 
@@ -584,7 +584,7 @@ A practical playbook for putting attention into real code:
 
 **Step 4 — don't forget position.** Add a positional scheme (sinusoidal/learned/RoPE/ALiBi) *before* attention, or the model is order-blind (see the gotcha above). Modern stacks default to RoPE.
 
-> **Gotcha:** when you stack attention into a real block, it never rides alone — it's wrapped in a **residual connection** and **layer norm** (`x = x + attn(norm(x))`), then followed by a **feed-forward** sublayer with its own residual. Attention *moves information between tokens*; the FFN *transforms each token independently*. Drop the residual/norm and deep transformers won't train. That full block is the [Transformer Architecture](../transformer-architecture/transformer-architecture.md) page.
+> **Gotcha:** when you stack attention into a real block, it never rides alone — it's wrapped in a **residual connection** and **layer norm** (`x = x + attn(norm(x))`), then followed by a **feed-forward** sublayer with its own residual. Attention *moves information between tokens*; the FFN *transforms each token independently*. Drop the residual/norm and deep transformers won't train. That full block is the [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture) page.
 
 ---
 

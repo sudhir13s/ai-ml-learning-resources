@@ -398,7 +398,7 @@ Exactly as the derivation predicts: the **outlier fraction sits just below $\nu$
 
 If you've already clustered the data, anomalies fall out as a by-product:
 
-- **DBSCAN noise points.** DBSCAN labels points in low-density regions as **noise** (label `-1`), and *that label is itself anomaly detection.* A point that joins no dense cluster is, by DBSCAN's own definition, an outlier — you get the anomaly flag for free as a by-product of the clustering, with no separate scoring step. (See the [DBSCAN page](../../clustering/dbscan/dbscan.md) for how the noise label is derived from `eps` and `min_samples`.)
+- **DBSCAN noise points.** DBSCAN labels points in low-density regions as **noise** (label `-1`), and *that label is itself anomaly detection.* A point that joins no dense cluster is, by DBSCAN's own definition, an outlier — you get the anomaly flag for free as a by-product of the clustering, with no separate scoring step. (See the [DBSCAN page](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/dbscan/dbscan) for how the noise label is derived from `eps` and `min_samples`.)
 - **Distance to nearest centroid.** After K-Means, score each point by its distance to its assigned centroid; the far-from-any-centroid points are candidates. Cheap, but inherits K-Means' assumptions (spherical, similar-size clusters) and its sensitivity to the outliers it's trying to find.
 
 ---
@@ -438,7 +438,7 @@ What to use instead, and *why*:
 
   And the PR baseline isn't a fixed 0.5 — it's the **positive rate** itself (0.083 in our comparison, ~0.01 in real fraud), so even a small PR-AUC can be a large *lift over baseline*. When positives are rare, **PR-AUC is the honest scoreboard**, because it measures exactly the question operations cares about: *when we raise an alert, are we usually right?*
 
-> **Tip:** the relationship to remember in an interview: **ROC-AUC answers "can the model rank a random anomaly above a random normal?"; PR-AUC answers "when the model raises an alert, is it usually right?"** Under 1% prevalence the second question is the one your business is actually asking. (This connects directly to the [Classification Metrics page](../../../supervised-learning/classification/classification-metrics/classification-metrics.md), which derives the ROC vs PR contrast in the supervised setting.)
+> **Tip:** the relationship to remember in an interview: **ROC-AUC answers "can the model rank a random anomaly above a random normal?"; PR-AUC answers "when the model raises an alert, is it usually right?"** Under 1% prevalence the second question is the one your business is actually asking. (This connects directly to the [Classification Metrics page](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/classification-metrics/classification-metrics), which derives the ROC vs PR contrast in the supervised setting.)
 
 ### Contamination and the threshold
 

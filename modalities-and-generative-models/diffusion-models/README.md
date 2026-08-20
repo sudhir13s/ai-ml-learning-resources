@@ -11,7 +11,7 @@ updated: 2026-07-14
 > The dedicated home for diffusion *beyond the foundations* — modern architectures, fast
 > sampling, control and editing, video/3D, and production serving. The foundational chapters
 > (DDPM, score-based/SDE, latent diffusion, sampling & guidance) live in
-> [GenAI](../generative-models/README.md) and are prerequisites here, not duplicated.
+> [GenAI](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/readme) and are prerequisites here, not duplicated.
 
 **⭐ Start here:** [What are Diffusion Models? (Lil'Log)](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/) — **Lilian Weng** — the canonical math walkthrough; read it before anything in this topic.
 
@@ -42,12 +42,12 @@ Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its p
 
 ### Related concepts (covered in another section)
 > Foundations stay in their canonical home to avoid repetition.
-- **DDPM forward/reverse process** → [GenAI · Diffusion Models — DDPM](diffusion-models-ddpm/diffusion-models-ddpm.md)
-- **Score-based & SDE view** → [GenAI · Score-Based & SDE Diffusion](score-based-and-sde-diffusion/score-based-and-sde-diffusion.md)
-- **Latent diffusion / Stable Diffusion** → [GenAI · Latent Diffusion](latent-diffusion-stable-diffusion/latent-diffusion-stable-diffusion.md)
-- **Samplers & guidance (DDIM · CFG)** → [GenAI · Sampling & Guidance](sampling-and-guidance-techniques/sampling-and-guidance-techniques.md)
-- **Text-to-image systems (DALL·E · Imagen)** → [GenAI · Text-to-Image Systems](text-to-image-systems/text-to-image-systems.md)
-- **Audio & music diffusion** → [Audio & Speech](../audio-and-speech/README.md)
+- **DDPM forward/reverse process** → [GenAI · Diffusion Models — DDPM](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/diffusion-models-ddpm/diffusion-models-ddpm)
+- **Score-based & SDE view** → [GenAI · Score-Based & SDE Diffusion](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/score-based-and-sde-diffusion/score-based-and-sde-diffusion)
+- **Latent diffusion / Stable Diffusion** → [GenAI · Latent Diffusion](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/latent-diffusion-stable-diffusion/latent-diffusion-stable-diffusion)
+- **Samplers & guidance (DDIM · CFG)** → [GenAI · Sampling & Guidance](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/sampling-and-guidance-techniques/sampling-and-guidance-techniques)
+- **Text-to-image systems (DALL·E · Imagen)** → [GenAI · Text-to-Image Systems](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/text-to-image-systems/text-to-image-systems)
+- **Audio & music diffusion** → [Audio & Speech](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/audio-and-speech/readme)
 
 ## 🎓 Courses (free)
 - [Hugging Face Diffusion Models Course](https://huggingface.co/learn/diffusion-course) — **Hugging Face** — free, code-first; the practical companion to this topic.
@@ -70,4 +70,4 @@ Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its p
 - [Understanding Deep Learning — Ch. 18 (Diffusion)](https://udlbook.github.io/udlbook/) — **Simon Prince** — free, rigorous, visual.
 
 ## 🔗 In this platform
-- Foundations: [GenAI](../generative-models/README.md) · Math: [ai-ml-intuitions Module 5 (Generation)](../../../ai-ml-intuitions/generation/)
+- Foundations: [GenAI](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/readme) · Math: [ai-ml-intuitions Module 5 (Generation)](../../../ai-ml-intuitions/generation/)

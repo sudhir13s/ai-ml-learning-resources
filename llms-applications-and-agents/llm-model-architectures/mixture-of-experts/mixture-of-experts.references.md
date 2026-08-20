@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Mixture-of-Experts — references and further reading
 
-> Companion link library for **[Mixture-of-Experts](mixture-of-experts.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
+> Companion link library for **[Mixture-of-Experts](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/llm-model-architectures/mixture-of-experts/mixture-of-experts)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
 1. **Build the intuition** — watch [Mixture of Experts (MoE), Visually Explained](https://www.youtube.com/watch?v=0QQlYR1r6pQ) (**Jia-Bin Huang**). *Routers, experts, and sparse activation made visual — the cleanest first picture.*
@@ -51,9 +51,9 @@ updated: 2026-06-22
 - [Speech and Language Processing, 3rd ed. — Large Language Models](https://web.stanford.edu/~jurafsky/slp3/) — **Jurafsky & Martin** — the LLM architecture context MoE plugs into.
 
 **In this platform**:
-- Concept page (full explanation): [Mixture-of-Experts](mixture-of-experts.md)
+- Concept page (full explanation): [Mixture-of-Experts](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/llm-model-architectures/mixture-of-experts/mixture-of-experts)
 - Foundations (the FFN MoE replaces): [Transformer Architecture](../../../../deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture.md)
-- Why capacity matters: [Scaling Laws](../../large-language-model-foundations/scaling-laws/scaling-laws.md) · [Pretraining at Scale](../../large-language-model-foundations/pretraining/pretraining.md)
-- Builds on this: [Decoder-only Architecture](../../large-language-model-foundations/decoder-only-models/decoder-only-models.md) · [KV Cache](../../inference-and-runtime/kv-cache/kv-cache.md) · [Quantization](../../inference-and-runtime/quantization/quantization.md)
-- Puts it to work: [Inference Optimization & Serving](../../inference-and-runtime/inference-optimization/inference-optimization.md)
-- Concept depth (the *why*): [Neural Scaling Laws / Chinchilla](../../../../ai-ml-intuitions/scaling-adaptation-and-efficiency/scaling-behavior/neural-scaling-laws-and-chinchilla-intuition.md)
+- Why capacity matters: [Scaling Laws](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/scaling-laws/scaling-laws) · [Pretraining at Scale](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/pretraining/pretraining)
+- Builds on this: [Decoder-only Architecture](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/decoder-only-models/decoder-only-models) · [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) · [Quantization](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/quantization/quantization)
+- Puts it to work: [Inference Optimization & Serving](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/inference-optimization/inference-optimization)
+- Concept depth (the *why*): [Neural Scaling Laws / Chinchilla](/ai-ml/ai-ml-intuitions/scaling-adaptation-and-efficiency/scaling-behavior/neural-scaling-laws-and-chinchilla-intuition)

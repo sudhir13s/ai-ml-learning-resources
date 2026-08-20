@@ -38,7 +38,7 @@ To extend context you must pay three separate tolls. Confusing them is the root 
 
 **Wall 1 — attention compute is $O(N^2)$.** Self-[attention](../../../../deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism.md) compares every token to every other token, so the score matrix has $N^2$ entries. Go from a 4K to a 128K context — a 32× longer sequence — and the attention matrix grows by $32^2 = \mathbf{1024\times}$. At 128K that's $131072^2 \approx 1.7\times10^{10}$ entries **per layer, per head**. Materialising that matrix in memory is impossible; even computing it is the dominant cost. *(This wall is knocked down by [FlashAttention](../../../../deep-learning/attention-and-transformers/efficient-attention/efficient-attention.md) — which never materialises the matrix — and by the **sparse/sliding** attention patterns below.)*
 
-**Wall 2 — the KV cache grows linearly with $N$.** Every token's key and value vectors are cached so they're not recomputed (see [KV Cache](../../inference-and-runtime/kv-cache/kv-cache.md)). For Llama-2-7B (MHA) the cache is **0.5 MiB per token**. At a 128K context that's
+**Wall 2 — the KV cache grows linearly with $N$.** Every token's key and value vectors are cached so they're not recomputed (see [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache)). For Llama-2-7B (MHA) the cache is **0.5 MiB per token**. At a 128K context that's
 
 $$131072 \times 0.5\,\text{MiB} \;=\; \mathbf{64\ GiB} \quad \text{for a *single* sequence.}$$
 
@@ -212,7 +212,7 @@ graph LR
 
 ![Left: the full attention distribution — the first 4 tokens (the sinks, red) absorb 85.3% of the softmax mass while the rest (blue) get almost nothing. Right: the max drift of the recent-window weights when you evict the sinks (0.295) versus keep them (0.001). Deleting the sinks deletes most of the denominator, so the survivors renormalize wildly. Same numbers the code asserts.](images/attention_sinks.png)
 
-> **Note (related cache levers):** **H2O** (Heavy-Hitter Oracle) keeps the tokens that *historically received the most attention* rather than just the recent/first ones. **KV quantization** (FP8/INT4 — see [Quantization](../../inference-and-runtime/quantization/quantization.md)) shrinks each cached entry. **MLA** (DeepSeek, in [KV Cache](../../inference-and-runtime/kv-cache/kv-cache.md)) caches one low-rank latent per token. These attack the *size* of each entry or *which* entries to keep — orthogonal to, and combinable with, sinks.
+> **Note (related cache levers):** **H2O** (Heavy-Hitter Oracle) keeps the tokens that *historically received the most attention* rather than just the recent/first ones. **KV quantization** (FP8/INT4 — see [Quantization](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/quantization/quantization)) shrinks each cached entry. **MLA** (DeepSeek, in [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache)) caches one low-rank latent per token. These attack the *size* of each entry or *which* entries to keep — orthogonal to, and combinable with, sinks.
 
 ---
 

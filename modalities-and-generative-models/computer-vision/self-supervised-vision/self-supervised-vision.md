@@ -59,6 +59,6 @@ object-segmentation attention for free. Central to foundation-model and multimod
 - [Computer Vision: Algorithms and Applications, 2nd ed. — **Ch. 5.4 (Self-supervised & contrastive pretraining)**](https://szeliski.org/Book/) — **Richard Szeliski** — self-supervision in context, free.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 1.13 Contrastive Learning (SimCLR · InfoNCE)](../../../../ai-ml-intuitions/representation/representation-learning/contrastive-learning-intuition.md) · [1.14 Triplet Loss](../../../../ai-ml-intuitions/representation/representation-learning/triplet-learning-intuition.md)
-- Foundation: [Vision Transformers](../vision-transformers/vision-transformers.md) (MAE/DINO backbone) · [Data Augmentation](../data-augmentation/data-augmentation.md) (defines contrastive views)
-- Related domain: [Deep Learning › Autoencoders](../../../deep-learning/neural-architectures/autoencoders/autoencoders.md) (MAE is a masked autoencoder)
+- Concept depth (the *why*): [ai-ml-intuitions 1.13 Contrastive Learning (SimCLR · InfoNCE)](/ai-ml/ai-ml-intuitions/representation/representation-learning/contrastive-learning-intuition) · [1.14 Triplet Loss](/ai-ml/ai-ml-intuitions/representation/representation-learning/triplet-learning-intuition)
+- Foundation: [Vision Transformers](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/vision-transformers/vision-transformers) (MAE/DINO backbone) · [Data Augmentation](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/data-augmentation/data-augmentation) (defines contrastive views)
+- Related domain: [Deep Learning › Autoencoders](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/autoencoders/autoencoders) (MAE is a masked autoencoder)

@@ -10,7 +10,7 @@ updated: 2026-07-14
 # Multimodal Models
 > Models that *understand and reason across modalities* — image+text (VLMs), audio, video,
 > and any-to-any architectures. Generation of images lives in
-> [Diffusion](../diffusion-models/README.md)/[GenAI](../generative-models/README.md); this topic is
+> [Diffusion](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/readme)/[GenAI](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/readme); this topic is
 > about joint representation, fusion, and multimodal reasoning.
 
 **⭐ Start here:** [Generalized Visual Language Models (Lil'Log)](https://lilianweng.github.io/posts/2022-06-09-vlm/) — **Lilian Weng** — the canonical map of how vision meets language models.
@@ -39,11 +39,11 @@ Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its p
 
 ### Related concepts (covered in another section)
 > Kept in their canonical home to avoid repetition.
-- **Vision Transformers (ViT)** — the visual backbone → [Computer Vision · Vision Transformers](../computer-vision/README.md)
-- **Text-to-image generation** → [Diffusion](../diffusion-models/README.md) · [GenAI](../generative-models/README.md)
-- **Speech understanding & audio tokens** → [Audio & Speech](../audio-and-speech/README.md)
-- **Video-language models** → [Video Understanding](../video-understanding/README.md)
-- **LLM decoder architecture, instruction tuning** → [LLMs](../../llms-applications-and-agents/README.md)
+- **Vision Transformers (ViT)** — the visual backbone → [Computer Vision · Vision Transformers](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/readme)
+- **Text-to-image generation** → [Diffusion](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/readme) · [GenAI](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/readme)
+- **Speech understanding & audio tokens** → [Audio & Speech](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/audio-and-speech/readme)
+- **Video-language models** → [Video Understanding](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/video-understanding/readme)
+- **LLM decoder architecture, instruction tuning** → [LLMs](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme)
 
 ## 🎓 Courses (free)
 - [Hugging Face Community Computer Vision Course — Multimodal unit](https://huggingface.co/learn/computer-vision-course) — **Hugging Face** — free, code-first VLM material.
@@ -61,4 +61,4 @@ Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its p
 - [Vision Language Models Explained](https://huggingface.co/blog/vlms) — **Hugging Face** — practical tour of open VLMs.
 
 ## 🔗 In this platform
-- Backbones: [Computer Vision](../computer-vision/README.md) · Language side: [LLMs](../../llms-applications-and-agents/README.md)
+- Backbones: [Computer Vision](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/readme) · Language side: [LLMs](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme)

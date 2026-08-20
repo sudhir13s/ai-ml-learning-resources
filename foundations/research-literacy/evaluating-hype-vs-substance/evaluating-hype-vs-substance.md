@@ -58,6 +58,6 @@ cherry-picked examples — is what makes you a trustworthy reader of the frontie
 - [Understanding Deep Learning](https://udlbook.github.io/udlbook/) — **Simon Prince** — grounding in what methods actually do, so you can judge what they're claimed to do.
 
 ## 🔗 In this platform
-- Per-concept index: [Frontier & Staying Current — concepts](../README.md)
-- Pair with: [01 How to Read ML Papers](../how-to-read-ml-papers/how-to-read-ml-papers.md) · [03 Key Conferences & Venues](../key-conferences-and-venues/key-conferences-and-venues.md) · [06 Benchmarks & Leaderboards](../benchmarks-and-leaderboards-to-watch/benchmarks-and-leaderboards-to-watch.md) · [07 Reproducing Papers](../reproducing-papers-code/reproducing-papers-code.md)
-- Evaluation rigor lives in: [LLMs, Applications and Agents](../../../llms-applications-and-agents/README.md) · [12. Deployment & MLOps](../../../deployment-and-mlops/README.md)
+- Per-concept index: [Frontier & Staying Current — concepts](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/readme)
+- Pair with: [01 How to Read ML Papers](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/how-to-read-ml-papers/how-to-read-ml-papers) · [03 Key Conferences & Venues](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/key-conferences-and-venues/key-conferences-and-venues) · [06 Benchmarks & Leaderboards](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/benchmarks-and-leaderboards-to-watch/benchmarks-and-leaderboards-to-watch) · [07 Reproducing Papers](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/reproducing-papers-code/reproducing-papers-code)
+- Evaluation rigor lives in: [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme) · [12. Deployment & MLOps](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/readme)

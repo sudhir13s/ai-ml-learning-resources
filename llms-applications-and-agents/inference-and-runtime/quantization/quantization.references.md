@@ -8,7 +8,7 @@ updated: 2026-06-26
 
 # Quantization — references and further reading
 
-> Companion link library for **[Quantization](quantization.md)** (the concept page). It holds the curated links — external sources *and* internal cross-links — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first within each group. Every entry is a primary source or a recognized deep explainer, chosen for depth on *this* topic. Every formula cited on the concept page has its source here in **Papers**.
+> Companion link library for **[Quantization](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/quantization/quantization)** (the concept page). It holds the curated links — external sources *and* internal cross-links — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first within each group. Every entry is a primary source or a recognized deep explainer, chosen for depth on *this* topic. Every formula cited on the concept page has its source here in **Papers**.
 
 **Start here — suggested path:**
 1. **Build the intuition (illustrated)** — read [A Visual Guide to Quantization](https://www.maartengrootendorst.com/blog/quantization/) (**Maarten Grootendorst**). *The single best illustrated walkthrough of LLM quantization, end to end.*
@@ -16,7 +16,7 @@ updated: 2026-06-26
 3. **Do the math from scratch** — read the affine formulation in [Jacob et al. (2017)](https://arxiv.org/abs/1712.05877) §2, then this page's code. *Scale, zero-point, round, clamp.*
 4. **Understand the outlier problem** — read [LLM.int8()](https://arxiv.org/abs/2208.07339) (**Dettmers et al.**). *The emergent-outlier diagnosis the whole field is built around.*
 5. **Read the 4-bit workhorses** — [GPTQ](https://arxiv.org/abs/2210.17323) then [AWQ](https://arxiv.org/abs/2306.00978). *Hessian error-compensation vs activation-aware salience.*
-6. **Connect to fine-tuning** — [QLoRA](https://arxiv.org/abs/2305.14314) and this platform's [LoRA / PEFT](../../training-and-adaptation/lora-and-parameter-efficient-fine-tuning/lora-and-parameter-efficient-fine-tuning.md). *Quantize the base, adapt with LoRA.*
+6. **Connect to fine-tuning** — [QLoRA](https://arxiv.org/abs/2305.14314) and this platform's [LoRA / PEFT](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/lora-and-parameter-efficient-fine-tuning/lora-and-parameter-efficient-fine-tuning). *Quantize the base, adapt with LoRA.*
 
 **Papers:**
 - [A Survey of Quantization Methods for Efficient Neural Network Inference](https://arxiv.org/abs/2103.13630) — **Gholami et al. (2021)** — the reference survey; symmetric/asymmetric affine quantization and granularity, the source for the page's general affine + symmetric formulas.
@@ -54,6 +54,6 @@ updated: 2026-06-26
 - [Model Memory Calculator](https://huggingface.co/spaces/hf-accelerate/model-memory-usage) — **Hugging Face Accelerate** — plug in any model and precision to see the weights/optimizer/activation memory; the memory math of this page, interactive.
 
 **In this platform:**
-- Concept page (full explanation): [Quantization](quantization.md)
-- Builds on this: [KV Cache](../kv-cache/kv-cache.md) (decode is memory-bandwidth-bound; quantizing the *cache* is the sibling lever) · [Decoder-only Architecture](../../large-language-model-foundations/decoder-only-models/decoder-only-models.md)
-- Connects to: [LoRA / PEFT](../../training-and-adaptation/lora-and-parameter-efficient-fine-tuning/lora-and-parameter-efficient-fine-tuning.md) (QLoRA = NF4 base + LoRA adapters) · [Knowledge Distillation](../../training-and-adaptation/knowledge-distillation/knowledge-distillation.md) (the other route to a smaller model) · [Inference Optimization & Serving](../inference-optimization/inference-optimization.md) (where quantized weights + cache are served)
+- Concept page (full explanation): [Quantization](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/quantization/quantization)
+- Builds on this: [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) (decode is memory-bandwidth-bound; quantizing the *cache* is the sibling lever) · [Decoder-only Architecture](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/decoder-only-models/decoder-only-models)
+- Connects to: [LoRA / PEFT](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/lora-and-parameter-efficient-fine-tuning/lora-and-parameter-efficient-fine-tuning) (QLoRA = NF4 base + LoRA adapters) · [Knowledge Distillation](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/knowledge-distillation/knowledge-distillation) (the other route to a smaller model) · [Inference Optimization & Serving](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/inference-optimization/inference-optimization) (where quantized weights + cache are served)

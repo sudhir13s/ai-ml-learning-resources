@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Hyperparameter Tuning — references and further reading
 
-> Companion link library for **[Hyperparameter Tuning](hyperparameter-tuning.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
+> Companion link library for **[Hyperparameter Tuning](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/hyperparameter-tuning/hyperparameter-tuning)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Tuning Process (C2W3L01)](https://www.youtube.com/watch?v=AXDByU3D1hA) (**Andrew Ng**). *Which knobs matter most and the order to tune them — learning rate first.*
@@ -55,8 +55,8 @@ updated: 2026-06-22
 - [Automated Machine Learning: Methods, Systems, Challenges](https://www.automl.org/book/) — **Hutter, Kotthoff & Vanschoren (eds.)** — the open-access AutoML book; full chapters on HPO, Bayesian opt, and NAS.
 
 **In this platform**:
-- Concept page (full explanation): [Hyperparameter Tuning](hyperparameter-tuning.md)
-- Prerequisites — the knobs you're tuning: [Optimizers](../optimizers/optimizers.md) · [Learning-Rate Schedules & Warmup](../learning-rate-schedules-and-warmup/learning-rate-schedules-and-warmup.md) · [Regularization](../regularization/regularization.md)
-- The validation protocol (leak-free model selection): [Cross-Validation](../../../core-machine-learning/model-selection-and-evaluation/cross-validation/cross-validation.md)
-- Concept depth (the *why*): [ai-ml-intuitions 2.09 Learning Rate Schedules](../../../../ai-ml-intuitions/learning-and-optimization/adaptive-optimization/learning-rate-schedules-intuition.md) · [3.07 Bias–Variance & Generalization](../../../../ai-ml-intuitions/objectives-and-evaluation/generalization/bias-variance-tradeoff-intuition.md)
-- Field overview: [Deep Learning](../../README.md) · Related: [13. Tools & Frameworks](../../../foundations/tools-and-frameworks/README.md) (Optuna / Ray Tune in practice)
+- Concept page (full explanation): [Hyperparameter Tuning](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/hyperparameter-tuning/hyperparameter-tuning)
+- Prerequisites — the knobs you're tuning: [Optimizers](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/optimizers) · [Learning-Rate Schedules & Warmup](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/learning-rate-schedules-and-warmup/learning-rate-schedules-and-warmup) · [Regularization](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/regularization/regularization)
+- The validation protocol (leak-free model selection): [Cross-Validation](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/cross-validation/cross-validation)
+- Concept depth (the *why*): [ai-ml-intuitions 2.09 Learning Rate Schedules](/ai-ml/ai-ml-intuitions/learning-and-optimization/adaptive-optimization/learning-rate-schedules-intuition) · [3.07 Bias–Variance & Generalization](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/generalization/bias-variance-tradeoff-intuition)
+- Field overview: [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme) · Related: [13. Tools & Frameworks](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/readme) (Optuna / Ray Tune in practice)

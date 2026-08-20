@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Tokenization & Subword Algorithms — references and further reading
 
-> Companion link library for **[Tokenization & Subword Algorithms](tokenization-and-subword-algorithms.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author (the paper's authors) or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
+> Companion link library for **[Tokenization & Subword Algorithms](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/tokenization-and-subword-algorithms/tokenization-and-subword-algorithms)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author (the paper's authors) or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Let's build the GPT Tokenizer](https://www.youtube.com/watch?v=zduSFxRajkE) (**Andrej Karpathy**). *Implements byte-level BPE from scratch; the single best resource for making tokenization stick.*
@@ -58,8 +58,8 @@ updated: 2026-06-22
 - [SentencePiece](https://github.com/google/sentencepiece) — **Google** — the reference implementation of the SentencePiece framework (BPE + Unigram).
 
 **In this platform**:
-- Concept page (full explanation): [Tokenization & Subword Algorithms](tokenization-and-subword-algorithms.md)
-- Concept depth (the *why*): [ai-ml-intuitions 1.15 Tokenization & BPE](../../../../ai-ml-intuitions/representation/discrete-representations/tokenization-and-bpe-intuition.md)
-- Comes before this: [01 Text Preprocessing & Normalization](../text-preprocessing-and-normalization/text-preprocessing-and-normalization.md)
-- Builds on this: [05 Word Embeddings (Word2Vec / GloVe / FastText)](../word-embeddings-word2vec-glove-fasttext/word-embeddings-word2vec-glove-fasttext.md) · [06 Contextual Embeddings (ELMo / BERT)](../contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert.md)
-- Puts it to work: [LLMs, Applications and Agents](../../../llms-applications-and-agents/README.md) · [KV Cache (tokens are what fills it)](../../../llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.md)
+- Concept page (full explanation): [Tokenization & Subword Algorithms](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/tokenization-and-subword-algorithms/tokenization-and-subword-algorithms)
+- Concept depth (the *why*): [ai-ml-intuitions 1.15 Tokenization & BPE](/ai-ml/ai-ml-intuitions/representation/discrete-representations/tokenization-and-bpe-intuition)
+- Comes before this: [01 Text Preprocessing & Normalization](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/text-preprocessing-and-normalization/text-preprocessing-and-normalization)
+- Builds on this: [05 Word Embeddings (Word2Vec / GloVe / FastText)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/word-embeddings-word2vec-glove-fasttext/word-embeddings-word2vec-glove-fasttext) · [06 Contextual Embeddings (ELMo / BERT)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert)
+- Puts it to work: [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme) · [KV Cache (tokens are what fills it)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache)

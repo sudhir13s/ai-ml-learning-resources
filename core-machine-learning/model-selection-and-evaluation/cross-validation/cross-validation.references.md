@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Cross-Validation — references and further reading
 
-> Companion link library for **[Cross-Validation](cross-validation.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
+> Companion link library for **[Cross-Validation](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/cross-validation/cross-validation)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Cross Validation](https://www.youtube.com/watch?v=fSytzGwwBVw) (**StatQuest**). *See k-fold rotate the validation set so every point gets used.*
@@ -49,7 +49,7 @@ updated: 2026-06-22
 - [Advances in Financial Machine Learning — Ch. 7 "Cross-Validation in Finance"](https://github.com/BlackArbsCEO/Adv_Fin_ML_Exercises) — **Marcos López de Prado** — purged and embargoed k-fold for overlapping, look-forward labels (open exercises + code companion).
 
 **In this platform**:
-- Concept page (full explanation): [Cross-Validation](cross-validation.md)
-- Concept depth (the *why*): [ai-ml-intuitions 3.07 Bias–Variance & Generalization](../../../../ai-ml-intuitions/objectives-and-evaluation/generalization/bias-variance-tradeoff-intuition.md) · [3.05 Classification Metrics](../../../../ai-ml-intuitions/objectives-and-evaluation/predictive-evaluation/classification-metrics-intuition.md)
-- Related: [Bias–Variance Tradeoff](../bias-variance-tradeoff/bias-variance-tradeoff.md) (CV measures where you sit on the curve) · [Classification Metrics](../../supervised-learning/classification/classification-metrics/classification-metrics.md) (what you score per fold) · [Stacking & Blending](../../supervised-learning/trees-and-ensembles/stacking-and-blending/stacking-and-blending.md) (out-of-fold predictions power stacking)
-- Math prerequisites: [01. Foundations](../../../foundations/mathematical-foundations/README.md) — sampling, variance of an estimator, generalization
+- Concept page (full explanation): [Cross-Validation](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/cross-validation/cross-validation)
+- Concept depth (the *why*): [ai-ml-intuitions 3.07 Bias–Variance & Generalization](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/generalization/bias-variance-tradeoff-intuition) · [3.05 Classification Metrics](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/predictive-evaluation/classification-metrics-intuition)
+- Related: [Bias–Variance Tradeoff](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/bias-variance-tradeoff/bias-variance-tradeoff) (CV measures where you sit on the curve) · [Classification Metrics](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/classification-metrics/classification-metrics) (what you score per fold) · [Stacking & Blending](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/stacking-and-blending/stacking-and-blending) (out-of-fold predictions power stacking)
+- Math prerequisites: [01. Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme) — sampling, variance of an estimator, generalization

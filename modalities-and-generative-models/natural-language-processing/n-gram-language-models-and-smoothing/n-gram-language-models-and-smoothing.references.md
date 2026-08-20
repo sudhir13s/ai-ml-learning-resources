@@ -8,7 +8,7 @@ updated: 2026-06-27
 
 # N-gram Language Models and Smoothing — references and further reading
 
-> Companion link library for **[N-gram Language Models and Smoothing](n-gram-language-models-and-smoothing.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author (the inventors of these methods) or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
+> Companion link library for **[N-gram Language Models and Smoothing](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/n-gram-language-models-and-smoothing/n-gram-language-models-and-smoothing)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author (the inventors of these methods) or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [N-gram Language Models](https://www.youtube.com/watch?v=GiyMGBuu45w) (**Machine Learning TV / Dan Jurafsky-style walkthrough**). *See counts turn into next-word probabilities.*
@@ -53,9 +53,9 @@ updated: 2026-06-27
 - [Figure generator `make_figures_04.py`](code/make_figures_04.py) — regenerates all eight `ng_*` figures from the SAME functions, so the prose and the plots cannot drift.
 
 **In this platform**:
-- Concept page (full explanation): [N-gram Language Models and Smoothing](n-gram-language-models-and-smoothing.md)
-- Precursor representation (counts → vectors): [Bag-of-Words and TF-IDF](../bag-of-words-and-tf-idf/bag-of-words-and-tf-idf.md) — the other count-based text model.
-- The successor that fixed the semantics gap: [Word Embeddings: Word2Vec, GloVe, FastText](../word-embeddings-word2vec-glove-fasttext/word-embeddings-word2vec-glove-fasttext.md) — dense vectors so "blue" and "green" relate.
-- Where perplexity is defined alongside the other metrics: [NLP Evaluation Metrics](../nlp-evaluation-metrics/nlp-evaluation-metrics.md).
-- The neural successors to n-gram LMs: [Sequence-to-Sequence and Encoder–Decoder](../sequence-to-sequence-and-encoder-decoder/sequence-to-sequence-and-encoder-decoder.md), and the LLMs in [LLMs, Applications and Agents](../../../llms-applications-and-agents) (same chain-rule objective, learned estimator).
-- The *why* behind autoregressive generation: [ai-ml-intuitions 5.05 Autoregressive Generation & Sampling](../../../../ai-ml-intuitions/generation/autoregressive-generation/autoregressive-generation-and-sampling-controls-intuition.md).
+- Concept page (full explanation): [N-gram Language Models and Smoothing](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/n-gram-language-models-and-smoothing/n-gram-language-models-and-smoothing)
+- Precursor representation (counts → vectors): [Bag-of-Words and TF-IDF](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/bag-of-words-and-tf-idf/bag-of-words-and-tf-idf) — the other count-based text model.
+- The successor that fixed the semantics gap: [Word Embeddings: Word2Vec, GloVe, FastText](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/word-embeddings-word2vec-glove-fasttext/word-embeddings-word2vec-glove-fasttext) — dense vectors so "blue" and "green" relate.
+- Where perplexity is defined alongside the other metrics: [NLP Evaluation Metrics](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/nlp-evaluation-metrics/nlp-evaluation-metrics).
+- The neural successors to n-gram LMs: [Sequence-to-Sequence and Encoder–Decoder](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sequence-to-sequence-and-encoder-decoder/sequence-to-sequence-and-encoder-decoder), and the LLMs in [LLMs, Applications and Agents](../../../llms-applications-and-agents) (same chain-rule objective, learned estimator).
+- The *why* behind autoregressive generation: [ai-ml-intuitions 5.05 Autoregressive Generation & Sampling](/ai-ml/ai-ml-intuitions/generation/autoregressive-generation/autoregressive-generation-and-sampling-controls-intuition).

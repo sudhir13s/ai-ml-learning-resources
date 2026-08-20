@@ -30,7 +30,7 @@ By the end of this page you'll be able to:
 - pick the right decoder for a task — **closed-ended** (translation, extraction) vs **open-ended** (chat, story);
 - prove every one of these claims in runnable from-scratch code.
 
-> **Note — this is about *which* token, not *how fast*.** A neighbouring page, [Inference Optimization & Serving](../inference-optimization/inference-optimization.md), covers **speculative decoding** — but that is a pure *speed* trick whose output is provably **distributionally identical** to plain sampling. This page is about decoding *strategy* — the choice that **changes what text you get**. Speculative decoding makes a given strategy faster; it never changes which strategy you chose. Keep the two ideas in separate drawers.
+> **Note — this is about *which* token, not *how fast*.** A neighbouring page, [Inference Optimization & Serving](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/inference-optimization/inference-optimization), covers **speculative decoding** — but that is a pure *speed* trick whose output is provably **distributionally identical** to plain sampling. This page is about decoding *strategy* — the choice that **changes what text you get**. Speculative decoding makes a given strategy faster; it never changes which strategy you chose. Keep the two ideas in separate drawers.
 
 ---
 
@@ -358,7 +358,7 @@ This is why API providers expose `temperature`, `top_p`, `top_k`, `frequency_pen
 A few realities of how this is deployed:
 
 - **Defaults that ship.** Most chat APIs default to **nucleus sampling around $p=0.9$–$1.0$ with $T=0.7$–$1.0$**. OpenAI, Anthropic, and open-source serving stacks (vLLM, TGI) all expose `temperature` + `top_p` (+ often `top_k`, `min_p`, and frequency/presence penalties) as request parameters.
-- **Decoders compose with serving optimizations.** [Speculative decoding](../inference-optimization/inference-optimization.md) accelerates *whatever* decoder you chose — its rejection-sampling correction makes the sped-up output **distributionally identical** to plain sampling from your chosen strategy. The two are orthogonal: 18 picks the strategy, 09 makes it fast.
+- **Decoders compose with serving optimizations.** [Speculative decoding](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/inference-optimization/inference-optimization) accelerates *whatever* decoder you chose — its rejection-sampling correction makes the sped-up output **distributionally identical** to plain sampling from your chosen strategy. The two are orthogonal: 18 picks the strategy, 09 makes it fast.
 - **Beam search is fading for chat, alive for MT.** As models got better at open-ended generation, beam search's blandness made it a poor fit for assistants; it remains standard in **machine-translation and speech** systems where a single best sequence is the goal.
 - **Structured / constrained decoding** layers a *grammar* on top of sampling — at each step, mask out tokens that would violate a JSON schema or regex before sampling. It's the same truncation idea (zero out disallowed tokens, renormalize) applied to *syntactic validity* rather than probability, and it's how reliable "respond in JSON" modes work.
 - **Reproducibility in evals.** Benchmarks usually decode **greedily** (or at $T=0$) precisely so results are deterministic and comparable; sampling-based metrics report a seed.

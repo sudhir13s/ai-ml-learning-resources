@@ -32,7 +32,7 @@ always exist?" is a recurring interview question.
 2. **Nail Nash equilibrium** — watch [Game Theory 101 (#5): What Is a Nash Equilibrium?](https://www.youtube.com/watch?v=5TcYV6CZ7mI). *The single most important solution concept, cleanly.*
 3. **See mixed strategies** — watch [What Is a Nash Equilibrium? (Stoplight Game)](https://www.youtube.com/watch?v=0i7p9DNvtjk). *Why randomizing can be optimal — the bridge to minimax.*
 4. **Read the reference** — work [Multiagent Systems (Shoham & Leyton-Brown), Ch. 3–5](https://www.masfoundations.org/mas.pdf). *Normal/extensive games, equilibria, and computation, the free standard text.*
-5. **Connect to ML** — read [GANs](https://arxiv.org/abs/1406.2661) and link to [bandits/RL](../../../core-machine-learning/reinforcement-learning/README.md). *Minimax games, self-play, and learning dynamics in modern ML.*
+5. **Connect to ML** — read [GANs](https://arxiv.org/abs/1406.2661) and link to [bandits/RL](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/readme). *Minimax games, self-play, and learning dynamics in modern ML.*
 
 ## 🎓 Courses (free)
 - [Game Theory (Open Yale ECON-159)](https://oyc.yale.edu/economics/econ-159) — **Ben Polak (Yale)** — the legendary full course: dominance, Nash, mixed strategies, signaling, free video + transcripts.
@@ -60,7 +60,7 @@ always exist?" is a recurring interview question.
 - [Convex Optimization — **§5.4–5.8 (duality, minimax, saddle points)**](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf) — **Boyd & Vandenberghe** — the minimax-duality math behind zero-sum games, free.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 5.04 GANs & WGAN](../../../../ai-ml-intuitions/generation/adversarial-generation/gans-and-wasserstein-gans-intuition.md) · [6.04 MDPs & Exploration](../../../../ai-ml-intuitions/decision-making-and-control/mdps-and-environments/mdps-and-exploration-intuition.md)
-- Prerequisite & related: [04 Convex Analysis & Duality (minimax)](../convex-analysis-and-duality/convex-analysis-and-duality.md) · [14 Causal Inference (interventions)](../causal-inference/causal-inference.md) · [09 Optimal Transport (WGAN)](../optimal-transport-wasserstein/optimal-transport-wasserstein.md)
-- Related domain (multi-agent decisions): [10. Reinforcement Learning](../../../core-machine-learning/reinforcement-learning/README.md)
+- Concept depth (the *why*): [ai-ml-intuitions 5.04 GANs & WGAN](/ai-ml/ai-ml-intuitions/generation/adversarial-generation/gans-and-wasserstein-gans-intuition) · [6.04 MDPs & Exploration](/ai-ml/ai-ml-intuitions/decision-making-and-control/mdps-and-environments/mdps-and-exploration-intuition)
+- Prerequisite & related: [04 Convex Analysis & Duality (minimax)](/ai-ml/ai-ml-learning-resources/specialized-studies/advanced-mathematics-for-ai-research/convex-analysis-and-duality/convex-analysis-and-duality) · [14 Causal Inference (interventions)](/ai-ml/ai-ml-learning-resources/specialized-studies/advanced-mathematics-for-ai-research/causal-inference/causal-inference) · [09 Optimal Transport (WGAN)](/ai-ml/ai-ml-learning-resources/specialized-studies/advanced-mathematics-for-ai-research/optimal-transport-wasserstein/optimal-transport-wasserstein)
+- Related domain (multi-agent decisions): [10. Reinforcement Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/readme)
 </content>

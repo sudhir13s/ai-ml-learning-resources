@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Bias–Variance Tradeoff — references and further reading
 
-> Companion link library for **[Bias–Variance Tradeoff](bias-variance-tradeoff.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
+> Companion link library for **[Bias–Variance Tradeoff](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/bias-variance-tradeoff/bias-variance-tradeoff)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Bias and Variance](https://www.youtube.com/watch?v=EuBBz3bI-aA) (**StatQuest**), then play with [MLU-Explain: Bias–Variance](https://mlu-explain.github.io/bias-variance/). *See simple vs complex fits trade off before any algebra.*
@@ -48,7 +48,7 @@ updated: 2026-06-22
 - [Understanding Machine Learning — Ch. 5 "The Bias–Complexity Tradeoff"](https://www.cs.huji.ac.il/~shais/UnderstandingMachineLearning/understanding-machine-learning-theory-algorithms.pdf) — **Shalev-Shwartz & Ben-David** — the learning-theory framing.
 
 **In this platform**:
-- Concept page (full explanation): [Bias–Variance Tradeoff](bias-variance-tradeoff.md)
-- Concept depth (the *why*): [ai-ml-intuitions 3.07 Bias–Variance & Generalization](../../../../ai-ml-intuitions/objectives-and-evaluation/generalization/bias-variance-tradeoff-intuition.md) · [3.08 Ensembles (Bagging/Boosting)](../../../../ai-ml-intuitions/architectural-mechanisms/composition/bagging-and-boosting-intuition.md)
-- Related: [Regularization (Linear Models)](../../supervised-learning/regression/regularization-linear-models/regularization-linear-models.md) (trades bias for variance) · [Bagging](../../supervised-learning/trees-and-ensembles/bagging/bagging.md) / [Random Forests](../../supervised-learning/trees-and-ensembles/random-forests/random-forests.md) (cut variance) · [Gradient Boosting](../../supervised-learning/trees-and-ensembles/gradient-boosting-xgboost/gradient-boosting-xgboost.md) (cuts bias)
-- Math prerequisites: [01. Foundations](../../../foundations/mathematical-foundations/README.md) — expectation, variance, generalization error
+- Concept page (full explanation): [Bias–Variance Tradeoff](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/bias-variance-tradeoff/bias-variance-tradeoff)
+- Concept depth (the *why*): [ai-ml-intuitions 3.07 Bias–Variance & Generalization](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/generalization/bias-variance-tradeoff-intuition) · [3.08 Ensembles (Bagging/Boosting)](/ai-ml/ai-ml-intuitions/architectural-mechanisms/composition/bagging-and-boosting-intuition)
+- Related: [Regularization (Linear Models)](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/regression/regularization-linear-models/regularization-linear-models) (trades bias for variance) · [Bagging](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/bagging/bagging) / [Random Forests](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/random-forests/random-forests) (cut variance) · [Gradient Boosting](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/gradient-boosting-xgboost/gradient-boosting-xgboost) (cuts bias)
+- Math prerequisites: [01. Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme) — expectation, variance, generalization error

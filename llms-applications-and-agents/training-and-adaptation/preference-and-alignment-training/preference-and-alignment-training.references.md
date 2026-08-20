@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # RLHF & DPO — references and further reading
 
-> Companion link library for **[RLHF & DPO](preference-and-alignment-training.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
+> Companion link library for **[RLHF & DPO](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/preference-and-alignment-training/preference-and-alignment-training)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [RLHF, Clearly Explained](https://www.youtube.com/watch?v=qPN_XZcJf_s) (**StatQuest**). *The 3-stage pipeline without the heavy math.*
@@ -52,9 +52,9 @@ updated: 2026-06-22
 - [A Survey of Large Language Models — §5 Alignment Tuning](https://arxiv.org/abs/2303.18223) — **Zhao et al. (2023)** — RLHF and its alternatives, book-length reference.
 
 **In this platform**:
-- Concept page (full explanation): [RLHF & DPO](preference-and-alignment-training.md)
+- Concept page (full explanation): [RLHF & DPO](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/preference-and-alignment-training/preference-and-alignment-training)
 - Hands-on project: [RLHF & Alignment workflow](../../../../Practitioner-Workflows/RLHF-and-Alignment/RLHF-and-Alignment.md) (collect pairs → reward model → PPO → DPO, step by step)
-- Concept depth (the *why*): [ai-ml-intuitions 6.03 PPO and RLHF](../../../../ai-ml-intuitions/decision-making-and-control/stable-policy-optimization/ppo-and-rl-from-human-feedback-intuition.md) · [6.02 Policy Gradients / REINFORCE](../../../../ai-ml-intuitions/decision-making-and-control/policy-learning/policy-gradients-intuition.md)
-- Prerequisites: [Supervised Fine-Tuning](../supervised-fine-tuning/supervised-fine-tuning.md) · [Instruction Tuning](../instruction-tuning/instruction-tuning.md)
+- Concept depth (the *why*): [ai-ml-intuitions 6.03 PPO and RLHF](/ai-ml/ai-ml-intuitions/decision-making-and-control/stable-policy-optimization/ppo-and-rl-from-human-feedback-intuition) · [6.02 Policy Gradients / REINFORCE](/ai-ml/ai-ml-intuitions/decision-making-and-control/policy-learning/policy-gradients-intuition)
+- Prerequisites: [Supervised Fine-Tuning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/supervised-fine-tuning/supervised-fine-tuning) · [Instruction Tuning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/instruction-tuning/instruction-tuning)
 - RL foundations: [Reinforcement Learning](../../../../core-machine-learning/reinforcement-learning/README.md) (PPO & policy gradients)
-- Related: [Hallucination & Alignment Basics](../../reasoning-evaluation-and-alignment/safety-and-alignment/safety-and-alignment.md)
+- Related: [Hallucination & Alignment Basics](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/safety-and-alignment/safety-and-alignment)

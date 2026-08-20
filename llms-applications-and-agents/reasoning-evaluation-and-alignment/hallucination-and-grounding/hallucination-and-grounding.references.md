@@ -8,7 +8,7 @@ updated: 2026-07-02
 
 # Guardrails & Hallucination Mitigation — references and further reading
 
-> Companion link library for **[Guardrails & Hallucination Mitigation](hallucination-and-grounding.md)**
+> Companion link library for **[Guardrails & Hallucination Mitigation](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/hallucination-and-grounding/hallucination-and-grounding)**
 > (the concept page). External sources *and* internal cross-links, kept separate so it can be reused as
 > a standalone list. Grouped by type, best-first. Every entry is free/open (no paywall) and chosen for
 > depth on *this* topic — input/output rails, prompt-injection defense, grounding-based abstention, and
@@ -58,9 +58,9 @@ updated: 2026-07-02
 - [Speech and Language Processing, 3rd ed. — Ch. 14 "Question Answering & Information Retrieval"](https://web.stanford.edu/~jurafsky/slp3/14.pdf) — **Jurafsky & Martin** — grounding and answer-faithfulness/abstention foundations behind output guardrails, free PDF.
 
 **In this platform**:
-- Concept page (full explanation): [Guardrails & Hallucination Mitigation](hallucination-and-grounding.md)
-- Concept depth (the *why*): [ai-ml-intuitions 8.02 Retrieval-Augmented Generation](../../../../ai-ml-intuitions/memory-retrieval-and-context/retrieval-augmented-generation/rag-intuition.md) · [8.01 In-Context Learning & Prompting](../../../../ai-ml-intuitions/reasoning-and-agency/in-context-behavior/in-context-learning-and-prompting-intuition.md)
-- Machinery reused here: [05 Hybrid Search (the DenseRetriever)](../../rag-and-knowledge-systems/hybrid-search/hybrid-search.md) · [11 RAG Evaluation (the faithfulness/grounding proxy)](../../rag-and-knowledge-systems/rag-evaluation/rag-evaluation.md) · [13 Citations & Attribution (the grounding cosine + cosine≠entailment caveat)](../../rag-and-knowledge-systems/citations-and-attribution/citations-and-attribution.md)
-- Foundations: [01 RAG Fundamentals](../../rag-and-knowledge-systems/rag-foundations/rag-foundations.md) · [08 Advanced RAG (Self-RAG support check)](../../rag-and-knowledge-systems/advanced-rag/advanced-rag.md)
-- Next / related: [15 LLM App Orchestration](../../agentic-ai/llm-app-orchestration/llm-app-orchestration.md)
-- Related domain: [LLMs — Hallucination & Alignment Basics](../safety-and-alignment/safety-and-alignment.md)
+- Concept page (full explanation): [Guardrails & Hallucination Mitigation](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/hallucination-and-grounding/hallucination-and-grounding)
+- Concept depth (the *why*): [ai-ml-intuitions 8.02 Retrieval-Augmented Generation](/ai-ml/ai-ml-intuitions/memory-retrieval-and-context/retrieval-augmented-generation/rag-intuition) · [8.01 In-Context Learning & Prompting](/ai-ml/ai-ml-intuitions/reasoning-and-agency/in-context-behavior/in-context-learning-and-prompting-intuition)
+- Machinery reused here: [05 Hybrid Search (the DenseRetriever)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search) · [11 RAG Evaluation (the faithfulness/grounding proxy)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-evaluation/rag-evaluation) · [13 Citations & Attribution (the grounding cosine + cosine≠entailment caveat)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/citations-and-attribution/citations-and-attribution)
+- Foundations: [01 RAG Fundamentals](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-foundations/rag-foundations) · [08 Advanced RAG (Self-RAG support check)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/advanced-rag/advanced-rag)
+- Next / related: [15 LLM App Orchestration](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/llm-app-orchestration/llm-app-orchestration)
+- Related domain: [LLMs — Hallucination & Alignment Basics](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/safety-and-alignment/safety-and-alignment)

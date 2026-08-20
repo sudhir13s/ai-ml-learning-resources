@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Hierarchical Clustering — references and further reading
 
-> Companion link library for **[Hierarchical Clustering](hierarchical-clustering.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
+> Companion link library for **[Hierarchical Clustering](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/hierarchical-clustering/hierarchical-clustering)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [StatQuest: Hierarchical Clustering](https://www.youtube.com/watch?v=7xHsRkOdVwo) (**Josh Starmer**). *See points merge into a dendrogram and how you "cut" it to get clusters.*
@@ -48,8 +48,8 @@ updated: 2026-06-22
 - [Introduction to Data Mining — Ch. 8 "Cluster Analysis"](https://www-users.cse.umn.edu/~kumar001/dmbook/index.php) — **Tan, Steinbach, Karpatne & Kumar** — free chapter PDFs; the clearest textbook walkthrough of agglomerative merges, MIN/MAX/group-average, and Ward.
 
 **In this platform**:
-- Concept page (full explanation): [Hierarchical Clustering](hierarchical-clustering.md)
-- Compare with the siblings: [K-Means Clustering](../k-means-clustering/k-means-clustering.md) · [DBSCAN](../dbscan/dbscan.md) · [Gaussian Mixture Models & EM](../gaussian-mixture-models-and-em/gaussian-mixture-models-and-em.md) · [Spectral Clustering](../spectral-clustering/spectral-clustering.md)
-- Foundations (the *why* behind the distance): [ai-ml-intuitions 1.07–1.08 Euclidean vs Cosine Distance](../../../../../ai-ml-intuitions/representation/similarity-and-distance/cosine-vs-euclidean-distance-intuition.md)
+- Concept page (full explanation): [Hierarchical Clustering](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/hierarchical-clustering/hierarchical-clustering)
+- Compare with the siblings: [K-Means Clustering](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/k-means-clustering/k-means-clustering) · [DBSCAN](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/dbscan/dbscan) · [Gaussian Mixture Models & EM](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/gaussian-mixture-models-and-em/gaussian-mixture-models-and-em) · [Spectral Clustering](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/spectral-clustering/spectral-clustering)
+- Foundations (the *why* behind the distance): [ai-ml-intuitions 1.07–1.08 Euclidean vs Cosine Distance](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/cosine-vs-euclidean-distance-intuition)
 - Prereq math: [Vectors and Vector Spaces](/ai-ml/ai-ml-learning-resources/foundations/vectors-and-vector-spaces/notes-theory) and [Matrices and Matrix Operations](/ai-ml/ai-ml-learning-resources/foundations/matrices-and-matrix-operations/notes-theory)
-- Field overview: [4. Unsupervised Learning](../../README.md)
+- Field overview: [4. Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)

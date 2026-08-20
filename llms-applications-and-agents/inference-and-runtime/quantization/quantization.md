@@ -19,7 +19,7 @@ category: inference-and-runtime
 
 Llama-2-70B in the precision it was trained at — FP16, two bytes per parameter — is **140 GB of weights**. No single GPU has that much memory: the largest commodity accelerator (an 80 GB A100 or H100) can't even *hold* it, let alone leave room for the KV cache and activations. So you either buy two GPUs and pay the cost (and latency) of splitting the model across them, or you find a way to make the weights smaller. **Quantization is that way.** Store each weight in 4 bits instead of 16 and the same model is **~37 GB** — it fits on one 40 GB GPU, with room to spare, at a quality loss small enough that most users never notice.
 
-And it's not only about *fitting*. Recall from [KV Cache](../kv-cache/kv-cache.md) that LLM **decoding is memory-bandwidth-bound** — each generated token forces the GPU to stream every weight out of memory to do a tiny amount of math, so the GPU's compute units sit ~99% idle waiting on memory. Halve the bytes of those weights and you roughly **halve the time per token**. Quantization is the rare optimization that shrinks memory *and* speeds up the bottleneck at the same time.
+And it's not only about *fitting*. Recall from [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) that LLM **decoding is memory-bandwidth-bound** — each generated token forces the GPU to stream every weight out of memory to do a tiny amount of math, so the GPU's compute units sit ~99% idle waiting on memory. Halve the bytes of those weights and you roughly **halve the time per token**. Quantization is the rare optimization that shrinks memory *and* speeds up the bottleneck at the same time.
 
 I'm going to build this the way I'd actually teach it at a whiteboard: start with the **one formula** every method shares (map a real number to a small integer), feel exactly where it loses information, then hit the single fact that makes *LLM* quantization genuinely hard — **outliers** — and watch how each production method (LLM.int8(), GPTQ, AWQ, SmoothQuant, NF4/QLoRA, GGUF) is a different answer to that one problem. By the end you'll be able to:
 
@@ -297,13 +297,13 @@ $$XW = \big(X \cdot \operatorname{diag}(s)^{-1}\big)\big(\operatorname{diag}(s) 
 
 ### NF4 / QLoRA — a 4-bit datatype shaped for weights, for fine-tuning
 
-**NF4 (4-bit NormalFloat)** abandons the evenly-spaced ruler. Since weights are ~Gaussian, NF4 places its 16 levels at the **quantiles of a normal distribution** — denser near zero where the weights are, sparser in the tails — so it's *information-theoretically optimal for normally-distributed data*. **QLoRA** uses NF4 to freeze the base model in 4 bits and trains small [LoRA](../../training-and-adaptation/lora-and-parameter-efficient-fine-tuning/lora-and-parameter-efficient-fine-tuning.md) adapters on top in FP16, making it possible to **fine-tune a 65B model on a single 48 GB GPU**.
+**NF4 (4-bit NormalFloat)** abandons the evenly-spaced ruler. Since weights are ~Gaussian, NF4 places its 16 levels at the **quantiles of a normal distribution** — denser near zero where the weights are, sparser in the tails — so it's *information-theoretically optimal for normally-distributed data*. **QLoRA** uses NF4 to freeze the base model in 4 bits and trains small [LoRA](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/lora-and-parameter-efficient-fine-tuning/lora-and-parameter-efficient-fine-tuning) adapters on top in FP16, making it possible to **fine-tune a 65B model on a single 48 GB GPU**.
 
 ![NF4's 16 levels (green, the actual quantile-spaced values from the QLoRA paper) vs evenly-spaced int4 levels (amber), overlaid on a Gaussian weight histogram. NF4 packs its levels where the weights actually are — dense near 0, sparse in the tails — while evenly-spaced int4 wastes resolution on the near-empty tails. This is what "optimal for Gaussian data" means concretely.](images/nf4_vs_int4_levels.png)
 
 > **Source / derivation:** [Dettmers et al., *QLoRA: Efficient Finetuning of Quantized LLMs* (2023)](https://arxiv.org/abs/2305.14314) — the NF4 quantile-spaced datatype, double quantization (quantize the scales too), and paged optimizers; fine-tunes a 4-bit base via FP16 LoRA adapters.
 
-**Contributes:** the bridge between quantization and **fine-tuning** — quantize the base for memory, adapt with LoRA for quality. (This is the direct link from this chapter to [LoRA / PEFT](../../training-and-adaptation/lora-and-parameter-efficient-fine-tuning/lora-and-parameter-efficient-fine-tuning.md).)
+**Contributes:** the bridge between quantization and **fine-tuning** — quantize the base for memory, adapt with LoRA for quality. (This is the direct link from this chapter to [LoRA / PEFT](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/lora-and-parameter-efficient-fine-tuning/lora-and-parameter-efficient-fine-tuning).)
 
 ### GGUF / llama.cpp k-quants — quantization for running on *your* machine
 
@@ -357,9 +357,9 @@ $$\text{bytes/param (int4, group } g) = \underbrace{\tfrac{4}{8}}_{\text{code}} 
   -> int4 fits 70B in 37 GB (from 140 GB) — one 40GB GPU instead of two 80GB
 ```
 
-The smaller $g$, the less error (finer scales) but the more scale overhead; $g \in \{64, 128\}$ is the usual balance. And note this is **weights only** — at inference you must *also* budget the [KV cache](../kv-cache/kv-cache.md) and activations, which is why a 37 GB int4 model still wants a 40 GB GPU rather than a 38 GB one.
+The smaller $g$, the less error (finer scales) but the more scale overhead; $g \in \{64, 128\}$ is the usual balance. And note this is **weights only** — at inference you must *also* budget the [KV cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) and activations, which is why a 37 GB int4 model still wants a 40 GB GPU rather than a 38 GB one.
 
-> **Note (the bandwidth payoff):** because decode is memory-bandwidth-bound, these byte reductions translate almost directly into **speed** on the decode path — int4 weights stream in ~4× fewer bytes per token than FP16. This is the same "the bytes *are* the speed" logic from the [KV Cache](../kv-cache/kv-cache.md) chapter, now applied to the weights instead of the cache. Quantize **both** the weights *and* the KV cache and you've shrunk both terms the GPU has to stream.
+> **Note (the bandwidth payoff):** because decode is memory-bandwidth-bound, these byte reductions translate almost directly into **speed** on the decode path — int4 weights stream in ~4× fewer bytes per token than FP16. This is the same "the bytes *are* the speed" logic from the [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) chapter, now applied to the weights instead of the cache. Quantize **both** the weights *and* the KV cache and you've shrunk both terms the GPU has to stream.
 
 ---
 
@@ -441,7 +441,7 @@ The things that actually bite:
 
 - **Quality is razor-thin and you're at ≤3 bits.** Below ~4 bits the error curve turns up; measure task accuracy (not just perplexity) before shipping. A 1-point perplexity move can be several points on a downstream benchmark.
 - **The bottleneck is compute, not memory, and you only quantized weights.** Weight-only int4 speeds the bandwidth-bound *decode*; it does little for a compute-bound *prefill*. For prefill speedups you need weight+activation (SmoothQuant/W8A8) and integer-matmul kernels.
-- **You need bit-exact reproducibility** (e.g. regression-testing logits) — quantization changes the outputs slightly by construction. Unlike the [KV cache](../kv-cache/kv-cache.md) (which is bit-for-bit identical), quantization is a genuine, if small, approximation.
+- **You need bit-exact reproducibility** (e.g. regression-testing logits) — quantization changes the outputs slightly by construction. Unlike the [KV cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) (which is bit-for-bit identical), quantization is a genuine, if small, approximation.
 
 ---
 
@@ -452,8 +452,8 @@ Concrete, verified anchors:
 - **bitsandbytes** ships **LLM.int8()** and **NF4/QLoRA** inside Hugging Face Transformers — `load_in_8bit=True` / `load_in_4bit=True`. QLoRA's headline: fine-tuning a **65B** model on a single **48 GB** GPU, recovering full-finetune quality on the Guanaco benchmark ([Dettmers et al., 2023](https://arxiv.org/abs/2305.14314)).
 - **GPTQ** and **AWQ** are the two dominant 4-bit weight-only formats on the Hugging Face Hub; vLLM, TGI, and TensorRT-LLM all serve them with custom 4-bit kernels. AWQ is frequently the default for new 4-bit serving deployments for its quality-and-speed balance ([Lin et al., 2023](https://arxiv.org/abs/2306.00978)).
 - **GGUF k-quants** power **llama.cpp** / **Ollama** / **LM Studio** — the standard way millions of people run LLMs locally. `Q4_K_M` is the most-downloaded variant: 4-bit, k-quant, medium — the practical sweet spot.
-- **FP8** is the emerging production default on Hopper/Blackwell GPUs: hardware-native 8-bit floating point, often essentially lossless, increasingly used for *both* weights and the **KV cache** (tying back to the [KV Cache](../kv-cache/kv-cache.md) quantization lever).
-- **The recurring stack:** a "70B served cheaply" deployment is usually **int4 (AWQ/GPTQ) weights + FP8 KV cache + PagedAttention + FlashAttention** — quantization shrinks the weights *and* the cache, and the [serving](../inference-optimization/inference-optimization.md) stack handles the rest.
+- **FP8** is the emerging production default on Hopper/Blackwell GPUs: hardware-native 8-bit floating point, often essentially lossless, increasingly used for *both* weights and the **KV cache** (tying back to the [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) quantization lever).
+- **The recurring stack:** a "70B served cheaply" deployment is usually **int4 (AWQ/GPTQ) weights + FP8 KV cache + PagedAttention + FlashAttention** — quantization shrinks the weights *and* the cache, and the [serving](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/inference-optimization/inference-optimization) stack handles the rest.
 
 ---
 

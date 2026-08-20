@@ -8,7 +8,7 @@ updated: 2026-06-27
 
 # Contextual Embeddings — references and further reading
 
-> Companion link library for **[Contextual Embeddings (ELMo · BERT)](contextual-embeddings-elmo-bert.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity. Links verified 2026-06-22.
+> Companion link library for **[Contextual Embeddings (ELMo · BERT)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity. Links verified 2026-06-22.
 
 **Start here — suggested path**:
 1. **Build intuition** — read [The Illustrated BERT, ELMo & co.](https://jalammar.github.io/illustrated-bert/) (**Jay Alammar**). *The clearest visual story of how contextual representations work — the one explainer to read first.*
@@ -56,10 +56,10 @@ updated: 2026-06-27
 - [Dive into Deep Learning — BERT: pretraining + fine-tuning](https://d2l.ai/chapter_natural-language-processing-pretraining/bert.html) — **Zhang et al.** — BERT built from scratch with runnable code.
 
 **In this platform**:
-- Concept page (full explanation): [Contextual Embeddings (ELMo · BERT)](contextual-embeddings-elmo-bert.md)
+- Concept page (full explanation): [Contextual Embeddings (ELMo · BERT)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert)
 - Runnable code: [step-by-step teaching notebook](code/contextual-embeddings-elmo-bert.ipynb) · [source-of-truth module](code/contextual_embeddings.py) · [figure generator](code/make_figures_06.py) — the same functions produce the page's numbers, the notebook, and every figure.
-- The static limitation it fixes: [Word Embeddings (word2vec · GloVe · fastText)](../word-embeddings-word2vec-glove-fasttext/word-embeddings-word2vec-glove-fasttext.md)
-- Builds on this: [Sentence & Document Embeddings (Sentence-BERT · USE)](../sentence-and-document-embeddings/sentence-and-document-embeddings.md) — the naive-`[CLS]` trap and its fix.
-- Foundations: [Tokenization & Subword Algorithms](../tokenization-and-subword-algorithms/tokenization-and-subword-algorithms.md) · [Transformer Architecture](../../../deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture.md) · [Attention Mechanism](../../../deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism.md)
-- The decoder lineage: [KV Cache](../../../llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.md) (why encoders don't need one) · the [LLMs concept index](../../../llms-applications-and-agents/README.md)
-- Concept depth (the *why* behind dense vectors): [ai-ml-intuitions 1.02 Dense Embeddings](../../../../ai-ml-intuitions/representation/embedding-spaces/dense-embeddings-intuition.md)
+- The static limitation it fixes: [Word Embeddings (word2vec · GloVe · fastText)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/word-embeddings-word2vec-glove-fasttext/word-embeddings-word2vec-glove-fasttext)
+- Builds on this: [Sentence & Document Embeddings (Sentence-BERT · USE)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sentence-and-document-embeddings/sentence-and-document-embeddings) — the naive-`[CLS]` trap and its fix.
+- Foundations: [Tokenization & Subword Algorithms](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/tokenization-and-subword-algorithms/tokenization-and-subword-algorithms) · [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture) · [Attention Mechanism](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism)
+- The decoder lineage: [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) (why encoders don't need one) · the [LLMs concept index](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme)
+- Concept depth (the *why* behind dense vectors): [ai-ml-intuitions 1.02 Dense Embeddings](/ai-ml/ai-ml-intuitions/representation/embedding-spaces/dense-embeddings-intuition)

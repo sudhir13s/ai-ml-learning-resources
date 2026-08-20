@@ -57,5 +57,5 @@ extrapolation error), what distributional shift is, and how CQL and behavior-con
 - [Algorithms for Reinforcement Learning — **§3 (off-policy value estimation)**](https://sites.ualberta.ca/~szepesva/papers/RLAlgsInMDPs.pdf) — **Csaba Szepesvári** — the theory behind off-policy estimation error.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 6.01 Bellman Optimality & Q-Learning](../../../../../ai-ml-intuitions/decision-making-and-control/value-learning/bellman-equation-and-q-learning-intuition.md)
-- Prereq: [06 Q-Learning](../../value-based-learning/q-learning/q-learning.md) · [13 Continuous Control (DDPG/TD3/SAC)](../../policy-learning/continuous-control-ddpg-td3-sac/continuous-control-ddpg-td3-sac.md)
+- Concept depth (the *why*): [ai-ml-intuitions 6.01 Bellman Optimality & Q-Learning](/ai-ml/ai-ml-intuitions/decision-making-and-control/value-learning/bellman-equation-and-q-learning-intuition)
+- Prereq: [06 Q-Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/value-based-learning/q-learning/q-learning) · [13 Continuous Control (DDPG/TD3/SAC)](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/policy-learning/continuous-control-ddpg-td3-sac/continuous-control-ddpg-td3-sac)

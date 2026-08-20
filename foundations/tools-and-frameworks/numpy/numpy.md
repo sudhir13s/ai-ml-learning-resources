@@ -54,5 +54,5 @@ into every tensor library you'll ever use.
 - [Python Data Science Handbook — **Ch. 2 "Introduction to NumPy"**](https://jakevdp.github.io/PythonDataScienceHandbook/02.00-introduction-to-numpy.html) — **Jake VanderPlas** — full text free online; the best book chapter on NumPy.
 
 ## 🔗 In this platform
-- Related domain: [02. Data_Preprocessing](../../data-preparation/) · [05. Deep Learning](../../../deep-learning/README.md)
-- Next tools: [02 Pandas](../pandas/pandas.md) · [05 PyTorch](../pytorch/pytorch.md)
+- Related domain: [02. Data_Preprocessing](../../data-preparation/) · [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
+- Next tools: [02 Pandas](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/pandas/pandas) · [05 PyTorch](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/pytorch/pytorch)

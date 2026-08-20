@@ -8,7 +8,7 @@ updated: 2026-07-03
 
 # How Models Learn — references and further reading
 
-> Companion link library for **[How Models Learn](how-models-learn.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Everything here is free / open, and every "Source / derivation" citation on the concept page appears below.
+> Companion link library for **[How Models Learn](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/how-models-learn/how-models-learn)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Everything here is free / open, and every "Source / derivation" citation on the concept page appears below.
 
 **Start here — suggested path**:
 1. **Feel it move** — watch [Gradient descent, how neural networks learn](https://www.youtube.com/watch?v=IHZwWFHWa-w) (**3Blue1Brown**). *The ball-rolling-downhill picture on a real loss surface — the best 20 minutes for making learning click.*
@@ -53,10 +53,10 @@ updated: 2026-07-03
 - [An Introduction to Statistical Learning — Ch. 5 "Resampling Methods"](https://www.statlearning.com/) — **James, Witten, Hastie & Tibshirani** — free PDF; cross-validation and honest error estimation.
 
 **In this platform**:
-- Concept page (full explanation): [How Models Learn](how-models-learn.md)
-- The calculus underneath the gradient: [08 Derivatives and Gradients](../../mathematical-foundations/derivatives-and-gradients/derivatives-and-gradients.md)
-- The theory of the loop (convergence, learning-rate bounds, SGD, momentum): [13 Gradient Descent Theory](../../mathematical-foundations/gradient-descent-theory/gradient-descent-theory.md)
-- The classification loss, derived in full: [23 Cross-Entropy and KL Divergence](../../mathematical-foundations/cross-entropy-and-kl-divergence/cross-entropy-and-kl-divergence.md)
-- Next concept — why low training loss isn't enough: [05 Overfitting and Underfitting](../overfitting-and-underfitting/overfitting-and-underfitting.md)
-- Put it all together on a real dataset: [12 Your First ML Project](../../programming-and-data-foundations/your-first-ml-project/your-first-ml-project.md)
-- Go deeper — backprop & optimizers: [05. Deep Learning](../../../deep-learning/README.md)
+- Concept page (full explanation): [How Models Learn](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/how-models-learn/how-models-learn)
+- The calculus underneath the gradient: [08 Derivatives and Gradients](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/derivatives-and-gradients/derivatives-and-gradients)
+- The theory of the loop (convergence, learning-rate bounds, SGD, momentum): [13 Gradient Descent Theory](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/gradient-descent-theory/gradient-descent-theory)
+- The classification loss, derived in full: [23 Cross-Entropy and KL Divergence](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/cross-entropy-and-kl-divergence/cross-entropy-and-kl-divergence)
+- Next concept — why low training loss isn't enough: [05 Overfitting and Underfitting](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/overfitting-and-underfitting/overfitting-and-underfitting)
+- Put it all together on a real dataset: [12 Your First ML Project](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/your-first-ml-project/your-first-ml-project)
+- Go deeper — backprop & optimizers: [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

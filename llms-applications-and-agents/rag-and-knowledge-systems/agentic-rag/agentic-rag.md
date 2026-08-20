@@ -421,7 +421,7 @@ loop pay for it.
 action derails the whole chain**: retrieve the wrong passage at step 1 and the calculator at step 2
 divides the wrong number, and every later step compounds the error. Unlike static RAG (where a bad
 retrieval just yields a bad answer), an agent's mistakes *propagate*. **Fix:** grade each observation
-before trusting it (the Self-RAG support check from [chapter 8](../advanced-rag/advanced-rag.md)),
+before trusting it (the Self-RAG support check from [chapter 8](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/advanced-rag/advanced-rag)),
 and let the policy *retry* a step whose observation looks wrong instead of barreling ahead.
 
 **4) Tool mis-selection.** The router picks the wrong tool — remember the `+0.232 / +0.252` near-tie:

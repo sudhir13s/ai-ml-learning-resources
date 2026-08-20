@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # k-Nearest Neighbors — references and further reading
 
-> Companion link library for **[k-Nearest Neighbors](k-nearest-neighbors.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity. All links verified (HTTP 200).
+> Companion link library for **[k-Nearest Neighbors](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/k-nearest-neighbors/k-nearest-neighbors)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity. All links verified (HTTP 200).
 
 **Start here — suggested path**:
 1. **Build the intuition** — watch [StatQuest: K-nearest neighbors, Clearly Explained](https://www.youtube.com/watch?v=HVXime0nQeI) (**Josh Starmer**). *See the neighbor vote decide the label — the whole algorithm in one short video.*
@@ -54,10 +54,10 @@ updated: 2026-06-22
 - [Dive into Deep Learning — k-NN background & softmax classification](https://d2l.ai/) — **Zhang, Lipton, Li & Smola** — instance-based learning framed alongside modern methods, with runnable code.
 
 **In this platform**:
-- Concept page (full explanation): [k-Nearest Neighbors](k-nearest-neighbors.md)
-- Math prerequisites (the *why*): [01. Foundations](../../../../foundations/mathematical-foundations/README.md) — distance metrics, norms, the curse of dimensionality.
-- The knob k turns: [Bias–Variance Tradeoff](../../../model-selection-and-evaluation/bias-variance-tradeoff/bias-variance-tradeoff.md) — small k = high variance, large k = high bias, made precise.
-- How you actually pick k: [Cross-Validation](../../../model-selection-and-evaluation/cross-validation/cross-validation.md) — never tune k on training error.
-- Why scaling is mandatory: [2. Data Preprocessing](../../../../foundations/data-preparation/README.md) — k-NN is acutely sensitive to feature scaling and encoding.
-- Concept depth (the *why*): [ai-ml-intuitions 1.07–1.08 Euclidean vs Cosine Distance](../../../../../ai-ml-intuitions/representation/similarity-and-distance/cosine-vs-euclidean-distance-intuition.md) · [1.09 Manhattan (L1) Distance](../../../../../ai-ml-intuitions/representation/similarity-and-distance/manhattan-distance-intuition.md) · [1.10 Mahalanobis Distance](../../../../../ai-ml-intuitions/representation/similarity-and-distance/mahalanobis-distance-intuition.md)
-- A contrasting classifier: [Naive Bayes](../naive-bayes/naive-bayes.md) — a generative, parametric alternative to k-NN's lazy, geometric approach.
+- Concept page (full explanation): [k-Nearest Neighbors](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/k-nearest-neighbors/k-nearest-neighbors)
+- Math prerequisites (the *why*): [01. Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme) — distance metrics, norms, the curse of dimensionality.
+- The knob k turns: [Bias–Variance Tradeoff](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/bias-variance-tradeoff/bias-variance-tradeoff) — small k = high variance, large k = high bias, made precise.
+- How you actually pick k: [Cross-Validation](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/cross-validation/cross-validation) — never tune k on training error.
+- Why scaling is mandatory: [2. Data Preprocessing](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/readme) — k-NN is acutely sensitive to feature scaling and encoding.
+- Concept depth (the *why*): [ai-ml-intuitions 1.07–1.08 Euclidean vs Cosine Distance](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/cosine-vs-euclidean-distance-intuition) · [1.09 Manhattan (L1) Distance](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/manhattan-distance-intuition) · [1.10 Mahalanobis Distance](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/mahalanobis-distance-intuition)
+- A contrasting classifier: [Naive Bayes](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/naive-bayes/naive-bayes) — a generative, parametric alternative to k-NN's lazy, geometric approach.

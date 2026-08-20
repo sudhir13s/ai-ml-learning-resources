@@ -57,6 +57,6 @@ classical baselines (HOG + SVM for detection, SIFT for matching) that deep learn
 - [Computer Vision: Algorithms and Applications, 2nd ed. — **Ch. 3 (Image processing)** + **Ch. 7 (Feature detection)**](https://szeliski.org/Book/) — **Richard Szeliski** — the field's free standard reference; filtering, edges, and SIFT in depth.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 4.13 Convolution](../../../../ai-ml-intuitions/architectural-mechanisms/locality-and-weight-sharing/convolution-intuition.md) — filtering *is* convolution; CNNs learn these kernels.
-- Foundation: [Deep Learning › CNNs & Convolution](../../../deep-learning/neural-architectures/cnns-and-convolution/cnns-and-convolution.md)
-- Next concepts: [02 Pooling & Receptive Fields](../pooling-and-receptive-fields/pooling-and-receptive-fields.md) · [03 Classic CNN Architectures](../classic-cnn-architectures/classic-cnn-architectures.md)
+- Concept depth (the *why*): [ai-ml-intuitions 4.13 Convolution](/ai-ml/ai-ml-intuitions/architectural-mechanisms/locality-and-weight-sharing/convolution-intuition) — filtering *is* convolution; CNNs learn these kernels.
+- Foundation: [Deep Learning › CNNs & Convolution](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/cnns-and-convolution/cnns-and-convolution)
+- Next concepts: [02 Pooling & Receptive Fields](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/pooling-and-receptive-fields/pooling-and-receptive-fields) · [03 Classic CNN Architectures](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/classic-cnn-architectures/classic-cnn-architectures)

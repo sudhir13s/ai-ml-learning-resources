@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # DBSCAN — references and further reading
 
-> Companion link library for **[DBSCAN](dbscan.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author (Ester, Sander, Kriegel, Campello, McInnes) or a recognized deep explainer — chosen for depth on *this* topic, not popularity. Every link verified (HTTP 200).
+> Companion link library for **[DBSCAN](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/dbscan/dbscan)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author (Ester, Sander, Kriegel, Campello, McInnes) or a recognized deep explainer — chosen for depth on *this* topic, not popularity. Every link verified (HTTP 200).
 
 **Start here — suggested path:**
 
@@ -56,8 +56,8 @@ updated: 2026-06-22
 - [An Introduction to Statistical Learning — Ch. 12 "Unsupervised Learning"](https://www.statlearning.com/) — **James, Witten, Hastie, Tibshirani & Taylor** — free PDF + Python labs; the gentle companion to ESL for clustering.
 
 **In this platform:**
-- Concept page (full explanation): [DBSCAN](dbscan.md)
-- Contrast with: [01 K-Means Clustering](../k-means-clustering/k-means-clustering.md) (centroid vs density) · [02 Hierarchical Clustering](../hierarchical-clustering/hierarchical-clustering.md) · [04 Gaussian Mixture Models & EM](../gaussian-mixture-models-and-em/gaussian-mixture-models-and-em.md) (soft, probabilistic clustering)
-- Builds on this: [09 Anomaly / Outlier Detection](../../anomaly-detection/anomaly-outlier-detection/anomaly-outlier-detection.md) — DBSCAN's "noise" label is a form of outlier detection.
-- Prereqs (the *why* behind the metric): [k-Nearest Neighbors](../../../supervised-learning/classification/k-nearest-neighbors/k-nearest-neighbors.md) (the same neighborhood/KD-tree machinery) · [ai-ml-intuitions 1.07–1.08 Euclidean vs Cosine Distance](../../../../../ai-ml-intuitions/representation/similarity-and-distance/cosine-vs-euclidean-distance-intuition.md) — density/neighborhoods are defined by the distance metric.
-- Field overview: [4. Unsupervised Learning](../../README.md)
+- Concept page (full explanation): [DBSCAN](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/dbscan/dbscan)
+- Contrast with: [01 K-Means Clustering](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/k-means-clustering/k-means-clustering) (centroid vs density) · [02 Hierarchical Clustering](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/hierarchical-clustering/hierarchical-clustering) · [04 Gaussian Mixture Models & EM](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/gaussian-mixture-models-and-em/gaussian-mixture-models-and-em) (soft, probabilistic clustering)
+- Builds on this: [09 Anomaly / Outlier Detection](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/anomaly-detection/anomaly-outlier-detection/anomaly-outlier-detection) — DBSCAN's "noise" label is a form of outlier detection.
+- Prereqs (the *why* behind the metric): [k-Nearest Neighbors](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/k-nearest-neighbors/k-nearest-neighbors) (the same neighborhood/KD-tree machinery) · [ai-ml-intuitions 1.07–1.08 Euclidean vs Cosine Distance](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/cosine-vs-euclidean-distance-intuition) — density/neighborhoods are defined by the distance metric.
+- Field overview: [4. Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)

@@ -56,6 +56,6 @@ research system (token cost, coordination overhead, evaluation difficulty).
 - [Artificial Intelligence: A Modern Approach — **Ch. 18 "Multiagent Decision Making"**](https://aima.cs.berkeley.edu/) — **Russell & Norvig** — the classical foundations of agents interacting and cooperating.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 8.03 Agents & Tool Use](../../../../ai-ml-intuitions/reasoning-and-agency/agents-and-tools/agent-loop-and-tool-use-intuition.md)
-- Prev / next: [04 Planning](../planning/planning.md) · [08 Model Context Protocol (MCP)](../model-context-protocol/model-context-protocol.md) · [09 Agent Frameworks](../agent-frameworks/agent-frameworks.md)
-- Related (canonical home): [Prompting & In-Context Learning](../../reasoning-evaluation-and-alignment/prompting-and-in-context-learning/prompting-and-in-context-learning.md)
+- Concept depth (the *why*): [ai-ml-intuitions 8.03 Agents & Tool Use](/ai-ml/ai-ml-intuitions/reasoning-and-agency/agents-and-tools/agent-loop-and-tool-use-intuition)
+- Prev / next: [04 Planning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/planning/planning) · [08 Model Context Protocol (MCP)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/model-context-protocol/model-context-protocol) · [09 Agent Frameworks](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/agent-frameworks/agent-frameworks)
+- Related (canonical home): [Prompting & In-Context Learning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/prompting-and-in-context-learning/prompting-and-in-context-learning)

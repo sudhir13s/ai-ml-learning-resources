@@ -57,6 +57,6 @@ practitioners in interviews.
 - [Dive into Deep Learning](https://d2l.ai/) — **Zhang et al.** — runnable code that pairs with models you pull from the Hub.
 
 ## 🔗 In this platform
-- Per-concept index: [Frontier & Staying Current — concepts](../README.md)
-- Pair with: [02 arXiv & Papers with Code](../arxiv-and-papers-with-code/arxiv-and-papers-with-code.md) · [07 Reproducing Papers (code)](../reproducing-papers-code/reproducing-papers-code.md) · [11 Evaluating Hype vs Substance](../evaluating-hype-vs-substance/evaluating-hype-vs-substance.md)
-- Build on these models: [LLMs, Applications and Agents](../../../llms-applications-and-agents/README.md) · [10. GenAI](../../../modalities-and-generative-models/generative-models/README.md) · [16. RAG & LLM Applications](../../../llms-applications-and-agents/rag-and-knowledge-systems/overview.md)
+- Per-concept index: [Frontier & Staying Current — concepts](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/readme)
+- Pair with: [02 arXiv & Papers with Code](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/arxiv-and-papers-with-code/arxiv-and-papers-with-code) · [07 Reproducing Papers (code)](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/reproducing-papers-code/reproducing-papers-code) · [11 Evaluating Hype vs Substance](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/evaluating-hype-vs-substance/evaluating-hype-vs-substance)
+- Build on these models: [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme) · [10. GenAI](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/readme) · [16. RAG & LLM Applications](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/overview)

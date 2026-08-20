@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Regression Metrics — references and further reading
 
-> Companion link library for **[Regression Metrics](regression-metrics.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
+> Companion link library for **[Regression Metrics](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/regression/regression-metrics/regression-metrics)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Linear Regression, Clearly Explained](https://www.youtube.com/watch?v=nk2CQITm_eo) (**StatQuest**). *See residuals — the raw material every regression metric is built from.*
@@ -49,8 +49,8 @@ updated: 2026-06-22
 - [Dive into Deep Learning — Ch. 3 (loss functions)](https://d2l.ai/chapter_linear-regression/index.html) — **Zhang et al.** — squared-error loss as the metric you optimize, with runnable code.
 
 **In this platform**:
-- Concept page (full explanation): [Regression Metrics](regression-metrics.md)
-- Concept depth (the *why*): [ai-ml-intuitions 3.01 Mean Squared Error (MSE / L2)](../../../../../ai-ml-intuitions/objectives-and-evaluation/training-objectives/mean-squared-error-intuition.md) · [3.02 Mean Absolute Error (MAE / L1)](../../../../../ai-ml-intuitions/objectives-and-evaluation/training-objectives/mean-absolute-error-intuition.md)
-- Related: [Linear Regression](../linear-regression/linear-regression.md) (the model these score) · [Classification Metrics](../../classification/classification-metrics/classification-metrics.md) (the discrete-target counterpart) · [Cross-Validation](../../../model-selection-and-evaluation/cross-validation/cross-validation.md) (how you estimate these reliably) · [Bias–Variance Tradeoff](../../../model-selection-and-evaluation/bias-variance-tradeoff/bias-variance-tradeoff.md)
-- Math prerequisites: [01. Foundations](../../../../foundations/mathematical-foundations/README.md) — variance, residuals, L1 vs L2 norms
-- Related domain: [5. Deep Learning](../../../../deep-learning/README.md) — MSE/MAE are the standard regression losses for neural nets too
+- Concept page (full explanation): [Regression Metrics](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/regression/regression-metrics/regression-metrics)
+- Concept depth (the *why*): [ai-ml-intuitions 3.01 Mean Squared Error (MSE / L2)](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/training-objectives/mean-squared-error-intuition) · [3.02 Mean Absolute Error (MAE / L1)](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/training-objectives/mean-absolute-error-intuition)
+- Related: [Linear Regression](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/regression/linear-regression/linear-regression) (the model these score) · [Classification Metrics](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/classification-metrics/classification-metrics) (the discrete-target counterpart) · [Cross-Validation](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/cross-validation/cross-validation) (how you estimate these reliably) · [Bias–Variance Tradeoff](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/bias-variance-tradeoff/bias-variance-tradeoff)
+- Math prerequisites: [01. Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme) — variance, residuals, L1 vs L2 norms
+- Related domain: [5. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme) — MSE/MAE are the standard regression losses for neural nets too

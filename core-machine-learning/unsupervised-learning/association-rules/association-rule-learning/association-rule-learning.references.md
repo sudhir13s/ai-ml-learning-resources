@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Association Rule Learning — references and further reading
 
-> Companion link library for **[Association Rule Learning](association-rule-learning.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author (Agrawal, Han, Zaki), the canonical free textbook (MMDS, ESL), or a recognized deep maintainer (Raschka's mlxtend, Hahsler's arules) — chosen for depth on *this* topic, not popularity.
+> Companion link library for **[Association Rule Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/association-rules/association-rule-learning/association-rule-learning)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author (Agrawal, Han, Zaki), the canonical free textbook (MMDS, ESL), or a recognized deep maintainer (Raschka's mlxtend, Hahsler's arules) — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Apriori Algorithm Explained | Finding Frequent Itemsets](https://www.youtube.com/watch?v=guVvtZ7ZClw) (**edureka!**). *Support / confidence / lift and the candidate-generation loop on a small basket example — the clearest first pass.*
@@ -45,8 +45,8 @@ updated: 2026-06-22
 - [The Elements of Statistical Learning — **§14.2 "Association Rules"**](https://hastie.su.domains/ElemStatLearn/) — **Hastie, Tibshirani & Friedman** — free PDF; the statistical view of support, confidence, and the Apriori algorithm.
 
 **In this platform**:
-- Concept page (full explanation): [Association Rule Learning](association-rule-learning.md)
-- Concept depth (probability foundations): [ai-ml-intuitions 0.01 Probability & Bayes' Theorem](../../../../../ai-ml-intuitions/foundational-mental-models/probability-and-belief/probability-and-bayes-intuition.md) — confidence and lift are conditional-probability quantities.
-- Compare with: [01 K-Means Clustering](../../clustering/k-means-clustering/k-means-clustering.md) · [02 Hierarchical Clustering](../../clustering/hierarchical-clustering/hierarchical-clustering.md) — the other classic "unsupervised structure discovery" techniques.
+- Concept page (full explanation): [Association Rule Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/association-rules/association-rule-learning/association-rule-learning)
+- Concept depth (probability foundations): [ai-ml-intuitions 0.01 Probability & Bayes' Theorem](/ai-ml/ai-ml-intuitions/foundational-mental-models/probability-and-belief/probability-and-bayes-intuition) — confidence and lift are conditional-probability quantities.
+- Compare with: [01 K-Means Clustering](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/k-means-clustering/k-means-clustering) · [02 Hierarchical Clustering](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/hierarchical-clustering/hierarchical-clustering) — the other classic "unsupervised structure discovery" techniques.
 - Prereq math: [Vectors and Vector Spaces](/ai-ml/ai-ml-learning-resources/foundations/vectors-and-vector-spaces/notes-theory) and [Matrices and Matrix Operations](/ai-ml/ai-ml-learning-resources/foundations/matrices-and-matrix-operations/notes-theory)
-- Field overview: [4. Unsupervised Learning](../../README.md)
+- Field overview: [4. Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)

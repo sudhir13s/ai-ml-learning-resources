@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # RNN / LSTM / GRU — references and further reading
 
-> Companion link library for **[RNN / LSTM / GRU](rnn-lstm-gru.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
+> Companion link library for **[RNN / LSTM / GRU](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/rnn-lstm-gru/rnn-lstm-gru)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [RNNs, Clearly Explained](https://www.youtube.com/watch?v=AsNTP8Kwu80) (**StatQuest**), then read [The Unreasonable Effectiveness of RNNs](https://karpathy.github.io/2015/05/21/rnn-effectiveness/) (**Karpathy**). *What a hidden state does and what RNNs can generate.*
@@ -55,8 +55,8 @@ updated: 2026-06-22
 - [Speech and Language Processing, 3rd ed. — Ch. 9 "RNNs and LSTMs"](https://web.stanford.edu/~jurafsky/slp3/9.pdf) — **Jurafsky & Martin** — RNNs/LSTMs framed for language, free draft chapter.
 
 **In this platform**:
-- Concept page (full explanation): [RNN / LSTM / GRU](rnn-lstm-gru.md)
-- Concept depth (the *why*): [ai-ml-intuitions 4.07 Gating Mechanisms (LSTM/GRU)](../../../../ai-ml-intuitions/architectural-mechanisms/memory-and-gating/lstm-and-gru-gates-intuition.md)
-- Prerequisite: [Backpropagation & Computational Graphs](../../neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs.md) (BPTT is backprop on the unrolled graph)
-- Related: [Vanishing / Exploding Gradients](../../optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients.md) (why RNNs forget) · [Residual / Skip Connections](../../stabilization-and-architectural-blocks/residual-skip-connections/residual-skip-connections.md) (the same additive-highway trick) · [Attention Mechanism](../../attention-and-transformers/attention-mechanism/attention-mechanism.md) (what fixed the seq2seq bottleneck) · [Transformer Architecture](../../attention-and-transformers/transformer-architecture/transformer-architecture.md) (what replaced RNNs) · [KV Cache](../../../llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.md) (the inference-memory contrast) · [06. NLP](../../../modalities-and-generative-models/natural-language-processing/README.md)
-- Field overview: [Deep Learning](../../README.md)
+- Concept page (full explanation): [RNN / LSTM / GRU](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/rnn-lstm-gru/rnn-lstm-gru)
+- Concept depth (the *why*): [ai-ml-intuitions 4.07 Gating Mechanisms (LSTM/GRU)](/ai-ml/ai-ml-intuitions/architectural-mechanisms/memory-and-gating/lstm-and-gru-gates-intuition)
+- Prerequisite: [Backpropagation & Computational Graphs](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs) (BPTT is backprop on the unrolled graph)
+- Related: [Vanishing / Exploding Gradients](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients) (why RNNs forget) · [Residual / Skip Connections](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/residual-skip-connections/residual-skip-connections) (the same additive-highway trick) · [Attention Mechanism](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism) (what fixed the seq2seq bottleneck) · [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture) (what replaced RNNs) · [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) (the inference-memory contrast) · [06. NLP](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/readme)
+- Field overview: [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

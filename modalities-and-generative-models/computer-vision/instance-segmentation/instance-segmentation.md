@@ -56,6 +56,6 @@ instance, and panoptic segmentation. A favorite for senior CV roles.
 - [Dive into Deep Learning — **Ch. 14 (Computer Vision)**](https://d2l.ai/chapter_computer-vision/index.html) — **Zhang et al.** — detection/segmentation foundations Mask R-CNN builds on, with code.
 
 ## 🔗 In this platform
-- Foundation: [Object Detection](../object-detection/object-detection.md) (Mask R-CNN extends Faster R-CNN) · [Semantic Segmentation](../semantic-segmentation/semantic-segmentation.md)
-- Metrics: [10 Detection & Segmentation Metrics (IoU · mAP)](../detection-and-segmentation-metrics/detection-and-segmentation-metrics.md)
-- Foundation: [Deep Learning › CNNs & Convolution](../../../deep-learning/neural-architectures/cnns-and-convolution/cnns-and-convolution.md)
+- Foundation: [Object Detection](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/object-detection/object-detection) (Mask R-CNN extends Faster R-CNN) · [Semantic Segmentation](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/semantic-segmentation/semantic-segmentation)
+- Metrics: [10 Detection & Segmentation Metrics (IoU · mAP)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/detection-and-segmentation-metrics/detection-and-segmentation-metrics)
+- Foundation: [Deep Learning › CNNs & Convolution](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/cnns-and-convolution/cnns-and-convolution)

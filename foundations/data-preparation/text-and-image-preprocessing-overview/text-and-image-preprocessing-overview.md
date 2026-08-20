@@ -57,7 +57,7 @@ and how tokenization choices (word vs subword/BPE) affect everything downstream.
 
 ## 🔗 In this platform
 - Full depth lives in the dedicated domains:
-  - **Text** — tokenization, normalization, subword algorithms → [06. NLP](../../../modalities-and-generative-models/natural-language-processing/README.md)
-  - **Images** — augmentation and vision-specific preprocessing → [07. Computer Vision](../../../modalities-and-generative-models/computer-vision/README.md)
-- Concept depth (the *why*): [ai-ml-intuitions 1.15 Tokenization & BPE](../../../../ai-ml-intuitions/representation/discrete-representations/tokenization-and-bpe-intuition.md) · [1.17 BoW & TF-IDF](../../../../ai-ml-intuitions/representation/discrete-representations/bag-of-words-and-tf-idf-intuition.md)
-- Next concepts: [06 Feature Engineering](../feature-engineering/feature-engineering.md) · [13 Data Pipelines](../data-pipelines/data-pipelines.md)
+  - **Text** — tokenization, normalization, subword algorithms → [06. NLP](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/readme)
+  - **Images** — augmentation and vision-specific preprocessing → [07. Computer Vision](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/readme)
+- Concept depth (the *why*): [ai-ml-intuitions 1.15 Tokenization & BPE](/ai-ml/ai-ml-intuitions/representation/discrete-representations/tokenization-and-bpe-intuition) · [1.17 BoW & TF-IDF](/ai-ml/ai-ml-intuitions/representation/discrete-representations/bag-of-words-and-tf-idf-intuition)
+- Next concepts: [06 Feature Engineering](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/feature-engineering/feature-engineering) · [13 Data Pipelines](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/data-pipelines/data-pipelines)

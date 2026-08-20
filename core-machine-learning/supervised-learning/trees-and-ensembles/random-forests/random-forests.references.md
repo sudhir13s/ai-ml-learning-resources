@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Random Forests — references and further reading
 
-> Companion link library for **[Random Forests](random-forests.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
+> Companion link library for **[Random Forests](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/random-forests/random-forests)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Random Forests Part 1](https://www.youtube.com/watch?v=J4Wdy0Wc_xQ) (**StatQuest**), then play with [MLU-Explain: Random Forest](https://mlu-explain.github.io/random-forest/). *See bootstrapped, feature-randomized trees vote.*
@@ -46,7 +46,7 @@ updated: 2026-06-22
 - [The Elements of Statistical Learning — Ch. 15 "Random Forests"](https://hastie.su.domains/ElemStatLearn/) — **Hastie, Tibshirani & Friedman** — the rigorous treatment of decorrelation and variance.
 
 **In this platform**:
-- Concept page (full explanation): [Random Forests](random-forests.md)
-- Concept depth (the *why*): [ai-ml-intuitions 3.08 Ensembles (Bagging/Boosting)](../../../../../ai-ml-intuitions/architectural-mechanisms/composition/bagging-and-boosting-intuition.md) · [3.07 Bias–Variance & Generalization](../../../../../ai-ml-intuitions/objectives-and-evaluation/generalization/bias-variance-tradeoff-intuition.md)
-- Related: [Bagging](../bagging/bagging.md) (forests are bagging + feature randomness) · [Decision Trees](../decision-trees/decision-trees.md) (the base learner) · [Bias–Variance Tradeoff](../../../model-selection-and-evaluation/bias-variance-tradeoff/bias-variance-tradeoff.md) · [Gradient Boosting (XGBoost)](../gradient-boosting-xgboost/gradient-boosting-xgboost.md) (boosting cuts bias; forests cut variance)
-- Math prerequisites: [01. Foundations](../../../../foundations/mathematical-foundations/README.md) — variance of an average, correlation, the bootstrap
+- Concept page (full explanation): [Random Forests](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/random-forests/random-forests)
+- Concept depth (the *why*): [ai-ml-intuitions 3.08 Ensembles (Bagging/Boosting)](/ai-ml/ai-ml-intuitions/architectural-mechanisms/composition/bagging-and-boosting-intuition) · [3.07 Bias–Variance & Generalization](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/generalization/bias-variance-tradeoff-intuition)
+- Related: [Bagging](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/bagging/bagging) (forests are bagging + feature randomness) · [Decision Trees](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/decision-trees/decision-trees) (the base learner) · [Bias–Variance Tradeoff](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/bias-variance-tradeoff/bias-variance-tradeoff) · [Gradient Boosting (XGBoost)](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/gradient-boosting-xgboost/gradient-boosting-xgboost) (boosting cuts bias; forests cut variance)
+- Math prerequisites: [01. Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme) — variance of an average, correlation, the bootstrap

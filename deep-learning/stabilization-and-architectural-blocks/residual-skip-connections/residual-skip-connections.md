@@ -56,7 +56,7 @@ And yet, when He et al. trained plain 20- and 56-layer CNNs on CIFAR-10, the **5
 Why can't SGD find it? Two compounding reasons, both of which the residual connection attacks directly:
 
 1. **Identity is hard to represent with stacked nonlinearities.** To make a `Linear → ReLU` block behave like the identity, the weight matrix has to invert the nonlinearity in just the right way across the whole input distribution — a precise, fragile target. Driving a layer to "do nothing" turns out to be a surprisingly difficult thing to *learn* from a random initialization, because "do nothing" is a single point in a high-dimensional weight space with no obvious gradient pointing at it.
-2. **Vanishing gradients starve the early layers.** Backprop multiplies a Jacobian per layer. With many layers whose Jacobians have spectral norm below 1, the product shrinks geometrically, so the gradient reaching the *earliest* layers is exponentially small (see [Vanishing / Exploding Gradients](../../optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients.md)). Those layers barely move, so the network can't reorganize its early features even if it "wants" to.
+2. **Vanishing gradients starve the early layers.** Backprop multiplies a Jacobian per layer. With many layers whose Jacobians have spectral norm below 1, the product shrinks geometrically, so the gradient reaching the *earliest* layers is exponentially small (see [Vanishing / Exploding Gradients](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients)). Those layers barely move, so the network can't reorganize its early features even if it "wants" to.
 
 The result is the canonical degradation curve: a deep plain net that stalls at high training error while a shallower one sails past it.
 
@@ -142,7 +142,7 @@ $$\frac{\partial y}{\partial x} \;=\; \frac{\partial\,[F(x) + x]}{\partial x} \;
 
 (For vectors, the "$+1$" is the identity matrix $\mathbf{I}$; for a scalar it's literally $+1$.) Compare that to a **plain** block $y = F(x)$, whose Jacobian is just $\partial F/\partial x$. The residual block's Jacobian is the plain one **plus the identity**. That additive identity is the entire mechanism.
 
-Recall ([Vanishing / Exploding Gradients](../../optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients.md)) that vanishing gradients arise because backprop *multiplies* these per-layer Jacobians, and a product of factors each smaller than 1 collapses toward zero. In a plain stack the gradient reaching layer $l$ is a long product $\prod \partial F_i/\partial x_i$. In a residual stack, every factor has the form $\big(\mathbf{I} + \partial F_i/\partial x_i\big)$ — so even when the learned part $\partial F_i/\partial x_i$ is tiny, the factor is $\approx \mathbf{I}$, not $\approx 0$. The product **does not collapse**.
+Recall ([Vanishing / Exploding Gradients](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients)) that vanishing gradients arise because backprop *multiplies* these per-layer Jacobians, and a product of factors each smaller than 1 collapses toward zero. In a plain stack the gradient reaching layer $l$ is a long product $\prod \partial F_i/\partial x_i$. In a residual stack, every factor has the form $\big(\mathbf{I} + \partial F_i/\partial x_i\big)$ — so even when the learned part $\partial F_i/\partial x_i$ is tiny, the factor is $\approx \mathbf{I}$, not $\approx 0$. The product **does not collapse**.
 
 ### Stacking blocks — the residual sum
 
@@ -308,7 +308,7 @@ graph TD
     classDef out fill:#2E7A5A,stroke:#1E6A4A,color:#fff
 ```
 
-Without these residuals, a 96-layer LLM simply would not train — it would be a 96-layer plain net, the worst case of the degradation problem. The residual stream is what gives the gradient a clean route from the final-layer loss all the way back to the token embeddings (see [Transformer Architecture](../../attention-and-transformers/transformer-architecture/transformer-architecture.md) and [Attention Mechanism](../../attention-and-transformers/attention-mechanism/attention-mechanism.md)). The residual connection isn't a detail of the transformer; it is the spine the whole thing hangs on.
+Without these residuals, a 96-layer LLM simply would not train — it would be a 96-layer plain net, the worst case of the degradation problem. The residual stream is what gives the gradient a clean route from the final-layer loss all the way back to the token embeddings (see [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture) and [Attention Mechanism](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism)). The residual connection isn't a detail of the transformer; it is the spine the whole thing hangs on.
 
 > **Tip:** "where are the residual connections in a transformer?" → **two per block**: one around attention, one around the FFN, each of the form $x + \text{Sublayer}(\text{Norm}(x))$. And the deeper follow-up — "why does this matter beyond gradients?" → because the *sum* makes the stream **linearly decomposable**, which is what makes a 100-layer model interpretable at all.
 
@@ -316,7 +316,7 @@ Without these residuals, a 96-layer LLM simply would not train — it would be a
 
 ## Interaction with normalization: pre-norm vs post-norm
 
-Residuals and [normalization](../normalization/normalization.md) are best understood as a pair, because *where you put the norm relative to the residual add* decides whether your deep transformer trains stably.
+Residuals and [normalization](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/normalization/normalization) are best understood as a pair, because *where you put the norm relative to the residual add* decides whether your deep transformer trains stably.
 
 - **Post-norm** (original *Attention Is All You Need*): $x \leftarrow \text{Norm}(x + \text{Sublayer}(x))$. The LayerNorm sits **on the residual stream itself**, *after* the add — which means the stream is re-normalized at every layer. That is the transformer analogue of putting a ReLU on the CNN shortcut (post-activation): it **obstructs the highway**. Gradients to early layers are attenuated, and training deep post-norm transformers needs careful **learning-rate warmup** and is famously finicky.
 - **Pre-norm** (GPT-2 onward, now standard): $x \leftarrow x + \text{Sublayer}(\text{Norm}(x))$. The norm moves **inside the residual branch**; the stream itself passes through the add **untouched**. Now the identity path is a *pure* identity exactly as in pre-activation ResNets, the residual-sum identity holds, the gradient highway is clean, and very deep transformers train stably — often **without warmup at all**.

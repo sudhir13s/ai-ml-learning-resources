@@ -55,6 +55,6 @@ file-level tools (DVC) and data-lake/branching tools (lakeFS). Pairs with experi
 - [Machine Learning Engineering — **Ch. 3 "Data Collection & Preparation"** (data versioning)](http://www.mlebook.com/wiki/doku.php) — **Andriy Burkov** — read-first chapters free.
 
 ## 🔗 In this platform
-- Builds on: [02 Reproducibility](../reproducibility/reproducibility.md) · [03 Experiment Tracking](../experiment-tracking/experiment-tracking.md)
-- Next concepts: [05 Feature Stores](../../data-and-training-platforms/feature-stores/feature-stores.md) · [13 Model Registry & Governance](../../governance-and-economics/model-registry-and-governance/model-registry-and-governance.md)
-- Related concept (covered elsewhere): data preprocessing & feature engineering → [02. Data_Preprocessing](../../../foundations/data-preparation/README.md)
+- Builds on: [02 Reproducibility](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/lifecycle-and-reproducibility/reproducibility/reproducibility) · [03 Experiment Tracking](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/lifecycle-and-reproducibility/experiment-tracking/experiment-tracking)
+- Next concepts: [05 Feature Stores](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/data-and-training-platforms/feature-stores/feature-stores) · [13 Model Registry & Governance](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/governance-and-economics/model-registry-and-governance/model-registry-and-governance)
+- Related concept (covered elsewhere): data preprocessing & feature engineering → [02. Data_Preprocessing](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/readme)

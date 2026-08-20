@@ -59,6 +59,6 @@ KL penalty to the reference model).
 - [Dive into Deep Learning — **Ch. 17 (Reinforcement Learning)**](https://d2l.ai/chapter_reinforcement-learning/index.html) — **Zhang et al.** — runnable RL foundations leading to policy optimization.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 6.03 PPO & RLHF](../../../../../ai-ml-intuitions/decision-making-and-control/stable-policy-optimization/ppo-and-rl-from-human-feedback-intuition.md)
-- Prereq: [11 TRPO](../trust-region-policy-optimization-trpo/trust-region-policy-optimization-trpo.md) · [10 Actor-Critic](../actor-critic-a2c-a3c/actor-critic-a2c-a3c.md)
-- **RLHF for LLMs** (PPO applied to language-model alignment, with reward models + DPO) lives in [LLMs, Applications and Agents](../../../../llms-applications-and-agents/README.md) — this card owns the PPO *mechanics* it relies on.
+- Concept depth (the *why*): [ai-ml-intuitions 6.03 PPO & RLHF](/ai-ml/ai-ml-intuitions/decision-making-and-control/stable-policy-optimization/ppo-and-rl-from-human-feedback-intuition)
+- Prereq: [11 TRPO](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/policy-learning/trust-region-policy-optimization-trpo/trust-region-policy-optimization-trpo) · [10 Actor-Critic](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/policy-learning/actor-critic-a2c-a3c/actor-critic-a2c-a3c)
+- **RLHF for LLMs** (PPO applied to language-model alignment, with reward models + DPO) lives in [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme) — this card owns the PPO *mechanics* it relies on.

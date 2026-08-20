@@ -18,36 +18,36 @@ path plus the best **free, open** courses, videos, papers, articles, and books f
 > **✅ ready · ⬜ coming soon.** New here? Start with the field overview above, then work top to bottom.
 
 ### Foundations & lifecycle
-1. ✅ [ML Lifecycle & MLOps Maturity](lifecycle-and-reproducibility/ml-lifecycle-and-mlops-maturity/ml-lifecycle-and-mlops-maturity.md)
-2. ✅ [Reproducibility (seeds, environments, lineage)](lifecycle-and-reproducibility/reproducibility/reproducibility.md)
-3. ✅ [Experiment Tracking (MLflow · Weights & Biases)](lifecycle-and-reproducibility/experiment-tracking/experiment-tracking.md)
-4. ✅ [Data & Model Versioning (DVC · lakeFS)](lifecycle-and-reproducibility/data-and-model-versioning/data-and-model-versioning.md)
+1. ✅ [ML Lifecycle & MLOps Maturity](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/lifecycle-and-reproducibility/ml-lifecycle-and-mlops-maturity/ml-lifecycle-and-mlops-maturity)
+2. ✅ [Reproducibility (seeds, environments, lineage)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/lifecycle-and-reproducibility/reproducibility/reproducibility)
+3. ✅ [Experiment Tracking (MLflow · Weights & Biases)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/lifecycle-and-reproducibility/experiment-tracking/experiment-tracking)
+4. ✅ [Data & Model Versioning (DVC · lakeFS)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/lifecycle-and-reproducibility/data-and-model-versioning/data-and-model-versioning)
 
 ### Pipelines & automation
-5. ✅ [Feature Stores (Feast)](data-and-training-platforms/feature-stores/feature-stores.md)
-6. ✅ [ML Pipelines & Orchestration (Airflow · Kubeflow)](data-and-training-platforms/ml-pipelines-and-orchestration/ml-pipelines-and-orchestration.md)
-7. ✅ [CI/CD for ML & Continuous Training (CT)](release-and-deployment/cicd-for-ml-and-continuous-training/cicd-for-ml-and-continuous-training.md)
+5. ✅ [Feature Stores (Feast)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/data-and-training-platforms/feature-stores/feature-stores)
+6. ✅ [ML Pipelines & Orchestration (Airflow · Kubeflow)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/data-and-training-platforms/ml-pipelines-and-orchestration/ml-pipelines-and-orchestration)
+7. ✅ [CI/CD for ML & Continuous Training (CT)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/release-and-deployment/cicd-for-ml-and-continuous-training/cicd-for-ml-and-continuous-training)
 
 ### Packaging & serving
-8. ✅ [Model Packaging & Containerization (Docker)](packaging-and-serving/model-packaging-and-containerization/model-packaging-and-containerization.md)
-9. ✅ [Model Serving (REST/gRPC · batch vs online · BentoML/Triton/TF-Serving)](packaging-and-serving/model-serving/model-serving.md)
-10. ✅ [Scaling Inference (autoscaling · GPU · Ray Serve)](packaging-and-serving/scaling-inference/scaling-inference.md)
+8. ✅ [Model Packaging & Containerization (Docker)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/model-packaging-and-containerization/model-packaging-and-containerization)
+9. ✅ [Model Serving (REST/gRPC · batch vs online · BentoML/Triton/TF-Serving)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/model-serving/model-serving)
+10. ✅ [Scaling Inference (autoscaling · GPU · Ray Serve)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/scaling-inference/scaling-inference)
 
 ### Operations, monitoring & governance
-11. ✅ [Model Monitoring & Observability](monitoring-and-reliability/model-monitoring-and-observability/model-monitoring-and-observability.md)
-12. ✅ [Data & Concept Drift Detection](monitoring-and-reliability/data-and-concept-drift-detection/data-and-concept-drift-detection.md)
-13. ✅ [Model Registry & Governance](governance-and-economics/model-registry-and-governance/model-registry-and-governance.md)
-14. ✅ [A/B Testing · Shadow & Canary Deployment](release-and-deployment/ab-testing-shadow-and-canary-deployment/ab-testing-shadow-and-canary-deployment.md)
+11. ✅ [Model Monitoring & Observability](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/monitoring-and-reliability/model-monitoring-and-observability/model-monitoring-and-observability)
+12. ✅ [Data & Concept Drift Detection](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/monitoring-and-reliability/data-and-concept-drift-detection/data-and-concept-drift-detection)
+13. ✅ [Model Registry & Governance](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/governance-and-economics/model-registry-and-governance/model-registry-and-governance)
+14. ✅ [A/B Testing · Shadow & Canary Deployment](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/release-and-deployment/ab-testing-shadow-and-canary-deployment/ab-testing-shadow-and-canary-deployment)
 
 ### LLMs & cost
-15. ✅ [LLMOps (eval · guardrails · prompt versioning · cost/latency)](governance-and-economics/llmops/llmops.md)
-16. ✅ [Cost Optimization for ML Systems](governance-and-economics/cost-optimization/cost-optimization.md)
+15. ✅ [LLMOps (eval · guardrails · prompt versioning · cost/latency)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/governance-and-economics/llmops/llmops)
+16. ✅ [Cost Optimization for ML Systems](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/governance-and-economics/cost-optimization/cost-optimization)
 
 ### Related concepts (canonical home is another section)
 > These topics have a canonical home elsewhere in the platform — linked here, not duplicated.
-- **Online experimentation & A/B statistics theory** (hypothesis tests, power, CUPED) → [01. Foundations](../foundations/mathematical-foundations/README.md)
-- **LLM inference internals** (KV-cache, quantization, paged attention, serving stacks) → [LLMs, Applications and Agents](../llms-applications-and-agents/README.md)
-- **Data preprocessing & feature engineering** (cleaning, encoding, scaling, splits) → [02. Data_Preprocessing](../foundations/data-preparation/README.md)
+- **Online experimentation & A/B statistics theory** (hypothesis tests, power, CUPED) → [01. Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme)
+- **LLM inference internals** (KV-cache, quantization, paged attention, serving stacks) → [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme)
+- **Data preprocessing & feature engineering** (cleaning, encoding, scaling, splits) → [02. Data_Preprocessing](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/readme)
 
 ## 🎓 Courses (free)
 - [Made With ML](https://madewithml.com/) — **Goku Mohandas** — production ML + MLOps, code and reasoning.
@@ -64,4 +64,4 @@ path plus the best **free, open** courses, videos, papers, articles, and books f
 - [Designing Machine Learning Systems](https://www.oreilly.com/library/view/designing-machine-learning/9781098107956/) — **Chip Huyen** — the definitive modern text (paid, but chapters/notes are free online).
 
 ## 🔗 In this platform
-- Inference economics: [ai-ml-intuitions Module 7](../../ai-ml-intuitions/scaling-adaptation-and-efficiency/) · [LLM Systems curriculum](../_meta/llm_systems_curriculum.md)
+- Inference economics: [ai-ml-intuitions Module 7](../../ai-ml-intuitions/scaling-adaptation-and-efficiency/) · [LLM Systems curriculum](/ai-ml/ai-ml-learning-resources/meta/llm-systems-curriculum)

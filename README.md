@@ -23,59 +23,59 @@ interview-prep project.*
 
 ## 🗺️ Sections
 
-### [Foundations](foundations/README.md)
+### [Foundations](/ai-ml/ai-ml-learning-resources/foundations/readme)
 | Sub-area | Level |
 | :--- | :--- |
-| [AI/ML Orientation](foundations/README.md) | beginner |
-| [Programming and Data Foundations](foundations/README.md) | beginner |
-| [Mathematical Foundations](foundations/mathematical-foundations/README.md) — incl. the [full math curriculum](foundations/mathematical-foundations/maths-for-ai-ml/README.md) | beginner |
-| [Data Preparation](foundations/data-preparation/README.md) | beginner |
-| [Tools and Frameworks](foundations/tools-and-frameworks/README.md) | beginner |
-| [Research Literacy](foundations/research-literacy/README.md) | advanced |
+| [AI/ML Orientation](/ai-ml/ai-ml-learning-resources/foundations/readme) | beginner |
+| [Programming and Data Foundations](/ai-ml/ai-ml-learning-resources/foundations/readme) | beginner |
+| [Mathematical Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme) — incl. the [full math curriculum](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme) | beginner |
+| [Data Preparation](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/readme) | beginner |
+| [Tools and Frameworks](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/readme) | beginner |
+| [Research Literacy](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/readme) | advanced |
 
 ### Core Machine Learning
 | Sub-area | Level |
 | :--- | :--- |
-| [Supervised Learning](core-machine-learning/supervised-learning/README.md) | intermediate |
-| [Unsupervised Learning](core-machine-learning/unsupervised-learning/README.md) | intermediate |
-| [Reinforcement Learning](core-machine-learning/reinforcement-learning/README.md) | advanced |
+| [Supervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/readme) | intermediate |
+| [Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme) | intermediate |
+| [Reinforcement Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/readme) | advanced |
 | Model Selection and Evaluation | intermediate |
 
-### [Deep Learning](deep-learning/README.md)
+### [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
 Neural-network foundations · optimization and training · stabilization and architectural
 blocks · neural architectures · attention and transformers · self-supervised learning.
 
 ### Modalities and Generative Models
 | Sub-area | Level |
 | :--- | :--- |
-| [Natural Language Processing](modalities-and-generative-models/natural-language-processing/README.md) | intermediate |
-| [Computer Vision](modalities-and-generative-models/computer-vision/README.md) | intermediate |
-| [Generative Models](modalities-and-generative-models/generative-models/README.md) | advanced |
-| [Diffusion Models](modalities-and-generative-models/diffusion-models/README.md) | advanced |
-| [Multimodal Learning](modalities-and-generative-models/multimodal-learning/README.md) | advanced |
-| [Video Understanding](modalities-and-generative-models/video-understanding/README.md) | advanced |
-| [Audio and Speech](modalities-and-generative-models/audio-and-speech/README.md) | advanced |
+| [Natural Language Processing](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/readme) | intermediate |
+| [Computer Vision](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/readme) | intermediate |
+| [Generative Models](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/readme) | advanced |
+| [Diffusion Models](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/readme) | advanced |
+| [Multimodal Learning](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/multimodal-learning/readme) | advanced |
+| [Video Understanding](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/video-understanding/readme) | advanced |
+| [Audio and Speech](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/audio-and-speech/readme) | advanced |
 
 ### LLMs, Applications and Agents
 | Sub-area | Level |
 | :--- | :--- |
-| [RAG and Knowledge Systems](llms-applications-and-agents/rag-and-knowledge-systems/overview.md) | advanced |
-| [Agentic AI](llms-applications-and-agents/agentic-ai/overview.md) | advanced |
-| [Large Language Models](llms-applications-and-agents/README.md) — still on its legacy folder name; re-homed by the LLM wave | advanced |
+| [RAG and Knowledge Systems](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/overview) | advanced |
+| [Agentic AI](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/overview) | advanced |
+| [Large Language Models](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme) — still on its legacy folder name; re-homed by the LLM wave | advanced |
 
-### [Deployment and MLOps](deployment-and-mlops/README.md)
+### [Deployment and MLOps](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/readme)
 Lifecycle and reproducibility · data and training platforms · packaging and serving ·
 release and deployment · monitoring and reliability · governance and economics.
 
 ### Specialized Studies
 | Sub-area | Level |
 | :--- | :--- |
-| [Advanced Mathematics for AI Research](specialized-studies/advanced-mathematics-for-ai-research/README.md) | advanced |
-| [Neuroscience and Brain-Inspired AI](specialized-studies/neuroscience-and-brain-inspired-ai/README.md) | advanced |
+| [Advanced Mathematics for AI Research](/ai-ml/ai-ml-learning-resources/specialized-studies/advanced-mathematics-for-ai-research/readme) | advanced |
+| [Neuroscience and Brain-Inspired AI](/ai-ml/ai-ml-learning-resources/specialized-studies/neuroscience-and-brain-inspired-ai/readme) | advanced |
 
 ### Specializations (deep-dive curricula)
-- [Computer Vision math](modalities-and-generative-models/computer-vision/README.md) · [Neuroscience & Brain-Inspired AI](specialized-studies/neuroscience-and-brain-inspired-ai/README.md) · [Advanced Research Math](specialized-studies/advanced-mathematics-for-ai-research/README.md) — full what/why/resources curricula
-- [LLM Systems Engineering curriculum](_meta/llm_systems_curriculum.md) — 14-chapter inference-stack syllabus (personal study notebook, held in `_meta/` until absorbed into the chartered sections)
+- [Computer Vision math](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/readme) · [Neuroscience & Brain-Inspired AI](/ai-ml/ai-ml-learning-resources/specialized-studies/neuroscience-and-brain-inspired-ai/readme) · [Advanced Research Math](/ai-ml/ai-ml-learning-resources/specialized-studies/advanced-mathematics-for-ai-research/readme) — full what/why/resources curricula
+- [LLM Systems Engineering curriculum](/ai-ml/ai-ml-learning-resources/meta/llm-systems-curriculum) — 14-chapter inference-stack syllabus (personal study notebook, held in `_meta/` until absorbed into the chartered sections)
 
 ## 🔗 Sibling projects
 - [ai-ml-intuitions](../ai-ml-intuitions/) — deep concept pages (the *why*)

@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Regularization — references and further reading
 
-> Companion link library for **[Regularization](regularization.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
+> Companion link library for **[Regularization](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/regularization/regularization)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Regularization Part 1: Ridge (L2) Regression](https://www.youtube.com/watch?v=Q81RR3yKn30) (**StatQuest**). *Why penalizing weights reduces variance.*
@@ -61,9 +61,9 @@ updated: 2026-06-22
 - [Neural Networks and Deep Learning — Ch. 3 (overfitting & regularization)](http://neuralnetworksanddeeplearning.com/chap3.html) — **Michael Nielsen** — L2, early stopping, and why they help, from scratch.
 
 **In this platform**:
-- Concept page (full explanation): [Regularization](regularization.md)
-- Concept depth (the *why*): [ai-ml-intuitions 2.10 Regularization (L1/L2)](../../../../ai-ml-intuitions/learning-and-optimization/objective-shaping/l1-and-l2-regularization-intuition.md) · [3.07 Bias–Variance & Generalization](../../../../ai-ml-intuitions/objectives-and-evaluation/generalization/bias-variance-tradeoff-intuition.md)
-- Prerequisite: [Loss Functions](../loss-functions/loss-functions.md)
-- Related (deep-learning): [Dropout](../../stabilization-and-architectural-blocks/dropout/dropout.md) (the stochastic regularizer in full) · [Optimizers](../optimizers/optimizers.md) (AdamW and decoupled weight decay) · [Normalization](../../stabilization-and-architectural-blocks/normalization/normalization.md) (BatchNorm's regularizing side-effect) · [Residual / Skip Connections](../../stabilization-and-architectural-blocks/residual-skip-connections/residual-skip-connections.md) (the identity path stochastic depth rides on)
-- Related (linear models): [Regularization for Linear Models — Ridge · Lasso · Elastic-Net](../../../core-machine-learning/supervised-learning/regression/regularization-linear-models/regularization-linear-models.md) (the diamond-vs-circle geometry + closed forms) · [Bias–Variance Tradeoff](../../../core-machine-learning/model-selection-and-evaluation/bias-variance-tradeoff/bias-variance-tradeoff.md) (double descent)
-- Field overview: [Deep Learning](../../README.md)
+- Concept page (full explanation): [Regularization](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/regularization/regularization)
+- Concept depth (the *why*): [ai-ml-intuitions 2.10 Regularization (L1/L2)](/ai-ml/ai-ml-intuitions/learning-and-optimization/objective-shaping/l1-and-l2-regularization-intuition) · [3.07 Bias–Variance & Generalization](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/generalization/bias-variance-tradeoff-intuition)
+- Prerequisite: [Loss Functions](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/loss-functions/loss-functions)
+- Related (deep-learning): [Dropout](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/dropout/dropout) (the stochastic regularizer in full) · [Optimizers](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/optimizers) (AdamW and decoupled weight decay) · [Normalization](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/normalization/normalization) (BatchNorm's regularizing side-effect) · [Residual / Skip Connections](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/residual-skip-connections/residual-skip-connections) (the identity path stochastic depth rides on)
+- Related (linear models): [Regularization for Linear Models — Ridge · Lasso · Elastic-Net](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/regression/regularization-linear-models/regularization-linear-models) (the diamond-vs-circle geometry + closed forms) · [Bias–Variance Tradeoff](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/bias-variance-tradeoff/bias-variance-tradeoff) (double descent)
+- Field overview: [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

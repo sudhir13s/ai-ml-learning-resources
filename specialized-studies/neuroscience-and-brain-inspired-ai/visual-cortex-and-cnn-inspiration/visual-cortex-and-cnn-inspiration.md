@@ -28,9 +28,9 @@ models of the primate ventral stream**, so the analogy flows both directions.
 
 1. **See the original discovery** — watch [Hubel and Wiesel and the discovery of orientation selectivity in V1](https://www.youtube.com/watch?v=98s6tRla7y4). *Simple/complex cells, the seed of convolution + pooling.*
 2. **Read the source** — [Hubel & Wiesel (1968): Receptive fields of the cat striate cortex](https://www.cns.nyu.edu/~tony/vns/readings/hubel-wiesel-1968.pdf). *The Nobel-winning experiments themselves.*
-3. **Map biology → CNN** — review [4.13 Convolution](../../../../ai-ml-intuitions/architectural-mechanisms/locality-and-weight-sharing/convolution-intuition.md). *Weight sharing = a receptive field tiled across the image.*
+3. **Map biology → CNN** — review [4.13 Convolution](/ai-ml/ai-ml-intuitions/architectural-mechanisms/locality-and-weight-sharing/convolution-intuition). *Weight sharing = a receptive field tiled across the image.*
 4. **See the modern two-way street** — [Yamins & DiCarlo (2016): Goal-driven deep learning models of sensory cortex](https://www.nature.com/articles/nn.4244). *Trained CNNs predict ventral-stream neural responses.*
-5. **Go deeper on the hierarchy** — explore the [Computer Vision](../../../modalities-and-generative-models/computer-vision/README.md) architectures that extend V1→IT into deep nets.
+5. **Go deeper on the hierarchy** — explore the [Computer Vision](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/readme) architectures that extend V1→IT into deep nets.
 
 ## 🎓 Courses (free)
 - [Neuromatch Academy — Computational Neuroscience](https://compneuro.neuromatch.io/) — **Neuromatch** — receptive fields, tuning, and the visual-system modeling tutorials.
@@ -56,7 +56,7 @@ models of the primate ventral stream**, so the analogy flows both directions.
 - [Neuronal Dynamics — **Ch. 12 (Neuronal populations)**](https://neuronaldynamics.epfl.ch/online/Ch12.html) — **Gerstner et al.** — population-level cortical organization, free in full.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 4.13 Convolution](../../../../ai-ml-intuitions/architectural-mechanisms/locality-and-weight-sharing/convolution-intuition.md) — weight sharing as a tiled biological receptive field.
-- Prereqs in this section: [01 Biological Neurons & Synapses](../biological-neurons-and-synapses/biological-neurons-and-synapses.md)
-- Next concepts: [06 Predictive Coding](../predictive-coding/predictive-coding.md)
-- Related domains: [05. Deep Learning](../../../deep-learning/README.md) · [07. Computer Vision](../../../modalities-and-generative-models/computer-vision/README.md)
+- Concept depth (the *why*): [ai-ml-intuitions 4.13 Convolution](/ai-ml/ai-ml-intuitions/architectural-mechanisms/locality-and-weight-sharing/convolution-intuition) — weight sharing as a tiled biological receptive field.
+- Prereqs in this section: [01 Biological Neurons & Synapses](/ai-ml/ai-ml-learning-resources/specialized-studies/neuroscience-and-brain-inspired-ai/biological-neurons-and-synapses/biological-neurons-and-synapses)
+- Next concepts: [06 Predictive Coding](/ai-ml/ai-ml-learning-resources/specialized-studies/neuroscience-and-brain-inspired-ai/predictive-coding/predictive-coding)
+- Related domains: [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme) · [07. Computer Vision](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/readme)

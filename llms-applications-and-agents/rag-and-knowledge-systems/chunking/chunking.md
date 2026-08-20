@@ -16,7 +16,7 @@ category: rag-and-knowledge-systems
 
 # Document Chunking Strategies: where you cut decides what you can find
 
-In [RAG Fundamentals](../rag-foundations/rag-foundations.md) we ended on a promise: the most common RAG failure is **chunk-boundary loss** — the answer straddles two chunks, so no single chunk holds it whole, and retrieval can never return it. This chapter is that promise paid off. Before any text can be embedded, indexed, or retrieved, it has to be **split into chunks** — and *how* you make that cut silently sets the ceiling on everything downstream. A perfect embedder and a perfect LLM cannot recover a fact your chunker sliced in half.
+In [RAG Fundamentals](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-foundations/rag-foundations) we ended on a promise: the most common RAG failure is **chunk-boundary loss** — the answer straddles two chunks, so no single chunk holds it whole, and retrieval can never return it. This chapter is that promise paid off. Before any text can be embedded, indexed, or retrieved, it has to be **split into chunks** — and *how* you make that cut silently sets the ceiling on everything downstream. A perfect embedder and a perfect LLM cannot recover a fact your chunker sliced in half.
 
 Here is the failure, concretely. Take a one-line fact — *"It was launched on March 3rd, 2024"* — and split the document into fixed 140-character chunks, the laziest possible strategy. The boundary lands at character 140, which falls **inside the date**: chunk 0 ends `...on Marc` and chunk 1 begins `h 3rd, 2024...`. The phrase "March 3rd, 2024" now exists in **neither chunk whole**. Embed those chunks, ask "when was it launched?", and retrieval returns a fragment with no usable date. The fact was *in the document* — your chunker destroyed it.
 
@@ -44,7 +44,7 @@ This is worse than it looks. It's not that retrieval ranks the fact low — it's
 
 The two obvious "fixes" both fail on their own:
 
-- **Make chunks bigger** so facts don't get split. But a 2,000-token chunk dilutes its own embedding (it's "about" ten different things, so its mean direction points nowhere specific — low retrieval precision), wastes the prompt's token budget, and buries the one relevant sentence among nine irrelevant ones (straight into [lost-in-the-middle](../rag-foundations/rag-foundations.md)).
+- **Make chunks bigger** so facts don't get split. But a 2,000-token chunk dilutes its own embedding (it's "about" ten different things, so its mean direction points nowhere specific — low retrieval precision), wastes the prompt's token budget, and buries the one relevant sentence among nine irrelevant ones (straight into [lost-in-the-middle](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-foundations/rag-foundations)).
 - **Make chunks smaller** so each embedding is focused. But a 1-sentence chunk pulled out of its document is often **meaningless alone**: "It completes one orbit every 97 minutes" — *what* does? The pronoun's referent was three sentences up, in a different chunk.
 
 So you can't win by tuning size alone. You win by **cutting at the right places** — which is the whole subject of this chapter.
@@ -312,7 +312,7 @@ Every one of these is a **cut in the wrong place**. Name them to spot them.
 | Precision matters but context needed | **Sentence-window / parent-document** | Retrieve small + precise, generate with the larger parent |
 | Throwaway prototype / uniform short text | **Fixed-size (+overlap)** | Fastest to ship; overlap limits the damage |
 
-**When chunking is NOT the lever:** if your documents are already short, self-contained units (FAQ entries, product cards, tweets), one document = one chunk and there's nothing to tune. And if retrieval is failing because of **paraphrase mismatch** (query words don't match passage words), that's an **embedding** problem ([chapter 3](../embedding-models/embedding-models.md)), not a chunking one — fixing your splitter won't help.
+**When chunking is NOT the lever:** if your documents are already short, self-contained units (FAQ entries, product cards, tweets), one document = one chunk and there's nothing to tune. And if retrieval is failing because of **paraphrase mismatch** (query words don't match passage words), that's an **embedding** problem ([chapter 3](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/embedding-models/embedding-models)), not a chunking one — fixing your splitter won't help.
 
 ---
 
@@ -327,7 +327,7 @@ Real systems treat chunking as a first-class, measured decision:
 
 **When to reach for it:** *first*, before any other RAG optimization. Chunking is offline, free at query time, and caps everything downstream — so the moment retrieval quality matters, audit your chunks before you touch the embedder or the LLM.
 
-> **Note:** the through-line from chapter 1 continues — retrieval is where RAG is won or lost, and **chunking is the first place you win it.** The next chapters climb the rest of the retrieval stack: better [embeddings](../embedding-models/embedding-models.md) so paraphrases match, [vector indexes](../vector-search/vector-search.md) for scale, [hybrid search](../hybrid-search/hybrid-search.md), and [re-ranking](../reranking/reranking.md). But none of them can recover a fact your chunker already destroyed.
+> **Note:** the through-line from chapter 1 continues — retrieval is where RAG is won or lost, and **chunking is the first place you win it.** The next chapters climb the rest of the retrieval stack: better [embeddings](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/embedding-models/embedding-models) so paraphrases match, [vector indexes](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search) for scale, [hybrid search](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search), and [re-ranking](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking). But none of them can recover a fact your chunker already destroyed.
 
 ---
 

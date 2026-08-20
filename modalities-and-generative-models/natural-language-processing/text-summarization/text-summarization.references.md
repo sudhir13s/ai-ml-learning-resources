@@ -8,7 +8,7 @@ updated: 2026-06-27
 
 # Text Summarization — references and further reading
 
-> Companion link library for **[Text Summarization](text-summarization.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
+> Companion link library for **[Text Summarization](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/text-summarization/text-summarization)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
 1. **Frame the two paradigms** — watch [What is Text Summarization? Extractive & Abstractive](https://www.youtube.com/watch?v=UEikjJ6c63A) (**OnTimeNotes**). *The select-vs-generate distinction before any model.*
@@ -61,11 +61,11 @@ updated: 2026-06-27
 - [Speech and Language Processing, 3rd ed. — Ch. 11 "Information Retrieval and Retrieval-Augmented Generation"](https://web.stanford.edu/~jurafsky/slp3/11.pdf) — **Jurafsky & Martin** — retrieval that underpins query-focused / multi-document summarization.
 
 **In this platform**:
-- Concept page (full explanation): [Text Summarization](text-summarization.md)
+- Concept page (full explanation): [Text Summarization](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/text-summarization/text-summarization)
 - Runnable code (same verified functions the page and figures use): [teaching notebook](code/text-summarization.ipynb) · [source-of-truth module](code/text_summarization.py) · [figure generator](code/make_figures_13.py)
-- The engine of abstractive summarization: [08 Sequence-to-Sequence & Encoder–Decoder](../sequence-to-sequence-and-encoder-decoder/sequence-to-sequence-and-encoder-decoder.md) · [16 Transformer Architecture](../../../deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture.md) · [15 Attention Mechanism](../../../deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism.md)
-- How summaries are decoded: [17 Decoding Strategies](../decoding-strategies/decoding-strategies.md)
-- How summaries are scored (ROUGE in full): [18 NLP Evaluation Metrics](../nlp-evaluation-metrics/nlp-evaluation-metrics.md)
-- Sentence scoring inputs: [03 Bag-of-Words & TF-IDF](../bag-of-words-and-tf-idf/bag-of-words-and-tf-idf.md) · [06 Contextual Embeddings (ELMo, BERT)](../contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert.md)
-- Query-focused / multi-document retrieval: [16 Information Retrieval & Semantic Search](../information-retrieval-and-semantic-search/information-retrieval-and-semantic-search.md)
-- Coherence / dangling pronouns: [14 Coreference Resolution](../coreference-resolution/coreference-resolution.md)
+- The engine of abstractive summarization: [08 Sequence-to-Sequence & Encoder–Decoder](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sequence-to-sequence-and-encoder-decoder/sequence-to-sequence-and-encoder-decoder) · [16 Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture) · [15 Attention Mechanism](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism)
+- How summaries are decoded: [17 Decoding Strategies](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/decoding-strategies/decoding-strategies)
+- How summaries are scored (ROUGE in full): [18 NLP Evaluation Metrics](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/nlp-evaluation-metrics/nlp-evaluation-metrics)
+- Sentence scoring inputs: [03 Bag-of-Words & TF-IDF](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/bag-of-words-and-tf-idf/bag-of-words-and-tf-idf) · [06 Contextual Embeddings (ELMo, BERT)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert)
+- Query-focused / multi-document retrieval: [16 Information Retrieval & Semantic Search](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/information-retrieval-and-semantic-search/information-retrieval-and-semantic-search)
+- Coherence / dangling pronouns: [14 Coreference Resolution](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/coreference-resolution/coreference-resolution)

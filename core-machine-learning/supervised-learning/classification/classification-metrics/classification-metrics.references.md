@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Classification Metrics — references and further reading
 
-> Companion link library for **[Classification Metrics](classification-metrics.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
+> Companion link library for **[Classification Metrics](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/classification-metrics/classification-metrics)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [The Confusion Matrix](https://www.youtube.com/watch?v=Kdsp6soqA7o) (**StatQuest**), then play with [MLU-Explain: Precision & Recall](https://mlu-explain.github.io/precision-recall/). *Everything else is derived from these four cells.*
@@ -52,7 +52,7 @@ updated: 2026-06-22
 - [Speech and Language Processing, 3rd ed. — Ch. 4 (Evaluation: precision/recall/F1)](https://web.stanford.edu/~jurafsky/slp3/4.pdf) — **Jurafsky & Martin** — the cleanest derivation of precision/recall/F1.
 
 **In this platform**:
-- Concept page (full explanation): [Classification Metrics](classification-metrics.md)
-- Concept depth (the *why*): [ai-ml-intuitions 3.05 Classification Metrics](../../../../../ai-ml-intuitions/objectives-and-evaluation/predictive-evaluation/classification-metrics-intuition.md) · [3.06 ROC, AUC & PR Curves](../../../../../ai-ml-intuitions/objectives-and-evaluation/predictive-evaluation/roc-and-pr-curves-intuition.md)
-- Related: [Logistic Regression](../logistic-regression/logistic-regression.md) (produces the probabilities you threshold) · [Regression Metrics](../../regression/regression-metrics/regression-metrics.md) (continuous-target counterpart) · [Cross-Validation](../../../model-selection-and-evaluation/cross-validation/cross-validation.md) (how you estimate these reliably) · [Bias–Variance Tradeoff](../../../model-selection-and-evaluation/bias-variance-tradeoff/bias-variance-tradeoff.md)
-- Math prerequisites: [01. Foundations](../../../../foundations/mathematical-foundations/README.md) — conditional probability, base rates, thresholds
+- Concept page (full explanation): [Classification Metrics](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/classification-metrics/classification-metrics)
+- Concept depth (the *why*): [ai-ml-intuitions 3.05 Classification Metrics](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/predictive-evaluation/classification-metrics-intuition) · [3.06 ROC, AUC & PR Curves](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/predictive-evaluation/roc-and-pr-curves-intuition)
+- Related: [Logistic Regression](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/logistic-regression/logistic-regression) (produces the probabilities you threshold) · [Regression Metrics](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/regression/regression-metrics/regression-metrics) (continuous-target counterpart) · [Cross-Validation](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/cross-validation/cross-validation) (how you estimate these reliably) · [Bias–Variance Tradeoff](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/bias-variance-tradeoff/bias-variance-tradeoff)
+- Math prerequisites: [01. Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme) — conditional probability, base rates, thresholds

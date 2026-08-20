@@ -56,6 +56,6 @@ practical fluency every team expects.
 - [wandb (open-source client & examples)](https://github.com/wandb/wandb) — **Weights & Biases** — the SDK and runnable examples, free on GitHub.
 
 ## 🔗 In this platform
-- Related domain: [12. Deployment & MLOps](../../../deployment-and-mlops/README.md) · [05. Deep Learning](../../../deep-learning/README.md)
-- Pairs with: [05 PyTorch](../pytorch/pytorch.md) · [04 scikit-learn](../scikit-learn/scikit-learn.md) · [10 Ray](../ray/ray.md)
-- Deeper concept (the *why*): experiment tracking & MLOps discipline → [Deployment & MLOps](../../../deployment-and-mlops/README.md)
+- Related domain: [12. Deployment & MLOps](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/readme) · [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
+- Pairs with: [05 PyTorch](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/pytorch/pytorch) · [04 scikit-learn](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/scikit-learn/scikit-learn) · [10 Ray](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/ray/ray)
+- Deeper concept (the *why*): experiment tracking & MLOps discipline → [Deployment & MLOps](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/readme)

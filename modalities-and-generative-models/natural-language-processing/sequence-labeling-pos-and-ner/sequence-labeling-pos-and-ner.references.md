@@ -8,7 +8,7 @@ updated: 2026-06-27
 
 # Sequence Labeling — references and further reading
 
-> Companion link library for **[Sequence Labeling — POS & NER](sequence-labeling-pos-and-ner.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
+> Companion link library for **[Sequence Labeling — POS & NER](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sequence-labeling-pos-and-ner/sequence-labeling-pos-and-ner)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
 1. **Frame the task** — read [SLP3 Ch. 17](https://web.stanford.edu/~jurafsky/slp3/17.pdf) intro on POS/NER and BIO tagging (**Jurafsky & Martin**). *Get the task and tagging schemes before any model.*
@@ -53,11 +53,11 @@ updated: 2026-06-27
 - [Natural Language Processing with Python — Ch. 5 "Categorizing and Tagging Words"](https://www.nltk.org/book/ch05.html) — **Bird, Klein & Loper** — hands-on POS tagging in NLTK.
 
 **In this platform**:
-- Concept page (full explanation): [Sequence Labeling — POS & NER](sequence-labeling-pos-and-ner.md)
-- Foundations (the *why* behind probabilities): [Probability & Bayes Theorem](../../../../ai-ml-intuitions/foundational-mental-models/probability-and-belief/probability-and-bayes-intuition.md)
-- The encoder used today: [Contextual Embeddings (ELMo, BERT)](../contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert.md) — BERT token-classification heads.
-- The recurrent backbone of biLSTM-CRF: [RNN, LSTM & GRU](../../../deep-learning/neural-architectures/rnn-lstm-gru/rnn-lstm-gru.md)
-- How you score it: [NLP Evaluation Metrics](../nlp-evaluation-metrics/nlp-evaluation-metrics.md) — entity-level precision/recall/F1.
-- Related task (span extraction): [Question Answering](../question-answering/question-answering.md) — extractive QA as span labeling.
-- Prior step: [Text Preprocessing & Normalization](../text-preprocessing-and-normalization/text-preprocessing-and-normalization.md) — tokenization that defines the units to label.
-- Sequence-level vs token-level: [Text Classification & Sentiment](../text-classification-and-sentiment-analysis/text-classification-and-sentiment-analysis.md)
+- Concept page (full explanation): [Sequence Labeling — POS & NER](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sequence-labeling-pos-and-ner/sequence-labeling-pos-and-ner)
+- Foundations (the *why* behind probabilities): [Probability & Bayes Theorem](/ai-ml/ai-ml-intuitions/foundational-mental-models/probability-and-belief/probability-and-bayes-intuition)
+- The encoder used today: [Contextual Embeddings (ELMo, BERT)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert) — BERT token-classification heads.
+- The recurrent backbone of biLSTM-CRF: [RNN, LSTM & GRU](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/rnn-lstm-gru/rnn-lstm-gru)
+- How you score it: [NLP Evaluation Metrics](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/nlp-evaluation-metrics/nlp-evaluation-metrics) — entity-level precision/recall/F1.
+- Related task (span extraction): [Question Answering](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/question-answering/question-answering) — extractive QA as span labeling.
+- Prior step: [Text Preprocessing & Normalization](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/text-preprocessing-and-normalization/text-preprocessing-and-normalization) — tokenization that defines the units to label.
+- Sequence-level vs token-level: [Text Classification & Sentiment](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/text-classification-and-sentiment-analysis/text-classification-and-sentiment-analysis)

@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # t-SNE — references and further reading
 
-> Companion link library for **[t-SNE](t-sne.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
+> Companion link library for **[t-SNE](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/t-sne/t-sne)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [StatQuest: t-SNE, Clearly Explained](https://www.youtube.com/watch?v=NEaUSP4YerM) (**Josh Starmer**). *Why similar points attract and dissimilar ones repel in the low-D map — the gentlest first watch.*
@@ -50,10 +50,10 @@ updated: 2026-06-22
 - [Dive into Deep Learning](https://d2l.ai/) — **Zhang, Lipton, Li & Smola** — free; how the learned embeddings that are the usual *input* to t-SNE are produced and inspected.
 
 **In this platform**:
-- Concept page (full explanation): [t-SNE](t-sne.md)
-- The linear baseline t-SNE is defined against: [06 Dimensionality Reduction — Overview (PCA / SVD)](../dimensionality-reduction-overview/dimensionality-reduction-overview.md)
-- The modern alternative (faster, has a transform, more global): [08 UMAP](../umap/umap.md)
-- The KL-divergence objective (the *why* of the cost): [ai-ml-intuitions 5.01 Entropy & KL Divergence](../../../../../ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition.md)
-- Concept depth (the *why*): [ai-ml-intuitions 1.11–1.12 Dimensionality Reduction (t-SNE / UMAP)](../../../../../ai-ml-intuitions/representation/dimensionality-and-latent-structure/tsne-and-umap-intuition.md)
+- Concept page (full explanation): [t-SNE](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/t-sne/t-sne)
+- The linear baseline t-SNE is defined against: [06 Dimensionality Reduction — Overview (PCA / SVD)](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/dimensionality-reduction-overview/dimensionality-reduction-overview)
+- The modern alternative (faster, has a transform, more global): [08 UMAP](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/umap/umap)
+- The KL-divergence objective (the *why* of the cost): [ai-ml-intuitions 5.01 Entropy & KL Divergence](/ai-ml/ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition)
+- Concept depth (the *why*): [ai-ml-intuitions 1.11–1.12 Dimensionality Reduction (t-SNE / UMAP)](/ai-ml/ai-ml-intuitions/representation/dimensionality-and-latent-structure/tsne-and-umap-intuition)
 - Prereq math: [Vectors and Vector Spaces](/ai-ml/ai-ml-learning-resources/foundations/vectors-and-vector-spaces/notes-theory) and [Matrices and Matrix Operations](/ai-ml/ai-ml-learning-resources/foundations/matrices-and-matrix-operations/notes-theory)
-- Field overview: [4. Unsupervised Learning](../../README.md)
+- Field overview: [4. Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)

@@ -56,6 +56,6 @@ write, when to summarize/compact, and how to avoid stale or contradictory memori
 - [Artificial Intelligence: A Modern Approach — **Ch. 2 "Intelligent Agents"** (state & internal models)](https://aima.cs.berkeley.edu/) — **Russell & Norvig** — model-based agents keep internal state — the classical root of agent memory.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 8.03 Agents & Tool Use](../../../../ai-ml-intuitions/reasoning-and-agency/agents-and-tools/agent-loop-and-tool-use-intuition.md)
-- Prev / next: [05 Reflection & Self-Critique](../reflection/reflection.md) · [07 Multi-Agent Systems](../multi-agent-systems/multi-agent-systems.md)
-- Related (canonical home): long-term memory is retrieval — see [RAG & LLM Applications](../../rag-and-knowledge-systems/overview.md)
+- Concept depth (the *why*): [ai-ml-intuitions 8.03 Agents & Tool Use](/ai-ml/ai-ml-intuitions/reasoning-and-agency/agents-and-tools/agent-loop-and-tool-use-intuition)
+- Prev / next: [05 Reflection & Self-Critique](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/reflection/reflection) · [07 Multi-Agent Systems](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/multi-agent-systems/multi-agent-systems)
+- Related (canonical home): long-term memory is retrieval — see [RAG & LLM Applications](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/overview)

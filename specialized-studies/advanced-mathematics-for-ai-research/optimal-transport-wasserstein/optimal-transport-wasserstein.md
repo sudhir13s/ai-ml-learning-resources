@@ -57,8 +57,8 @@ generative training. Kantorovich duality is a flagship use of the convex duality
 - [Mathematics for Machine Learning — **Ch. 6 (Probability) & Ch. 7 (Optimization)**](https://mml-book.github.io/book/mml-book.pdf) — **Deisenroth, Faisal & Ong** — the probability + LP/duality background, free.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 5.04 GANs & WGAN](../../../../ai-ml-intuitions/generation/adversarial-generation/gans-and-wasserstein-gans-intuition.md) · [1.10 Mahalanobis Distance](../../../../ai-ml-intuitions/representation/similarity-and-distance/mahalanobis-distance-intuition.md)
-- Foundations (the basics this builds on): [Cross-Entropy & KL Divergence](../../../foundations/mathematical-foundations/cross-entropy-and-kl-divergence/cross-entropy-and-kl-divergence.md)
-- Prerequisite & next: [04 Convex Analysis & Duality](../convex-analysis-and-duality/convex-analysis-and-duality.md) · [08 Information Geometry](../information-geometry/information-geometry.md)
-- Related domain: [05. Deep Learning](../../../deep-learning/README.md)
+- Concept depth (the *why*): [ai-ml-intuitions 5.04 GANs & WGAN](/ai-ml/ai-ml-intuitions/generation/adversarial-generation/gans-and-wasserstein-gans-intuition) · [1.10 Mahalanobis Distance](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/mahalanobis-distance-intuition)
+- Foundations (the basics this builds on): [Cross-Entropy & KL Divergence](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/cross-entropy-and-kl-divergence/cross-entropy-and-kl-divergence)
+- Prerequisite & next: [04 Convex Analysis & Duality](/ai-ml/ai-ml-learning-resources/specialized-studies/advanced-mathematics-for-ai-research/convex-analysis-and-duality/convex-analysis-and-duality) · [08 Information Geometry](/ai-ml/ai-ml-learning-resources/specialized-studies/advanced-mathematics-for-ai-research/information-geometry/information-geometry)
+- Related domain: [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
 </content>

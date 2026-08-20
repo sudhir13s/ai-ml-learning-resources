@@ -55,6 +55,6 @@ justify capping vs removal vs a log transform — and to do detection **using tr
 - [Python Data Science Handbook — **Ch. 3 (Pandas: detecting/filtering)**](https://jakevdp.github.io/PythonDataScienceHandbook/) — **Jake VanderPlas** — boolean masking and aggregation to find/remove outliers.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 0.02 Distributions & the Gaussian](../../../../ai-ml-intuitions/foundational-mental-models/probability-and-belief/distributions-and-gaussians-intuition.md) · [1.10 Mahalanobis Distance](../../../../ai-ml-intuitions/representation/similarity-and-distance/mahalanobis-distance-intuition.md)
-- Next concepts: [02 Feature Scaling & Normalization](../feature-scaling-and-normalization/feature-scaling-and-normalization.md) · [06 Feature Engineering](../feature-engineering/feature-engineering.md)
-- Related domain: [04. Unsupervised Learning](../../../core-machine-learning/unsupervised-learning/README.md)
+- Concept depth (the *why*): [ai-ml-intuitions 0.02 Distributions & the Gaussian](/ai-ml/ai-ml-intuitions/foundational-mental-models/probability-and-belief/distributions-and-gaussians-intuition) · [1.10 Mahalanobis Distance](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/mahalanobis-distance-intuition)
+- Next concepts: [02 Feature Scaling & Normalization](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/feature-scaling-and-normalization/feature-scaling-and-normalization) · [06 Feature Engineering](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/feature-engineering/feature-engineering)
+- Related domain: [04. Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)

@@ -8,7 +8,7 @@ updated: 2026-07-01
 
 # Query Transformation (HyDE & Multi-Query) — references and further reading
 
-> Companion link library for **[Query Transformation (HyDE & Multi-Query)](query-transformation.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is free/open (no paywall) and chosen for depth on *this* topic — the question↔document asymmetry, HyDE, Multi-Query / RAG-Fusion, and the fusion that ties them together.
+> Companion link library for **[Query Transformation (HyDE & Multi-Query)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/query-transformation/query-transformation)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is free/open (no paywall) and chosen for depth on *this* topic — the question↔document asymmetry, HyDE, Multi-Query / RAG-Fusion, and the fusion that ties them together.
 
 **Start here — suggested path**:
 1. **Feel the problem** — read [the HyDE paper](https://arxiv.org/abs/2212.10496) (**Gao et al. 2022**), abstract + §1–3. *Why a hypothetical answer is a better retrieval probe than the raw question — the core idea, stated cleanly.*
@@ -51,7 +51,7 @@ updated: 2026-07-01
 - [Speech and Language Processing, 3rd ed. — Ch. 14 "Question Answering & Information Retrieval"](https://web.stanford.edu/~jurafsky/slp3/14.pdf) — **Jurafsky & Martin** — dense retrieval, the query/passage encoders, and the retrieval metrics (recall@k, MRR) this page measures against.
 
 **In this platform**:
-- Concept page (full explanation): [Query Transformation (HyDE & Multi-Query)](query-transformation.md)
-- Foundations this builds on: [RAG Fundamentals](../rag-foundations/rag-foundations.md) · [Embedding Models for Retrieval](../embedding-models/embedding-models.md) · [Hybrid Search (BM25 + Dense) — the RRF this page reuses](../hybrid-search/hybrid-search.md)
-- Puts it to work: [Re-ranking with Cross-Encoders (the backstop after transformation)](../reranking/reranking.md) · [Advanced RAG (Parent-Doc, Fusion, Self-RAG)](../advanced-rag/advanced-rag.md) · [Agentic RAG (query decomposition, multi-hop)](../agentic-rag/agentic-rag.md)
-- Measure it: [RAG Evaluation (recall@k, MRR, and the metrics this page reports)](../rag-evaluation/rag-evaluation.md)
+- Concept page (full explanation): [Query Transformation (HyDE & Multi-Query)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/query-transformation/query-transformation)
+- Foundations this builds on: [RAG Fundamentals](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-foundations/rag-foundations) · [Embedding Models for Retrieval](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/embedding-models/embedding-models) · [Hybrid Search (BM25 + Dense) — the RRF this page reuses](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search)
+- Puts it to work: [Re-ranking with Cross-Encoders (the backstop after transformation)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking) · [Advanced RAG (Parent-Doc, Fusion, Self-RAG)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/advanced-rag/advanced-rag) · [Agentic RAG (query decomposition, multi-hop)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/agentic-rag/agentic-rag)
+- Measure it: [RAG Evaluation (recall@k, MRR, and the metrics this page reports)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-evaluation/rag-evaluation)

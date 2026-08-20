@@ -46,7 +46,7 @@ be able to:
 > token cost model + a modelled per-call latency) are **real and measured** — every number is printed
 > by an executed notebook cell and asserted, by value. The only **illustrative** pieces are the answer
 > *text* a MISS "computes" (no LLM in this env) and the exact **latency constants** (a real call is
-> ~hundreds of ms, a cache hit ~a few ms). Carried caveat from [ch11](../../rag-and-knowledge-systems/rag-evaluation/rag-evaluation.md)/[ch13](../../rag-and-knowledge-systems/citations-and-attribution/citations-and-attribution.md)/[ch14](../../reasoning-evaluation-and-alignment/hallucination-and-grounding/hallucination-and-grounding.md):
+> ~hundreds of ms, a cache hit ~a few ms). Carried caveat from [ch11](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-evaluation/rag-evaluation)/[ch13](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/citations-and-attribution/citations-and-attribution)/[ch14](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/hallucination-and-grounding/hallucination-and-grounding):
 > the cache matches by cosine — *topic*, not exact intent — so a too-low threshold serves a **false
 > hit** (the wrong cached answer). We show it explicitly.
 
@@ -180,7 +180,7 @@ rate**: a 60% hit rate cuts ~60% of the bill. That single fact is the whole econ
 payoff scales directly with how repetitive your traffic is.
 
 > **Source / derivation:** this is the standard cache expected-cost identity; the per-query token cost
-> $c_{\text{full}}$, $c_{\text{hit}}$ reuse [ch12's cost model](../../rag-and-knowledge-systems/long-context-vs-rag/long-context-vs-rag.md)
+> $c_{\text{full}}$, $c_{\text{hit}}$ reuse [ch12's cost model](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/long-context-vs-rag/long-context-vs-rag)
 > (`query_cost_usd(tokens)` = tokens ÷ 1M × price). [GPTCache (Bang 2023, NLP-OSS)](https://aclanthology.org/2023.nlposs-1.24/)
 > reports the same structure: a cache hit is 2–10× faster and near-free, so savings track the hit rate.
 
@@ -407,7 +407,7 @@ answer won't change before the next identical query; only make that bet where it
 The cache isn't free: every query pays an **embedding + nearest-neighbour lookup** even on a miss, and
 an **empty cache** (cold start) hits nothing — early traffic is all misses paying *extra* for the
 lookup. **The fix:** keep the lookup cheap (a small encoder, an ANN index for a large cache — see
-[ch4](../../rag-and-knowledge-systems/vector-search/vector-search.md)), and accept that
+[ch4](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search)), and accept that
 caching only pays off once traffic is warm and repetitive. On a stream of all-unique queries a cache
 *loses* — it adds lookup cost for zero hits. **Measure your repeat rate before adding a cache.**
 

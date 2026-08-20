@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Dropout — references and further reading
 
-> Companion link library for **[Dropout](dropout.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity. Every link verified (HTTP 200).
+> Companion link library for **[Dropout](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/dropout/dropout)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity. Every link verified (HTTP 200).
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Dropout Regularization (C2W1L06)](https://www.youtube.com/watch?v=D8PJAL-MZv8) (**Andrew Ng**). *Why randomly killing units spreads out the learned weights.*
@@ -53,8 +53,8 @@ updated: 2026-06-22
 - [Deep Learning — §7.12 "Dropout"](https://www.deeplearningbook.org/contents/regularization.html) — **Goodfellow, Bengio & Courville** — the rigorous ensemble/bagging and geometric-mean-averaging view.
 
 **In this platform**:
-- Concept page (full explanation): [Dropout](dropout.md)
-- Concept depth (the *why*): [ai-ml-intuitions 2.11 Dropout](../../../../ai-ml-intuitions/training-stability/generalization-stability/dropout-intuition.md)
-- Prerequisite: [Regularization](../../optimization-and-training/regularization/regularization.md) (L1/L2, early stopping — the family dropout belongs to)
-- Related: [Normalization](../normalization/normalization.md) (BatchNorm — the variance-shift conflict; LayerNorm pairs with dropout) · [Residual / Skip Connections](../residual-skip-connections/residual-skip-connections.md) (stochastic depth / DropPath, dropout at the block level) · [Transformer Architecture](../../attention-and-transformers/transformer-architecture/transformer-architecture.md) (where attention / residual / FFN dropout live)
-- Field overview: [Deep Learning](../../README.md)
+- Concept page (full explanation): [Dropout](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/dropout/dropout)
+- Concept depth (the *why*): [ai-ml-intuitions 2.11 Dropout](/ai-ml/ai-ml-intuitions/training-stability/generalization-stability/dropout-intuition)
+- Prerequisite: [Regularization](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/regularization/regularization) (L1/L2, early stopping — the family dropout belongs to)
+- Related: [Normalization](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/normalization/normalization) (BatchNorm — the variance-shift conflict; LayerNorm pairs with dropout) · [Residual / Skip Connections](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/residual-skip-connections/residual-skip-connections) (stochastic depth / DropPath, dropout at the block level) · [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture) (where attention / residual / FFN dropout live)
+- Field overview: [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

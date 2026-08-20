@@ -29,19 +29,19 @@ I'm going to build this the way I'd explain it to a teammate whose vector search
 - build a hybrid retriever from scratch and *measure* it beating both single lenses on a mixed query set;
 - name the real systems (Elasticsearch/OpenSearch, Weaviate, Qdrant, pgvector, Pinecone) and their exact knobs.
 
-> **Note:** hybrid search is a *retrieval* upgrade, not a *generation* one. It changes **which passages reach the prompt**, nothing about the LLM. As [chapter 1](../rag-foundations/rag-foundations.md) hammered: almost every RAG failure is a retrieval failure — and a single missed exact code or paraphrase is exactly the kind of retrieval failure hybrid removes.
+> **Note:** hybrid search is a *retrieval* upgrade, not a *generation* one. It changes **which passages reach the prompt**, nothing about the LLM. As [chapter 1](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-foundations/rag-foundations) hammered: almost every RAG failure is a retrieval failure — and a single missed exact code or paraphrase is exactly the kind of retrieval failure hybrid removes.
 
 ---
 
 ## The problem: each lens has a blind spot the other doesn't
 
-To see why hybrid exists, you have to feel **both** failures — on the same corpus. We use [chapter 1's](../rag-foundations/rag-foundations.md) eight-passage Helios-7 corpus plus three passages chosen to expose each lens (the full list prints in the [notebook](code/05-Hybrid-Search-BM25-and-Dense.ipynb), Step 2):
+To see why hybrid exists, you have to feel **both** failures — on the same corpus. We use [chapter 1's](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-foundations/rag-foundations) eight-passage Helios-7 corpus plus three passages chosen to expose each lens (the full list prints in the [notebook](code/05-Hybrid-Search-BM25-and-Dense.ipynb), Step 2):
 
 - `doc[8]` — a terse **exact-code** line: *"Error E-4011 appeared in the Helios-7 telemetry stream."*
 - `doc[9]` — a **paraphrase** line: *"Climbing steadily, Helios-7 rose skyward moments past liftoff."*
 - `doc[10]` — a chatty **same-topic distractor**: *"The Helios-7 ground team spent the afternoon investigating several telemetry errors and console warnings."*
 
-**Failure 1 — the dense lens blurs an exact token.** Query: *"What telemetry error did Helios-7 report?"* A dense bi-encoder ([chapter 3](../embedding-models/embedding-models.md), here `all-MiniLM-L6-v2`) embeds query and passages by *meaning*. The chatty distractor `doc[10]` is more "about errors" overall than the terse `doc[8]`, so dense ranks it **#1** and the passage that literally contains the answer code **#2**:
+**Failure 1 — the dense lens blurs an exact token.** Query: *"What telemetry error did Helios-7 report?"* A dense bi-encoder ([chapter 3](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/embedding-models/embedding-models), here `all-MiniLM-L6-v2`) embeds query and passages by *meaning*. The chatty distractor `doc[10]` is more "about errors" overall than the terse `doc[8]`, so dense ranks it **#1** and the passage that literally contains the answer code **#2**:
 
 ```
 DENSE  top-3: [10, 8, 0]   gold rank #2
@@ -110,8 +110,8 @@ graph TD
 Stage by stage:
 
 1. **Sparse retrieve (BM25).** Score every document for the query with BM25 over an inverted index (term → postings list). Returns a ranked list whose top entries **literally contain the query's terms**, weighted by rarity and saturated tf. This is the lens that nails codes, names, acronyms.
-2. **Dense retrieve.** Embed the query with the same bi-encoder used at index time, then find the nearest passage vectors — at scale via an [ANN index](../vector-search/vector-search.md) (HNSW/IVF). Returns a ranked list of **semantic** matches.
-3. **Fuse.** Combine the two ranked lists into one. Two families: (a) **score fusion** — normalize each list's scores onto a common scale, then take a weighted sum $\alpha\cdot\text{dense}+(1-\alpha)\cdot\text{sparse}$; (b) **rank fusion** — ignore raw scores and combine **ranks** via Reciprocal Rank Fusion. The output is the final top-$k$ handed to the generator (or to a [reranker](../reranking/reranking.md)).
+2. **Dense retrieve.** Embed the query with the same bi-encoder used at index time, then find the nearest passage vectors — at scale via an [ANN index](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search) (HNSW/IVF). Returns a ranked list of **semantic** matches.
+3. **Fuse.** Combine the two ranked lists into one. Two families: (a) **score fusion** — normalize each list's scores onto a common scale, then take a weighted sum $\alpha\cdot\text{dense}+(1-\alpha)\cdot\text{sparse}$; (b) **rank fusion** — ignore raw scores and combine **ranks** via Reciprocal Rank Fusion. The output is the final top-$k$ handed to the generator (or to a [reranker](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking)).
 
 > **Note:** in practice you retrieve a **larger candidate pool from each lens** (say top-50 or top-100 each) and fuse those, then keep the final top-$k$ (e.g. 3–10). Fusing only each lens's top-3 throws away signal — a passage at sparse-rank 8 and dense-rank 4 might deserve the final #1, and you can only see that if both lists run deep enough to contain it. The pool size before fusion is its own knob.
 
@@ -378,7 +378,7 @@ Hybrid search fails in characteristic ways. Name them so you catch them in the w
 
 **When hybrid is NOT worth it:**
 - **Purely conversational, paraphrase-dominated queries** with no exact identifiers — dense alone is often enough; the BM25 leg adds latency and a tuning surface for little gain.
-- **Tiny corpora that fit the context window** — just stuff everything in; retrieval (let alone hybrid) is overkill (the [Long-Context vs RAG](../long-context-vs-rag/long-context-vs-rag.md) chapter weighs this).
+- **Tiny corpora that fit the context window** — just stuff everything in; retrieval (let alone hybrid) is overkill (the [Long-Context vs RAG](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/long-context-vs-rag/long-context-vs-rag) chapter weighs this).
 - **When you haven't measured a lexical gap** — if dense already nails your eval set, adding BM25 is complexity without a proven win. Measure first.
 
 ---
@@ -393,9 +393,9 @@ Hybrid search is a first-class feature in essentially every modern retrieval eng
 - **pgvector + Postgres full-text** — combine `ts_rank` (lexical) with `1 - (embedding <=> query)` (cosine) in SQL; the standard Postgres-native hybrid pattern, often fused with RRF in application code.
 - **Pinecone** — **sparse-dense** vectors in a single index; a record carries both a dense vector and a sparse (term-weight) vector, and the dot product spans both, giving hybrid scoring without a separate fusion step.
 
-**When to reach for it:** the moment your corpus contains identifiers, codes, or rare keywords that users will quote *and* paraphrase — which is most enterprise search. It's cheap to add (a second index + a fusion step), model-agnostic (wrap any embedder + any BM25), and the lift is measurable on a labeled query set. The frontier — covered in the next chapters — sharpens *which* of the fused candidates wins: [re-ranking with cross-encoders](../reranking/reranking.md) reorders the fused top-$k$ with a far more expensive but more accurate scorer, and [query transformation](../query-transformation/query-transformation.md) rewrites the query so *both* lenses retrieve better in the first place.
+**When to reach for it:** the moment your corpus contains identifiers, codes, or rare keywords that users will quote *and* paraphrase — which is most enterprise search. It's cheap to add (a second index + a fusion step), model-agnostic (wrap any embedder + any BM25), and the lift is measurable on a labeled query set. The frontier — covered in the next chapters — sharpens *which* of the fused candidates wins: [re-ranking with cross-encoders](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking) reorders the fused top-$k$ with a far more expensive but more accurate scorer, and [query transformation](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/query-transformation/query-transformation) rewrites the query so *both* lenses retrieve better in the first place.
 
-> **Note:** the through-line continues. [Chapter 3](../embedding-models/embedding-models.md) chose the dense lens; [chapter 4](../vector-search/vector-search.md) made dense search fast at scale; **this chapter added the lexical lens back and fused the two**, recovering the exact-match strength that pure-vector RAG threw away. Next, [chapter 6](../reranking/reranking.md) reranks whatever this hybrid retriever returns. Retrieve broadly with two lenses, then sharpen — that's the shape of a strong RAG stack.
+> **Note:** the through-line continues. [Chapter 3](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/embedding-models/embedding-models) chose the dense lens; [chapter 4](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search) made dense search fast at scale; **this chapter added the lexical lens back and fused the two**, recovering the exact-match strength that pure-vector RAG threw away. Next, [chapter 6](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking) reranks whatever this hybrid retriever returns. Retrieve broadly with two lenses, then sharpen — that's the shape of a strong RAG stack.
 
 ---
 

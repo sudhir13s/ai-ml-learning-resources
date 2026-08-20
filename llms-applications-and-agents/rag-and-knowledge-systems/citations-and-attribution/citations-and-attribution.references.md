@@ -8,7 +8,7 @@ updated: 2026-07-02
 
 # Citations & Attribution — references and further reading
 
-> Companion link library for **[Citations & Attribution](citations-and-attribution.md)** (the
+> Companion link library for **[Citations & Attribution](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/citations-and-attribution/citations-and-attribution)** (the
 > concept page). External sources *and* internal cross-links, kept separate so it can be reused as a
 > standalone list. Grouped by type, best-first. Every entry is free/open (no paywall) and chosen for
 > depth on *this* topic — attaching each claim in a RAG answer to its source passage (attribution),
@@ -60,9 +60,9 @@ updated: 2026-07-02
 - [Speech and Language Processing, 3rd ed. — Ch. 14 "Question Answering & Information Retrieval"](https://web.stanford.edu/~jurafsky/slp3/14.pdf) — **Jurafsky & Martin** — the QA-grounding foundations (answer support, evidence) behind attribution, free PDF.
 
 **In this platform**:
-- Concept page (full explanation): [Citations & Attribution](citations-and-attribution.md)
-- Concept depth (the *why*): [ai-ml-intuitions 8.02 Retrieval-Augmented Generation](../../../../ai-ml-intuitions/memory-retrieval-and-context/retrieval-augmented-generation/rag-intuition.md)
-- Machinery reused here: [05 Hybrid Search (the DenseRetriever this reuses)](../hybrid-search/hybrid-search.md) · [08 Advanced RAG (the encoder-cosine support check reused as the attribution proxy)](../advanced-rag/advanced-rag.md) · [11 RAG Evaluation (faithfulness & the cosine≠entailment caveat)](../rag-evaluation/rag-evaluation.md)
-- Foundations: [01 RAG Fundamentals](../rag-foundations/rag-foundations.md) · [03 Embedding Models](../embedding-models/embedding-models.md)
-- Next / related: [14 Guardrails & Hallucination Mitigation](../../reasoning-evaluation-and-alignment/hallucination-and-grounding/hallucination-and-grounding.md)
-- Related domain: [LLMs — Hallucination & Alignment Basics](../../reasoning-evaluation-and-alignment/safety-and-alignment/safety-and-alignment.md) · [06. NLP — NLP Evaluation Metrics (entailment-based evaluation)](../../../modalities-and-generative-models/natural-language-processing/nlp-evaluation-metrics/nlp-evaluation-metrics.md)
+- Concept page (full explanation): [Citations & Attribution](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/citations-and-attribution/citations-and-attribution)
+- Concept depth (the *why*): [ai-ml-intuitions 8.02 Retrieval-Augmented Generation](/ai-ml/ai-ml-intuitions/memory-retrieval-and-context/retrieval-augmented-generation/rag-intuition)
+- Machinery reused here: [05 Hybrid Search (the DenseRetriever this reuses)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search) · [08 Advanced RAG (the encoder-cosine support check reused as the attribution proxy)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/advanced-rag/advanced-rag) · [11 RAG Evaluation (faithfulness & the cosine≠entailment caveat)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-evaluation/rag-evaluation)
+- Foundations: [01 RAG Fundamentals](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-foundations/rag-foundations) · [03 Embedding Models](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/embedding-models/embedding-models)
+- Next / related: [14 Guardrails & Hallucination Mitigation](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/hallucination-and-grounding/hallucination-and-grounding)
+- Related domain: [LLMs — Hallucination & Alignment Basics](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/safety-and-alignment/safety-and-alignment) · [06. NLP — NLP Evaluation Metrics (entailment-based evaluation)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/nlp-evaluation-metrics/nlp-evaluation-metrics)

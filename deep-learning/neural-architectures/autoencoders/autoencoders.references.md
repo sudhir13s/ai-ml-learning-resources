@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Autoencoders — references and further reading
 
-> Companion link library for **[Autoencoders](autoencoders.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
+> Companion link library for **[Autoencoders](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/autoencoders/autoencoders)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Autoencoders Explained Easily](https://www.youtube.com/watch?v=xwrzh4e8DLs) (**Valerio Velardo, The Sound of AI**). *Encoder → bottleneck → decoder, and what compression buys.*
@@ -52,10 +52,10 @@ updated: 2026-06-22
 - [Dive into Deep Learning](https://d2l.ai/) — **Zhang, Lipton, Li & Smola** — encoder–decoder representations and latent codes with runnable code.
 
 **In this platform**:
-- Concept page (full explanation): [Autoencoders](autoencoders.md)
-- Prerequisites: [02 Backpropagation & Computational Graphs](../../neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs.md) · [04 Loss Functions](../../optimization-and-training/loss-functions/loss-functions.md) · [03 Activation Functions](../../stabilization-and-architectural-blocks/activation-functions/activation-functions.md)
-- The linear baseline (PCA): [04. Unsupervised — Dimensionality Reduction Overview](../../../core-machine-learning/unsupervised-learning/dimensionality-reduction/dimensionality-reduction-overview/dimensionality-reduction-overview.md)
-- Visualization neighbors: [t-SNE](../../../core-machine-learning/unsupervised-learning/dimensionality-reduction/t-sne/t-sne.md) · [UMAP](../../../core-machine-learning/unsupervised-learning/dimensionality-reduction/umap/umap.md)
-- Puts it to work: [Anomaly / Outlier Detection (reconstruction error)](../../../core-machine-learning/unsupervised-learning/anomaly-detection/anomaly-outlier-detection/anomaly-outlier-detection.md) · [Contrastive / Self-Supervised Learning](../../self-supervised-learning/contrastive-self-supervised-learning/contrastive-self-supervised-learning.md)
-- The generative deep-dive: [10. GenAI — Variational Autoencoders (VAE · ELBO)](../../../modalities-and-generative-models/generative-models/variational-autoencoders-vae-elbo/variational-autoencoders-vae-elbo.md) · [Latent Diffusion / Stable Diffusion](../../../modalities-and-generative-models/diffusion-models/latent-diffusion-stable-diffusion/latent-diffusion-stable-diffusion.md)
-- Field overview: [Deep Learning](../../README.md)
+- Concept page (full explanation): [Autoencoders](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/autoencoders/autoencoders)
+- Prerequisites: [02 Backpropagation & Computational Graphs](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs) · [04 Loss Functions](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/loss-functions/loss-functions) · [03 Activation Functions](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/activation-functions/activation-functions)
+- The linear baseline (PCA): [04. Unsupervised — Dimensionality Reduction Overview](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/dimensionality-reduction-overview/dimensionality-reduction-overview)
+- Visualization neighbors: [t-SNE](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/t-sne/t-sne) · [UMAP](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/umap/umap)
+- Puts it to work: [Anomaly / Outlier Detection (reconstruction error)](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/anomaly-detection/anomaly-outlier-detection/anomaly-outlier-detection) · [Contrastive / Self-Supervised Learning](/ai-ml/ai-ml-learning-resources/deep-learning/self-supervised-learning/contrastive-self-supervised-learning/contrastive-self-supervised-learning)
+- The generative deep-dive: [10. GenAI — Variational Autoencoders (VAE · ELBO)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/variational-autoencoders-vae-elbo/variational-autoencoders-vae-elbo) · [Latent Diffusion / Stable Diffusion](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/latent-diffusion-stable-diffusion/latent-diffusion-stable-diffusion)
+- Field overview: [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
