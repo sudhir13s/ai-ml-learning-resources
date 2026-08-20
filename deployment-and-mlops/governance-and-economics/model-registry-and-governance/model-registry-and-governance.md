@@ -57,5 +57,5 @@ auditability, access control). Sits between experiment tracking and serving.
 - [Machine Learning Engineering — **Ch. 8–9** (deployment, versioning & maintenance)](http://www.mlebook.com/wiki/doku.php) — **Andriy Burkov** — read-first chapters free.
 
 ## 🔗 In this platform
-- Builds on: [03 Experiment Tracking](../../lifecycle-and-reproducibility/experiment-tracking/experiment-tracking.md) · [04 Data & Model Versioning](../../lifecycle-and-reproducibility/data-and-model-versioning/data-and-model-versioning.md)
-- Next concepts: [14 A/B Testing · Shadow & Canary](../../release-and-deployment/ab-testing-shadow-and-canary-deployment/ab-testing-shadow-and-canary-deployment.md) · [11 Model Monitoring & Observability](../../monitoring-and-reliability/model-monitoring-and-observability/model-monitoring-and-observability.md)
+- Builds on: [03 Experiment Tracking](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/lifecycle-and-reproducibility/experiment-tracking/experiment-tracking) · [04 Data & Model Versioning](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/lifecycle-and-reproducibility/data-and-model-versioning/data-and-model-versioning)
+- Next concepts: [14 A/B Testing · Shadow & Canary](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/release-and-deployment/ab-testing-shadow-and-canary-deployment/ab-testing-shadow-and-canary-deployment) · [11 Model Monitoring & Observability](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/monitoring-and-reliability/model-monitoring-and-observability/model-monitoring-and-observability)

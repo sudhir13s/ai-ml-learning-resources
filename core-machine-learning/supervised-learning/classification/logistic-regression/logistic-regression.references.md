@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Logistic Regression — references and further reading
 
-> Companion link library for **[Logistic Regression](logistic-regression.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
+> Companion link library for **[Logistic Regression](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/logistic-regression/logistic-regression)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Logistic Regression](https://www.youtube.com/watch?v=yIYKR4sgzI8) (**StatQuest**), then play with [MLU-Explain: Logistic Regression](https://mlu-explain.github.io/logistic-regression/). *See the S-curve, the probability, and the boundary before the math.*
@@ -47,7 +47,7 @@ updated: 2026-06-22
 - [The Elements of Statistical Learning — Ch. 4 "Linear Methods for Classification"](https://hastie.su.domains/ElemStatLearn/) — **Hastie, Tibshirani & Friedman** — the rigorous treatment (logistic regression vs LDA, IRLS).
 
 **In this platform**:
-- Concept page (full explanation): [Logistic Regression](logistic-regression.md)
-- Concept depth (the *why*): [ai-ml-intuitions 3.03 Cross-Entropy / NLL](../../../../../ai-ml-intuitions/objectives-and-evaluation/training-objectives/categorical-cross-entropy-intuition.md) · [3.05 Classification Metrics](../../../../../ai-ml-intuitions/objectives-and-evaluation/predictive-evaluation/classification-metrics-intuition.md)
-- Related: [Linear Regression](../../regression/linear-regression/linear-regression.md) · [Classification Metrics](../classification-metrics/classification-metrics.md) (the probabilities you threshold) · [Loss Functions](../../../../deep-learning/optimization-and-training/loss-functions/loss-functions.md) (softmax+cross-entropy = multiclass logistic regression)
-- Math prerequisites: [01. Foundations](../../../../foundations/mathematical-foundations/README.md) — sigmoid, maximum likelihood, cross-entropy, gradient descent
+- Concept page (full explanation): [Logistic Regression](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/logistic-regression/logistic-regression)
+- Concept depth (the *why*): [ai-ml-intuitions 3.03 Cross-Entropy / NLL](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/training-objectives/categorical-cross-entropy-intuition) · [3.05 Classification Metrics](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/predictive-evaluation/classification-metrics-intuition)
+- Related: [Linear Regression](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/regression/linear-regression/linear-regression) · [Classification Metrics](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/classification-metrics/classification-metrics) (the probabilities you threshold) · [Loss Functions](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/loss-functions/loss-functions) (softmax+cross-entropy = multiclass logistic regression)
+- Math prerequisites: [01. Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme) — sigmoid, maximum likelihood, cross-entropy, gradient descent

@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Anomaly / Outlier Detection — references and further reading
 
-> Companion link library for **[Anomaly / Outlier Detection](anomaly-outlier-detection.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
+> Companion link library for **[Anomaly / Outlier Detection](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/anomaly-detection/anomaly-outlier-detection/anomaly-outlier-detection)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
 1. **Frame the problem** — watch [Unsupervised Anomaly Detection Explained](https://www.youtube.com/watch?v=QZNEJHbophM) (**Data Science Garage**). *Where clustering, density, and isolation methods each apply.*
@@ -52,9 +52,9 @@ updated: 2026-06-22
 - [Mining of Massive Datasets — Ch. 7 "Clustering"](http://infolab.stanford.edu/~ullman/mmds/ch7.pdf) — **Leskovec, Rajaraman & Ullman (Stanford)** — free PDF; clustering and the "noise"/outlier view at scale.
 
 **In this platform**:
-- Concept page (full explanation): [Anomaly / Outlier Detection](anomaly-outlier-detection.md)
-- Related unsupervised methods: [DBSCAN](../../clustering/dbscan/dbscan.md) — its "noise" label *is* a form of outlier detection · [Kernel Density Estimation](../../density-estimation/kernel-density-estimation/kernel-density-estimation.md) — density-based scoring · [K-Means Clustering](../../clustering/k-means-clustering/k-means-clustering.md) (distance-to-centroid scoring)
-- Evaluation under imbalance: [Classification Metrics](../../../supervised-learning/classification/classification-metrics/classification-metrics.md) — the ROC-AUC vs PR-AUC contrast, derived
-- Boundary method foundations: [Support Vector Machines](../../../supervised-learning/classification/support-vector-machines/support-vector-machines.md) — the kernel + margin machinery One-Class SVM reuses
-- Concept depth (the *why*): [ai-ml-intuitions 1.07–1.08 Distances (Euclidean vs Cosine)](../../../../../ai-ml-intuitions/representation/similarity-and-distance/cosine-vs-euclidean-distance-intuition.md) — density and "local" outliers are defined by the distance metric
-- Field overview: [4. Unsupervised Learning](../../README.md)
+- Concept page (full explanation): [Anomaly / Outlier Detection](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/anomaly-detection/anomaly-outlier-detection/anomaly-outlier-detection)
+- Related unsupervised methods: [DBSCAN](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/dbscan/dbscan) — its "noise" label *is* a form of outlier detection · [Kernel Density Estimation](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/density-estimation/kernel-density-estimation/kernel-density-estimation) — density-based scoring · [K-Means Clustering](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/k-means-clustering/k-means-clustering) (distance-to-centroid scoring)
+- Evaluation under imbalance: [Classification Metrics](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/classification-metrics/classification-metrics) — the ROC-AUC vs PR-AUC contrast, derived
+- Boundary method foundations: [Support Vector Machines](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/support-vector-machines/support-vector-machines) — the kernel + margin machinery One-Class SVM reuses
+- Concept depth (the *why*): [ai-ml-intuitions 1.07–1.08 Distances (Euclidean vs Cosine)](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/cosine-vs-euclidean-distance-intuition) — density and "local" outliers are defined by the distance metric
+- Field overview: [4. Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)

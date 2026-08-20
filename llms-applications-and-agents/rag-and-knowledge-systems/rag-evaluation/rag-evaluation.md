@@ -167,7 +167,7 @@ $$\text{support}(c) = \max_{j} \; \text{enc}(c) \cdot \text{enc}(s_j), \qquad
 The score is in $[0, 1]$: 1.0 = every claim grounded; each ungrounded (hallucinated) claim subtracts
 $1/n$. We use $\tau = 0.5$, chapter 8's middle bar on unit-norm all-MiniLM cosines.
 
-> **Source / derivation:** the supported-claims / total-claims definition is [RAGAS](https://arxiv.org/abs/2309.15217) (Es et al. 2023, §3.1 "Faithfulness"), formalized in the [RAGAS metric docs](https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/). The per-claim **support** via max cosine to a context sentence is the encoder-cosine groundedness proxy from [chapter 8](../advanced-rag/advanced-rag.md) (standing in for RAGAS's LLM NLI judge — see the pitfalls).
+> **Source / derivation:** the supported-claims / total-claims definition is [RAGAS](https://arxiv.org/abs/2309.15217) (Es et al. 2023, §3.1 "Faithfulness"), formalized in the [RAGAS metric docs](https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/). The per-claim **support** via max cosine to a context sentence is the encoder-cosine groundedness proxy from [chapter 8](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/advanced-rag/advanced-rag) (standing in for RAGAS's LLM NLI judge — see the pitfalls).
 
 **Answer relevance** measures whether the answer $a$ addresses the question $q$. RAGAS generates $N$
 questions *from* the answer and averages their similarity to $q$; with no generator we use the direct
@@ -217,10 +217,10 @@ enough to answer?), different unit (chunk IDs here vs answer-claims there).
 > **Source / derivation:** context recall as (relevant retrieved) / (all relevant) is classic IR recall ([Jurafsky & Martin, SLP3 Ch. 14](https://web.stanford.edu/~jurafsky/slp3/14.pdf)); the claim-attribution `LLMContextRecall` default and the reference-set `NonLLMContextRecall` variant are [RAGAS context recall](https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/) (Es et al. 2023). Both in the references.
 
 For single-gold ranking we also reuse **MRR** ($1/\text{rank}$ of the gold) and **nDCG@k** from
-[chapter 6](../reranking/reranking.md) — the same ranking
+[chapter 6](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking) — the same ranking
 metrics, applied to the retrieved context.
 
-> **Source / derivation:** MRR and nDCG@k are defined and derived in [chapter 6 (Re-ranking)](../reranking/reranking.md); this chapter imports the very same `ndcg_at_k` / `reciprocal_rank` functions so the numbers are consistent across chapters.
+> **Source / derivation:** MRR and nDCG@k are defined and derived in [chapter 6 (Re-ranking)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking); this chapter imports the very same `ndcg_at_k` / `reciprocal_rank` functions so the numbers are consistent across chapters.
 
 ---
 

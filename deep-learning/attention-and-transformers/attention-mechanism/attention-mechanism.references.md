@@ -8,7 +8,7 @@ updated: 2026-06-21
 
 # Attention Mechanism — references and further reading
 
-> Companion link library for **[Attention Mechanism](attention-mechanism.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
+> Companion link library for **[Attention Mechanism](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
 1. **Build the picture** — watch [Attention in transformers, step-by-step](https://www.youtube.com/watch?v=eMlx5fFNoYc) (**3Blue1Brown**). *The clearest visualization of how Q/K/V route information.*
@@ -55,10 +55,10 @@ updated: 2026-06-21
 - [Speech and Language Processing, 3rd ed. — Ch. 9–10 (Attention & Transformers)](https://web.stanford.edu/~jurafsky/slp3/) — **Jurafsky & Martin** — attention framed for language, free draft chapters.
 
 **In this platform**:
-- Concept page (full explanation): [Attention Mechanism](attention-mechanism.md)
-- Concept depth (the *why*): [ai-ml-intuitions 4.16 Scaled Dot-Product Attention](../../../../ai-ml-intuitions/architectural-mechanisms/attention-and-routing/scaled-dot-product-attention-intuition.md) · [4.08 Multi-Head Attention Routing](../../../../ai-ml-intuitions/architectural-mechanisms/attention-and-routing/multi-head-attention-intuition.md) · [1.06 Scaled Dot-Product Similarity](../../../../ai-ml-intuitions/representation/similarity-and-distance/scaled-dot-product-intuition.md)
-- Prerequisite: [14 RNN / LSTM / GRU](../../neural-architectures/rnn-lstm-gru/rnn-lstm-gru.md) (the bottleneck attention fixed)
-- Needed because attention is order-blind: [17 Positional Encoding](../positional-encoding/positional-encoding.md) (sinusoidal, learned, RoPE, ALiBi)
-- Builds into: [16 Transformer Architecture](../transformer-architecture/transformer-architecture.md) — attention wrapped in residual + norm + FFN into a full model
-- At inference / efficiency: [KV Cache](../../../llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.md) · [Efficient Attention (FlashAttention)](../efficient-attention/efficient-attention.md)
-- Field overview: [Deep Learning](../../README.md)
+- Concept page (full explanation): [Attention Mechanism](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism)
+- Concept depth (the *why*): [ai-ml-intuitions 4.16 Scaled Dot-Product Attention](/ai-ml/ai-ml-intuitions/architectural-mechanisms/attention-and-routing/scaled-dot-product-attention-intuition) · [4.08 Multi-Head Attention Routing](/ai-ml/ai-ml-intuitions/architectural-mechanisms/attention-and-routing/multi-head-attention-intuition) · [1.06 Scaled Dot-Product Similarity](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/scaled-dot-product-intuition)
+- Prerequisite: [14 RNN / LSTM / GRU](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/rnn-lstm-gru/rnn-lstm-gru) (the bottleneck attention fixed)
+- Needed because attention is order-blind: [17 Positional Encoding](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/positional-encoding/positional-encoding) (sinusoidal, learned, RoPE, ALiBi)
+- Builds into: [16 Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture) — attention wrapped in residual + norm + FFN into a full model
+- At inference / efficiency: [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) · [Efficient Attention (FlashAttention)](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/efficient-attention/efficient-attention)
+- Field overview: [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

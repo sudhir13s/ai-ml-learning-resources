@@ -8,7 +8,7 @@ updated: 2026-06-27
 
 # Supervised Fine-Tuning — references and further reading
 
-> Companion link library for **[Supervised Fine-Tuning](supervised-fine-tuning.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity. All links are free / no-paywall.
+> Companion link library for **[Supervised Fine-Tuning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/supervised-fine-tuning/supervised-fine-tuning)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity. All links are free / no-paywall.
 
 **Start here — suggested path**:
 1. **See the whole pipeline** — watch [Deep Dive into LLMs like ChatGPT](https://www.youtube.com/watch?v=7xTGNNLPyMI) (**Andrej Karpathy**). *Pretraining → SFT → RLHF, with SFT's exact role in turning a base model into an assistant.*
@@ -49,8 +49,8 @@ updated: 2026-06-27
 - [Deep Learning — Ch. 5 (maximum likelihood & cross-entropy)](https://www.deeplearningbook.org/) — **Goodfellow, Bengio & Courville (2016)** — the MLE / cross-entropy equivalence underlying the next-token loss SFT minimizes.
 
 **In this platform**:
-- Concept page (full explanation): [Supervised Fine-Tuning](supervised-fine-tuning.md)
-- Foundations (the loss SFT reuses): [Language-Modeling Objectives](../../large-language-model-foundations/language-modeling-objectives/language-modeling-objectives.md) · [Decoder-only Architecture](../../large-language-model-foundations/decoder-only-models/decoder-only-models.md)
-- Run it efficiently: [LoRA & PEFT](../lora-and-parameter-efficient-fine-tuning/lora-and-parameter-efficient-fine-tuning.md)
-- What comes next: [Instruction Tuning](../instruction-tuning/instruction-tuning.md) · [RLHF & DPO](../preference-and-alignment-training/preference-and-alignment-training.md)
-- Alternatives when SFT can't add knowledge: [RAG Fundamentals](../../rag-and-knowledge-systems/rag-foundations/rag-foundations.md)
+- Concept page (full explanation): [Supervised Fine-Tuning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/supervised-fine-tuning/supervised-fine-tuning)
+- Foundations (the loss SFT reuses): [Language-Modeling Objectives](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/language-modeling-objectives/language-modeling-objectives) · [Decoder-only Architecture](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/decoder-only-models/decoder-only-models)
+- Run it efficiently: [LoRA & PEFT](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/lora-and-parameter-efficient-fine-tuning/lora-and-parameter-efficient-fine-tuning)
+- What comes next: [Instruction Tuning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/instruction-tuning/instruction-tuning) · [RLHF & DPO](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/preference-and-alignment-training/preference-and-alignment-training)
+- Alternatives when SFT can't add knowledge: [RAG Fundamentals](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-foundations/rag-foundations)

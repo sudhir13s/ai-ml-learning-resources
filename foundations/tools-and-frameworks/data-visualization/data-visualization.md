@@ -58,5 +58,5 @@ brevity vs Plotly's interactivity — and the figure/axes mental model — is a 
 - [Seaborn example gallery](https://seaborn.pydata.org/examples/index.html) — **Seaborn** — copy-adaptable statistical chart recipes.
 
 ## 🔗 In this platform
-- Related domain: [02. Data_Preprocessing](../../data-preparation/) · [04. Unsupervised Learning](../../../core-machine-learning/unsupervised-learning/README.md)
-- Pairs with: [02 Pandas](../pandas/pandas.md) · [11 Jupyter & Colab](../jupyter-and-colab/jupyter-and-colab.md)
+- Related domain: [02. Data_Preprocessing](../../data-preparation/) · [04. Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)
+- Pairs with: [02 Pandas](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/pandas/pandas) · [11 Jupyter & Colab](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/jupyter-and-colab/jupyter-and-colab)

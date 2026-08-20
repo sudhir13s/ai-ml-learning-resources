@@ -55,7 +55,7 @@ state the KKT conditions.
 - [Mathematics for Machine Learning — **Ch. 7.2 (Constrained Optimization)**](https://mml-book.github.io/book/mml-book.pdf) — **Deisenroth et al.** — Lagrange multipliers in the ML optimization chapter.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 1.05 Spectral Methods (PCA as constrained variance max)](../../../../ai-ml-intuitions/representation/dimensionality-and-latent-structure/pca-and-svd-intuition.md) · [1.16 The Kernel Trick (SVM context)](../../../../ai-ml-intuitions/representation/similarity-and-distance/kernel-trick-intuition.md)
-- Curriculum context: [Maths for AI-ML — Phase 5 (Optimization for ML/DL)](../maths-for-ai-ml/README.md)
-- Prereqs: [12 Convexity](../convexity/convexity.md) · Related: [07 PCA — the math](../principal-component-analysis-math/principal-component-analysis-math.md) (a constrained optimization)
+- Concept depth (the *why*): [ai-ml-intuitions 1.05 Spectral Methods (PCA as constrained variance max)](/ai-ml/ai-ml-intuitions/representation/dimensionality-and-latent-structure/pca-and-svd-intuition) · [1.16 The Kernel Trick (SVM context)](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/kernel-trick-intuition)
+- Curriculum context: [Maths for AI-ML — Phase 5 (Optimization for ML/DL)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
+- Prereqs: [12 Convexity](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/convexity/convexity) · Related: [07 PCA — the math](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/principal-component-analysis-math/principal-component-analysis-math) (a constrained optimization)
 </content>

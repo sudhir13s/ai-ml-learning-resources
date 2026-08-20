@@ -57,6 +57,6 @@ the judgment interviewers probe with "is this result trustworthy?"
 - [Dive into Deep Learning](https://d2l.ai/) — **Zhang et al.** — an open, community-maintained book; its forums discuss the methods you'll see researchers post about.
 
 ## 🔗 In this platform
-- Per-concept index: [Frontier & Staying Current — concepts](../README.md)
-- Pair with: [04 Newsletters & Blogs to Follow](../newsletters-and-blogs-to-follow/newsletters-and-blogs-to-follow.md) · [09 Building a Stay-Current Routine](../building-a-stay-current-routine/building-a-stay-current-routine.md) · [10 Open Model Hubs & Demos](../open-model-hubs-and-demos/open-model-hubs-and-demos.md)
-- Apply to a frontier area: [LLMs, Applications and Agents](../../../llms-applications-and-agents/README.md) · [15. Agentic AI](../../../llms-applications-and-agents/agentic-ai/overview.md)
+- Per-concept index: [Frontier & Staying Current — concepts](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/readme)
+- Pair with: [04 Newsletters & Blogs to Follow](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/newsletters-and-blogs-to-follow/newsletters-and-blogs-to-follow) · [09 Building a Stay-Current Routine](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/building-a-stay-current-routine/building-a-stay-current-routine) · [10 Open Model Hubs & Demos](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/open-model-hubs-and-demos/open-model-hubs-and-demos)
+- Apply to a frontier area: [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme) · [15. Agentic AI](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/overview)

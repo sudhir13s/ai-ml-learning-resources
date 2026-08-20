@@ -29,7 +29,7 @@ fundamentals (layers, caching, slim/multi-stage builds, pinned base images), and
 2. **Containerize a model** — watch [Convert your ML Model into a Docker Image](https://www.youtube.com/watch?v=JigSpm6KORI). *Wrap a model + API into an image you can run anywhere.*
 3. **Do it the MLOps way** — work [Made With ML: Docker](https://madewithml.com/courses/mlops/docker/). *Packaging within a real serving workflow, with a clean interface.*
 4. **Build production images** — read [Docker: Dockerfile best practices](https://docs.docker.com/build/building/best-practices/). *Layer caching, multi-stage builds, slim images — what separates a toy image from a deployable one.*
-5. **Connect to serving** — move to [09 Model Serving](../model-serving/model-serving.md). *The image is the artifact a serving runtime runs; packaging and serving are two halves of deployment.*
+5. **Connect to serving** — move to [09 Model Serving](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/model-serving/model-serving). *The image is the artifact a serving runtime runs; packaging and serving are two halves of deployment.*
 
 ## 🎓 Courses (free)
 - [Made With ML — Docker](https://madewithml.com/courses/mlops/docker/) — **Goku Mohandas** — package an ML app into a reproducible image.
@@ -55,6 +55,6 @@ fundamentals (layers, caching, slim/multi-stage builds, pinned base images), and
 - [Machine Learning Engineering — **Ch. 8 "Model Deployment"**](http://www.mlebook.com/wiki/doku.php) — **Andriy Burkov** — packaging and deployment patterns; read-first chapters free.
 
 ## 🔗 In this platform
-- Builds on: [02 Reproducibility](../../lifecycle-and-reproducibility/reproducibility/reproducibility.md)
-- Next concepts: [09 Model Serving](../model-serving/model-serving.md) · [10 Scaling Inference](../scaling-inference/scaling-inference.md)
-- Related concept (covered elsewhere): LLM-specific serving stacks → [LLMs, Applications and Agents](../../../llms-applications-and-agents/README.md)
+- Builds on: [02 Reproducibility](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/lifecycle-and-reproducibility/reproducibility/reproducibility)
+- Next concepts: [09 Model Serving](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/model-serving/model-serving) · [10 Scaling Inference](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/scaling-inference/scaling-inference)
+- Related concept (covered elsewhere): LLM-specific serving stacks → [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme)

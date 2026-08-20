@@ -239,7 +239,7 @@ def _eval_ast(node):
     raise ToolError("expression contains a disallowed operation")   # names, calls, imports -> reject
 ```
 
-A `calculator[__import__("os").system(...)]` isn't *discouraged* — it's structurally impossible, because `ast.Call` and `ast.Name` nodes hit the final `raise`. **Safe tool design is not optional in an agent**: the model's action string is untrusted input, exactly like user input. (This is why the sibling chapter on [Tool Use & Function Calling](../tool-use/tool-use.md) matters, and why [Safety, Guardrails & Human-in-the-Loop](../agent-safety/agent-safety.md) is a whole chapter.)
+A `calculator[__import__("os").system(...)]` isn't *discouraged* — it's structurally impossible, because `ast.Call` and `ast.Name` nodes hit the final `raise`. **Safe tool design is not optional in an agent**: the model's action string is untrusted input, exactly like user input. (This is why the sibling chapter on [Tool Use & Function Calling](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/tool-use/tool-use) matters, and why [Safety, Guardrails & Human-in-the-Loop](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/agent-safety/agent-safety) is a whole chapter.)
 
 The `wiki` tool is a real lookup against a small local knowledge base — offline and deterministic so the notebook reproduces exactly, but genuinely returning text the model must *read* to answer. It even has a real **miss** path (`"No knowledge-base entry found for ..."`), because in the wild tools sometimes return nothing useful and the agent has to cope.
 
@@ -333,9 +333,9 @@ The things that actually bite when you build a ReAct agent, named specifically w
 
 **5. Ignored observations.** The model calls a tool, gets a real result, and then *ignores it* in the next thought — reasoning from its prior belief instead of the new fact. This is subtle and model-dependent. *Fix:* keep observations short and unambiguous, put them immediately before the next generation, and (for larger systems) prompt the model to explicitly restate the observation it's using. It's also a reason to prefer capable instruct models — weaker models ignore observations more.
 
-**6. Unsafe tools = grounding in a hole.** If your "calculator" is `eval`, the model's action string is an arbitrary-code-execution vector; if your search returns attacker-controlled text, that text enters the model's context as a trusted observation (an indirect prompt-injection surface). *Fix:* treat every tool input as untrusted (AST-walk, don't `eval`; parameterise, don't concatenate) and every tool *output* as potentially adversarial. Grounding only helps if the ground is solid. See [Safety, Guardrails & Human-in-the-Loop](../agent-safety/agent-safety.md).
+**6. Unsafe tools = grounding in a hole.** If your "calculator" is `eval`, the model's action string is an arbitrary-code-execution vector; if your search returns attacker-controlled text, that text enters the model's context as a trusted observation (an indirect prompt-injection surface). *Fix:* treat every tool input as untrusted (AST-walk, don't `eval`; parameterise, don't concatenate) and every tool *output* as potentially adversarial. Grounding only helps if the ground is solid. See [Safety, Guardrails & Human-in-the-Loop](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/agent-safety/agent-safety).
 
-**7. Cost blows up with the scratchpad.** Every step re-sends the entire growing transcript, so an $n$-step trace costs roughly $O(n^2)$ tokens. *Fix:* cap steps, keep observations terse, summarise or truncate old steps for long tasks, and reach for [Memory for Agents](../memory/memory.md) when the scratchpad outgrows the context window.
+**7. Cost blows up with the scratchpad.** Every step re-sends the entire growing transcript, so an $n$-step trace costs roughly $O(n^2)$ tokens. *Fix:* cap steps, keep observations terse, summarise or truncate old steps for long tasks, and reach for [Memory for Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/memory/memory) when the scratchpad outgrows the context window.
 
 ---
 
@@ -348,7 +348,7 @@ ReAct is the backbone of essentially every production agent framework:
 - **LangChain / LangGraph** — the classic "ReAct agent" is a first-class construct; LangGraph models the exact reason→act→observe loop as a graph with tool nodes and a termination condition.
 - **LlamaIndex** — its `ReActAgent` is a direct implementation of this grammar and loop over tools.
 - **Hugging Face `smolagents` / Transformers Agents** — ReAct-style tool loops as the default agent.
-- **The wider agent stack** — [Model Context Protocol (MCP)](../model-context-protocol/model-context-protocol.md) standardises the *tools* a ReAct loop calls; [Reflection & Self-Critique](../reflection/reflection.md) and [Planning & Task Decomposition](../planning/planning.md) extend the bare loop with self-correction and up-front planning; [Multi-Agent Systems](../multi-agent-systems/multi-agent-systems.md) wire several ReAct agents together.
+- **The wider agent stack** — [Model Context Protocol (MCP)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/model-context-protocol/model-context-protocol) standardises the *tools* a ReAct loop calls; [Reflection & Self-Critique](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/reflection/reflection) and [Planning & Task Decomposition](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/planning/planning) extend the bare loop with self-correction and up-front planning; [Multi-Agent Systems](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/multi-agent-systems/multi-agent-systems) wire several ReAct agents together.
 
 Two important **forward-links** — how the field extends ReAct:
 

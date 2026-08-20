@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Activation Functions — references and further reading
 
-> Companion link library for **[Activation Functions](activation-functions.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first within each group. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
+> Companion link library for **[Activation Functions](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/activation-functions/activation-functions)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first within each group. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [ReLU In Action](https://www.youtube.com/watch?v=68BZ5f7P94E) (**StatQuest**). *See how a piecewise-linear unit bends a function to fit, then combines with others.*
@@ -55,8 +55,8 @@ updated: 2026-06-22
 - [Neural Networks and Deep Learning — Ch. 1 (sigmoid neurons)](http://neuralnetworksanddeeplearning.com/chap1.html) — **Michael Nielsen** — why a smooth activation enables gradient learning.
 
 **In this platform**:
-- Concept page (full explanation): [Activation Functions](activation-functions.md)
-- Concept depth (the *why*): [ai-ml-intuitions 4.14 Activation Functions & Softmax](../../../../ai-ml-intuitions/architectural-mechanisms/nonlinear-transformation/activation-functions-and-softmax-intuition.md)
-- Prerequisite: [Perceptron & MLP](../../neural-network-foundations/perceptron-and-mlp/perceptron-and-mlp.md)
-- Related: [Vanishing / Exploding Gradients](../../optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients.md) (why saturating activations hurt) · [Backpropagation & Computational Graphs](../../neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs.md) (where the chained derivatives multiply) · [Loss Functions](../../optimization-and-training/loss-functions/loss-functions.md) (softmax + cross-entropy) · [Transformer Architecture](../../attention-and-transformers/transformer-architecture/transformer-architecture.md) (where GELU/SwiGLU and softmax sit)
-- Field overview: [Deep Learning](../../README.md)
+- Concept page (full explanation): [Activation Functions](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/activation-functions/activation-functions)
+- Concept depth (the *why*): [ai-ml-intuitions 4.14 Activation Functions & Softmax](/ai-ml/ai-ml-intuitions/architectural-mechanisms/nonlinear-transformation/activation-functions-and-softmax-intuition)
+- Prerequisite: [Perceptron & MLP](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/perceptron-and-mlp/perceptron-and-mlp)
+- Related: [Vanishing / Exploding Gradients](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients) (why saturating activations hurt) · [Backpropagation & Computational Graphs](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs) (where the chained derivatives multiply) · [Loss Functions](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/loss-functions/loss-functions) (softmax + cross-entropy) · [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture) (where GELU/SwiGLU and softmax sit)
+- Field overview: [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

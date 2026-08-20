@@ -8,7 +8,7 @@ updated: 2026-06-27
 
 # Decoding & Sampling — references and further reading
 
-> Companion link library for **[Decoding & Sampling](decoding-and-sampling.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic (how to turn a next-token distribution into text), not popularity.
+> Companion link library for **[Decoding & Sampling](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/decoding-and-sampling/decoding-and-sampling)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic (how to turn a next-token distribution into text), not popularity.
 
 **Start here — suggested path**:
 1. **Get the overview** — watch [Greedy? Min-p? Beam Search? How LLMs Actually Pick Words](https://www.youtube.com/watch?v=o-_SZ_itxeA) (**AI Coffee Break with Letitia**). *Greedy, beam, top-k/p, min-p in one clear survey — the cleanest map of the whole space.*
@@ -51,9 +51,9 @@ updated: 2026-06-27
 - [Speech and Language Processing, 3rd ed. — Ch. 10 "Large Language Models"](https://web.stanford.edu/~jurafsky/slp3/10.pdf) — **Jurafsky & Martin** — autoregressive generation, greedy vs sampling, temperature, and top-k/top-p decoding.
 
 **In this platform**:
-- Concept page (full explanation): [Decoding & Sampling](decoding-and-sampling.md)
+- Concept page (full explanation): [Decoding & Sampling](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/decoding-and-sampling/decoding-and-sampling)
 - Related (NLP card, seq2seq framing): [Decoding Strategies](../../../../modalities-and-generative-models/natural-language-processing/decoding-strategies/decoding-strategies.md)
-- Foundations: [Loss Functions (softmax & cross-entropy)](../../../../deep-learning/optimization-and-training/loss-functions/loss-functions.md) · [Language Modeling Objectives](../../large-language-model-foundations/language-modeling-objectives/language-modeling-objectives.md) · [Decoder-only Architecture](../../large-language-model-foundations/decoder-only-models/decoder-only-models.md)
-- Makes it fast (a *speed* technique, not a strategy): [Inference Optimization & Serving — speculative decoding](../inference-optimization/inference-optimization.md)
-- Uses it: [Chain-of-Thought Reasoning](../../reasoning-evaluation-and-alignment/chain-of-thought-and-reasoning/chain-of-thought-and-reasoning.md) · [LLM Evaluation & Benchmarks](../../reasoning-evaluation-and-alignment/llm-evaluation/llm-evaluation.md)
+- Foundations: [Loss Functions (softmax & cross-entropy)](../../../../deep-learning/optimization-and-training/loss-functions/loss-functions.md) · [Language Modeling Objectives](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/language-modeling-objectives/language-modeling-objectives) · [Decoder-only Architecture](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/decoder-only-models/decoder-only-models)
+- Makes it fast (a *speed* technique, not a strategy): [Inference Optimization & Serving — speculative decoding](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/inference-optimization/inference-optimization)
+- Uses it: [Chain-of-Thought Reasoning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/chain-of-thought-and-reasoning/chain-of-thought-and-reasoning) · [LLM Evaluation & Benchmarks](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/llm-evaluation/llm-evaluation)
 ```

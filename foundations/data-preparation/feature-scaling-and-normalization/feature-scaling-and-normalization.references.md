@@ -8,7 +8,7 @@ updated: 2026-07-03
 
 # Feature Scaling & Normalization — references and further reading
 
-> Companion link library for **[Feature Scaling & Normalization](feature-scaling-and-normalization.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Everything here is free / open, and every "Source / derivation" citation on the concept page appears below.
+> Companion link library for **[Feature Scaling & Normalization](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/feature-scaling-and-normalization/feature-scaling-and-normalization)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Everything here is free / open, and every "Source / derivation" citation on the concept page appears below.
 
 **Start here — suggested path**:
 1. **Get the distinction** — watch [StatQuest: Normalization vs. Standardization, Clearly Explained](https://www.youtube.com/watch?v=1YpKUpitT98) (**StatQuest**). *The single most-asked framing — which one, when — cleared up in a few minutes.*
@@ -54,12 +54,12 @@ updated: 2026-07-03
 - [Dive into Deep Learning — Ch. 5.4 "Numerical Stability and Initialization"](https://d2l.ai/chapter_multilayer-perceptrons/numerical-stability-and-init.html) — **Zhang et al.** — why input/activation scale controls the conditioning of gradient-based learning.
 
 **In this platform**:
-- Concept page (full explanation): [Feature Scaling & Normalization](feature-scaling-and-normalization.md)
-- The correctness rule, in full — why fitting preprocessing on all data leaks: [11 Data Leakage](../data-leakage/data-leakage.md)
-- The split that scaling is fit inside: [10 Train/Validation/Test Splits](../train-validation-test-splits/train-validation-test-splits.md)
-- Handle the outliers that make robust scaling necessary: [05 Outlier Detection & Treatment](../outlier-detection-and-treatment/outlier-detection-and-treatment.md)
-- Where scaling lives in a real pipeline (`ColumnTransformer` + `Pipeline`): [13 Data Pipelines](../data-pipelines/data-pipelines.md)
-- Why the condition number governs gradient-descent convergence: [13 Gradient Descent Theory](../../mathematical-foundations/gradient-descent-theory/gradient-descent-theory.md) · [04 How Models Learn](../../ai-ml-orientation/how-models-learn/how-models-learn.md)
-- The scale-sensitive models this chapter measured: [03 Supervised Learning](../../../core-machine-learning/supervised-learning/README.md) (KNN, SVM) · [04 Unsupervised Learning](../../../core-machine-learning/unsupervised-learning/README.md) (k-means, PCA)
-- Normalization taken inside the network (batch/layer norm): [05 Deep Learning](../../../deep-learning/README.md)
-- Next preprocessing step — building new features: [06 Feature Engineering](../feature-engineering/feature-engineering.md)
+- Concept page (full explanation): [Feature Scaling & Normalization](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/feature-scaling-and-normalization/feature-scaling-and-normalization)
+- The correctness rule, in full — why fitting preprocessing on all data leaks: [11 Data Leakage](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/data-leakage/data-leakage)
+- The split that scaling is fit inside: [10 Train/Validation/Test Splits](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/train-validation-test-splits/train-validation-test-splits)
+- Handle the outliers that make robust scaling necessary: [05 Outlier Detection & Treatment](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/outlier-detection-and-treatment/outlier-detection-and-treatment)
+- Where scaling lives in a real pipeline (`ColumnTransformer` + `Pipeline`): [13 Data Pipelines](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/data-pipelines/data-pipelines)
+- Why the condition number governs gradient-descent convergence: [13 Gradient Descent Theory](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/gradient-descent-theory/gradient-descent-theory) · [04 How Models Learn](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/how-models-learn/how-models-learn)
+- The scale-sensitive models this chapter measured: [03 Supervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/readme) (KNN, SVM) · [04 Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme) (k-means, PCA)
+- Normalization taken inside the network (batch/layer norm): [05 Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
+- Next preprocessing step — building new features: [06 Feature Engineering](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/feature-engineering/feature-engineering)

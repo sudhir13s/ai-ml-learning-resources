@@ -111,7 +111,7 @@ graph LR
 
 - wasted memory capped at **less than one block** per request (≤ 15 token-slots) — regardless of sequence length; 60–80% waste becomes ~4%;
 - the reclaimed memory becomes batch slots: vLLM reports **2–4× throughput** over contiguous predecessors;
-- blocks are **addressable**, which unlocks sharing (L4) and shipping (disaggregation, [chapter 4](kv-cache-in-production.md)).
+- blocks are **addressable**, which unlocks sharing (L4) and shipping (disaggregation, [chapter 4](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache-in-production)).
 
 > **Note (block-size trade):** smaller blocks waste less on the final partial block but multiply block-table size and per-step gather overhead; larger blocks gather faster but waste more. 16 is vLLM's measured balance point.
 
@@ -128,7 +128,7 @@ Once blocks are addressable, requests can **share** them — and most real traff
 
 > **Tip:** the win scales with `shared-prefix length × request rate`. A 3,000-token system prompt at 100 req/min is ~300K tokens of prefill per minute that simply stops happening.
 
-> **Gotcha:** a prefix cache needs **invalidation**. Change the system prompt but keep its cache key and every request silently reuses the wrong KV — the "stale prefix" incident in [chapter 4](kv-cache-in-production.md).
+> **Gotcha:** a prefix cache needs **invalidation**. Change the system prompt but keep its cache key and every request silently reuses the wrong KV — the "stale prefix" incident in [chapter 4](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache-in-production).
 
 ---
 
@@ -137,7 +137,7 @@ Once blocks are addressable, requests can **share** them — and most real traff
 With allocation and reuse solved, the remaining bytes are the numbers themselves — and FP16 is more precision than cached K/V needs.
 
 - **FP8** halves bytes-held *and* bytes-streamed; hardware-native on Hopper+; usually near-lossless. The default first move.
-- **INT8/INT4** go further but need scale-factor machinery — per-channel for K, per-token for V (the KIVI asymmetry, mechanics in [chapter 1](kv-cache-variants.md)).
+- **INT8/INT4** go further but need scale-factor machinery — per-channel for K, per-token for V (the KIVI asymmetry, mechanics in [chapter 1](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache-variants)).
 - Because decode is bandwidth-bound, fewer bytes per token is **directly faster**, on top of fitting 2–4× more requests.
 - The cost is a quality tail-risk concentrated in long-context retrieval: **gate this level on long-context evals**, not perplexity.
 
@@ -147,7 +147,7 @@ With allocation and reuse solved, the remaining bytes are the numbers themselves
 
 The top of the ladder handles the cases where even an optimized cache can't just keep growing.
 
-- **Sliding window + attention sinks** — cap `seq_len` at $w$; keep ~4 sink tokens so softmax has somewhere to put its mandatory probability mass (StreamingLLM). Constant memory on endless streams; genuine forgetting outside the window ([chapter 1](kv-cache-variants.md)).
+- **Sliding window + attention sinks** — cap `seq_len` at $w$; keep ~4 sink tokens so softmax has somewhere to put its mandatory probability mass (StreamingLLM). Constant memory on endless streams; genuine forgetting outside the window ([chapter 1](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache-variants)).
 - **Offload / tiering** — spill cold cache blocks to CPU RAM (or NVMe) and prefetch on demand: an idle chat session's cache doesn't have to occupy VRAM at all. Paging makes this tractable — blocks are the unit of movement.
 - **Preempt-and-recompute** — under memory pressure, an engine can *drop* a request's cache entirely and recompute it by re-running prefill when the request is rescheduled. Recompute-vs-swap is a genuine trade: recompute burns compute but no interconnect; swap burns bandwidth but keeps prefill work.
 
@@ -180,7 +180,7 @@ The reasoning end to end, for "serve Llama-3-8B chat on one A100-80GB, 8K contex
 - L5 pays twice (capacity *and* bandwidth) and risks once (long-context quality) — gate on evals.
 - L6 changes semantics or latency shape; it's a workload decision, not a free win.
 
-Next: [Chapter 3 — FlashAttention and FlashDecoding](kv-cache-flashattention-and-flashdecoding.md): the ladder decided how many bytes exist; the kernels decide how close to peak bandwidth you move them.
+Next: [Chapter 3 — FlashAttention and FlashDecoding](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache-flashattention-and-flashdecoding): the ladder decided how many bytes exist; the kernels decide how close to peak bandwidth you move them.
 
 ---
 

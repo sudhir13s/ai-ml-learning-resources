@@ -59,6 +59,6 @@ project won't run. Reproducibility (a lockfile or `requirements.txt`) is a real 
 - [The Good Research Code Handbook — Environments](https://goodresearch.dev/) — **Patrick Mineault** — free online book; environments and dependencies as part of clean, reproducible code.
 
 ## 🔗 In this platform
-- Prev/next: [10 Jupyter & Google Colab](../jupyter-and-google-colab/jupyter-and-google-colab.md) · [12 Your First ML Project](../your-first-ml-project/your-first-ml-project.md)
-- Go deeper — reproducibility, containers, MLOps: [12. Deployment & MLOps](../../../deployment-and-mlops/README.md)
-- Go deeper — frameworks & tooling: [11. Tools & Frameworks](../../tools-and-frameworks/README.md)
+- Prev/next: [10 Jupyter & Google Colab](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/jupyter-and-google-colab/jupyter-and-google-colab) · [12 Your First ML Project](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/your-first-ml-project/your-first-ml-project)
+- Go deeper — reproducibility, containers, MLOps: [12. Deployment & MLOps](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/readme)
+- Go deeper — frameworks & tooling: [11. Tools & Frameworks](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/readme)

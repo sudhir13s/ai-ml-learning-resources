@@ -45,7 +45,7 @@ I'll build it the way I'd explain it to a teammate who just typed `TSNE()` and g
 
 ## The problem: PCA is linear, but data lives on a curved manifold
 
-The reason we need t-SNE at all is a limitation of [PCA](../dimensionality-reduction-overview/dimensionality-reduction-overview.md), the linear workhorse. PCA finds the directions of greatest variance and **projects** the data onto the top two of them. A projection is a *rigid, linear* operation — it is, geometrically, shining a flashlight at the cloud of points and reading the shadow on a wall. That works beautifully when the data's interesting structure is genuinely flat: when the classes are separated by straight lines through the original space.
+The reason we need t-SNE at all is a limitation of [PCA](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/dimensionality-reduction-overview/dimensionality-reduction-overview), the linear workhorse. PCA finds the directions of greatest variance and **projects** the data onto the top two of them. A projection is a *rigid, linear* operation — it is, geometrically, shining a flashlight at the cloud of points and reading the shadow on a wall. That works beautifully when the data's interesting structure is genuinely flat: when the classes are separated by straight lines through the original space.
 
 But high-dimensional data rarely lays itself out flat. The **manifold hypothesis** says real data of dimension $D$ usually concentrates on a much-lower-dimensional, *curved* surface (a manifold) embedded in that $D$-space. The 64-D digit vectors don't fill all of $\mathbb{R}^{64}$; they live on a thin, folded sheet shaped by the few real degrees of freedom in a handwritten digit (slant, stroke width, loop size). When you flatten a curved sheet with a single linear projection, distant parts of the fold land on top of each other — exactly the overlapping smear you see in the PCA panel above.
 
@@ -374,7 +374,7 @@ Computed exactly, every gradient step sums over **all pairs** — $O(n^2)$ in bo
 
 Combined with restricting the **attractive** forces to a sparse set of nearest neighbors (only large $p_{ij}$ matter, so the high-D affinities are computed only within an approximate k-NN graph), this drops the cost to $O(n\log n)$ and makes t-SNE practical on hundreds of thousands of points. It's the default in scikit-learn (`method="barnes_hut"`).
 
-> **Tip:** for *very* large or repeated runs, modern alternatives go further: **FFT-accelerated** t-SNE (FIt-SNE) interpolates the repulsive forces on a grid for near-linear scaling, and **openTSNE** / GPU implementations (`tsne-cuda`) push to millions of points in seconds. For datasets that large, though, most practitioners reach for [UMAP](../umap/umap.md) instead.
+> **Tip:** for *very* large or repeated runs, modern alternatives go further: **FFT-accelerated** t-SNE (FIt-SNE) interpolates the repulsive forces on a grid for near-linear scaling, and **openTSNE** / GPU implementations (`tsne-cuda`) push to millions of points in seconds. For datasets that large, though, most practitioners reach for [UMAP](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/umap/umap) instead.
 
 ---
 
@@ -419,7 +419,7 @@ The Distill experiments are worth internalizing because each maps to a specific 
 Being honest about the limits is the difference between using t-SNE and misusing it:
 
 - **Visualization only.** t-SNE targets 2-D (or 3-D) for human eyes. It is **not** a feature extractor — don't pipe its output into a classifier. Its objective optimizes a *picture*, not a representation that preserves information for downstream tasks.
-- **No out-of-sample transform (by default).** t-SNE places a *fixed* set of points; there is no learned function you can apply to a new point. Add data and you must re-run the whole embedding. (Parametric t-SNE, which trains a neural net to do the mapping, exists but is rarely used; [UMAP](../umap/umap.md) provides a `transform` for new points out of the box.)
+- **No out-of-sample transform (by default).** t-SNE places a *fixed* set of points; there is no learned function you can apply to a new point. Add data and you must re-run the whole embedding. (Parametric t-SNE, which trains a neural net to do the mapping, exists but is rarely used; [UMAP](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/umap/umap) provides a `transform` for new points out of the box.)
 - **Non-deterministic.** Different seeds → different maps. Pin `random_state`.
 - **Global geometry is unreliable.** Inter-cluster distances and cluster sizes are not faithful (see the reading rules). Use it to see *what groups exist*, not *how far apart* they are.
 - **Sensitive to perplexity and to preprocessing.** No single perplexity is right; features should be scaled, and PCA-preprocessing to ~30–50 dims first is usually wise.
@@ -446,7 +446,7 @@ The three live on a spectrum. Know the trade-offs cold:
 | Main knob | # components | **perplexity** | `n_neighbors`, `min_dist` |
 | Use it for | Compression, denoising, features, a quick linear look | A faithful **local** 2-D picture | The modern default visualization + light preprocessing |
 
-The practical decision tree: need **features or compression or a reusable linear transform** → [PCA](../dimensionality-reduction-overview/dimensionality-reduction-overview.md). Need the **clearest possible local 2-D picture** and you'll read it responsibly → **t-SNE**. Need **speed, scale, a `transform` for new points, or better global structure** → [UMAP](../umap/umap.md). And very often: **PCA → (t-SNE or UMAP)** as a two-stage pipeline.
+The practical decision tree: need **features or compression or a reusable linear transform** → [PCA](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/dimensionality-reduction-overview/dimensionality-reduction-overview). Need the **clearest possible local 2-D picture** and you'll read it responsibly → **t-SNE**. Need **speed, scale, a `transform` for new points, or better global structure** → [UMAP](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/umap/umap). And very often: **PCA → (t-SNE or UMAP)** as a two-stage pipeline.
 
 > **Note:** "t-SNE vs UMAP" is the standard follow-up question. The crisp answer: **UMAP is usually faster, scales better, keeps more global structure, and can transform new points; t-SNE is the older, extremely well-understood method whose *local* fidelity is excellent.** Both share the same humility — don't over-read cluster sizes or distances. UMAP earns its spot as the default; t-SNE remains the canonical teaching example and a superb local visualizer.
 
@@ -458,7 +458,7 @@ t-SNE shows up wherever someone needs to **eyeball the structure of a high-dimen
 
 - **Inspecting learned embeddings.** The most common use today: project the embedding layer of a neural net — word embeddings, sentence/document embeddings, the penultimate layer of an image classifier, the latent space of an autoencoder — to 2-D to *see* whether the model has learned to separate classes or concepts. If the classes already cluster in the embedding, t-SNE makes that obvious at a glance.
 - **Single-cell genomics.** t-SNE (and now UMAP) is a staple of single-cell RNA-seq analysis: each cell is a point in thousands of gene-expression dimensions, and the 2-D map reveals distinct cell types as separated clusters. This is one of the fields that made t-SNE famous.
-- **Quality-checking clusters.** After running [k-means](../../clustering/k-means-clustering/k-means-clustering.md) or [DBSCAN](../../clustering/dbscan/dbscan.md) on high-D data, color a t-SNE plot by the cluster label to sanity-check whether the clusters look coherent and well-separated in neighborhood space.
+- **Quality-checking clusters.** After running [k-means](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/k-means-clustering/k-means-clustering) or [DBSCAN](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/dbscan/dbscan) on high-D data, color a t-SNE plot by the cluster label to sanity-check whether the clusters look coherent and well-separated in neighborhood space.
 - **Debugging and exploration.** Spotting outliers, mislabeled examples (a red dot deep inside a blue cluster), or unexpected sub-structure in a dataset before you model it.
 
 > **Gotcha:** never run t-SNE on **raw pixel/token space** and conclude "the data has no structure" if the plot looks like mush — run it on a **learned representation** (or at least PCA-reduced, scaled features). t-SNE visualizes whatever geometry you hand it; garbage geometry in, garbage picture out. The famous clean digit-clusters above come from 64-D feature vectors, not from a model that failed to learn.
@@ -482,7 +482,7 @@ The end-to-end recipe I actually follow, given "make a 2-D map of this high-D da
 5. **Read only what's robust.** Trust a cluster that appears across perplexities and seeds. Ignore cluster sizes, inter-cluster distances, and absolute orientation. Color by a known label or by a candidate cluster assignment to interpret.
 6. **Confirm before you claim.** If you'll act on "there are $k$ groups," corroborate with a non-visual method on the *original* features (silhouette scores, a clustering algorithm, downstream accuracy) — the t-SNE picture is the hypothesis, not the proof.
 
-> **Tip:** if you need any of {a transform for new points, much larger $n$, more faithful global structure, or to use the embedding as preprocessing for clustering}, switch to [UMAP](../umap/umap.md) — it's a near drop-in (`umap.UMAP().fit_transform(X)`) and was built to address exactly those t-SNE limitations.
+> **Tip:** if you need any of {a transform for new points, much larger $n$, more faithful global structure, or to use the embedding as preprocessing for clustering}, switch to [UMAP](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/umap/umap) — it's a near drop-in (`umap.UMAP().fit_transform(X)`) and was built to address exactly those t-SNE limitations.
 
 ---
 

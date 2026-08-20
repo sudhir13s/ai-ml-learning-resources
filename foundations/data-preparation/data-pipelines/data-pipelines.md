@@ -55,6 +55,6 @@ into one production-grade pattern.
 - [Tidy Modeling with R — **Ch. 8 "Feature Engineering with recipes"**](https://www.tmwr.org/) — **Kuhn & Silge** — the recipes/workflow pattern (the R analogue of Pipeline); concepts transfer; free.
 
 ## 🔗 In this platform
-- Builds on: [02 Feature Scaling](../feature-scaling-and-normalization/feature-scaling-and-normalization.md) · [03 Encoding Categoricals](../encoding-categorical-variables/encoding-categorical-variables.md) · [04 Missing Data Imputation](../missing-data-imputation/missing-data-imputation.md)
-- Prevents: [11 Data Leakage](../data-leakage/data-leakage.md) — pipelines are the structural fix.
-- Related domain: [12. Deployment & MLOps](../../../deployment-and-mlops/README.md) — where pipelines become serving-time feature transforms.
+- Builds on: [02 Feature Scaling](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/feature-scaling-and-normalization/feature-scaling-and-normalization) · [03 Encoding Categoricals](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/encoding-categorical-variables/encoding-categorical-variables) · [04 Missing Data Imputation](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/missing-data-imputation/missing-data-imputation)
+- Prevents: [11 Data Leakage](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/data-leakage/data-leakage) — pipelines are the structural fix.
+- Related domain: [12. Deployment & MLOps](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/readme) — where pipelines become serving-time feature transforms.

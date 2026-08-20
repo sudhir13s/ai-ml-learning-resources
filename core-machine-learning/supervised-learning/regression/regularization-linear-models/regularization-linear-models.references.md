@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Regularization for Linear Models — references and further reading
 
-> Companion link library for **[Regularization for Linear Models (Ridge · Lasso · Elastic-Net)](regularization-linear-models.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
+> Companion link library for **[Regularization for Linear Models (Ridge · Lasso · Elastic-Net)](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/regression/regularization-linear-models/regularization-linear-models)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Ridge (L2) Regression](https://www.youtube.com/watch?v=Q81RR3yKn30) (**StatQuest**). *How shrinking the slope reduces variance and prevents overfitting on small data.*
@@ -50,8 +50,8 @@ updated: 2026-06-22
 - [Dive into Deep Learning — Ch. 3.7 "Weight Decay"](https://d2l.ai/chapter_linear-regression/weight-decay.html) — **Zhang et al.** — L2 regularization as weight decay, with runnable code; the bridge to deep learning.
 
 **In this platform**:
-- Concept page (full explanation): [Regularization for Linear Models](regularization-linear-models.md)
-- Concept depth (the *why*): [ai-ml-intuitions 2.10 Regularization L1/L2](../../../../../ai-ml-intuitions/learning-and-optimization/objective-shaping/l1-and-l2-regularization-intuition.md) · [3.07 Bias–Variance & Generalization](../../../../../ai-ml-intuitions/objectives-and-evaluation/generalization/bias-variance-tradeoff-intuition.md)
-- Prior / related concepts: [Linear Regression](../linear-regression/linear-regression.md) (the OLS baseline this modifies) · [Logistic Regression](../../classification/logistic-regression/logistic-regression.md) (same penalties, classification) · [Bias–Variance Tradeoff](../../../model-selection-and-evaluation/bias-variance-tradeoff/bias-variance-tradeoff.md) (what the penalty trades) · [Cross-Validation](../../../model-selection-and-evaluation/cross-validation/cross-validation.md) (how $\lambda$ is chosen)
-- Math prerequisites: [01. Foundations](../../../../foundations/mathematical-foundations/README.md) — norms, convex optimization, the SVD, and MAP estimation
-- Related domain: [Regularization (deep nets)](../../../../deep-learning/optimization-and-training/regularization/regularization.md) — L2 reappears as weight decay; dropout is its neural-net cousin
+- Concept page (full explanation): [Regularization for Linear Models](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/regression/regularization-linear-models/regularization-linear-models)
+- Concept depth (the *why*): [ai-ml-intuitions 2.10 Regularization L1/L2](/ai-ml/ai-ml-intuitions/learning-and-optimization/objective-shaping/l1-and-l2-regularization-intuition) · [3.07 Bias–Variance & Generalization](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/generalization/bias-variance-tradeoff-intuition)
+- Prior / related concepts: [Linear Regression](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/regression/linear-regression/linear-regression) (the OLS baseline this modifies) · [Logistic Regression](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/logistic-regression/logistic-regression) (same penalties, classification) · [Bias–Variance Tradeoff](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/bias-variance-tradeoff/bias-variance-tradeoff) (what the penalty trades) · [Cross-Validation](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/cross-validation/cross-validation) (how $\lambda$ is chosen)
+- Math prerequisites: [01. Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme) — norms, convex optimization, the SVD, and MAP estimation
+- Related domain: [Regularization (deep nets)](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/regularization/regularization) — L2 reappears as weight decay; dropout is its neural-net cousin

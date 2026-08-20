@@ -8,7 +8,7 @@ updated: 2026-06-27
 
 # Math & Programming Foundations
 > The linear algebra, calculus, probability, and Python that everything else stands on.
-> The deep, phase-by-phase math syllabus lives in **[Maths for AI-ML](maths-for-ai-ml/README.md)**.
+> The deep, phase-by-phase math syllabus lives in **[Maths for AI-ML](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)**.
 
 **⭐ Start here:** [3Blue1Brown — Essence of Linear Algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab) + [Essence of Calculus](https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr).
 
@@ -21,43 +21,43 @@ than re-deriving the math.
 > **✅ ready.** New here? Start with the field overview above, then work top to bottom.
 
 ### Linear Algebra
-1. ✅ [Vectors & Vector Spaces](vectors-and-vector-spaces/vectors-and-vector-spaces.md)
-2. ✅ [Matrices & Matrix Operations](matrices-and-matrix-operations/matrices-and-matrix-operations.md)
-3. ✅ [Norms, Inner Products & Orthogonality](norms-inner-products-and-orthogonality/norms-inner-products-and-orthogonality.md)
-4. ✅ [Eigenvalues & Eigenvectors](eigenvalues-and-eigenvectors/eigenvalues-and-eigenvectors.md)
-5. ✅ [Matrix Decompositions (LU · QR · Cholesky)](matrix-decompositions/matrix-decompositions.md)
-6. ✅ [Singular Value Decomposition (SVD)](singular-value-decomposition/singular-value-decomposition.md)
-7. ✅ [Principal Component Analysis (PCA) — the math](principal-component-analysis-math/principal-component-analysis-math.md)
+1. ✅ [Vectors & Vector Spaces](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/vectors-and-vector-spaces/vectors-and-vector-spaces)
+2. ✅ [Matrices & Matrix Operations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/matrices-and-matrix-operations/matrices-and-matrix-operations)
+3. ✅ [Norms, Inner Products & Orthogonality](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/norms-inner-products-and-orthogonality/norms-inner-products-and-orthogonality)
+4. ✅ [Eigenvalues & Eigenvectors](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/eigenvalues-and-eigenvectors/eigenvalues-and-eigenvectors)
+5. ✅ [Matrix Decompositions (LU · QR · Cholesky)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/matrix-decompositions/matrix-decompositions)
+6. ✅ [Singular Value Decomposition (SVD)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/singular-value-decomposition/singular-value-decomposition)
+7. ✅ [Principal Component Analysis (PCA) — the math](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/principal-component-analysis-math/principal-component-analysis-math)
 
 ### Calculus & Optimization
-8. ✅ [Derivatives & Gradients](derivatives-and-gradients/derivatives-and-gradients.md)
-9. ✅ [The Chain Rule (& Backpropagation)](the-chain-rule/the-chain-rule.md)
-10. ✅ [Jacobian & Hessian](jacobian-and-hessian/jacobian-and-hessian.md)
-11. ✅ [Taylor Expansion](taylor-expansion/taylor-expansion.md)
-12. ✅ [Convexity & Convex Functions](convexity/convexity.md)
-13. ✅ [Gradient Descent — theory & convergence](gradient-descent-theory/gradient-descent-theory.md)
-14. ✅ [Lagrange Multipliers & Constrained Optimization](lagrange-multipliers-constrained-optimization/lagrange-multipliers-constrained-optimization.md)
+8. ✅ [Derivatives & Gradients](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/derivatives-and-gradients/derivatives-and-gradients)
+9. ✅ [The Chain Rule (& Backpropagation)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/the-chain-rule/the-chain-rule)
+10. ✅ [Jacobian & Hessian](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/jacobian-and-hessian/jacobian-and-hessian)
+11. ✅ [Taylor Expansion](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/taylor-expansion/taylor-expansion)
+12. ✅ [Convexity & Convex Functions](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/convexity/convexity)
+13. ✅ [Gradient Descent — theory & convergence](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/gradient-descent-theory/gradient-descent-theory)
+14. ✅ [Lagrange Multipliers & Constrained Optimization](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/lagrange-multipliers-constrained-optimization/lagrange-multipliers-constrained-optimization)
 
 ### Probability & Statistics
-15. ✅ [Probability & Bayes' Theorem](probability-and-bayes-theorem/probability-and-bayes-theorem.md)
-16. ✅ [Random Variables & Distributions](random-variables-and-distributions/random-variables-and-distributions.md)
-17. ✅ [Expectation, Variance & Covariance](expectation-variance-covariance/expectation-variance-covariance.md)
-18. ✅ [Law of Large Numbers & the CLT](lln-and-clt/lln-and-clt.md)
-19. ✅ [Maximum Likelihood Estimation (MLE)](maximum-likelihood-estimation/maximum-likelihood-estimation.md)
-20. ✅ [Bayesian Inference (priors, posteriors, MAP)](bayesian-inference/bayesian-inference.md)
-21. ✅ [Hypothesis Testing & Confidence Intervals](hypothesis-testing-and-confidence-intervals/hypothesis-testing-and-confidence-intervals.md)
+15. ✅ [Probability & Bayes' Theorem](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/probability-and-bayes-theorem/probability-and-bayes-theorem)
+16. ✅ [Random Variables & Distributions](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/random-variables-and-distributions/random-variables-and-distributions)
+17. ✅ [Expectation, Variance & Covariance](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/expectation-variance-covariance/expectation-variance-covariance)
+18. ✅ [Law of Large Numbers & the CLT](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/lln-and-clt/lln-and-clt)
+19. ✅ [Maximum Likelihood Estimation (MLE)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maximum-likelihood-estimation/maximum-likelihood-estimation)
+20. ✅ [Bayesian Inference (priors, posteriors, MAP)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/bayesian-inference/bayesian-inference)
+21. ✅ [Hypothesis Testing & Confidence Intervals](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/hypothesis-testing-and-confidence-intervals/hypothesis-testing-and-confidence-intervals)
 
 ### Information Theory
-22. ✅ [Entropy](entropy/entropy.md)
-23. ✅ [Cross-Entropy & KL Divergence](cross-entropy-and-kl-divergence/cross-entropy-and-kl-divergence.md)
-24. ✅ [Mutual Information](mutual-information/mutual-information.md)
+22. ✅ [Entropy](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/entropy/entropy)
+23. ✅ [Cross-Entropy & KL Divergence](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/cross-entropy-and-kl-divergence/cross-entropy-and-kl-divergence)
+24. ✅ [Mutual Information](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/mutual-information/mutual-information)
 
 ### Related concepts (covered in another section)
 > These build *on* the math above but live where they're applied, to avoid repetition.
-- **Applied optimizers** — Momentum · Adam · AdamW · learning-rate schedules → [Deep Learning](../../deep-learning/README.md)
-- **Regularization in practice** — L1/L2 weight decay · dropout → [Deep Learning](../../deep-learning/README.md)
-- **Dimensionality reduction for visualization** — t-SNE · UMAP → [Unsupervised Learning](../../core-machine-learning/unsupervised-learning/README.md)
-- **Clustering & EM** — k-means · Gaussian Mixture Models → [Unsupervised Learning](../../core-machine-learning/unsupervised-learning/README.md)
+- **Applied optimizers** — Momentum · Adam · AdamW · learning-rate schedules → [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
+- **Regularization in practice** — L1/L2 weight decay · dropout → [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
+- **Dimensionality reduction for visualization** — t-SNE · UMAP → [Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)
+- **Clustering & EM** — k-means · Gaussian Mixture Models → [Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)
 
 ## 🎓 Courses (free)
 - [MIT 18.06 Linear Algebra](https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/) — **Gilbert Strang (MIT OCW)** — the legendary linear-algebra course.
@@ -76,5 +76,5 @@ than re-deriving the math.
 - [Think Stats](https://greenteapress.com/wp/think-stats-2e/) — **Allen B. Downey** — free, computational statistics in Python.
 
 ## 🔗 In this platform
-- The full math curriculum (phases + specializations): [Maths for AI-ML](maths-for-ai-ml/README.md)
+- The full math curriculum (phases + specializations): [Maths for AI-ML](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
 - Math-as-ML-concepts deep dives: [ai-ml-intuitions Module 0–2](../../../ai-ml-intuitions/)

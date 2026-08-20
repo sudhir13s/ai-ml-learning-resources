@@ -55,5 +55,5 @@ on- vs off-policy (importance sampling) first appear.
 - [Algorithms for Reinforcement Learning — **§3 (value prediction)**](https://sites.ualberta.ca/~szepesva/papers/RLAlgsInMDPs.pdf) — **Csaba Szepesvári** — the estimation theory behind MC.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 6.01 Bellman Optimality & Q-Learning](../../../../../ai-ml-intuitions/decision-making-and-control/value-learning/bellman-equation-and-q-learning-intuition.md)
-- Prereq: [03 Dynamic Programming](../../foundations/dynamic-programming-value-and-policy-iteration/dynamic-programming-value-and-policy-iteration.md) · Contrast with: [05 Temporal-Difference Learning](../temporal-difference-learning/temporal-difference-learning.md)
+- Concept depth (the *why*): [ai-ml-intuitions 6.01 Bellman Optimality & Q-Learning](/ai-ml/ai-ml-intuitions/decision-making-and-control/value-learning/bellman-equation-and-q-learning-intuition)
+- Prereq: [03 Dynamic Programming](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/foundations/dynamic-programming-value-and-policy-iteration/dynamic-programming-value-and-policy-iteration) · Contrast with: [05 Temporal-Difference Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/value-based-learning/temporal-difference-learning/temporal-difference-learning)

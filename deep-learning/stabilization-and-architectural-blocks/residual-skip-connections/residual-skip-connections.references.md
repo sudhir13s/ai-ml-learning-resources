@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Residual / Skip Connections — references and further reading
 
-> Companion link library for **[Residual / Skip Connections](residual-skip-connections.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
+> Companion link library for **[Residual / Skip Connections](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/residual-skip-connections/residual-skip-connections)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Why ResNets Work](https://www.youtube.com/watch?v=RYth6EbBUqM) (**Andrew Ng**). *Why adding the input back makes deeper strictly safe.*
@@ -53,8 +53,8 @@ updated: 2026-06-22
 - [Deep Learning — Ch. 8 (optimization) — gradient flow & shortcut connections](https://www.deeplearningbook.org/contents/optimization.html) — **Goodfellow, Bengio & Courville** — why skip connections ease optimization.
 
 **In this platform**:
-- Concept page (full explanation): [Residual / Skip Connections](residual-skip-connections.md)
-- Concept depth (the *why*): [ai-ml-intuitions 4.06 Residual / Skip Connections](../../../../ai-ml-intuitions/training-stability/gradient-health/residual-connections-intuition.md)
-- Prerequisites: [Vanishing / Exploding Gradients](../../optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients.md) · [CNNs & Convolution](../../neural-architectures/cnns-and-convolution/cnns-and-convolution.md)
-- Related: [Transformer Architecture](../../attention-and-transformers/transformer-architecture/transformer-architecture.md) (residuals around attention + FFN) · [Attention Mechanism](../../attention-and-transformers/attention-mechanism/attention-mechanism.md) (the residual stream) · [Normalization](../normalization/normalization.md) (pre-norm pairs with residuals)
-- Field overview: [Deep Learning](../../README.md)
+- Concept page (full explanation): [Residual / Skip Connections](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/residual-skip-connections/residual-skip-connections)
+- Concept depth (the *why*): [ai-ml-intuitions 4.06 Residual / Skip Connections](/ai-ml/ai-ml-intuitions/training-stability/gradient-health/residual-connections-intuition)
+- Prerequisites: [Vanishing / Exploding Gradients](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients) · [CNNs & Convolution](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/cnns-and-convolution/cnns-and-convolution)
+- Related: [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture) (residuals around attention + FFN) · [Attention Mechanism](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism) (the residual stream) · [Normalization](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/normalization/normalization) (pre-norm pairs with residuals)
+- Field overview: [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

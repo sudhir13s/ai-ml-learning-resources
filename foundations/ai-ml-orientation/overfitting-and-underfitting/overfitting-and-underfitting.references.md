@@ -8,7 +8,7 @@ updated: 2026-07-03
 
 # Overfitting & Underfitting — references and further reading
 
-> Companion link library for **[Overfitting & Underfitting](overfitting-and-underfitting.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Everything here is free / open, and every "Source / derivation" citation on the concept page appears below.
+> Companion link library for **[Overfitting & Underfitting](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/overfitting-and-underfitting/overfitting-and-underfitting)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Everything here is free / open, and every "Source / derivation" citation on the concept page appears below.
 
 **Start here — suggested path**:
 1. **Feel the tradeoff** — play with [MLU-Explain: The Bias-Variance Tradeoff](https://mlu-explain.github.io/bias-variance/) (**Amazon**). *Drag model complexity and watch bias fall while variance rises — the crossover this chapter measures, animated under your cursor.*
@@ -55,10 +55,10 @@ updated: 2026-07-03
 - [Neural Networks and Deep Learning — Ch. 3 "Overfitting and regularization"](http://neuralnetworksanddeeplearning.com/chap3.html) — **Michael Nielsen** — free; intuition plus the standard fixes, beautifully explained.
 
 **In this platform**:
-- Concept page (full explanation): [Overfitting & Underfitting](overfitting-and-underfitting.md)
-- Previous concept — how the training loss falls in the first place: [04 How Models Learn](../how-models-learn/how-models-learn.md)
-- The classification loss used across the repo, derived: [23 Cross-Entropy and KL Divergence](../../mathematical-foundations/cross-entropy-and-kl-divergence/cross-entropy-and-kl-divergence.md)
-- The theory of the training loop (convergence, SGD, why the loss falls): [13 Gradient Descent Theory](../../mathematical-foundations/gradient-descent-theory/gradient-descent-theory.md)
-- Put it all together on a real dataset with a train/validation split: [12 Your First ML Project](../../programming-and-data-foundations/your-first-ml-project/your-first-ml-project.md)
-- Go deeper — ridge, lasso, and regularization in linear models: [03. Supervised Learning](../../../core-machine-learning/supervised-learning/README.md)
-- Go deeper — dropout, weight decay, early stopping, augmentation: [05. Deep Learning](../../../deep-learning/README.md)
+- Concept page (full explanation): [Overfitting & Underfitting](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/overfitting-and-underfitting/overfitting-and-underfitting)
+- Previous concept — how the training loss falls in the first place: [04 How Models Learn](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/how-models-learn/how-models-learn)
+- The classification loss used across the repo, derived: [23 Cross-Entropy and KL Divergence](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/cross-entropy-and-kl-divergence/cross-entropy-and-kl-divergence)
+- The theory of the training loop (convergence, SGD, why the loss falls): [13 Gradient Descent Theory](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/gradient-descent-theory/gradient-descent-theory)
+- Put it all together on a real dataset with a train/validation split: [12 Your First ML Project](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/your-first-ml-project/your-first-ml-project)
+- Go deeper — ridge, lasso, and regularization in linear models: [03. Supervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/readme)
+- Go deeper — dropout, weight decay, early stopping, augmentation: [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

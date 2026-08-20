@@ -55,6 +55,6 @@ leak and over-report performance.
 - [An Introduction to Statistical Learning (Python) — **Ch. 6 "Linear Model Selection & Regularization"**](https://www.statlearning.com/) — **James, Witten, Hastie & Tibshirani** — subset selection + Lasso; free PDF.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 1.05 PCA / SVD](../../../../ai-ml-intuitions/representation/dimensionality-and-latent-structure/pca-and-svd-intuition.md) · [3.07 Bias–Variance & Generalization](../../../../ai-ml-intuitions/objectives-and-evaluation/generalization/bias-variance-tradeoff-intuition.md)
-- Next concepts: [06 Feature Engineering](../feature-engineering/feature-engineering.md) · [11 Data Leakage](../data-leakage/data-leakage.md)
-- Related domain: [03. Supervised Learning](../../../core-machine-learning/supervised-learning/README.md)
+- Concept depth (the *why*): [ai-ml-intuitions 1.05 PCA / SVD](/ai-ml/ai-ml-intuitions/representation/dimensionality-and-latent-structure/pca-and-svd-intuition) · [3.07 Bias–Variance & Generalization](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/generalization/bias-variance-tradeoff-intuition)
+- Next concepts: [06 Feature Engineering](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/feature-engineering/feature-engineering) · [11 Data Leakage](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/data-leakage/data-leakage)
+- Related domain: [03. Supervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/readme)

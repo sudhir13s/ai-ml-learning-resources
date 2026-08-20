@@ -54,5 +54,5 @@ theorem), their complexity, and why DP needs a known model — which motivates M
 - [Algorithms for Reinforcement Learning — **§2 (planning in MDPs)**](https://sites.ualberta.ca/~szepesva/papers/RLAlgsInMDPs.pdf) — **Csaba Szepesvári** — the math behind why DP converges.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 6.01 Bellman Optimality & Q-Learning](../../../../../ai-ml-intuitions/decision-making-and-control/value-learning/bellman-equation-and-q-learning-intuition.md)
-- Prereq: [02 Bellman Equations](../bellman-equations/bellman-equations.md) · Next: [04 Monte Carlo Methods](../../value-based-learning/monte-carlo-methods/monte-carlo-methods.md) · [05 Temporal-Difference Learning](../../value-based-learning/temporal-difference-learning/temporal-difference-learning.md)
+- Concept depth (the *why*): [ai-ml-intuitions 6.01 Bellman Optimality & Q-Learning](/ai-ml/ai-ml-intuitions/decision-making-and-control/value-learning/bellman-equation-and-q-learning-intuition)
+- Prereq: [02 Bellman Equations](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/foundations/bellman-equations/bellman-equations) · Next: [04 Monte Carlo Methods](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/value-based-learning/monte-carlo-methods/monte-carlo-methods) · [05 Temporal-Difference Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/value-based-learning/temporal-difference-learning/temporal-difference-learning)

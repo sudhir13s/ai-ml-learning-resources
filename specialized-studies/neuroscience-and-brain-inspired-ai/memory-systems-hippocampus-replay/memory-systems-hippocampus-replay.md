@@ -30,7 +30,7 @@ clearest case where a memory mechanism crossed from neuroscience into a working 
 2. **See replay & consolidation** — watch [Memory Consolidation: Time Machine of the Brain](https://www.youtube.com/watch?v=NteHQv0ceN4). *Replay during sleep moving memories hippocampus → cortex.*
 3. **Read the cognitive map** — [Place Cells, Grid Cells, and Memory](https://pmc.ncbi.nlm.nih.gov/articles/PMC4315928/). *The spatial code (O'Keefe / Mosers, 2014 Nobel), open access.*
 4. **Read the replay mechanism** — [The hippocampal sharp wave-ripple in memory retrieval & consolidation](https://pmc.ncbi.nlm.nih.gov/articles/PMC6794196/). *How ripples select and replay experiences.*
-5. **Connect to ML** — link replay to [experience replay](../../../core-machine-learning/reinforcement-learning/README.md) and continual learning. *Same idea: replay past experience to learn stably.*
+5. **Connect to ML** — link replay to [experience replay](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/readme) and continual learning. *Same idea: replay past experience to learn stably.*
 
 ## 🎓 Courses (free)
 - [Neuromatch Academy — Computational Neuroscience](https://compneuro.neuromatch.io/) — **Neuromatch** — attractor networks, Hopfield memory, and hippocampal modeling tutorials.
@@ -56,7 +56,7 @@ clearest case where a memory mechanism crossed from neuroscience into a working 
 - [Neuronal Dynamics — **Ch. 17 (Memory & Attractor Dynamics)**](https://neuronaldynamics.epfl.ch/online/Ch17.html) — **Gerstner et al.** — attractor networks and working/long-term memory, free online.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 6.01 Bellman Optimality & Q-Learning](../../../../ai-ml-intuitions/decision-making-and-control/value-learning/bellman-equation-and-q-learning-intuition.md) — the value learning that experience replay (inspired by hippocampal replay) stabilizes.
-- Prereqs in this section: [04 Hebbian Learning & STDP](../hebbian-learning-and-stdp/hebbian-learning-and-stdp.md) · [09 Dopamine & RL in the Brain](../dopamine-and-rl-in-the-brain/dopamine-and-rl-in-the-brain.md)
-- Next concepts: [11 Attention & Working Memory (biological)](../attention-and-working-memory-biological/attention-and-working-memory-biological.md)
-- Related domain: [10. Reinforcement Learning](../../../core-machine-learning/reinforcement-learning/README.md)
+- Concept depth (the *why*): [ai-ml-intuitions 6.01 Bellman Optimality & Q-Learning](/ai-ml/ai-ml-intuitions/decision-making-and-control/value-learning/bellman-equation-and-q-learning-intuition) — the value learning that experience replay (inspired by hippocampal replay) stabilizes.
+- Prereqs in this section: [04 Hebbian Learning & STDP](/ai-ml/ai-ml-learning-resources/specialized-studies/neuroscience-and-brain-inspired-ai/hebbian-learning-and-stdp/hebbian-learning-and-stdp) · [09 Dopamine & RL in the Brain](/ai-ml/ai-ml-learning-resources/specialized-studies/neuroscience-and-brain-inspired-ai/dopamine-and-rl-in-the-brain/dopamine-and-rl-in-the-brain)
+- Next concepts: [11 Attention & Working Memory (biological)](/ai-ml/ai-ml-learning-resources/specialized-studies/neuroscience-and-brain-inspired-ai/attention-and-working-memory-biological/attention-and-working-memory-biological)
+- Related domain: [10. Reinforcement Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/readme)

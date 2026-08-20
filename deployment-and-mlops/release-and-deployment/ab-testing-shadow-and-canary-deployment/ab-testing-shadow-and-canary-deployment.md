@@ -30,7 +30,7 @@ counterpart to monitoring. (The *statistics* of A/B tests live in 01. Foundation
 2. **Shadow first** — watch [Shadow Deployment Explained](https://www.youtube.com/watch?v=1NUshG4ahoU) and read [SageMaker Shadow Tests](https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests.html). *Test under real traffic with zero user risk.*
 3. **Then canary** — read [Canary Release](https://martinfowler.com/bliki/CanaryRelease.html). *The 1% → 20% → 100% ramp and what to watch during it.*
 4. **Then A/B** — watch [A/B Testing & Canary Deployments for ML Models](https://www.youtube.com/watch?v=57HEs4l6_44). *Splitting traffic and choosing the decision metric.*
-5. **Get the stats right** — for hypothesis tests, power, and CUPED, go to [01. Foundations](../../../foundations/mathematical-foundations/README.md). *MLOps owns the deployment mechanics; Foundations owns the experiment statistics.*
+5. **Get the stats right** — for hypothesis tests, power, and CUPED, go to [01. Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme). *MLOps owns the deployment mechanics; Foundations owns the experiment statistics.*
 
 ## 🎓 Courses (free)
 - [Made With ML — MLOps Course (deployment strategies)](https://madewithml.com/courses/mlops/) — **Goku Mohandas** — safe rollout within the production workflow.
@@ -56,6 +56,6 @@ counterpart to monitoring. (The *statistics* of A/B tests live in 01. Foundation
 - [Machine Learning Engineering — **Ch. 8 "Model Deployment"** (deployment strategies)](http://www.mlebook.com/wiki/doku.php) — **Andriy Burkov** — read-first chapters free.
 
 ## 🔗 In this platform
-- Builds on: [09 Model Serving](../../packaging-and-serving/model-serving/model-serving.md) · [13 Model Registry & Governance](../../governance-and-economics/model-registry-and-governance/model-registry-and-governance.md)
-- Next concepts: [12 Data & Concept Drift Detection](../../monitoring-and-reliability/data-and-concept-drift-detection/data-and-concept-drift-detection.md) · [07 CI/CD for ML & CT](../cicd-for-ml-and-continuous-training/cicd-for-ml-and-continuous-training.md)
-- Related concept (covered elsewhere): A/B-test statistics (hypothesis tests, power, CUPED) → [01. Foundations](../../../foundations/mathematical-foundations/README.md)
+- Builds on: [09 Model Serving](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/model-serving/model-serving) · [13 Model Registry & Governance](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/governance-and-economics/model-registry-and-governance/model-registry-and-governance)
+- Next concepts: [12 Data & Concept Drift Detection](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/monitoring-and-reliability/data-and-concept-drift-detection/data-and-concept-drift-detection) · [07 CI/CD for ML & CT](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/release-and-deployment/cicd-for-ml-and-continuous-training/cicd-for-ml-and-continuous-training)
+- Related concept (covered elsewhere): A/B-test statistics (hypothesis tests, power, CUPED) → [01. Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme)

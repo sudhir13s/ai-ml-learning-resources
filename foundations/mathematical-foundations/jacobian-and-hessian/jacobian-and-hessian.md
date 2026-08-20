@@ -30,7 +30,7 @@ implies, why saddle points stall training, and what Newton's step does.
 2. **Hessian & curvature** — watch [Khan: The Hessian matrix](https://www.youtube.com/watch?v=LbBcuZukCAw). *Second derivatives, curvature, and the second-derivative test.*
 3. **Formalize** — read [MML Ch. 5.3–5.7 (Vector Calculus)](https://mml-book.github.io/book/mml-book.pdf): Jacobians, higher-order derivatives, Taylor. *The precise definitions and shapes.*
 4. **Why it matters for optimization** — read [Boyd & Vandenberghe Ch. 9.5 (Newton's method)](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf). *Where the Hessian becomes the step direction.*
-5. **Connect to ML** — read [ai-ml-intuitions 2.03 Jacobian & Hessian](../../../../ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/jacobians-and-hessians-intuition.md). *How both show up in training and curvature analysis.*
+5. **Connect to ML** — read [ai-ml-intuitions 2.03 Jacobian & Hessian](/ai-ml/ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/jacobians-and-hessians-intuition). *How both show up in training and curvature analysis.*
 
 ## 🎓 Courses (free)
 - [Khan Academy — Multivariable derivatives (Jacobian, Hessian)](https://www.khanacademy.org/math/multivariable-calculus/multivariable-derivatives) — **Khan Academy** — full unit covering both matrices with exercises.
@@ -55,7 +55,7 @@ implies, why saddle points stall training, and what Newton's step does.
 - [Convex Optimization — **Ch. 9.5 (Newton's method)**](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf) — **Boyd & Vandenberghe** — the Hessian in second-order optimization (free PDF).
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 2.03 Jacobian & Hessian](../../../../ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/jacobians-and-hessians-intuition.md)
-- Curriculum context: [Maths for AI-ML — Phase 2 (Calculus, row 2.3)](../maths-for-ai-ml/README.md)
-- Prereqs: [08 Derivatives & Gradients](../derivatives-and-gradients/derivatives-and-gradients.md) · [09 The Chain Rule](../the-chain-rule/the-chain-rule.md) · Related: [11 Taylor Expansion](../taylor-expansion/taylor-expansion.md) · [12 Convexity](../convexity/convexity.md)
+- Concept depth (the *why*): [ai-ml-intuitions 2.03 Jacobian & Hessian](/ai-ml/ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/jacobians-and-hessians-intuition)
+- Curriculum context: [Maths for AI-ML — Phase 2 (Calculus, row 2.3)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
+- Prereqs: [08 Derivatives & Gradients](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/derivatives-and-gradients/derivatives-and-gradients) · [09 The Chain Rule](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/the-chain-rule/the-chain-rule) · Related: [11 Taylor Expansion](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/taylor-expansion/taylor-expansion) · [12 Convexity](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/convexity/convexity)
 </content>

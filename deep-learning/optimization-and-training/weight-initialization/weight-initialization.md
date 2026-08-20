@@ -31,7 +31,7 @@ I'm going to build this the way I'd actually teach it to someone debugging a dee
 
 Intuition and pictures first, then the math (with sources), then runnable code.
 
-> **Note:** initialization, [activation choice](../../stabilization-and-architectural-blocks/activation-functions/activation-functions.md), [normalization](../../stabilization-and-architectural-blocks/normalization/normalization.md), and [residual connections](../../stabilization-and-architectural-blocks/residual-skip-connections/residual-skip-connections.md) all attack the *same* enemy — the [vanishing/exploding signal](../vanishing-exploding-gradients/vanishing-exploding-gradients.md) that destroys deep networks. Init is the cheapest of the four: it costs **nothing at runtime** and just sets a good *starting* scale so the others have less work to do. The others correct the signal *during* training; init gets it right *before* training even begins.
+> **Note:** initialization, [activation choice](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/activation-functions/activation-functions), [normalization](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/normalization/normalization), and [residual connections](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/residual-skip-connections/residual-skip-connections) all attack the *same* enemy — the [vanishing/exploding signal](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients) that destroys deep networks. Init is the cheapest of the four: it costs **nothing at runtime** and just sets a good *starting* scale so the others have less work to do. The others correct the signal *during* training; init gets it right *before* training even begins.
 
 ---
 
@@ -149,7 +149,7 @@ The figure isn't just qualitative — backprop the gradient through the same 30 
 
 Compare these to the *activation* std table in Example 4: they are nearly identical, which is exactly the mirror-image claim — the same scale that preserves forward activations also preserves backward gradients, and the same miscalibration that vanishes one vanishes the other.
 
-> **Note:** the gradient figure is the forward figure's mirror image, and that symmetry is the whole point. A vanished *activation* and a vanished *gradient* are two faces of the same scale failure. This is why init is so tightly bound to the [vanishing/exploding-gradients](../vanishing-exploding-gradients/vanishing-exploding-gradients.md) problem — bad init is one of its primary *causes*, and good init is one of its cheapest *cures*.
+> **Note:** the gradient figure is the forward figure's mirror image, and that symmetry is the whole point. A vanished *activation* and a vanished *gradient* are two faces of the same scale failure. This is why init is so tightly bound to the [vanishing/exploding-gradients](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients) problem — bad init is one of its primary *causes*, and good init is one of its cheapest *cures*.
 
 ---
 
@@ -205,7 +205,7 @@ The depth figures show too-large init making activations *explode*, but for **bo
 
 This is what the *left* panel of the activation-histogram figure shows: too-large tanh init pins all the mass at $\pm1$, and from there the gradient cannot flow. It's the bounded-activation analogue of the dead-ReLU problem — different mechanism (saturation vs. zero-output), identical symptom (a unit that's stuck and can't learn). The cure is the same: calibrate the init so pre-activations land in the **near-linear region** around zero, where $\tanh'(0)=1$ and the gradient flows freely. Xavier's whole job, for tanh, is to keep pre-activations in that sweet spot.
 
-> **Note:** this is the deeper reason init and [activation choice](../../stabilization-and-architectural-blocks/activation-functions/activation-functions.md) are inseparable. The "right" init is the one that keeps the *next* activation in its well-behaved region: linear-ish near 0 for tanh (Xavier), and not-too-negative for ReLU (He, plus non-negative bias). Get the init wrong and even a perfect activation function saturates or dies.
+> **Note:** this is the deeper reason init and [activation choice](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/activation-functions/activation-functions) are inseparable. The "right" init is the one that keeps the *next* activation in its well-behaved region: linear-ish near 0 for tanh (Xavier), and not-too-negative for ReLU (He, plus non-negative bias). Get the init wrong and even a perfect activation function saturates or dies.
 
 ---
 

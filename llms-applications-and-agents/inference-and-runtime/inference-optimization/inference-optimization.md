@@ -28,7 +28,7 @@ I'll explain this the way I'd walk a new teammate through their first capacity-p
 - reason about **speculative decoding**'s expected speedup from a draft model's acceptance rate;
 - size a deployment and pick levers from first principles, not folklore.
 
-> **Note:** this page is the *systems* counterpart to **[KV Cache](../kv-cache/kv-cache.md)**. KV-Cache explains the memory object; this page explains the engine that *serves* it. We'll lean on three results from there — the prefill/decode split, the memory-bound decode arithmetic, and the cache-size formula — and cross-link them as we go.
+> **Note:** this page is the *systems* counterpart to **[KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache)**. KV-Cache explains the memory object; this page explains the engine that *serves* it. We'll lean on three results from there — the prefill/decode split, the memory-bound decode arithmetic, and the cache-size formula — and cross-link them as we go.
 
 ---
 
@@ -65,7 +65,7 @@ This analogy holds under follow-ups. *Why is the read so expensive relative to t
 
 ## The mechanism: two phases, two bottlenecks, two metrics
 
-The single most important structural fact in LLM serving — inherited directly from the **[KV cache](../kv-cache/kv-cache.md)** — is that generation splits into **two phases with opposite performance characteristics**.
+The single most important structural fact in LLM serving — inherited directly from the **[KV cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache)** — is that generation splits into **two phases with opposite performance characteristics**.
 
 - **Prefill** digests the whole prompt in **one parallel pass**, computing K/V for every prompt token at once. It's a big, dense matmul that saturates the compute units → **compute-bound**. It sets your **time-to-first-token (TTFT)**.
 - **Decode** generates **one token at a time**, each step reading all the weights and the whole KV cache to do very little math → **memory-bound**. It sets your **time-per-output-token (TPOT)**, also called **inter-token latency (ITL)**.
@@ -134,7 +134,7 @@ To *do* that math, the GPU must read every weight once (16 GB) plus each sequenc
 
 $$\text{bytes} \;=\; \underbrace{W}_{\text{weights, once}} \;+\; \underbrace{B \times \text{ctx} \times \text{kv}_{\text{tok}}}_{\text{KV cache, per sequence}},$$
 
-where $W = 16\text{ GB}$, $\text{kv}_{\text{tok}} = 0.125$ MiB/token for Llama-3-8B (GQA-8), straight from the **[KV-cache size formula](../kv-cache/kv-cache.md)**: $2 \times n_{\text{layers}} \times n_{\text{kv\_heads}} \times d_{\text{head}} \times \text{bytes} = 2\times32\times8\times128\times2$.
+where $W = 16\text{ GB}$, $\text{kv}_{\text{tok}} = 0.125$ MiB/token for Llama-3-8B (GQA-8), straight from the **[KV-cache size formula](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache)**: $2 \times n_{\text{layers}} \times n_{\text{kv\_heads}} \times d_{\text{head}} \times \text{bytes} = 2\times32\times8\times128\times2$.
 
 > **Source / derivation:** [Kwon et al., *Efficient Memory Management for LLM Serving with PagedAttention* (2023)](https://arxiv.org/abs/2309.06180), §2, and the KV-cache chapter — the per-token KV-cache footprint as $2 \cdot n_{\text{layers}} \cdot n_{\text{kv\_heads}} \cdot d_{\text{head}} \cdot \text{bytes}$.
 
@@ -177,7 +177,7 @@ compute-roofline crossover: B* = 232
 
 Read it top to bottom. From batch 1 to 128, latency/token barely moves (8.0 → 10.2 ms) while throughput climbs **100×** (125 → 12,614 tok/s) — that's the weight read being amortized, nearly free tokens. Then near the **crossover batch $B^\star \approx 232$** the compute term overtakes memory, the `bound` column flips to `compute`, and throughput **saturates at the compute roofline** (~19,500 tok/s) — adding more batch now only adds latency. This curve *is* the latency↔throughput tradeoff, made of arithmetic.
 
-> **Note (the long-context twist):** at 256-token context there's a crossover; at **2048**-token context there is **none** — decode stays memory-bound at *every* batch. Why? The KV term $B\cdot\text{ctx}\cdot\text{kv}_{\text{tok}}$ grows with $B$ faster than the compute headroom does, so you never reach the ridge. This is the systems-level reason **shrinking the KV cache (GQA, FP8) directly buys throughput at long context** — you're cutting the bytes that are the bottleneck. It connects this page straight back to the four levers in the **[KV-cache chapter](../kv-cache/kv-cache.md)**.
+> **Note (the long-context twist):** at 256-token context there's a crossover; at **2048**-token context there is **none** — decode stays memory-bound at *every* batch. Why? The KV term $B\cdot\text{ctx}\cdot\text{kv}_{\text{tok}}$ grows with $B$ faster than the compute headroom does, so you never reach the ridge. This is the systems-level reason **shrinking the KV cache (GQA, FP8) directly buys throughput at long context** — you're cutting the bytes that are the bottleneck. It connects this page straight back to the four levers in the **[KV-cache chapter](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache)**.
 
 ---
 
@@ -243,7 +243,7 @@ Same hardware, same requests — continuous batching finishes **1.25× sooner** 
 
 ## Lever 2: PagedAttention — virtual memory for the KV cache
 
-Continuous batching wants to pack as many requests onto the GPU as possible — but the **KV cache allocation** fights back. From the **[KV-cache chapter](../kv-cache/kv-cache.md)**: a naive engine gives each request one **contiguous** buffer sized for the *worst-case* length it might reach. Two pathologies follow — **internal fragmentation** (a request that stops at 50 tokens still holds its 2,048-token reservation) and **external fragmentation** (free gaps too small for a new request). Real systems waste **60–80%** of KV memory this way, which directly caps how many requests you can batch.
+Continuous batching wants to pack as many requests onto the GPU as possible — but the **KV cache allocation** fights back. From the **[KV-cache chapter](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache)**: a naive engine gives each request one **contiguous** buffer sized for the *worst-case* length it might reach. Two pathologies follow — **internal fragmentation** (a request that stops at 50 tokens still holds its 2,048-token reservation) and **external fragmentation** (free gaps too small for a new request). Real systems waste **60–80%** of KV memory this way, which directly caps how many requests you can batch.
 
 **PagedAttention** (the core idea behind **vLLM**) borrows the operating system's **virtual memory** trick. Store the cache in small fixed-size **blocks** (16 tokens each by default), with a per-request **block table** mapping logical token positions to physical blocks — exactly like an OS page table maps virtual to physical pages. Memory is allocated **on demand**, one block at a time, so a request only ever holds blocks for tokens it actually generated. Waste drops from 60–80% to **under 4%** (at most one partially-filled block per sequence), and the attention kernel just gathers the scattered blocks via the block table.
 
@@ -331,7 +331,7 @@ The story is right there: at high acceptance ($\alpha = 0.9$) you get a **~2.9×
 The three above are the headline wins; a production stack layers several more, each cross-linking a neighbouring chapter:
 
 - **FlashAttention kernels** (cross-link **[06](../../../../deep-learning/attention-and-transformers/efficient-attention/efficient-attention.md)**). The levers above set *how many bytes* must move; the attention **kernel** sets *how close to peak bandwidth* you move them. FlashAttention computes exact attention without materializing the $n\times n$ score matrix in HBM; **FlashDecoding** parallelizes a single decode query across chunks of the KV cache to keep a long-context decode step bandwidth-saturated.
-- **Quantization** (cross-link **[10](../quantization/quantization.md)**). Storing weights and/or the KV cache in FP8/INT8/INT4 **halves or quarters the bytes streamed** — and in a bandwidth-bound regime, fewer bytes ≈ proportionally faster, on top of fitting more requests. FP8 KV cache is hardware-native on Hopper and often near-lossless.
+- **Quantization** (cross-link **[10](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/quantization/quantization)**). Storing weights and/or the KV cache in FP8/INT8/INT4 **halves or quarters the bytes streamed** — and in a bandwidth-bound regime, fewer bytes ≈ proportionally faster, on top of fitting more requests. FP8 KV cache is hardware-native on Hopper and often near-lossless.
 - **Prefix caching** (RadixAttention). Many requests share a long identical prefix (a fixed system prompt, a few-shot preamble, a shared document). Compute it **once** and reuse the KV blocks for every request that shares it — turning most of prefill into a cache hit for agent/chat workloads. Built directly on PagedAttention's block sharing.
 - **Prefill/decode disaggregation.** Since prefill is compute-bound and decode is memory-bound, run them on **separate GPU pools** tuned for each bottleneck and ship the KV cache between them over a fast interconnect — so a heavy prefill never stalls everyone's token stream.
 - **Tensor / pipeline parallelism.** For models too big for one GPU, split each layer's matmuls across GPUs (tensor parallel) or assign layer ranges to different GPUs (pipeline parallel). Necessary above ~13B–70B; adds communication cost that itself needs optimizing.
@@ -380,7 +380,7 @@ These are the ones that bite in production — worth knowing before they page yo
 - **Confusing the two phases.** Tuning a decode-side lever (paging, FP8 cache) and expecting it to fix a TTFT problem (which is prefill/compute-bound) — or vice versa. Diagnose *which phase* is your bottleneck first; they respond to different levers.
 - **Static batching in disguise.** Some "batching" implementations still lock the batch until the longest request finishes. If your GPU utilization is low under bursty traffic, check that you have *true* iteration-level continuous batching, not request-level batching with a fancy name.
 - **Speculative decoding on the wrong workload.** A draft model benchmarked on code (high $\alpha$) deployed on open-ended chat (lower $\alpha$) can land *below 1× speedup*. Measure $\alpha$ on real traffic; the break-even is real.
-- **Quantized KV cache, silent quality loss.** FP8 is usually safe; INT4 KV needs the per-channel/per-token scaling from the [KV-cache chapter](../kv-cache/kv-cache.md) and can quietly degrade outputs. Measure win-rate before/after; don't ship it on faith.
+- **Quantized KV cache, silent quality loss.** FP8 is usually safe; INT4 KV needs the per-channel/per-token scaling from the [KV-cache chapter](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) and can quietly degrade outputs. Measure win-rate before/after; don't ship it on faith.
 - **Context bleed across requests.** A pooled KV buffer reused without clearing can leak one user's tokens into another's generation — a correctness *and* privacy bug. Key the cache strictly to the request; paging makes this clean (free the blocks on completion).
 - **OOM under load spikes.** The cache grows with concurrency × length; a burst of long requests can overflow VRAM mid-generation. Robust engines apply **admission control** and **preemption** (vLLM can evict and recompute a request's cache rather than crash) — but if you planned capacity from the weights, a spike still takes you down.
 

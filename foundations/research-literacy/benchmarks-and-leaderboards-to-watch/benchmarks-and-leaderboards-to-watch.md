@@ -58,6 +58,6 @@ overfitting to the leaderboard — so you don't mistake a high score for real ca
 - [Speech and Language Processing, 3rd ed. — Ch. on evaluation](https://web.stanford.edu/~jurafsky/slp3/) — **Jurafsky & Martin** — the reference on NLP metrics (BLEU, F1, perplexity) that underlie many leaderboards.
 
 ## 🔗 In this platform
-- Per-concept index: [Frontier & Staying Current — concepts](../README.md)
-- Pair with: [02 arXiv & Papers with Code](../arxiv-and-papers-with-code/arxiv-and-papers-with-code.md) · [11 Evaluating Hype vs Substance](../evaluating-hype-vs-substance/evaluating-hype-vs-substance.md)
-- Evaluation depth lives in: [LLMs, Applications and Agents](../../../llms-applications-and-agents/README.md) · [12. Deployment & MLOps](../../../deployment-and-mlops/README.md)
+- Per-concept index: [Frontier & Staying Current — concepts](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/readme)
+- Pair with: [02 arXiv & Papers with Code](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/arxiv-and-papers-with-code/arxiv-and-papers-with-code) · [11 Evaluating Hype vs Substance](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/evaluating-hype-vs-substance/evaluating-hype-vs-substance)
+- Evaluation depth lives in: [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme) · [12. Deployment & MLOps](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/readme)

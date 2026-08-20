@@ -32,7 +32,7 @@ This page is the definitive treatment. We will build the task from first princip
 
 We'll go intuition and pictures first, then the math (every step shown), then runnable, **verified** code — the numbers in every figure below were measured in Python 3.12, not invented.
 
-> **Note:** "classification" here means assigning **one of a fixed set of labels** to a span of text, where the span is usually a whole document/sentence. The cousin task where you label **each token** (part-of-speech, named-entity) is **[sequence labeling](../sequence-labeling-pos-and-ner/sequence-labeling-pos-and-ner.md)** — same intuition, different output shape (one label *per token* instead of one *per document*). Keep them distinct in an interview.
+> **Note:** "classification" here means assigning **one of a fixed set of labels** to a span of text, where the span is usually a whole document/sentence. The cousin task where you label **each token** (part-of-speech, named-entity) is **[sequence labeling](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sequence-labeling-pos-and-ner/sequence-labeling-pos-and-ner)** — same intuition, different output shape (one label *per token* instead of one *per document*). Keep them distinct in an interview.
 
 ---
 
@@ -107,7 +107,7 @@ The pedagogical spine of this page is to walk **up** that ladder, and for each r
 
 ## Rung 1: Bag-of-words / TF-IDF + classical ML
 
-The oldest and still the strongest baseline. Represent a document as a **vector over the vocabulary** — one dimension per word — and feed that to a linear classifier. The representation is built in **[Bag-of-Words & TF-IDF](../bag-of-words-and-tf-idf/bag-of-words-and-tf-idf.md)** (read it for the construction of the counts and the IDF weighting); here we focus on the **classifiers that ride on it**.
+The oldest and still the strongest baseline. Represent a document as a **vector over the vocabulary** — one dimension per word — and feed that to a linear classifier. The representation is built in **[Bag-of-Words & TF-IDF](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/bag-of-words-and-tf-idf/bag-of-words-and-tf-idf)** (read it for the construction of the counts and the IDF weighting); here we focus on the **classifiers that ride on it**.
 
 A document like *"great fun great"* over a vocabulary `[boring, dull, film, fun, great, movie]` becomes a count vector $\mathbf{x} = [0, 0, 0, 1, 2, 0]$ (or its TF-IDF-weighted cousin). It is **sparse** (mostly zeros — a 200-word review touches a handful of a 40,000-word vocabulary) and **high-dimensional**. Crucially, it is **order-blind**: *"good not bad"* and *"bad not good"* produce the identical vector. That blindness is the rung's central weakness — and exactly what every rung above tries to fix.
 
@@ -115,7 +115,7 @@ Three classical classifiers dominate this rung, and an interviewer may ask you t
 
 ### Multinomial Naive Bayes: the canonical text classifier
 
-[Naive Bayes](../../../core-machine-learning/supervised-learning/classification/naive-bayes/naive-bayes.md) is the textbook sentiment/spam classifier, and you should be able to derive its decision on the spot. (That page is the full treatment — generative-vs-discriminative, smoothing as a Dirichlet prior, the proof that NB is a linear classifier. Read it. Here we derive *just the text-classification decision rule* and then work it numerically.)
+[Naive Bayes](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/naive-bayes/naive-bayes) is the textbook sentiment/spam classifier, and you should be able to derive its decision on the spot. (That page is the full treatment — generative-vs-discriminative, smoothing as a Dirichlet prior, the proof that NB is a linear classifier. Read it. Here we derive *just the text-classification decision rule* and then work it numerically.)
 
 The **multinomial** event model treats a document as a bag of word **counts** drawn from a per-class word distribution. By Bayes' rule, the posterior probability of class $c$ given document $\mathbf{x}$ (word counts $x_w$) is
 
@@ -131,7 +131,7 @@ The per-word likelihoods are estimated from training counts with **Laplace (add-
 
 $$P(w \mid c) \;=\; \frac{\text{count}(w, c) + \alpha}{\Big(\sum_{w' \in V}\text{count}(w', c)\Big) + \alpha\,|V|}.$$
 
-> **Source / derivation:** add-$\alpha$ (Laplace) smoothing of the multinomial likelihood — and why an unsmoothed zero count would annihilate the whole product — is [SLP3 Ch. 4 §4.1](https://web.stanford.edu/~jurafsky/slp3/4.pdf) (Eq. 4.14). The smoothing is exactly a symmetric Dirichlet$(\alpha)$ prior on the per-class word distribution (see the [Naive Bayes](../../../core-machine-learning/supervised-learning/classification/naive-bayes/naive-bayes.md) page for that derivation).
+> **Source / derivation:** add-$\alpha$ (Laplace) smoothing of the multinomial likelihood — and why an unsmoothed zero count would annihilate the whole product — is [SLP3 Ch. 4 §4.1](https://web.stanford.edu/~jurafsky/slp3/4.pdf) (Eq. 4.14). The smoothing is exactly a symmetric Dirichlet$(\alpha)$ prior on the per-class word distribution (see the [Naive Bayes](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/naive-bayes/naive-bayes) page for that derivation).
 
 Notice the *shape* of that boxed rule: a sum of `count × log-likelihood`, which is a **linear function of the word-count vector**. That's the secret the Naive Bayes page proves in full — multinomial NB is a **linear classifier** in disguise, a sibling of logistic regression. Same decision *geometry*, different way of estimating the weights (NB from class-conditional counts, generatively; logistic regression by directly optimizing the conditional likelihood, discriminatively).
 
@@ -143,7 +143,7 @@ We work this rule fully by hand in **Worked example 1** below — and prove it m
 
 ### Logistic regression on TF-IDF: the discriminative baseline
 
-[Logistic regression](../../../core-machine-learning/supervised-learning/classification/logistic-regression/logistic-regression.md) learns a weight vector $\mathbf{w}$ and bias $b$ and predicts $P(y{=}1\mid \mathbf{x}) = \sigma(\mathbf{w}^\top\mathbf{x} + b)$, where $\sigma(z) = 1/(1+e^{-z})$ is the **sigmoid** that squashes the real-valued score $z = \mathbf{w}^\top\mathbf{x} + b$ into a probability. It fits the weights by **minimizing cross-entropy** (equivalently, maximizing the conditional log-likelihood) with L2 regularization. The loss for one example with true label $y \in \{0,1\}$ is
+[Logistic regression](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/logistic-regression/logistic-regression) learns a weight vector $\mathbf{w}$ and bias $b$ and predicts $P(y{=}1\mid \mathbf{x}) = \sigma(\mathbf{w}^\top\mathbf{x} + b)$, where $\sigma(z) = 1/(1+e^{-z})$ is the **sigmoid** that squashes the real-valued score $z = \mathbf{w}^\top\mathbf{x} + b$ into a probability. It fits the weights by **minimizing cross-entropy** (equivalently, maximizing the conditional log-likelihood) with L2 regularization. The loss for one example with true label $y \in \{0,1\}$ is
 
 $$\mathcal{L}(\mathbf{w}, b) \;=\; -\big[\,y \log \sigma(z) + (1-y)\log(1-\sigma(z))\,\big],$$
 
@@ -153,13 +153,13 @@ $$\frac{\partial \mathcal{L}}{\partial \mathbf{w}} \;=\; \big(\sigma(z) - y\big)
 
 That $(\hat{y} - y)\mathbf{x}$ shape is the whole reason logistic regression trains stably: each word's weight is nudged in proportion to how wrong the current probability is, scaled by how strongly that word appeared. Connect it back to the interpretation — a large positive $w_{\texttt{excellent}}$ pushes $z$ up, hence $\sigma(z)$ toward 1 (positive); a large negative $w_{\texttt{terrible}}$ pushes it toward 0.
 
-> **Source / derivation:** the sigmoid, the cross-entropy objective, and the $(\sigma(z)-y)\,\mathbf{x}$ gradient are derived for text in [Jurafsky & Martin, *SLP3* Ch. 5 "Logistic Regression"](https://web.stanford.edu/~jurafsky/slp3/5.pdf) (Eqs. 5.11, 5.17, 5.24) — in the references; the full optimization story (convexity, L1 vs L2) is on the [Logistic Regression](../../../core-machine-learning/supervised-learning/classification/logistic-regression/logistic-regression.md) page.
+> **Source / derivation:** the sigmoid, the cross-entropy objective, and the $(\sigma(z)-y)\,\mathbf{x}$ gradient are derived for text in [Jurafsky & Martin, *SLP3* Ch. 5 "Logistic Regression"](https://web.stanford.edu/~jurafsky/slp3/5.pdf) (Eqs. 5.11, 5.17, 5.24) — in the references; the full optimization story (convexity, L1 vs L2) is on the [Logistic Regression](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/logistic-regression/logistic-regression) page.
 
 On **sparse TF-IDF features** logistic regression is the workhorse text baseline: it learns a signed weight *per word*, so the model is **directly interpretable** — sort the weights and you can read off the most positive and most negative words. It typically edges out Naive Bayes because it doesn't assume independence; instead it can *down-weight* correlated, redundant features (the burst-correlated word clusters in the worked comparison below are exactly what NB double-counts and LR learns to discount). In the measured comparison it lands at **0.919** accuracy — about a point above NB and three above the linear SVM on that set.
 
 ### Linear SVM: the margin-maximizer for sparse high-dim text
 
-A **linear support vector machine** ([SVM](../../../core-machine-learning/supervised-learning/classification/support-vector-machines/support-vector-machines.md)) finds the **maximum-margin** separating hyperplane. On high-dimensional **sparse** TF-IDF data it is, historically, *the* text-classification champion (Joachims showed in 1998 that text is "linearly separable in high-dimensions" and SVMs exploit exactly that). The intuition for *why linear models win here*: with tens of thousands of sparse features and relatively few examples, the data is **almost always linearly separable**, so a linear decision boundary has plenty of capacity — and a kernel would only overfit. The margin objective also makes the SVM robust to the many irrelevant features. On most real text it ties or edges LogReg; on the small burst-correlated set in the worked comparison below it lands a bit behind both at **0.890** (a reminder that the ranking among the three is dataset-dependent — *measure on yours*).
+A **linear support vector machine** ([SVM](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/support-vector-machines/support-vector-machines)) finds the **maximum-margin** separating hyperplane. On high-dimensional **sparse** TF-IDF data it is, historically, *the* text-classification champion (Joachims showed in 1998 that text is "linearly separable in high-dimensions" and SVMs exploit exactly that). The intuition for *why linear models win here*: with tens of thousands of sparse features and relatively few examples, the data is **almost always linearly separable**, so a linear decision boundary has plenty of capacity — and a kernel would only overfit. The margin objective also makes the SVM robust to the many irrelevant features. On most real text it ties or edges LogReg; on the small burst-correlated set in the worked comparison below it lands a bit behind both at **0.890** (a reminder that the ranking among the three is dataset-dependent — *measure on yours*).
 
 > **Tip:** *why are linear models + sparse TF-IDF such a strong baseline?* Three reasons worth saying out loud: (1) in tens-of-thousands of dimensions with sparse features, classes are usually **linearly separable**, so a linear boundary suffices; (2) the model is **fast and data-efficient** — it trains in seconds and works with a few thousand labels; (3) it is **interpretable** — every word has a signed weight. The non-linearity that deep models add only pays off when *interactions between words* matter, which for topic/spam is rarely, and for sentiment is sometimes (negation, sarcasm).
 
@@ -167,7 +167,7 @@ A **linear support vector machine** ([SVM](../../../core-machine-learning/superv
 
 ## Rung 2: word embeddings + pooling (the Deep Averaging Network)
 
-The bag-of-words representation has no notion that `great` and `excellent` are related — they're two orthogonal dimensions. **[Word embeddings](../word-embeddings-word2vec-glove-fasttext/word-embeddings-word2vec-glove-fasttext.md)** fix that: each word becomes a dense vector where similar words sit close together. To classify a whole document, we need to collapse its *sequence* of word vectors into one fixed vector — and the simplest, surprisingly effective way is **pooling**:
+The bag-of-words representation has no notion that `great` and `excellent` are related — they're two orthogonal dimensions. **[Word embeddings](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/word-embeddings-word2vec-glove-fasttext/word-embeddings-word2vec-glove-fasttext)** fix that: each word becomes a dense vector where similar words sit close together. To classify a whole document, we need to collapse its *sequence* of word vectors into one fixed vector — and the simplest, surprisingly effective way is **pooling**:
 
 $$\mathbf{h} \;=\; \text{pool}\big(\mathbf{e}_{w_1}, \mathbf{e}_{w_2}, \dots, \mathbf{e}_{w_n}\big), \qquad \text{pool} \in \{\text{mean},\ \text{max}\}.$$
 
@@ -205,13 +205,13 @@ A recurrent network reads the sentence **one token at a time**, maintaining a hi
 
 The standard sentiment architecture is the **bidirectional LSTM (biLSTM)**: run one LSTM left-to-right and another right-to-left, and concatenate their final states. *Why bidirectional?* Because the meaning of a word can depend on what comes **after** it as much as before — *"not"* needs to see the word it negates, which may be downstream. A biLSTM gives every position both its left and right context. This rung was the sentiment state-of-the-art for several years (circa 2015–2018) and remains a reasonable choice when a transformer is too heavy.
 
-> **Note:** the line from this rung to the next is direct. RNNs read **sequentially** (slow, and long-range info still degrades over many steps); the **transformer** replaced recurrence with **[attention](../../../deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism.md)**, letting every token attend to every other token in **one parallel step** — better long-range modeling *and* far faster training. That architectural leap is what makes Rung 5 possible.
+> **Note:** the line from this rung to the next is direct. RNNs read **sequentially** (slow, and long-range info still degrades over many steps); the **transformer** replaced recurrence with **[attention](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism)**, letting every token attend to every other token in **one parallel step** — better long-range modeling *and* far faster training. That architectural leap is what makes Rung 5 possible.
 
 ---
 
 ## Rung 5: fine-tuning BERT — the modern default
 
-The top of the ladder, and the SOTA for most text-classification tasks since 2018, is to **fine-tune a pretrained transformer**. The idea is **transfer learning**: a model like BERT is first **pretrained** on a huge unlabeled corpus with masked-language-modeling — learning deep, **bidirectional, contextual** representations of language (the full story is in **[Contextual Embeddings — ELMo · BERT](../contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert.md)**). Then you **fine-tune** it on your (much smaller) labeled classification set.
+The top of the ladder, and the SOTA for most text-classification tasks since 2018, is to **fine-tune a pretrained transformer**. The idea is **transfer learning**: a model like BERT is first **pretrained** on a huge unlabeled corpus with masked-language-modeling — learning deep, **bidirectional, contextual** representations of language (the full story is in **[Contextual Embeddings — ELMo · BERT](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert)**). Then you **fine-tune** it on your (much smaller) labeled classification set.
 
 The mechanics for classification are clean. BERT prepends a special **`[CLS]`** token to every input. After the encoder runs, the final-layer hidden vector at the `[CLS]` position is treated as a **pooled representation of the whole sentence**; you attach a single linear **classification head** on top of it:
 
@@ -293,7 +293,7 @@ $$\boxed{\;\text{one-of-}K \Rightarrow \text{softmax + cross-entropy}\qquad\text
 
 ## Class imbalance: when one label dominates
 
-Real classification data is often **skewed** — 1% spam, 0.3% fraud, a rare toxic class among mostly-clean comments. Three things go wrong, and all are covered in depth in **[Classification Metrics](../../../core-machine-learning/supervised-learning/classification/classification-metrics/classification-metrics.md)** (read it for the full treatment of the confusion matrix, precision/recall, and the metric choices) — here is the text-specific summary:
+Real classification data is often **skewed** — 1% spam, 0.3% fraud, a rare toxic class among mostly-clean comments. Three things go wrong, and all are covered in depth in **[Classification Metrics](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/classification-metrics/classification-metrics)** (read it for the full treatment of the confusion matrix, precision/recall, and the metric choices) — here is the text-specific summary:
 
 1. **Accuracy lies.** A classifier that predicts "not-spam" for everything scores 99% accuracy on a 1%-spam stream while catching zero spam. Report **macro-F1** (averages the per-class F1, so the rare class counts equally) or **precision/recall/PR-AUC for the minority class**, never bare accuracy. Here it is *measured* on an **8%-positive** version of our corpus — a do-nothing "always negative" model versus a real class-weighted LogReg:
 
@@ -363,7 +363,7 @@ $$\text{precision} = \frac{\text{TP}}{\text{TP}+\text{FP}}, \qquad \text{recall}
 
 In one sentence each: **precision** is *"of the documents I flagged positive, what fraction truly were"* (the cost of false alarms); **recall** is *"of the documents that truly were positive, what fraction I caught"* (the cost of misses); **F1** is their **harmonic mean** — harmonic, not arithmetic, so that a model can't game it by acing one and tanking the other (50% precision + 100% recall gives F1 = 0.67, not 0.75).
 
-> **Source / derivation:** precision, recall, and the F-measure as functions of the confusion-matrix counts are [Manning, Raghavan & Schütze, *Introduction to Information Retrieval*, Ch. 8 "Evaluation in information retrieval"](https://nlp.stanford.edu/IR-book/html/htmledition/evaluation-of-unranked-retrieval-sets-1.html) — in the references; the same definitions in the classification framing are on the [Classification Metrics](../../../core-machine-learning/supervised-learning/classification/classification-metrics/classification-metrics.md) page.
+> **Source / derivation:** precision, recall, and the F-measure as functions of the confusion-matrix counts are [Manning, Raghavan & Schütze, *Introduction to Information Retrieval*, Ch. 8 "Evaluation in information retrieval"](https://nlp.stanford.edu/IR-book/html/htmledition/evaluation-of-unranked-retrieval-sets-1.html) — in the references; the same definitions in the classification framing are on the [Classification Metrics](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/classification-metrics/classification-metrics) page.
 
 **Macro vs micro F1 — the distinction juniors blur.** With more than one class (or a positive/negative split you care about equally), you average per-class F1 two ways: **macro-F1** averages the per-class F1 scores *with equal weight per class*, so a rare class counts as much as a common one; **micro-F1** pools all TP/FP/FN across classes *before* computing one F1, so it is dominated by the **frequent** classes (and for single-label multi-class it equals accuracy). The rule: **report macro-F1 when the rare class matters** (the usual case for imbalanced sentiment/toxicity/fraud); micro-F1 when you genuinely care about overall per-instance correctness. Confusing them is a classic interview slip — and a real bug, because on a skewed set they can be 0.40 apart.
 

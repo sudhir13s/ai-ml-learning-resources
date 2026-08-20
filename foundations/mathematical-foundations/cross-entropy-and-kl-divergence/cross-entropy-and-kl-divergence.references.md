@@ -8,7 +8,7 @@ updated: 2026-07-02
 
 # Cross-Entropy & KL Divergence — references and further reading
 
-> Companion link library for **[Cross-Entropy & KL Divergence](cross-entropy-and-kl-divergence.md)**
+> Companion link library for **[Cross-Entropy & KL Divergence](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/cross-entropy-and-kl-divergence/cross-entropy-and-kl-divergence)**
 > (the concept page). Kept separate so it can be reused as a standalone reference list. Grouped by
 > type, best-first. Everything here is **free / open** — no paywall. Every source cited under a
 > "Source / derivation" line on the concept page appears here, so each formula is traceable to a
@@ -53,9 +53,9 @@ updated: 2026-07-02
 - [Deep Learning — Ch. 3.13 (Information Theory) & Ch. 6.2 (softmax + cross-entropy)](https://www.deeplearningbook.org/) — **Goodfellow, Bengio & Courville** — the cross-entropy classification loss and the softmax gradient $\hat q - y$; free online.
 
 **🔗 In this platform**:
-- Concept page (full explanation): [Cross-Entropy & KL Divergence](cross-entropy-and-kl-divergence.md)
-- Prerequisite (the *why* behind bits and surprise): [22 Entropy](../entropy/entropy.md)
-- The unifying theorem it rests on: [19 Maximum Likelihood Estimation](../maximum-likelihood-estimation/maximum-likelihood-estimation.md) (minimising cross-entropy = MLE)
-- Where it goes next: [24 Mutual Information](../mutual-information/mutual-information.md) — $I(X;Y) = D_{KL}(\text{joint}\,\|\,\text{product of marginals})$, KL applied to dependence
-- Applied downstream: the classification/LM loss deep dives → [ai-ml-intuitions 3.03 Categorical Cross-Entropy / NLL](../../../../ai-ml-intuitions/objectives-and-evaluation/training-objectives/categorical-cross-entropy-intuition.md) · [5.01 Entropy & KL](../../../../ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition.md); the RLHF KL penalty → [LLMs](../../../llms-applications-and-agents/README.md)
-- Curriculum context: [Maths for AI-ML — Phase 3 (Information Theory)](../maths-for-ai-ml/README.md)
+- Concept page (full explanation): [Cross-Entropy & KL Divergence](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/cross-entropy-and-kl-divergence/cross-entropy-and-kl-divergence)
+- Prerequisite (the *why* behind bits and surprise): [22 Entropy](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/entropy/entropy)
+- The unifying theorem it rests on: [19 Maximum Likelihood Estimation](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maximum-likelihood-estimation/maximum-likelihood-estimation) (minimising cross-entropy = MLE)
+- Where it goes next: [24 Mutual Information](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/mutual-information/mutual-information) — $I(X;Y) = D_{KL}(\text{joint}\,\|\,\text{product of marginals})$, KL applied to dependence
+- Applied downstream: the classification/LM loss deep dives → [ai-ml-intuitions 3.03 Categorical Cross-Entropy / NLL](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/training-objectives/categorical-cross-entropy-intuition) · [5.01 Entropy & KL](/ai-ml/ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition); the RLHF KL penalty → [LLMs](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme)
+- Curriculum context: [Maths for AI-ML — Phase 3 (Information Theory)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)

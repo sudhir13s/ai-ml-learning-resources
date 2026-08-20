@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Spectral Clustering — references and further reading
 
-> Companion link library for **[Spectral Clustering](spectral-clustering.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
+> Companion link library for **[Spectral Clustering](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/spectral-clustering/spectral-clustering)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Spectral Clustering — Explained](https://www.youtube.com/watch?v=KanQwD8h89w) (**DataMListic**). *See why mapping to an eigenvector space turns tangled clusters into easy ones.*
@@ -50,9 +50,9 @@ updated: 2026-06-22
 - [Networks, Crowds, and Markets — graph structure](https://www.cs.cornell.edu/home/kleinber/networks-book/) — **Easley & Kleinberg (Cornell)** — free book; the network/community-structure context spectral clustering operates in.
 
 **In this platform**:
-- Concept page (full explanation): [Spectral Clustering](spectral-clustering.md)
-- Compare with the siblings: [K-Means Clustering](../k-means-clustering/k-means-clustering.md) (runs *inside* the spectral embedding) · [Hierarchical Clustering](../hierarchical-clustering/hierarchical-clustering.md) · [DBSCAN](../dbscan/dbscan.md) (the other arbitrary-shape method) · [Gaussian Mixture Models & EM](../gaussian-mixture-models-and-em/gaussian-mixture-models-and-em.md)
-- Manifold cousins (same Laplacian-eigenvector machinery): [t-SNE](../../dimensionality-reduction/t-sne/t-sne.md) · [UMAP](../../dimensionality-reduction/umap/umap.md)
-- Foundations (the eigendecomposition it relies on): [ai-ml-intuitions 1.05 Spectral Methods (PCA / SVD)](../../../../../ai-ml-intuitions/representation/dimensionality-and-latent-structure/pca-and-svd-intuition.md)
+- Concept page (full explanation): [Spectral Clustering](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/spectral-clustering/spectral-clustering)
+- Compare with the siblings: [K-Means Clustering](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/k-means-clustering/k-means-clustering) (runs *inside* the spectral embedding) · [Hierarchical Clustering](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/hierarchical-clustering/hierarchical-clustering) · [DBSCAN](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/dbscan/dbscan) (the other arbitrary-shape method) · [Gaussian Mixture Models & EM](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/gaussian-mixture-models-and-em/gaussian-mixture-models-and-em)
+- Manifold cousins (same Laplacian-eigenvector machinery): [t-SNE](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/t-sne/t-sne) · [UMAP](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/umap/umap)
+- Foundations (the eigendecomposition it relies on): [ai-ml-intuitions 1.05 Spectral Methods (PCA / SVD)](/ai-ml/ai-ml-intuitions/representation/dimensionality-and-latent-structure/pca-and-svd-intuition)
 - Prereq math: [Vectors and Vector Spaces](/ai-ml/ai-ml-learning-resources/foundations/vectors-and-vector-spaces/notes-theory) and [Matrices and Matrix Operations](/ai-ml/ai-ml-learning-resources/foundations/matrices-and-matrix-operations/notes-theory)
-- Field overview: [4. Unsupervised Learning](../../README.md)
+- Field overview: [4. Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)

@@ -29,7 +29,7 @@ hyperparameters produced this artifact). The discipline that separates a demo fr
 2. **Get the checklist** — read [CMU ML Blog: Reproducibility](https://blog.ml.cmu.edu/2020/08/31/5-reproducibility/) and the [ML Reproducibility Checklist (paper)](https://arxiv.org/abs/2003.12206). *Concrete things to pin: code, data, environment, seeds, compute.*
 3. **Separate the layers** — read [The Gradient: Independently Reproducible ML](https://thegradient.pub/independently-reproducible-machine-learning/). *Distinguishes "re-run my code" from "someone reproduces my result" — interviewers love this distinction.*
 4. **Pin the environment** — read [Made With ML: Versioning](https://madewithml.com/courses/mlops/versioning/) and pin deps + data + model. *Turns the principles into code + DVC + a reproducible run.*
-5. **Containerize it** — make the run a deterministic function of a pinned image; see [08 Model Packaging & Containerization](../../packaging-and-serving/model-packaging-and-containerization/model-packaging-and-containerization.md). *Environment parity is the last reproducibility gap.*
+5. **Containerize it** — make the run a deterministic function of a pinned image; see [08 Model Packaging & Containerization](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/model-packaging-and-containerization/model-packaging-and-containerization). *Environment parity is the last reproducibility gap.*
 
 ## 🎓 Courses (free)
 - [Made With ML — Versioning & Reproducibility](https://madewithml.com/courses/mlops/versioning/) — **Goku Mohandas** — pin code, data, and models so a run is reproducible end-to-end.
@@ -56,5 +56,5 @@ hyperparameters produced this artifact). The discipline that separates a demo fr
 - [Machine Learning Engineering — **Ch. 5–6** (experiment management & reproducible training)](http://www.mlebook.com/wiki/doku.php) — **Andriy Burkov** — read-first chapters free online.
 
 ## 🔗 In this platform
-- Builds on: [01 ML Lifecycle & MLOps Maturity](../ml-lifecycle-and-mlops-maturity/ml-lifecycle-and-mlops-maturity.md)
-- Next concepts: [03 Experiment Tracking](../experiment-tracking/experiment-tracking.md) · [04 Data & Model Versioning](../data-and-model-versioning/data-and-model-versioning.md) · [08 Model Packaging & Containerization](../../packaging-and-serving/model-packaging-and-containerization/model-packaging-and-containerization.md)
+- Builds on: [01 ML Lifecycle & MLOps Maturity](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/lifecycle-and-reproducibility/ml-lifecycle-and-mlops-maturity/ml-lifecycle-and-mlops-maturity)
+- Next concepts: [03 Experiment Tracking](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/lifecycle-and-reproducibility/experiment-tracking/experiment-tracking) · [04 Data & Model Versioning](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/lifecycle-and-reproducibility/data-and-model-versioning/data-and-model-versioning) · [08 Model Packaging & Containerization](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/model-packaging-and-containerization/model-packaging-and-containerization)

@@ -56,5 +56,5 @@ variance with λ, and what A3C's asynchronous parallel actors buy you (decorrela
 - [Algorithms for Reinforcement Learning — **§4 (policy search & actor-critic)**](https://sites.ualberta.ca/~szepesva/papers/RLAlgsInMDPs.pdf) — **Csaba Szepesvári** — the estimation theory behind the critic.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 6.02 Policy Gradients (REINFORCE)](../../../../../ai-ml-intuitions/decision-making-and-control/policy-learning/policy-gradients-intuition.md)
-- Prereq: [09 Policy Gradients (REINFORCE)](../policy-gradients-reinforce/policy-gradients-reinforce.md) · Next: [11 TRPO](../trust-region-policy-optimization-trpo/trust-region-policy-optimization-trpo.md) · [12 PPO](../proximal-policy-optimization-ppo/proximal-policy-optimization-ppo.md)
+- Concept depth (the *why*): [ai-ml-intuitions 6.02 Policy Gradients (REINFORCE)](/ai-ml/ai-ml-intuitions/decision-making-and-control/policy-learning/policy-gradients-intuition)
+- Prereq: [09 Policy Gradients (REINFORCE)](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/policy-learning/policy-gradients-reinforce/policy-gradients-reinforce) · Next: [11 TRPO](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/policy-learning/trust-region-policy-optimization-trpo/trust-region-policy-optimization-trpo) · [12 PPO](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/policy-learning/proximal-policy-optimization-ppo/proximal-policy-optimization-ppo)

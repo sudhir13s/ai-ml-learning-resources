@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # UMAP — references and further reading
 
-> Companion link library for **[UMAP](umap.md)** (the concept page). Curated links — external sources *and* internal cross-links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is a primary author or a recognized deep explainer, chosen for depth on *this* topic, and every link verified.
+> Companion link library for **[UMAP](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/umap/umap)** (the concept page). Curated links — external sources *and* internal cross-links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is a primary author or a recognized deep explainer, chosen for depth on *this* topic, and every link verified.
 
 **Start here — suggested path:**
 1. **Build intuition** — watch [StatQuest: UMAP, Clearly Explained](https://www.youtube.com/watch?v=eN0wFzBA4Sc). *The fuzzy neighbor graph and how the low-D layout is pulled to match it — the best first watch.*
@@ -52,11 +52,11 @@ updated: 2026-06-22
 - [Dive into Deep Learning — embeddings & visualization context](https://d2l.ai/) — **Zhang, Lipton, Li & Smola** — free; how the high-D embeddings you typically feed UMAP are produced and inspected.
 
 **In this platform:**
-- Concept page (full explanation): [UMAP](umap.md)
-- The closest comparison (slower, weaker global structure, no reusable transform): [t-SNE](../t-sne/t-sne.md)
-- The linear baseline (fast, faithful-but-limited): [Dimensionality Reduction — Overview (PCA)](../dimensionality-reduction-overview/dimensionality-reduction-overview.md)
-- Concept depth (the *why*): [ai-ml-intuitions 1.11–1.12 Dimensionality Reduction (t-SNE / UMAP)](../../../../../ai-ml-intuitions/representation/dimensionality-and-latent-structure/tsne-and-umap-intuition.md)
-- Often the next step after UMAP (its author also wrote HDBSCAN): [DBSCAN](../../clustering/dbscan/dbscan.md) · [Spectral Clustering](../../clustering/spectral-clustering/spectral-clustering.md)
-- The failure mode UMAP helps fix in retrieval: [k-Nearest Neighbors (curse of dimensionality)](../../../supervised-learning/classification/k-nearest-neighbors/k-nearest-neighbors.md)
+- Concept page (full explanation): [UMAP](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/umap/umap)
+- The closest comparison (slower, weaker global structure, no reusable transform): [t-SNE](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/t-sne/t-sne)
+- The linear baseline (fast, faithful-but-limited): [Dimensionality Reduction — Overview (PCA)](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/dimensionality-reduction-overview/dimensionality-reduction-overview)
+- Concept depth (the *why*): [ai-ml-intuitions 1.11–1.12 Dimensionality Reduction (t-SNE / UMAP)](/ai-ml/ai-ml-intuitions/representation/dimensionality-and-latent-structure/tsne-and-umap-intuition)
+- Often the next step after UMAP (its author also wrote HDBSCAN): [DBSCAN](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/dbscan/dbscan) · [Spectral Clustering](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/spectral-clustering/spectral-clustering)
+- The failure mode UMAP helps fix in retrieval: [k-Nearest Neighbors (curse of dimensionality)](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/k-nearest-neighbors/k-nearest-neighbors)
 - Prereq math: [Vectors and Vector Spaces](/ai-ml/ai-ml-learning-resources/foundations/vectors-and-vector-spaces/notes-theory) and [Matrices and Matrix Operations](/ai-ml/ai-ml-learning-resources/foundations/matrices-and-matrix-operations/notes-theory)
-- Field overview: [4. Unsupervised Learning](../../README.md)
+- Field overview: [4. Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)

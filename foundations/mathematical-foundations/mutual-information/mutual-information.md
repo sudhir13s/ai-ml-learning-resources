@@ -30,7 +30,7 @@ zero under independence, and where it shows up in modern representation learning
 2. **From entropy/KL** — watch [Aurélien Géron: Entropy, Cross-Entropy and KL](https://www.youtube.com/watch?v=ErfnhcEV1O8) and note `I(X;Y) = D(p(x,y)‖p(x)p(y))`. *MI is the KL between joint and product-of-marginals.*
 3. **Formalize** — read [Cover & Thomas Ch. 2 (Entropy, Relative Entropy & Mutual Information)](http://www.cs.columbia.edu/~vh/courses/LexicalSemantics/Association/Cover&Thomas-Ch2.pdf). *The definitions, chain rules, and the data-processing inequality.*
 4. **Modern ML use** — read [Representation Learning with Contrastive Predictive Coding (InfoNCE)](https://arxiv.org/abs/1807.03748). *How MI maximization drives self-supervised representations.*
-5. **Connect to ML** — read [ai-ml-intuitions 5.01 Information Theory: Entropy & KL](../../../../ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition.md) and [1.13 Contrastive Learning (SimCLR/InfoNCE)](../../../../ai-ml-intuitions/representation/representation-learning/contrastive-learning-intuition.md). *Where MI becomes a training objective.*
+5. **Connect to ML** — read [ai-ml-intuitions 5.01 Information Theory: Entropy & KL](/ai-ml/ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition) and [1.13 Contrastive Learning (SimCLR/InfoNCE)](/ai-ml/ai-ml-intuitions/representation/representation-learning/contrastive-learning-intuition). *Where MI becomes a training objective.*
 
 ## 🎓 Courses (free)
 - [Stanford EE376A — Information Theory](https://web.stanford.edu/class/ee376a/) — **Stanford** — mutual information, channel capacity, and the data-processing inequality; free notes.
@@ -55,7 +55,7 @@ zero under independence, and where it shows up in modern representation learning
 - [Elements of Information Theory — **Ch. 2 (Mutual Information)**](http://www.cs.columbia.edu/~vh/courses/LexicalSemantics/Association/Cover&Thomas-Ch2.pdf) — **Cover & Thomas** — the standard reference (free chapter PDF).
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 5.01 Information Theory: Entropy & KL](../../../../ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition.md) · [1.13 Contrastive Learning (SimCLR/InfoNCE)](../../../../ai-ml-intuitions/representation/representation-learning/contrastive-learning-intuition.md)
-- Curriculum context: [Maths for AI-ML — Phase 3 (Information Theory, row 3.5)](../maths-for-ai-ml/README.md)
-- Prereqs: [22 Entropy](../entropy/entropy.md) · [23 Cross-Entropy & KL Divergence](../cross-entropy-and-kl-divergence/cross-entropy-and-kl-divergence.md)
+- Concept depth (the *why*): [ai-ml-intuitions 5.01 Information Theory: Entropy & KL](/ai-ml/ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition) · [1.13 Contrastive Learning (SimCLR/InfoNCE)](/ai-ml/ai-ml-intuitions/representation/representation-learning/contrastive-learning-intuition)
+- Curriculum context: [Maths for AI-ML — Phase 3 (Information Theory, row 3.5)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
+- Prereqs: [22 Entropy](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/entropy/entropy) · [23 Cross-Entropy & KL Divergence](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/cross-entropy-and-kl-divergence/cross-entropy-and-kl-divergence)
 </content>

@@ -58,7 +58,7 @@ interview take-home. "Walk me through a project you built" is a question you wan
 - [Approaching (Almost) Any Machine Learning Problem](https://github.com/abhishekkrthakur/approachingalmost) — **Abhishek Thakur** — free PDF; a practical project playbook.
 
 ## 🔗 In this platform
-- Prev: [11 Environments & Package Management](../environments-and-package-management/environments-and-package-management.md) · Foundations: [01 What is AI / ML / DL](../../ai-ml-orientation/what-is-ai-ml-deep-learning/what-is-ai-ml-deep-learning.md)
-- Go deeper — clean the data first: [02. Data Preprocessing](../../data-preparation/README.md)
-- Go deeper — the algorithms you'll try: [03. Supervised Learning](../../../core-machine-learning/supervised-learning/README.md) · [04. Unsupervised Learning](../../../core-machine-learning/unsupervised-learning/README.md)
-- Go deeper — sklearn pipelines & frameworks: [11. Tools & Frameworks](../../tools-and-frameworks/README.md)
+- Prev: [11 Environments & Package Management](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/environments-and-package-management/environments-and-package-management) · Foundations: [01 What is AI / ML / DL](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/what-is-ai-ml-deep-learning/what-is-ai-ml-deep-learning)
+- Go deeper — clean the data first: [02. Data Preprocessing](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/readme)
+- Go deeper — the algorithms you'll try: [03. Supervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/readme) · [04. Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)
+- Go deeper — sklearn pipelines & frameworks: [11. Tools & Frameworks](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/readme)

@@ -60,7 +60,7 @@ real project.
 - [Reinforcement Learning: An Introduction (2nd ed.)](http://incompleteideas.net/book/the-book-2nd.html) — **Sutton & Barto** — free; the RL paradigm in full.
 
 ## 🔗 In this platform
-- Next concepts: [03 The ML Workflow & Lifecycle](../the-ml-workflow-and-lifecycle/the-ml-workflow-and-lifecycle.md) · [04 How Models Learn](../how-models-learn/how-models-learn.md)
-- Go deeper — supervised: [03. Supervised Learning](../../../core-machine-learning/supervised-learning/README.md)
-- Go deeper — unsupervised: [04. Unsupervised Learning](../../../core-machine-learning/unsupervised-learning/README.md)
-- Go deeper — reinforcement: [10. Reinforcement Learning](../../../core-machine-learning/reinforcement-learning/README.md)
+- Next concepts: [03 The ML Workflow & Lifecycle](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/the-ml-workflow-and-lifecycle/the-ml-workflow-and-lifecycle) · [04 How Models Learn](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/how-models-learn/how-models-learn)
+- Go deeper — supervised: [03. Supervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/readme)
+- Go deeper — unsupervised: [04. Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)
+- Go deeper — reinforcement: [10. Reinforcement Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/readme)

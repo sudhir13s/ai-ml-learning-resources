@@ -16,36 +16,36 @@ Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its p
 > **✅ ready.** New to the field? Start with the field overview below, then work top to bottom.
 
 ### Linear models
-1. ✅ [Linear Regression](regression/linear-regression/linear-regression.md)
-2. ✅ [Logistic Regression](classification/logistic-regression/logistic-regression.md)
-3. ✅ [Regularization for Linear Models (Ridge · Lasso · Elastic-Net)](regression/regularization-linear-models/regularization-linear-models.md)
+1. ✅ [Linear Regression](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/regression/linear-regression/linear-regression)
+2. ✅ [Logistic Regression](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/logistic-regression/logistic-regression)
+3. ✅ [Regularization for Linear Models (Ridge · Lasso · Elastic-Net)](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/regression/regularization-linear-models/regularization-linear-models)
 
 ### Instance-based & probabilistic
-4. ✅ [k-Nearest Neighbors (k-NN)](classification/k-nearest-neighbors/k-nearest-neighbors.md)
-5. ✅ [Naive Bayes](classification/naive-bayes/naive-bayes.md)
+4. ✅ [k-Nearest Neighbors (k-NN)](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/k-nearest-neighbors/k-nearest-neighbors)
+5. ✅ [Naive Bayes](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/naive-bayes/naive-bayes)
 
 ### Margin & tree models
-6. ✅ [Support Vector Machines (SVM)](classification/support-vector-machines/support-vector-machines.md)
-7. ✅ [Decision Trees](trees-and-ensembles/decision-trees/decision-trees.md)
+6. ✅ [Support Vector Machines (SVM)](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/support-vector-machines/support-vector-machines)
+7. ✅ [Decision Trees](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/decision-trees/decision-trees)
 
 ### Ensembles
-8. ✅ [Bagging](trees-and-ensembles/bagging/bagging.md)
-9. ✅ [Random Forests](trees-and-ensembles/random-forests/random-forests.md)
-10. ✅ [Gradient Boosting (XGBoost · LightGBM · CatBoost)](trees-and-ensembles/gradient-boosting-xgboost/gradient-boosting-xgboost.md)
-11. ✅ [Stacking & Blending](trees-and-ensembles/stacking-and-blending/stacking-and-blending.md)
+8. ✅ [Bagging](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/bagging/bagging)
+9. ✅ [Random Forests](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/random-forests/random-forests)
+10. ✅ [Gradient Boosting (XGBoost · LightGBM · CatBoost)](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/gradient-boosting-xgboost/gradient-boosting-xgboost)
+11. ✅ [Stacking & Blending](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/stacking-and-blending/stacking-and-blending)
 
 ### Theory & evaluation
-12. ✅ [Bias–Variance Tradeoff](../model-selection-and-evaluation/bias-variance-tradeoff/bias-variance-tradeoff.md)
-13. ✅ [Cross-Validation](../model-selection-and-evaluation/cross-validation/cross-validation.md)
-14. ✅ [Classification Metrics (precision · recall · F1 · ROC-AUC · PR-AUC)](classification/classification-metrics/classification-metrics.md)
-15. ✅ [Regression Metrics (RMSE · MAE · R²)](regression/regression-metrics/regression-metrics.md)
+12. ✅ [Bias–Variance Tradeoff](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/bias-variance-tradeoff/bias-variance-tradeoff)
+13. ✅ [Cross-Validation](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/cross-validation/cross-validation)
+14. ✅ [Classification Metrics (precision · recall · F1 · ROC-AUC · PR-AUC)](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/classification-metrics/classification-metrics)
+15. ✅ [Regression Metrics (RMSE · MAE · R²)](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/regression/regression-metrics/regression-metrics)
 
 ### Related concepts (covered in another section)
 > These topics are used across many areas, so they're kept in one place to avoid repetition.
-- **Math & optimization** — Gradient Descent · Maximum Likelihood · Convexity · Linear Algebra → [01. Foundations](../../foundations/mathematical-foundations/README.md)
-- **Neural networks** — MLPs · Backpropagation · Activation functions · Regularization (dropout/BN) → [05. Deep Learning](../../deep-learning/README.md)
-- **Clustering & dimensionality reduction** — k-Means · PCA · t-SNE · GMMs → [04. Unsupervised Learning](../unsupervised-learning/README.md)
-- **Feature engineering & data prep** — scaling · encoding · imputation · leakage → [02. Data Preprocessing](../../foundations/data-preparation/README.md)
+- **Math & optimization** — Gradient Descent · Maximum Likelihood · Convexity · Linear Algebra → [01. Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme)
+- **Neural networks** — MLPs · Backpropagation · Activation functions · Regularization (dropout/BN) → [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
+- **Clustering & dimensionality reduction** — k-Means · PCA · t-SNE · GMMs → [04. Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)
+- **Feature engineering & data prep** — scaling · encoding · imputation · leakage → [02. Data Preprocessing](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/readme)
 
 ## 🎓 Courses (free)
 - [Machine Learning Specialization (Courses 1–2)](https://www.coursera.org/specializations/machine-learning-introduction) — **Andrew Ng** — regression → classification, the canonical intro.

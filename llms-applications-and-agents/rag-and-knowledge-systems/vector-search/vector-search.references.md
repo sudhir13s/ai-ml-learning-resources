@@ -8,7 +8,7 @@ updated: 2026-07-02
 
 # Vector Databases & ANN Indexes — references and further reading
 
-> Companion link library for **[Vector Databases & ANN Indexes](vector-search.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is a free, no-paywall link from a primary author or a recognized deep explainer — chosen for depth on *this* topic (how vector search scales: IVF, HNSW, PQ), not popularity.
+> Companion link library for **[Vector Databases & ANN Indexes](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is a free, no-paywall link from a primary author or a recognized deep explainer — chosen for depth on *this* topic (how vector search scales: IVF, HNSW, PQ), not popularity.
 
 **Start here — suggested path**:
 1. **Get the why** — watch [What is a Vector Database?](https://www.youtube.com/watch?v=gl1r1XV0SLw) (**IBM Technology**). *Frames why specialized ANN stores exist vs scanning every vector.*
@@ -54,8 +54,8 @@ updated: 2026-07-02
 - [Introduction to Information Retrieval — Ch. 6–7 (scoring, the vector space model, efficient ranking)](https://nlp.stanford.edu/IR-book/html/htmledition/scoring-term-weighting-and-the-vector-space-model-1.html) — **Manning, Raghavan & Schütze** — the IR foundations of similarity scoring and index efficiency, free online.
 
 **In this platform**:
-- Concept page (full explanation): [Vector Databases & ANN Indexes](vector-search.md)
-- Prereq (what gets indexed): [03 Embedding Models for Retrieval](../embedding-models/embedding-models.md) · [01 RAG Fundamentals](../rag-foundations/rag-foundations.md)
-- The math under IVF (the partitioning): [04. Unsupervised Learning — K-Means Clustering](../../../core-machine-learning/unsupervised-learning/clustering/k-means-clustering/k-means-clustering.md)
-- Foundations (the geometry of "near"): [ai-ml-intuitions 1.07–1.08 Euclidean vs Cosine](../../../../ai-ml-intuitions/representation/similarity-and-distance/cosine-vs-euclidean-distance-intuition.md) · [1.06 Vector Similarities](../../../../ai-ml-intuitions/representation/similarity-and-distance/scaled-dot-product-intuition.md)
-- Next in this domain (sharpen what the index returns): [05 Hybrid Search (BM25 + Dense)](../hybrid-search/hybrid-search.md) · [06 Re-ranking with Cross-Encoders](../reranking/reranking.md)
+- Concept page (full explanation): [Vector Databases & ANN Indexes](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search)
+- Prereq (what gets indexed): [03 Embedding Models for Retrieval](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/embedding-models/embedding-models) · [01 RAG Fundamentals](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-foundations/rag-foundations)
+- The math under IVF (the partitioning): [04. Unsupervised Learning — K-Means Clustering](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/k-means-clustering/k-means-clustering)
+- Foundations (the geometry of "near"): [ai-ml-intuitions 1.07–1.08 Euclidean vs Cosine](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/cosine-vs-euclidean-distance-intuition) · [1.06 Vector Similarities](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/scaled-dot-product-intuition)
+- Next in this domain (sharpen what the index returns): [05 Hybrid Search (BM25 + Dense)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search) · [06 Re-ranking with Cross-Encoders](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking)

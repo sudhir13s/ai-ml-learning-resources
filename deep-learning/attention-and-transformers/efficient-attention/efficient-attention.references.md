@@ -8,7 +8,7 @@ updated: 2026-06-26
 
 # Efficient Attention (FlashAttention) — references and further reading
 
-> Companion link library for **[Efficient Attention (FlashAttention)](efficient-attention.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first within each group. Every entry is free/open and chosen for depth on *this* topic, not popularity.
+> Companion link library for **[Efficient Attention (FlashAttention)](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/efficient-attention/efficient-attention)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first within each group. Every entry is free/open and chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
 1. **Frame the problem** — watch [FlashAttention — Tri Dao | Stanford MLSys #67](https://www.youtube.com/watch?v=gMOAud7hZg4) (**Stanford MLSys**). *The author explains IO-awareness, the memory wall, and tiling — the best single overview.*
@@ -56,8 +56,8 @@ updated: 2026-06-26
 - [Speech and Language Processing, 3rd ed. — Ch. 9 "Transformers"](https://web.stanford.edu/~jurafsky/slp3/) — **Jurafsky & Martin** — the self-attention foundations FlashAttention accelerates.
 
 **In this platform**:
-- Concept page (full explanation): [Efficient Attention (FlashAttention)](efficient-attention.md)
-- Foundations (the *why* behind Q, K, V and softmax): [Attention Mechanism](../attention-mechanism/attention-mechanism.md) · [Transformer Architecture](../transformer-architecture/transformer-architecture.md)
+- Concept page (full explanation): [Efficient Attention (FlashAttention)](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/efficient-attention/efficient-attention)
+- Foundations (the *why* behind Q, K, V and softmax): [Attention Mechanism](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism) · [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture)
 - Companion (the decode-side IO story): [KV Cache](../../../../llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.md)
 - Builds on this: [Long-Context Methods](../../../../llms-applications-and-agents/llm-model-architectures/long-context-architectures/long-context-architectures.md) · [Quantization](../../../../llms-applications-and-agents/inference-and-runtime/quantization/quantization.md)
 - Puts it to work: [Inference Optimization & Serving](../../../../llms-applications-and-agents/inference-and-runtime/inference-optimization/inference-optimization.md)

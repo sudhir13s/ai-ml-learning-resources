@@ -41,7 +41,7 @@ This is the **training/prefill-side companion** to the [KV Cache](../../../../ll
 
 To feel why FlashAttention exists, you have to feel the memory wall it removes.
 
-Standard scaled-dot-product [attention](../attention-mechanism/attention-mechanism.md) over a sequence of $N$ tokens does three steps:
+Standard scaled-dot-product [attention](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism) over a sequence of $N$ tokens does three steps:
 
 1. **Scores.** $S = QK^\top / \sqrt{d}$ — every query dotted with every key, giving an $N \times N$ matrix.
 2. **Softmax.** Normalize each row of $S$ over the key axis to get attention weights $P$ — still $N \times N$.

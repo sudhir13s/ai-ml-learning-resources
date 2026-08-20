@@ -8,7 +8,7 @@ updated: 2026-06-27
 
 # Machine Translation — references and further reading
 
-> Companion link library for **[Machine Translation](machine-translation.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity, and every link verified.
+> Companion link library for **[Machine Translation](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/machine-translation/machine-translation)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity, and every link verified.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Seq2Seq Encoder–Decoder Neural Networks, Clearly Explained](https://www.youtube.com/watch?v=L8HKweZIOmg) (**StatQuest, Josh Starmer**). *The translation pipeline, gently, before any attention.*
@@ -62,9 +62,9 @@ updated: 2026-06-27
 - [Dive into Deep Learning — Ch. 10 (seq2seq, attention, NMT)](https://d2l.ai/chapter_recurrent-modern/index.html) — **Zhang, Lipton, Li & Smola** — runnable NMT code alongside the theory.
 
 **In this platform**:
-- Concept page (full explanation): [Machine Translation](machine-translation.md)
+- Concept page (full explanation): [Machine Translation](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/machine-translation/machine-translation)
 - Runnable code: [source-of-truth module](code/machine_translation.py) · [teaching notebook](code/machine-translation.ipynb) · [figure generator](code/make_figures_12.py) — from-scratch BLEU/chrF (matched to sacreBLEU), IBM Model 1 EM, beam length-normalization, and a real opus-mt-fr-en run.
-- The architecture MT runs on: [08 Sequence-to-Sequence & Encoder–Decoder](../sequence-to-sequence-and-encoder-decoder/sequence-to-sequence-and-encoder-decoder.md)
-- Foundations (the *why* behind attention / the Transformer): [Attention Mechanism](../../../deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism.md) · [Transformer Architecture](../../../deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture.md)
-- Supporting techniques: [02 Tokenization & Subword Algorithms](../tokenization-and-subword-algorithms/tokenization-and-subword-algorithms.md) (BPE) · [17 Decoding Strategies](../decoding-strategies/decoding-strategies.md) (beam search) · [18 NLP Evaluation Metrics](../nlp-evaluation-metrics/nlp-evaluation-metrics.md) (BLEU)
-- Related tasks: [13 Text Summarization](../text-summarization/text-summarization.md) · [14 Coreference Resolution](../coreference-resolution/coreference-resolution.md) (pronoun/gender resolution in document-level MT)
+- The architecture MT runs on: [08 Sequence-to-Sequence & Encoder–Decoder](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sequence-to-sequence-and-encoder-decoder/sequence-to-sequence-and-encoder-decoder)
+- Foundations (the *why* behind attention / the Transformer): [Attention Mechanism](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism) · [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture)
+- Supporting techniques: [02 Tokenization & Subword Algorithms](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/tokenization-and-subword-algorithms/tokenization-and-subword-algorithms) (BPE) · [17 Decoding Strategies](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/decoding-strategies/decoding-strategies) (beam search) · [18 NLP Evaluation Metrics](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/nlp-evaluation-metrics/nlp-evaluation-metrics) (BLEU)
+- Related tasks: [13 Text Summarization](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/text-summarization/text-summarization) · [14 Coreference Resolution](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/coreference-resolution/coreference-resolution) (pronoun/gender resolution in document-level MT)

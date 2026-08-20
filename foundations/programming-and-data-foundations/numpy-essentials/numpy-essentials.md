@@ -58,6 +58,6 @@ data-science interviews — and getting shapes right is half of debugging real M
 - [From Python to NumPy](https://www.labri.fr/perso/nrougier/from-python-to-numpy/) — **Nicolas Rougier** — free book focused entirely on vectorization mastery.
 
 ## 🔗 In this platform
-- Prev/next: [06 Python for ML](../python-for-ml/python-for-ml.md) · [08 Pandas Essentials](../pandas-essentials/pandas-essentials.md)
-- Go deeper — the linear algebra NumPy implements: [01. Foundations](../../mathematical-foundations/README.md)
-- Go deeper — tensors & frameworks: [11. Tools & Frameworks](../../tools-and-frameworks/README.md)
+- Prev/next: [06 Python for ML](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/python-for-ml/python-for-ml) · [08 Pandas Essentials](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/pandas-essentials/pandas-essentials)
+- Go deeper — the linear algebra NumPy implements: [01. Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme)
+- Go deeper — tensors & frameworks: [11. Tools & Frameworks](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/readme)

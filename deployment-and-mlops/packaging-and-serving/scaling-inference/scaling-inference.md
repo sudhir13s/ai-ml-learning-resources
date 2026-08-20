@@ -29,7 +29,7 @@ and tools like Ray Serve + Kubernetes HPA. The bridge between serving and cost.
 2. **Learn the autoscaling signal** — read [Ray Serve Autoscaling Guide](https://docs.ray.io/en/latest/serve/autoscaling-guide.html) and [Kubernetes Autoscaling](https://kubernetes.io/docs/concepts/workloads/autoscaling/). *Why queue depth/concurrency is the right metric for inference, not CPU%.*
 3. **See it in a framework** — read [Ray Serve docs](https://docs.ray.io/en/latest/serve/index.html) and watch [Introducing Ray Serve](https://www.youtube.com/watch?v=gV4YS4e1CXg). *Replicas, autoscaling, and batching in one programmable layer.*
 4. **Scale on GPUs** — watch [Productionizing ML at Scale with Ray Serve](https://www.youtube.com/watch?v=UtH-CMpmxvI). *GPU packing, batching, and multi-model serving under load.*
-5. **Connect to cost** — move to [16 Cost Optimization](../../governance-and-economics/cost-optimization/cost-optimization.md). *Autoscaling, batching, and GPU sharing are the main levers on the inference bill.*
+5. **Connect to cost** — move to [16 Cost Optimization](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/governance-and-economics/cost-optimization/cost-optimization). *Autoscaling, batching, and GPU sharing are the main levers on the inference bill.*
 
 ## 🎓 Courses (free)
 - [Ray Serve — Documentation](https://docs.ray.io/en/latest/serve/index.html) — **Anyscale** — scalable serving with built-in autoscaling and batching.
@@ -55,6 +55,6 @@ and tools like Ray Serve + Kubernetes HPA. The bridge between serving and cost.
 - [Machine Learning Engineering — **Ch. 8 "Model Deployment"** (scaling & throughput)](http://www.mlebook.com/wiki/doku.php) — **Andriy Burkov** — read-first chapters free.
 
 ## 🔗 In this platform
-- Builds on: [06 ML Pipelines & Orchestration](../../data-and-training-platforms/ml-pipelines-and-orchestration/ml-pipelines-and-orchestration.md) · [09 Model Serving](../model-serving/model-serving.md)
-- Next concepts: [16 Cost Optimization](../../governance-and-economics/cost-optimization/cost-optimization.md)
-- Related concept (covered elsewhere): LLM inference optimization (quantization, paged attention, batching) → [LLMs — Inference Optimization & Serving](../../../llms-applications-and-agents/inference-and-runtime/inference-optimization/inference-optimization.md)
+- Builds on: [06 ML Pipelines & Orchestration](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/data-and-training-platforms/ml-pipelines-and-orchestration/ml-pipelines-and-orchestration) · [09 Model Serving](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/model-serving/model-serving)
+- Next concepts: [16 Cost Optimization](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/governance-and-economics/cost-optimization/cost-optimization)
+- Related concept (covered elsewhere): LLM inference optimization (quantization, paged attention, batching) → [LLMs — Inference Optimization & Serving](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/inference-optimization/inference-optimization)

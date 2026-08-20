@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Weight Initialization — references and further reading
 
-> Companion link library for **[Weight Initialization](weight-initialization.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
+> Companion link library for **[Weight Initialization](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/weight-initialization/weight-initialization)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Weight Initialization (C2W1L11)](https://www.youtube.com/watch?v=s2coXdufOzE) (**Andrew Ng**). *Why variance scaling keeps signals alive through depth.*
@@ -51,9 +51,9 @@ updated: 2026-06-22
 - [Neural Networks and Deep Learning — Ch. 3 (weight initialization)](http://neuralnetworksanddeeplearning.com/chap3.html) — **Michael Nielsen** — why scaling init by fan-in speeds early learning.
 
 **In this platform**:
-- Concept page (full explanation): [Weight Initialization](weight-initialization.md)
-- Concept depth (the *why*): [ai-ml-intuitions 4.12 Weight Initialization (Xavier/He)](../../../../ai-ml-intuitions/training-stability/gradient-health/weight-initialization-intuition.md)
-- Prerequisite: [Backpropagation & Computational Graphs](../../neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs.md)
-- The failure mode init prevents: [Vanishing / Exploding Gradients](../vanishing-exploding-gradients/vanishing-exploding-gradients.md)
-- Closely related: [Activation Functions](../../stabilization-and-architectural-blocks/activation-functions/activation-functions.md) (which scheme to use depends on the activation) · [Normalization](../../stabilization-and-architectural-blocks/normalization/normalization.md) (reduces but doesn't eliminate init sensitivity) · [Residual / Skip Connections](../../stabilization-and-architectural-blocks/residual-skip-connections/residual-skip-connections.md) (the identity path the residual-init tricks protect)
-- Field overview: [Deep Learning](../../README.md)
+- Concept page (full explanation): [Weight Initialization](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/weight-initialization/weight-initialization)
+- Concept depth (the *why*): [ai-ml-intuitions 4.12 Weight Initialization (Xavier/He)](/ai-ml/ai-ml-intuitions/training-stability/gradient-health/weight-initialization-intuition)
+- Prerequisite: [Backpropagation & Computational Graphs](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs)
+- The failure mode init prevents: [Vanishing / Exploding Gradients](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients)
+- Closely related: [Activation Functions](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/activation-functions/activation-functions) (which scheme to use depends on the activation) · [Normalization](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/normalization/normalization) (reduces but doesn't eliminate init sensitivity) · [Residual / Skip Connections](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/residual-skip-connections/residual-skip-connections) (the identity path the residual-init tricks protect)
+- Field overview: [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

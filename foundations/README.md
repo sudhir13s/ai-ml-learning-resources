@@ -19,31 +19,31 @@ from "what even is ML?" to shipping your first model.
 > **✅ ready.** New here? Start with the field overview below, then work top to bottom.
 
 ### Orientation — what ML is and how it works
-1. ✅ [What is AI / ML / Deep Learning](ai-ml-orientation/what-is-ai-ml-deep-learning/what-is-ai-ml-deep-learning.md)
-2. ✅ [Types of Machine Learning (supervised · unsupervised · reinforcement)](ai-ml-orientation/types-of-machine-learning/types-of-machine-learning.md)
-3. ✅ [The ML Workflow & Lifecycle](ai-ml-orientation/the-ml-workflow-and-lifecycle/the-ml-workflow-and-lifecycle.md)
-4. ✅ [How Models Learn (train/val/test · loss · gradient-descent intuition)](ai-ml-orientation/how-models-learn/how-models-learn.md)
-5. ✅ [Overfitting & Underfitting (intuition)](ai-ml-orientation/overfitting-and-underfitting/overfitting-and-underfitting.md)
+1. ✅ [What is AI / ML / Deep Learning](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/what-is-ai-ml-deep-learning/what-is-ai-ml-deep-learning)
+2. ✅ [Types of Machine Learning (supervised · unsupervised · reinforcement)](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/types-of-machine-learning/types-of-machine-learning)
+3. ✅ [The ML Workflow & Lifecycle](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/the-ml-workflow-and-lifecycle/the-ml-workflow-and-lifecycle)
+4. ✅ [How Models Learn (train/val/test · loss · gradient-descent intuition)](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/how-models-learn/how-models-learn)
+5. ✅ [Overfitting & Underfitting (intuition)](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/overfitting-and-underfitting/overfitting-and-underfitting)
 
 ### Tools — the practical stack you'll build on
-6. ✅ [Python for ML](programming-and-data-foundations/python-for-ml/python-for-ml.md)
-7. ✅ [NumPy Essentials](programming-and-data-foundations/numpy-essentials/numpy-essentials.md)
-8. ✅ [Pandas Essentials](programming-and-data-foundations/pandas-essentials/pandas-essentials.md)
-9. ✅ [Data Visualization Basics (Matplotlib · Seaborn)](programming-and-data-foundations/data-visualization-basics/data-visualization-basics.md)
-10. ✅ [Jupyter & Google Colab](programming-and-data-foundations/jupyter-and-google-colab/jupyter-and-google-colab.md)
-11. ✅ [Environments & Package Management (uv · conda · pip)](programming-and-data-foundations/environments-and-package-management/environments-and-package-management.md)
+6. ✅ [Python for ML](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/python-for-ml/python-for-ml)
+7. ✅ [NumPy Essentials](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/numpy-essentials/numpy-essentials)
+8. ✅ [Pandas Essentials](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/pandas-essentials/pandas-essentials)
+9. ✅ [Data Visualization Basics (Matplotlib · Seaborn)](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/data-visualization-basics/data-visualization-basics)
+10. ✅ [Jupyter & Google Colab](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/jupyter-and-google-colab/jupyter-and-google-colab)
+11. ✅ [Environments & Package Management (uv · conda · pip)](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/environments-and-package-management/environments-and-package-management)
 
 ### Put it together
-12. ✅ [Your First ML Project (end-to-end with scikit-learn)](programming-and-data-foundations/your-first-ml-project/your-first-ml-project.md)
+12. ✅ [Your First ML Project (end-to-end with scikit-learn)](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/your-first-ml-project/your-first-ml-project)
 
 ### Related concepts (covered in another section)
 > These topics start here but live in depth elsewhere — follow the link when you're ready to go deeper.
-- **The math behind it all** — linear algebra · calculus · probability · statistics → [01. Foundations](mathematical-foundations/README.md)
-- **Cleaning & preparing data** — missing values · encoding · scaling · feature engineering · splitting → [02. Data Preprocessing](data-preparation/README.md)
-- **The supervised algorithms** — linear/logistic regression · trees · SVMs · ensembles → [03. Supervised Learning](../core-machine-learning/supervised-learning/README.md)
-- **The unsupervised algorithms** — clustering · PCA · dimensionality reduction → [04. Unsupervised Learning](../core-machine-learning/unsupervised-learning/README.md)
-- **Neural networks & deep learning** — MLPs · backprop · CNNs · transformers → [05. Deep Learning](../deep-learning/README.md)
-- **Frameworks in depth** — PyTorch · TensorFlow · scikit-learn pipelines → [13. Tools & Frameworks](tools-and-frameworks/README.md)
+- **The math behind it all** — linear algebra · calculus · probability · statistics → [01. Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme)
+- **Cleaning & preparing data** — missing values · encoding · scaling · feature engineering · splitting → [02. Data Preprocessing](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/readme)
+- **The supervised algorithms** — linear/logistic regression · trees · SVMs · ensembles → [03. Supervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/readme)
+- **The unsupervised algorithms** — clustering · PCA · dimensionality reduction → [04. Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)
+- **Neural networks & deep learning** — MLPs · backprop · CNNs · transformers → [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
+- **Frameworks in depth** — PyTorch · TensorFlow · scikit-learn pipelines → [13. Tools & Frameworks](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/readme)
 
 ## 🎓 Courses (free)
 - [Machine Learning Specialization](https://www.coursera.org/specializations/machine-learning-introduction) — **Andrew Ng / DeepLearning.AI** — free to audit; the canonical first ML course on Earth.

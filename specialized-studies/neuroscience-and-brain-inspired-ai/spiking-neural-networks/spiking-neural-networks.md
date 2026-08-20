@@ -56,7 +56,7 @@ energy savings — the efficiency argument that ties this card to quantization a
 - [Theoretical Neuroscience — **Ch. 5–7 (model neurons & network models)**](https://www.gatsby.ucl.ac.uk/~dayan/book/) — **Dayan & Abbott** — the network-level dynamics behind spiking circuits.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 2.02 Backpropagation — The Chain Rule](../../../../ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/chain-rule-and-backpropagation-intuition.md) — what surrogate gradients have to approximate.
-- Prereqs in this section: [01 Biological Neurons & Synapses](../biological-neurons-and-synapses/biological-neurons-and-synapses.md) · [02 Neural Coding](../neural-coding/neural-coding.md)
-- Next concepts: [05 Neuromorphic Computing](../neuromorphic-computing/neuromorphic-computing.md) · [14 Biologically-Plausible Backprop Alternatives](../biologically-plausible-backprop-alternatives/biologically-plausible-backprop-alternatives.md)
-- Related domain: [05. Deep Learning](../../../deep-learning/README.md)
+- Concept depth (the *why*): [ai-ml-intuitions 2.02 Backpropagation — The Chain Rule](/ai-ml/ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/chain-rule-and-backpropagation-intuition) — what surrogate gradients have to approximate.
+- Prereqs in this section: [01 Biological Neurons & Synapses](/ai-ml/ai-ml-learning-resources/specialized-studies/neuroscience-and-brain-inspired-ai/biological-neurons-and-synapses/biological-neurons-and-synapses) · [02 Neural Coding](/ai-ml/ai-ml-learning-resources/specialized-studies/neuroscience-and-brain-inspired-ai/neural-coding/neural-coding)
+- Next concepts: [05 Neuromorphic Computing](/ai-ml/ai-ml-learning-resources/specialized-studies/neuroscience-and-brain-inspired-ai/neuromorphic-computing/neuromorphic-computing) · [14 Biologically-Plausible Backprop Alternatives](/ai-ml/ai-ml-learning-resources/specialized-studies/neuroscience-and-brain-inspired-ai/biologically-plausible-backprop-alternatives/biologically-plausible-backprop-alternatives)
+- Related domain: [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

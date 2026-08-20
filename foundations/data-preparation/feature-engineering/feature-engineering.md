@@ -54,6 +54,6 @@ when binning helps tree-free models, and how to engineer **without leaking** fut
 - [Python Data Science Handbook — **§5.4 "Feature Engineering"**](https://jakevdp.github.io/PythonDataScienceHandbook/05.04-feature-engineering.html) — **Jake VanderPlas** — derived features, polynomial features, and pipelines.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 1.01 One-Hot Encoding](../../../../ai-ml-intuitions/representation/discrete-representations/one-hot-encoding-intuition.md) · [1.17 BoW & TF-IDF](../../../../ai-ml-intuitions/representation/discrete-representations/bag-of-words-and-tf-idf-intuition.md)
-- Next concepts: [07 Feature Selection](../feature-selection/feature-selection.md) · [08 Date/Time & Cyclical Features](../date-time-and-cyclical-features/date-time-and-cyclical-features.md)
-- Related domain: [03. Supervised Learning](../../../core-machine-learning/supervised-learning/README.md)
+- Concept depth (the *why*): [ai-ml-intuitions 1.01 One-Hot Encoding](/ai-ml/ai-ml-intuitions/representation/discrete-representations/one-hot-encoding-intuition) · [1.17 BoW & TF-IDF](/ai-ml/ai-ml-intuitions/representation/discrete-representations/bag-of-words-and-tf-idf-intuition)
+- Next concepts: [07 Feature Selection](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/feature-selection/feature-selection) · [08 Date/Time & Cyclical Features](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/date-time-and-cyclical-features/date-time-and-cyclical-features)
+- Related domain: [03. Supervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/readme)

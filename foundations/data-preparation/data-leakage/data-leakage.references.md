@@ -8,7 +8,7 @@ updated: 2026-07-03
 
 # Data Leakage — references and further reading
 
-> Companion link library for **[Data Leakage](data-leakage.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Everything here is free / open, and every "Source / derivation" citation on the concept page appears below.
+> Companion link library for **[Data Leakage](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/data-leakage/data-leakage)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Everything here is free / open, and every "Source / derivation" citation on the concept page appears below.
 
 **Start here — suggested path**:
 1. **Get the definition** — watch [What is Data Leakage in Machine Learning?](https://www.youtube.com/watch?v=n9jz7G68pVg) (**Krish Naik**). *The clearest short definition, with practical examples of both contamination and target leakage.*
@@ -55,11 +55,11 @@ updated: 2026-07-03
 - [Feature Engineering and Selection — Ch. 3 "A Review of the Predictive Modeling Process"](http://www.feat.engineering/) — **Kuhn & Johnson** — disciplined data spending and resampling that structurally prevents leakage; free online.
 
 **In this platform**:
-- Concept page (full explanation): [Data Leakage](data-leakage.md)
-- The classic mild leak, measured — fitting a scaler on all data: [02 Feature Scaling & Normalization](../feature-scaling-and-normalization/feature-scaling-and-normalization.md)
-- The split leakage is defined against — train/validation/test discipline: [10 Train/Validation/Test Splits](../train-validation-test-splits/train-validation-test-splits.md)
-- The structural cure in a real pipeline (`Pipeline` + `ColumnTransformer`): [13 Data Pipelines](../data-pipelines/data-pipelines.md)
-- Building past-only features so time series don't leak: [08 Date-Time & Cyclical Features](../date-time-and-cyclical-features/date-time-and-cyclical-features.md)
-- Why an inflated score is really an overfitting/generalization story: [00 Basics — 05 Overfitting & Underfitting](../../ai-ml-orientation/overfitting-and-underfitting/overfitting-and-underfitting.md)
-- The concept depth (the *why* of generalization): [ai-ml-intuitions 3.07 Bias–Variance & Generalization](../../../../ai-ml-intuitions/objectives-and-evaluation/generalization/bias-variance-tradeoff-intuition.md)
-- Where leakage meets production — train/serve skew: [14 Deployment & MLOps](../../../deployment-and-mlops/README.md) · [Data and Concept Drift Detection](../../../deployment-and-mlops/monitoring-and-reliability/data-and-concept-drift-detection/data-and-concept-drift-detection.md)
+- Concept page (full explanation): [Data Leakage](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/data-leakage/data-leakage)
+- The classic mild leak, measured — fitting a scaler on all data: [02 Feature Scaling & Normalization](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/feature-scaling-and-normalization/feature-scaling-and-normalization)
+- The split leakage is defined against — train/validation/test discipline: [10 Train/Validation/Test Splits](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/train-validation-test-splits/train-validation-test-splits)
+- The structural cure in a real pipeline (`Pipeline` + `ColumnTransformer`): [13 Data Pipelines](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/data-pipelines/data-pipelines)
+- Building past-only features so time series don't leak: [08 Date-Time & Cyclical Features](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/date-time-and-cyclical-features/date-time-and-cyclical-features)
+- Why an inflated score is really an overfitting/generalization story: [00 Basics — 05 Overfitting & Underfitting](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/overfitting-and-underfitting/overfitting-and-underfitting)
+- The concept depth (the *why* of generalization): [ai-ml-intuitions 3.07 Bias–Variance & Generalization](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/generalization/bias-variance-tradeoff-intuition)
+- Where leakage meets production — train/serve skew: [14 Deployment & MLOps](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/readme) · [Data and Concept Drift Detection](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/monitoring-and-reliability/data-and-concept-drift-detection/data-and-concept-drift-detection)

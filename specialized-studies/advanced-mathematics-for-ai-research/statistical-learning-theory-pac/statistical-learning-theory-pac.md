@@ -31,7 +31,7 @@ complexity (card 7).
 2. **See why generalization is even possible** — watch [Lecture 5: Training vs Testing](https://www.youtube.com/watch?v=SEYAnnLazMU). *The dichotomy/growth-function idea that replaces "infinite hypotheses = no guarantees".*
 3. **Read the framework** — work [Understanding Machine Learning, Ch. 2–4 (PAC, ERM, uniform convergence)](https://www.cs.huji.ac.il/~shais/UnderstandingMachineLearning/understanding-machine-learning-theory-algorithms.pdf). *The definitive modern treatment of PAC.*
 4. **Do the proof** — derive the finite-hypothesis-class bound (Hoeffding + union bound) from those chapters. *This one-page proof is the heart of the whole subject.*
-5. **Generalize** — move to agnostic PAC and the no-free-lunch theorem (UML Ch. 5), then on to [VC dimension](../vc-dimension/vc-dimension.md). *Where "which classes are learnable?" gets its real answer.*
+5. **Generalize** — move to agnostic PAC and the no-free-lunch theorem (UML Ch. 5), then on to [VC dimension](/ai-ml/ai-ml-learning-resources/specialized-studies/advanced-mathematics-for-ai-research/vc-dimension/vc-dimension). *Where "which classes are learnable?" gets its real answer.*
 
 ## 🎓 Courses (free)
 - [Learning From Data (Caltech CS156)](https://work.caltech.edu/telecourse.html) — **Yaser Abu-Mostafa (Caltech)** — the legendary intro: learning feasibility, VC, generalization, full video course + slides, free.
@@ -57,8 +57,8 @@ complexity (card 7).
 - [Learning Theory from First Principles — **Ch. 2–4 (statistical learning, ERM, generalization)**](https://www.di.ens.fr/~fbach/ltfp_book.pdf) — **Francis Bach** — modern, ML-first treatment, free draft.
 
 ## 🔗 In this platform
-- Foundations (the basics this builds on): [Law of Large Numbers & the CLT](../../../foundations/mathematical-foundations/lln-and-clt/lln-and-clt.md) · [Hypothesis Testing & Confidence Intervals](../../../foundations/mathematical-foundations/hypothesis-testing-and-confidence-intervals/hypothesis-testing-and-confidence-intervals.md)
-- Concept depth (the *why*): [ai-ml-intuitions 3.07 Bias–Variance & Generalization](../../../../ai-ml-intuitions/objectives-and-evaluation/generalization/bias-variance-tradeoff-intuition.md)
-- Prerequisite & next: [01 Measure Theory & Probability](../measure-theory-and-probability-foundations/measure-theory-and-probability-foundations.md) · [06 VC Dimension](../vc-dimension/vc-dimension.md) · [07 Rademacher Complexity & Generalization Bounds](../rademacher-complexity-and-generalization-bounds/rademacher-complexity-and-generalization-bounds.md)
-- Related domain: [03. Supervised Learning](../../../core-machine-learning/supervised-learning/README.md)
+- Foundations (the basics this builds on): [Law of Large Numbers & the CLT](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/lln-and-clt/lln-and-clt) · [Hypothesis Testing & Confidence Intervals](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/hypothesis-testing-and-confidence-intervals/hypothesis-testing-and-confidence-intervals)
+- Concept depth (the *why*): [ai-ml-intuitions 3.07 Bias–Variance & Generalization](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/generalization/bias-variance-tradeoff-intuition)
+- Prerequisite & next: [01 Measure Theory & Probability](/ai-ml/ai-ml-learning-resources/specialized-studies/advanced-mathematics-for-ai-research/measure-theory-and-probability-foundations/measure-theory-and-probability-foundations) · [06 VC Dimension](/ai-ml/ai-ml-learning-resources/specialized-studies/advanced-mathematics-for-ai-research/vc-dimension/vc-dimension) · [07 Rademacher Complexity & Generalization Bounds](/ai-ml/ai-ml-learning-resources/specialized-studies/advanced-mathematics-for-ai-research/rademacher-complexity-and-generalization-bounds/rademacher-complexity-and-generalization-bounds)
+- Related domain: [03. Supervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/readme)
 </content>

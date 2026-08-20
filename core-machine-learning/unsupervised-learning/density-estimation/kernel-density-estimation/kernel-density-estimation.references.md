@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Kernel Density Estimation — references and further reading
 
-> Companion link library for **[Kernel Density Estimation](kernel-density-estimation.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer, chosen for depth on *this* topic, not popularity.
+> Companion link library for **[Kernel Density Estimation](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/density-estimation/kernel-density-estimation/kernel-density-estimation)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer, chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [The Histogram and Kernel Density Estimation](https://www.youtube.com/watch?v=SUvPJ4URYGA) (**Justin Esarey**). *See KDE as a smoothed, bin-free histogram — bumps summed over points, the clearest first picture.*
@@ -48,10 +48,10 @@ updated: 2026-06-22
 - [Multivariate Density Estimation: Theory, Practice, and Visualization](https://www.wiley.com/en-us/Multivariate+Density+Estimation%3A+Theory%2C+Practice%2C+and+Visualization%2C+2nd+Edition-p-9780471697558) — **David W. Scott (1992)** — the standard reference on multivariate KDE, the bandwidth matrix, and Scott's rule.
 
 **In this platform**:
-- Concept page (full explanation): [Kernel Density Estimation](kernel-density-estimation.md)
-- Parametric counterpart (the contrast): [Gaussian Mixture Models & EM](../../clustering/gaussian-mixture-models-and-em/gaussian-mixture-models-and-em.md) — KDE is a GMM with one fixed bump per point
-- Puts it to work: [Anomaly / Outlier Detection](../../anomaly-detection/anomaly-outlier-detection/anomaly-outlier-detection.md) — low estimated density = outlier
-- Method tie: [The Kernel Trick (intuition)](../../../../../ai-ml-intuitions/representation/similarity-and-distance/kernel-trick-intuition.md) — the same Gaussian bump, used for inner products rather than density
-- Foundations (the *why*): [Distributions & the Gaussian (intuition)](../../../../../ai-ml-intuitions/foundational-mental-models/probability-and-belief/distributions-and-gaussians-intuition.md) — the kernel is usually a Gaussian bump
+- Concept page (full explanation): [Kernel Density Estimation](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/density-estimation/kernel-density-estimation/kernel-density-estimation)
+- Parametric counterpart (the contrast): [Gaussian Mixture Models & EM](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/gaussian-mixture-models-and-em/gaussian-mixture-models-and-em) — KDE is a GMM with one fixed bump per point
+- Puts it to work: [Anomaly / Outlier Detection](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/anomaly-detection/anomaly-outlier-detection/anomaly-outlier-detection) — low estimated density = outlier
+- Method tie: [The Kernel Trick (intuition)](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/kernel-trick-intuition) — the same Gaussian bump, used for inner products rather than density
+- Foundations (the *why*): [Distributions & the Gaussian (intuition)](/ai-ml/ai-ml-intuitions/foundational-mental-models/probability-and-belief/distributions-and-gaussians-intuition) — the kernel is usually a Gaussian bump
 - Prereq math: [Vectors and Vector Spaces](/ai-ml/ai-ml-learning-resources/foundations/vectors-and-vector-spaces/notes-theory) and [Matrices and Matrix Operations](/ai-ml/ai-ml-learning-resources/foundations/matrices-and-matrix-operations/notes-theory)
-- Field overview: [4. Unsupervised Learning](../../README.md)
+- Field overview: [4. Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)

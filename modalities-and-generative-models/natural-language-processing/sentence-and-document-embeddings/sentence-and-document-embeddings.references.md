@@ -8,7 +8,7 @@ updated: 2026-06-27
 
 # Sentence & Document Embeddings — references and further reading
 
-> Companion link library for **[Sentence & Document Embeddings](sentence-and-document-embeddings.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
+> Companion link library for **[Sentence & Document Embeddings](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sentence-and-document-embeddings/sentence-and-document-embeddings)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Intro to Sentence Embeddings with Transformers](https://www.youtube.com/watch?v=jVPd7lEvjtg) (**James Briggs**). *Why a sentence needs its own vector, not a bag of token vectors, and the cosine-similarity intuition.*
@@ -59,9 +59,9 @@ updated: 2026-06-27
 - [Speech and Language Processing, 3rd ed. — Ch. 6 "Vector Semantics and Embeddings"](https://web.stanford.edu/~jurafsky/slp3/6.pdf) — **Jurafsky & Martin** — vector semantics that generalize from words to sentences (cosine, similarity, the geometry).
 
 **In this platform**:
-- Concept page (full explanation): [Sentence & Document Embeddings](sentence-and-document-embeddings.md)
-- Builds on: [Word Embeddings (Word2Vec · GloVe · FastText)](../word-embeddings-word2vec-glove-fasttext/word-embeddings-word2vec-glove-fasttext.md) — the static vectors we average · [Contextual Embeddings (ELMo · BERT)](../contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert.md) — the token-level vectors we pool, and the anisotropy source.
-- The training engine: [Contrastive / Self-Supervised Learning](../../../deep-learning/self-supervised-learning/contrastive-self-supervised-learning/contrastive-self-supervised-learning.md) — InfoNCE, positives/negatives, alignment & uniformity behind SimCSE.
-- Puts it to work: [Information Retrieval & Semantic Search](../information-retrieval-and-semantic-search/information-retrieval-and-semantic-search.md) — BM25, dense retrieval, ANN indexing, and retrieve-then-rerank.
-- Related building blocks: [Bag-of-Words & TF-IDF](../bag-of-words-and-tf-idf/bag-of-words-and-tf-idf.md) — the lexical baseline (and the IDF instinct SIF echoes).
-- Concept depth (the *why*): [ai-ml-intuitions 1.02 Dense Embeddings](../../../../ai-ml-intuitions/representation/embedding-spaces/dense-embeddings-intuition.md) · [1.13 Contrastive Learning (SimCLR · InfoNCE)](../../../../ai-ml-intuitions/representation/representation-learning/contrastive-learning-intuition.md)
+- Concept page (full explanation): [Sentence & Document Embeddings](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sentence-and-document-embeddings/sentence-and-document-embeddings)
+- Builds on: [Word Embeddings (Word2Vec · GloVe · FastText)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/word-embeddings-word2vec-glove-fasttext/word-embeddings-word2vec-glove-fasttext) — the static vectors we average · [Contextual Embeddings (ELMo · BERT)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert) — the token-level vectors we pool, and the anisotropy source.
+- The training engine: [Contrastive / Self-Supervised Learning](/ai-ml/ai-ml-learning-resources/deep-learning/self-supervised-learning/contrastive-self-supervised-learning/contrastive-self-supervised-learning) — InfoNCE, positives/negatives, alignment & uniformity behind SimCSE.
+- Puts it to work: [Information Retrieval & Semantic Search](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/information-retrieval-and-semantic-search/information-retrieval-and-semantic-search) — BM25, dense retrieval, ANN indexing, and retrieve-then-rerank.
+- Related building blocks: [Bag-of-Words & TF-IDF](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/bag-of-words-and-tf-idf/bag-of-words-and-tf-idf) — the lexical baseline (and the IDF instinct SIF echoes).
+- Concept depth (the *why*): [ai-ml-intuitions 1.02 Dense Embeddings](/ai-ml/ai-ml-intuitions/representation/embedding-spaces/dense-embeddings-intuition) · [1.13 Contrastive Learning (SimCLR · InfoNCE)](/ai-ml/ai-ml-intuitions/representation/representation-learning/contrastive-learning-intuition)

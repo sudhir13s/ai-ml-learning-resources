@@ -8,7 +8,7 @@ updated: 2026-07-02
 
 # ReAct (Reason + Act) — references and further reading
 
-> Companion link library for **[ReAct — Reason + Act](reason-and-act.md)** (the concept
+> Companion link library for **[ReAct — Reason + Act](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/reason-and-act/reason-and-act)** (the concept
 > page). Kept separate so it can be reused as a standalone reference list. Grouped by type,
 > best-first. Everything here is **free / open** — no paywall. Every source cited under a
 > "Source / derivation" line on the concept page appears here, so each claim is traceable to a
@@ -50,10 +50,10 @@ updated: 2026-07-02
 - [Speech and Language Processing (3rd ed. draft) — chapters on prompting & agents](https://web.stanford.edu/~jurafsky/slp3/) — **Jurafsky & Martin** — free draft; the LLM-prompting and tool-use context ReAct sits in, from an academic NLP viewpoint.
 
 **🔗 In this platform**:
-- Concept page (full explanation): [ReAct — Reason + Act](reason-and-act.md)
+- Concept page (full explanation): [ReAct — Reason + Act](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/reason-and-act/reason-and-act)
 - Fast buzzword-level overview (the recall layer): [AI Buzzword Knowledge — Agents](../../../../AI-Buzzword-Knowledge/05-Agents.md) · [AI Buzzword Knowledge — Agentic Workflows](../../../../AI-Buzzword-Knowledge/06-Agentic-Workflows.md) · [AI Buzzword Knowledge — Tool Use & MCP](../../../../AI-Buzzword-Knowledge/08-Tool-Use-and-MCP.md)
-- Prerequisite (the reasoning half): [Chain-of-Thought Reasoning](../../reasoning-evaluation-and-alignment/chain-of-thought-and-reasoning/chain-of-thought-and-reasoning.md) · prompting foundations in [09 LLMs — Prompting](../../README.md)
-- Prev / next in this domain: [01 LLM Agents Overview](../agent-foundations/agent-foundations.md) · [03 Tool Use & Function Calling](../tool-use/tool-use.md) · [04 Planning & Task Decomposition](../planning/planning.md)
-- Where it goes next: [05 Reflection & Self-Critique](../reflection/reflection.md) (the Reflexion outer loop) · [06 Memory for Agents](../memory/memory.md) (when the scratchpad outgrows the context)
-- Tool + safety context: [08 Model Context Protocol (MCP)](../model-context-protocol/model-context-protocol.md) · [13 Safety, Guardrails & Human-in-the-Loop](../agent-safety/agent-safety.md)
-- Frameworks that implement this loop: [09 Agent Frameworks](../agent-frameworks/agent-frameworks.md)
+- Prerequisite (the reasoning half): [Chain-of-Thought Reasoning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/chain-of-thought-and-reasoning/chain-of-thought-and-reasoning) · prompting foundations in [09 LLMs — Prompting](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme)
+- Prev / next in this domain: [01 LLM Agents Overview](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/agent-foundations/agent-foundations) · [03 Tool Use & Function Calling](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/tool-use/tool-use) · [04 Planning & Task Decomposition](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/planning/planning)
+- Where it goes next: [05 Reflection & Self-Critique](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/reflection/reflection) (the Reflexion outer loop) · [06 Memory for Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/memory/memory) (when the scratchpad outgrows the context)
+- Tool + safety context: [08 Model Context Protocol (MCP)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/model-context-protocol/model-context-protocol) · [13 Safety, Guardrails & Human-in-the-Loop](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/agent-safety/agent-safety)
+- Frameworks that implement this loop: [09 Agent Frameworks](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/agent-frameworks/agent-frameworks)

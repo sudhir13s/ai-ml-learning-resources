@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Vanishing / Exploding Gradients — references and further reading
 
-> Companion link library for **[Vanishing / Exploding Gradients & Gradient Clipping](vanishing-exploding-gradients.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
+> Companion link library for **[Vanishing / Exploding Gradients & Gradient Clipping](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Vanishing/Exploding Gradients (C2W1L10)](https://www.youtube.com/watch?v=qhXZsFVxGKo) (**Andrew Ng**). *Why depth compounds the gradient signal up or down.*
@@ -51,8 +51,8 @@ updated: 2026-06-22
 - [Neural Networks and Deep Learning — Ch. 5 "Why are deep nets hard to train?"](http://neuralnetworksanddeeplearning.com/chap5.html) — **Michael Nielsen** — the unstable-gradient problem explained from scratch.
 
 **In this platform**:
-- Concept page (full explanation): [Vanishing / Exploding Gradients](vanishing-exploding-gradients.md)
-- Concept depth (the *why*): [ai-ml-intuitions 4.10 Gradient Clipping](../../../../ai-ml-intuitions/training-stability/gradient-health/gradient-clipping-intuition.md) · [4.12 Weight Initialization](../../../../ai-ml-intuitions/training-stability/gradient-health/weight-initialization-intuition.md)
-- Prerequisite: [Backpropagation & Computational Graphs](../../neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs.md)
-- Related: [Activation Functions](../../stabilization-and-architectural-blocks/activation-functions/activation-functions.md) (saturation) · [Weight Initialization](../weight-initialization/weight-initialization.md) · [Normalization](../../stabilization-and-architectural-blocks/normalization/normalization.md) · [Residual / Skip Connections](../../stabilization-and-architectural-blocks/residual-skip-connections/residual-skip-connections.md) · [RNN / LSTM / GRU](../../neural-architectures/rnn-lstm-gru/rnn-lstm-gru.md) (through-time fix) · [Transformer Architecture](../../attention-and-transformers/transformer-architecture/transformer-architecture.md)
-- Field overview: [Deep Learning](../../README.md)
+- Concept page (full explanation): [Vanishing / Exploding Gradients](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients)
+- Concept depth (the *why*): [ai-ml-intuitions 4.10 Gradient Clipping](/ai-ml/ai-ml-intuitions/training-stability/gradient-health/gradient-clipping-intuition) · [4.12 Weight Initialization](/ai-ml/ai-ml-intuitions/training-stability/gradient-health/weight-initialization-intuition)
+- Prerequisite: [Backpropagation & Computational Graphs](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs)
+- Related: [Activation Functions](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/activation-functions/activation-functions) (saturation) · [Weight Initialization](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/weight-initialization/weight-initialization) · [Normalization](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/normalization/normalization) · [Residual / Skip Connections](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/residual-skip-connections/residual-skip-connections) · [RNN / LSTM / GRU](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/rnn-lstm-gru/rnn-lstm-gru) (through-time fix) · [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture)
+- Field overview: [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

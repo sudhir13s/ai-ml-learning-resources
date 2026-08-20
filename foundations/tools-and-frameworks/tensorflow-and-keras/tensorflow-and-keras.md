@@ -57,6 +57,6 @@ training — plus the trade-offs vs PyTorch.
 - [TensorFlow: learn (curated books & paths)](https://www.tensorflow.org/learn) — **TensorFlow team** — the official directory of free learning materials.
 
 ## 🔗 In this platform
-- Related domain: [05. Deep Learning](../../../deep-learning/README.md) · [07. Computer Vision](../../../modalities-and-generative-models/computer-vision/README.md)
-- Compare with: [05 PyTorch](../pytorch/pytorch.md) · [07 JAX (+ Flax)](../jax-and-flax/jax-and-flax.md)
-- Deeper concept (the *why*): serving & deployment → [Deployment & MLOps](../../../deployment-and-mlops/README.md)
+- Related domain: [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme) · [07. Computer Vision](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/readme)
+- Compare with: [05 PyTorch](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/pytorch/pytorch) · [07 JAX (+ Flax)](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/jax-and-flax/jax-and-flax)
+- Deeper concept (the *why*): serving & deployment → [Deployment & MLOps](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/readme)

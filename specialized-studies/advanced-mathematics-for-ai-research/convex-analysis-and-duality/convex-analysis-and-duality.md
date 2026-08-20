@@ -57,8 +57,8 @@ saddle-point framing of GANs and Wasserstein distances (card 9).
 - [Understanding Machine Learning — **Ch. 12 (Convex Learning Problems)**](https://www.cs.huji.ac.il/~shais/UnderstandingMachineLearning/) — **Shalev-Shwartz & Ben-David** — convexity from the learning-theory side, free PDF.
 
 ## 🔗 In this platform
-- Foundations (the basics this builds on): [Convexity & Convex Functions](../../../foundations/mathematical-foundations/convexity/convexity.md) · [Lagrange Multipliers & Constrained Optimization](../../../foundations/mathematical-foundations/lagrange-multipliers-constrained-optimization/lagrange-multipliers-constrained-optimization.md) · [Gradient Descent — theory](../../../foundations/mathematical-foundations/gradient-descent-theory/gradient-descent-theory.md)
-- Concept depth (the *why*): [ai-ml-intuitions 2.05 Gradient Descent & SGD](../../../../ai-ml-intuitions/learning-and-optimization/first-order-optimization/gradient-descent-and-stochastic-gradient-descent-intuition.md)
-- Next concepts: [09 Optimal Transport (Kantorovich duality)](../optimal-transport-wasserstein/optimal-transport-wasserstein.md) · [05 Statistical Learning Theory](../statistical-learning-theory-pac/statistical-learning-theory-pac.md)
-- Related domain: [05. Deep Learning](../../../deep-learning/README.md)
+- Foundations (the basics this builds on): [Convexity & Convex Functions](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/convexity/convexity) · [Lagrange Multipliers & Constrained Optimization](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/lagrange-multipliers-constrained-optimization/lagrange-multipliers-constrained-optimization) · [Gradient Descent — theory](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/gradient-descent-theory/gradient-descent-theory)
+- Concept depth (the *why*): [ai-ml-intuitions 2.05 Gradient Descent & SGD](/ai-ml/ai-ml-intuitions/learning-and-optimization/first-order-optimization/gradient-descent-and-stochastic-gradient-descent-intuition)
+- Next concepts: [09 Optimal Transport (Kantorovich duality)](/ai-ml/ai-ml-learning-resources/specialized-studies/advanced-mathematics-for-ai-research/optimal-transport-wasserstein/optimal-transport-wasserstein) · [05 Statistical Learning Theory](/ai-ml/ai-ml-learning-resources/specialized-studies/advanced-mathematics-for-ai-research/statistical-learning-theory-pac/statistical-learning-theory-pac)
+- Related domain: [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
 </content>

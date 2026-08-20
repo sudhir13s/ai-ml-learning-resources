@@ -56,5 +56,5 @@ levels — so you can place any tool or practice on the map.
 - [Machine Learning Engineering — **Ch. 1 "Introduction"** (lifecycle & priorities)](http://www.mlebook.com/wiki/doku.php) — **Andriy Burkov** — read-first-then-buy; the lifecycle and project-scoping chapter is free.
 
 ## 🔗 In this platform
-- Next concepts: [02 Reproducibility](../reproducibility/reproducibility.md) · [03 Experiment Tracking](../experiment-tracking/experiment-tracking.md) · [07 CI/CD for ML & CT](../../release-and-deployment/cicd-for-ml-and-continuous-training/cicd-for-ml-and-continuous-training.md)
-- Related concept (covered elsewhere): data preprocessing & feature engineering → [02. Data_Preprocessing](../../../foundations/data-preparation/README.md)
+- Next concepts: [02 Reproducibility](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/lifecycle-and-reproducibility/reproducibility/reproducibility) · [03 Experiment Tracking](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/lifecycle-and-reproducibility/experiment-tracking/experiment-tracking) · [07 CI/CD for ML & CT](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/release-and-deployment/cicd-for-ml-and-continuous-training/cicd-for-ml-and-continuous-training)
+- Related concept (covered elsewhere): data preprocessing & feature engineering → [02. Data_Preprocessing](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/readme)

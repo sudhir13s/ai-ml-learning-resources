@@ -24,7 +24,7 @@ to write the **minimax value function**, explain what `D` and `G` each optimize,
 optimal discriminator is `D*(x)=p_data/(p_data+p_g)` and that the global optimum minimizes the
 **Jensen–Shannon divergence**, and explain the **non-saturating** generator loss (why `−log D(G(z))`
 is used in practice instead of `log(1−D(G(z)))`). DCGAN gives the concrete architectural choices that
-"just work." (Training pathologies and the Wasserstein fix live in the [next card](../gan-training-and-wgan/gan-training-and-wgan.md).)
+"just work." (Training pathologies and the Wasserstein fix live in the [next card](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/gan-training-and-wgan/gan-training-and-wgan).)
 
 **⭐ Start here — suggested path:**
 
@@ -58,8 +58,8 @@ is used in practice instead of `log(1−D(G(z)))`). DCGAN gives the concrete arc
 - [Dive into Deep Learning — **Ch. 20 "Generative Adversarial Networks"**](https://d2l.ai/chapter_generative-adversarial-networks/index.html) — **Zhang et al.** — free, with runnable GAN and DCGAN code.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 5.04 GANs & WGAN](../../../../ai-ml-intuitions/generation/adversarial-generation/gans-and-wasserstein-gans-intuition.md) · [5.01 Entropy & KL Divergence](../../../../ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition.md)
-- Prereq: [Deep Learning — CNNs & Convolution](../../../deep-learning/neural-architectures/cnns-and-convolution/cnns-and-convolution.md) (DCGAN is all convolutions)
-- Next concepts: [03 GAN Training & WGAN](../gan-training-and-wgan/gan-training-and-wgan.md) · [04 Conditional Generation & Classifier-Free Guidance](../../diffusion-models/conditional-generation-and-classifier-free-guidance/conditional-generation-and-classifier-free-guidance.md)
-- Compare with: [01 Variational Autoencoders](../variational-autoencoders-vae-elbo/variational-autoencoders-vae-elbo.md) (likelihood-based, not adversarial)
-- Field overview: [9. Generative AI](../README.md)
+- Concept depth (the *why*): [ai-ml-intuitions 5.04 GANs & WGAN](/ai-ml/ai-ml-intuitions/generation/adversarial-generation/gans-and-wasserstein-gans-intuition) · [5.01 Entropy & KL Divergence](/ai-ml/ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition)
+- Prereq: [Deep Learning — CNNs & Convolution](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/cnns-and-convolution/cnns-and-convolution) (DCGAN is all convolutions)
+- Next concepts: [03 GAN Training & WGAN](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/gan-training-and-wgan/gan-training-and-wgan) · [04 Conditional Generation & Classifier-Free Guidance](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/conditional-generation-and-classifier-free-guidance/conditional-generation-and-classifier-free-guidance)
+- Compare with: [01 Variational Autoencoders](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/variational-autoencoders-vae-elbo/variational-autoencoders-vae-elbo) (likelihood-based, not adversarial)
+- Field overview: [9. Generative AI](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/readme)

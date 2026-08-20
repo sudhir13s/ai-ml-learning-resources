@@ -17,36 +17,36 @@ and books for that topic.
 > **✅ ready.** New here? Start with the field overview below, then work top to bottom.
 
 ### Understand the data first
-1. ✅ [Exploratory Data Analysis (EDA)](exploratory-data-analysis/exploratory-data-analysis.md)
+1. ✅ [Exploratory Data Analysis (EDA)](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/exploratory-data-analysis/exploratory-data-analysis)
 
 ### Cleaning & transforming features
-2. ✅ [Feature Scaling & Normalization (Standard · MinMax · Robust)](feature-scaling-and-normalization/feature-scaling-and-normalization.md)
-3. ✅ [Encoding Categorical Variables (one-hot · ordinal · target)](encoding-categorical-variables/encoding-categorical-variables.md)
-4. ✅ [Missing Data Imputation (mean/median · KNN · MICE)](missing-data-imputation/missing-data-imputation.md)
-5. ✅ [Outlier Detection & Treatment (Z-score · IQR · winsorize)](outlier-detection-and-treatment/outlier-detection-and-treatment.md)
+2. ✅ [Feature Scaling & Normalization (Standard · MinMax · Robust)](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/feature-scaling-and-normalization/feature-scaling-and-normalization)
+3. ✅ [Encoding Categorical Variables (one-hot · ordinal · target)](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/encoding-categorical-variables/encoding-categorical-variables)
+4. ✅ [Missing Data Imputation (mean/median · KNN · MICE)](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/missing-data-imputation/missing-data-imputation)
+5. ✅ [Outlier Detection & Treatment (Z-score · IQR · winsorize)](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/outlier-detection-and-treatment/outlier-detection-and-treatment)
 
 ### Engineering & selecting features
-6. ✅ [Feature Engineering (construction · transforms · binning)](feature-engineering/feature-engineering.md)
-7. ✅ [Feature Selection (filter · wrapper · embedded)](feature-selection/feature-selection.md)
-8. ✅ [Handling Date/Time & Cyclical Features](date-time-and-cyclical-features/date-time-and-cyclical-features.md)
-9. ✅ [Text & Image Preprocessing (overview)](text-and-image-preprocessing-overview/text-and-image-preprocessing-overview.md)
+6. ✅ [Feature Engineering (construction · transforms · binning)](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/feature-engineering/feature-engineering)
+7. ✅ [Feature Selection (filter · wrapper · embedded)](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/feature-selection/feature-selection)
+8. ✅ [Handling Date/Time & Cyclical Features](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/date-time-and-cyclical-features/date-time-and-cyclical-features)
+9. ✅ [Text & Image Preprocessing (overview)](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/text-and-image-preprocessing-overview/text-and-image-preprocessing-overview)
 
 ### Splitting, leakage & class balance
-10. ✅ [Train / Validation / Test Splits & Cross-Validation](train-validation-test-splits/train-validation-test-splits.md)
-11. ✅ [Data Leakage (train/test contamination · target leakage)](data-leakage/data-leakage.md)
-12. ✅ [Imbalanced Data (resampling · SMOTE · class weights)](imbalanced-data/imbalanced-data.md)
+10. ✅ [Train / Validation / Test Splits & Cross-Validation](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/train-validation-test-splits/train-validation-test-splits)
+11. ✅ [Data Leakage (train/test contamination · target leakage)](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/data-leakage/data-leakage)
+12. ✅ [Imbalanced Data (resampling · SMOTE · class weights)](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/imbalanced-data/imbalanced-data)
 
 ### Putting it together
-13. ✅ [Data Pipelines (sklearn Pipeline · ColumnTransformer)](data-pipelines/data-pipelines.md)
+13. ✅ [Data Pipelines (sklearn Pipeline · ColumnTransformer)](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/data-pipelines/data-pipelines)
 
 ### Related concepts (covered in another section)
 > These topics are used across many areas, so they're kept in one place to avoid repetition.
-- **PCA / SVD math & dimensionality reduction** → [01. Foundations](../mathematical-foundations/README.md)
-- **Clustering · t-SNE · UMAP** → [04. Unsupervised Learning](../../core-machine-learning/unsupervised-learning/README.md)
-- **Tokenization · text normalization · subword algorithms** → [06. NLP](../../modalities-and-generative-models/natural-language-processing/README.md)
-- **Image augmentation & vision-specific preprocessing** → [07. Computer Vision](../../modalities-and-generative-models/computer-vision/README.md)
-- **Feature stores & serving-time feature pipelines** → [14. Deployment & MLOps](../../deployment-and-mlops/README.md)
-- **Bias–variance & generalization** → [03. Supervised Learning](../../core-machine-learning/supervised-learning/README.md)
+- **PCA / SVD math & dimensionality reduction** → [01. Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme)
+- **Clustering · t-SNE · UMAP** → [04. Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)
+- **Tokenization · text normalization · subword algorithms** → [06. NLP](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/readme)
+- **Image augmentation & vision-specific preprocessing** → [07. Computer Vision](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/readme)
+- **Feature stores & serving-time feature pipelines** → [14. Deployment & MLOps](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/readme)
+- **Bias–variance & generalization** → [03. Supervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/readme)
 
 ## 🎓 Courses (free)
 - [Kaggle Learn: Data Cleaning + Feature Engineering](https://www.kaggle.com/learn) — **Kaggle** — short, hands-on, free micro-courses with real datasets.

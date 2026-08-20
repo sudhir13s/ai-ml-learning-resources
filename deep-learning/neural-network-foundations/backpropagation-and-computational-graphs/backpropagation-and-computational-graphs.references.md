@@ -8,7 +8,7 @@ updated: 2026-07-03
 
 # Backpropagation & Computational Graphs — references and further reading
 
-> Companion link library for **[Backpropagation & Computational Graphs](backpropagation-and-computational-graphs.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
+> Companion link library for **[Backpropagation & Computational Graphs](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Backpropagation, intuitively](https://www.youtube.com/watch?v=Ilg3gGewQ5U) (**3Blue1Brown**). *Gradients as "nudges" to weights, before any symbols.*
@@ -50,14 +50,14 @@ updated: 2026-07-03
 - [Deep Learning — Ch. 6.5 "Back-Propagation and Other Differentiation Algorithms"](https://www.deeplearningbook.org/contents/mlp.html) — **Goodfellow, Bengio & Courville** — the rigorous treatment (general computational graphs, reverse-mode autodiff).
 
 **In this platform**:
-- Concept page (full explanation): [Backpropagation & Computational Graphs](backpropagation-and-computational-graphs.md)
+- Concept page (full explanation): [Backpropagation & Computational Graphs](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs)
 - Runnable code: [the from-scratch backprop module](code/backpropagation.py) · [the step-by-step notebook](code/backpropagation-and-computational-graphs.ipynb) — the module builds the backward pass, gradient-checks it, cross-checks it against PyTorch, and trains a net on scikit-learn digits; the notebook runs it one measurement at a time.
-- Concept depth (the *why*): [ai-ml-intuitions 2.02 Backpropagation / Chain Rule](../../../../ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/chain-rule-and-backpropagation-intuition.md) · [2.04 Computational Graphs & Autograd](../../../../ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/computational-graphs-and-autograd-intuition.md)
-- The calculus this rests on: [Foundations 08 Derivatives & Gradients](../../../foundations/mathematical-foundations/derivatives-and-gradients/derivatives-and-gradients.md) · [Foundations 09 The Chain Rule](../../../foundations/mathematical-foundations/the-chain-rule/the-chain-rule.md) (backprop *is* the chain rule, run backward)
-- What the gradient is *for* — gradient descent, first principles: [Basics 04 How Models Learn](../../../foundations/ai-ml-orientation/how-models-learn/how-models-learn.md)
-- The network being differentiated: [01 Perceptron & MLP](../perceptron-and-mlp/perceptron-and-mlp.md)
-- The activations whose derivatives gate the flow: [03 Activation Functions](../../stabilization-and-architectural-blocks/activation-functions/activation-functions.md)
-- The consequence of the backward product: [06 Vanishing & Exploding Gradients](../../optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients.md)
-- What uses the gradient: [07 Optimizers](../../optimization-and-training/optimizers/optimizers.md) (turns the gradient into a weight update)
-- Where it's applied: [13 CNNs & Convolution](../../neural-architectures/cnns-and-convolution/cnns-and-convolution.md) · [14 RNN / LSTM / GRU](../../neural-architectures/rnn-lstm-gru/rnn-lstm-gru.md) (backprop through time) · forward to [09 LLMs](../../../llms-applications-and-agents/README.md) (the same backward pass trains every transformer)
-- Field overview: [Deep Learning](../../README.md)
+- Concept depth (the *why*): [ai-ml-intuitions 2.02 Backpropagation / Chain Rule](/ai-ml/ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/chain-rule-and-backpropagation-intuition) · [2.04 Computational Graphs & Autograd](/ai-ml/ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/computational-graphs-and-autograd-intuition)
+- The calculus this rests on: [Foundations 08 Derivatives & Gradients](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/derivatives-and-gradients/derivatives-and-gradients) · [Foundations 09 The Chain Rule](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/the-chain-rule/the-chain-rule) (backprop *is* the chain rule, run backward)
+- What the gradient is *for* — gradient descent, first principles: [Basics 04 How Models Learn](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/how-models-learn/how-models-learn)
+- The network being differentiated: [01 Perceptron & MLP](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/perceptron-and-mlp/perceptron-and-mlp)
+- The activations whose derivatives gate the flow: [03 Activation Functions](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/activation-functions/activation-functions)
+- The consequence of the backward product: [06 Vanishing & Exploding Gradients](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients)
+- What uses the gradient: [07 Optimizers](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/optimizers) (turns the gradient into a weight update)
+- Where it's applied: [13 CNNs & Convolution](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/cnns-and-convolution/cnns-and-convolution) · [14 RNN / LSTM / GRU](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/rnn-lstm-gru/rnn-lstm-gru) (backprop through time) · forward to [09 LLMs](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme) (the same backward pass trains every transformer)
+- Field overview: [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

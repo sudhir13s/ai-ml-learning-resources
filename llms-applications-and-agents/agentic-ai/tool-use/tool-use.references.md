@@ -8,7 +8,7 @@ updated: 2026-07-02
 
 # Tool Use & Function Calling — references and further reading
 
-> Companion link library for **[Tool Use & Function Calling](tool-use.md)** (the
+> Companion link library for **[Tool Use & Function Calling](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/tool-use/tool-use)** (the
 > concept page). Kept separate so it can be reused as a standalone reference list. Grouped by type,
 > best-first. Everything here is **free / open** — no paywall. Every source cited under a
 > "Source / derivation" line on the concept page appears here, so each claim is traceable to a primary
@@ -51,11 +51,11 @@ updated: 2026-07-02
 - [Speech and Language Processing (3rd ed. draft)](https://web.stanford.edu/~jurafsky/slp3/) — **Jurafsky & Martin** — free draft; the LLM-prompting and tool-use context function calling sits in, from an academic NLP viewpoint.
 
 **🔗 In this platform**:
-- Concept page (full explanation): [Tool Use & Function Calling](tool-use.md)
+- Concept page (full explanation): [Tool Use & Function Calling](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/tool-use/tool-use)
 - Fast buzzword-level overview (the recall layer): [AI Buzzword Knowledge — Tool Use & MCP](../../../../AI-Buzzword-Knowledge/08-Tool-Use-and-MCP.md) · [AI Buzzword Knowledge — Agents](../../../../AI-Buzzword-Knowledge/05-Agents.md)
-- The text-protocol contrast (read these together): [02 ReAct — Reason + Act](../reason-and-act/reason-and-act.md) — free-text actions parsed by regex; *this* page is the structured evolution.
-- Where tools get standardised across the ecosystem: [08 Model Context Protocol (MCP)](../model-context-protocol/model-context-protocol.md) — the forward-link; function calling is how *one model* calls a tool, MCP is how the *ecosystem* shares tools.
-- Prev / next in this domain: [02 ReAct](../reason-and-act/reason-and-act.md) · [04 Planning & Task Decomposition](../planning/planning.md)
-- Safety context (the tool-input + tool-output trust boundary): [13 Safety, Guardrails & Human-in-the-Loop](../agent-safety/agent-safety.md)
-- Frameworks that implement this loop: [09 Agent Frameworks](../agent-frameworks/agent-frameworks.md)
-- Related (canonical home for prompting foundations): [Prompting & In-Context Learning](../../reasoning-evaluation-and-alignment/prompting-and-in-context-learning/prompting-and-in-context-learning.md)
+- The text-protocol contrast (read these together): [02 ReAct — Reason + Act](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/reason-and-act/reason-and-act) — free-text actions parsed by regex; *this* page is the structured evolution.
+- Where tools get standardised across the ecosystem: [08 Model Context Protocol (MCP)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/model-context-protocol/model-context-protocol) — the forward-link; function calling is how *one model* calls a tool, MCP is how the *ecosystem* shares tools.
+- Prev / next in this domain: [02 ReAct](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/reason-and-act/reason-and-act) · [04 Planning & Task Decomposition](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/planning/planning)
+- Safety context (the tool-input + tool-output trust boundary): [13 Safety, Guardrails & Human-in-the-Loop](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/agent-safety/agent-safety)
+- Frameworks that implement this loop: [09 Agent Frameworks](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/agent-frameworks/agent-frameworks)
+- Related (canonical home for prompting foundations): [Prompting & In-Context Learning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/prompting-and-in-context-learning/prompting-and-in-context-learning)

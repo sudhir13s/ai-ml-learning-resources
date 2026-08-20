@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Optimizers — references and further reading
 
-> Companion link library for **[Optimizers](optimizers.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
+> Companion link library for **[Optimizers](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/optimizers)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
 1. **See gradient descent move** — watch [Gradient descent, how neural networks learn](https://www.youtube.com/watch?v=IHZwWFHWa-w) (**3Blue1Brown**). *The visual foundation every optimizer builds on.*
@@ -57,9 +57,9 @@ updated: 2026-06-22
 - [Deep Learning — §8.3 "Basic Algorithms" + §8.5 "Adaptive Learning Rates"](https://www.deeplearningbook.org/contents/optimization.html) — **Goodfellow, Bengio & Courville** — the rigorous treatment of momentum and adaptive methods.
 
 **In this platform**:
-- Concept page (full explanation): [Optimizers](optimizers.md)
-- Concept depth (the *why*): [ai-ml-intuitions 2.05 Gradient Descent & SGD](../../../../ai-ml-intuitions/learning-and-optimization/first-order-optimization/gradient-descent-and-stochastic-gradient-descent-intuition.md) · [2.06 SGD with Momentum](../../../../ai-ml-intuitions/learning-and-optimization/first-order-optimization/momentum-intuition.md) · [2.07 Adam](../../../../ai-ml-intuitions/learning-and-optimization/adaptive-optimization/adam-intuition.md) · [2.08 AdamW](../../../../ai-ml-intuitions/learning-and-optimization/adaptive-optimization/adamw-intuition.md)
-- Prerequisite: [02 Backpropagation & Computational Graphs](../../neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs.md)
-- Next concept: [08 Learning-Rate Schedules & Warmup](../learning-rate-schedules-and-warmup/learning-rate-schedules-and-warmup.md)
-- Why it matters for LLMs: [LoRA & PEFT](../../../llms-applications-and-agents/training-and-adaptation/lora-and-parameter-efficient-fine-tuning/lora-and-parameter-efficient-fine-tuning.md) (optimizer-state memory)
-- Field overview: [Deep Learning](../../README.md)
+- Concept page (full explanation): [Optimizers](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/optimizers)
+- Concept depth (the *why*): [ai-ml-intuitions 2.05 Gradient Descent & SGD](/ai-ml/ai-ml-intuitions/learning-and-optimization/first-order-optimization/gradient-descent-and-stochastic-gradient-descent-intuition) · [2.06 SGD with Momentum](/ai-ml/ai-ml-intuitions/learning-and-optimization/first-order-optimization/momentum-intuition) · [2.07 Adam](/ai-ml/ai-ml-intuitions/learning-and-optimization/adaptive-optimization/adam-intuition) · [2.08 AdamW](/ai-ml/ai-ml-intuitions/learning-and-optimization/adaptive-optimization/adamw-intuition)
+- Prerequisite: [02 Backpropagation & Computational Graphs](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs)
+- Next concept: [08 Learning-Rate Schedules & Warmup](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/learning-rate-schedules-and-warmup/learning-rate-schedules-and-warmup)
+- Why it matters for LLMs: [LoRA & PEFT](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/lora-and-parameter-efficient-fine-tuning/lora-and-parameter-efficient-fine-tuning) (optimizer-state memory)
+- Field overview: [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

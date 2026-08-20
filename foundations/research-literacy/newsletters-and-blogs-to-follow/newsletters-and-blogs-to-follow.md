@@ -57,6 +57,6 @@ for you. Knowing the difference between a *roundup* (breadth, low effort) and a 
 - [Dive into Deep Learning](https://d2l.ai/) — **Zhang et al.** — when a blog post sparks interest, the matching d2l chapter gives you runnable depth.
 
 ## 🔗 In this platform
-- Per-concept index: [Frontier & Staying Current — concepts](../README.md)
-- Pair with: [05 Following Researchers & Communities](../following-researchers-and-communities/following-researchers-and-communities.md) · [09 Building a Stay-Current Routine](../building-a-stay-current-routine/building-a-stay-current-routine.md)
-- Apply to a frontier area: [LLMs, Applications and Agents](../../../llms-applications-and-agents/README.md) · [15. Agentic AI](../../../llms-applications-and-agents/agentic-ai/overview.md)
+- Per-concept index: [Frontier & Staying Current — concepts](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/readme)
+- Pair with: [05 Following Researchers & Communities](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/following-researchers-and-communities/following-researchers-and-communities) · [09 Building a Stay-Current Routine](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/building-a-stay-current-routine/building-a-stay-current-routine)
+- Apply to a frontier area: [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme) · [15. Agentic AI](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/overview)

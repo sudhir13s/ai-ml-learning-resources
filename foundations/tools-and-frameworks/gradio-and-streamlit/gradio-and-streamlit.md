@@ -56,6 +56,6 @@ for communicating results — knowing when to reach for each is the practical sk
 - [Streamlit documentation (full)](https://docs.streamlit.io/) — **Streamlit** — a book-length, free guide including the gallery of [examples](https://streamlit.io/gallery).
 
 ## 🔗 In this platform
-- Related domain: [12. Deployment & MLOps](../../../deployment-and-mlops/README.md) · [10. GenAI](../../../modalities-and-generative-models/generative-models/README.md)
-- Pairs with: [08 Hugging Face](../hugging-face/hugging-face.md) *(Gradio powers HF Spaces)*
-- Deeper concept (the *why*): demos, serving & deployment → [Deployment & MLOps](../../../deployment-and-mlops/README.md); LLM apps → [RAG & LLM Applications](../../../llms-applications-and-agents/rag-and-knowledge-systems/overview.md)
+- Related domain: [12. Deployment & MLOps](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/readme) · [10. GenAI](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/readme)
+- Pairs with: [08 Hugging Face](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/hugging-face/hugging-face) *(Gradio powers HF Spaces)*
+- Deeper concept (the *why*): demos, serving & deployment → [Deployment & MLOps](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/readme); LLM apps → [RAG & LLM Applications](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/overview)

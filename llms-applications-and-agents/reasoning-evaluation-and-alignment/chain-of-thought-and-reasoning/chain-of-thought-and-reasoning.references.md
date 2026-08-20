@@ -8,7 +8,7 @@ updated: 2026-06-27
 
 # Chain-of-Thought Reasoning — references and further reading
 
-> Companion link library for **[Chain-of-Thought Reasoning](chain-of-thought-and-reasoning.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity. All links are free / no-paywall.
+> Companion link library for **[Chain-of-Thought Reasoning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/chain-of-thought-and-reasoning/chain-of-thought-and-reasoning)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity. All links are free / no-paywall.
 
 **Start here — suggested path**:
 1. **Build the intuition** — watch [Chain-of-Thought Prompting — Explained!](https://www.youtube.com/watch?v=AFE6x81AP4k) (**CodeEmporium**). *What CoT is and why writing steps before the answer helps.*
@@ -55,9 +55,9 @@ updated: 2026-06-27
 - [A Survey of Large Language Models — §6.2 Chain-of-Thought Reasoning](https://arxiv.org/abs/2303.18223) — **Zhao et al. (2023)** — CoT and reasoning techniques surveyed with citations.
 
 **In this platform**:
-- Concept page (full explanation): [Chain-of-Thought Reasoning](chain-of-thought-and-reasoning.md)
-- The general technique it specializes: [Prompting & In-Context Learning](../prompting-and-in-context-learning/prompting-and-in-context-learning.md) — CoT is *one* prompting technique; that page covers the broader inference-time conditioning toolkit.
-- Compressing reasoning into a smaller model: [Knowledge Distillation](../../training-and-adaptation/knowledge-distillation/knowledge-distillation.md) — the mechanism behind *CoT distillation*.
-- What controls the chains at decode time: [Decoding & Sampling](../../inference-and-runtime/decoding-and-sampling/decoding-and-sampling.md) — temperature/sampling is what makes self-consistency's chains diverge.
-- How reasoning is measured: [LLM Evaluation & Benchmarks](../llm-evaluation/llm-evaluation.md) — GSM8K and friends, and the answer-extraction pitfall.
-- Intuition track: [Module 8.01 In-Context Learning & Prompting](../../../../ai-ml-intuitions/reasoning-and-agency/in-context-behavior/in-context-learning-and-prompting-intuition.md) · [Module 8.03 Agents & Tool Use](../../../../ai-ml-intuitions/reasoning-and-agency/agents-and-tools/agent-loop-and-tool-use-intuition.md)
+- Concept page (full explanation): [Chain-of-Thought Reasoning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/chain-of-thought-and-reasoning/chain-of-thought-and-reasoning)
+- The general technique it specializes: [Prompting & In-Context Learning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/prompting-and-in-context-learning/prompting-and-in-context-learning) — CoT is *one* prompting technique; that page covers the broader inference-time conditioning toolkit.
+- Compressing reasoning into a smaller model: [Knowledge Distillation](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/knowledge-distillation/knowledge-distillation) — the mechanism behind *CoT distillation*.
+- What controls the chains at decode time: [Decoding & Sampling](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/decoding-and-sampling/decoding-and-sampling) — temperature/sampling is what makes self-consistency's chains diverge.
+- How reasoning is measured: [LLM Evaluation & Benchmarks](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/llm-evaluation/llm-evaluation) — GSM8K and friends, and the answer-extraction pitfall.
+- Intuition track: [Module 8.01 In-Context Learning & Prompting](/ai-ml/ai-ml-intuitions/reasoning-and-agency/in-context-behavior/in-context-learning-and-prompting-intuition) · [Module 8.03 Agents & Tool Use](/ai-ml/ai-ml-intuitions/reasoning-and-agency/agents-and-tools/agent-loop-and-tool-use-intuition)

@@ -16,7 +16,7 @@ category: trees-and-ensembles
 
 # Random forests: many decorrelated trees beat one
 
-A single [decision tree](../decision-trees/decision-trees.md), grown deep, is the most flexible cheap model you have — and the most unstable. It can carve the feature space into whatever shape the data demands (**low bias**), but train it on a slightly different sample of the same data and it can come out a *completely different tree*, splitting on different features in a different order, drawing a different boundary (**high variance**). One tree is a brilliant, opinionated expert who changes their mind every time you hand them a new newspaper. The fix is the oldest trick in statistics: **don't trust one expert — poll a crowd and average.** Average enough independent opinions and the idiosyncratic errors cancel while the signal survives.
+A single [decision tree](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/decision-trees/decision-trees), grown deep, is the most flexible cheap model you have — and the most unstable. It can carve the feature space into whatever shape the data demands (**low bias**), but train it on a slightly different sample of the same data and it can come out a *completely different tree*, splitting on different features in a different order, drawing a different boundary (**high variance**). One tree is a brilliant, opinionated expert who changes their mind every time you hand them a new newspaper. The fix is the oldest trick in statistics: **don't trust one expert — poll a crowd and average.** Average enough independent opinions and the idiosyncratic errors cancel while the signal survives.
 
 But there is a subtlety that makes random forests genuinely *clever* rather than just "bagging with a nicer name," and it is the whole reason the algorithm exists. If you simply train many trees on resampled data (that is **bagging**), the trees come out **correlated** — they all latch onto the same one or two dominant features, split on them first, and therefore make the *same* mistakes. Averaging correlated mistakes barely helps. Random forests add one more dash of randomness — **at every split, each tree may only look at a random subset of the features** — which forces different trees to use different features, **decorrelating** them. And the variance of an average drops *far* faster when the things you average are decorrelated. That single one-line change to the tree-growing loop is what turns a good ensemble into the robust, near-default model for tabular data — and one of the most-asked algorithms in interviews.
 
@@ -40,7 +40,7 @@ Intuition and pictures first, then the math (every step shown, with sources), th
 
 ## The problem: keep the tree's low bias, kill its variance
 
-Start from the [bias–variance](../../../model-selection-and-evaluation/bias-variance-tradeoff/bias-variance-tradeoff.md) decomposition of expected test error:
+Start from the [bias–variance](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/bias-variance-tradeoff/bias-variance-tradeoff) decomposition of expected test error:
 
 $$\mathbb{E}\big[(y - \hat f(x))^2\big] = \underbrace{\big(\text{bias}[\hat f(x)]\big)^2}_{\text{systematic error}} + \underbrace{\text{Var}[\hat f(x)]}_{\text{instability}} + \underbrace{\sigma^2_{\text{noise}}}_{\text{irreducible}}$$
 
@@ -258,7 +258,7 @@ Forests are famously low-maintenance — the defaults are strong — but knowing
 
 This is the classic ensemble contrast, and the cleanest way to remember it is *which error term each one attacks*.
 
-| | Random Forest | Gradient Boosting ([XGBoost](../gradient-boosting-xgboost/gradient-boosting-xgboost.md)) |
+| | Random Forest | Gradient Boosting ([XGBoost](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/gradient-boosting-xgboost/gradient-boosting-xgboost)) |
 |---|---|---|
 | **Base trees** | **deep**, low-bias / high-variance | **shallow** ("stumps"), high-bias / low-variance |
 | **How combined** | grown **in parallel**, then **averaged** | grown **sequentially**, each fits the previous residuals |

@@ -29,8 +29,8 @@ pushed all the way down to the silicon: co-design the algorithm (SNNs) and the s
 1. **Get the vision** — watch [How neuromorphic computing will change our world](https://www.youtube.com/watch?v=N9C3kJE7G-Q). *The energy/sparsity case from Intel's neuromorphic lead.*
 2. **See real silicon** — watch [Neuromorphic Computing on Intel's Loihi 2](https://www.youtube.com/watch?v=CxXTiHExBNc). *How SNNs map onto an actual neuromorphic chip.*
 3. **Read the landscape** — [Opportunities for neuromorphic computing algorithms and applications](https://www.nature.com/articles/s41928-020-00475-8). *The definitive open survey of where the field is and is going.*
-4. **Connect to SNNs** — review [03 Spiking Neural Networks](../spiking-neural-networks/spiking-neural-networks.md). *Neuromorphic hardware exists to run SNNs efficiently.*
-5. **Tie it to ML efficiency** — relate to [quantization](../../../../ai-ml-intuitions/scaling-adaptation-and-efficiency/compression/quantization-intuition.md). *Both chase energy-per-inference; neuromorphic does it via events, quantization via bits.*
+4. **Connect to SNNs** — review [03 Spiking Neural Networks](/ai-ml/ai-ml-learning-resources/specialized-studies/neuroscience-and-brain-inspired-ai/spiking-neural-networks/spiking-neural-networks). *Neuromorphic hardware exists to run SNNs efficiently.*
+5. **Tie it to ML efficiency** — relate to [quantization](/ai-ml/ai-ml-intuitions/scaling-adaptation-and-efficiency/compression/quantization-intuition). *Both chase energy-per-inference; neuromorphic does it via events, quantization via bits.*
 
 ## 🎓 Courses (free)
 - [Neuromatch Academy — Computational Neuroscience](https://compneuro.neuromatch.io/) — **Neuromatch** — the spiking-network foundations neuromorphic hardware accelerates.
@@ -56,7 +56,7 @@ pushed all the way down to the silicon: co-design the algorithm (SNNs) and the s
 - [Theoretical Neuroscience — **Ch. 5–6 (model neurons)**](https://www.gatsby.ucl.ac.uk/~dayan/book/) — **Dayan & Abbott** — the biophysical models neuromorphic hardware abstracts.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 7.05 Quantization](../../../../ai-ml-intuitions/scaling-adaptation-and-efficiency/compression/quantization-intuition.md) — the ML-side energy-efficiency lever, parallel to event-driven computation.
-- Prereqs in this section: [03 Spiking Neural Networks](../spiking-neural-networks/spiking-neural-networks.md)
-- Next concepts: [14 Biologically-Plausible Backprop Alternatives](../biologically-plausible-backprop-alternatives/biologically-plausible-backprop-alternatives.md)
-- Related domain: [05. Deep Learning](../../../deep-learning/README.md)
+- Concept depth (the *why*): [ai-ml-intuitions 7.05 Quantization](/ai-ml/ai-ml-intuitions/scaling-adaptation-and-efficiency/compression/quantization-intuition) — the ML-side energy-efficiency lever, parallel to event-driven computation.
+- Prereqs in this section: [03 Spiking Neural Networks](/ai-ml/ai-ml-learning-resources/specialized-studies/neuroscience-and-brain-inspired-ai/spiking-neural-networks/spiking-neural-networks)
+- Next concepts: [14 Biologically-Plausible Backprop Alternatives](/ai-ml/ai-ml-learning-resources/specialized-studies/neuroscience-and-brain-inspired-ai/biologically-plausible-backprop-alternatives/biologically-plausible-backprop-alternatives)
+- Related domain: [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

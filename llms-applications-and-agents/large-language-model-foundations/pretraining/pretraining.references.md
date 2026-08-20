@@ -8,7 +8,7 @@ updated: 2026-06-26
 
 # Pretraining at Scale — references and further reading
 
-> Companion link library for **[Pretraining at Scale](pretraining.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic (the systems of pretraining), not popularity. Everything here is free / open-access.
+> Companion link library for **[Pretraining at Scale](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/pretraining/pretraining)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic (the systems of pretraining), not popularity. Everything here is free / open-access.
 
 **Start here — suggested path**:
 1. **See a real run end to end** — watch [Let's reproduce GPT-2 (124M)](https://www.youtube.com/watch?v=l8pRSuU81PU) (**Andrej Karpathy**). *An actual pretraining run: data, init, warmup+cosine, grad clip, throughput — the whole stack in motion.*
@@ -65,8 +65,8 @@ updated: 2026-06-26
 - [Dive into Deep Learning — Optimization chapter](https://d2l.ai/chapter_optimization/index.html) — **Zhang et al.** — Adam, learning-rate schedules, and the optimization machinery large runs rely on.
 
 **In this platform**:
-- Concept page (full explanation): [Pretraining at Scale](pretraining.md)
-- The objective being trained (don't re-derive it): [Language Modeling Objectives](../language-modeling-objectives/language-modeling-objectives.md)
-- The budget allocation (6ND derived, Chinchilla compute-optimal split): [Scaling Laws](../scaling-laws/scaling-laws.md)
+- Concept page (full explanation): [Pretraining at Scale](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/pretraining/pretraining)
+- The objective being trained (don't re-derive it): [Language Modeling Objectives](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/language-modeling-objectives/language-modeling-objectives)
+- The budget allocation (6ND derived, Chinchilla compute-optimal split): [Scaling Laws](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/scaling-laws/scaling-laws)
 - Foundations: [Transformer Architecture](../../../../deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture.md) · [Tokenization & Subword Algorithms](../../../../modalities-and-generative-models/natural-language-processing/tokenization-and-subword-algorithms/tokenization-and-subword-algorithms.md)
-- What pretraining produces, then what's done to it: [Decoder-only Architecture](../decoder-only-models/decoder-only-models.md) · [Supervised Fine-Tuning](../../training-and-adaptation/supervised-fine-tuning/supervised-fine-tuning.md) · [RLHF and DPO](../../training-and-adaptation/preference-and-alignment-training/preference-and-alignment-training.md)
+- What pretraining produces, then what's done to it: [Decoder-only Architecture](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/decoder-only-models/decoder-only-models) · [Supervised Fine-Tuning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/supervised-fine-tuning/supervised-fine-tuning) · [RLHF and DPO](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/preference-and-alignment-training/preference-and-alignment-training)

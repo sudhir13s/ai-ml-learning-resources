@@ -60,7 +60,7 @@ mode collapse.
 - [Dive into Deep Learning — **Ch. 20 "Generative Adversarial Networks"**](https://d2l.ai/chapter_generative-adversarial-networks/index.html) — **Zhang et al.** — free, with runnable GAN code to experiment with instability.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 5.04 GANs & WGAN](../../../../ai-ml-intuitions/generation/adversarial-generation/gans-and-wasserstein-gans-intuition.md) · [5.01 Entropy & KL Divergence](../../../../ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition.md)
-- Prereq: [02 GANs & DCGAN](../gans-and-dcgan/gans-and-dcgan.md) (the base game this card fixes)
-- Next concepts: [04 Conditional Generation & Classifier-Free Guidance](../../diffusion-models/conditional-generation-and-classifier-free-guidance/conditional-generation-and-classifier-free-guidance.md) · [12 Evaluation of Generative Models](../evaluation-of-generative-models/evaluation-of-generative-models.md) (how to measure collapse)
-- Field overview: [9. Generative AI](../README.md)
+- Concept depth (the *why*): [ai-ml-intuitions 5.04 GANs & WGAN](/ai-ml/ai-ml-intuitions/generation/adversarial-generation/gans-and-wasserstein-gans-intuition) · [5.01 Entropy & KL Divergence](/ai-ml/ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition)
+- Prereq: [02 GANs & DCGAN](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/gans-and-dcgan/gans-and-dcgan) (the base game this card fixes)
+- Next concepts: [04 Conditional Generation & Classifier-Free Guidance](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/conditional-generation-and-classifier-free-guidance/conditional-generation-and-classifier-free-guidance) · [12 Evaluation of Generative Models](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/evaluation-of-generative-models/evaluation-of-generative-models) (how to measure collapse)
+- Field overview: [9. Generative AI](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/readme)

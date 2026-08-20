@@ -55,5 +55,5 @@ between CPU/GPU. It is also the substrate for Hugging Face, Lightning, and most 
 - [pytorch-deep-learning (course materials)](https://github.com/mrdbourke/pytorch-deep-learning) — **Daniel Bourke** — all notebooks and exercises, free on GitHub.
 
 ## 🔗 In this platform
-- Related domain: [05. Deep Learning](../../../deep-learning/README.md) · [LLMs, Applications and Agents](../../../llms-applications-and-agents/README.md)
-- Pairs with: [08 Hugging Face](../hugging-face/hugging-face.md) · [12 Weights & Biases](../weights-and-biases/weights-and-biases.md) · [09 ONNX](../onnx-and-model-interchange/onnx-and-model-interchange.md)
+- Related domain: [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme) · [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme)
+- Pairs with: [08 Hugging Face](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/hugging-face/hugging-face) · [12 Weights & Biases](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/weights-and-biases/weights-and-biases) · [09 ONNX](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/onnx-and-model-interchange/onnx-and-model-interchange)

@@ -55,7 +55,7 @@ convexity guarantees a unique global optimum.
 - [Mathematics for Machine Learning — **Ch. 7 (Continuous Optimization)**](https://mml-book.github.io/book/mml-book.pdf) — **Deisenroth et al.** — convexity in the ML optimization chapter.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 2.05 Gradient Descent & SGD](../../../../ai-ml-intuitions/learning-and-optimization/first-order-optimization/gradient-descent-and-stochastic-gradient-descent-intuition.md)
-- Curriculum context: [Maths for AI-ML — Phase 5 (Optimization for ML/DL)](../maths-for-ai-ml/README.md)
-- Prereqs: [10 Jacobian & Hessian](../jacobian-and-hessian/jacobian-and-hessian.md) (PSD Hessian ⇒ convex) · Next: [13 Gradient Descent — theory](../gradient-descent-theory/gradient-descent-theory.md) · [14 Lagrange Multipliers](../lagrange-multipliers-constrained-optimization/lagrange-multipliers-constrained-optimization.md)
+- Concept depth (the *why*): [ai-ml-intuitions 2.05 Gradient Descent & SGD](/ai-ml/ai-ml-intuitions/learning-and-optimization/first-order-optimization/gradient-descent-and-stochastic-gradient-descent-intuition)
+- Curriculum context: [Maths for AI-ML — Phase 5 (Optimization for ML/DL)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
+- Prereqs: [10 Jacobian & Hessian](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/jacobian-and-hessian/jacobian-and-hessian) (PSD Hessian ⇒ convex) · Next: [13 Gradient Descent — theory](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/gradient-descent-theory/gradient-descent-theory) · [14 Lagrange Multipliers](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/lagrange-multipliers-constrained-optimization/lagrange-multipliers-constrained-optimization)
 </content>

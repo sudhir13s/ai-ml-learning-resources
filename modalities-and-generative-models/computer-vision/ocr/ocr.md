@@ -57,6 +57,6 @@ deep pipelines (EasyOCR), and end-to-end transformers (TrOCR).
 - [Dive into Deep Learning — **Ch. 10 (RNNs)** + **Ch. 9 (Modern RNNs)**](https://d2l.ai/chapter_recurrent-neural-networks/index.html) — **Zhang et al.** — the sequence-modeling machinery CRNN/CTC build on, with code.
 
 ## 🔗 In this platform
-- Foundation: [Object Detection](../object-detection/object-detection.md) (text detection stage) · [Deep Learning › RNN / LSTM / GRU](../../../deep-learning/neural-architectures/rnn-lstm-gru/rnn-lstm-gru.md) (CRNN's recurrent core)
-- Foundation: [Deep Learning › CNNs & Convolution](../../../deep-learning/neural-architectures/cnns-and-convolution/cnns-and-convolution.md)
-- Related domain: [NLP › Sequence Labeling](../../natural-language-processing/sequence-labeling-pos-and-ner/sequence-labeling-pos-and-ner.md) (CTC is alignment-free sequence labeling)
+- Foundation: [Object Detection](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/object-detection/object-detection) (text detection stage) · [Deep Learning › RNN / LSTM / GRU](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/rnn-lstm-gru/rnn-lstm-gru) (CRNN's recurrent core)
+- Foundation: [Deep Learning › CNNs & Convolution](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/cnns-and-convolution/cnns-and-convolution)
+- Related domain: [NLP › Sequence Labeling](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sequence-labeling-pos-and-ner/sequence-labeling-pos-and-ner) (CTC is alignment-free sequence labeling)

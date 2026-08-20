@@ -16,14 +16,14 @@ category: rag-and-knowledge-systems
 
 # Embedding Models for Retrieval: the model that decides what's near what
 
-[Chapter 1](../rag-foundations/rag-foundations.md) left a crack in the foundation, and [chapter 2](../chunking/chunking.md) named it: when a query and its answer use *different words*, retrieval misses. Our chapter-1 toy retriever, built on a lexical (bag-of-words) embedder, scored **recall@1 of only 0.50** on paraphrased queries — it found the answer half the time, because "liftoff date" shares no words with "was launched on." Chapter 2 was explicit that this is **not** a chunking problem ("fixing your splitter won't help"); it's an **embedding** problem. This chapter fixes it.
+[Chapter 1](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-foundations/rag-foundations) left a crack in the foundation, and [chapter 2](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/chunking/chunking) named it: when a query and its answer use *different words*, retrieval misses. Our chapter-1 toy retriever, built on a lexical (bag-of-words) embedder, scored **recall@1 of only 0.50** on paraphrased queries — it found the answer half the time, because "liftoff date" shares no words with "was launched on." Chapter 2 was explicit that this is **not** a chunking problem ("fixing your splitter won't help"); it's an **embedding** problem. This chapter fixes it.
 
 Here's the whole thing in one sentence: **retrieval can only find what the embedder places near the query in vector space.** No chunking strategy, no clever index, no reranker can recover a passage the embedder pushed far from the query. The embedding model sets the geometry, and the geometry sets the ceiling. So the central question of dense retrieval is: *can we build an embedder that puts "reset my password" near "forgot my login credentials" — even though they share almost no words?*
 
 The answer is yes, and the mechanism is **contrastive learning**: train an encoder so that paraphrases are pulled together and unrelated text is pushed apart. I'll build this the way I'd actually demonstrate it — start from the felt failure (a lexical embedder missing a paraphrase), then the "meaning → coordinates" intuition, then the bi-encoder mechanism and the InfoNCE loss that trains it, a from-scratch dense embedder you watch *learn* to cluster paraphrases (plus a real pretrained model confirming it), the production pitfalls that silently wreck retrieval, and how to pick a model. By the end you'll be able to:
 
 - explain why a **lexical** embedder fails paraphrases and a **dense** one succeeds — and prove the gap in code;
-- describe the **bi-encoder** (encode independently, compare by cosine) and contrast it with the cross-encoder ([chapter 6](../reranking/reranking.md));
+- describe the **bi-encoder** (encode independently, compare by cosine) and contrast it with the cross-encoder ([chapter 6](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking));
 - write the **InfoNCE** contrastive loss with in-batch negatives, define $\tau$, and say why we normalize;
 - avoid the silent killers — **asymmetric-prefix** mistakes, forgotten **L2-normalization**, **domain mismatch**, **truncation**;
 - pick an embedding model with the **MTEB** leaderboard and the dimension/cost tradeoff in mind.
@@ -108,7 +108,7 @@ Three mechanism details matter:
 2. **L2-normalization.** Divide each vector by its length so it sits on the unit sphere. Then cosine similarity *is* the dot product — fast, and the comparison depends only on **direction (meaning)**, not magnitude. (Forget this and your similarities are silently wrong; see Pitfalls.)
 3. **Independent encoding → precomputability.** Because the passage is encoded without seeing the query, you can **embed your whole corpus once, offline**, and at query time only encode the (short) query and do nearest-neighbour search. This is what makes dense retrieval scale to millions of documents.
 
-**Contrast with the cross-encoder.** A *cross-encoder* feeds the query and passage **together** through the transformer (`[CLS] query [SEP] passage`), letting them attend to each other, and outputs a single relevance score. It's far more accurate — but it must run the model *once per (query, passage) pair* at query time, so it **cannot** precompute passage vectors and is far too slow for first-stage retrieval over a large corpus. The standard architecture uses **both**: a bi-encoder to retrieve top-k candidates fast, then a cross-encoder to **rerank** those few — the subject of [chapter 6](../reranking/reranking.md).
+**Contrast with the cross-encoder.** A *cross-encoder* feeds the query and passage **together** through the transformer (`[CLS] query [SEP] passage`), letting them attend to each other, and outputs a single relevance score. It's far more accurate — but it must run the model *once per (query, passage) pair* at query time, so it **cannot** precompute passage vectors and is far too slow for first-stage retrieval over a large corpus. The standard architecture uses **both**: a bi-encoder to retrieve top-k candidates fast, then a cross-encoder to **rerank** those few — the subject of [chapter 6](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking).
 
 ---
 
@@ -261,7 +261,7 @@ These are the silent killers — they don't error, they just quietly tank retrie
 **5. Using a cross-encoder for first-stage retrieval.** Tempting, because cross-encoders are more accurate — but a cross-encoder must score *every* (query, passage) pair at query time, so over a million-document corpus it's catastrophically slow.
 
 - *Failing:* you "improve" retrieval by replacing the bi-encoder with a cross-encoder over the whole corpus; query latency explodes from milliseconds to minutes.
-- *Fix:* **bi-encoder retrieves, cross-encoder reranks** the top-k only ([chapter 6](../reranking/reranking.md)). Never run a cross-encoder over the full corpus.
+- *Fix:* **bi-encoder retrieves, cross-encoder reranks** the top-k only ([chapter 6](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking)). Never run a cross-encoder over the full corpus.
 
 > **Gotcha:** pitfalls 1, 2, and 4 are *silent* — no exception, just degraded recall you might not notice for weeks. The discipline that catches them: **measure retrieval on a held-out set of (query, known-answer) pairs** whenever you change the embedder or the encoding. A 10-line eval harness saves you from shipping a quietly-broken index.
 
@@ -299,7 +299,7 @@ Real systems, with **verified** specs:
 
 **When to reach for which:** prototype with **all-MiniLM** (free, instant), graduate to an **E5/BGE** or a **managed** model when retrieval quality matters and your corpus grows, and **fine-tune** only for a genuine domain gap. Whatever you pick, it's baked into your index — so measure on *your* queries before committing, because re-embedding a large corpus later is the expensive part.
 
-> **Note:** the through-line continues. Chapter 1 framed retrieval; chapter 2 chunked the documents; this chapter chose the *model that defines nearness*. Next, [chapter 4](../vector-search/vector-search.md) makes "find the nearest vectors" *fast* at scale (approximate nearest neighbour), [chapter 5](../hybrid-search/hybrid-search.md) combines dense with lexical search (getting the best of both this chapter contrasted), and [chapter 6](../reranking/reranking.md) adds the cross-encoder reranker. The embedder set the geometry; the rest of the stack searches it.
+> **Note:** the through-line continues. Chapter 1 framed retrieval; chapter 2 chunked the documents; this chapter chose the *model that defines nearness*. Next, [chapter 4](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search) makes "find the nearest vectors" *fast* at scale (approximate nearest neighbour), [chapter 5](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search) combines dense with lexical search (getting the best of both this chapter contrasted), and [chapter 6](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking) adds the cross-encoder reranker. The embedder set the geometry; the rest of the stack searches it.
 
 ---
 

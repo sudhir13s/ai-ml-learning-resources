@@ -8,7 +8,7 @@ updated: 2026-06-27
 
 # Question Answering — references and further reading
 
-> Companion link library for **[Question Answering](question-answering.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
+> Companion link library for **[Question Answering](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/question-answering/question-answering)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
 1. **Frame the task** — read [SLP3 Ch. 11: Information Retrieval and RAG](https://web.stanford.edu/~jurafsky/slp3/11.pdf) (**Jurafsky & Martin**). *Extractive vs open-domain QA before any model.*
@@ -52,11 +52,11 @@ updated: 2026-06-27
 - [Speech and Language Processing, 3rd ed. — Ch. 14 "Question Answering, Information Retrieval, and RAG" (older draft)](https://web.stanford.edu/~jurafsky/slp3/14.pdf) — **Jurafsky & Martin** — extended QA coverage, reading comprehension and open-domain.
 
 **In this platform**:
-- Concept page (full explanation): [Question Answering](question-answering.md)
+- Concept page (full explanation): [Question Answering](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/question-answering/question-answering)
 - Runnable code (the seeded source of truth): [teaching notebook](code/question-answering.ipynb) · [demo script](code/question_answering.py) · [figure generator](code/make_figures_11.py)
-- The encoder QA fine-tunes on: [Contextual Embeddings (ELMo/BERT)](../contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert.md)
-- The retriever half of open-domain QA: [Information Retrieval & Semantic Search](../information-retrieval-and-semantic-search/information-retrieval-and-semantic-search.md) · embeddings behind dense retrieval: [Sentence & Document Embeddings](../sentence-and-document-embeddings/sentence-and-document-embeddings.md)
-- The generator backbone (RAG reader): [Seq2Seq & Encoder–Decoder](../sequence-to-sequence-and-encoder-decoder/sequence-to-sequence-and-encoder-decoder.md)
-- How answers are scored (EM/F1): [NLP Evaluation Metrics](../nlp-evaluation-metrics/nlp-evaluation-metrics.md)
-- Resolving conversational follow-ups: [Coreference Resolution](../coreference-resolution/coreference-resolution.md)
-- The *why* behind RAG, in depth: [ai-ml-intuitions 8.02 Retrieval-Augmented Generation](../../../../ai-ml-intuitions/memory-retrieval-and-context/retrieval-augmented-generation/rag-intuition.md)
+- The encoder QA fine-tunes on: [Contextual Embeddings (ELMo/BERT)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert)
+- The retriever half of open-domain QA: [Information Retrieval & Semantic Search](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/information-retrieval-and-semantic-search/information-retrieval-and-semantic-search) · embeddings behind dense retrieval: [Sentence & Document Embeddings](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sentence-and-document-embeddings/sentence-and-document-embeddings)
+- The generator backbone (RAG reader): [Seq2Seq & Encoder–Decoder](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sequence-to-sequence-and-encoder-decoder/sequence-to-sequence-and-encoder-decoder)
+- How answers are scored (EM/F1): [NLP Evaluation Metrics](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/nlp-evaluation-metrics/nlp-evaluation-metrics)
+- Resolving conversational follow-ups: [Coreference Resolution](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/coreference-resolution/coreference-resolution)
+- The *why* behind RAG, in depth: [ai-ml-intuitions 8.02 Retrieval-Augmented Generation](/ai-ml/ai-ml-intuitions/memory-retrieval-and-context/retrieval-augmented-generation/rag-intuition)

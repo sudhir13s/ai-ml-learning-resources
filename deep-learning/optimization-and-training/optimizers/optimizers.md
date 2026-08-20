@@ -16,7 +16,7 @@ category: optimization-and-training
 
 # Optimizers: turning gradients into good weight updates
 
-[Backprop](../../neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs.md) hands you a **gradient** — the direction of steepest *increase* in the loss. The obvious move is to step the opposite way. But *"step how far, in which combined direction, and at what rate for each of a billion parameters whose gradients you only know approximately?"* is exactly where naive gradient descent falls apart, and where the **optimizer** earns its keep. The optimizer is the rule that turns the raw gradient into the actual weight change. It is the difference between a model that converges in hours and one that oscillates forever, blows up to `NaN`, or crawls so slowly it never finishes — and on modern transformers, the choice of optimizer (Adam vs SGD), and one or two of its knobs, is among the highest-leverage decisions in the whole training recipe.
+[Backprop](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs) hands you a **gradient** — the direction of steepest *increase* in the loss. The obvious move is to step the opposite way. But *"step how far, in which combined direction, and at what rate for each of a billion parameters whose gradients you only know approximately?"* is exactly where naive gradient descent falls apart, and where the **optimizer** earns its keep. The optimizer is the rule that turns the raw gradient into the actual weight change. It is the difference between a model that converges in hours and one that oscillates forever, blows up to `NaN`, or crawls so slowly it never finishes — and on modern transformers, the choice of optimizer (Adam vs SGD), and one or two of its knobs, is among the highest-leverage decisions in the whole training recipe.
 
 I'm going to walk this the way I'd actually teach it to a teammate who can already differentiate a loss but keeps reaching for `torch.optim.Adam` without knowing *why* it works. We start from the **problem** — minimizing a high-dimensional, non-convex loss from *noisy* gradient estimates over an *ill-conditioned* surface — and then build the optimizer ladder one rung at a time, **deriving every rule from the rung below it**, never just stating a formula. By the end you'll be able to:
 
@@ -403,7 +403,7 @@ The optimizer sets the *direction and per-parameter scaling*; the **schedule** s
 
 This page deliberately stops here — the schedule has its own full treatment.
 
-**→ [Learning-Rate Schedules & Warmup](../learning-rate-schedules-and-warmup/learning-rate-schedules-and-warmup.md)** covers cosine/linear/inverse-sqrt decay, warmup length, and restarts in depth.
+**→ [Learning-Rate Schedules & Warmup](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/learning-rate-schedules-and-warmup/learning-rate-schedules-and-warmup)** covers cosine/linear/inverse-sqrt decay, warmup length, and restarts in depth.
 
 > **Note:** **batch size and learning rate move together.** The **linear scaling rule** (Goyal et al. 2017): multiply the batch size by $k$ and multiply $\eta$ by $\sim k$ (with warmup for stability). The justification is the $1/B$ noise law derived earlier — a $k\times$ larger batch gives a $\sqrt k\times$ less-noisy gradient, which can tolerate (and needs) a proportionally bigger step to make the same progress per epoch.
 
@@ -432,7 +432,7 @@ A point worth its own section because it dominates LLM-training cost. Adam/AdamW
 
 That's **~16–18 bytes per parameter** before activations — and the **optimizer states alone are 8 of those bytes, twice the size of the FP16 weights.** For a 7B model the Adam states are $\sim 7\text{B}\times 8 \approx 56$ GB on their own. This is *the* reason full fine-tuning is so expensive, and the direct motivation for **8-bit Adam, Adafactor, ZeRO state-sharding**, and parameter-efficient methods.
 
-> **Tip:** this is exactly why [LoRA/PEFT](../../../llms-applications-and-agents/training-and-adaptation/lora-and-parameter-efficient-fine-tuning/lora-and-parameter-efficient-fine-tuning.md) saves so much memory: by training only a few million low-rank adapter parameters instead of all 7B, you only pay Adam's $2\times$ state overhead on the *adapters*, shrinking optimizer memory from tens of GB to a fraction of a GB. The optimizer-state cost is the bridge between "optimizers" and "why PEFT exists."
+> **Tip:** this is exactly why [LoRA/PEFT](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/lora-and-parameter-efficient-fine-tuning/lora-and-parameter-efficient-fine-tuning) saves so much memory: by training only a few million low-rank adapter parameters instead of all 7B, you only pay Adam's $2\times$ state overhead on the *adapters*, shrinking optimizer memory from tens of GB to a fraction of a GB. The optimizer-state cost is the bridge between "optimizers" and "why PEFT exists."
 
 ---
 

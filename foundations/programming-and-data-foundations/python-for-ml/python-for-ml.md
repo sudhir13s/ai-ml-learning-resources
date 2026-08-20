@@ -59,5 +59,5 @@ because every take-home and live-coding ML exercise is written in it.
 - [A Whirlwind Tour of Python](https://jakevdp.github.io/WhirlwindTourOfPython/) — **Jake VanderPlas** — free, fast intro for people who already program a little.
 
 ## 🔗 In this platform
-- Next concepts: [07 NumPy Essentials](../numpy-essentials/numpy-essentials.md) · [08 Pandas Essentials](../pandas-essentials/pandas-essentials.md) · [09 Data Visualization Basics](../data-visualization-basics/data-visualization-basics.md)
-- Go deeper — frameworks & tooling: [11. Tools & Frameworks](../../tools-and-frameworks/README.md)
+- Next concepts: [07 NumPy Essentials](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/numpy-essentials/numpy-essentials) · [08 Pandas Essentials](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/pandas-essentials/pandas-essentials) · [09 Data Visualization Basics](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/data-visualization-basics/data-visualization-basics)
+- Go deeper — frameworks & tooling: [11. Tools & Frameworks](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/readme)

@@ -10,7 +10,7 @@ updated: 2026-07-14
 # Audio & Speech
 > Models that *listen and talk* — audio representations and neural codecs, speech recognition
 > (ASR), speech synthesis (TTS), and the realtime voice stack. Audio *diffusion/music
-> generation* details live with [Diffusion](../diffusion-models/README.md); this topic owns the
+> generation* details live with [Diffusion](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/readme); this topic owns the
 > speech pipeline end to end.
 
 **⭐ Start here:** [Hugging Face Audio Course](https://huggingface.co/learn/audio-course) — **Hugging Face** — free, code-first path through representations → ASR → TTS.
@@ -39,10 +39,10 @@ Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its p
 
 ### Related concepts (covered in another section)
 > Kept in their canonical home to avoid repetition.
-- **Sequence decoding (beam search · CTC decoding math)** → [NLP](../natural-language-processing/README.md)
-- **Audio diffusion models** → [Diffusion](../diffusion-models/README.md)
-- **Audio in multimodal LLMs** → [Multimodal](../multimodal-learning/README.md)
-- **Fourier analysis & signal processing math** → [Advanced Research Math · Fourier Analysis](../../specialized-studies/advanced-mathematics-for-ai-research/README.md)
+- **Sequence decoding (beam search · CTC decoding math)** → [NLP](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/readme)
+- **Audio diffusion models** → [Diffusion](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/readme)
+- **Audio in multimodal LLMs** → [Multimodal](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/multimodal-learning/readme)
+- **Fourier analysis & signal processing math** → [Advanced Research Math · Fourier Analysis](/ai-ml/ai-ml-learning-resources/specialized-studies/advanced-mathematics-for-ai-research/readme)
 
 ## 🎓 Courses (free)
 - [Hugging Face Audio Course](https://huggingface.co/learn/audio-course) — **Hugging Face** — the practical spine for this topic.
@@ -56,4 +56,4 @@ Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its p
 - [Speech and Language Processing — Ch. 16 (ASR & TTS)](https://web.stanford.edu/~jurafsky/slp3/) — **Jurafsky & Martin** — free draft, the standard reference.
 
 ## 🔗 In this platform
-- Language side: [NLP](../natural-language-processing/README.md) · [LLMs](../../llms-applications-and-agents/README.md) · Fusion: [Multimodal](../multimodal-learning/README.md)
+- Language side: [NLP](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/readme) · [LLMs](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme) · Fusion: [Multimodal](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/multimodal-learning/readme)

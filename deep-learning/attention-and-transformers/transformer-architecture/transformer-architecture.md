@@ -16,9 +16,9 @@ category: attention-and-transformers
 
 # The Transformer: attention is (almost) all you need
 
-In 2017 a paper made a deliberately provocative claim: throw away recurrence and convolution entirely, build a sequence model out of **nothing but [attention](../attention-mechanism/attention-mechanism.md) and plain feed-forward layers**, and it will train faster and work better. That model — the **transformer** — became one of the most consequential architectures in computing. Every LLM you've used (GPT, Claude, Llama), every modern translation system, BERT, Vision Transformers, AlphaFold's backbone, Whisper, Stable Diffusion's text encoder — all transformers. If [attention](../attention-mechanism/attention-mechanism.md) is the *mechanism*, the transformer is the *machine* built around it: the embedding layer that gets tokens onto the highway, the feed-forward networks that do the thinking, the residual connections and normalization that keep a hundred-layer stack trainable, the positional encoding that smuggles in word order, and the output head that turns vectors back into tokens.
+In 2017 a paper made a deliberately provocative claim: throw away recurrence and convolution entirely, build a sequence model out of **nothing but [attention](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism) and plain feed-forward layers**, and it will train faster and work better. That model — the **transformer** — became one of the most consequential architectures in computing. Every LLM you've used (GPT, Claude, Llama), every modern translation system, BERT, Vision Transformers, AlphaFold's backbone, Whisper, Stable Diffusion's text encoder — all transformers. If [attention](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism) is the *mechanism*, the transformer is the *machine* built around it: the embedding layer that gets tokens onto the highway, the feed-forward networks that do the thinking, the residual connections and normalization that keep a hundred-layer stack trainable, the positional encoding that smuggles in word order, and the output head that turns vectors back into tokens.
 
-This page is the complete tour of that machine. The [attention math](../attention-mechanism/attention-mechanism.md) — scaled dot-product, multi-head, masks, $\sqrt{d_k}$ — lives on its **own page**; here we *use* it as a component and spend our depth on everything around it: the block, the stack, the three family shapes, the data flow with shapes, the parameter and FLOP accounting, and why the whole thing parallelizes. By the end you'll be able to:
+This page is the complete tour of that machine. The [attention math](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism) — scaled dot-product, multi-head, masks, $\sqrt{d_k}$ — lives on its **own page**; here we *use* it as a component and spend our depth on everything around it: the block, the stack, the three family shapes, the data flow with shapes, the parameter and FLOP accounting, and why the whole thing parallelizes. By the end you'll be able to:
 
 - **draw the transformer block from memory** and write its exact pre-norm and post-norm equations;
 - explain the **position-wise feed-forward network** — the $d \to 4d \to d$ expansion — and **derive that it holds ~⅔ of every block's parameters**;
@@ -27,7 +27,7 @@ This page is the complete tour of that machine. The [attention math](../attentio
 - distinguish the three families — **encoder–decoder (T5), encoder-only (BERT), decoder-only (GPT)** — and derive where the decoder's masked self-attention and cross-attention get their Q, K, V;
 - **compute the parameter budget** of a block and a full model by hand (≈$12d^2$/layer + $Vd$ embedding), and reproduce GPT-2-small's 124M;
 - derive the **attention-vs-FFN FLOP crossover** ($n = 4d$) and say which term dominates in any regime;
-- explain **why it parallelizes** in training and why inference is sequential (→ the [KV cache](../../../llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.md));
+- explain **why it parallelizes** in training and why inference is sequential (→ the [KV cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache));
 - name the **modern components** (RoPE, RMSNorm, SwiGLU, GQA, MoE) and *why* each replaced the 2017 original.
 
 Intuition first, then the anatomy, then code you can run.
@@ -38,11 +38,11 @@ Intuition first, then the anatomy, then code you can run.
 
 ## The problem: attention fixed access, but recurrence was still the engine
 
-The previous generation had *already* added [attention](../attention-mechanism/attention-mechanism.md) — but bolted onto an **RNN**. That hybrid (Bahdanau 2014) fixed information *access* — the decoder could finally look back at every input token instead of squeezing the whole sentence through one fixed context vector — yet it kept the RNN's fatal flaw underneath: **recurrence is inherently sequential.**
+The previous generation had *already* added [attention](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism) — but bolted onto an **RNN**. That hybrid (Bahdanau 2014) fixed information *access* — the decoder could finally look back at every input token instead of squeezing the whole sentence through one fixed context vector — yet it kept the RNN's fatal flaw underneath: **recurrence is inherently sequential.**
 
 Think about what computing an RNN's hidden states actually requires. To get the state at position $t$ you need the state at $t-1$; to get $t-1$ you need $t-2$; and so on back to the start. There is no way to compute position 50's hidden state without first computing positions 1 through 49 *in order*. On a GPU built to do tens of thousands of multiply-adds **simultaneously**, that is a catastrophe: the hardware sits idle waiting for a chain of dependencies to resolve, one token at a time. A sequence of length $n$ costs $O(n)$ **non-parallelizable** sequential steps. Training on long sequences crawls, and the crawl gets worse the longer the sequence.
 
-There's a second, related wound. Even with attention layered on top, the RNN's hidden state is still the conduit for *local* information, and a dependency between token 1 and token 100 has to survive ~100 sequential hops through that state — exactly the path where gradients vanish or explode (the reason [LSTMs and GRUs](../../neural-architectures/rnn-lstm-gru/rnn-lstm-gru.md) exist at all, and why even they strain at very long range).
+There's a second, related wound. Even with attention layered on top, the RNN's hidden state is still the conduit for *local* information, and a dependency between token 1 and token 100 has to survive ~100 sequential hops through that state — exactly the path where gradients vanish or explode (the reason [LSTMs and GRUs](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/rnn-lstm-gru/rnn-lstm-gru) exist at all, and why even they strain at very long range).
 
 The transformer's bet, stated in one sentence: **if attention already lets every token see every other token directly, why keep the recurrence at all?** Drop it. Process the **entire sequence in parallel** as a couple of big matrix multiplies, give every pair of tokens an $O(1)$ direct path, and recover the *only* thing recurrence gave you for free — a sense of word **order** — with an explicit **positional encoding** added at the input. That single trade ("replace a sequential recurrence with a parallel attention + an explicit position signal") is the entire conceptual leap of *Attention Is All You Need*.
 
@@ -69,7 +69,7 @@ graph LR
 
 > **Tip:** the cleanest one-sentence "why transformers beat RNNs": **RNNs serialize computation over the sequence; transformers parallelize it.** Same reason GPUs love them, same reason they scale, same reason a 2017 idea ate the entire field. Memorize that sentence and the rest of this page is its justification.
 
-> **Note:** "process the whole sequence in parallel" is a **training/prefill** statement, not an inference one. When a decoder-only model *generates*, it still emits one token at a time — the parallelism returns only because each generated token's keys and values can be cached. That training-vs-inference asymmetry is a recurring theme below and the entire reason the [KV cache](../../../llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.md) exists.
+> **Note:** "process the whole sequence in parallel" is a **training/prefill** statement, not an inference one. When a decoder-only model *generates*, it still emits one token at a time — the parallelism returns only because each generated token's keys and values can be cached. That training-vs-inference asymmetry is a recurring theme below and the entire reason the [KV cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) exists.
 
 ---
 
@@ -77,7 +77,7 @@ graph LR
 
 A transformer is a **stack of $N$ identical blocks** wrapped around an embedding layer at the input and an output head at the top. Each block has exactly two sub-layers, each wrapped in a residual connection and a normalization:
 
-1. **Multi-head self-[attention](../attention-mechanism/attention-mechanism.md)** — every token gathers information from every other token (the *communication* step).
+1. **Multi-head self-[attention](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism)** — every token gathers information from every other token (the *communication* step).
 2. **Position-wise feed-forward network (FFN)** — a small MLP applied to each token independently (the *computation* step).
 
 Because there's no recurrence to encode order, the input to the first block is **token embedding + positional encoding**. Depending only on the **attention mask** (and whether a cross-attention sub-layer is present), the same block gives you one of three flavors: **encoder** (bidirectional, for understanding), **decoder** (causal, for generation), or **encoder–decoder** (for sequence-to-sequence). That is the whole architecture — and the astonishing thing is how little changes between a translation model, BERT, and GPT.
@@ -135,7 +135,7 @@ graph TD
     classDef out fill:#2E7A5A,stroke:#1E6A4A,color:#fff
 ```
 
-> **Note:** the **residual connections** (cross-link [Residual / Skip Connections](../../stabilization-and-architectural-blocks/residual-skip-connections/residual-skip-connections.md)) aren't decoration — they're what makes deep stacks trainable. They give gradients a direct path from the loss back to early layers (the [ResNet](https://arxiv.org/abs/1512.03385) insight), so a 96-layer transformer doesn't suffer the vanishing gradients that killed deep RNNs. Remove the residuals and a deep transformer simply won't train. The residual stream framing — read, transform, add back — is also why mechanistic-interpretability work treats each block as *writing into* a shared communication channel rather than overwriting it.
+> **Note:** the **residual connections** (cross-link [Residual / Skip Connections](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/residual-skip-connections/residual-skip-connections)) aren't decoration — they're what makes deep stacks trainable. They give gradients a direct path from the loss back to early layers (the [ResNet](https://arxiv.org/abs/1512.03385) insight), so a 96-layer transformer doesn't suffer the vanishing gradients that killed deep RNNs. Remove the residuals and a deep transformer simply won't train. The residual stream framing — read, transform, add back — is also why mechanistic-interpretability work treats each block as *writing into* a shared communication channel rather than overwriting it.
 
 > **Note:** the residual's *partner* is **initialization**. Because every block *adds* to the stream, the stream's variance would otherwise grow with depth; deep transformers counter this by scaling the residual-branch output weights down by ≈$1/\sqrt{2N}$ ($N$ = layers, as in GPT-2). Pre-norm placement plus this init are together why 100-plus-layer stacks train without diverging.
 
@@ -149,9 +149,9 @@ Everything important happens inside one block, so we'll take it apart sub-layer 
 
 ### Sub-layer 1 — multi-head self-attention (the communication step)
 
-This is the [attention](../attention-mechanism/attention-mechanism.md) page's subject, so here we only place it in the block and note what the block needs from it. Self-attention projects the residual stream $x$ into queries, keys, and values, scores every query against every key, softmaxes, and returns a weighted blend of values — $\text{softmax}(QK^\top/\sqrt{d_k})\,V$ — run in parallel across $h$ heads and re-projected by $W_o$. In the block it's wrapped as $x \leftarrow x + \text{MHA}(\text{LN}(x))$.
+This is the [attention](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism) page's subject, so here we only place it in the block and note what the block needs from it. Self-attention projects the residual stream $x$ into queries, keys, and values, scores every query against every key, softmaxes, and returns a weighted blend of values — $\text{softmax}(QK^\top/\sqrt{d_k})\,V$ — run in parallel across $h$ heads and re-projected by $W_o$. In the block it's wrapped as $x \leftarrow x + \text{MHA}(\text{LN}(x))$.
 
-The two facts the block cares about: (1) MHA is the **only** place tokens exchange information — the FFN never looks across positions — so all "context" enters here; and (2) its parameters are the four projection matrices $W_q, W_k, W_v, W_o$, each $d \times d$, for **$4d^2$ parameters** per block (derived below). The mask plugged into this sub-layer is the single switch that turns a BERT block into a GPT block. *(Full derivation of scaled dot-product, the $\sqrt{d_k}$ scaling, multi-head, and masking is on the [Attention Mechanism](../attention-mechanism/attention-mechanism.md) page — don't re-derive it; point to it.)*
+The two facts the block cares about: (1) MHA is the **only** place tokens exchange information — the FFN never looks across positions — so all "context" enters here; and (2) its parameters are the four projection matrices $W_q, W_k, W_v, W_o$, each $d \times d$, for **$4d^2$ parameters** per block (derived below). The mask plugged into this sub-layer is the single switch that turns a BERT block into a GPT block. *(Full derivation of scaled dot-product, the $\sqrt{d_k}$ scaling, multi-head, and masking is on the [Attention Mechanism](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism) page — don't re-derive it; point to it.)*
 
 ### Sub-layer 2 — the position-wise feed-forward network (the computation step)
 
@@ -175,7 +175,7 @@ Three things make the FFN matter more than it looks:
 
 > **Gotcha:** "the FFN is just an MLP, it can't matter much" is wrong on two counts. It's two-thirds of the parameters, *and* it's the only nonlinear per-token transform in the whole architecture — attention is (softmax aside) a linear mixing of values. Strip the FFNs out and a transformer collapses toward a stack of linear mixers; the model loses most of its expressive power. The FFN is where representation actually happens.
 
-The nonlinearity $\phi$ inside the FFN has its own short evolution worth knowing. The 2017 paper used **ReLU** ($\max(0,x)$) — simple, but its hard zero discards information and its gradient is dead for negative inputs. BERT and GPT moved to **GELU** ($x \cdot \Phi(x)$, a smooth, probabilistically-motivated gate) which trains a touch better. Modern LLMs use **SwiGLU**, a *gated* unit that splits the up-projection into two halves and multiplies them ($\text{Swish}(xW_1) \odot xW_3$), letting the network learn a data-dependent gate per feature; it consistently beats a plain MLP at equal parameters and is the current default (Llama, PaLM, Mistral). The trend is uniform: **smoother, gated nonlinearities edge out the hard ReLU** — small individually, but they compound across hundreds of layers. (Full treatment on the [Activation Functions](../../stabilization-and-architectural-blocks/activation-functions/activation-functions.md) page.)
+The nonlinearity $\phi$ inside the FFN has its own short evolution worth knowing. The 2017 paper used **ReLU** ($\max(0,x)$) — simple, but its hard zero discards information and its gradient is dead for negative inputs. BERT and GPT moved to **GELU** ($x \cdot \Phi(x)$, a smooth, probabilistically-motivated gate) which trains a touch better. Modern LLMs use **SwiGLU**, a *gated* unit that splits the up-projection into two halves and multiplies them ($\text{Swish}(xW_1) \odot xW_3$), letting the network learn a data-dependent gate per feature; it consistently beats a plain MLP at equal parameters and is the current default (Llama, PaLM, Mistral). The trend is uniform: **smoother, gated nonlinearities edge out the hard ReLU** — small individually, but they compound across hundreds of layers. (Full treatment on the [Activation Functions](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/activation-functions/activation-functions) page.)
 
 ### Sub-layer wiring — residual + normalization
 
@@ -215,7 +215,7 @@ graph TD
     classDef out fill:#2E7A5A,stroke:#1E6A4A,color:#fff
 ```
 
-> **Note:** the **normalization** itself (cross-link [Normalization](../../stabilization-and-architectural-blocks/normalization/normalization.md)) standardizes each token's vector to zero mean and unit variance, then rescales with learned $\gamma, \beta$. Transformers use **LayerNorm** (per-token, over the feature axis) — *not* BatchNorm — because the statistics must not depend on other tokens in the batch or on sequence length, which would be unstable for variable-length text and wrong at inference with batch size 1. Modern LLMs swap in **RMSNorm** (normalize by root-mean-square only, no mean subtraction, no bias) — cheaper, equally effective.
+> **Note:** the **normalization** itself (cross-link [Normalization](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/normalization/normalization)) standardizes each token's vector to zero mean and unit variance, then rescales with learned $\gamma, \beta$. Transformers use **LayerNorm** (per-token, over the feature axis) — *not* BatchNorm — because the statistics must not depend on other tokens in the batch or on sequence length, which would be unstable for variable-length text and wrong at inference with batch size 1. Modern LLMs swap in **RMSNorm** (normalize by root-mean-square only, no mean subtraction, no bias) — cheaper, equally effective.
 
 > **Tip:** if a deep **post-norm** transformer diverges early in training, the fix is almost always one of: add learning-rate warmup, lower the LR, or switch to **pre-norm**. "Deep model won't train, no warmup" → suspect post-norm. This is a very common practical interview probe, and the [Xiong et al. 2020](https://arxiv.org/abs/2002.04745) paper is the citation.
 
@@ -227,7 +227,7 @@ graph TD
 
 Self-attention is **permutation-equivariant** — shuffle the input tokens and the outputs shuffle exactly the same way, with *identical values*. The reason is structural: attention computes $\text{softmax}(QK^\top/\sqrt{d_k})V$, and every term in it is symmetric in position — token $j$'s contribution to token $i$ depends only on the *content* of $i$ and $j$, never on *where* they sit. So a raw transformer literally cannot tell "dog bites man" from "man bites dog"; to it both are the same bag of three vectors. Order has to be **added explicitly** at the input.
 
-Four schemes, in rough historical order (full treatment on the [Positional Encoding](../positional-encoding/positional-encoding.md) page — summarized here):
+Four schemes, in rough historical order (full treatment on the [Positional Encoding](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/positional-encoding/positional-encoding) page — summarized here):
 
 - **Sinusoidal (Vaswani 2017).** Fixed sine/cosine waves of geometric frequencies added to the embedding: $PE_{(pos,\,2i)} = \sin\!\big(pos/10000^{2i/d}\big)$, $PE_{(pos,\,2i+1)} = \cos\!\big(pos/10000^{2i/d}\big)$. Each position gets a unique smooth code; because $PE_{pos+k}$ is a linear function of $PE_{pos}$, the model can learn to attend by *relative* offset, and it extrapolates somewhat past the training length.
 - **Learned absolute (BERT, GPT-2).** A trainable embedding per position, added like the token embedding. Simple and effective, but it **cannot extrapolate** beyond the maximum trained length — position 1025 was never seen, so its vector is undefined.
@@ -295,7 +295,7 @@ Keep only the encoder stack: **bidirectional** self-attention everywhere, no cau
 
 ### Decoder-only (GPT, the dominant LLM design)
 
-Keep only a decoder-style stack but **drop the cross-attention** (there's no separate encoder to read from). What remains is a stack of blocks with **causal self-attention** — token $i$ attends only to tokens $\le i$. Trained with **causal (autoregressive) language modeling** — predict the next token from the left context only — this is the objective behind essentially every generative LLM: **GPT, Llama, Claude, Mistral, Gemini**. Its great virtue is uniformity and scale: one objective, one stack, trillions of tokens, and the inference loop is exactly what the [KV cache](../../../llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.md) accelerates.
+Keep only a decoder-style stack but **drop the cross-attention** (there's no separate encoder to read from). What remains is a stack of blocks with **causal self-attention** — token $i$ attends only to tokens $\le i$. Trained with **causal (autoregressive) language modeling** — predict the next token from the left context only — this is the objective behind essentially every generative LLM: **GPT, Llama, Claude, Mistral, Gemini**. Its great virtue is uniformity and scale: one objective, one stack, trillions of tokens, and the inference loop is exactly what the [KV cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) accelerates.
 
 > **Note:** in the encoder–decoder, **cross-attention is the bridge** between the two stacks. The decoder's queries come from the **decoder** ($Q = X_{\text{dec}} W_q$), but the keys and values come from the **encoder's** output ($K = X_{\text{enc}} W_k$, $V = X_{\text{enc}} W_v$). So every generated token can read the entire source sequence. A decoder-only LLM simply omits this sub-layer and keeps only causal self-attention — that single deletion is the structural difference between T5's decoder and GPT.
 
@@ -332,7 +332,7 @@ graph TD
     classDef out fill:#2E7A5A,stroke:#1E6A4A,color:#fff
 ```
 
-> **Note:** the encoder runs **once**; only the decoder loops. This is why encoder–decoder inference caches *two* sets of K/V — the decoder's own self-attention (grows each step) and the cross-attention (computed once from the encoder, then frozen). The [KV cache](../../../llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.md) page covers both.
+> **Note:** the encoder runs **once**; only the decoder loops. This is why encoder–decoder inference caches *two* sets of K/V — the decoder's own self-attention (grows each step) and the cross-attention (computed once from the encoder, then frozen). The [KV cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) page covers both.
 
 ---
 
@@ -404,7 +404,7 @@ graph LR
     classDef amber fill:#7A6528,stroke:#6A5518,color:#fff
 ```
 
-This asymmetry is precisely where the [**KV cache**](../../../llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.md) enters: in a causal model, a token's keys and values never change once computed, so the sequential decode loop caches them and recomputes only the new token's K/V — turning $O(n^2)$ redundant recompute into $O(n)$. The cache is the transformer's inference optimization; it doesn't change *what* the model outputs, only how fast. (We deliberately don't re-derive it here — that's the cache page's job.)
+This asymmetry is precisely where the [**KV cache**](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) enters: in a causal model, a token's keys and values never change once computed, so the sequential decode loop caches them and recomputes only the new token's K/V — turning $O(n^2)$ redundant recompute into $O(n)$. The cache is the transformer's inference optimization; it doesn't change *what* the model outputs, only how fast. (We deliberately don't re-derive it here — that's the cache page's job.)
 
 > **Note:** this is also why a generative LLM has **two latency numbers**: a compute-bound, parallel **prefill** (sets time-to-first-token) and a memory-bound, sequential **decode** (sets time-per-output-token). The transformer's training-parallel / inference-sequential split is the root cause of that entire serving picture.
 
@@ -425,7 +425,7 @@ Two columns decide it. **Sequential ops** is why RNNs can't use a GPU's parallel
 
 Two costs dominate a block's forward pass, and which one wins decides what you optimize. Let $n$ be sequence length, $d$ model width, $d_{ff} = 4d$.
 
-- **Attention's quadratic core** — the two $n\times n$-touching matmuls (scores $QK^\top$ and the weighted sum) cost $4n^2 d$ FLOPs and need $O(n^2)$ memory for the score matrix. This is the long-context bottleneck that [FlashAttention](../efficient-attention/efficient-attention.md), sparse, and linear attention attack.
+- **Attention's quadratic core** — the two $n\times n$-touching matmuls (scores $QK^\top$ and the weighted sum) cost $4n^2 d$ FLOPs and need $O(n^2)$ memory for the score matrix. This is the long-context bottleneck that [FlashAttention](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/efficient-attention/efficient-attention), sparse, and linear attention attack.
 - **The FFN (and projections)** — $O(n d^2)$: the two FFN matmuls alone are $16 n d^2$ FLOPs. Linear in $n$, quadratic in $d$.
 
 Set them equal to find the **crossover**:
@@ -470,7 +470,7 @@ To see the dimensions in real models — and how the formula tracks them — her
 | T5-base | 768 | 12+12 | 12 | 2048 | 220M | encoder–decoder |
 | Llama-2-7B | 4096 | 32 | 32 | 11008 | 6.7B | decoder-only (SwiGLU, GQA) |
 
-> **Note:** the head count $h$ is chosen so the head dimension $d_h = d/h$ lands around **64–128** — small enough that the $\sqrt{d_k}$ scaling keeps softmax well-behaved (see the [attention page](../attention-mechanism/attention-mechanism.md)), large enough to carry signal. GPT-3's $d/h = 12288/96 = 128$; BERT-base's $768/12 = 64$. That ~64–128 head dimension is remarkably stable across the whole table.
+> **Note:** the head count $h$ is chosen so the head dimension $d_h = d/h$ lands around **64–128** — small enough that the $\sqrt{d_k}$ scaling keeps softmax well-behaved (see the [attention page](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism)), large enough to carry signal. GPT-3's $d/h = 12288/96 = 128$; BERT-base's $768/12 = 64$. That ~64–128 head dimension is remarkably stable across the whole table.
 
 ---
 
@@ -567,9 +567,9 @@ graph LR
 ```
 
 - **Pre-LN over post-LN.** Normalize *before* each sub-layer (covered above). Keeps the residual stream clean and trains deep models stably without finicky warmup.
-- **RMSNorm over LayerNorm.** Normalize by the root-mean-square only — no mean subtraction, no bias. Cheaper, equally effective ([Normalization](../../stabilization-and-architectural-blocks/normalization/normalization.md)).
+- **RMSNorm over LayerNorm.** Normalize by the root-mean-square only — no mean subtraction, no bias. Cheaper, equally effective ([Normalization](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/normalization/normalization)).
 - **SwiGLU over ReLU/GELU FFN.** A *gated* FFN, $\text{FFN}(x) = \big(\text{Swish}(xW_1) \odot xW_3\big)W_2$, consistently beats a plain MLP — at the cost of a third weight matrix, so $d_{ff}$ is shrunk to ~$\tfrac{8}{3}d$ to keep the parameter count near $8d^2$.
-- **GQA over MHA.** Share K/V across groups of query heads to shrink the [KV cache](../../../llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.md) — the reason long-context 70B models are servable. (Architectural; baked in at pretraining.)
+- **GQA over MHA.** Share K/V across groups of query heads to shrink the [KV cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) — the reason long-context 70B models are servable. (Architectural; baked in at pretraining.)
 - **Mixture-of-Experts (MoE).** Replace the FFN with a **router + many expert FFNs**, activating only a few per token. This scales *parameters* (capacity) without scaling *compute* per token — used in the largest frontier models (Mixtral, DeepSeek-V3, GPT-4-class). Since the FFN is ⅔ of the parameters, it's the natural place to add sparse capacity.
 
 > **Tip:** a great senior-level answer to "describe a modern transformer" is exactly this list of swaps *with the reason*: RoPE (long-context), RMSNorm + pre-LN (stable deep training), SwiGLU (quality), GQA (smaller KV cache), MoE (capacity without per-token compute). Each maps to a specific paper and a specific failure it fixes.
@@ -578,7 +578,7 @@ graph LR
 
 ## Where it is used
 
-- **Decoder-only (GPT, Llama, Claude, Mistral, Gemini)** — autoregressive generation; the dominant LLM design. Its inference loop is exactly what the [KV cache](../../../llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.md) accelerates.
+- **Decoder-only (GPT, Llama, Claude, Mistral, Gemini)** — autoregressive generation; the dominant LLM design. Its inference loop is exactly what the [KV cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) accelerates.
 - **Encoder-only (BERT, RoBERTa, DeBERTa)** — bidirectional understanding for classification, retrieval, embeddings, token tagging.
 - **Encoder–decoder (T5, BART, Whisper)** — translation, summarization, speech recognition — anywhere there's a fixed input to encode once and attend to many times.
 - **Beyond text** — Vision Transformers (image patches), diffusion backbones, AlphaFold (protein structure), multimodal models. The block barely changes; only the tokenizer and the head do.
@@ -593,7 +593,7 @@ The cleanest proof of universality is the **Vision Transformer (ViT)**. To apply
 
 **Step 2 — use the framework block, know its knobs.** `nn.TransformerEncoderLayer` / `nn.TransformerDecoderLayer` give a tuned block; the knobs are `d_model`, `nhead` ($d_h = d_{\text{model}}/\text{nhead}$), `dim_feedforward` (≈4× `d_model`), `num_layers`, and **`norm_first=True`** (pre-LN — prefer it). Set `activation="gelu"`.
 
-**Step 3 — wire in the modern essentials.** Swap in **RoPE**, **RMSNorm**, **SwiGLU**, **GQA**, and [FlashAttention](../efficient-attention/efficient-attention.md); **tie** the embedding and output weights. The skeleton is unchanged; these are bolt-on upgrades.
+**Step 3 — wire in the modern essentials.** Swap in **RoPE**, **RMSNorm**, **SwiGLU**, **GQA**, and [FlashAttention](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/efficient-attention/efficient-attention); **tie** the embedding and output weights. The skeleton is unchanged; these are bolt-on upgrades.
 
 **Step 4 — size it with the formula.** $P \approx 12 L d^2 + V d$. Pick $d$, $L$, and $V$ to hit a target parameter count, then sanity-check against a known model (GPT-2-small = 124M, Llama-2-7B, etc.).
 
@@ -614,7 +614,7 @@ A transformer fails in characteristic ways, and each failure has a signature sym
 | Deep model diverges early; loss → NaN in the first hundreds of steps | **Post-norm without warmup**, or LR too high | Switch to pre-norm, add LR warmup, or lower the LR |
 | Output shape wrong, or subtly wrong numbers that "look fine" | **Multi-head reshape off-by-one** (`view`/`transpose`) | Assert the post-attention tensor is back to $(B,T,d)$ |
 | Model learns nothing; attention weights all ≈ uniform | **Softmax over the wrong axis** (over queries, not keys) | `softmax(scores, dim=-1)` — over the key dimension |
-| Training fine, inference OOMs at long context | **KV cache growth** — an inference-only cost forgotten at planning | Size from the [KV cache](../../../llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.md) formula, not from weights |
+| Training fine, inference OOMs at long context | **KV cache growth** — an inference-only cost forgotten at planning | Size from the [KV cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) formula, not from weights |
 | Quality fine but throughput is poor at long context | **$O(n^2)$ attention** dominating past $n=4d$ | FlashAttention / sparse attention; check which regime you're in |
 
 > **Tip:** the fastest end-to-end smoke test for any transformer you write: **can it memorize a single tiny batch?** Turn off dropout, feed one fixed batch repeatedly, and watch the loss go to ~0. If it can't overfit 8 examples, a component is broken (usually the mask, the reshape, or the loss target alignment) — debug *that* before you ever touch a real dataset.
@@ -625,7 +625,7 @@ A transformer fails in characteristic ways, and each failure has a signature sym
 
 ## Code: a transformer block and a full encoder from scratch
 
-A pre-norm block built from the [attention](../attention-mechanism/attention-mechanism.md) you already saw, then a complete weight-tied encoder, with the parameter count, the FFN expansion, and a check against PyTorch's own layer. The single `causal=` flag is the only difference between a GPT block and a BERT block.
+A pre-norm block built from the [attention](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism) you already saw, then a complete weight-tied encoder, with the parameter count, the FFN expansion, and a check against PyTorch's own layer. The single `causal=` flag is the only difference between a GPT block and a BERT block.
 
 ```python
 """A transformer block + full encoder from scratch (pre-LN, weight-tied).

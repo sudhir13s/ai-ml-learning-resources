@@ -8,7 +8,7 @@ updated: 2026-06-27
 
 # Coreference Resolution — references and further reading
 
-> Companion link library for **[Coreference Resolution](coreference-resolution.md)** (the concept page). External sources *and* internal cross-links, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first; every entry is a primary author or recognized deep explainer — chosen for depth on coreference, not popularity. Links verified.
+> Companion link library for **[Coreference Resolution](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/coreference-resolution/coreference-resolution)** (the concept page). External sources *and* internal cross-links, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first; every entry is a primary author or recognized deep explainer — chosen for depth on coreference, not popularity. Links verified.
 
 **Start here — suggested path**:
 1. **Frame the task** — read [SLP3 Ch. 23 "Coreference Resolution and Entity Linking"](https://web.stanford.edu/~jurafsky/slp3/23.pdf) (**Jurafsky & Martin**). *Mentions, chains, anaphora, and all three metrics — the definitive write-up.*
@@ -53,9 +53,9 @@ updated: 2026-06-27
 - [Speech and Language Processing, 3rd ed. — Ch. 24 "Discourse Coherence"](https://web.stanford.edu/~jurafsky/slp3/24.pdf) — **Jurafsky & Martin** — the discourse context (Centering Theory, salience) that coreference lives in.
 
 **In this platform**:
-- Concept page (full explanation): [Coreference Resolution](coreference-resolution.md)
+- Concept page (full explanation): [Coreference Resolution](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/coreference-resolution/coreference-resolution)
 - Runnable code: [teaching notebook](code/coreference-resolution.ipynb) · [seeded source module `coreference.py`](code/coreference.py) · [figure generator `make_figures_14.py`](code/make_figures_14.py) — the mention-ranking softmax, transitive closure, and all three metrics from scratch, with every page figure regenerated from the same functions.
-- Prior step / mention detection: [Sequence Labeling — POS & NER](../sequence-labeling-pos-and-ner/sequence-labeling-pos-and-ner.md) — NER feeds candidate mentions.
-- Encoder foundations: [Contextual Embeddings — ELMo, BERT](../contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert.md) — the SpanBERT-style representations span-ranking coref runs on · [Attention Mechanism](../../../deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism.md) — the span head-attention pooling.
-- Downstream uses: [Question Answering](../question-answering/question-answering.md) · [Text Summarization](../text-summarization/text-summarization.md) · [Machine Translation](../machine-translation/machine-translation.md) — all need resolved entities.
-- Metrics neighbor: [NLP Evaluation Metrics](../nlp-evaluation-metrics/nlp-evaluation-metrics.md) — where MUC/B³/CEAF sit among task metrics.
+- Prior step / mention detection: [Sequence Labeling — POS & NER](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sequence-labeling-pos-and-ner/sequence-labeling-pos-and-ner) — NER feeds candidate mentions.
+- Encoder foundations: [Contextual Embeddings — ELMo, BERT](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert) — the SpanBERT-style representations span-ranking coref runs on · [Attention Mechanism](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism) — the span head-attention pooling.
+- Downstream uses: [Question Answering](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/question-answering/question-answering) · [Text Summarization](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/text-summarization/text-summarization) · [Machine Translation](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/machine-translation/machine-translation) — all need resolved entities.
+- Metrics neighbor: [NLP Evaluation Metrics](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/nlp-evaluation-metrics/nlp-evaluation-metrics) — where MUC/B³/CEAF sit among task metrics.

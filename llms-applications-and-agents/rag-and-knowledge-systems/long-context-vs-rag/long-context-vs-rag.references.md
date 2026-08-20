@@ -8,7 +8,7 @@ updated: 2026-07-02
 
 # Long-Context vs RAG — references and further reading
 
-> Companion link library for **[Long-Context vs RAG](long-context-vs-rag.md)** (the concept page).
+> Companion link library for **[Long-Context vs RAG](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/long-context-vs-rag/long-context-vs-rag)** (the concept page).
 > External sources *and* internal cross-links, kept separate so it can be reused as a standalone list.
 > Grouped by type, best-first. Every entry is free/open (no paywall) and chosen for depth on *this*
 > topic — the cost/accuracy tradeoff between stuffing a long context and retrieving with RAG:
@@ -54,9 +54,9 @@ updated: 2026-07-02
 - [Speech and Language Processing, 3rd ed. — Ch. 14 "Question Answering & Information Retrieval"](https://web.stanford.edu/~jurafsky/slp3/14.pdf) — **Jurafsky & Martin** — retrieval foundations explaining why *selection* still beats dumping everything into context, free PDF.
 
 **In this platform**:
-- Concept page (full explanation): [Long-Context vs RAG](long-context-vs-rag.md)
-- Concept depth (the *why*): [ai-ml-intuitions 8.02 Retrieval-Augmented Generation](../../../../ai-ml-intuitions/memory-retrieval-and-context/retrieval-augmented-generation/rag-intuition.md)
-- Foundations: [01 RAG Fundamentals (retrieve-then-generate)](../rag-foundations/rag-foundations.md) · [02 Document Chunking](../chunking/chunking.md) · [05 Hybrid Search (the DenseRetriever the dilution proxy reuses)](../hybrid-search/hybrid-search.md)
-- Measure it: [11 RAG Evaluation (why a smaller focused context scores higher)](../rag-evaluation/rag-evaluation.md)
-- Long-context mechanics: [LLMs — Long-Context Methods (RoPE scaling, ALiBi)](../../llm-model-architectures/long-context-architectures/long-context-architectures.md) · [LLMs — KV Cache (the memory/latency cost of a long prompt)](../../inference-and-runtime/kv-cache/kv-cache.md)
-- Next: [13 Citations & Attribution](../citations-and-attribution/citations-and-attribution.md)
+- Concept page (full explanation): [Long-Context vs RAG](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/long-context-vs-rag/long-context-vs-rag)
+- Concept depth (the *why*): [ai-ml-intuitions 8.02 Retrieval-Augmented Generation](/ai-ml/ai-ml-intuitions/memory-retrieval-and-context/retrieval-augmented-generation/rag-intuition)
+- Foundations: [01 RAG Fundamentals (retrieve-then-generate)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-foundations/rag-foundations) · [02 Document Chunking](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/chunking/chunking) · [05 Hybrid Search (the DenseRetriever the dilution proxy reuses)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search)
+- Measure it: [11 RAG Evaluation (why a smaller focused context scores higher)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-evaluation/rag-evaluation)
+- Long-context mechanics: [LLMs — Long-Context Methods (RoPE scaling, ALiBi)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/llm-model-architectures/long-context-architectures/long-context-architectures) · [LLMs — KV Cache (the memory/latency cost of a long prompt)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache)
+- Next: [13 Citations & Attribution](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/citations-and-attribution/citations-and-attribution)

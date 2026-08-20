@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Support Vector Machines — references and further reading
 
-> Companion link library for **[Support Vector Machines](support-vector-machines.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
+> Companion link library for **[Support Vector Machines](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/support-vector-machines/support-vector-machines)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [SVM Main Ideas](https://www.youtube.com/watch?v=efR1C6CvhmE) (**StatQuest**). *See the maximum-margin "street" and the support vectors that define it.*
@@ -49,7 +49,7 @@ updated: 2026-06-22
 - [Information Theory, Inference, and Learning Algorithms — Ch. 40 (kernel methods)](https://www.inference.org.uk/itprnn/book.pdf) — **David MacKay** — kernels and large-margin classifiers in a probabilistic frame.
 
 **In this platform**:
-- Concept page (full explanation): [Support Vector Machines](support-vector-machines.md)
-- Concept depth (the *why*): [ai-ml-intuitions 1.16 The Kernel Trick](../../../../../ai-ml-intuitions/representation/similarity-and-distance/kernel-trick-intuition.md) · [3.07 Bias–Variance & Generalization](../../../../../ai-ml-intuitions/objectives-and-evaluation/generalization/bias-variance-tradeoff-intuition.md)
-- Related: [Logistic Regression](../logistic-regression/logistic-regression.md) (another linear classifier; SVM maximizes margin, not likelihood) · [Regularization (Linear Models)](../../regression/regularization-linear-models/regularization-linear-models.md) (C is inverse regularization)
-- Math prerequisites: [01. Foundations](../../../../foundations/mathematical-foundations/README.md) — linear algebra, convex optimization, Lagrangian duality
+- Concept page (full explanation): [Support Vector Machines](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/support-vector-machines/support-vector-machines)
+- Concept depth (the *why*): [ai-ml-intuitions 1.16 The Kernel Trick](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/kernel-trick-intuition) · [3.07 Bias–Variance & Generalization](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/generalization/bias-variance-tradeoff-intuition)
+- Related: [Logistic Regression](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/logistic-regression/logistic-regression) (another linear classifier; SVM maximizes margin, not likelihood) · [Regularization (Linear Models)](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/regression/regularization-linear-models/regularization-linear-models) (C is inverse regularization)
+- Math prerequisites: [01. Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme) — linear algebra, convex optimization, Lagrangian duality

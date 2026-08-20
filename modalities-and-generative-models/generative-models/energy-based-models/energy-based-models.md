@@ -60,7 +60,7 @@ in production than diffusion.
 - [Probabilistic Machine Learning: Advanced Topics — **Ch. 24 "Energy-based models"**](https://probml.github.io/pml-book/book2.html) — **Kevin Murphy** — free PDF; the modern, unified treatment.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 5.01 Entropy & KL Divergence](../../../../ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition.md)
-- Closely related: [06 Score-Based & SDE Diffusion](../../diffusion-models/score-based-and-sde-diffusion/score-based-and-sde-diffusion.md) (the score is the negative energy gradient; both sample by Langevin)
-- Compare with: [02 GANs & DCGAN](../gans-and-dcgan/gans-and-dcgan.md) (the discriminator is an implicit energy) · [08 Normalizing Flows](../normalizing-flows/normalizing-flows.md)
-- Field overview: [9. Generative AI](../README.md)
+- Concept depth (the *why*): [ai-ml-intuitions 5.01 Entropy & KL Divergence](/ai-ml/ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition)
+- Closely related: [06 Score-Based & SDE Diffusion](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/score-based-and-sde-diffusion/score-based-and-sde-diffusion) (the score is the negative energy gradient; both sample by Langevin)
+- Compare with: [02 GANs & DCGAN](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/gans-and-dcgan/gans-and-dcgan) (the discriminator is an implicit energy) · [08 Normalizing Flows](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/normalizing-flows/normalizing-flows)
+- Field overview: [9. Generative AI](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/readme)

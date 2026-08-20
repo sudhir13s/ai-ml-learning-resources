@@ -56,6 +56,6 @@ and "how much context does this neuron have?"
 - [Dive into Deep Learning — **Ch. 7.5 (Pooling)** + **Ch. 7.3 (Padding & Stride)**](https://d2l.ai/chapter_convolutional-neural-networks/index.html) — **Zhang et al.** — pooling and the stride/padding math behind receptive fields, with runnable code.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 4.13 Convolution](../../../../ai-ml-intuitions/architectural-mechanisms/locality-and-weight-sharing/convolution-intuition.md) — receptive fields are a direct consequence of stacking convolutions.
-- Foundation: [Deep Learning › CNNs & Convolution](../../../deep-learning/neural-architectures/cnns-and-convolution/cnns-and-convolution.md)
-- Next concepts: [03 Classic CNN Architectures](../classic-cnn-architectures/classic-cnn-architectures.md) · [08 Semantic Segmentation](../semantic-segmentation/semantic-segmentation.md)
+- Concept depth (the *why*): [ai-ml-intuitions 4.13 Convolution](/ai-ml/ai-ml-intuitions/architectural-mechanisms/locality-and-weight-sharing/convolution-intuition) — receptive fields are a direct consequence of stacking convolutions.
+- Foundation: [Deep Learning › CNNs & Convolution](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/cnns-and-convolution/cnns-and-convolution)
+- Next concepts: [03 Classic CNN Architectures](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/classic-cnn-architectures/classic-cnn-architectures) · [08 Semantic Segmentation](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/semantic-segmentation/semantic-segmentation)

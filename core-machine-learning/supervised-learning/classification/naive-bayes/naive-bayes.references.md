@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Naive Bayes — references and further reading
 
-> Companion link library for **[Naive Bayes](naive-bayes.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
+> Companion link library for **[Naive Bayes](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/naive-bayes/naive-bayes)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Naive Bayes, Clearly Explained](https://www.youtube.com/watch?v=O2L2Uv9pdDA) (**StatQuest**). *The spam-filter example: per-word probabilities multiplied into a class score.*
@@ -49,7 +49,7 @@ updated: 2026-06-22
 - [Information Theory, Inference, and Learning Algorithms — Ch. 3 (Bayesian inference)](https://www.inference.org.uk/itprnn/book.pdf) — **David MacKay** — the probabilistic foundations (priors, MAP) Naive Bayes rests on.
 
 **In this platform**:
-- Concept page (full explanation): [Naive Bayes](naive-bayes.md)
-- Concept depth (the *why*): [ai-ml-intuitions 3.04 Maximum Likelihood Estimation](../../../../../ai-ml-intuitions/objectives-and-evaluation/statistical-objectives/maximum-likelihood-intuition.md) · [3.05 Classification Metrics](../../../../../ai-ml-intuitions/objectives-and-evaluation/predictive-evaluation/classification-metrics-intuition.md)
-- Related: [Logistic Regression](../logistic-regression/logistic-regression.md) (its discriminative twin — same linear form) · [Classification Metrics](../classification-metrics/classification-metrics.md) (how to score it) · [Cross-Validation](../../../model-selection-and-evaluation/cross-validation/cross-validation.md) (tune `alpha`)
-- Math prerequisites: [01. Foundations](../../../../foundations/mathematical-foundations/README.md) — probability, Bayes' theorem, conditional independence, MAP
+- Concept page (full explanation): [Naive Bayes](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/naive-bayes/naive-bayes)
+- Concept depth (the *why*): [ai-ml-intuitions 3.04 Maximum Likelihood Estimation](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/statistical-objectives/maximum-likelihood-intuition) · [3.05 Classification Metrics](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/predictive-evaluation/classification-metrics-intuition)
+- Related: [Logistic Regression](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/logistic-regression/logistic-regression) (its discriminative twin — same linear form) · [Classification Metrics](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/classification-metrics/classification-metrics) (how to score it) · [Cross-Validation](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/cross-validation/cross-validation) (tune `alpha`)
+- Math prerequisites: [01. Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme) — probability, Bayes' theorem, conditional independence, MAP

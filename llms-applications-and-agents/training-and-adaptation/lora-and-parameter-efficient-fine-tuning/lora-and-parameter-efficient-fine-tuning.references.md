@@ -8,7 +8,7 @@ updated: 2026-06-26
 
 # LoRA & PEFT — references and further reading
 
-> Companion link library for **[LoRA & PEFT](lora-and-parameter-efficient-fine-tuning.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity. All links are free / open-access.
+> Companion link library for **[LoRA & PEFT](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/lora-and-parameter-efficient-fine-tuning/lora-and-parameter-efficient-fine-tuning)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity. All links are free / open-access.
 
 **Start here — suggested path**:
 1. **Get the core idea** — watch [LoRA explained (and a bit about precision & quantization)](https://www.youtube.com/watch?v=t509sv5MT0w) (**DeepFindr**). *Low-rank updates and why they're cheap, clearly.*
@@ -57,7 +57,7 @@ updated: 2026-06-26
 - [Speech and Language Processing, 3rd ed. — Ch. 11 "Fine-Tuning & Masked LMs"](https://web.stanford.edu/~jurafsky/slp3/) — **Jurafsky & Martin** — the adaptation context LoRA makes cheap.
 
 **In this platform**:
-- Concept page (full explanation): [LoRA & PEFT](lora-and-parameter-efficient-fine-tuning.md)
+- Concept page (full explanation): [LoRA & PEFT](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/lora-and-parameter-efficient-fine-tuning/lora-and-parameter-efficient-fine-tuning)
 - Foundations (the *why* behind the weights LoRA adapts): [Attention Mechanism](../../../../deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism.md) · [Transformer Architecture](../../../../deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture.md)
-- Builds on this: [Quantization](../../inference-and-runtime/quantization/quantization.md) (NF4 / 4-bit, the base of QLoRA) · [Pretraining at Scale](../../large-language-model-foundations/pretraining/pretraining.md) (the base LoRA adapts) · [Decoder-only Architecture](../../large-language-model-foundations/decoder-only-models/decoder-only-models.md)
-- Puts it to work: [Supervised Fine-Tuning](../supervised-fine-tuning/supervised-fine-tuning.md) · [Instruction Tuning](../instruction-tuning/instruction-tuning.md) · [RLHF and DPO](../preference-and-alignment-training/preference-and-alignment-training.md)
+- Builds on this: [Quantization](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/quantization/quantization) (NF4 / 4-bit, the base of QLoRA) · [Pretraining at Scale](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/pretraining/pretraining) (the base LoRA adapts) · [Decoder-only Architecture](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/decoder-only-models/decoder-only-models)
+- Puts it to work: [Supervised Fine-Tuning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/supervised-fine-tuning/supervised-fine-tuning) · [Instruction Tuning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/instruction-tuning/instruction-tuning) · [RLHF and DPO](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/preference-and-alignment-training/preference-and-alignment-training)

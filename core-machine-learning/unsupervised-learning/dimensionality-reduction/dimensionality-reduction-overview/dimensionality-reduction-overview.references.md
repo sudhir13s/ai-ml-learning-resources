@@ -8,14 +8,14 @@ updated: 2026-06-22
 
 # Dimensionality Reduction — references and further reading
 
-> Companion link library for **[Dimensionality Reduction — Overview](dimensionality-reduction-overview.md)** (the concept page, PCA-centric). Curated links — external sources *and* internal cross-links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is a primary author or a recognized deep explainer, chosen for depth on *this* topic, and every link verified.
+> Companion link library for **[Dimensionality Reduction — Overview](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/dimensionality-reduction-overview/dimensionality-reduction-overview)** (the concept page, PCA-centric). Curated links — external sources *and* internal cross-links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is a primary author or a recognized deep explainer, chosen for depth on *this* topic, and every link verified.
 
 **Start here — suggested path:**
 1. **Build intuition** — watch [Luis Serrano: Principal Component Analysis (PCA)](https://www.youtube.com/watch?v=g-Hb26agBFg). *The "best camera angle on a cloud" picture — variance and projection without heavy math.*
 2. **See it move** — play with [Setosa: PCA, interactive](https://setosa.io/ev/principal-component-analysis/). *Drag the cloud and watch the principal axes rotate to follow it; the best visual intuition, fully free.*
 3. **Get the math (two views)** — read [Shlens, "A Tutorial on PCA"](https://arxiv.org/abs/1404.1100). *Derives PCA from variance maximization AND from the SVD — exactly the two derivations interviews want.*
 4. **Map the landscape** — skim the [scikit-learn comparison of manifold methods](https://scikit-learn.org/stable/auto_examples/manifold/plot_compare_methods.html). *See PCA (linear) next to t-SNE / Isomap / LLE / UMAP on the same data.*
-5. **Make it concrete** — apply PCA with the [scikit-learn decomposition guide](https://scikit-learn.org/stable/modules/decomposition.html#pca), inspect the explained-variance ratio, then jump to the [t-SNE](../t-sne/t-sne.md) / [UMAP](../umap/umap.md) pages for the non-linear methods.
+5. **Make it concrete** — apply PCA with the [scikit-learn decomposition guide](https://scikit-learn.org/stable/modules/decomposition.html#pca), inspect the explained-variance ratio, then jump to the [t-SNE](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/t-sne/t-sne) / [UMAP](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/umap/umap) pages for the non-linear methods.
 
 **Videos:**
 - [PCA, main ideas in only 5 minutes](https://www.youtube.com/watch?v=HMOI_lkzW08) — **StatQuest (Josh Starmer)** — the fastest correct mental model of components and scree.
@@ -54,10 +54,10 @@ updated: 2026-06-22
 - [The Elements of Statistical Learning — Ch. 14.5 "Principal Components, Curves and Surfaces"](https://hastie.su.domains/ElemStatLearn/) — **Hastie, Tibshirani & Friedman** — free PDF; PCA and its non-linear generalizations, the reference treatment.
 
 **In this platform:**
-- Concept page (full explanation): [Dimensionality Reduction — Overview](dimensionality-reduction-overview.md)
-- Non-linear siblings (the manifold methods): [t-SNE](../t-sne/t-sne.md) · [UMAP](../umap/umap.md)
-- The PCA/SVD math foundations (the *why*): [Foundations — Maths for AI-ML](../../../../foundations/mathematical-foundations/maths-for-ai-ml/README.md) · [ai-ml-intuitions 1.05 Spectral Methods (PCA / SVD)](../../../../../ai-ml-intuitions/representation/dimensionality-and-latent-structure/pca-and-svd-intuition.md)
-- The failure mode that motivates reduction: [k-Nearest Neighbors (curse of dimensionality)](../../../supervised-learning/classification/k-nearest-neighbors/k-nearest-neighbors.md)
-- Learned non-linear compression: [Autoencoders → Deep Learning](../../../../deep-learning/README.md)
-- Acutely relevant preprocessing: [2. Data Preprocessing](../../../../foundations/data-preparation/README.md) — scaling/standardization, which PCA depends on
-- Field overview: [4. Unsupervised Learning](../../README.md)
+- Concept page (full explanation): [Dimensionality Reduction — Overview](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/dimensionality-reduction-overview/dimensionality-reduction-overview)
+- Non-linear siblings (the manifold methods): [t-SNE](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/t-sne/t-sne) · [UMAP](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/umap/umap)
+- The PCA/SVD math foundations (the *why*): [Foundations — Maths for AI-ML](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme) · [ai-ml-intuitions 1.05 Spectral Methods (PCA / SVD)](/ai-ml/ai-ml-intuitions/representation/dimensionality-and-latent-structure/pca-and-svd-intuition)
+- The failure mode that motivates reduction: [k-Nearest Neighbors (curse of dimensionality)](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/k-nearest-neighbors/k-nearest-neighbors)
+- Learned non-linear compression: [Autoencoders → Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
+- Acutely relevant preprocessing: [2. Data Preprocessing](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/readme) — scaling/standardization, which PCA depends on
+- Field overview: [4. Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)

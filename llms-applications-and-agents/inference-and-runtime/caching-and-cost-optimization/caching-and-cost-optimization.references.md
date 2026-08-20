@@ -8,7 +8,7 @@ updated: 2026-07-02
 
 # Caching & Cost Optimization — references and further reading
 
-> Companion link library for **[Caching & Cost Optimization](caching-and-cost-optimization.md)** (the
+> Companion link library for **[Caching & Cost Optimization](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/caching-and-cost-optimization/caching-and-cost-optimization)** (the
 > concept page). External sources *and* internal cross-links, kept separate so it can be reused as a
 > standalone list. Grouped by type, best-first. Every entry is free/open (no paywall) and chosen for
 > depth on *this* topic — semantic caching (embedding-similarity answer reuse), prompt/prefix caching
@@ -55,8 +55,8 @@ updated: 2026-07-02
 - [Hugging Face Transformers — "LLM inference optimization" guide](https://huggingface.co/docs/transformers/en/llm_optims) — **Hugging Face** — the closest free book-length reference: caching, batching, and the latency/cost levers, fully open.
 
 **In this platform**:
-- Concept page (full explanation): [Caching & Cost Optimization](caching-and-cost-optimization.md)
-- Concept depth (the *why*): [ai-ml-intuitions 8.02 Retrieval-Augmented Generation](../../../../ai-ml-intuitions/memory-retrieval-and-context/retrieval-augmented-generation/rag-intuition.md) · [1.02 Dense Embeddings](../../../../ai-ml-intuitions/representation/embedding-spaces/dense-embeddings-intuition.md) (the basis of semantic caching)
-- Reused here: [05 Hybrid Search (the DenseRetriever/encoder)](../../rag-and-knowledge-systems/hybrid-search/hybrid-search.md) · [12 Long-Context vs RAG (the token cost model)](../../rag-and-knowledge-systems/long-context-vs-rag/long-context-vs-rag.md) · [14 Guardrails (the same threshold-tradeoff shape)](../../reasoning-evaluation-and-alignment/hallucination-and-grounding/hallucination-and-grounding.md)
-- Foundations: [01 RAG Fundamentals](../../rag-and-knowledge-systems/rag-foundations/rag-foundations.md) · [04 Vector Databases & ANN (fast cache lookup)](../../rag-and-knowledge-systems/vector-search/vector-search.md) · [15 LLM App Orchestration](../../agentic-ai/llm-app-orchestration/llm-app-orchestration.md)
-- Related domain: [LLMs — KV Cache](../kv-cache/kv-cache.md) · [LLMs — Inference Optimization & Serving (vLLM)](../inference-optimization/inference-optimization.md)
+- Concept page (full explanation): [Caching & Cost Optimization](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/caching-and-cost-optimization/caching-and-cost-optimization)
+- Concept depth (the *why*): [ai-ml-intuitions 8.02 Retrieval-Augmented Generation](/ai-ml/ai-ml-intuitions/memory-retrieval-and-context/retrieval-augmented-generation/rag-intuition) · [1.02 Dense Embeddings](/ai-ml/ai-ml-intuitions/representation/embedding-spaces/dense-embeddings-intuition) (the basis of semantic caching)
+- Reused here: [05 Hybrid Search (the DenseRetriever/encoder)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search) · [12 Long-Context vs RAG (the token cost model)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/long-context-vs-rag/long-context-vs-rag) · [14 Guardrails (the same threshold-tradeoff shape)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/hallucination-and-grounding/hallucination-and-grounding)
+- Foundations: [01 RAG Fundamentals](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-foundations/rag-foundations) · [04 Vector Databases & ANN (fast cache lookup)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search) · [15 LLM App Orchestration](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/llm-app-orchestration/llm-app-orchestration)
+- Related domain: [LLMs — KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) · [LLMs — Inference Optimization & Serving (vLLM)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/inference-optimization/inference-optimization)

@@ -28,7 +28,7 @@ I'm going to walk this the way I'd explain it to a teammate who already understa
 - prove in code that a **diverse mix yields generalization a narrow mix cannot**, on identical compute;
 - avoid the real traps: **held-out leakage**, **template overfitting**, **negative transfer**, and the big one — *instruction tuning is not alignment*.
 
-> **One-line thesis:** instruction tuning is **[supervised fine-tuning](../supervised-fine-tuning/supervised-fine-tuning.md) scaled to a large, diverse set of tasks phrased as instructions** — and that scaling, empirically, produces **zero-shot generalization to unseen task types**. Same loss as SFT; different *data*, and a different *result*.
+> **One-line thesis:** instruction tuning is **[supervised fine-tuning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/supervised-fine-tuning/supervised-fine-tuning) scaled to a large, diverse set of tasks phrased as instructions** — and that scaling, empirically, produces **zero-shot generalization to unseen task types**. Same loss as SFT; different *data*, and a different *result*.
 
 ---
 
@@ -36,7 +36,7 @@ I'm going to walk this the way I'd explain it to a teammate who already understa
 
 To feel why instruction tuning matters, watch a capable model fail at something easy.
 
-Take a strong base LM — it has read the internet, it "knows" what natural-language inference is. Now [supervise-fine-tune](../supervised-fine-tuning/supervised-fine-tuning.md) it on a handful of tasks: summarize this, translate this, label this review's sentiment. It gets good at those. Then hand it a task it never trained on but is *clearly capable of*:
+Take a strong base LM — it has read the internet, it "knows" what natural-language inference is. Now [supervise-fine-tune](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/supervised-fine-tuning/supervised-fine-tuning) it on a handful of tasks: summarize this, translate this, label this review's sentiment. It gets good at those. Then hand it a task it never trained on but is *clearly capable of*:
 
 ```
 Premise: "The concert was cancelled due to rain."
@@ -52,11 +52,11 @@ Here's the crucial contrast that defines the whole topic, and the **single most 
 
 | | What it changes | Loss | Result |
 |---|---|---|---|
-| **[SFT](../supervised-fine-tuning/supervised-fine-tuning.md)** (chapter 13) | continue next-token training on `(prompt, response)` demonstrations | masked cross-entropy on the response | model produces helpful, formatted answers for **the kinds of prompts it was tuned on** |
+| **[SFT](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/supervised-fine-tuning/supervised-fine-tuning)** (chapter 13) | continue next-token training on `(prompt, response)` demonstrations | masked cross-entropy on the response | model produces helpful, formatted answers for **the kinds of prompts it was tuned on** |
 | **Instruction tuning** (this chapter) | SFT, but on a **large, diverse mix of tasks phrased as instructions**, often with **multiple phrasings per task** | **the same** masked cross-entropy | model learns to **follow instructions in general** → **zero-shot generalization to unseen task types** |
-| **[RLHF / DPO](../preference-and-alignment-training/preference-and-alignment-training.md)** (chapter 15) | optimize a **preference** objective (reward model + PPO, or DPO) | a *different* objective entirely (no fixed target) | model becomes **more helpful/harmless** per human preference |
+| **[RLHF / DPO](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/preference-and-alignment-training/preference-and-alignment-training)** (chapter 15) | optimize a **preference** objective (reward model + PPO, or DPO) | a *different* objective entirely (no fixed target) | model becomes **more helpful/harmless** per human preference |
 
-> **Note:** instruction tuning **reuses SFT's loss verbatim** — masked next-token cross-entropy over the response. We do **not** re-derive that loss here; it's the mechanism of [chapter 13](../supervised-fine-tuning/supervised-fine-tuning.md). What's new in chapter 14 is the **data** (diversity + instruction framing) and the **emergent result** (generalization). What's new in [chapter 15](../preference-and-alignment-training/preference-and-alignment-training.md) is the **objective**. Keep these three straight and most instruction-tuning questions answer themselves.
+> **Note:** instruction tuning **reuses SFT's loss verbatim** — masked next-token cross-entropy over the response. We do **not** re-derive that loss here; it's the mechanism of [chapter 13](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/supervised-fine-tuning/supervised-fine-tuning). What's new in chapter 14 is the **data** (diversity + instruction framing) and the **emergent result** (generalization). What's new in [chapter 15](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/preference-and-alignment-training/preference-and-alignment-training) is the **objective**. Keep these three straight and most instruction-tuning questions answer themselves.
 
 ---
 
@@ -70,7 +70,7 @@ That second trainee is an instruction-tuned model. The "lesson plans" are **inst
 
 > **The follow-up that makes or breaks the analogy — "why does training on A, B, C help an unseen D?"** Because the model isn't storing A, B, C as separate lookup tables. To fit *many* tasks that are all framed the same way ("here is an instruction; produce the output it asks for"), the cheapest thing for gradient descent to learn is the **shared structure** — *parse the instruction, identify the operation, apply it to the input* — rather than a separate circuit per task. That shared structure is exactly what task D also needs. The diversity **forces** the general skill because memorizing each task individually is no longer the path of least resistance once there are enough, varied enough, tasks. (We prove this mechanism in code below: a model trained on *one* instruction memorizes it; a model trained on a *varied* version of the same instruction is forced to actually **read** it — and then generalizes.)
 
-> **Where the analogy breaks (so you don't oversell it):** a substitute teacher *understands* the plans; an LLM is doing sophisticated pattern-completion. Instruction tuning doesn't grant comprehension — it makes the model's behaviour *conditioned on the instruction* rather than fixed. That's why an instruction-tuned model can still confidently follow an instruction *wrongly* — it learned the *form* "do what the instruction says," not a guarantee of *correctness*. Closing that last gap is [RLHF/DPO's](../preference-and-alignment-training/preference-and-alignment-training.md) job, not instruction tuning's.
+> **Where the analogy breaks (so you don't oversell it):** a substitute teacher *understands* the plans; an LLM is doing sophisticated pattern-completion. Instruction tuning doesn't grant comprehension — it makes the model's behaviour *conditioned on the instruction* rather than fixed. That's why an instruction-tuned model can still confidently follow an instruction *wrongly* — it learned the *form* "do what the instruction says," not a guarantee of *correctness*. Closing that last gap is [RLHF/DPO's](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/preference-and-alignment-training/preference-and-alignment-training) job, not instruction tuning's.
 
 ![Three natural-language phrasings of one task ("translate to French") all map to a single unified instruction format the model trains on; training on multiple phrasings per task forces the model to bind behaviour to the instruction's MEANING, not one surface string.](images/it_instruction_template.png)
 
@@ -103,9 +103,9 @@ graph LR
     classDef note fill:#7A6528,stroke:#6A5518,color:#fff
 ```
 
-Read the pipeline left to right: **pretraining** gives a base model that can *continue* text but won't reliably *follow* it. **Instruction tuning** — the green stage — is a supervised pass on a diverse instruction mix that installs the follow-instructions skill. **[RLHF/DPO](../preference-and-alignment-training/preference-and-alignment-training.md)** is an *optional, different* stage that refines *preferences* (helpfulness, harmlessness) with a non-supervised objective. The amber note is the crux to memorize: **instruction tuning and plain SFT share the loss; they differ only in how many and how varied the tasks are.** That difference is the whole topic.
+Read the pipeline left to right: **pretraining** gives a base model that can *continue* text but won't reliably *follow* it. **Instruction tuning** — the green stage — is a supervised pass on a diverse instruction mix that installs the follow-instructions skill. **[RLHF/DPO](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/preference-and-alignment-training/preference-and-alignment-training)** is an *optional, different* stage that refines *preferences* (helpfulness, harmlessness) with a non-supervised objective. The amber note is the crux to memorize: **instruction tuning and plain SFT share the loss; they differ only in how many and how varied the tasks are.** That difference is the whole topic.
 
-> **Note (the key contrast with chapter 15):** instruction tuning is **purely supervised** — there is a **fixed target** for every example and **no reward model**. The moment you introduce a reward model or a preference pair, you've left instruction tuning and entered [RLHF/DPO](../preference-and-alignment-training/preference-and-alignment-training.md). InstructGPT makes the staging explicit: its **SFT stage** (which is instruction tuning on human demonstrations) comes *first*, then the reward model and PPO. ([Ouyang et al. 2022, §3](https://arxiv.org/abs/2203.02155).)
+> **Note (the key contrast with chapter 15):** instruction tuning is **purely supervised** — there is a **fixed target** for every example and **no reward model**. The moment you introduce a reward model or a preference pair, you've left instruction tuning and entered [RLHF/DPO](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/preference-and-alignment-training/preference-and-alignment-training). InstructGPT makes the staging explicit: its **SFT stage** (which is instruction tuning on human demonstrations) comes *first*, then the reward model and PPO. ([Ouyang et al. 2022, §3](https://arxiv.org/abs/2203.02155).)
 
 ---
 
@@ -145,7 +145,7 @@ $$\mathcal{L} \;=\; -\sum_{t=r}^{T} \log p_\theta\!\left(y_t \mid y_{<t}\right)$
 
 — the **masked next-token cross-entropy** (where $r$ is the first response-token index; the prefix at positions $<r$ is masked out and contributes nothing to the loss): identical to SFT, summed *only over the response positions* (the instruction/input prefix is not scored). Instruction tuning is this exact loss, applied across a **diverse multitask instruction mix**.
 
-> **Source / derivation:** this is the SFT loss of [**chapter 13 — Supervised Fine-Tuning**](../supervised-fine-tuning/supervised-fine-tuning.md) (where the response-masking is derived); it is the same objective used in the [**InstructGPT** SFT stage (Ouyang et al. 2022, §3)](https://arxiv.org/abs/2203.02155). We deliberately do **not** re-derive it here — the novelty of instruction tuning is the *data*, not the loss.
+> **Source / derivation:** this is the SFT loss of [**chapter 13 — Supervised Fine-Tuning**](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/supervised-fine-tuning/supervised-fine-tuning) (where the response-masking is derived); it is the same objective used in the [**InstructGPT** SFT stage (Ouyang et al. 2022, §3)](https://arxiv.org/abs/2203.02155). We deliberately do **not** re-derive it here — the novelty of instruction tuning is the *data*, not the loss.
 
 ---
 
@@ -263,7 +263,7 @@ Adding tasks is not free. Below a capacity threshold, the model spends its limit
 
 ### 4. The big one: **instruction tuning is *not* alignment**
 
-An instruction-tuned model follows instructions — including instructions to do harmful, dishonest, or unhelpful things, and it follows *well-meaning* instructions *wrongly* with full confidence. Instruction tuning installs the *form* ("do what's asked"), not the *judgment* ("be helpful and harmless"). That last mile is [**RLHF/DPO's**](../preference-and-alignment-training/preference-and-alignment-training.md) job.
+An instruction-tuned model follows instructions — including instructions to do harmful, dishonest, or unhelpful things, and it follows *well-meaning* instructions *wrongly* with full confidence. Instruction tuning installs the *form* ("do what's asked"), not the *judgment* ("be helpful and harmless"). That last mile is [**RLHF/DPO's**](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/preference-and-alignment-training/preference-and-alignment-training) job.
 
 > **Source / claim:** the staging "SFT/instruction-tuning first, then preference optimization for helpfulness and harmlessness" is [**InstructGPT** (Ouyang et al. 2022)](https://arxiv.org/abs/2203.02155) — its whole premise is that supervised instruction tuning alone is insufficient for alignment. **In an interview, never say "instruction tuning aligns the model."** Say it makes the model *follow instructions*; alignment is the next stage.
 
@@ -324,19 +324,19 @@ The growth of these corpora makes Law 1 visible: the **number and diversity of i
 
 **Used:** essentially every modern instruction-following model passes through an instruction-tuning stage. FLAN-T5 and FLAN-PaLM are the canonical research artifacts; the **SFT stage of InstructGPT/ChatGPT** *is* instruction tuning on human demonstrations; Llama-2/3-Chat, Mistral-Instruct, and the entire open "-Instruct" model zoo are instruction-tuned (often on FLAN-Collection-style mixes plus synthetic data). When you download a model with `-Instruct` or `-Chat` in its name, you are downloading the *output* of this chapter.
 
-**The crux to take away:** instruction tuning is the cheapest, highest-leverage step between a base model and a usable assistant. It is **supervised** (no reward model, no RL machinery — far simpler and cheaper than [RLHF](../preference-and-alignment-training/preference-and-alignment-training.md)), it reuses the **SFT loss** you already have, and its single active ingredient is **task diversity phrased as instructions**. Get the data mix right — many task types, multiple templates each, balanced, leak-free — and zero-shot generalization falls out. That is an enormous return on a conceptually tiny change.
+**The crux to take away:** instruction tuning is the cheapest, highest-leverage step between a base model and a usable assistant. It is **supervised** (no reward model, no RL machinery — far simpler and cheaper than [RLHF](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/preference-and-alignment-training/preference-and-alignment-training)), it reuses the **SFT loss** you already have, and its single active ingredient is **task diversity phrased as instructions**. Get the data mix right — many task types, multiple templates each, balanced, leak-free — and zero-shot generalization falls out. That is an enormous return on a conceptually tiny change.
 
 **When *not* to reach for it / its limits:**
 
-- **You need a single narrow capability** (e.g. one classification task in production). Then plain task-specific [SFT](../supervised-fine-tuning/supervised-fine-tuning.md) — or even few-shot [prompting](../../reasoning-evaluation-and-alignment/prompting-and-in-context-learning/prompting-and-in-context-learning.md) — is simpler and may beat a general instruction-tuned model on *that* task.
-- **You need helpfulness/harmlessness/preference alignment.** Instruction tuning won't get you there — go to [RLHF/DPO](../preference-and-alignment-training/preference-and-alignment-training.md).
+- **You need a single narrow capability** (e.g. one classification task in production). Then plain task-specific [SFT](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/supervised-fine-tuning/supervised-fine-tuning) — or even few-shot [prompting](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/prompting-and-in-context-learning/prompting-and-in-context-learning) — is simpler and may beat a general instruction-tuned model on *that* task.
+- **You need helpfulness/harmlessness/preference alignment.** Instruction tuning won't get you there — go to [RLHF/DPO](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/preference-and-alignment-training/preference-and-alignment-training).
 - **Your model is too small.** Below the scale threshold, instruction tuning can *hurt* zero-shot (Law 2) — measure, don't assume.
 
 ---
 
 ## Recap and rapid-fire
 
-**If you remember nothing else:** instruction tuning is **[SFT](../supervised-fine-tuning/supervised-fine-tuning.md) scaled to a large, diverse set of tasks phrased as instructions** (often multi-template). The *same* masked-CE loss, applied to a *diverse instruction mix*, makes the model learn the **meta-skill of following instructions** — which **transfers zero-shot to task types it never saw** (FLAN). It is **supervised** and **not alignment**; helpfulness/harmlessness is [RLHF/DPO's](../preference-and-alignment-training/preference-and-alignment-training.md) job.
+**If you remember nothing else:** instruction tuning is **[SFT](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/supervised-fine-tuning/supervised-fine-tuning) scaled to a large, diverse set of tasks phrased as instructions** (often multi-template). The *same* masked-CE loss, applied to a *diverse instruction mix*, makes the model learn the **meta-skill of following instructions** — which **transfers zero-shot to task types it never saw** (FLAN). It is **supervised** and **not alignment**; helpfulness/harmlessness is [RLHF/DPO's](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/preference-and-alignment-training/preference-and-alignment-training) job.
 
 **Quick-fire — say these out loud:**
 

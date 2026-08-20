@@ -8,7 +8,7 @@ updated: 2026-06-27
 
 # Text Preprocessing & Normalization — references and further reading
 
-> Companion link library for **[Text Preprocessing & Normalization](text-preprocessing-and-normalization.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
+> Companion link library for **[Text Preprocessing & Normalization](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/text-preprocessing-and-normalization/text-preprocessing-and-normalization)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
 1. **See the pipeline whole** — read [An Introduction to NLP](https://victorzhou.com/blog/intro-to-nlp/) (**Victor Zhou**). *The end-to-end picture of what each preprocessing step does, before the tools.*
@@ -54,12 +54,12 @@ updated: 2026-06-27
 - [Introduction to Information Retrieval — Ch. 2 “The term vocabulary and postings lists”](https://nlp.stanford.edu/IR-book/) — **Manning, Raghavan & Schütze** — tokenization, normalization, stemming, and stopwords from the IR perspective, free online.
 
 **In this platform**:
-- Concept page (full explanation): [Text Preprocessing & Normalization](text-preprocessing-and-normalization.md)
+- Concept page (full explanation): [Text Preprocessing & Normalization](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/text-preprocessing-and-normalization/text-preprocessing-and-normalization)
 - Runnable code (single source of truth): [text_preprocessing.py](code/text_preprocessing.py) — the pipeline, Zipf fit, stemmer/lemmatizer, classifier sweep, and Unicode demo as one verified module.
 - Step-by-step teaching notebook: [01-Text-Preprocessing-and-Normalization.ipynb](code/text-preprocessing-and-normalization.ipynb) — one idea per cell, each asserting its point before printing.
 - Figure generator: [make_figures_01.py](code/make_figures_01.py) — regenerates every embedded figure from the same functions, so the prose and images can't drift.
-- Next concept: [Tokenization & Subword Algorithms](../tokenization-and-subword-algorithms/tokenization-and-subword-algorithms.md) — where preprocessing meets modern subword vocabularies (BPE, WordPiece, SentencePiece, Unigram).
-- Concept depth (the *why* of subwords): [ai-ml-intuitions 1.15 Tokenization & BPE](../../../../ai-ml-intuitions/representation/discrete-representations/tokenization-and-bpe-intuition.md)
-- The first models that consume preprocessed text: [Bag-of-Words & TF-IDF](../bag-of-words-and-tf-idf/bag-of-words-and-tf-idf.md)
-- Why transformers want *minimal* preprocessing: [Contextual Embeddings (ELMo / BERT)](../contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert.md)
-- Tasks where you must *keep* case and stopwords: [Sequence Labeling — POS & NER](../sequence-labeling-pos-and-ner/sequence-labeling-pos-and-ner.md)
+- Next concept: [Tokenization & Subword Algorithms](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/tokenization-and-subword-algorithms/tokenization-and-subword-algorithms) — where preprocessing meets modern subword vocabularies (BPE, WordPiece, SentencePiece, Unigram).
+- Concept depth (the *why* of subwords): [ai-ml-intuitions 1.15 Tokenization & BPE](/ai-ml/ai-ml-intuitions/representation/discrete-representations/tokenization-and-bpe-intuition)
+- The first models that consume preprocessed text: [Bag-of-Words & TF-IDF](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/bag-of-words-and-tf-idf/bag-of-words-and-tf-idf)
+- Why transformers want *minimal* preprocessing: [Contextual Embeddings (ELMo / BERT)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert)
+- Tasks where you must *keep* case and stopwords: [Sequence Labeling — POS & NER](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sequence-labeling-pos-and-ner/sequence-labeling-pos-and-ner)

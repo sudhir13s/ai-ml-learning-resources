@@ -56,6 +56,6 @@ for RAG, fine-tuning, and inference.
 - [Hugging Face documentation hub](https://huggingface.co/docs) — **Hugging Face** — the complete free reference across all libraries.
 
 ## 🔗 In this platform
-- Related domain: [LLMs, Applications and Agents](../../../llms-applications-and-agents/README.md) · [06. NLP](../../../modalities-and-generative-models/natural-language-processing/README.md) · [10. GenAI](../../../modalities-and-generative-models/generative-models/README.md)
-- Pairs with: [05 PyTorch](../pytorch/pytorch.md) · [13 Gradio & Streamlit](../gradio-and-streamlit/gradio-and-streamlit.md)
-- Deeper concept (the *why*): transformers & LLM internals → [Deep Learning](../../../deep-learning/README.md); RAG pipelines → [RAG & LLM Applications](../../../llms-applications-and-agents/rag-and-knowledge-systems/overview.md)
+- Related domain: [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme) · [06. NLP](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/readme) · [10. GenAI](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/readme)
+- Pairs with: [05 PyTorch](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/pytorch/pytorch) · [13 Gradio & Streamlit](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/gradio-and-streamlit/gradio-and-streamlit)
+- Deeper concept (the *why*): transformers & LLM internals → [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme); RAG pipelines → [RAG & LLM Applications](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/overview)

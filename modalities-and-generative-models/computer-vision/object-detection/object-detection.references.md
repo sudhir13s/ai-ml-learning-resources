@@ -8,7 +8,7 @@ updated: 2026-07-03
 
 # Object Detection — references and further reading
 
-> Companion link library for **[Object Detection](object-detection.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is free / open (no paywall) and from a primary author or a recognized deep explainer — chosen for depth on the *detection task and its core machinery* (IoU, NMS, anchors, Average Precision, two-stage vs one-stage), not popularity.
+> Companion link library for **[Object Detection](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/object-detection/object-detection)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is free / open (no paywall) and from a primary author or a recognized deep explainer — chosen for depth on the *detection task and its core machinery* (IoU, NMS, anchors, Average Precision, two-stage vs one-stage), not popularity.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [How computers learn to recognize objects instantly (TED)](https://www.youtube.com/watch?v=Cgxsv1riJhI) by YOLO's author. *The single-pass detection idea, motivated.*
@@ -58,12 +58,12 @@ updated: 2026-07-03
 - [Computer Vision: Algorithms and Applications, 2nd ed. — Ch. 6.3 (Object detection)](https://szeliski.org/Book/) — **Richard Szeliski** — detection in the broader recognition context; the full PDF is free.
 
 **In this platform**:
-- Concept page (full explanation): [Object Detection](object-detection.md)
+- Concept page (full explanation): [Object Detection](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/object-detection/object-detection)
 - Runnable code: [the module `object_detection.py`](code/object_detection.py) · [the step-by-step notebook](code/object-detection.ipynb) — a real Faster R-CNN on a real photo, with IoU and NMS from scratch (cross-checked against `torchvision.ops`) and AP pinned to a hand-verified 11/12 worked example; every metric measured, none mocked.
-- The task detection builds on: [04 Image Classification](../image-classification/image-classification.md) — a detector is a classifier applied to regions plus a box regressor (we *use* classification here; that page derives it).
-- The backbone: [05 Deep Learning › CNNs & Convolution](../../../deep-learning/neural-architectures/cnns-and-convolution/cnns-and-convolution.md) — convolution, receptive fields, and the ResNet backbone every detector runs once over the image.
-- The metrics, in depth: [10 Detection & Segmentation Metrics (IoU · mAP)](../detection-and-segmentation-metrics/detection-and-segmentation-metrics.md) — the dedicated treatment of the evaluation protocol this page derives and measures.
-- The sibling dense-prediction tasks: [08 Semantic Segmentation](../semantic-segmentation/semantic-segmentation.md) (per-pixel classification) · [09 Instance Segmentation](../instance-segmentation/instance-segmentation.md) (detection + a mask head; Mask R-CNN).
-- Why generalization is the whole game: [00 Basics › Overfitting & Underfitting](../../../foundations/ai-ml-orientation/overfitting-and-underfitting/overfitting-and-underfitting.md) — the gap augmentation and regularization shrink, which matters for training detectors on scarce boxes.
-- Where detection goes next: [11 Vision Transformers](../vision-transformers/vision-transformers.md) — the ViT backbone and the DETR set-prediction reformulation that removes anchors and NMS.
-- Field overview: [Computer Vision](../README.md)
+- The task detection builds on: [04 Image Classification](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/image-classification/image-classification) — a detector is a classifier applied to regions plus a box regressor (we *use* classification here; that page derives it).
+- The backbone: [05 Deep Learning › CNNs & Convolution](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/cnns-and-convolution/cnns-and-convolution) — convolution, receptive fields, and the ResNet backbone every detector runs once over the image.
+- The metrics, in depth: [10 Detection & Segmentation Metrics (IoU · mAP)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/detection-and-segmentation-metrics/detection-and-segmentation-metrics) — the dedicated treatment of the evaluation protocol this page derives and measures.
+- The sibling dense-prediction tasks: [08 Semantic Segmentation](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/semantic-segmentation/semantic-segmentation) (per-pixel classification) · [09 Instance Segmentation](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/instance-segmentation/instance-segmentation) (detection + a mask head; Mask R-CNN).
+- Why generalization is the whole game: [00 Basics › Overfitting & Underfitting](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/overfitting-and-underfitting/overfitting-and-underfitting) — the gap augmentation and regularization shrink, which matters for training detectors on scarce boxes.
+- Where detection goes next: [11 Vision Transformers](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/vision-transformers/vision-transformers) — the ViT backbone and the DETR set-prediction reformulation that removes anchors and NMS.
+- Field overview: [Computer Vision](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/readme)

@@ -8,7 +8,7 @@ updated: 2026-06-27
 
 # Decoding Strategies — references and further reading
 
-> Companion link library for **[Decoding Strategies](decoding-strategies.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
+> Companion link library for **[Decoding Strategies](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/decoding-strategies/decoding-strategies)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
 1. **Build intuition** — read [How to generate text: different decoding methods](https://huggingface.co/blog/how-to-generate) (**Patrick von Platen, Hugging Face**). *The definitive, code-backed tour of greedy, beam, top-k, and top-p — run it as you read.*
@@ -60,10 +60,10 @@ updated: 2026-06-27
 - [Figure generator](code/make_figures_17.py) — regenerates all eight `decode_*` figures from the same functions.
 
 **In this platform**:
-- Concept page (full explanation): [Decoding Strategies](decoding-strategies.md)
-- Prior step (the models being decoded): [08 Sequence-to-Sequence & Encoder–Decoder](../sequence-to-sequence-and-encoder-decoder/sequence-to-sequence-and-encoder-decoder.md)
-- Puts decoding to work: [12 Machine Translation](../machine-translation/machine-translation.md) (beam search) · [13 Text Summarization](../text-summarization/text-summarization.md) (beam + no-repeat n-gram)
-- How decoded text is scored: [18 NLP Evaluation Metrics](../nlp-evaluation-metrics/nlp-evaluation-metrics.md)
-- The LLM-systems view (KV-cache interaction, prefill/decode phases, throughput): [09 LLMs · 18 Decoding & Sampling](../../../llms-applications-and-agents/inference-and-runtime/decoding-and-sampling/decoding-and-sampling.md) — the LLM-serving counterpart to this general sequence-generation page (no overlap; cross-linked from the speculative-decoding section)
-- The speedup decode relies on: [09 LLMs · KV Cache](../../../llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.md) (why decode is memory-bound; speculative decoding)
-- The *why* behind the math: [ai-ml-intuitions 5.05 Autoregressive Generation & Sampling](../../../../ai-ml-intuitions/generation/autoregressive-generation/autoregressive-generation-and-sampling-controls-intuition.md) · [5.01 Entropy & KL (temperature)](../../../../ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition.md)
+- Concept page (full explanation): [Decoding Strategies](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/decoding-strategies/decoding-strategies)
+- Prior step (the models being decoded): [08 Sequence-to-Sequence & Encoder–Decoder](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sequence-to-sequence-and-encoder-decoder/sequence-to-sequence-and-encoder-decoder)
+- Puts decoding to work: [12 Machine Translation](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/machine-translation/machine-translation) (beam search) · [13 Text Summarization](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/text-summarization/text-summarization) (beam + no-repeat n-gram)
+- How decoded text is scored: [18 NLP Evaluation Metrics](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/nlp-evaluation-metrics/nlp-evaluation-metrics)
+- The LLM-systems view (KV-cache interaction, prefill/decode phases, throughput): [09 LLMs · 18 Decoding & Sampling](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/decoding-and-sampling/decoding-and-sampling) — the LLM-serving counterpart to this general sequence-generation page (no overlap; cross-linked from the speculative-decoding section)
+- The speedup decode relies on: [09 LLMs · KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) (why decode is memory-bound; speculative decoding)
+- The *why* behind the math: [ai-ml-intuitions 5.05 Autoregressive Generation & Sampling](/ai-ml/ai-ml-intuitions/generation/autoregressive-generation/autoregressive-generation-and-sampling-controls-intuition) · [5.01 Entropy & KL (temperature)](/ai-ml/ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition)

@@ -58,6 +58,6 @@ judged on whether your plots show you *understood* the data, not just that you f
 - [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/) — **Claus Wilke** — free online book on *how* to visualize well, not just which function to call.
 
 ## 🔗 In this platform
-- Prev/next: [08 Pandas Essentials](../pandas-essentials/pandas-essentials.md) · [10 Jupyter & Google Colab](../jupyter-and-google-colab/jupyter-and-google-colab.md)
-- Go deeper — EDA in the preprocessing pipeline: [02. Data Preprocessing](../../data-preparation/README.md)
-- Apply it: [12 Your First ML Project](../your-first-ml-project/your-first-ml-project.md)
+- Prev/next: [08 Pandas Essentials](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/pandas-essentials/pandas-essentials) · [10 Jupyter & Google Colab](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/jupyter-and-google-colab/jupyter-and-google-colab)
+- Go deeper — EDA in the preprocessing pipeline: [02. Data Preprocessing](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/readme)
+- Apply it: [12 Your First ML Project](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/your-first-ml-project/your-first-ml-project)

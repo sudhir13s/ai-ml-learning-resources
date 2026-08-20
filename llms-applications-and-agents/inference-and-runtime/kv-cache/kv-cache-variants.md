@@ -19,7 +19,7 @@ category: inference-and-runtime
 
 # KV Cache · Chapter 1 — Variants: what you store
 
-The [main page](kv-cache.md) established the cache-size formula and why every byte of it costs speed and capacity. This chapter is about the **variants** — the different answers models give to "what exactly do we store per token?" Every variant attacks a different term of the formula, and every modern model you can name has picked one.
+The [main page](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) established the cache-size formula and why every byte of it costs speed and capacity. This chapter is about the **variants** — the different answers models give to "what exactly do we store per token?" Every variant attacks a different term of the formula, and every modern model you can name has picked one.
 
 The map, before the details:
 
@@ -180,7 +180,7 @@ Read off the columns:
 - the same 32-layer, $d_{\text{head}}=128$ 7B-class shape costs **0.50 MiB/token** under MHA and **0.125 MiB/token** under GQA-8 — the whole difference is the 32 → 8 KV-head cut;
 - Mistral adds a window, so the *total* is bounded regardless of conversation length;
 - MLA abandons the per-head formula entirely and lands at ~1.8% of same-shape MHA;
-- every serving engine layers paging, FP8 cache options, and prefix caching on top of whichever variant the model ships with — that stack is [chapter 2](kv-cache-optimization-stack.md).
+- every serving engine layers paging, FP8 cache options, and prefix caching on top of whichever variant the model ships with — that stack is [chapter 2](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache-optimization-stack).
 
 > **Note:** **beam search** multiplies the cache by the beam width — each beam needs its own K/V for its own continuation. A paged, block-addressable cache makes this cheap: beams **share** the blocks of their common prefix and fork copy-on-write where they diverge.
 
@@ -192,9 +192,9 @@ Three questions pick the variant; everything else is detail.
 
 - **Do you control pretraining?** Yes → ship GQA (8 heads is the industry sweet spot); consider MLA if you're chasing frontier serving economics and can absorb the engineering. No → your KV-head count is fixed; your levers are runtime-only (quantize, window, page).
 - **Is the workload retrieval-heavy at long context?** Yes → be conservative: GQA-8 over MQA, FP8 over INT4, full attention over windows — every aggressive variant fails *here* first. No (chat, summarize-as-you-go, transcription) → push harder; windows + sinks + low-bit caches are close to free.
-- **Is the bottleneck capacity or latency?** Capacity (requests-per-GPU) → shrink bytes-held: fewer KV heads, lower bits, windows. Latency (TPOT at long context) → shrink bytes-streamed: the same levers, but measured per step — and pair with the kernels in [chapter 3](kv-cache-flashattention-and-flashdecoding.md).
+- **Is the bottleneck capacity or latency?** Capacity (requests-per-GPU) → shrink bytes-held: fewer KV heads, lower bits, windows. Latency (TPOT at long context) → shrink bytes-streamed: the same levers, but measured per step — and pair with the kernels in [chapter 3](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache-flashattention-and-flashdecoding).
 
-> **Tip:** the variants **compose**. Llama-3 ships GQA; serve it with an FP8 cache and paging and you've stacked three multipliers before touching a kernel. The composed stack, level by level, is [chapter 2](kv-cache-optimization-stack.md).
+> **Tip:** the variants **compose**. Llama-3 ships GQA; serve it with an FP8 cache and paging and you've stacked three multipliers before touching a kernel. The composed stack, level by level, is [chapter 2](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache-optimization-stack).
 
 ---
 
@@ -207,7 +207,7 @@ Three questions pick the variant; everything else is detail.
 - **Windows + sinks** bound the token count; sinks exist because softmax must put its probability mass somewhere.
 - Quality losses from every aggressive variant concentrate in **long-context retrieval** — evaluate there, not on perplexity.
 
-Next: [Chapter 2 — the optimization ladder](kv-cache-optimization-stack.md), where these variants slot into the level-by-level stack a real serving system climbs.
+Next: [Chapter 2 — the optimization ladder](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache-optimization-stack), where these variants slot into the level-by-level stack a real serving system climbs.
 
 ---
 

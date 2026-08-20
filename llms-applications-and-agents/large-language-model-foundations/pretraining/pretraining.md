@@ -28,7 +28,7 @@ I'm going to walk this the way I'd explain it to a teammate about to babysit the
 - compute training **FLOPs ≈ 6·N·D**, **tokens/sec**, and **MFU**, and budget a real run from them;
 - name the **stability** failure modes (loss spikes, fp16 overflow, the BN/dropout grad-accum caveat) and their fixes.
 
-> **Note:** the *objective* is settled elsewhere — pretraining an LLM is next-token prediction (causal LM) over the whole corpus, nothing more exotic. This page does **not** re-derive the loss (see [Language Modeling Objectives](../language-modeling-objectives/language-modeling-objectives.md)) and does **not** re-derive the compute-optimal allocation (see [Scaling Laws](../scaling-laws/scaling-laws.md)). It is about the **engineering that turns that objective, at trillion-token scale, into a foundation model.**
+> **Note:** the *objective* is settled elsewhere — pretraining an LLM is next-token prediction (causal LM) over the whole corpus, nothing more exotic. This page does **not** re-derive the loss (see [Language Modeling Objectives](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/language-modeling-objectives/language-modeling-objectives)) and does **not** re-derive the compute-optimal allocation (see [Scaling Laws](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/scaling-laws/scaling-laws)). It is about the **engineering that turns that objective, at trillion-token scale, into a foundation model.**
 
 ---
 
@@ -247,11 +247,11 @@ The right-hand side is exactly "average the $K$ micro-batch gradients" — which
 
 $$C \approx 6 \, N \, D$$
 
-> **Source / derivation:** the $C \approx 6ND$ estimate is from [Kaplan et al., *Scaling Laws for Neural Language Models* (2020)](https://arxiv.org/abs/2001.08361) and used throughout [Hoffmann et al., *Training Compute-Optimal Large Language Models (Chinchilla)* (2022)](https://arxiv.org/abs/2203.15556) — the per-token compute of a forward+backward pass (full forward-$2N$ + backward-$4N$ derivation in the [Scaling Laws](../scaling-laws/scaling-laws.md) chapter).
+> **Source / derivation:** the $C \approx 6ND$ estimate is from [Kaplan et al., *Scaling Laws for Neural Language Models* (2020)](https://arxiv.org/abs/2001.08361) and used throughout [Hoffmann et al., *Training Compute-Optimal Large Language Models (Chinchilla)* (2022)](https://arxiv.org/abs/2203.15556) — the per-token compute of a forward+backward pass (full forward-$2N$ + backward-$4N$ derivation in the [Scaling Laws](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/scaling-laws/scaling-laws) chapter).
 
 where $N$ is the number of parameters and $D$ is the number of training tokens. The **6** comes from counting multiply-adds: a forward pass over one token costs ~$2N$ FLOPs (each parameter does one multiply-add = 2 FLOPs), and the backward pass costs ~$2\times$ the forward (it computes gradients with respect to both activations and weights), giving ~$6N$ FLOPs *per token*; multiply by $D$ tokens for the total. This single formula is how every training run is budgeted.
 
-> *Where the factor of 6 comes from, in full — including the forward $2N$ and the backward $4N$ accounting — is derived in [Scaling Laws](../scaling-laws/scaling-laws.md), which also covers the **compute-optimal** question (given a fixed $C$, how to split it between a bigger $N$ and more $D$ — the Chinchilla result). This page **uses** $6ND$ as a budgeting tool; that page **derives** it and the allocation rule. Don't duplicate them in an interview — cite the split.*
+> *Where the factor of 6 comes from, in full — including the forward $2N$ and the backward $4N$ accounting — is derived in [Scaling Laws](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/scaling-laws/scaling-laws), which also covers the **compute-optimal** question (given a fixed $C$, how to split it between a bigger $N$ and more $D$ — the Chinchilla result). This page **uses** $6ND$ as a budgeting tool; that page **derives** it and the allocation rule. Don't duplicate them in an interview — cite the split.*
 
 **Worked example — budgeting GPT-3.** GPT-3 is $N = 175\text{B} = 1.75\times10^{11}$ parameters, trained on $D = 300\text{B} = 3\times10^{11}$ tokens. So:
 
@@ -259,7 +259,7 @@ $$C \approx 6 \times 1.75\times10^{11} \times 3\times10^{11} = 3.15\times10^{23}
 
 On an A100 delivering ~$3.12\times10^{14}$ FLOP/s *of useful work* (its ~312 TFLOP/s bf16 peak, run at 100% — unrealistic), that's $3.15\times10^{23} / 3.12\times10^{14} \approx 10^{9}$ GPU-seconds ≈ **32 GPU-years**. At a realistic ~40% utilization (MFU — the fraction of peak compute you actually achieve, defined in the next section) it's ~80 GPU-years — i.e. ~1000 A100s for about a month. The formula turns "how long, how many GPUs, how much money" into one multiplication.
 
-*Why spend that compute at all?* Because held-out loss falls as a **power law in training compute** — straight on a log-log axis, flattening only as it approaches the irreducible entropy of language $E$. That regularity (the subject of [Scaling Laws](../scaling-laws/scaling-laws.md)) is what makes a multi-million-dollar run a *predictable* investment rather than a gamble:
+*Why spend that compute at all?* Because held-out loss falls as a **power law in training compute** — straight on a log-log axis, flattening only as it approaches the irreducible entropy of language $E$. That regularity (the subject of [Scaling Laws](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/scaling-laws/scaling-laws)) is what makes a multi-million-dollar run a *predictable* investment rather than a gamble:
 
 ![Held-out loss vs training compute $C=6ND$ (log x-axis), with the five production models placed at their real $6ND$ budgets. The illustrative power law $L(C) = E + a\,C^{-b}$ traces a near-straight descent that flattens toward the irreducible floor $E$ (≈ the entropy of language) — more compute keeps buying lower loss, with diminishing returns. The curve is illustrative (exact $L(C)$ depends on model and data); the x-positions are the real $6ND$ values from `production_table`. From `tools/make_figures_02.py`.](images/pt_scaling_compute.png)
 
@@ -432,7 +432,7 @@ This is the crux. Pretraining's bottleneck is almost never the *objective* (one 
 **When NOT to scale:**
 
 - **When data quality, not size, is your bottleneck.** Past a point, *more dirty tokens* hurt; a better filter beats a bigger crawl. The phi models are the existence proof — *scale the filter, not the corpus.*
-- **When you'll serve the model a lot** — then **deliberately over-train a smaller model** (more tokens-per-parameter than Chinchilla-optimal). A smaller model is cheaper to *serve* every single request; spending extra *training* compute to shrink *inference* cost is the right trade at deployment scale. This is **inference-aware** scaling, and it's *why* Llama models are trained on far more tokens than Chinchilla "optimal" prescribes — the full argument is in [Scaling Laws](../scaling-laws/scaling-laws.md).
+- **When you'll serve the model a lot** — then **deliberately over-train a smaller model** (more tokens-per-parameter than Chinchilla-optimal). A smaller model is cheaper to *serve* every single request; spending extra *training* compute to shrink *inference* cost is the right trade at deployment scale. This is **inference-aware** scaling, and it's *why* Llama models are trained on far more tokens than Chinchilla "optimal" prescribes — the full argument is in [Scaling Laws](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/scaling-laws/scaling-laws).
 - **When you've hit the data wall.** There are only so many high-quality human tokens on the internet (~tens of trillions). Past that, you're into repeated epochs, synthetic data, or diminishing returns — scaling parameters without fresh data stops helping.
 
 ---

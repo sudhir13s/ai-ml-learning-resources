@@ -57,6 +57,6 @@ training folds only** — never before the split.
 - [An Introduction to Statistical Learning (Python) — **Ch. 4 "Classification"**](https://www.statlearning.com/) — **James et al.** — thresholds, confusion matrices, and why accuracy misleads; free PDF.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 3.05 Precision, Recall, F1](../../../../ai-ml-intuitions/objectives-and-evaluation/predictive-evaluation/classification-metrics-intuition.md) · [3.06 ROC/AUC & PR Curves](../../../../ai-ml-intuitions/objectives-and-evaluation/predictive-evaluation/roc-and-pr-curves-intuition.md)
-- Next concepts: [10 Train/Validation/Test Splits](../train-validation-test-splits/train-validation-test-splits.md) · [11 Data Leakage](../data-leakage/data-leakage.md)
-- Related domain: [03. Supervised Learning](../../../core-machine-learning/supervised-learning/README.md)
+- Concept depth (the *why*): [ai-ml-intuitions 3.05 Precision, Recall, F1](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/predictive-evaluation/classification-metrics-intuition) · [3.06 ROC/AUC & PR Curves](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/predictive-evaluation/roc-and-pr-curves-intuition)
+- Next concepts: [10 Train/Validation/Test Splits](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/train-validation-test-splits/train-validation-test-splits) · [11 Data Leakage](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/data-leakage/data-leakage)
+- Related domain: [03. Supervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/readme)

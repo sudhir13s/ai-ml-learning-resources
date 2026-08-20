@@ -57,7 +57,7 @@ neuroscience meaningfully informs ML.
 - [Neuronal Dynamics — **Ch. 19 (Synaptic Plasticity & Learning)**](https://neuronaldynamics.epfl.ch/online/Ch19.html) — **Gerstner et al.** — the local learning rules predictive-coding circuits use.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 2.02 Backpropagation — The Chain Rule](../../../../ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/chain-rule-and-backpropagation-intuition.md) — the global algorithm predictive coding approximates locally.
-- Prereqs in this section: [08 Visual Cortex & CNN Inspiration](../visual-cortex-and-cnn-inspiration/visual-cortex-and-cnn-inspiration.md)
-- Next concepts: [07 Free Energy Principle / Active Inference](../free-energy-principle-active-inference/free-energy-principle-active-inference.md) · [14 Biologically-Plausible Backprop Alternatives](../biologically-plausible-backprop-alternatives/biologically-plausible-backprop-alternatives.md)
-- Related domain: [05. Deep Learning](../../../deep-learning/README.md)
+- Concept depth (the *why*): [ai-ml-intuitions 2.02 Backpropagation — The Chain Rule](/ai-ml/ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/chain-rule-and-backpropagation-intuition) — the global algorithm predictive coding approximates locally.
+- Prereqs in this section: [08 Visual Cortex & CNN Inspiration](/ai-ml/ai-ml-learning-resources/specialized-studies/neuroscience-and-brain-inspired-ai/visual-cortex-and-cnn-inspiration/visual-cortex-and-cnn-inspiration)
+- Next concepts: [07 Free Energy Principle / Active Inference](/ai-ml/ai-ml-learning-resources/specialized-studies/neuroscience-and-brain-inspired-ai/free-energy-principle-active-inference/free-energy-principle-active-inference) · [14 Biologically-Plausible Backprop Alternatives](/ai-ml/ai-ml-learning-resources/specialized-studies/neuroscience-and-brain-inspired-ai/biologically-plausible-backprop-alternatives/biologically-plausible-backprop-alternatives)
+- Related domain: [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

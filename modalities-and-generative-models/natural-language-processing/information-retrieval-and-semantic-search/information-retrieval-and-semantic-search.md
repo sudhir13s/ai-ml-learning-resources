@@ -54,7 +54,7 @@ Here is the whole machine on one page — a **sparse** retriever (BM25 over an i
 
 ## Sparse, lexical retrieval: the inverted index
 
-The oldest and still-everywhere approach treats a document as a **bag of terms** and scores it by *term overlap* with the query. We covered the representation in [03 Bag-of-Words & TF-IDF](../bag-of-words-and-tf-idf/bag-of-words-and-tf-idf.md); here we care about the two things that make it a *search engine*: the **data structure** that makes it fast, and the **scoring function** that makes it good.
+The oldest and still-everywhere approach treats a document as a **bag of terms** and scores it by *term overlap* with the query. We covered the representation in [03 Bag-of-Words & TF-IDF](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/bag-of-words-and-tf-idf/bag-of-words-and-tf-idf); here we care about the two things that make it a *search engine*: the **data structure** that makes it fast, and the **scoring function** that makes it good.
 
 ### Why a forward scan is hopeless — and what to do instead
 
@@ -87,7 +87,7 @@ So we move to **ranked retrieval**: assign each matching document a **relevance 
 
 ### From TF-IDF to BM25
 
-TF-IDF (derived in [03 Bag-of-Words & TF-IDF](../bag-of-words-and-tf-idf/bag-of-words-and-tf-idf.md)) scores a query–document pair by summing, over query terms $t$, the product of **term frequency** (how often $t$ appears in $d$) and **inverse document frequency** (how rare $t$ is across the corpus — rare terms are more discriminating). It works, but it has two flaws BM25 fixes:
+TF-IDF (derived in [03 Bag-of-Words & TF-IDF](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/bag-of-words-and-tf-idf/bag-of-words-and-tf-idf)) scores a query–document pair by summing, over query terms $t$, the product of **term frequency** (how often $t$ appears in $d$) and **inverse document frequency** (how rare $t$ is across the corpus — rare terms are more discriminating). It works, but it has two flaws BM25 fixes:
 
 1. **Raw term frequency grows unboundedly.** A document mentioning *engine* 100 times isn't 100× more relevant than one mentioning it once — relevance **saturates**. BM25 runs TF through a saturating function.
 2. **Long documents win unfairly.** A long document accumulates more term hits just by being long. BM25 **normalizes by document length**.
@@ -147,7 +147,7 @@ BM25 ranks two **off-topic** documents above the right answer purely because the
 
 ## Dense retrieval: encode meaning into vectors
 
-The cure for vocabulary mismatch is to stop comparing *strings* and start comparing *meaning*. **Dense retrieval** encodes the query and every passage into fixed-length vectors (embeddings — see [07 Sentence & Document Embeddings](../sentence-and-document-embeddings/sentence-and-document-embeddings.md)) in a shared space, trained so that **a query lands near the passages that answer it**. Relevance becomes geometric proximity.
+The cure for vocabulary mismatch is to stop comparing *strings* and start comparing *meaning*. **Dense retrieval** encodes the query and every passage into fixed-length vectors (embeddings — see [07 Sentence & Document Embeddings](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sentence-and-document-embeddings/sentence-and-document-embeddings)) in a shared space, trained so that **a query lands near the passages that answer it**. Relevance becomes geometric proximity.
 
 The architecture is a **bi-encoder** (also "dual encoder"): two encoders (often sharing weights), one for queries and one for passages. Each produces a $d$-dimensional vector (typically $d = 384$ to $1024$). Score a pair by **dot product** or **cosine similarity**:
 
@@ -155,7 +155,7 @@ $$
 s(q, p) \;=\; E_Q(q) \cdot E_P(p) \qquad\text{or}\qquad \cos\bigl(E_Q(q), E_P(p)\bigr) = \frac{E_Q(q)\cdot E_P(p)}{\lVert E_Q(q)\rVert\,\lVert E_P(p)\rVert}.
 $$
 
-> **Source / derivation:** the dual-encoder dot-product score is the scoring function of [Karpukhin et al. (2020), *Dense Passage Retrieval for Open-Domain QA*](https://arxiv.org/abs/2004.04906) (eq. 1, $\text{sim}(q,p)=E_Q(q)^\top E_P(p)$). Cosine is the same dot product on **unit-normalized** vectors — the geometry of comparison is worked through in [ai-ml-intuitions 1.06 Vector Similarities — the Scaled Dot-Product](../../../../ai-ml-intuitions/representation/similarity-and-distance/scaled-dot-product-intuition.md). Our `cosine_matrix()` in [`information_retrieval.py`](code/information_retrieval.py) computes it directly.
+> **Source / derivation:** the dual-encoder dot-product score is the scoring function of [Karpukhin et al. (2020), *Dense Passage Retrieval for Open-Domain QA*](https://arxiv.org/abs/2004.04906) (eq. 1, $\text{sim}(q,p)=E_Q(q)^\top E_P(p)$). Cosine is the same dot product on **unit-normalized** vectors — the geometry of comparison is worked through in [ai-ml-intuitions 1.06 Vector Similarities — the Scaled Dot-Product](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/scaled-dot-product-intuition). Our `cosine_matrix()` in [`information_retrieval.py`](code/information_retrieval.py) computes it directly.
 
 The decisive engineering property is **precomputation**: the corpus passages can be encoded **once, offline**, and stored in an index. At query time you encode *only the query* (one forward pass) and search the index. This is what makes dense retrieval fast enough to deploy — passage encoding is amortized away.
 
@@ -189,7 +189,7 @@ $$
 
 ## The cost of exact search, and approximate nearest neighbors
 
-Dense retrieval reduces "find relevant passages" to **find the vectors nearest the query vector** — a [k-nearest-neighbors](../../../core-machine-learning/supervised-learning/classification/k-nearest-neighbors/k-nearest-neighbors.md) search in $d$-dimensional space. The trouble: doing it **exactly** means comparing the query against **every** stored vector.
+Dense retrieval reduces "find relevant passages" to **find the vectors nearest the query vector** — a [k-nearest-neighbors](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/k-nearest-neighbors/k-nearest-neighbors) search in $d$-dimensional space. The trouble: doing it **exactly** means comparing the query against **every** stored vector.
 
 **Exact (brute-force) kNN** computes $N$ dot products of dimension $d$ each — $O(N \cdot d)$ per query. With $N = 10^7$ passages and $d = 768$, that's ~$7.7 \times 10^9$ multiply-adds **per query**. One query you can do; thousands per second over a growing corpus you cannot — and the **memory** to store $10^7 \times 768$ floats is ~30 GB before you've searched anything. Exact search has perfect recall and ruinous cost. (FAISS calls this index `IndexFlat`; it's the ground truth everything else is measured against.)
 
@@ -365,7 +365,7 @@ $$
 s(q, p) \;=\; \sum_{i \in q} \max_{j \in p}\ E(q_i)\cdot E(p_j).
 $$
 
-> **Source / derivation:** [Khattab & Zaharia (2020), *ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT*](https://arxiv.org/abs/2004.12832) — the MaxSim late-interaction operator (eq. 1). The token-level MaxSim mechanism is visualized as a heatmap in the sibling chapter [07 Sentence & Document Embeddings](../sentence-and-document-embeddings/sentence-and-document-embeddings.md).
+> **Source / derivation:** [Khattab & Zaharia (2020), *ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT*](https://arxiv.org/abs/2004.12832) — the MaxSim late-interaction operator (eq. 1). The token-level MaxSim mechanism is visualized as a heatmap in the sibling chapter [07 Sentence & Document Embeddings](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sentence-and-document-embeddings/sentence-and-document-embeddings).
 
 Because the passage token vectors are still **precomputable offline**, ColBERT keeps bi-encoder-like indexing speed while recovering much of the cross-encoder's fine-grained, term-level matching — this is **late interaction** (query and passage tokens interact *late*, at scoring time, not inside the encoder). The cost is a much larger index (one vector per token, not per passage), which PQ-style compression then tames.
 
@@ -465,7 +465,7 @@ A score of 0.961 means our ranking is 96.1% of the way to perfect for this query
 
 Everything above is the **retriever** half of retrieval-augmented generation. In RAG, a user question is answered not from the LLM's parametric memory alone but by **first retrieving relevant passages** from a corpus and **feeding them into the prompt** as grounding context. The pattern: embed the question → ANN-search a vector index of document chunks → (optionally re-rank) → stuff the top-$n$ passages into the prompt → the LLM answers *from those passages*, ideally with citations.
 
-Retrieval quality **is** RAG quality. If the retriever doesn't surface the passage containing the answer, no amount of LLM capability recovers it — the model either hallucinates or says it doesn't know. This is why a RAG project's effort goes overwhelmingly into the retrieval stack you just built: chunking, embeddings, hybrid search, re-ranking, and evaluation. The generator is the easy part; the **retriever is where RAG is won or lost**. (Deep dive: the canonical RAG home is [11. RAG & LLM Applications](../../../llms-applications-and-agents/rag-and-knowledge-systems/overview.md); the *why* is in [ai-ml-intuitions 8.02 Retrieval-Augmented Generation](../../../../ai-ml-intuitions/memory-retrieval-and-context/retrieval-augmented-generation/rag-intuition.md).)
+Retrieval quality **is** RAG quality. If the retriever doesn't surface the passage containing the answer, no amount of LLM capability recovers it — the model either hallucinates or says it doesn't know. This is why a RAG project's effort goes overwhelmingly into the retrieval stack you just built: chunking, embeddings, hybrid search, re-ranking, and evaluation. The generator is the easy part; the **retriever is where RAG is won or lost**. (Deep dive: the canonical RAG home is [11. RAG & LLM Applications](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/overview); the *why* is in [ai-ml-intuitions 8.02 Retrieval-Augmented Generation](/ai-ml/ai-ml-intuitions/memory-retrieval-and-context/retrieval-augmented-generation/rag-intuition).)
 
 > **Note:** the same retrieve-then-rerank funnel powers RAG, web search, recommendation, code assistants, and agent memory. Master IR and you've mastered the substrate under a huge swath of applied AI — which is exactly why it's a *very-high-frequency* interview topic.
 

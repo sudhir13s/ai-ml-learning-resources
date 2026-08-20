@@ -30,7 +30,7 @@ relates to MAP (add a prior).
 2. **The method** — watch [StatQuest: Maximum Likelihood, clearly explained](https://www.youtube.com/watch?v=XepXtl9YKwc). *Set up the likelihood, take logs, differentiate, solve.*
 3. **Derive ML losses** — read [CS229 Lecture notes 1 (GLMs / MLE)](https://cs229.stanford.edu/notes2021fall/cs229-notes1.pdf). *Least squares and logistic regression *as* MLE — the key interview connection.*
 4. **Formalize** — read [MML Ch. 8.3 (Parameter Estimation: MLE & MAP)](https://mml-book.github.io/book/mml-book.pdf). *MLE, MAP, and where the prior enters.*
-5. **Connect to ML** — read [ai-ml-intuitions 3.04 Maximum Likelihood Estimation](../../../../ai-ml-intuitions/objectives-and-evaluation/statistical-objectives/maximum-likelihood-intuition.md). *The platform's deep dive, tying MLE to cross-entropy.*
+5. **Connect to ML** — read [ai-ml-intuitions 3.04 Maximum Likelihood Estimation](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/statistical-objectives/maximum-likelihood-intuition). *The platform's deep dive, tying MLE to cross-entropy.*
 
 ## 🎓 Courses (free)
 - [Stanford CS229 — Generalized Linear Models / MLE notes](https://cs229.stanford.edu/notes2021fall/cs229-notes1.pdf) — **Stanford (Ng et al.)** — derives regression losses from likelihoods.
@@ -55,7 +55,7 @@ relates to MAP (add a prior).
 - [An Introduction to Statistical Learning — **Ch. 4 (Logistic Regression / likelihood)**](https://www.statlearning.com/) — **James, Witten, Hastie & Tibshirani** — likelihood-based fitting, applied.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 3.04 Maximum Likelihood Estimation](../../../../ai-ml-intuitions/objectives-and-evaluation/statistical-objectives/maximum-likelihood-intuition.md) · [3.03 Cross-Entropy / NLL](../../../../ai-ml-intuitions/objectives-and-evaluation/training-objectives/categorical-cross-entropy-intuition.md)
-- Curriculum context: [Maths for AI-ML — Phase 4 (Statistics, row 4.1)](../maths-for-ai-ml/README.md)
-- Prereqs: [16 Random Variables & Distributions](../random-variables-and-distributions/random-variables-and-distributions.md) · [08 Derivatives & Gradients](../derivatives-and-gradients/derivatives-and-gradients.md) · Next: [20 Bayesian Inference](../bayesian-inference/bayesian-inference.md) · Related: [23 Cross-Entropy & KL Divergence](../cross-entropy-and-kl-divergence/cross-entropy-and-kl-divergence.md)
+- Concept depth (the *why*): [ai-ml-intuitions 3.04 Maximum Likelihood Estimation](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/statistical-objectives/maximum-likelihood-intuition) · [3.03 Cross-Entropy / NLL](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/training-objectives/categorical-cross-entropy-intuition)
+- Curriculum context: [Maths for AI-ML — Phase 4 (Statistics, row 4.1)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
+- Prereqs: [16 Random Variables & Distributions](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/random-variables-and-distributions/random-variables-and-distributions) · [08 Derivatives & Gradients](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/derivatives-and-gradients/derivatives-and-gradients) · Next: [20 Bayesian Inference](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/bayesian-inference/bayesian-inference) · Related: [23 Cross-Entropy & KL Divergence](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/cross-entropy-and-kl-divergence/cross-entropy-and-kl-divergence)
 </content>

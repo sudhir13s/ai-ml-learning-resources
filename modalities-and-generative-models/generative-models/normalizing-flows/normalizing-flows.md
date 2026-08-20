@@ -62,7 +62,7 @@ probability-flow ODE.
 - [Understanding Deep Learning — **Ch. 16 "Normalizing flows"**](https://udlbook.github.io/udlbook/) — **Simon Prince** — free PDF; coupling layers and the Jacobian trick with clean figures.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 5.05 Autoregressive Generation & Sampling](../../../../ai-ml-intuitions/generation/autoregressive-generation/autoregressive-generation-and-sampling-controls-intuition.md) · [5.01 Entropy & KL Divergence](../../../../ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition.md)
-- Compare with: [01 Variational Autoencoders](../variational-autoencoders-vae-elbo/variational-autoencoders-vae-elbo.md) (lower-bound likelihood) · [06 Score-Based & SDE Diffusion](../../diffusion-models/score-based-and-sde-diffusion/score-based-and-sde-diffusion.md) (the probability-flow ODE is a continuous flow)
-- Related: [10 Autoregressive Image Generation (PixelCNN)](../autoregressive-image-generation-pixelcnn/autoregressive-image-generation-pixelcnn.md) (another exact-likelihood model)
-- Field overview: [9. Generative AI](../README.md)
+- Concept depth (the *why*): [ai-ml-intuitions 5.05 Autoregressive Generation & Sampling](/ai-ml/ai-ml-intuitions/generation/autoregressive-generation/autoregressive-generation-and-sampling-controls-intuition) · [5.01 Entropy & KL Divergence](/ai-ml/ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition)
+- Compare with: [01 Variational Autoencoders](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/variational-autoencoders-vae-elbo/variational-autoencoders-vae-elbo) (lower-bound likelihood) · [06 Score-Based & SDE Diffusion](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/score-based-and-sde-diffusion/score-based-and-sde-diffusion) (the probability-flow ODE is a continuous flow)
+- Related: [10 Autoregressive Image Generation (PixelCNN)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/autoregressive-image-generation-pixelcnn/autoregressive-image-generation-pixelcnn) (another exact-likelihood model)
+- Field overview: [9. Generative AI](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/readme)

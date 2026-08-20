@@ -59,6 +59,6 @@ what separates someone who's shipped ML from someone who's only done tutorials.
 - [Approaching (Almost) Any Machine Learning Problem](https://github.com/abhishekkrthakur/approachingalmost) — **Abhishek Thakur** — free PDF; a practical, project-shaped walk through the workflow.
 
 ## 🔗 In this platform
-- Next concepts: [04 How Models Learn](../how-models-learn/how-models-learn.md) · [12 Your First ML Project](../../programming-and-data-foundations/your-first-ml-project/your-first-ml-project.md)
-- Go deeper — data stages: [02. Data Preprocessing](../../data-preparation/README.md)
-- Go deeper — deployment & monitoring: [12. Deployment & MLOps](../../../deployment-and-mlops/README.md)
+- Next concepts: [04 How Models Learn](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/how-models-learn/how-models-learn) · [12 Your First ML Project](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/your-first-ml-project/your-first-ml-project)
+- Go deeper — data stages: [02. Data Preprocessing](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/readme)
+- Go deeper — deployment & monitoring: [12. Deployment & MLOps](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/readme)

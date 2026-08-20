@@ -60,7 +60,7 @@ that a single number hides; and **CLIP-score** for text-to-image prompt alignmen
 - [Deep Learning — **§20.14 "Evaluating Generative Models"**](https://www.deeplearningbook.org/contents/generative_models.html) — **Goodfellow, Bengio & Courville** — why evaluation is hard and what the metrics measure, free online.
 
 ## 🔗 In this platform
-- Prereq: [02 GANs & DCGAN](../gans-and-dcgan/gans-and-dcgan.md) · [05 Diffusion Models (DDPM)](../../diffusion-models/diffusion-models-ddpm/diffusion-models-ddpm.md) (the models you evaluate)
-- Related: [03 GAN Training & WGAN](../gan-training-and-wgan/gan-training-and-wgan.md) (FID/precision-recall detect mode collapse)
-- Compare with: [NLP — Evaluation Metrics (BLEU · perplexity)](../../natural-language-processing/nlp-evaluation-metrics/nlp-evaluation-metrics.md) (the text-generation analogue)
-- Field overview: [9. Generative AI](../README.md)
+- Prereq: [02 GANs & DCGAN](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/gans-and-dcgan/gans-and-dcgan) · [05 Diffusion Models (DDPM)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/diffusion-models-ddpm/diffusion-models-ddpm) (the models you evaluate)
+- Related: [03 GAN Training & WGAN](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/gan-training-and-wgan/gan-training-and-wgan) (FID/precision-recall detect mode collapse)
+- Compare with: [NLP — Evaluation Metrics (BLEU · perplexity)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/nlp-evaluation-metrics/nlp-evaluation-metrics) (the text-generation analogue)
+- Field overview: [9. Generative AI](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/readme)

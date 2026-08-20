@@ -19,36 +19,36 @@ Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its p
 > **✅ ready.** New to deep learning? Start with the field overview below, then work top to bottom.
 
 ### Foundations of neural nets
-1. ✅ [Perceptron & MLP (Feedforward Networks)](neural-network-foundations/perceptron-and-mlp/perceptron-and-mlp.md)
-2. ✅ [Backpropagation & Computational Graphs](neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs.md)
-3. ✅ [Activation Functions (ReLU · GELU · sigmoid · tanh · softmax)](stabilization-and-architectural-blocks/activation-functions/activation-functions.md)
-4. ✅ [Loss Functions (MSE · cross-entropy)](optimization-and-training/loss-functions/loss-functions.md)
-5. ✅ [Weight Initialization (Xavier/Glorot · He)](optimization-and-training/weight-initialization/weight-initialization.md)
-6. ✅ [Vanishing / Exploding Gradients & Gradient Clipping](optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients.md)
+1. ✅ [Perceptron & MLP (Feedforward Networks)](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/perceptron-and-mlp/perceptron-and-mlp)
+2. ✅ [Backpropagation & Computational Graphs](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs)
+3. ✅ [Activation Functions (ReLU · GELU · sigmoid · tanh · softmax)](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/activation-functions/activation-functions)
+4. ✅ [Loss Functions (MSE · cross-entropy)](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/loss-functions/loss-functions)
+5. ✅ [Weight Initialization (Xavier/Glorot · He)](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/weight-initialization/weight-initialization)
+6. ✅ [Vanishing / Exploding Gradients & Gradient Clipping](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients)
 
 ### Training & optimization
-7. ✅ [Optimizers (SGD · Momentum · Adam · AdamW · RMSprop)](optimization-and-training/optimizers/optimizers.md)
-8. ✅ [Learning-Rate Schedules & Warmup](optimization-and-training/learning-rate-schedules-and-warmup/learning-rate-schedules-and-warmup.md)
-9. ✅ [Regularization (L1/L2 · weight decay · early stopping)](optimization-and-training/regularization/regularization.md)
-10. ✅ [Dropout](stabilization-and-architectural-blocks/dropout/dropout.md)
-11. ✅ [Normalization (Batch · Layer · Group)](stabilization-and-architectural-blocks/normalization/normalization.md)
-12. ✅ [Hyperparameter Tuning](optimization-and-training/hyperparameter-tuning/hyperparameter-tuning.md)
+7. ✅ [Optimizers (SGD · Momentum · Adam · AdamW · RMSprop)](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/optimizers)
+8. ✅ [Learning-Rate Schedules & Warmup](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/learning-rate-schedules-and-warmup/learning-rate-schedules-and-warmup)
+9. ✅ [Regularization (L1/L2 · weight decay · early stopping)](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/regularization/regularization)
+10. ✅ [Dropout](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/dropout/dropout)
+11. ✅ [Normalization (Batch · Layer · Group)](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/normalization/normalization)
+12. ✅ [Hyperparameter Tuning](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/hyperparameter-tuning/hyperparameter-tuning)
 
 ### Architectures
-13. ✅ [CNNs & Convolution](neural-architectures/cnns-and-convolution/cnns-and-convolution.md)
-14. ✅ [RNN / LSTM / GRU](neural-architectures/rnn-lstm-gru/rnn-lstm-gru.md)
-15. ✅ [Attention Mechanism](attention-and-transformers/attention-mechanism/attention-mechanism.md)
-16. ✅ [Transformer Architecture](attention-and-transformers/transformer-architecture/transformer-architecture.md)
-17. ✅ [Positional Encoding](attention-and-transformers/positional-encoding/positional-encoding.md)
-18. ✅ [Residual / Skip Connections](stabilization-and-architectural-blocks/residual-skip-connections/residual-skip-connections.md)
-19. ✅ [Autoencoders](neural-architectures/autoencoders/autoencoders.md)
+13. ✅ [CNNs & Convolution](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/cnns-and-convolution/cnns-and-convolution)
+14. ✅ [RNN / LSTM / GRU](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/rnn-lstm-gru/rnn-lstm-gru)
+15. ✅ [Attention Mechanism](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism)
+16. ✅ [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture)
+17. ✅ [Positional Encoding](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/positional-encoding/positional-encoding)
+18. ✅ [Residual / Skip Connections](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/residual-skip-connections/residual-skip-connections)
+19. ✅ [Autoencoders](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/autoencoders/autoencoders)
 
 ### Related concepts (canonical home is another section)
 > These topics are used across many areas, so they're kept in one place to avoid repetition.
-- **Word / sentence embeddings** — Word2Vec · GloVe · contextual embeddings → [NLP](../modalities-and-generative-models/natural-language-processing/README.md)
-- **Vision architectures in depth** — ResNet/Inception, detection, segmentation → [Computer Vision](../modalities-and-generative-models/computer-vision/README.md)
-- **Pretraining & LLM-scale models** — BERT · GPT · scaling laws · RLHF → [LLMs](../llms-applications-and-agents/README.md)
-- **Pure math** — PCA/SVD · probability · optimization theory → [Foundations · Maths for AI-ML](../foundations/mathematical-foundations/README.md)
+- **Word / sentence embeddings** — Word2Vec · GloVe · contextual embeddings → [NLP](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/readme)
+- **Vision architectures in depth** — ResNet/Inception, detection, segmentation → [Computer Vision](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/readme)
+- **Pretraining & LLM-scale models** — BERT · GPT · scaling laws · RLHF → [LLMs](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme)
+- **Pure math** — PCA/SVD · probability · optimization theory → [Foundations · Maths for AI-ML](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme)
 
 ## 🎓 Courses (free)
 - [Neural Networks: Zero to Hero](https://karpathy.ai/zero-to-hero.html) — **Andrej Karpathy** — builds backprop → GPT from scratch in plain Python; the best hands-on course in existence.
@@ -75,4 +75,4 @@ Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its p
 ## 🔗 In this platform
 - **Understand the math:** [ai-ml-intuitions — Module 2 (Optimization)](../../ai-ml-intuitions/learning-and-optimization/) · [Module 4 (Stabilization)](../../ai-ml-intuitions/training-stability/)
 - **Build it:** [AI-ML-problemsets](../../AI-ML-problemsets/)
-- **Prereq math:** [Maths for AI-ML curriculum](../foundations/mathematical-foundations/maths-for-ai-ml/README.md)
+- **Prereq math:** [Maths for AI-ML curriculum](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)

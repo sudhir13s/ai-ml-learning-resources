@@ -134,7 +134,7 @@ And the noise is a feature, not just a bug:
 
 ## The path forward: momentum and adaptive methods
 
-Plain gradient descent is the foundation, but the zig-zag and saddle problems motivated better update rules — **momentum** (accumulate a velocity to power through valleys and damp oscillation), **RMSProp/Adam** (per-parameter adaptive step sizes), and **learning-rate schedules**. They're all gradient descent with a smarter step; the theory here is what they're built to fix. See **[Optimizers](../../../deep-learning/optimization-and-training/optimizers/optimizers.md)** for that next layer.
+Plain gradient descent is the foundation, but the zig-zag and saddle problems motivated better update rules — **momentum** (accumulate a velocity to power through valleys and damp oscillation), **RMSProp/Adam** (per-parameter adaptive step sizes), and **learning-rate schedules**. They're all gradient descent with a smarter step; the theory here is what they're built to fix. See **[Optimizers](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/optimizers)** for that next layer.
 
 ---
 

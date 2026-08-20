@@ -27,7 +27,7 @@ I'm going to teach this the way I'd teach a strong junior who has to *both* answ
 - say exactly **what a CRF layer adds on top of a biLSTM** and when it still helps over BERT;
 - score a tagger the way CoNLL/seqeval does, and explain **why token accuracy lies**.
 
-> **Note:** "sequence labeling" (one label per token, same length in and out) is a *different* task from "sequence-to-sequence" (variable-length output, e.g. translation — see [Seq2Seq & Encoder-Decoder](../sequence-to-sequence-and-encoder-decoder/sequence-to-sequence-and-encoder-decoder.md)) and from "sequence classification" (one label for the *whole* sequence, e.g. sentiment — see [Text Classification](../text-classification-and-sentiment-analysis/text-classification-and-sentiment-analysis.md)). The defining property here is **one tag per input token**.
+> **Note:** "sequence labeling" (one label per token, same length in and out) is a *different* task from "sequence-to-sequence" (variable-length output, e.g. translation — see [Seq2Seq & Encoder-Decoder](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sequence-to-sequence-and-encoder-decoder/sequence-to-sequence-and-encoder-decoder)) and from "sequence classification" (one label for the *whole* sequence, e.g. sentiment — see [Text Classification](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/text-classification-and-sentiment-analysis/text-classification-and-sentiment-analysis)). The defining property here is **one tag per input token**.
 
 ---
 
@@ -317,7 +317,7 @@ The most visible payoff is **structural**: a globally-scored sequence can give a
 
 CRFs needed **hand-engineered features** (capitalization, suffixes, gazetteers). The neural era replaces that feature engineering with **learned representations**, while keeping the CRF decoding machinery.
 
-**biLSTM tagger.** Run a [bidirectional LSTM](../../../deep-learning/neural-architectures/rnn-lstm-gru/rnn-lstm-gru.md) over the token embeddings: the forward LSTM reads left-to-right, the backward LSTM right-to-left, and their hidden states are concatenated, so each token's representation $h_i$ encodes **both left and right context**. A per-token linear layer + softmax then predicts the tag: $p(y_i \mid x) = \text{softmax}(W h_i + b)$. This learns the *emission* scores end-to-end, and bidirectionality is exactly what tagging wants (the tag of *Smith* depends on *Jane* before and the verb after).
+**biLSTM tagger.** Run a [bidirectional LSTM](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/rnn-lstm-gru/rnn-lstm-gru) over the token embeddings: the forward LSTM reads left-to-right, the backward LSTM right-to-left, and their hidden states are concatenated, so each token's representation $h_i$ encodes **both left and right context**. A per-token linear layer + softmax then predicts the tag: $p(y_i \mid x) = \text{softmax}(W h_i + b)$. This learns the *emission* scores end-to-end, and bidirectionality is exactly what tagging wants (the tag of *Smith* depends on *Jane* before and the verb after).
 
 But notice the failure: **independent per-token softmax has no model of label transitions.** Each $y_i$ is predicted in isolation, so — just like the naive classifier we started with — it can emit `O → I-PER`. The biLSTM gives great *emissions* and *zero* sequence constraints.
 
@@ -359,7 +359,7 @@ The same effect shows up on *span consistency*, not just illegal transitions. Co
 
 ## Rung 5: BERT for token classification
 
-The transformer era kept the *shape* of the task and changed the encoder. With a pretrained masked language model like [BERT](../contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert.md), token classification is almost embarrassingly simple: take BERT's final-layer hidden state for each token, attach a **single linear head** (a $\mathbb{R}^{d} \to \mathbb{R}^{k}$ projection to the tag set), and **fine-tune** the whole stack on the labeled data with a per-token cross-entropy loss. BERT's deep bidirectional self-attention gives each token a context-rich representation that dwarfs what a biLSTM learned from scratch, so even this minimal head reaches state-of-the-art F1 (`BertForTokenClassification` in Hugging Face is exactly this).
+The transformer era kept the *shape* of the task and changed the encoder. With a pretrained masked language model like [BERT](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert), token classification is almost embarrassingly simple: take BERT's final-layer hidden state for each token, attach a **single linear head** (a $\mathbb{R}^{d} \to \mathbb{R}^{k}$ projection to the tag set), and **fine-tune** the whole stack on the labeled data with a per-token cross-entropy loss. BERT's deep bidirectional self-attention gives each token a context-rich representation that dwarfs what a biLSTM learned from scratch, so even this minimal head reaches state-of-the-art F1 (`BertForTokenClassification` in Hugging Face is exactly this).
 
 Two practical wrinkles dominate the engineering:
 
@@ -375,7 +375,7 @@ Two practical wrinkles dominate the engineering:
 
 ## Evaluation: entity-level F1, not token accuracy
 
-Here is the part that separates people who *use* sequence labeling from people who only *talk* about it. **You do not measure NER by token accuracy.** You measure it by **entity-level (span-level) precision, recall, and F1**, where a predicted entity counts as correct **only if both its span (exact boundaries) and its type match the gold entity exactly** (see [NLP Evaluation Metrics](../nlp-evaluation-metrics/nlp-evaluation-metrics.md) for the broader metric family).
+Here is the part that separates people who *use* sequence labeling from people who only *talk* about it. **You do not measure NER by token accuracy.** You measure it by **entity-level (span-level) precision, recall, and F1**, where a predicted entity counts as correct **only if both its span (exact boundaries) and its type match the gold entity exactly** (see [NLP Evaluation Metrics](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/nlp-evaluation-metrics/nlp-evaluation-metrics) for the broader metric family).
 
 ### Why token accuracy lies — derived with numbers
 
@@ -410,7 +410,7 @@ $$\text{precision} = \frac{TP}{TP+FP} = \frac{1}{2} = 0.5, \quad \text{recall} =
 
 ## Where it's used
 
-- **Information extraction & knowledge graphs** — NER is the entry point: find the entities, then relation-extract between them to populate a KG. Search, recommendation, and question answering all lean on it (see [Question Answering](../question-answering/question-answering.md), which often runs NER to find candidate answer spans).
+- **Information extraction & knowledge graphs** — NER is the entry point: find the entities, then relation-extract between them to populate a KG. Search, recommendation, and question answering all lean on it (see [Question Answering](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/question-answering/question-answering), which often runs NER to find candidate answer spans).
 - **POS as a feature** — POS tags feed dependency/constituency parsing, lemmatization, and rule-based extraction; classic pipelines tag first, then parse.
 - **Slot filling for dialogue** — task-oriented assistants tag the slot-bearing tokens of an utterance (from-location, to-location, date) to fill an intent's frame — structurally identical to NER.
 - **Clinical & biomedical NLP** — extract drugs, dosages, diseases, genes (BioNER); the long, irregular entity names make character features and CRFs especially valuable.

@@ -30,8 +30,8 @@ covered earlier in this section.
 1. **See what's possible** — watch [How brain-computer connections could end paralysis](https://www.youtube.com/watch?v=_GTsItgKHvA). *Stanford/BrainGate work restoring movement and communication.*
 2. **See the current state** — watch [Neuralink brain chip's first human patient](https://www.youtube.com/watch?v=DmqSYgM8QHc). *How a modern intracortical BCI works, end to end.*
 3. **Read the engineering** — [Human intracortical recording and neural decoding for BCIs](https://pmc.ncbi.nlm.nih.gov/articles/PMC5815832/). *The decoder pipeline and its ML challenges, open access.*
-4. **Ground it in coding** — review [02 Neural Coding](../neural-coding/neural-coding.md). *Decoding is just neural coding's inverse problem.*
-5. **Connect the ML** — the decoder is a sequence model; relate to [05. Deep Learning](../../../deep-learning/README.md) RNN/transformer decoders.
+4. **Ground it in coding** — review [02 Neural Coding](/ai-ml/ai-ml-learning-resources/specialized-studies/neuroscience-and-brain-inspired-ai/neural-coding/neural-coding). *Decoding is just neural coding's inverse problem.*
+5. **Connect the ML** — the decoder is a sequence model; relate to [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme) RNN/transformer decoders.
 
 ## 🎓 Courses (free)
 - [Neuromatch Academy — Computational Neuroscience](https://compneuro.neuromatch.io/) — **Neuromatch** — population decoding and neural-data-analysis tutorials, the core of BCI decoders.
@@ -57,7 +57,7 @@ covered earlier in this section.
 - [Neuronal Dynamics — **Ch. 7 (Variability of spike trains)**](https://neuronaldynamics.epfl.ch/online/Ch7.html) — **Gerstner et al.** — the signal statistics a real-time decoder contends with.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 5.01 Information Theory — Entropy & KL](../../../../ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition.md) — the information limits on how much a decoder can extract.
-- Prereqs in this section: [02 Neural Coding](../neural-coding/neural-coding.md) · [01 Biological Neurons & Synapses](../biological-neurons-and-synapses/biological-neurons-and-synapses.md)
-- Next concepts: [13 Connectomics](../connectomics/connectomics.md)
-- Related domain: [05. Deep Learning](../../../deep-learning/README.md)
+- Concept depth (the *why*): [ai-ml-intuitions 5.01 Information Theory — Entropy & KL](/ai-ml/ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition) — the information limits on how much a decoder can extract.
+- Prereqs in this section: [02 Neural Coding](/ai-ml/ai-ml-learning-resources/specialized-studies/neuroscience-and-brain-inspired-ai/neural-coding/neural-coding) · [01 Biological Neurons & Synapses](/ai-ml/ai-ml-learning-resources/specialized-studies/neuroscience-and-brain-inspired-ai/biological-neurons-and-synapses/biological-neurons-and-synapses)
+- Next concepts: [13 Connectomics](/ai-ml/ai-ml-learning-resources/specialized-studies/neuroscience-and-brain-inspired-ai/connectomics/connectomics)
+- Related domain: [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

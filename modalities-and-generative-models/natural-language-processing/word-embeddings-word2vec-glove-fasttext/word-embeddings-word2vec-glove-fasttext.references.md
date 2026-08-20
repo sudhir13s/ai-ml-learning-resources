@@ -8,7 +8,7 @@ updated: 2026-06-27
 
 # Word Embeddings — references and further reading
 
-> Companion link library for **[Word Embeddings](word-embeddings-word2vec-glove-fasttext.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first within each group. Every entry is free/open and from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity, and every link verified.
+> Companion link library for **[Word Embeddings](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/word-embeddings-word2vec-glove-fasttext/word-embeddings-word2vec-glove-fasttext)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first within each group. Every entry is free/open and from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity, and every link verified.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Word2Vec, Clearly Explained](https://www.youtube.com/watch?v=viZrOnJclY0) (**StatQuest**), then read [The Illustrated Word2Vec](https://jalammar.github.io/illustrated-word2vec/) (**Jay Alammar**). *Fastest route to a correct mental model.*
@@ -18,13 +18,13 @@ updated: 2026-06-27
 5. **Make it concrete** — implement skip-gram + negative sampling with [d2l Ch. 15](https://d2l.ai/chapter_natural-language-processing-pretraining/index.html).
 
 **In this platform**:
-- Concept page (full explanation): [Word Embeddings](word-embeddings-word2vec-glove-fasttext.md)
+- Concept page (full explanation): [Word Embeddings](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/word-embeddings-word2vec-glove-fasttext/word-embeddings-word2vec-glove-fasttext)
 - Runnable code: [teaching notebook](code/word-embeddings-word2vec-glove-fasttext.ipynb) · [source-of-truth script](code/word_embeddings.py) · [figure generator](code/make_figures_05.py)
-- Concept depth (the *why*): [ai-ml-intuitions 1.02 Dense Embeddings](../../../../ai-ml-intuitions/representation/embedding-spaces/dense-embeddings-intuition.md) · [1.02a Word2Vec / Skip-Gram](../../../../ai-ml-intuitions/representation/embedding-spaces/word2vec-and-skip-gram-intuition.md)
-- Previous concept: [Bag-of-Words & TF-IDF](../bag-of-words-and-tf-idf/bag-of-words-and-tf-idf.md) — the sparse, count-based representations embeddings replace
-- Related: [Tokenization & Subword Algorithms](../tokenization-and-subword-algorithms/tokenization-and-subword-algorithms.md) — FastText's subword idea in modern LLMs
-- Next concept: [Contextual Embeddings (ELMo/BERT)](../contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert.md) — a vector per word *per sentence*
-- Onward: [Sentence & Document Embeddings](../sentence-and-document-embeddings/sentence-and-document-embeddings.md) · [LLMs, Applications and Agents](../../../llms-applications-and-agents/README.md)
+- Concept depth (the *why*): [ai-ml-intuitions 1.02 Dense Embeddings](/ai-ml/ai-ml-intuitions/representation/embedding-spaces/dense-embeddings-intuition) · [1.02a Word2Vec / Skip-Gram](/ai-ml/ai-ml-intuitions/representation/embedding-spaces/word2vec-and-skip-gram-intuition)
+- Previous concept: [Bag-of-Words & TF-IDF](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/bag-of-words-and-tf-idf/bag-of-words-and-tf-idf) — the sparse, count-based representations embeddings replace
+- Related: [Tokenization & Subword Algorithms](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/tokenization-and-subword-algorithms/tokenization-and-subword-algorithms) — FastText's subword idea in modern LLMs
+- Next concept: [Contextual Embeddings (ELMo/BERT)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert) — a vector per word *per sentence*
+- Onward: [Sentence & Document Embeddings](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sentence-and-document-embeddings/sentence-and-document-embeddings) · [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme)
 
 **Videos** (best-first):
 - [Word Embedding and Word2Vec, Clearly Explained](https://www.youtube.com/watch?v=viZrOnJclY0) — **StatQuest (Josh Starmer)** — gentle, from-scratch intuition for skip-gram + training; the fastest route to a correct mental model.

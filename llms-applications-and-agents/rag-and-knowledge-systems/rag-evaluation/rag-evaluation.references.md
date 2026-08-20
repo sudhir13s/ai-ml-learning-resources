@@ -8,7 +8,7 @@ updated: 2026-07-02
 
 # RAG Evaluation — references and further reading
 
-> Companion link library for **[RAG Evaluation](rag-evaluation.md)** (the concept page). External
+> Companion link library for **[RAG Evaluation](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-evaluation/rag-evaluation)** (the concept page). External
 > sources *and* internal cross-links, kept separate so it can be reused as a standalone list. Grouped
 > by type, best-first. Every entry is free/open (no paywall) and chosen for depth on *this* topic —
 > measuring RAG at both stages: retrieval (context precision/recall) and generation (the RAGAS/TruLens
@@ -56,9 +56,9 @@ updated: 2026-07-02
 - [Speech and Language Processing, 3rd ed. — Ch. 14 "Question Answering & Information Retrieval"](https://web.stanford.edu/~jurafsky/slp3/14.pdf) — **Jurafsky & Martin** — retrieval/answer evaluation foundations (precision/recall, EM/F1) the modern metrics build on, free PDF.
 
 **In this platform**:
-- Concept page (full explanation): [RAG Evaluation](rag-evaluation.md)
-- Concept depth (the *why*): [ai-ml-intuitions 8.02 Retrieval-Augmented Generation](../../../../ai-ml-intuitions/memory-retrieval-and-context/retrieval-augmented-generation/rag-intuition.md)
-- Metrics reused here: [06 Re-ranking (nDCG@k, MRR — the ranking metrics this chapter imports)](../reranking/reranking.md) · [08 Advanced RAG (the encoder-cosine support check reused as the faithfulness proxy)](../advanced-rag/advanced-rag.md)
-- Foundations: [01 RAG Fundamentals](../rag-foundations/rag-foundations.md) · [03 Embedding Models](../embedding-models/embedding-models.md) · [05 Hybrid Search (the DenseRetriever this reuses)](../hybrid-search/hybrid-search.md)
-- Next / related: [12 Long-Context vs RAG](../long-context-vs-rag/long-context-vs-rag.md) · [14 Guardrails & Hallucination Mitigation](../../reasoning-evaluation-and-alignment/hallucination-and-grounding/hallucination-and-grounding.md)
-- Related domain: [LLMs — LLM Evaluation & Benchmarks](../../reasoning-evaluation-and-alignment/llm-evaluation/llm-evaluation.md) · [06. NLP — NLP Evaluation Metrics](../../../modalities-and-generative-models/natural-language-processing/nlp-evaluation-metrics/nlp-evaluation-metrics.md)
+- Concept page (full explanation): [RAG Evaluation](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-evaluation/rag-evaluation)
+- Concept depth (the *why*): [ai-ml-intuitions 8.02 Retrieval-Augmented Generation](/ai-ml/ai-ml-intuitions/memory-retrieval-and-context/retrieval-augmented-generation/rag-intuition)
+- Metrics reused here: [06 Re-ranking (nDCG@k, MRR — the ranking metrics this chapter imports)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking) · [08 Advanced RAG (the encoder-cosine support check reused as the faithfulness proxy)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/advanced-rag/advanced-rag)
+- Foundations: [01 RAG Fundamentals](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-foundations/rag-foundations) · [03 Embedding Models](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/embedding-models/embedding-models) · [05 Hybrid Search (the DenseRetriever this reuses)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search)
+- Next / related: [12 Long-Context vs RAG](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/long-context-vs-rag/long-context-vs-rag) · [14 Guardrails & Hallucination Mitigation](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/hallucination-and-grounding/hallucination-and-grounding)
+- Related domain: [LLMs — LLM Evaluation & Benchmarks](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/llm-evaluation/llm-evaluation) · [06. NLP — NLP Evaluation Metrics](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/nlp-evaluation-metrics/nlp-evaluation-metrics)

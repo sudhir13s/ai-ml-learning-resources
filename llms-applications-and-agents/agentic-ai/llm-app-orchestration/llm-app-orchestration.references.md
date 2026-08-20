@@ -8,7 +8,7 @@ updated: 2026-07-02
 
 # LLM App Orchestration — references and further reading
 
-> Companion link library for **[LLM App Orchestration](llm-app-orchestration.md)** (the concept
+> Companion link library for **[LLM App Orchestration](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/llm-app-orchestration/llm-app-orchestration)** (the concept
 > page). External sources *and* internal cross-links, kept separate so it can be reused as a standalone
 > list. Grouped by type, best-first. Every entry is free/open (no paywall) and chosen for depth on
 > *this* topic — composing an LLM app as chains, routing to the right path, and stateful cyclic graphs.
@@ -54,9 +54,9 @@ updated: 2026-07-02
 - [Speech and Language Processing, 3rd ed. — Ch. 14 "Question Answering & Information Retrieval"](https://web.stanford.edu/~jurafsky/slp3/14.pdf) — **Jurafsky & Martin** — the retrieve→read pipeline these frameworks orchestrate, free PDF.
 
 **In this platform**:
-- Concept page (full explanation): [LLM App Orchestration](llm-app-orchestration.md)
-- Concept depth (the *why*): [ai-ml-intuitions 8.03 Agents & Tool Use](../../../../ai-ml-intuitions/reasoning-and-agency/agents-and-tools/agent-loop-and-tool-use-intuition.md) · [8.01 In-Context Learning & Prompting](../../../../ai-ml-intuitions/reasoning-and-agency/in-context-behavior/in-context-learning-and-prompting-intuition.md)
-- Steps wired here: [05 Hybrid Search (the DenseRetriever)](../../rag-and-knowledge-systems/hybrid-search/hybrid-search.md) · [06 Re-ranking (the cross-encoder rerank)](../../rag-and-knowledge-systems/reranking/reranking.md) · [10 Agentic RAG (the cosine router + run loop)](../../rag-and-knowledge-systems/agentic-rag/agentic-rag.md) · [14 Guardrails (the grounding/abstention step)](../../reasoning-evaluation-and-alignment/hallucination-and-grounding/hallucination-and-grounding.md)
-- Foundations: [01 RAG Fundamentals](../../rag-and-knowledge-systems/rag-foundations/rag-foundations.md)
-- Next / related: [16 Caching & Cost Optimization](../../inference-and-runtime/caching-and-cost-optimization/caching-and-cost-optimization.md)
-- Related domain: [12. Agentic AI](../overview.md) (orchestration becomes agent loops) · [LLMs — Prompting & In-Context Learning](../../reasoning-evaluation-and-alignment/prompting-and-in-context-learning/prompting-and-in-context-learning.md)
+- Concept page (full explanation): [LLM App Orchestration](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/llm-app-orchestration/llm-app-orchestration)
+- Concept depth (the *why*): [ai-ml-intuitions 8.03 Agents & Tool Use](/ai-ml/ai-ml-intuitions/reasoning-and-agency/agents-and-tools/agent-loop-and-tool-use-intuition) · [8.01 In-Context Learning & Prompting](/ai-ml/ai-ml-intuitions/reasoning-and-agency/in-context-behavior/in-context-learning-and-prompting-intuition)
+- Steps wired here: [05 Hybrid Search (the DenseRetriever)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search) · [06 Re-ranking (the cross-encoder rerank)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking) · [10 Agentic RAG (the cosine router + run loop)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/agentic-rag/agentic-rag) · [14 Guardrails (the grounding/abstention step)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/hallucination-and-grounding/hallucination-and-grounding)
+- Foundations: [01 RAG Fundamentals](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-foundations/rag-foundations)
+- Next / related: [16 Caching & Cost Optimization](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/caching-and-cost-optimization/caching-and-cost-optimization)
+- Related domain: [12. Agentic AI](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/overview) (orchestration becomes agent loops) · [LLMs — Prompting & In-Context Learning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/prompting-and-in-context-learning/prompting-and-in-context-learning)

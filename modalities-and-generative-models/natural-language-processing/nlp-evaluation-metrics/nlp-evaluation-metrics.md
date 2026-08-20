@@ -18,7 +18,7 @@ category: natural-language-processing
 
 Give a translation system the French sentence *"J'ai pris le train ce matin"* and it returns *"I took the train this morning."* A second system returns *"This morning I caught the train."* Both are perfect. A third returns *"I take train morning"* — clearly worse. Now: **write down a single number that ranks these three the way a human would**, automatically, over a million sentences, without a person reading any of them. That is the entire problem of NLP evaluation, and it is genuinely hard — because unlike classification, where there is exactly one right label, **open-ended generation has many equally-valid outputs**, and "valid" depends on meaning, not on which words you happened to use.
 
-This page is the **capstone** of the NLP arc — the map that ties every task's metric together. The individual metrics are derived in full in their home chapters: **BLEU/chrF** in [Machine Translation](../machine-translation/machine-translation.md), **ROUGE** in [Text Summarization](../text-summarization/text-summarization.md), **EM/token-F1** in [Question Answering](../question-answering/question-answering.md), **perplexity** in [N-gram Language Models](../n-gram-language-models-and-smoothing/n-gram-language-models-and-smoothing.md), and **classification precision/recall/F1** in [Text Classification](../text-classification-and-sentiment-analysis/text-classification-and-sentiment-analysis.md). Here we do something none of those chapters can: **put them side by side on the same input so their *disagreement* becomes the lesson**, then derive the two meta-tools every metric is ultimately judged by — **metric-human correlation** and **statistical significance**. By the end you'll be able to:
+This page is the **capstone** of the NLP arc — the map that ties every task's metric together. The individual metrics are derived in full in their home chapters: **BLEU/chrF** in [Machine Translation](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/machine-translation/machine-translation), **ROUGE** in [Text Summarization](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/text-summarization/text-summarization), **EM/token-F1** in [Question Answering](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/question-answering/question-answering), **perplexity** in [N-gram Language Models](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/n-gram-language-models-and-smoothing/n-gram-language-models-and-smoothing), and **classification precision/recall/F1** in [Text Classification](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/text-classification-and-sentiment-analysis/text-classification-and-sentiment-analysis). Here we do something none of those chapters can: **put them side by side on the same input so their *disagreement* becomes the lesson**, then derive the two meta-tools every metric is ultimately judged by — **metric-human correlation** and **statistical significance**. By the end you'll be able to:
 
 - place any metric in a clean **taxonomy** (reference-based vs reference-free; surface vs embedding vs learned vs human) and explain the trade each family makes;
 - read the **metric zoo** — five "overlap" metrics scoring the *same* pair completely differently — and say *why* each disagrees;
@@ -39,7 +39,7 @@ Intuition and the taxonomy first, then each meta-tool derived with sources, then
 
 To feel why a whole zoo of metrics exists, sit with what makes generation different from classification.
 
-In **classification** the label space is finite and a single key is correct: the review is *positive* or it isn't; the token is a *person* or it isn't. You compare prediction to gold and tally — accuracy, precision, recall, F1 (derived in [Text Classification](../text-classification-and-sentiment-analysis/text-classification-and-sentiment-analysis.md), recapped below). Evaluation is essentially *bookkeeping*.
+In **classification** the label space is finite and a single key is correct: the review is *positive* or it isn't; the token is a *person* or it isn't. You compare prediction to gold and tally — accuracy, precision, recall, F1 (derived in [Text Classification](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/text-classification-and-sentiment-analysis/text-classification-and-sentiment-analysis), recapped below). Evaluation is essentially *bookkeeping*.
 
 **Generation** breaks that comfort in four ways:
 
@@ -116,7 +116,7 @@ We'll walk the ladder from the bottom, because the surface metrics are where the
 
 ## Family 0: classification and QA metrics (the recap, and the one formula we derive)
 
-Many NLP tasks *are* classification in disguise — sentiment, topic, intent, and token-level tagging like POS and NER — and for these the metrics are exactly accuracy, **precision**, **recall**, and **F1**. These are fully derived in [Text Classification](../text-classification-and-sentiment-analysis/text-classification-and-sentiment-analysis.md); here we recap the one-liner and derive the **harmonic mean**, because it is the load-bearing operation that recurs in *every* family below (ROUGE-L's F, chrF's F-beta, BERTScore's F1, token-F1).
+Many NLP tasks *are* classification in disguise — sentiment, topic, intent, and token-level tagging like POS and NER — and for these the metrics are exactly accuracy, **precision**, **recall**, and **F1**. These are fully derived in [Text Classification](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/text-classification-and-sentiment-analysis/text-classification-and-sentiment-analysis); here we recap the one-liner and derive the **harmonic mean**, because it is the load-bearing operation that recurs in *every* family below (ROUGE-L's F, chrF's F-beta, BERTScore's F1, token-F1).
 
 **One-line recap.** Precision $=\tfrac{TP}{TP+FP}$ (of what you flagged, how much was right), recall $=\tfrac{TP}{TP+FN}$ (of what mattered, how much you caught).
 
@@ -139,7 +139,7 @@ $$P=\frac{2}{2}=1.0,\qquad R=\frac{2}{3}=0.667,\qquad F_1=\frac{2\cdot 1.0\cdot 
 
 So this answer earns **EM = 0** (string differs) but **token-F1 = 0.80** (mostly right). The notebook reproduces `EM = 0, token-F1 = 0.800` — the strict-vs-forgiving gap that is exactly why QA leaderboards report both.
 
-> *Full derivation and the SQuAD normalization rules: [Question Answering](../question-answering/question-answering.md). EM/token-F1 are the official SQuAD metrics — see the Source/derivation note under the decision tree.*
+> *Full derivation and the SQuAD normalization rules: [Question Answering](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/question-answering/question-answering). EM/token-F1 are the official SQuAD metrics — see the Source/derivation note under the decision tree.*
 
 > **Gotcha:** EM and token-F1 are **bag-of-tokens** — they ignore word order. *"dog bites man"* and *"man bites dog"* are F1-identical against each other. For short extractive spans that's fine; never repurpose token-F1 as a generation metric, where word order carries meaning.
 
@@ -168,7 +168,7 @@ Read the table top to bottom and the disagreement jumps out:
 - **chrF** works at the character level, so it gives the unrelated sentence a small non-zero floor (10.5) from incidental shared characters.
 - **semantic** is the only metric that scores the paraphrase **high (86.1)** — because it compares *meaning*, not strings.
 
-> **Note:** the surface metrics here (BLEU, ROUGE-L, chrF, EM, token-F1) are recaps of their home chapters — [MT ch.12](../machine-translation/machine-translation.md) (BLEU/chrF), [Summarization ch.13](../text-summarization/text-summarization.md) (ROUGE), [QA ch.11](../question-answering/question-answering.md) (EM/F1). The point of the capstone is not to re-derive them but to **show them disagreeing on one input** so you internalize that "which metric" is a real decision, not a formality.
+> **Note:** the surface metrics here (BLEU, ROUGE-L, chrF, EM, token-F1) are recaps of their home chapters — [MT ch.12](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/machine-translation/machine-translation) (BLEU/chrF), [Summarization ch.13](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/text-summarization/text-summarization) (ROUGE), [QA ch.11](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/question-answering/question-answering) (EM/F1). The point of the capstone is not to re-derive them but to **show them disagreeing on one input** so you internalize that "which metric" is a real decision, not a formality.
 
 ---
 
@@ -189,7 +189,7 @@ Pull the two load-bearing rows out of the zoo, because they contain both the cen
 
 ## Why BLEU zeroes out: the mechanism, recapped
 
-BLEU's collapse to 0 on the paraphrase isn't a bug — it's the **geometric mean** doing its job. BLEU multiplies clipped n-gram precisions $p_1\dots p_4$ and takes the 4th root: any single zero precision (here, no shared 2-, 3-, or 4-grams) makes the whole product 0. We recap the four pieces compactly — the full derivation is in [Machine Translation](../machine-translation/machine-translation.md).
+BLEU's collapse to 0 on the paraphrase isn't a bug — it's the **geometric mean** doing its job. BLEU multiplies clipped n-gram precisions $p_1\dots p_4$ and takes the 4th root: any single zero precision (here, no shared 2-, 3-, or 4-grams) makes the whole product 0. We recap the four pieces compactly — the full derivation is in [Machine Translation](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/machine-translation/machine-translation).
 
 $$\text{BLEU}=\underbrace{\text{BP}}_{\text{brevity penalty}}\cdot\exp\!\Big(\underbrace{\tfrac{1}{4}\textstyle\sum_{n=1}^{4}\ln p_n}_{\text{geometric mean of clipped precisions}}\Big),\qquad \text{BP}=\begin{cases}1 & c>r\\ e^{\,1-r/c} & c\le r,\end{cases}$$
 
@@ -211,7 +211,7 @@ The notebook prints `BLEU = 67.318` and matches **sacreBLEU 67.318** exactly. No
 
 The rest of the surface family loosens the **matching unit** to recover some of the meaning exact-word-matching throws away — each is derived in its home chapter:
 
-- **ROUGE** (recall-oriented, for summarization, [ch.13](../text-summarization/text-summarization.md)) flips BLEU's question from *"how much of the candidate is in the reference?"* (precision) to *"how much of the reference did the candidate cover?"* (recall). **ROUGE-L** uses the **longest common subsequence** — in-order overlap with gaps allowed — and reports an LCS-based F (the same harmonic mean from Family 0). Computed by `rouge_l()`, verified against Google's `rouge-score` to the digit (the notebook prints `our ROUGE-L 0.769 == rouge-score 0.769`).
+- **ROUGE** (recall-oriented, for summarization, [ch.13](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/text-summarization/text-summarization)) flips BLEU's question from *"how much of the candidate is in the reference?"* (precision) to *"how much of the reference did the candidate cover?"* (recall). **ROUGE-L** uses the **longest common subsequence** — in-order overlap with gaps allowed — and reports an LCS-based F (the same harmonic mean from Family 0). Computed by `rouge_l()`, verified against Google's `rouge-score` to the digit (the notebook prints `our ROUGE-L 0.769 == rouge-score 0.769`).
 - **METEOR** matches words **up to stems and synonyms** (via WordNet) and weights recall, so it credits *"quick"↔"fast"* where BLEU sees a miss — better human correlation at the sentence level, at the cost of language-specific resources.
 - **chrF** matches **character n-grams** (sub-word), so it needs no tokenizer and rewards shared morphology (*"walked"*/*"walking"* share *"walk"*) — strong for morphologically rich languages. Computed by `chrf()`.
 
@@ -221,15 +221,15 @@ The rest of the surface family loosens the **matching unit** to recover some of 
 
 ## Family 1.5 (intrinsic): perplexity, recapped
 
-One reference-free metric judges a **language model** itself rather than a generated string: **perplexity**, derived fully in [N-gram Language Models](../n-gram-language-models-and-smoothing/n-gram-language-models-and-smoothing.md). For held-out text $w_1\dots w_N$ it is **two raised to the cross-entropy**:
+One reference-free metric judges a **language model** itself rather than a generated string: **perplexity**, derived fully in [N-gram Language Models](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/n-gram-language-models-and-smoothing/n-gram-language-models-and-smoothing). For held-out text $w_1\dots w_N$ it is **two raised to the cross-entropy**:
 
 $$\text{PP}(W)=\Big(\prod_{i=1}^{N}\frac{1}{P(w_i\mid w_{<i})}\Big)^{1/N}=2^{\,H(W)},\qquad H(W)=-\tfrac{1}{N}\sum_{i=1}^{N}\log_2 P(w_i\mid w_{<i}).$$
 
 Lower is better; PP = 20 means the model is, on average, as uncertain as choosing uniformly among 20 words at each step. Two cautions: perplexity is **only comparable across models with the same vocabulary/tokenization**, and **lower perplexity does not guarantee a better downstream system** — it measures fit to the text distribution, not translation quality or helpfulness.
 
-> **Source / derivation:** the perplexity ↔ cross-entropy identity is in Jurafsky & Martin, [*Speech and Language Processing* (3rd ed.), Ch. 3 §"Perplexity"](https://web.stanford.edu/~jurafsky/slp3/3.pdf). Full worked derivation: [N-gram Language Models](../n-gram-language-models-and-smoothing/n-gram-language-models-and-smoothing.md).
+> **Source / derivation:** the perplexity ↔ cross-entropy identity is in Jurafsky & Martin, [*Speech and Language Processing* (3rd ed.), Ch. 3 §"Perplexity"](https://web.stanford.edu/~jurafsky/slp3/3.pdf). Full worked derivation: [N-gram Language Models](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/n-gram-language-models-and-smoothing/n-gram-language-models-and-smoothing).
 
-> **Gotcha:** perplexity is **intrinsic**, not a generation-quality metric. A model can have low perplexity and still generate repetitive or off-task text (see [Decoding Strategies](../decoding-strategies/decoding-strategies.md)). Never quote perplexity as evidence that *generated* text is good; quote it as evidence the model *fits the distribution*.
+> **Gotcha:** perplexity is **intrinsic**, not a generation-quality metric. A model can have low perplexity and still generate repetitive or off-task text (see [Decoding Strategies](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/decoding-strategies/decoding-strategies)). Never quote perplexity as evidence that *generated* text is good; quote it as evidence the model *fits the distribution*.
 
 ---
 

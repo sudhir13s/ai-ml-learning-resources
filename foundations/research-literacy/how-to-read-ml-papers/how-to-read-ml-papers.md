@@ -57,6 +57,6 @@ headline" from "I understand the method and its limits."
 - [Dive into Deep Learning](https://d2l.ai/) — **Zhang et al.** — pairs prose with runnable code; the gold standard for "reconstruct the method to understand it."
 
 ## 🔗 In this platform
-- Per-concept index: [Frontier & Staying Current — concepts](../README.md)
-- Where to find papers to read: [02 arXiv & Papers with Code](../arxiv-and-papers-with-code/arxiv-and-papers-with-code.md) · [04 Newsletters & Blogs to Follow](../newsletters-and-blogs-to-follow/newsletters-and-blogs-to-follow.md)
-- Apply it to a frontier area: [LLMs, Applications and Agents](../../../llms-applications-and-agents/README.md) · [10. GenAI](../../../modalities-and-generative-models/generative-models/README.md)
+- Per-concept index: [Frontier & Staying Current — concepts](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/readme)
+- Where to find papers to read: [02 arXiv & Papers with Code](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/arxiv-and-papers-with-code/arxiv-and-papers-with-code) · [04 Newsletters & Blogs to Follow](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/newsletters-and-blogs-to-follow/newsletters-and-blogs-to-follow)
+- Apply it to a frontier area: [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme) · [10. GenAI](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/readme)

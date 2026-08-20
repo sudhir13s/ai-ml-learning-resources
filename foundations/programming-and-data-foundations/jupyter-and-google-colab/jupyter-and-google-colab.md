@@ -59,6 +59,6 @@ workflow (and its pitfalls, like out-of-order execution) makes you productive im
 - [Teaching and Learning with Jupyter](https://jupyter4edu.github.io/jupyter-edu-book/) — **Barba et al.** — free book on using notebooks well.
 
 ## 🔗 In this platform
-- Prev/next: [09 Data Visualization Basics](../data-visualization-basics/data-visualization-basics.md) · [11 Environments & Package Management](../environments-and-package-management/environments-and-package-management.md)
-- Apply it: [12 Your First ML Project](../your-first-ml-project/your-first-ml-project.md)
-- Go deeper — tooling & frameworks: [11. Tools & Frameworks](../../tools-and-frameworks/README.md)
+- Prev/next: [09 Data Visualization Basics](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/data-visualization-basics/data-visualization-basics) · [11 Environments & Package Management](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/environments-and-package-management/environments-and-package-management)
+- Apply it: [12 Your First ML Project](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/your-first-ml-project/your-first-ml-project)
+- Go deeper — tooling & frameworks: [11. Tools & Frameworks](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/readme)

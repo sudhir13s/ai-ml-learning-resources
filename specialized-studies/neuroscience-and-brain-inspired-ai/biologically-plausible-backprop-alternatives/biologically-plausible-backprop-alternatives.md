@@ -32,7 +32,7 @@ assignment local, forward-forward removes the backward pass entirely.
 2. **Feedback alignment** — [Random synaptic feedback weights support error backpropagation](https://www.nature.com/articles/ncomms13276). *Random feedback weights still let learning work — no weight transport needed.*
 3. **Predictive coding route** — watch [Predictive Coding Approximates Backprop (paper explained)](https://www.youtube.com/watch?v=LB4B5FYvtdI). *Local error units recover the backprop gradient.*
 4. **Forward-Forward** — watch [This Algorithm Could Make a GPT-4 Toaster Possible](https://www.youtube.com/watch?v=rVzDRfO2sgs), then read [The Forward-Forward Algorithm](https://arxiv.org/abs/2212.13345). *Two forward passes, no backward pass at all (Hinton, 2022).*
-5. **See the local-learning contrast** — review [04 Hebbian Learning & STDP](../hebbian-learning-and-stdp/hebbian-learning-and-stdp.md). *All these methods reach for local, biologically-realizable updates.*
+5. **See the local-learning contrast** — review [04 Hebbian Learning & STDP](/ai-ml/ai-ml-learning-resources/specialized-studies/neuroscience-and-brain-inspired-ai/hebbian-learning-and-stdp/hebbian-learning-and-stdp). *All these methods reach for local, biologically-realizable updates.*
 
 ## 🎓 Courses (free)
 - [Neuromatch Academy — Deep Learning](https://deeplearning.neuromatch.io/) — **Neuromatch** — covers credit assignment and biologically-motivated learning rules.
@@ -59,6 +59,6 @@ assignment local, forward-forward removes the backward pass entirely.
 - [Neuronal Dynamics — **Ch. 19 (Synaptic Plasticity & Learning)**](https://neuronaldynamics.epfl.ch/online/Ch19.html) — **Gerstner et al.** — biologically-realizable plasticity, the target of all these methods.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 2.02 Backpropagation — The Chain Rule](../../../../ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/chain-rule-and-backpropagation-intuition.md) — the algorithm these methods aim to replace with local, plausible learning.
-- Prereqs in this section: [04 Hebbian Learning & STDP](../hebbian-learning-and-stdp/hebbian-learning-and-stdp.md) · [06 Predictive Coding](../predictive-coding/predictive-coding.md)
-- Related domain: [05. Deep Learning](../../../deep-learning/README.md)
+- Concept depth (the *why*): [ai-ml-intuitions 2.02 Backpropagation — The Chain Rule](/ai-ml/ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/chain-rule-and-backpropagation-intuition) — the algorithm these methods aim to replace with local, plausible learning.
+- Prereqs in this section: [04 Hebbian Learning & STDP](/ai-ml/ai-ml-learning-resources/specialized-studies/neuroscience-and-brain-inspired-ai/hebbian-learning-and-stdp/hebbian-learning-and-stdp) · [06 Predictive Coding](/ai-ml/ai-ml-learning-resources/specialized-studies/neuroscience-and-brain-inspired-ai/predictive-coding/predictive-coding)
+- Related domain: [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

@@ -8,7 +8,7 @@ updated: 2026-06-26
 
 # Knowledge Distillation — references and further reading
 
-> Companion link library for **[Knowledge Distillation](knowledge-distillation.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first within each group. Every entry is free/open and chosen for depth on *this* topic. The papers cited for formulas on the concept page all appear under **Papers** below.
+> Companion link library for **[Knowledge Distillation](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/knowledge-distillation/knowledge-distillation)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first within each group. Every entry is free/open and chosen for depth on *this* topic. The papers cited for formulas on the concept page all appear under **Papers** below.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Knowledge Distillation in Neural Networks — Explained!](https://www.youtube.com/watch?v=BUCSTKQOzcM) (**CodeEmporium**). *Teacher/student, soft targets, and temperature in plain terms — the cleanest conceptual intro.*
@@ -52,8 +52,8 @@ updated: 2026-06-26
 - [Speech and Language Processing, 3rd ed. — Ch. 10 "Large Language Models"](https://web.stanford.edu/~jurafsky/slp3/10.pdf) — **Jurafsky & Martin** — softmax, cross-entropy, and the LM objective that distillation matches against.
 
 **In this platform**:
-- Concept page (full explanation): [Knowledge Distillation](knowledge-distillation.md)
-- The other compression levers: [Quantization](../../inference-and-runtime/quantization/quantization.md) · [Inference Optimization & Serving](../../inference-and-runtime/inference-optimization/inference-optimization.md)
-- Builds on these: [Language Modeling Objectives](../../large-language-model-foundations/language-modeling-objectives/language-modeling-objectives.md) · [Pretraining at Scale](../../large-language-model-foundations/pretraining/pretraining.md)
-- Distillation targets these: [Chain-of-Thought Reasoning](../../reasoning-evaluation-and-alignment/chain-of-thought-and-reasoning/chain-of-thought-and-reasoning.md) (reasoning distillation) · [Supervised Fine-Tuning](../supervised-fine-tuning/supervised-fine-tuning.md) (synthetic-data fine-tuning is distillation) · [LoRA and PEFT](../lora-and-parameter-efficient-fine-tuning/lora-and-parameter-efficient-fine-tuning.md)
-- Concept depth (the *why*): [Module 7.04 Knowledge Distillation](../../../../ai-ml-intuitions/scaling-adaptation-and-efficiency/compression/knowledge-distillation-intuition.md)
+- Concept page (full explanation): [Knowledge Distillation](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/knowledge-distillation/knowledge-distillation)
+- The other compression levers: [Quantization](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/quantization/quantization) · [Inference Optimization & Serving](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/inference-optimization/inference-optimization)
+- Builds on these: [Language Modeling Objectives](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/language-modeling-objectives/language-modeling-objectives) · [Pretraining at Scale](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/pretraining/pretraining)
+- Distillation targets these: [Chain-of-Thought Reasoning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/chain-of-thought-and-reasoning/chain-of-thought-and-reasoning) (reasoning distillation) · [Supervised Fine-Tuning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/supervised-fine-tuning/supervised-fine-tuning) (synthetic-data fine-tuning is distillation) · [LoRA and PEFT](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/lora-and-parameter-efficient-fine-tuning/lora-and-parameter-efficient-fine-tuning)
+- Concept depth (the *why*): [Module 7.04 Knowledge Distillation](/ai-ml/ai-ml-intuitions/scaling-adaptation-and-efficiency/compression/knowledge-distillation-intuition)

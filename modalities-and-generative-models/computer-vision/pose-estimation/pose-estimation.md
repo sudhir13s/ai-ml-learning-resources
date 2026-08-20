@@ -57,6 +57,6 @@ combines detection, dense prediction, and structured output.
 - [Dive into Deep Learning — **Ch. 14 (Computer Vision)**](https://d2l.ai/chapter_computer-vision/index.html) — **Zhang et al.** — the detection/dense-prediction machinery pose builds on, with code.
 
 ## 🔗 In this platform
-- Foundation: [Object Detection](../object-detection/object-detection.md) (top-down pose needs a detector) · [Semantic Segmentation](../semantic-segmentation/semantic-segmentation.md) (heatmaps are dense prediction)
-- Foundation: [Deep Learning › CNNs & Convolution](../../../deep-learning/neural-architectures/cnns-and-convolution/cnns-and-convolution.md)
-- Related: [Optical Flow & Video Understanding](../optical-flow-and-video/optical-flow-and-video.md) (pose tracking over time)
+- Foundation: [Object Detection](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/object-detection/object-detection) (top-down pose needs a detector) · [Semantic Segmentation](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/semantic-segmentation/semantic-segmentation) (heatmaps are dense prediction)
+- Foundation: [Deep Learning › CNNs & Convolution](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/cnns-and-convolution/cnns-and-convolution)
+- Related: [Optical Flow & Video Understanding](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/optical-flow-and-video/optical-flow-and-video) (pose tracking over time)

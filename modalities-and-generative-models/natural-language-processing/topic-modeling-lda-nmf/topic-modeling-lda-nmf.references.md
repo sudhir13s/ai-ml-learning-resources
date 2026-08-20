@@ -8,7 +8,7 @@ updated: 2026-06-27
 
 # Topic Modeling — references and further reading
 
-> Companion link library for **[Topic Modeling (LDA · NMF)](topic-modeling-lda-nmf.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
+> Companion link library for **[Topic Modeling (LDA · NMF)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/topic-modeling-lda-nmf/topic-modeling-lda-nmf)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Latent Dirichlet Allocation (Part 1)](https://www.youtube.com/watch?v=T05t-SqKArY) (**Luis Serrano**). *The generative story, visually, before any math — the clearest LDA intro anywhere.*
@@ -55,10 +55,10 @@ updated: 2026-06-27
 - [Speech and Language Processing, 3rd ed. — Ch. 6 "Vector Semantics and Embeddings"](https://web.stanford.edu/~jurafsky/slp3/6.pdf) — **Jurafsky & Martin** — the term–document matrix and its low-rank structure that topic models exploit.
 
 **In this platform**:
-- Concept page (full explanation): [Topic Modeling (LDA · NMF)](topic-modeling-lda-nmf.md)
+- Concept page (full explanation): [Topic Modeling (LDA · NMF)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/topic-modeling-lda-nmf/topic-modeling-lda-nmf)
 - Runnable code: [teaching notebook](code/topic-modeling-lda-nmf.ipynb) (executed, assert-before-print) · [source module](code/topic_modeling.py) (from-scratch Gibbs LDA, NMF, coherence) · [figure generator](code/make_figures_15.py)
-- Prior step (the input matrix): [Bag-of-Words & TF-IDF](../bag-of-words-and-tf-idf/bag-of-words-and-tf-idf.md) — the document–term matrix topic models factorize.
-- The latent-variable / EM foundation: [Gaussian Mixture Models & EM](../../../core-machine-learning/unsupervised-learning/clustering/gaussian-mixture-models-and-em/gaussian-mixture-models-and-em.md) — same soft-assignment fitting, on continuous data.
-- The dimensionality-reduction framing: [Dimensionality Reduction — Overview (PCA · SVD)](../../../core-machine-learning/unsupervised-learning/dimensionality-reduction/dimensionality-reduction-overview/dimensionality-reduction-overview.md) — NMF/LSA as reductions of the term matrix.
-- The modern embedding route: [Sentence & Document Embeddings](../sentence-and-document-embeddings/sentence-and-document-embeddings.md) — what BERTopic clusters instead of counts.
-- Where LSA connects: [Information Retrieval & Semantic Search](../information-retrieval-and-semantic-search/information-retrieval-and-semantic-search.md) — latent semantic indexing links the two.
+- Prior step (the input matrix): [Bag-of-Words & TF-IDF](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/bag-of-words-and-tf-idf/bag-of-words-and-tf-idf) — the document–term matrix topic models factorize.
+- The latent-variable / EM foundation: [Gaussian Mixture Models & EM](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/gaussian-mixture-models-and-em/gaussian-mixture-models-and-em) — same soft-assignment fitting, on continuous data.
+- The dimensionality-reduction framing: [Dimensionality Reduction — Overview (PCA · SVD)](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/dimensionality-reduction-overview/dimensionality-reduction-overview) — NMF/LSA as reductions of the term matrix.
+- The modern embedding route: [Sentence & Document Embeddings](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sentence-and-document-embeddings/sentence-and-document-embeddings) — what BERTopic clusters instead of counts.
+- Where LSA connects: [Information Retrieval & Semantic Search](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/information-retrieval-and-semantic-search/information-retrieval-and-semantic-search) — latent semantic indexing links the two.

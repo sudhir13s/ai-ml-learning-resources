@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Contrastive / Self-Supervised Learning — references and further reading
 
-> Companion link library for **[Contrastive / Self-Supervised Learning](contrastive-self-supervised-learning.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
+> Companion link library for **[Contrastive / Self-Supervised Learning](/ai-ml/ai-ml-learning-resources/deep-learning/self-supervised-learning/contrastive-self-supervised-learning/contrastive-self-supervised-learning)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Contrastive Learning of Visual Representations — SimCLR (paper illustrated)](https://www.youtube.com/watch?v=YZgeWsuyRH8) (**Yannic Kilcher**). *Augment one image two ways → make those embeddings agree, everything else disagree.*
@@ -60,8 +60,8 @@ updated: 2026-06-22
 - [An Introduction to Statistical Learning](https://www.statlearning.com/) — **James, Witten, Hastie & Tibshirani** — free; the bias–variance and similarity foundations under embedding-based methods.
 
 **In this platform**:
-- Concept page (full explanation): [Contrastive / Self-Supervised Learning](contrastive-self-supervised-learning.md)
-- Foundations (the *why*): [ai-ml-intuitions 1.13 Contrastive Learning (SimCLR / InfoNCE)](../../../../ai-ml-intuitions/representation/representation-learning/contrastive-learning-intuition.md) · [1.14 Triplet Loss](../../../../ai-ml-intuitions/representation/representation-learning/triplet-learning-intuition.md) · [1.02 Dense Embeddings](../../../../ai-ml-intuitions/representation/embedding-spaces/dense-embeddings-intuition.md)
-- Loss foundations: [ai-ml-intuitions 5.01 Entropy & KL Divergence](../../../../ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition.md) — InfoNCE is a cross-entropy / MI-bound loss
-- Evaluating the representation: [k-Nearest Neighbors](../../../core-machine-learning/supervised-learning/classification/k-nearest-neighbors/k-nearest-neighbors.md) — the k-NN probe for self-supervised embeddings
-- Where it leads: [4. Unsupervised Learning](../../../core-machine-learning/unsupervised-learning/README.md) · [Deep Learning concepts](../../README.md)
+- Concept page (full explanation): [Contrastive / Self-Supervised Learning](/ai-ml/ai-ml-learning-resources/deep-learning/self-supervised-learning/contrastive-self-supervised-learning/contrastive-self-supervised-learning)
+- Foundations (the *why*): [ai-ml-intuitions 1.13 Contrastive Learning (SimCLR / InfoNCE)](/ai-ml/ai-ml-intuitions/representation/representation-learning/contrastive-learning-intuition) · [1.14 Triplet Loss](/ai-ml/ai-ml-intuitions/representation/representation-learning/triplet-learning-intuition) · [1.02 Dense Embeddings](/ai-ml/ai-ml-intuitions/representation/embedding-spaces/dense-embeddings-intuition)
+- Loss foundations: [ai-ml-intuitions 5.01 Entropy & KL Divergence](/ai-ml/ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition) — InfoNCE is a cross-entropy / MI-bound loss
+- Evaluating the representation: [k-Nearest Neighbors](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/k-nearest-neighbors/k-nearest-neighbors) — the k-NN probe for self-supervised embeddings
+- Where it leads: [4. Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme) · [Deep Learning concepts](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

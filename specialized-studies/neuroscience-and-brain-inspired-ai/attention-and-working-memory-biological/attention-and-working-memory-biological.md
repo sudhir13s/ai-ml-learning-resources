@@ -30,7 +30,7 @@ the whole value of this card.
 1. **Get working memory** — watch [The Neurobiology of Working Memory](https://www.youtube.com/watch?v=9lzbEb-7_NI). *Persistent prefrontal activity as the substrate of "holding in mind."*
 2. **Read the mechanism** — [Role of Prefrontal Persistent Activity in Working Memory](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4700146/). *The classic delay-period firing account, open access.*
 3. **Get selective attention** — [Neuronal Mechanisms of Visual Attention](https://pmc.ncbi.nlm.nih.gov/articles/PMC8279254/). *Biased competition and gain modulation in cortex.*
-4. **Contrast with ML attention** — review [4.08 Multi-Head Attention Routing](../../../../ai-ml-intuitions/architectural-mechanisms/attention-and-routing/multi-head-attention-intuition.md). *See precisely how the transformer mechanism differs from biological attention.*
+4. **Contrast with ML attention** — review [4.08 Multi-Head Attention Routing](/ai-ml/ai-ml-intuitions/architectural-mechanisms/attention-and-routing/multi-head-attention-intuition). *See precisely how the transformer mechanism differs from biological attention.*
 5. **See the memory-attention link** — watch [A Brain-Inspired Algorithm For Memory](https://www.youtube.com/watch?v=1WPJdAW-sFo). *Modern Hopfield networks tie associative memory to attention math.*
 
 ## 🎓 Courses (free)
@@ -57,6 +57,6 @@ the whole value of this card.
 - [Neuronal Dynamics — **Ch. 17 (Memory & Attractor Dynamics)**](https://neuronaldynamics.epfl.ch/online/Ch17.html) — **Gerstner et al.** — persistent-activity working memory in recurrent networks, free online.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 4.08 Multi-Head Attention Routing](../../../../ai-ml-intuitions/architectural-mechanisms/attention-and-routing/multi-head-attention-intuition.md) · [4.07 Gating Mechanisms (LSTM/GRU)](../../../../ai-ml-intuitions/architectural-mechanisms/memory-and-gating/lstm-and-gru-gates-intuition.md) — the ML attention/memory mechanisms biological attention is contrasted with.
-- Prereqs in this section: [10 Memory Systems (hippocampus · replay)](../memory-systems-hippocampus-replay/memory-systems-hippocampus-replay.md) · [02 Neural Coding](../neural-coding/neural-coding.md)
-- Related domain: [05. Deep Learning](../../../deep-learning/README.md)
+- Concept depth (the *why*): [ai-ml-intuitions 4.08 Multi-Head Attention Routing](/ai-ml/ai-ml-intuitions/architectural-mechanisms/attention-and-routing/multi-head-attention-intuition) · [4.07 Gating Mechanisms (LSTM/GRU)](/ai-ml/ai-ml-intuitions/architectural-mechanisms/memory-and-gating/lstm-and-gru-gates-intuition) — the ML attention/memory mechanisms biological attention is contrasted with.
+- Prereqs in this section: [10 Memory Systems (hippocampus · replay)](/ai-ml/ai-ml-learning-resources/specialized-studies/neuroscience-and-brain-inspired-ai/memory-systems-hippocampus-replay/memory-systems-hippocampus-replay) · [02 Neural Coding](/ai-ml/ai-ml-learning-resources/specialized-studies/neuroscience-and-brain-inspired-ai/neural-coding/neural-coding)
+- Related domain: [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

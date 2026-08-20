@@ -57,6 +57,6 @@ a classifier with only 500 labeled images?"
 - [Computer Vision: Algorithms and Applications, 2nd ed. — **Ch. 5.4 (Transfer / pretraining)**](https://szeliski.org/Book/) — **Richard Szeliski** — pretraining and transfer in context, free.
 
 ## 🔗 In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 7.03 Transfer Learning & Fine-Tuning](../../../../ai-ml-intuitions/scaling-adaptation-and-efficiency/adaptation/transfer-learning-and-fine-tuning-intuition.md) · [7.04 Knowledge Distillation](../../../../ai-ml-intuitions/scaling-adaptation-and-efficiency/compression/knowledge-distillation-intuition.md)
-- Foundation: [Classic CNN Architectures](../classic-cnn-architectures/classic-cnn-architectures.md) (the backbones you transfer)
-- Next concepts: [06 Data Augmentation](../data-augmentation/data-augmentation.md) · [12 Self-Supervised Vision](../self-supervised-vision/self-supervised-vision.md)
+- Concept depth (the *why*): [ai-ml-intuitions 7.03 Transfer Learning & Fine-Tuning](/ai-ml/ai-ml-intuitions/scaling-adaptation-and-efficiency/adaptation/transfer-learning-and-fine-tuning-intuition) · [7.04 Knowledge Distillation](/ai-ml/ai-ml-intuitions/scaling-adaptation-and-efficiency/compression/knowledge-distillation-intuition)
+- Foundation: [Classic CNN Architectures](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/classic-cnn-architectures/classic-cnn-architectures) (the backbones you transfer)
+- Next concepts: [06 Data Augmentation](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/data-augmentation/data-augmentation) · [12 Self-Supervised Vision](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/self-supervised-vision/self-supervised-vision)

@@ -57,6 +57,6 @@ how to expand a citation graph is the difference between rediscovering a method 
 - [Speech and Language Processing, 3rd ed.](https://web.stanford.edu/~jurafsky/slp3/) — **Jurafsky & Martin** — the historical notes map arXiv preprints to the canonical methods they became.
 
 ## 🔗 In this platform
-- Per-concept index: [Frontier & Staying Current — concepts](../README.md)
-- Pair with: [01 How to Read ML Papers](../how-to-read-ml-papers/how-to-read-ml-papers.md) · [06 Benchmarks & Leaderboards to Watch](../benchmarks-and-leaderboards-to-watch/benchmarks-and-leaderboards-to-watch.md) · [07 Reproducing Papers (code)](../reproducing-papers-code/reproducing-papers-code.md)
+- Per-concept index: [Frontier & Staying Current — concepts](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/readme)
+- Pair with: [01 How to Read ML Papers](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/how-to-read-ml-papers/how-to-read-ml-papers) · [06 Benchmarks & Leaderboards to Watch](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/benchmarks-and-leaderboards-to-watch/benchmarks-and-leaderboards-to-watch) · [07 Reproducing Papers (code)](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/reproducing-papers-code/reproducing-papers-code)
 - Tools & frameworks for running the code: [11. Tools and Frameworks](../../tools-and-frameworks/)

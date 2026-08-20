@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Normalization — references and further reading
 
-> Companion link library for **[Normalization](normalization.md)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
+> Companion link library for **[Normalization](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/normalization/normalization)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Normalizing Activations in a Network](https://www.youtube.com/watch?v=tNIpEZLv_eg) (**Andrew Ng**). *Why centering/scaling activations stabilizes training.*
@@ -53,8 +53,8 @@ updated: 2026-06-22
 - [Deep Learning — §8.7.1 "Batch Normalization"](https://www.deeplearningbook.org/contents/optimization.html) — **Goodfellow, Bengio & Courville** — the optimization view of normalization.
 
 **In this platform**:
-- Concept page (full explanation): [Normalization](normalization.md)
-- Concept depth (the *why*): [ai-ml-intuitions 4.01 Batch Normalization](../../../../ai-ml-intuitions/training-stability/normalization/batch-normalization-intuition.md) · [4.02 Layer Normalization](../../../../ai-ml-intuitions/training-stability/normalization/layer-normalization-intuition.md) · [4.03 Group Normalization](../../../../ai-ml-intuitions/training-stability/normalization/group-normalization-intuition.md) · [4.05 RMSNorm](../../../../ai-ml-intuitions/training-stability/normalization/rmsnorm-intuition.md)
-- Prerequisite: [Vanishing / Exploding Gradients](../../optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients.md)
-- Related: [Dropout](../dropout/dropout.md) (often chosen alongside or instead of normalization) · [Transformer Architecture](../../attention-and-transformers/transformer-architecture/transformer-architecture.md) (where LayerNorm/RMSNorm + pre-norm live)
-- Field overview: [Deep Learning](../../README.md)
+- Concept page (full explanation): [Normalization](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/normalization/normalization)
+- Concept depth (the *why*): [ai-ml-intuitions 4.01 Batch Normalization](/ai-ml/ai-ml-intuitions/training-stability/normalization/batch-normalization-intuition) · [4.02 Layer Normalization](/ai-ml/ai-ml-intuitions/training-stability/normalization/layer-normalization-intuition) · [4.03 Group Normalization](/ai-ml/ai-ml-intuitions/training-stability/normalization/group-normalization-intuition) · [4.05 RMSNorm](/ai-ml/ai-ml-intuitions/training-stability/normalization/rmsnorm-intuition)
+- Prerequisite: [Vanishing / Exploding Gradients](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients)
+- Related: [Dropout](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/dropout/dropout) (often chosen alongside or instead of normalization) · [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture) (where LayerNorm/RMSNorm + pre-norm live)
+- Field overview: [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

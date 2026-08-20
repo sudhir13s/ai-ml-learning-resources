@@ -194,7 +194,7 @@ fallback.
 
 > **Source / derivation:** semantic routing — embed each route's description and pick the query's
 > nearest — is [LangChain's routing recipes](https://python.langchain.com/docs/how_to/routing/) and
-> the same cosine-vs-tool-description decision from [ch10 Agentic RAG](../../rag-and-knowledge-systems/agentic-rag/agentic-rag.md);
+> the same cosine-vs-tool-description decision from [ch10 Agentic RAG](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/agentic-rag/agentic-rag);
 > the argmax uses `np.argmax`, which breaks ties by first occurrence (deterministic).
 
 ### A graph generalizes the chain with a bounded run loop

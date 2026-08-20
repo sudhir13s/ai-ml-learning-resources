@@ -8,7 +8,7 @@ updated: 2026-06-26
 
 # Language Modeling Objectives — references and further reading
 
-> Companion link library for **[Language Modeling Objectives](language-modeling-objectives.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity. All links are free / open, no paywall.
+> Companion link library for **[Language Modeling Objectives](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/language-modeling-objectives/language-modeling-objectives)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity. All links are free / open, no paywall.
 
 **Start here — suggested path**:
 1. **Build the intuition** — watch [Intro to Large Language Models](https://www.youtube.com/watch?v=zjkBMFhNj_g) (**Andrej Karpathy**). *Frames the entire field around "predict the next token" — the objective, made the center of everything.*
@@ -59,8 +59,8 @@ updated: 2026-06-26
 - [Deep Learning — Ch. 10 "Sequence Modeling"](https://www.deeplearningbook.org/contents/rnn.html) — **Goodfellow, Bengio & Courville** — the maximum-likelihood / sequence-modeling foundations the objective rests on.
 
 **In this platform**:
-- Concept page (full explanation): [Language Modeling Objectives](language-modeling-objectives.md)
+- Concept page (full explanation): [Language Modeling Objectives](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/language-modeling-objectives/language-modeling-objectives)
 - Foundations (the *why* behind transformers and softmax): [Transformer Architecture](../../../../deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture.md) · [Attention Mechanism](../../../../deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism.md)
 - The pre-neural baseline: [N-gram Language Models and Smoothing](../../../../modalities-and-generative-models/natural-language-processing/n-gram-language-models-and-smoothing/n-gram-language-models-and-smoothing.md) · the masked-LM encoders: [Contextual Embeddings (ELMo / BERT)](../../../../modalities-and-generative-models/natural-language-processing/contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert.md)
-- Builds on this: [Decoder-only Architecture](../decoder-only-models/decoder-only-models.md) · [Pretraining at Scale](../pretraining/pretraining.md) · [Scaling Laws](../scaling-laws/scaling-laws.md)
-- Puts it to work: [Decoding and Sampling](../../inference-and-runtime/decoding-and-sampling/decoding-and-sampling.md) · [LLM Evaluation and Benchmarks](../../reasoning-evaluation-and-alignment/llm-evaluation/llm-evaluation.md)
+- Builds on this: [Decoder-only Architecture](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/decoder-only-models/decoder-only-models) · [Pretraining at Scale](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/pretraining/pretraining) · [Scaling Laws](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/scaling-laws/scaling-laws)
+- Puts it to work: [Decoding and Sampling](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/decoding-and-sampling/decoding-and-sampling) · [LLM Evaluation and Benchmarks](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/llm-evaluation/llm-evaluation)

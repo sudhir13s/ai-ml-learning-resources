@@ -8,7 +8,7 @@ updated: 2026-06-22
 
 # Perceptron and MLP — references and further reading
 
-> Companion link library for **[Perceptron and MLP](perceptron-and-mlp.md)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author (the original papers) or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
+> Companion link library for **[Perceptron and MLP](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/perceptron-and-mlp/perceptron-and-mlp)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author (the original papers) or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [But what is a neural network?](https://www.youtube.com/watch?v=aircAruvnKk) (**3Blue1Brown**). *See neurons, weights, and layers as a function before any math.*
@@ -51,11 +51,11 @@ updated: 2026-06-22
 - [Deep Learning — Ch. 6 "Deep Feedforward Networks"](https://www.deeplearningbook.org/contents/mlp.html) — **Goodfellow, Bengio & Courville** — the rigorous treatment of feedforward nets and why they're universal approximators.
 
 **In this platform**:
-- Concept page (full explanation): [Perceptron and MLP](perceptron-and-mlp.md)
-- The smooth cousin (single sigmoid neuron): [Logistic Regression](../../../core-machine-learning/supervised-learning/classification/logistic-regression/logistic-regression.md)
-- How an MLP actually learns: [Backpropagation & Computational Graphs](../backpropagation-and-computational-graphs/backpropagation-and-computational-graphs.md)
-- The nonlinearity that makes it work: [Activation Functions](../../stabilization-and-architectural-blocks/activation-functions/activation-functions.md)
-- Why deep MLPs are hard to train: [Vanishing & Exploding Gradients](../../optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients.md)
-- The MLP at scale (the transformer's FFN is an MLP): [Transformer Architecture](../../attention-and-transformers/transformer-architecture/transformer-architecture.md)
-- The *why* behind the math: [ai-ml-intuitions 2.01 Partial Derivatives & the Gradient](../../../../ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/partial-derivatives-and-gradients-intuition.md) · [4.14 Activation Functions & Softmax](../../../../ai-ml-intuitions/architectural-mechanisms/nonlinear-transformation/activation-functions-and-softmax-intuition.md)
-- Field overview: [Deep Learning](../../README.md)
+- Concept page (full explanation): [Perceptron and MLP](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/perceptron-and-mlp/perceptron-and-mlp)
+- The smooth cousin (single sigmoid neuron): [Logistic Regression](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/logistic-regression/logistic-regression)
+- How an MLP actually learns: [Backpropagation & Computational Graphs](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs)
+- The nonlinearity that makes it work: [Activation Functions](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/activation-functions/activation-functions)
+- Why deep MLPs are hard to train: [Vanishing & Exploding Gradients](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients)
+- The MLP at scale (the transformer's FFN is an MLP): [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture)
+- The *why* behind the math: [ai-ml-intuitions 2.01 Partial Derivatives & the Gradient](/ai-ml/ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/partial-derivatives-and-gradients-intuition) · [4.14 Activation Functions & Softmax](/ai-ml/ai-ml-intuitions/architectural-mechanisms/nonlinear-transformation/activation-functions-and-softmax-intuition)
+- Field overview: [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
