@@ -78,15 +78,15 @@
 #
 # SCOPE — all eight of the charter's sections are declared (the completeness pass,
 # T-556, 2026-09-07, authored the previously empty ones with real curated pages):
-#   - world-models-and-embodied-intelligence — 14 pages across seven of its nine
-#     chartered sub-areas; the two unfilled sub-areas (spatial-and-physical-world-
-#     models, memory-and-cognitive-maps) are listed as gaps in the section README,
-#     never scaffolded.
+#   - world-models-and-embodied-intelligence — all nine chartered sub-areas hold
+#     pages (23 pages; the gap closure T-557 added spatial-and-physical-world-models
+#     and memory-and-cognitive-maps).
 #   - foundations/ai-paradigms-and-knowledge, deep-learning/sequence-modeling,
 #     deep-learning/scientific-and-specialized-deep-learning and
 #     specialized-studies/neuro-symbolic-and-structured-intelligence now hold pages
 #     and carry enum entries. neuro-symbolic nests as a section (three-level shape,
-#     the core-machine-learning precedent) with its sub-folders as categories.
+#     the core-machine-learning precedent) with its six sub-folders as categories;
+#     every page in the charter tree exists (T-557 closed the fifteen gaps).
 #   - deep-learning/interpretability-and-analysis is NEW (not in the charter tree at
 #     authoring time; recorded in the charter by the same pass).
 #   - modalities-and-generative-models/{multimodal-learning,video-understanding,
@@ -205,7 +205,9 @@ spec:
       - predictive-representation-models
       - latent-dynamics
       - learning-and-planning
+      - spatial-and-physical-world-models
       - video-and-generative-world-models
+      - memory-and-cognitive-maps
       - embodied-intelligence
       - evaluation-and-safety
       - advanced-mathematics-for-ai-research
@@ -215,6 +217,7 @@ spec:
       - differentiable-reasoning
       - structured-reasoning
       - modern-applications
+      - evaluation-and-limitations
 
   sections:
     - id: foundations
@@ -478,6 +481,7 @@ spec:
         - path: modalities-and-generative-models/computer-vision/object-detection/object-detection.md
         - path: modalities-and-generative-models/computer-vision/semantic-segmentation/semantic-segmentation.md
         - path: modalities-and-generative-models/computer-vision/instance-segmentation/instance-segmentation.md
+        - path: modalities-and-generative-models/computer-vision/segment-anything-and-promptable-segmentation/segment-anything-and-promptable-segmentation.md
         - path: modalities-and-generative-models/computer-vision/detection-and-segmentation-metrics/detection-and-segmentation-metrics.md
         - path: modalities-and-generative-models/computer-vision/vision-transformers/vision-transformers.md
         - path: modalities-and-generative-models/computer-vision/self-supervised-vision/self-supervised-vision.md
@@ -708,8 +712,19 @@ spec:
         - path: world-models-and-embodied-intelligence/learning-and-planning/imagination-based-learning-dreamer/imagination-based-learning-dreamer.md
         - path: world-models-and-embodied-intelligence/learning-and-planning/search-and-rollouts-muzero/search-and-rollouts-muzero.md
         - path: world-models-and-embodied-intelligence/learning-and-planning/model-predictive-control-with-learned-models/model-predictive-control-with-learned-models.md
+        # spatial-and-physical-world-models
+        - path: world-models-and-embodied-intelligence/spatial-and-physical-world-models/spatial-representations/spatial-representations.md
+        - path: world-models-and-embodied-intelligence/spatial-and-physical-world-models/3d-scene-understanding/3d-scene-understanding.md
+        - path: world-models-and-embodied-intelligence/spatial-and-physical-world-models/object-permanence/object-permanence.md
+        - path: world-models-and-embodied-intelligence/spatial-and-physical-world-models/intuitive-physics/intuitive-physics.md
+        - path: world-models-and-embodied-intelligence/spatial-and-physical-world-models/causal-world-models/causal-world-models.md
         # video-and-generative-world-models
         - path: world-models-and-embodied-intelligence/video-and-generative-world-models/interactive-video-and-generative-simulators/interactive-video-and-generative-simulators.md
+        # memory-and-cognitive-maps
+        - path: world-models-and-embodied-intelligence/memory-and-cognitive-maps/episodic-world-memory/episodic-world-memory.md
+        - path: world-models-and-embodied-intelligence/memory-and-cognitive-maps/spatial-memory/spatial-memory.md
+        - path: world-models-and-embodied-intelligence/memory-and-cognitive-maps/cognitive-maps/cognitive-maps.md
+        - path: world-models-and-embodied-intelligence/memory-and-cognitive-maps/persistent-environment-state/persistent-environment-state.md
         # embodied-intelligence
         - path: world-models-and-embodied-intelligence/embodied-intelligence/embodied-agents-and-perception-action-loops/embodied-agents-and-perception-action-loops.md
         - path: world-models-and-embodied-intelligence/embodied-intelligence/vision-language-action-models/vision-language-action-models.md
@@ -760,14 +775,30 @@ spec:
             # symbolic-reasoning-primer
             - path: specialized-studies/neuro-symbolic-and-structured-intelligence/symbolic-reasoning-primer/knowledge-representation/knowledge-representation.md
             - path: specialized-studies/neuro-symbolic-and-structured-intelligence/symbolic-reasoning-primer/logic-and-inference/logic-and-inference.md
+            - path: specialized-studies/neuro-symbolic-and-structured-intelligence/symbolic-reasoning-primer/rules-constraints-and-ontologies/rules-constraints-and-ontologies.md
             - path: specialized-studies/neuro-symbolic-and-structured-intelligence/symbolic-reasoning-primer/knowledge-graphs/knowledge-graphs.md
             # neural-symbolic-integration
             - path: specialized-studies/neuro-symbolic-and-structured-intelligence/neural-symbolic-integration/neuro-symbolic-ai/neuro-symbolic-ai.md
+            - path: specialized-studies/neuro-symbolic-and-structured-intelligence/neural-symbolic-integration/symbolic-knowledge-as-neural-input/symbolic-knowledge-as-neural-input.md
+            - path: specialized-studies/neuro-symbolic-and-structured-intelligence/neural-symbolic-integration/neural-models-with-symbolic-constraints/neural-models-with-symbolic-constraints.md
+            - path: specialized-studies/neuro-symbolic-and-structured-intelligence/neural-symbolic-integration/symbolic-reasoning-over-neural-representations/symbolic-reasoning-over-neural-representations.md
             # differentiable-reasoning
+            - path: specialized-studies/neuro-symbolic-and-structured-intelligence/differentiable-reasoning/differentiable-logic/differentiable-logic.md
             - path: specialized-studies/neuro-symbolic-and-structured-intelligence/differentiable-reasoning/differentiable-programming/differentiable-programming.md
             - path: specialized-studies/neuro-symbolic-and-structured-intelligence/differentiable-reasoning/neural-theorem-proving/neural-theorem-proving.md
             # structured-reasoning
+            - path: specialized-studies/neuro-symbolic-and-structured-intelligence/structured-reasoning/graph-based-reasoning/graph-based-reasoning.md
             - path: specialized-studies/neuro-symbolic-and-structured-intelligence/structured-reasoning/causal-and-relational-reasoning/causal-and-relational-reasoning.md
+            - path: specialized-studies/neuro-symbolic-and-structured-intelligence/structured-reasoning/compositional-reasoning/compositional-reasoning.md
+            - path: specialized-studies/neuro-symbolic-and-structured-intelligence/structured-reasoning/constraint-guided-learning/constraint-guided-learning.md
             # modern-applications
             - path: specialized-studies/neuro-symbolic-and-structured-intelligence/modern-applications/program-synthesis-and-code-reasoning/program-synthesis-and-code-reasoning.md
+            - path: specialized-studies/neuro-symbolic-and-structured-intelligence/modern-applications/neuro-symbolic-language-models/neuro-symbolic-language-models.md
+            - path: specialized-studies/neuro-symbolic-and-structured-intelligence/modern-applications/knowledge-grounded-agents/knowledge-grounded-agents.md
+            - path: specialized-studies/neuro-symbolic-and-structured-intelligence/modern-applications/neuro-symbolic-robotics/neuro-symbolic-robotics.md
+            # evaluation-and-limitations
+            - path: specialized-studies/neuro-symbolic-and-structured-intelligence/evaluation-and-limitations/evaluating-symbolic-correctness/evaluating-symbolic-correctness.md
+            - path: specialized-studies/neuro-symbolic-and-structured-intelligence/evaluation-and-limitations/interpretability-and-verifiability/interpretability-and-verifiability.md
+            - path: specialized-studies/neuro-symbolic-and-structured-intelligence/evaluation-and-limitations/scalability-limitations/scalability-limitations.md
+            - path: specialized-studies/neuro-symbolic-and-structured-intelligence/evaluation-and-limitations/open-problems/open-problems.md
 

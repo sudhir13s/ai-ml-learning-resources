@@ -3,3 +3,6 @@
 # and extension-less. README.md is repo-facing and deliberately absent.
 page-order:
   - program-synthesis-and-code-reasoning/program-synthesis-and-code-reasoning
+  - neuro-symbolic-language-models/neuro-symbolic-language-models
+  - knowledge-grounded-agents/knowledge-grounded-agents
+  - neuro-symbolic-robotics/neuro-symbolic-robotics
