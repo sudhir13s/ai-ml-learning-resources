@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/video-understanding/action-recognition-and
 topic: "Action Recognition & Video Classification"
 level: intermediate
 built_from: ["video-representations-and-temporal-modeling", "self-supervised-video-pretraining-videomae"]
-leads_to: ["temporal-localization-and-moment-retrieval", "efficient-video-inference"]
+leads_to: ["modalities-and-generative-models/video-understanding/temporal-localization-and-moment-retrieval", "modalities-and-generative-models/video-understanding/efficient-video-inference"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

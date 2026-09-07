@@ -3,7 +3,7 @@ id: "world-models-and-embodied-intelligence/embodied-intelligence/vision-languag
 topic: "Vision-Language-Action Models"
 level: advanced
 built_from: ["embodied-agents-and-perception-action-loops"]
-leads_to: ["evaluating-world-models-prediction-planning-and-physical-consistency"]
+leads_to: ["world-models-and-embodied-intelligence/evaluation-and-safety/evaluating-world-models-prediction-planning-and-physical-consistency"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

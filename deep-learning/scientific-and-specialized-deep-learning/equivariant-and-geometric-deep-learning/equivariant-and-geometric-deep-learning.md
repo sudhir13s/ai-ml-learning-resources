@@ -3,7 +3,7 @@ id: "deep-learning/scientific-and-specialized-deep-learning/equivariant-and-geom
 topic: "Equivariant and Geometric Deep Learning"
 level: advanced
 built_from: ["graph-neural-networks", "cnns-and-convolution"]
-leads_to: ["neural-operators"]
+leads_to: ["deep-learning/scientific-and-specialized-deep-learning/neural-operators"]
 interview_frequency: low
 updated: 2026-09-07
 tier: core

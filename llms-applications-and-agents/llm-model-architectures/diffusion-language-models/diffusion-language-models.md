@@ -3,7 +3,7 @@ id: "llms-applications-and-agents/llm-model-architectures/diffusion-language-mod
 topic: "Diffusion Language Models"
 level: advanced
 built_from: ["decoder-only-models", "diffusion-models-ddpm"]
-leads_to: ["inference-optimization"]
+leads_to: ["09-llms/inference-optimization-and-serving"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

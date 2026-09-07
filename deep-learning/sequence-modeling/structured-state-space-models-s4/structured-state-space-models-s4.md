@@ -3,7 +3,7 @@ id: "deep-learning/sequence-modeling/structured-state-space-models-s4"
 topic: "Structured State-Space Models — S4, S4D, Diagonal SSMs"
 level: advanced
 built_from: ["state-space-models-foundations"]
-leads_to: ["selective-state-space-models-mamba"]
+leads_to: ["deep-learning/sequence-modeling/selective-state-space-models-mamba"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

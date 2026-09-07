@@ -3,7 +3,7 @@ id: "world-models-and-embodied-intelligence/learning-and-planning/model-predicti
 topic: "Model Predictive Control with Learned Models"
 level: advanced
 built_from: ["recurrent-state-space-models-and-stochastic-dynamics", "search-and-rollouts-muzero"]
-leads_to: ["embodied-agents-and-perception-action-loops"]
+leads_to: ["world-models-and-embodied-intelligence/embodied-intelligence/embodied-agents-and-perception-action-loops"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

@@ -3,7 +3,7 @@ id: "foundations/ai-paradigms-and-knowledge/symbolic-ai-and-good-old-fashioned-a
 topic: "Symbolic AI and Good Old-Fashioned AI"
 level: beginner
 built_from: ["what-is-ai-ml-deep-learning"]
-leads_to: ["statistical-learning-paradigm", "neuro-symbolic-ai-overview"]
+leads_to: ["foundations/ai-paradigms-and-knowledge/statistical-learning-paradigm", "foundations/ai-paradigms-and-knowledge/neuro-symbolic-ai-overview"]
 interview_frequency: low
 updated: 2026-09-07
 tier: core

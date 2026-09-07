@@ -3,7 +3,7 @@ id: "world-models-and-embodied-intelligence/world-model-foundations/what-is-a-wo
 topic: "What Is a World Model"
 level: intermediate
 built_from: ["markov-decision-processes", "rnn-lstm-gru"]
-leads_to: ["world-models-and-embodied-intelligence/world-model-foundations/world-model-taxonomy", "observation-state-action-and-partial-observability"]
+leads_to: ["world-models-and-embodied-intelligence/world-model-foundations/world-model-taxonomy", "world-models-and-embodied-intelligence/world-model-foundations/observation-state-action-and-partial-observability"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

@@ -3,7 +3,7 @@ id: "specialized-studies/neuro-symbolic-and-structured-intelligence/symbolic-rea
 topic: "Logic and Inference"
 level: intermediate
 built_from: ["knowledge-representation"]
-leads_to: ["knowledge-graphs", "neuro-symbolic-ai"]
+leads_to: ["specialized-studies/neuro-symbolic-and-structured-intelligence/symbolic-reasoning-primer/knowledge-graphs", "specialized-studies/neuro-symbolic-and-structured-intelligence/neural-symbolic-integration/neuro-symbolic-ai"]
 interview_frequency: low
 updated: 2026-09-07
 tier: core

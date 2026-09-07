@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/diffusion-models/3d-generation-score-disti
 topic: "3D Generation & Score Distillation"
 level: advanced
 built_from: ["sampling-and-guidance-techniques", "text-to-image-systems", "video-diffusion-models"]
-leads_to: ["diffusion-inference-optimization"]
+leads_to: ["modalities-and-generative-models/diffusion-models/diffusion-inference-optimization"]
 interview_frequency: low
 updated: 2026-09-07
 tier: core

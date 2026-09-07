@@ -3,7 +3,7 @@ id: "deployment-and-mlops/monitoring-and-reliability/ai-incident-response-and-po
 topic: "AI Incident Response & Postmortems"
 level: advanced
 built_from: ["model-monitoring-and-observability", "data-and-concept-drift-detection", "rollback-and-recovery-for-ml-systems"]
-leads_to: ["llmops"]
+leads_to: ["18-mlops/llmops"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

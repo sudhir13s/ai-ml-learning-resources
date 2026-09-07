@@ -3,7 +3,7 @@ id: "llms-applications-and-agents/agentic-ai/prompt-injection-and-agent-guardrai
 topic: "Prompt Injection and Agent Guardrails"
 level: advanced
 built_from: ["tool-use", "agent-safety", "context-engineering"]
-leads_to: ["agent-evaluation"]
+leads_to: ["16-agentic-ai/evaluation"]
 interview_frequency: very-high
 updated: 2026-09-07
 tier: core

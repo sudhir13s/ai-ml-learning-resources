@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/audio-and-speech/self-supervised-speech-wa
 topic: "Self-Supervised Speech — wav2vec 2.0 and HuBERT"
 level: advanced
 built_from: ["asr-fundamentals-ctc-seq2seq-wer", "contrastive-self-supervised-learning"]
-leads_to: ["whisper-and-weakly-supervised-asr", "speaker-identification-and-diarization"]
+leads_to: ["modalities-and-generative-models/audio-and-speech/whisper-and-weakly-supervised-asr", "modalities-and-generative-models/audio-and-speech/speaker-identification-and-diarization"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

@@ -3,7 +3,7 @@ id: "core-machine-learning/model-selection-and-evaluation/uncertainty-estimation
 topic: "Uncertainty Estimation & Conformal Prediction"
 level: advanced
 built_from: ["calibration-and-reliability-diagrams", "cross-validation", "bagging"]
-leads_to: ["error-analysis-and-model-debugging"]
+leads_to: ["core-machine-learning/model-selection-and-evaluation/error-analysis-and-model-debugging"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

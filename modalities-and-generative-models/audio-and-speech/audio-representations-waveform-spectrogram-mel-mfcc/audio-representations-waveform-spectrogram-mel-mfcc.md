@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/audio-and-speech/audio-representations-wav
 topic: "Audio Representations — Waveform, Spectrogram, Mel, MFCC"
 level: beginner
 built_from: ["fourier-analysis-and-signal-processing"]
-leads_to: ["audio-tokenization-and-neural-codecs", "asr-fundamentals-ctc-seq2seq-wer"]
+leads_to: ["modalities-and-generative-models/audio-and-speech/audio-tokenization-and-neural-codecs", "modalities-and-generative-models/audio-and-speech/asr-fundamentals-ctc-seq2seq-wer"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

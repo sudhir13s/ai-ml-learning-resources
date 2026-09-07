@@ -3,7 +3,7 @@ id: "deep-learning/interpretability-and-analysis/transformer-circuits-induction-
 topic: "Transformer Circuits, Induction Heads and Attention Patterns"
 level: advanced
 built_from: ["what-is-mechanistic-interpretability", "transformer-architecture"]
-leads_to: ["superposition-and-sparse-autoencoders", "probing-attribution-and-feature-visualization"]
+leads_to: ["deep-learning/interpretability-and-analysis/superposition-and-sparse-autoencoders", "deep-learning/interpretability-and-analysis/probing-attribution-and-feature-visualization"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

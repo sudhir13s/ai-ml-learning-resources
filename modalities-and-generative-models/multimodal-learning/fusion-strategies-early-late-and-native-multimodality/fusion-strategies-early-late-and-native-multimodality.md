@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/multimodal-learning/fusion-strategies-earl
 topic: "Fusion Strategies — Early, Late and Native Multimodality"
 level: advanced
 built_from: ["interleaved-and-few-shot-vlms-flamingo", "visual-instruction-tuning-llava"]
-leads_to: ["unified-token-spaces-and-any-to-any-models", "modern-open-vlm-architectures"]
+leads_to: ["modalities-and-generative-models/multimodal-learning/unified-token-spaces-and-any-to-any-models", "modalities-and-generative-models/multimodal-learning/modern-open-vlm-architectures"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core

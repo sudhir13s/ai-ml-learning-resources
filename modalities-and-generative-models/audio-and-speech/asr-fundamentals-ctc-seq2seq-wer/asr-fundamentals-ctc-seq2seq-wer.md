@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/audio-and-speech/asr-fundamentals-ctc-seq2
 topic: "ASR Fundamentals — CTC, Seq2Seq and WER"
 level: intermediate
 built_from: ["audio-representations-waveform-spectrogram-mel-mfcc", "sequence-to-sequence-and-encoder-decoder"]
-leads_to: ["self-supervised-speech-wav2vec2-hubert", "whisper-and-weakly-supervised-asr"]
+leads_to: ["modalities-and-generative-models/audio-and-speech/self-supervised-speech-wav2vec2-hubert", "modalities-and-generative-models/audio-and-speech/whisper-and-weakly-supervised-asr"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core

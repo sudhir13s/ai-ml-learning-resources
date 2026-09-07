@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/audio-and-speech/speaker-identification-an
 topic: "Speaker Identification & Diarization"
 level: intermediate
 built_from: ["audio-representations-waveform-spectrogram-mel-mfcc", "self-supervised-speech-wav2vec2-hubert"]
-leads_to: ["realtime-and-streaming-voice-agents"]
+leads_to: ["modalities-and-generative-models/audio-and-speech/realtime-and-streaming-voice-agents"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

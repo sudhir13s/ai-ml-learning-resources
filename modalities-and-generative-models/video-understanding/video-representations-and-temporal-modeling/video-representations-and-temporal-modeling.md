@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/video-understanding/video-representations-
 topic: "Video Representations & Temporal Modeling"
 level: intermediate
 built_from: ["classic-cnn-architectures", "optical-flow-and-video"]
-leads_to: ["video-transformers-timesformer-vivit", "action-recognition-and-video-classification"]
+leads_to: ["modalities-and-generative-models/video-understanding/video-transformers-timesformer-vivit", "modalities-and-generative-models/video-understanding/action-recognition-and-video-classification"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

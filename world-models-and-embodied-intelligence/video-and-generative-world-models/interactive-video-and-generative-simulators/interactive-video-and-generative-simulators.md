@@ -3,7 +3,7 @@ id: "world-models-and-embodied-intelligence/video-and-generative-world-models/in
 topic: "Interactive Video and Generative Simulators"
 level: advanced
 built_from: ["world-model-taxonomy", "video-diffusion-models"]
-leads_to: ["evaluating-world-models-prediction-planning-and-physical-consistency"]
+leads_to: ["world-models-and-embodied-intelligence/evaluation-and-safety/evaluating-world-models-prediction-planning-and-physical-consistency"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

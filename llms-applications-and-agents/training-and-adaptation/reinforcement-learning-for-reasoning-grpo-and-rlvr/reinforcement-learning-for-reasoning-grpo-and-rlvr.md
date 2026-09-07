@@ -3,7 +3,7 @@ id: "llms-applications-and-agents/training-and-adaptation/reinforcement-learning
 topic: "Reinforcement Learning for Reasoning — GRPO and Verifiable Rewards"
 level: advanced
 built_from: ["preference-and-alignment-training", "supervised-fine-tuning", "chain-of-thought-and-reasoning"]
-leads_to: ["test-time-computation-and-scaling", "llm-evaluation"]
+leads_to: ["llms-applications-and-agents/reasoning-evaluation-and-alignment/test-time-computation-and-scaling", "09-llms/llm-evaluation-and-benchmarks"]
 interview_frequency: very-high
 updated: 2026-09-07
 tier: core

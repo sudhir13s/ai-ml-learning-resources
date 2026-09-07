@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/diffusion-models/controlnet-and-conditioni
 topic: "ControlNet & Conditioning Adapters"
 level: advanced
 built_from: ["latent-diffusion-stable-diffusion", "conditional-generation-and-classifier-free-guidance"]
-leads_to: ["image-editing-and-inversion", "personalization-dreambooth-textual-inversion-lora"]
+leads_to: ["modalities-and-generative-models/diffusion-models/image-editing-and-inversion", "modalities-and-generative-models/diffusion-models/personalization-dreambooth-textual-inversion-lora"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

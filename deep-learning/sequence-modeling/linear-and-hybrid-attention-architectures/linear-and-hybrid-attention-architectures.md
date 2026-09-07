@@ -3,7 +3,7 @@ id: "deep-learning/sequence-modeling/linear-and-hybrid-attention-architectures"
 topic: "Linear and Hybrid Attention Architectures"
 level: advanced
 built_from: ["selective-state-space-models-mamba", "attention-mechanism"]
-leads_to: ["efficient-attention"]
+leads_to: ["09-llms/efficient-attention-flashattention"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core

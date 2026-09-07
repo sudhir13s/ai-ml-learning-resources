@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/audio-and-speech/tts-fundamentals-tacotron
 topic: "TTS Fundamentals — Tacotron, VITS and Vocoders"
 level: intermediate
 built_from: ["audio-representations-waveform-spectrogram-mel-mfcc", "sequence-to-sequence-and-encoder-decoder"]
-leads_to: ["modern-tts-and-voice-cloning"]
+leads_to: ["modalities-and-generative-models/audio-and-speech/modern-tts-and-voice-cloning"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

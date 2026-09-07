@@ -3,7 +3,7 @@ id: "foundations/ai-paradigms-and-knowledge/neuro-symbolic-ai-overview"
 topic: "Neuro-Symbolic AI Overview"
 level: intermediate
 built_from: ["symbolic-ai-and-good-old-fashioned-ai", "neural-learning-paradigm"]
-leads_to: ["neuro-symbolic-ai", "program-synthesis-and-code-reasoning"]
+leads_to: ["specialized-studies/neuro-symbolic-and-structured-intelligence/neural-symbolic-integration/neuro-symbolic-ai", "specialized-studies/neuro-symbolic-and-structured-intelligence/modern-applications/program-synthesis-and-code-reasoning"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/diffusion-models/video-diffusion-models"
 topic: "Video Diffusion Models"
 level: advanced
 built_from: ["latent-diffusion-stable-diffusion", "diffusion-transformers-dit", "flow-matching-and-rectified-flow"]
-leads_to: ["3d-generation-score-distillation", "diffusion-inference-optimization"]
+leads_to: ["modalities-and-generative-models/diffusion-models/3d-generation-score-distillation", "modalities-and-generative-models/diffusion-models/diffusion-inference-optimization"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

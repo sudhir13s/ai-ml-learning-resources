@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/diffusion-models/diffusion-transformers-di
 topic: "Diffusion Transformers (DiT)"
 level: advanced
 built_from: ["latent-diffusion-stable-diffusion", "diffusion-models-ddpm", "vision-transformers"]
-leads_to: ["flow-matching-and-rectified-flow", "video-diffusion-models", "diffusion-inference-optimization"]
+leads_to: ["modalities-and-generative-models/diffusion-models/flow-matching-and-rectified-flow", "modalities-and-generative-models/diffusion-models/video-diffusion-models", "modalities-and-generative-models/diffusion-models/diffusion-inference-optimization"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core

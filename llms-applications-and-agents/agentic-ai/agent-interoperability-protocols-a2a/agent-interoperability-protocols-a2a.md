@@ -3,7 +3,7 @@ id: "llms-applications-and-agents/agentic-ai/agent-interoperability-protocols-a2
 topic: "Agent Interoperability Protocols — A2A and the Landscape"
 level: advanced
 built_from: ["model-context-protocol", "multi-agent-systems"]
-leads_to: ["agent-frameworks", "prompt-injection-and-agent-guardrails"]
+leads_to: ["16-agentic-ai/frameworks", "llms-applications-and-agents/agentic-ai/prompt-injection-and-agent-guardrails"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core

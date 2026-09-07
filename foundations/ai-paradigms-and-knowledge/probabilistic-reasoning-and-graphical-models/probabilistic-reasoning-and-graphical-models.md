@@ -3,7 +3,7 @@ id: "foundations/ai-paradigms-and-knowledge/probabilistic-reasoning-and-graphica
 topic: "Probabilistic Reasoning and Graphical Models"
 level: intermediate
 built_from: ["statistical-learning-paradigm", "neural-learning-paradigm"]
-leads_to: ["neuro-symbolic-ai-overview"]
+leads_to: ["foundations/ai-paradigms-and-knowledge/neuro-symbolic-ai-overview"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

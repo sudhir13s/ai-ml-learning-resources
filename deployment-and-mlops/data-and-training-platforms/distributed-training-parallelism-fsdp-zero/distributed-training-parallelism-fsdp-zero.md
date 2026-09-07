@@ -3,7 +3,7 @@ id: "deployment-and-mlops/data-and-training-platforms/distributed-training-paral
 topic: "Distributed Training — Parallelism, FSDP & ZeRO"
 level: advanced
 built_from: ["gpus-and-accelerators-for-deep-learning", "ml-pipelines-and-orchestration"]
-leads_to: ["cicd-for-ml-and-continuous-training", "cost-optimization"]
+leads_to: ["18-mlops/cicd-for-ml-and-continuous-training", "18-mlops/cost-optimization"]
 interview_frequency: very-high
 updated: 2026-09-07
 tier: core

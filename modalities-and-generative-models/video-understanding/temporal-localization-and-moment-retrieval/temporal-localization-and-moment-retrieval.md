@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/video-understanding/temporal-localization-
 topic: "Temporal Localization & Moment Retrieval"
 level: advanced
 built_from: ["action-recognition-and-video-classification"]
-leads_to: ["video-language-models", "long-video-understanding"]
+leads_to: ["modalities-and-generative-models/video-understanding/video-language-models", "modalities-and-generative-models/video-understanding/long-video-understanding"]
 interview_frequency: low
 updated: 2026-09-07
 tier: core

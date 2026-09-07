@@ -3,7 +3,7 @@ id: "deep-learning/interpretability-and-analysis/superposition-and-sparse-autoen
 topic: "Superposition and Sparse Autoencoders"
 level: advanced
 built_from: ["what-is-mechanistic-interpretability", "autoencoders"]
-leads_to: ["probing-attribution-and-feature-visualization"]
+leads_to: ["deep-learning/interpretability-and-analysis/probing-attribution-and-feature-visualization"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

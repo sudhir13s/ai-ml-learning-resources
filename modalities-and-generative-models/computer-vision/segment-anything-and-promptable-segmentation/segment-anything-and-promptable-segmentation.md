@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/computer-vision/segment-anything-and-promp
 topic: "Segment Anything and Promptable Segmentation"
 level: intermediate
 built_from: ["semantic-segmentation", "instance-segmentation", "vision-transformers"]
-leads_to: ["detection-and-segmentation-metrics", "optical-flow-and-video"]
+leads_to: ["07-computer-vision/detection-and-segmentation-metrics", "07-computer-vision/optical-flow-and-video"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core

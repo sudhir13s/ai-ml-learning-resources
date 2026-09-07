@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/audio-and-speech/audio-tokenization-and-ne
 topic: "Audio Tokenization & Neural Codecs"
 level: advanced
 built_from: ["audio-representations-waveform-spectrogram-mel-mfcc"]
-leads_to: ["modern-tts-and-voice-cloning", "realtime-and-streaming-voice-agents", "music-and-audio-generation-overview"]
+leads_to: ["modalities-and-generative-models/audio-and-speech/modern-tts-and-voice-cloning", "modalities-and-generative-models/audio-and-speech/realtime-and-streaming-voice-agents", "modalities-and-generative-models/audio-and-speech/music-and-audio-generation-overview"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

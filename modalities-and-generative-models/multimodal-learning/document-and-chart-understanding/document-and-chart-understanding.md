@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/multimodal-learning/document-and-chart-und
 topic: "Document and Chart Understanding"
 level: intermediate
 built_from: ["modern-open-vlm-architectures", "visual-instruction-tuning-llava"]
-leads_to: ["multimodal-rag", "multimodal-benchmarks-and-evaluation"]
+leads_to: ["modalities-and-generative-models/multimodal-learning/multimodal-rag", "modalities-and-generative-models/multimodal-learning/multimodal-benchmarks-and-evaluation"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

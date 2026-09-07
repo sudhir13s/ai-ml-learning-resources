@@ -3,7 +3,7 @@ id: "deep-learning/scientific-and-specialized-deep-learning/physics-informed-neu
 topic: "Physics-Informed Neural Networks"
 level: advanced
 built_from: ["backpropagation-and-computational-graphs", "loss-functions"]
-leads_to: ["neural-operators"]
+leads_to: ["deep-learning/scientific-and-specialized-deep-learning/neural-operators"]
 interview_frequency: low
 updated: 2026-09-07
 tier: core

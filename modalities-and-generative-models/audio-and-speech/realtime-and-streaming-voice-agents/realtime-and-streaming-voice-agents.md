@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/audio-and-speech/realtime-and-streaming-vo
 topic: "Realtime & Streaming Voice Agents"
 level: advanced
 built_from: ["whisper-and-weakly-supervised-asr", "modern-tts-and-voice-cloning", "audio-tokenization-and-neural-codecs"]
-leads_to: ["agent-foundations"]
+leads_to: ["16-agentic-ai/llm-agents-overview"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core

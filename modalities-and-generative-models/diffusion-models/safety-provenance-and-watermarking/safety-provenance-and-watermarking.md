@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/diffusion-models/safety-provenance-and-wat
 topic: "Safety, Provenance & Watermarking"
 level: intermediate
 built_from: ["text-to-image-systems", "image-editing-and-inversion"]
-leads_to: ["video-diffusion-models"]
+leads_to: ["modalities-and-generative-models/diffusion-models/video-diffusion-models"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

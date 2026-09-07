@@ -3,7 +3,7 @@ id: "llms-applications-and-agents/inference-and-runtime/small-and-on-device-lang
 topic: "Small and On-Device Language Models"
 level: intermediate
 built_from: ["quantization", "knowledge-distillation"]
-leads_to: ["caching-and-cost-optimization", "agent-frameworks"]
+leads_to: ["15-rag-and-llm-apps/caching-and-cost-optimization", "16-agentic-ai/frameworks"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core

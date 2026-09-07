@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/video-understanding/self-supervised-video-
 topic: "Self-Supervised Video Pretraining — VideoMAE & V-JEPA"
 level: advanced
 built_from: ["video-transformers-timesformer-vivit", "contrastive-self-supervised-learning"]
-leads_to: ["action-recognition-and-video-classification", "video-language-models"]
+leads_to: ["modalities-and-generative-models/video-understanding/action-recognition-and-video-classification", "modalities-and-generative-models/video-understanding/video-language-models"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

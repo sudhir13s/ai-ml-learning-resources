@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/diffusion-models/personalization-dreamboot
 topic: "Personalization — DreamBooth, Textual Inversion & LoRA"
 level: advanced
 built_from: ["latent-diffusion-stable-diffusion", "controlnet-and-conditioning-adapters"]
-leads_to: ["image-editing-and-inversion", "diffusion-inference-optimization"]
+leads_to: ["modalities-and-generative-models/diffusion-models/image-editing-and-inversion", "modalities-and-generative-models/diffusion-models/diffusion-inference-optimization"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

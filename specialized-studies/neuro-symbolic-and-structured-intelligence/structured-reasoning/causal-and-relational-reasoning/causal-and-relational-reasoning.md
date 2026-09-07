@@ -3,7 +3,7 @@ id: "specialized-studies/neuro-symbolic-and-structured-intelligence/structured-r
 topic: "Causal and Relational Reasoning"
 level: advanced
 built_from: ["probabilistic-reasoning-and-graphical-models", "knowledge-graphs"]
-leads_to: ["program-synthesis-and-code-reasoning"]
+leads_to: ["specialized-studies/neuro-symbolic-and-structured-intelligence/modern-applications/program-synthesis-and-code-reasoning"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

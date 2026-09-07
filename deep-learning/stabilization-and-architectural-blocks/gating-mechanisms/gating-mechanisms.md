@@ -3,7 +3,7 @@ id: "deep-learning/stabilization-and-architectural-blocks/gating-mechanisms"
 topic: "Gating Mechanisms"
 level: intermediate
 built_from: ["activation-functions", "rnn-lstm-gru", "residual-skip-connections"]
-leads_to: ["selective-state-space-models-mamba"]
+leads_to: ["deep-learning/sequence-modeling/selective-state-space-models-mamba"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core

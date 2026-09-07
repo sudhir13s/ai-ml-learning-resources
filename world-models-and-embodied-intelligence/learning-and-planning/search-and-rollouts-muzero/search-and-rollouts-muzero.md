@@ -3,7 +3,7 @@ id: "world-models-and-embodied-intelligence/learning-and-planning/search-and-rol
 topic: "Search and Rollouts (MuZero)"
 level: advanced
 built_from: ["imagination-based-learning-dreamer", "markov-decision-processes"]
-leads_to: ["model-predictive-control-with-learned-models"]
+leads_to: ["world-models-and-embodied-intelligence/learning-and-planning/model-predictive-control-with-learned-models"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

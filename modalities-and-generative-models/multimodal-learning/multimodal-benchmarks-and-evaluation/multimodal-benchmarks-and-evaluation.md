@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/multimodal-learning/multimodal-benchmarks-
 topic: "Multimodal Benchmarks and Evaluation"
 level: intermediate
 built_from: ["visual-instruction-tuning-llava", "modern-open-vlm-architectures"]
-leads_to: ["multimodal-rag"]
+leads_to: ["modalities-and-generative-models/multimodal-learning/multimodal-rag"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

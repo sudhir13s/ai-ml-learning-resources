@@ -3,7 +3,7 @@ id: "specialized-studies/neuro-symbolic-and-structured-intelligence/differentiab
 topic: "Differentiable Programming"
 level: advanced
 built_from: ["neuro-symbolic-ai"]
-leads_to: ["neural-theorem-proving"]
+leads_to: ["specialized-studies/neuro-symbolic-and-structured-intelligence/differentiable-reasoning/neural-theorem-proving"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

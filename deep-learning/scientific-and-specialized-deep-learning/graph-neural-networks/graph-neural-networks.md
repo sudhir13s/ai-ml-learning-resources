@@ -3,7 +3,7 @@ id: "deep-learning/scientific-and-specialized-deep-learning/graph-neural-network
 topic: "Graph Neural Networks"
 level: intermediate
 built_from: ["perceptron-and-mlp", "cnns-and-convolution"]
-leads_to: ["equivariant-and-geometric-deep-learning", "neural-operators"]
+leads_to: ["deep-learning/scientific-and-specialized-deep-learning/equivariant-and-geometric-deep-learning", "deep-learning/scientific-and-specialized-deep-learning/neural-operators"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

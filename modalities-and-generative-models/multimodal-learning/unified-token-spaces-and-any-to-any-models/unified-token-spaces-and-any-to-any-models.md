@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/multimodal-learning/unified-token-spaces-a
 topic: "Unified Token Spaces and Any-to-Any Models"
 level: advanced
 built_from: ["fusion-strategies-early-late-and-native-multimodality", "modern-open-vlm-architectures"]
-leads_to: ["multimodal-benchmarks-and-evaluation"]
+leads_to: ["modalities-and-generative-models/multimodal-learning/multimodal-benchmarks-and-evaluation"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

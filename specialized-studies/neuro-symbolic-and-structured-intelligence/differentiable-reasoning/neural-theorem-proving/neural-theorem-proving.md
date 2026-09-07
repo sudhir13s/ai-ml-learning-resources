@@ -3,7 +3,7 @@ id: "specialized-studies/neuro-symbolic-and-structured-intelligence/differentiab
 topic: "Neural Theorem Proving"
 level: advanced
 built_from: ["logic-and-inference", "neuro-symbolic-ai"]
-leads_to: ["program-synthesis-and-code-reasoning"]
+leads_to: ["specialized-studies/neuro-symbolic-and-structured-intelligence/modern-applications/program-synthesis-and-code-reasoning"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

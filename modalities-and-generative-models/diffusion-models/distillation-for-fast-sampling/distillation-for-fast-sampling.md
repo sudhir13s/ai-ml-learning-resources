@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/diffusion-models/distillation-for-fast-sam
 topic: "Distillation for Fast Sampling"
 level: advanced
 built_from: ["sampling-and-guidance-techniques", "consistency-models-and-few-step-generation"]
-leads_to: ["diffusion-inference-optimization", "video-diffusion-models"]
+leads_to: ["modalities-and-generative-models/diffusion-models/diffusion-inference-optimization", "modalities-and-generative-models/diffusion-models/video-diffusion-models"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core
