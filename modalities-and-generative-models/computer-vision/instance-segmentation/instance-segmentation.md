@@ -60,5 +60,6 @@ instance, and panoptic segmentation. A favorite for senior CV roles.
 
 ## In this platform
 - Foundation: [Object Detection](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/object-detection/object-detection) (Mask R-CNN extends Faster R-CNN) · [Semantic Segmentation](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/semantic-segmentation/semantic-segmentation)
-- Metrics: [10 Detection & Segmentation Metrics (IoU · mAP)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/detection-and-segmentation-metrics/detection-and-segmentation-metrics)
+- Where this went next: [Segment Anything & Promptable Segmentation (SAM · SAM 2 · SAM 3)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/segment-anything-and-promptable-segmentation/segment-anything-and-promptable-segmentation)
+- Metrics: [Detection & Segmentation Metrics (IoU · mAP)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/detection-and-segmentation-metrics/detection-and-segmentation-metrics)
 - Foundation: [Deep Learning › CNNs & Convolution](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/cnns-and-convolution/cnns-and-convolution)

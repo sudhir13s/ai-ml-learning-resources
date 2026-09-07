@@ -21,7 +21,7 @@ best **free, open** courses, videos, papers, articles, and tools for staying cur
 
 ### Reading & finding research
 1. ✅ [How to Read ML Papers](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/how-to-read-ml-papers/how-to-read-ml-papers)
-2. ✅ [arXiv & Papers with Code (finding & tracking)](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/arxiv-and-papers-with-code/arxiv-and-papers-with-code)
+2. ✅ [arXiv and Paper Discovery (finding and tracking)](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/arxiv-and-paper-discovery/arxiv-and-paper-discovery)
 3. ✅ [Key Conferences & Venues](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/key-conferences-and-venues/key-conferences-and-venues)
 8. ✅ [Survey Papers (how to use them)](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/survey-papers-how-to-use-them/survey-papers-how-to-use-them)
 

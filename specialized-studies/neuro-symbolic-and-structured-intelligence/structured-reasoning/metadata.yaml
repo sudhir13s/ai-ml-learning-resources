@@ -2,4 +2,7 @@
 # estate-wide (structure-authoring-contract Rule 4); entries are relative
 # and extension-less. README.md is repo-facing and deliberately absent.
 page-order:
+  - graph-based-reasoning/graph-based-reasoning
   - causal-and-relational-reasoning/causal-and-relational-reasoning
+  - compositional-reasoning/compositional-reasoning
+  - constraint-guided-learning/constraint-guided-learning

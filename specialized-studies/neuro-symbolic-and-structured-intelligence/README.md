@@ -22,48 +22,49 @@ provenance. The engineering question in all of these is identical: **which half 
 ## Concept Index
 Each page is a resource card: a short guided path plus the best free courses, videos, papers,
 articles, and books for that topic. The six sub-folders below are the chartered shape of this
-sub-area; pages that are not authored yet are named as gaps so the reading order stays honest.
+sub-area, and the numbering is the reading order: the symbolic half first, then the couplings,
+then the structural inductive biases, then where the pattern ships, and finally how to judge it.
 
 ### Symbolic reasoning primer
 The symbolic half, taught before any fusion.
 1. [Knowledge Representation](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/symbolic-reasoning-primer/knowledge-representation/knowledge-representation) — formalisms, ontologies, and the expressiveness-versus-tractability bargain.
 2. [Logic and Inference](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/symbolic-reasoning-primer/logic-and-inference/logic-and-inference) — syntax, semantics, soundness, completeness, and the solvers that exploit them.
-3. [Knowledge Graphs](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/symbolic-reasoning-primer/knowledge-graphs/knowledge-graphs) — triples, ontologies, embeddings, and graph-grounded language models.
-- *Gap — rules, constraints and ontologies:* production rules, constraint satisfaction, and description-logic ontologies as one page; currently split across the three above.
+3. [Rules, Constraints and Ontologies](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/symbolic-reasoning-primer/rules-constraints-and-ontologies/rules-constraints-and-ontologies) — production rules and Rete, constraint satisfaction with SAT and SMT solvers, and description-logic ontologies in OWL.
+4. [Knowledge Graphs](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/symbolic-reasoning-primer/knowledge-graphs/knowledge-graphs) — triples, ontologies, embeddings, and graph-grounded language models.
 
 ### Neural-symbolic integration
 How the two halves are wired together.
-4. [Neuro-Symbolic AI](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/neural-symbolic-integration/neuro-symbolic-ai/neuro-symbolic-ai) — the Kautz taxonomy, DeepProbLog, Logic Tensor Networks, semantic loss, and what each coupling guarantees.
-- *Gap — symbolic knowledge as neural input:* encoding rules, graphs, and ontologies as features or embeddings.
-- *Gap — neural models with symbolic constraints:* enforcing hard constraints at training or decoding time.
-- *Gap — symbolic reasoning over neural representations:* extracting discrete structure from learned representations.
+5. [Neuro-Symbolic AI](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/neural-symbolic-integration/neuro-symbolic-ai/neuro-symbolic-ai) — the Kautz taxonomy, DeepProbLog, Logic Tensor Networks, semantic loss, and what each coupling guarantees.
+6. [Symbolic Knowledge as Neural Input](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/neural-symbolic-integration/symbolic-knowledge-as-neural-input/symbolic-knowledge-as-neural-input) — knowledge-graph embeddings, rules as features, graph-conditioned models, and retrieved triples in the context window.
+7. [Neural Models with Symbolic Constraints](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/neural-symbolic-integration/neural-models-with-symbolic-constraints/neural-models-with-symbolic-constraints) — semantic loss, semantic probabilistic layers, and grammar- or schema-constrained decoding.
+8. [Symbolic Reasoning over Neural Representations](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/neural-symbolic-integration/symbolic-reasoning-over-neural-representations/symbolic-reasoning-over-neural-representations) — concept extraction, program induction, models as parsers into formal languages, and sparse-autoencoder features as symbols.
 
 ### Differentiable reasoning
 Making the symbolic part learnable, or the learned part verifiable.
-5. [Differentiable Programming](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/differentiable-reasoning/differentiable-programming/differentiable-programming) — automatic differentiation beyond networks: solvers, simulators, and implicit layers.
-6. [Neural Theorem Proving](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/differentiable-reasoning/neural-theorem-proving/neural-theorem-proving) — Lean, AlphaProof, DeepSeek-Prover, and reinforcement learning against a verifier.
-- *Gap — differentiable logic:* fuzzy and probabilistic relaxations of logical operators, and what each relaxation costs.
+9. [Differentiable Logic](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/differentiable-reasoning/differentiable-logic/differentiable-logic) — fuzzy t-norms, probabilistic logic and DeepProbLog, differentiable SAT and proving, and what each relaxation costs.
+10. [Differentiable Programming](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/differentiable-reasoning/differentiable-programming/differentiable-programming) — automatic differentiation beyond networks: solvers, simulators, and implicit layers.
+11. [Neural Theorem Proving](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/differentiable-reasoning/neural-theorem-proving/neural-theorem-proving) — Lean, AlphaProof, DeepSeek-Prover, and reinforcement learning against a verifier.
 
 ### Structured reasoning
 Structure as an inductive bias rather than a post-hoc check.
-7. [Causal and Relational Reasoning](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/structured-reasoning/causal-and-relational-reasoning/causal-and-relational-reasoning) — Pearl's ladder, causal representation learning, and relational inductive biases.
-- *Gap — graph-based reasoning:* message passing and multi-hop inference over graphs; the message-passing mechanism itself is owned by [Graph Neural Networks](/ai-ml/ai-ml-learning-resources/deep-learning/scientific-and-specialized-deep-learning/graph-neural-networks/graph-neural-networks).
-- *Gap — compositional reasoning:* systematic generalization and the benchmarks that measure it.
-- *Gap — constraint-guided learning:* training under declarative constraints rather than labels alone.
+12. [Graph-Based Reasoning](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/structured-reasoning/graph-based-reasoning/graph-based-reasoning) — multi-hop inference over graphs, neural algorithmic reasoning and CLRS, graph-of-thoughts prompting, and knowledge-graph question answering; the message-passing mechanism itself is owned by [Graph Neural Networks](/ai-ml/ai-ml-learning-resources/deep-learning/scientific-and-specialized-deep-learning/graph-neural-networks/graph-neural-networks).
+13. [Causal and Relational Reasoning](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/structured-reasoning/causal-and-relational-reasoning/causal-and-relational-reasoning) — Pearl's ladder, causal representation learning, and relational inductive biases.
+14. [Compositional Reasoning](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/structured-reasoning/compositional-reasoning/compositional-reasoning) — systematic generalization, SCAN, COGS and gSCAN, the Lake and Baroni meta-learning result, and what the benchmarks actually measure.
+15. [Constraint-Guided Learning](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/structured-reasoning/constraint-guided-learning/constraint-guided-learning) — semantic loss, posterior regularization, physics and logic constraints as regularizers, and rules as weak supervision.
 
 ### Modern applications
 Where the pattern actually ships.
-8. [Program Synthesis and Code Reasoning](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/modern-applications/program-synthesis-and-code-reasoning/program-synthesis-and-code-reasoning) — DreamCoder, AlphaCode, program-aided models, SWE-bench, and the ARC Prize results.
-- *Gap — neuro-symbolic language models:* models with explicit symbolic components in the architecture.
-- *Gap — knowledge-grounded agents:* agents whose state and memory are a knowledge base rather than a transcript.
-- *Gap — neuro-symbolic robotics:* task and motion planning with learned perception.
+16. [Program Synthesis and Code Reasoning](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/modern-applications/program-synthesis-and-code-reasoning/program-synthesis-and-code-reasoning) — DreamCoder, AlphaCode, program-aided models, SWE-bench, and the ARC Prize results.
+17. [Neuro-Symbolic Language Models](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/modern-applications/neuro-symbolic-language-models/neuro-symbolic-language-models) — Toolformer, Logic-LM, program-aided and satisfiability-aided prompting, memory-augmented architectures, and reasoning models with verifiers.
+18. [Knowledge-Grounded Agents](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/modern-applications/knowledge-grounded-agents/knowledge-grounded-agents) — Graph RAG, temporal knowledge graphs as memory, skill libraries, and agents that traverse a knowledge base instead of a transcript.
+19. [Neuro-Symbolic Robotics](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/modern-applications/neuro-symbolic-robotics/neuro-symbolic-robotics) — task and motion planning with learned perception, planners driven by language models, code as policies, and vision-language-action models as the alternative.
 
 ### Evaluation and limitations
-No pages yet — the whole sub-folder is a gap, and the honest reason to read the field sceptically.
-- *Gap — evaluating symbolic correctness:* measuring whether the symbolic component was actually respected.
-- *Gap — interpretability and verifiability:* what a symbolic trace does and does not explain.
-- *Gap — scalability limitations:* inference cost, grounding blow-up, and where hybrid systems stop scaling.
-- *Gap — open problems:* the field's own list of what is unsolved.
+How to judge the claims, and the honest reasons to read the field sceptically.
+20. [Evaluating Symbolic Correctness](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/evaluation-and-limitations/evaluating-symbolic-correctness/evaluating-symbolic-correctness) — proof checkers, execution-based scoring, constraint-violation rates, and the benchmarks that carry an oracle: FOLIO, ProofWriter, miniF2F, PutnamBench.
+21. [Interpretability and Verifiability](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/evaluation-and-limitations/interpretability-and-verifiability/interpretability-and-verifiability) — chain-of-thought faithfulness after the 2025 Anthropic results, and verifiable-by-construction versus post-hoc explanation.
+22. [Scalability Limitations](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/evaluation-and-limitations/scalability-limitations/scalability-limitations) — grounding blow-up, the cost of exact inference, brittle hand-written rules, and the knowledge-acquisition bottleneck.
+23. [Open Problems](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/evaluation-and-limitations/open-problems/open-problems) — the Kautz, Marcus and Bengio System 2 debate, ARC Prize results, benchmarks that resist scale, and learning symbols from data.
 
 ### Related concepts (canonical home is another section)
 - **The paradigm orientation** — symbolic, statistical, neural, probabilistic → [AI Paradigms and Knowledge](/ai-ml/ai-ml-learning-resources/foundations/ai-paradigms-and-knowledge/readme)

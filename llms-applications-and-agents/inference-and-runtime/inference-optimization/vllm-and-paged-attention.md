@@ -1,13 +1,13 @@
 ---
-id: vllm-and-paged-attention
-topic: "vLLM and Paged Attention"
+id: "llms-applications-and-agents/inference-and-runtime/inference-optimization/vllm-and-paged-attention"
+topic: "vLLM and PagedAttention"
 level: advanced
 updated: 2026-09-07
-title: vLLM and Paged Attention
+title: "vLLM and PagedAttention"
 minutes: 20
 category: inference-and-runtime
 ---
-# LLM serving — vLLM + paged attention
+# vLLM and PagedAttention — LLM Serving Design
 
 > Curated concept note, migrated from the in-app practice library into the canonical repo so the content lives once at the source. Original wording.
 

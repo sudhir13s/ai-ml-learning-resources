@@ -59,4 +59,4 @@ and "how much context does this neuron have?"
 ## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 4.13 Convolution](/ai-ml/ai-ml-intuitions/architectural-mechanisms/locality-and-weight-sharing/convolution-intuition) — receptive fields are a direct consequence of stacking convolutions.
 - Foundation: [Deep Learning › CNNs & Convolution](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/cnns-and-convolution/cnns-and-convolution)
-- Next concepts: [03 Classic CNN Architectures](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/classic-cnn-architectures/classic-cnn-architectures) · [08 Semantic Segmentation](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/semantic-segmentation/semantic-segmentation)
+- Next concepts: [Classic CNN Architectures](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/classic-cnn-architectures/classic-cnn-architectures) · [Semantic Segmentation](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/semantic-segmentation/semantic-segmentation)

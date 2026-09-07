@@ -1,19 +1,18 @@
 ---
-id: "21-frontier/arxiv-papers-with-code"
-topic: "arXiv & Papers with Code (finding & tracking)"
-parent: "21-frontier"
+id: "foundations/research-literacy/arxiv-and-paper-discovery"
+topic: "arXiv and Paper Discovery (finding and tracking)"
 level: beginner
 built_from: []
 interview_frequency: low
 updated: 2026-09-07
 tier: core
 est_minutes: 10
-title: "arXiv & Papers with Code (finding & tracking)"
+title: "arXiv and Paper Discovery (finding and tracking)"
 minutes: 10
 category: research-literacy
 ---
 
-# arXiv & Papers with Code — Finding & Tracking Research
+# arXiv and Paper Discovery — Finding and Tracking Research
 > Where ML research actually lives before (and often instead of) peer-reviewed venues, and the tools
 > that turn the firehose into a tracked, searchable, code-linked stream. arXiv is the preprint
 > archive; Hugging Face Papers, alphaXiv, Semantic Scholar and Connected Papers are the discovery

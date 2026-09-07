@@ -1,0 +1,8 @@
+# Reading order for this category. `page-order:` is the ONE ordering key
+# estate-wide (structure-authoring-contract Rule 4); entries are relative
+# and extension-less. README.md is repo-facing and deliberately absent.
+page-order:
+  - episodic-world-memory/episodic-world-memory
+  - spatial-memory/spatial-memory
+  - cognitive-maps/cognitive-maps
+  - persistent-environment-state/persistent-environment-state

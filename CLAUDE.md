@@ -153,19 +153,23 @@ Ordered by learning progression, each declared as a section in `course.yaml`:
   incident response) · governance-and-economics.
 - **`world-models-and-embodied-intelligence/`** — world-model-foundations ·
   predictive-representation-models · latent-dynamics · learning-and-planning ·
-  video-and-generative-world-models · embodied-intelligence · evaluation-and-safety
-  (spatial-and-physical-world-models and memory-and-cognitive-maps are chartered gaps, listed
-  in the section README, never scaffolded).
+  spatial-and-physical-world-models · video-and-generative-world-models ·
+  memory-and-cognitive-maps · embodied-intelligence · evaluation-and-safety (all nine
+  chartered sub-areas hold pages; the section README is the one index, sub-areas carry
+  `metadata.yaml` only).
 - **`specialized-studies/`** — advanced-mathematics-for-ai-research ·
   neuroscience-and-brain-inspired-ai · neuro-symbolic-and-structured-intelligence (nested
-  section; its sub-folders are the categories: symbolic-reasoning-primer ·
+  section; its six sub-folders are the categories: symbolic-reasoning-primer ·
   neural-symbolic-integration · differentiable-reasoning · structured-reasoning ·
-  modern-applications).
+  modern-applications · evaluation-and-limitations — every chartered page exists).
 
 Every section is on its chartered kebab-case name. The 2026-09 completeness pass (T-556)
 authored the previously empty chartered sub-areas and the world-models section with real
 curated pages, and added `deep-learning/interpretability-and-analysis` (recorded in the
-charter). Every sub-area and section now has a `README.md` index; `agentic-ai/` and
+charter); the gap closure that followed (T-557) authored every remaining chartered page,
+added `computer-vision/segment-anything-and-promptable-segmentation`, and renamed
+`research-literacy/arxiv-and-papers-with-code` to `arxiv-and-paper-discovery`. Every
+sub-area and section now has a `README.md` index; `agentic-ai/` and
 `rag-and-knowledge-systems/` keep their `overview.md` in that role.
 
 **Quality bar for every link (owner ruling, 2026-09-07):** primary authors and recognised deep

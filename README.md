@@ -88,8 +88,10 @@ sparse autoencoders, probing).
 
 ### [World Models and Embodied Intelligence](/ai-ml/ai-ml-learning-resources/world-models-and-embodied-intelligence/readme)
 World-model foundations · predictive representation models (JEPA) · latent dynamics ·
-learning and planning (Dreamer, MuZero, model-predictive control) · video and generative
-world models · embodied intelligence (vision-language-action models) · evaluation and safety.
+learning and planning (Dreamer, MuZero, model-predictive control) · spatial and physical
+world models (3D scene understanding, intuitive physics, causal world models) · video and
+generative world models · memory and cognitive maps · embodied intelligence
+(vision-language-action models) · evaluation and safety.
 
 ### [Specialized Studies](/ai-ml/ai-ml-learning-resources/specialized-studies/readme)
 | Sub-area | Level |
