@@ -297,7 +297,7 @@ spec:
         - path: foundations/tools-and-frameworks/gradio-and-streamlit/gradio-and-streamlit.md
         # research-literacy
         - path: foundations/research-literacy/how-to-read-ml-papers/how-to-read-ml-papers.md
-        - path: foundations/research-literacy/arxiv-and-papers-with-code/arxiv-and-papers-with-code.md
+        - path: foundations/research-literacy/arxiv-and-paper-discovery/arxiv-and-paper-discovery.md
         - path: foundations/research-literacy/key-conferences-and-venues/key-conferences-and-venues.md
         - path: foundations/research-literacy/newsletters-and-blogs-to-follow/newsletters-and-blogs-to-follow.md
         - path: foundations/research-literacy/following-researchers-and-communities/following-researchers-and-communities.md
