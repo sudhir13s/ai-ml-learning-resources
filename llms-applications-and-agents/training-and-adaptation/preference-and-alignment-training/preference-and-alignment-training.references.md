@@ -57,7 +57,7 @@ updated: 2026-09-07
 
 **In this platform**:
 - Concept page (full explanation): [RLHF & DPO](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/preference-and-alignment-training/preference-and-alignment-training)
-- Hands-on project: [Preference Alignment workflow](/ai-ml/practitioner-workflows/training-and-adaptation/preference-alignment) (collect pairs → reward model → PPO → DPO, step by step)
+- Hands-on project: [Preference Alignment workflow](/ai-ml/practitioner-workflows/workflow-library/training-and-adaptation/preference-alignment) (collect pairs → reward model → PPO → DPO, step by step)
 - Concept depth (the *why*): [ai-ml-intuitions 6.03 PPO and RLHF](/ai-ml/ai-ml-intuitions/decision-making-and-control/stable-policy-optimization/ppo-and-rl-from-human-feedback-intuition) · [6.02 Policy Gradients / REINFORCE](/ai-ml/ai-ml-intuitions/decision-making-and-control/policy-learning/policy-gradients-intuition)
 - Prerequisites: [Supervised Fine-Tuning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/supervised-fine-tuning/supervised-fine-tuning) · [Instruction Tuning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/instruction-tuning/instruction-tuning)
 - RL foundations: [Reinforcement Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/readme) (PPO & policy gradients)
