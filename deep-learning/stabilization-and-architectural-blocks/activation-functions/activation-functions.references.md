@@ -3,7 +3,7 @@ id: "05-deep-learning/activation-functions/references"
 topic: "Activation Functions — References"
 parent: "05-deep-learning/activation-functions"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Activation Functions — references and further reading
@@ -19,9 +19,9 @@ updated: 2026-06-22
 
 **Videos**:
 - [Neural Networks Pt. 3: ReLU In Action](https://www.youtube.com/watch?v=68BZ5f7P94E) — **StatQuest (Josh Starmer)** — exactly how ReLU units combine to fit a curve.
-- [Activation Functions in a Neural Network explained](https://www.youtube.com/watch?v=m0pIlLfpXWE) — **deeplizard** — clear visual tour of sigmoid, tanh, and ReLU and when to use each.
+- [Why Non-linear Activation Functions (C1W3L07)](https://www.youtube.com/watch?v=NkOv_k7r6no) — **DeepLearning.AI (Andrew Ng)** — the two-line proof that stacked linear layers collapse to one, which is the argument this page opens with.
+- [Lecture 6: Training Neural Networks I (activation functions)](https://www.youtube.com/watch?v=wEoyxE0GP2M) — **Stanford University School of Engineering (CS231n)** — sigmoid → tanh → ReLU → Leaky/ELU, each judged on saturation, zero-centering, and what its derivative does to gradient flow.
 - [Activation Functions — EXPLAINED!](https://www.youtube.com/watch?v=s-V7gKrsels) — **CodeEmporium** — why nonlinearity is required and how the common choices differ.
-- [What is an Activation Function in a Neural Network?](https://www.youtube.com/watch?v=Y9qdKsOHRjA) — **Learn With Jay** — from-scratch motivation and the main activation types.
 
 **Interactive & visual**:
 - [TensorFlow Playground](https://playground.tensorflow.org/) — **Google** — switch the Activation dropdown (ReLU / Tanh / Sigmoid / Linear) and watch the decision boundary's ability to curve change in real time; set Linear to *see* "depth is an illusion."
@@ -53,10 +53,12 @@ updated: 2026-06-22
 - [Dive into Deep Learning — §5.1 "Multilayer Perceptrons" (Activation Functions)](https://d2l.ai/chapter_multilayer-perceptrons/mlp.html) — **Zhang et al.** — ReLU/sigmoid/tanh with plots, gradients, and code.
 - [Deep Learning — §6.3 "Hidden Units"](https://www.deeplearningbook.org/contents/mlp.html) — **Goodfellow, Bengio & Courville** — rigorous discussion of ReLU and activation design.
 - [Neural Networks and Deep Learning — Ch. 1 (sigmoid neurons)](http://neuralnetworksanddeeplearning.com/chap1.html) — **Michael Nielsen** — why a smooth activation enables gradient learning.
+- [*Understanding Deep Learning* — Ch. 3 "Shallow neural networks"](https://udlbook.github.io/udlbook/) — **Simon J.D. Prince** — free PDF; shows a ReLU network as a piecewise-linear function and counts the regions it carves, which is the most concrete answer to "what does the nonlinearity buy?"
 
 **In this platform**:
 - Concept page (full explanation): [Activation Functions](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/activation-functions/activation-functions)
 - Concept depth (the *why*): [ai-ml-intuitions 4.14 Activation Functions & Softmax](/ai-ml/ai-ml-intuitions/architectural-mechanisms/nonlinear-transformation/activation-functions-and-softmax-intuition)
 - Prerequisite: [Perceptron & MLP](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/perceptron-and-mlp/perceptron-and-mlp)
+- The gate, in full: [Gating Mechanisms](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/gating-mechanisms/gating-mechanisms) — GLU/SwiGLU/GeGLU treated as a *mechanism* (multiplicative, input-dependent routing) rather than as one more entry in the activation zoo
 - Related: [Vanishing / Exploding Gradients](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients) (why saturating activations hurt) · [Backpropagation & Computational Graphs](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs) (where the chained derivatives multiply) · [Loss Functions](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/loss-functions/loss-functions) (softmax + cross-entropy) · [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture) (where GELU/SwiGLU and softmax sit)
 - Field overview: [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

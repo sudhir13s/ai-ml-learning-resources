@@ -5,7 +5,7 @@ parent: "10-generative-ai"
 level: advanced
 built_from: ["diffusion-ddpm", "vae", "conditional-cfg", "attention", "clip"]
 interview_frequency: high
-updated: 2026-06-20
+updated: 2026-09-07
 tier: core
 est_minutes: 10
 title: "Latent Diffusion & Stable Diffusion"
@@ -42,12 +42,15 @@ diffusion (speed and memory vs a slight quality ceiling from the autoencoder).
 ## Videos
 - [How AI Image Generators Work (Stable Diffusion / DALL·E)](https://www.youtube.com/watch?v=1CIpzeNxIhU) — **Computerphile** — the best plain-language overview of the whole pipeline.
 - [How does Stable Diffusion work? — Latent Diffusion Models EXPLAINED](https://www.youtube.com/watch?v=J87hffSMB60) — **AI Coffee Break (Letitia)** — why latent space, and the VAE + U-Net + text-encoder design.
-- [Stable Diffusion — What, Why, How?](https://www.youtube.com/watch?v=ltLNYA3lWAQ) — **Edan Meyer** — a thorough, accessible walkthrough of each component and the sampling loop.
+- [Stanford CME296: Diffusion & Large Vision Models](https://www.youtube.com/playlist?list=PLoROMvodv4rNdy8rt2rZ4T2xM0OjADnfu) — **Stanford Online** — the current Stanford course on diffusion and large vision models, covering the latent-space design choices this page introduces.
 - [Coding Stable Diffusion from scratch in PyTorch](https://www.youtube.com/watch?v=ZBKpAp_6TGI) — **Umar Jamil** — builds the full system (VAE, CLIP, U-Net, sampler) line by line.
 
 ## Key Papers
 - [High-Resolution Image Synthesis with Latent Diffusion Models](https://arxiv.org/abs/2112.10752) — **Rombach et al. (2022)** — Stable Diffusion: diffuse in VAE latent space with cross-attention conditioning.
 - [Classifier-Free Diffusion Guidance](https://arxiv.org/abs/2207.12598) — **Ho & Salimans (2022)** — the guidance mechanism that gives Stable Diffusion its prompt adherence.
+- [SDXL: Improving Latent Diffusion Models for High-Resolution Image Synthesis](https://arxiv.org/abs/2307.01952) — **Podell et al. (2023)** — a bigger U-Net, two text encoders, and size/crop conditioning; the last major U-Net-based Stable Diffusion.
+- [Scalable Diffusion Models with Transformers (DiT)](https://arxiv.org/abs/2212.09748) — **Peebles & Xie (2023)** — replaces the U-Net with a transformer over latent patches; the architecture every 2024–26 system adopted.
+- [Scaling Rectified Flow Transformers for High-Resolution Image Synthesis (Stable Diffusion 3)](https://arxiv.org/abs/2403.03206) — **Esser et al. (2024)** — rectified-flow training plus the MMDiT two-stream transformer; the current shape of the open text-to-image stack.
 
 ## Articles / Blogs (free, no paywall)
 - [The Illustrated Stable Diffusion](https://jalammar.github.io/illustrated-stable-diffusion/) — **Jay Alammar** — the canonical visual explainer; VAE, text encoder, U-Net, cross-attention.
@@ -63,4 +66,6 @@ diffusion (speed and memory vs a slight quality ceiling from the autoencoder).
 - Prereq: [05 Diffusion Models (DDPM)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/diffusion-models-ddpm/diffusion-models-ddpm) · [01 Variational Autoencoders](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/variational-autoencoders-vae-elbo/variational-autoencoders-vae-elbo) (the latent compressor) · [04 Conditional Generation & CFG](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/conditional-generation-and-classifier-free-guidance/conditional-generation-and-classifier-free-guidance)
 - Related: [Deep Learning — Attention Mechanism](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism) (cross-attention conditions the U-Net)
 - Next concepts: [11 Text-to-Image Systems](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/text-to-image-systems/text-to-image-systems) · [13 Sampling & Guidance Techniques](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/sampling-and-guidance-techniques/sampling-and-guidance-techniques)
+- Where the architecture went: [Diffusion Transformers (DiT)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/diffusion-transformers-dit/diffusion-transformers-dit) — the U-Net replaced by a transformer over latent patches
+- Where the training objective went: [Flow Matching & Rectified Flow](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/flow-matching-and-rectified-flow/flow-matching-and-rectified-flow) — straight-line paths instead of a noise schedule, as used by Stable Diffusion 3 and FLUX
 - Field overview: [9. Generative AI](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/readme)

@@ -3,7 +3,7 @@ id: "08-rl/q-learning/references"
 topic: "Q-Learning — References"
 parent: "08-rl/q-learning"
 type: references
-updated: 2026-07-03
+updated: 2026-09-07
 ---
 
 # Q-Learning — references and further reading
@@ -42,7 +42,7 @@ updated: 2026-07-03
 - [Learning from Delayed Rewards](https://www.cs.rhul.ac.uk/~chrisw/new_thesis.pdf) — **Christopher Watkins (1989), PhD thesis** — where Q-learning first appears, in full.
 - [Double Q-learning](https://proceedings.neurips.cc/paper/2010/hash/091d584fced301b442654dd8c23b3fc9-Abstract.html) — **Hado van Hasselt (2010), NeurIPS** — fixes Q-learning's maximization bias; the precursor to Double DQN.
 - [Human-level control through deep reinforcement learning (DQN)](https://www.nature.com/articles/nature14236) — **Mnih et al. (2015), Nature** — Q-learning with a neural network, experience replay, and a target network; where tabular Q-learning goes to scale ([author-hosted PDF](https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf)).
-- [On the Convergence of Stochastic Iterative Dynamic Programming Algorithms](https://www.mit.edu/~jnt/Papers/J052-94-jjt-td.pdf) — **Jaakkola, Jordan & Singh (1994)** — the stochastic-approximation convergence analysis that underlies the Q-learning guarantee.
+- [Convergence of Stochastic Iterative Dynamic Programming Algorithms](https://proceedings.neurips.cc/paper/1993/file/5807a685d1a9ab3b599035bc566ce2b9-Paper.pdf) — **Jaakkola, Jordan & Singh (NeurIPS 1993; journal version *Neural Computation* 6(6), 1994)** — the stochastic-approximation convergence analysis that underlies the Q-learning guarantee (the Robbins–Monro step-size conditions).
 
 **Books (free chapters)**:
 - [Reinforcement Learning: An Introduction (2nd ed.) — §6.5 "Q-learning" & §6.6 "Expected SARSA"](http://incompleteideas.net/book/RLbook2020.pdf) — **Sutton & Barto** — the canonical treatment: the update, off-policy property, Example 6.6 (CliffWalking vs SARSA), maximization bias, and Double Q-learning (§6.7). The whole book is free.

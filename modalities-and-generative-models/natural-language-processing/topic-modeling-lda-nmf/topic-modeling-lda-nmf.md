@@ -6,7 +6,7 @@ level: intermediate
 built_from: ["bow-tfidf", "probability", "linear-algebra", "gmm-em"]
 interview_frequency: medium
 template: concept-deep
-updated: 2026-06-27
+updated: 2026-09-07
 tier: core
 est_minutes: 50
 title: "Topic Modeling (LDA · NMF)"
@@ -246,7 +246,7 @@ This is the method most people derive in interviews because the update is so int
 
 $$p(z_i = k \mid \mathbf{z}_{\neg i}, \mathbf{w}) \;\propto\; \underbrace{\big(n_{d,k}^{\neg i} + \alpha\big)}_{\substack{\text{how much doc } d \\ \text{already likes topic } k}} \;\times\; \underbrace{\frac{n_{k,w}^{\neg i} + \eta}{n_{k}^{\neg i} + V\eta}}_{\substack{\text{how much topic } k \\ \text{likes word } w}}$$
 
-> **Source / derivation:** this is Eq. (5) of [Griffiths & Steyvers, *Finding Scientific Topics* (PNAS 2004)](https://www.pnas.org/doi/10.1073/pnas.0307752101), derived in full in the open tutorial [Steyvers & Griffiths, *Probabilistic Topic Models* (2007)](https://cocosci.princeton.edu/tom/papers/SteyversGriffiths.pdf). It comes from collapsing (integrating out) $\theta$ and $\beta$ using Dirichlet–multinomial conjugacy, leaving a closed-form conditional over the discrete assignments alone — exactly the update the from-scratch sampler below implements.
+> **Source / derivation:** this is Eq. (5) of [Griffiths & Steyvers, *Finding Scientific Topics* (PNAS 2004)](https://web.archive.org/web/2020/https://www.pnas.org/content/pnas/101/suppl_1/5228.full.pdf), derived in full in the open tutorial [Steyvers & Griffiths, *Probabilistic Topic Models* (2007)](https://cocosci.princeton.edu/tom/papers/SteyversGriffiths.pdf). It comes from collapsing (integrating out) $\theta$ and $\beta$ using Dirichlet–multinomial conjugacy, leaving a closed-form conditional over the discrete assignments alone — exactly the update the from-scratch sampler below implements.
 
 where $n_{d,k}$ = count of words in document $d$ currently assigned to topic $k$, $n_{k,w}$ = count of word $w$ across the corpus assigned to topic $k$, $n_{k}$ = total words assigned to topic $k$, and the $\neg i$ superscript means "excluding the current word $i$ we're reassigning." Each term has a plain-English reading:
 

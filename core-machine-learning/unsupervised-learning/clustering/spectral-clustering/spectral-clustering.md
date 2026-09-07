@@ -6,7 +6,7 @@ level: intermediate
 built_from: ["k-means", "linear-algebra", "eigendecomposition", "graphs"]
 interview_frequency: medium
 template: concept-deep
-updated: 2026-06-22
+updated: 2026-09-07
 tier: core
 est_minutes: 55
 title: "Spectral Clustering"
@@ -516,7 +516,7 @@ X, y = make_moons(n_samples=300, noise=0.06, random_state=0)
 A = kneighbors_graph(X, n_neighbors=10, mode="connectivity")
 W = 0.5 * (A + A.T).toarray()             # symmetrize: edge if i in j's NN OR j in i's
 
-# --- 2. normalized Laplacian  L_sym = I - D^-1/2 W D^-1/2 ---
+# --- 2. normalized Laplacian L_sym = I - D^-1/2 W D^-1/2 ---
 d = W.sum(axis=1)
 D_inv_sqrt = np.diag(1.0 / np.sqrt(d))
 L_sym = np.eye(len(X)) - D_inv_sqrt @ W @ D_inv_sqrt

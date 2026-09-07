@@ -3,7 +3,7 @@ id: "05-deep-learning/regularization/references"
 topic: "Regularization — References"
 parent: "05-deep-learning/regularization"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Regularization — references and further reading
@@ -59,6 +59,7 @@ updated: 2026-06-22
 - [The Elements of Statistical Learning — §3.4 (Ridge & Lasso)](https://hastie.su.domains/ElemStatLearn/) — **Hastie, Tibshirani & Friedman** — the original diamond-vs-circle geometry; free PDF.
 - [Dive into Deep Learning — §3.7 "Weight Decay" + §5.6 "Generalization"](https://d2l.ai/chapter_linear-regression/weight-decay.html) — **Zhang et al.** — regularization with runnable experiments.
 - [Neural Networks and Deep Learning — Ch. 3 (overfitting & regularization)](http://neuralnetworksanddeeplearning.com/chap3.html) — **Michael Nielsen** — L2, early stopping, and why they help, from scratch.
+- [*Understanding Deep Learning* — Ch. 9 "Regularization"](https://udlbook.github.io/udlbook/) — **Simon J.D. Prince** — free PDF; treats explicit penalties, early stopping, ensembling, dropout, and augmentation as one family of ways to bias the fit, rather than a list of tricks.
 
 **In this platform**:
 - Concept page (full explanation): [Regularization](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/regularization/regularization)

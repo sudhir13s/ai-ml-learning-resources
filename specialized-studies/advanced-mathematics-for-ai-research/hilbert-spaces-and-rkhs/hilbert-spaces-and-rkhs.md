@@ -25,7 +25,7 @@ data), and the feature-map view all live in this card. It's also the lens for in
 (NTK) and two-sample testing (MMD). A favorite theory-interview thread: "why does the representer
 theorem hold?"
 
-**⭐ Start here — suggested path:**
+**Start here — suggested path:**
 
 1. **Recall the trick** — skim the platform's [Kernel Trick intuition](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/kernel-trick-intuition). *Know the "what" before formalizing the "why".*
 2. **Build the RKHS** — watch [Lecture 2 on kernel methods: RKHS](https://www.youtube.com/watch?v=2uvpOKoiYoI) (Mairal). *Constructs the space from a kernel and derives the reproducing property.*
@@ -33,35 +33,34 @@ theorem hold?"
 4. **Connect to GPs** — watch [Understanding Kernels and Gaussian Processes](https://www.youtube.com/watch?v=1U5sIaTD6xA) (Hennig). *The function-space view: a GP prior is a distribution over an RKHS-flavored space.*
 5. **Get the theorems** — read Gretton's [Introduction to RKHS notes](https://www.gatsby.ucl.ac.uk/~gretton/coursefiles/lecture4_introToRKHS.pdf) for the representer theorem and MMD. *The results you'll actually be asked to state.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [Kernel Methods — course slides & notes](https://www.gatsby.ucl.ac.uk/~gretton/coursefiles/lecture4_introToRKHS.pdf) — **Arthur Gretton (Gatsby, UCL)** — the standard ML-flavored RKHS course (kernels → RKHS → MMD), free.
 - [MIT 18.102 — Hilbert space theory (the foundation)](https://ocw.mit.edu/courses/18-102-introduction-to-functional-analysis-spring-2021/) — **MIT OCW** — the rigorous Hilbert-space backbone RKHS sits on.
 - [Gaussian Processes for Machine Learning — full free book](https://gaussianprocess.org/gpml/chapters/RW.pdf) — **Rasmussen & Williams** — the function-space companion to kernels, free PDF.
 
-## 🎥 Videos
+## Videos
 - [Lecture 2 on kernel methods: RKHS](https://www.youtube.com/watch?v=2uvpOKoiYoI) — **Julien Mairal (Inria)** — constructs the RKHS and proves the reproducing property.
 - [Understanding Kernels and Gaussian Processes](https://www.youtube.com/watch?v=1U5sIaTD6xA) — **Philipp Hennig (Tübingen)** — kernels as covariance functions; the GP/RKHS connection.
 - [MIT 18.102 — Lecture 14: Basic Hilbert Space Theory](https://www.youtube.com/watch?v=EBdgFFf54U0) — **Casey Rodriguez (MIT OCW)** — Riesz representation, the theorem that makes RKHS work.
 - [MIT 18.102 — Lecture 1: Basic Banach Space Theory](https://www.youtube.com/watch?v=uoL4lQxfgwg) — **Casey Rodriguez (MIT OCW)** — completeness and bounded functionals, the prerequisites for "reproducing".
 
-## 📄 Key Papers
+## Key Papers
 - [Kernel methods in machine learning](https://projecteuclid.org/journals/annals-of-statistics/volume-36/issue-3/Kernel-methods-in-machine-learning/10.1214/009053607000000677.full) — **Hofmann, Schölkopf & Smola (2008)** — the canonical RKHS-in-ML survey: representer theorem, kernels, SVMs, GPs.
 - [A Primer on Reproducing Kernel Hilbert Spaces](https://arxiv.org/abs/1408.0952) — **Manton & Amblard (2015)** — self-contained construction of RKHS from first principles.
 - [Reproducing Kernel Hilbert Space, Mercer's Theorem, Eigenfunctions, Nyström — Tutorial & Survey](https://arxiv.org/abs/2106.08443) — **Ghojogh et al. (2021)** — Mercer + practical kernel methods in one free reference.
 - [Neural Tangent Kernel: Convergence and Generalization in Neural Networks](https://arxiv.org/abs/1806.07572) — **Jacot, Gabriel & Hongler (2018)** — infinite-width nets become an RKHS, the modern payoff.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [From Zero to Reproducing Kernel Hilbert Spaces in Twelve Pages or Less](http://users.umiacs.umd.edu/~hal3//docs/daume04rkhs.pdf) — **Hal Daumé III** — the fastest correct path to the reproducing property.
 - [Introduction to RKHS and simple kernel algorithms](https://www.gatsby.ucl.ac.uk/~gretton/coursefiles/lecture4_introToRKHS.pdf) — **Arthur Gretton** — the representer theorem and kernel mean embeddings, clearly.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Gaussian Processes for Machine Learning — **Ch. 4 (covariance functions) & App. B (Gaussian Markov / RKHS)**](https://gaussianprocess.org/gpml/chapters/RW.pdf) — **Rasmussen & Williams** — kernels as the heart of GP modeling, free.
 - [Understanding Machine Learning — **Ch. 16 (Kernel Methods)**](https://www.cs.huji.ac.il/~shais/UnderstandingMachineLearning/) — **Shalev-Shwartz & Ben-David** — kernels with the representer theorem and margin bounds, free PDF.
 - [Mathematics for Machine Learning — **Ch. 3 (inner-product geometry)**](https://mml-book.github.io/book/mml-book.pdf) — **Deisenroth, Faisal & Ong** — the finite-dimensional intuition that generalizes to RKHS.
 
-## 🔗 In this platform
+## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 1.16 The Kernel Trick](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/kernel-trick-intuition) · [1.06 Scaled Dot-Product](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/scaled-dot-product-intuition)
 - Foundations (the basics this builds on): [Norms, Inner Products & Orthogonality](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/norms-inner-products-and-orthogonality/norms-inner-products-and-orthogonality)
 - Prerequisite & next: [02 Functional Analysis](/ai-ml/ai-ml-learning-resources/specialized-studies/advanced-mathematics-for-ai-research/functional-analysis/functional-analysis) · [08 Information Geometry](/ai-ml/ai-ml-learning-resources/specialized-studies/advanced-mathematics-for-ai-research/information-geometry/information-geometry)
 - Related domain: [04. Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)
-</content>

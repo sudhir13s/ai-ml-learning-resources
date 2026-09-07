@@ -3,7 +3,7 @@ id: "09-llms/efficient-attention-flashattention/references"
 topic: "Efficient Attention (FlashAttention) — References"
 parent: "09-llms/efficient-attention-flashattention"
 type: references
-updated: 2026-06-26
+updated: 2026-09-07
 ---
 
 # Efficient Attention (FlashAttention) — references and further reading
@@ -15,7 +15,7 @@ updated: 2026-06-26
 2. **See the math** — watch [Coding FlashAttention from scratch in Triton](https://www.youtube.com/watch?v=zy8ChVd_oTM) (**Umar Jamil**). *Online softmax + tiling built line by line; the clearest derivation of the running (m, ℓ) update.*
 3. **Read the source** — read [FlashAttention](https://arxiv.org/abs/2205.14135) (**Dao et al. 2022**). *Tiling, online softmax, recomputation, and the IO-complexity theorems.*
 4. **Get the one-pass softmax** — read [Online normalizer calculation for softmax](https://arxiv.org/abs/1805.02867) (**Milakov & Gimelshein 2018**). *The streaming softmax that is FlashAttention's mathematical heart.*
-5. **Connect to long context** — read [Long-Context Methods](../../../../llms-applications-and-agents/llm-model-architectures/long-context-architectures/long-context-architectures.md). *FlashAttention is what makes ≥32K-token training and prefill practical.*
+5. **Connect to long context** — read [Long-Context Architectures](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/llm-model-architectures/long-context-architectures/long-context-architectures). *FlashAttention is what makes ≥32K-token training and prefill practical.*
 
 **Videos**:
 - [FlashAttention — Tri Dao | Stanford MLSys #67](https://www.youtube.com/watch?v=gMOAud7hZg4) — **Stanford MLSys** — the author's clearest full talk: IO-awareness, the memory hierarchy, tiling, and why it's exact.
@@ -32,11 +32,12 @@ updated: 2026-06-26
 - [Hugging Face — GPU inference optimization](https://huggingface.co/docs/transformers/en/perf_infer_gpu_one) — **Hugging Face** — using FlashAttention / SDPA in practice.
 
 **Articles / blogs (free, no paywall)**:
-- [ELI5: FlashAttention](https://gordicaleksa.medium.com/eli5-flash-attention-5c44017022ad) — **Aleksa Gordić** — a careful, intuition-first walkthrough of tiling and online softmax.
+- [FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision](https://tridao.me/blog/2024/flash3/) — **Tri Dao (with Colfax, Together AI, Meta, NVIDIA, Princeton)** — the author's own plain-language write-up of what changed for Hopper: warp specialization, matmul/softmax overlap, and FP8 with incoherent processing.
 - [From Online Softmax to FlashAttention](https://courses.cs.washington.edu/courses/cse599m/23sp/notes/flashattn.pdf) — **Zihao Ye (UW CSE599M)** — a clean lecture-note derivation connecting the streaming softmax to the full algorithm.
 - [FlexAttention: the flexibility of PyTorch with the performance of FlashAttention](https://pytorch.org/blog/flexattention/) — **PyTorch** — how modern frameworks expose fast, fused attention over custom masks.
 - [Flash-Decoding for long-context inference](https://pytorch.org/blog/flash-decoding/) — **Tri Dao, Daniel Haziza, Francisco Massa, Grigory Sizov (PyTorch)** — the decode-time counterpart: parallelizing a single query across the KV cache.
 - [Transformer Inference Arithmetic](https://kipp.ly/transformer-inference-arithmetic/) — **Kipply** — quantifies the memory-bandwidth wall FlashAttention sidesteps.
+- [How to Scale Your Model — "Transformers"](https://jax-ml.github.io/scaling-book/transformers/) — **the JAX team (Google DeepMind)** — counts the FLOPs, bytes, and arithmetic intensity of every transformer operation, so you can tell *by hand* which parts are compute-bound and which are memory-bound; the systems-level frame this page's roofline argument sits inside.
 - [The Transformer Family v2](https://lilianweng.github.io/posts/2023-01-27-the-transformer-family-v2/) — **Lilian Weng (OpenAI)** — survey of efficient-attention variants (sparse, linear, recurrent) that places FlashAttention in context.
 
 **Key papers**:
@@ -45,11 +46,12 @@ updated: 2026-06-26
 - [FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness](https://arxiv.org/abs/2205.14135) — **Dao et al. (2022)** — the original: tiling + online softmax + backward recomputation, with the IO-complexity theorems. The core source for this page.
 - [FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning](https://arxiv.org/abs/2307.08691) — **Dao (2023)** — v2's work partitioning and reduced non-matmul FLOPs (~2× over v1).
 - [FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision](https://arxiv.org/abs/2407.08608) — **Shah et al. (2024)** — v3's Hopper asynchrony (warp specialization, TMA) and FP8 (~1.5–2× over v2).
+- [FlashAttention-4: Algorithm and Kernel Pipelining Co-Design for Asymmetric Hardware Scaling](https://arxiv.org/abs/2603.05451) — **Tri Dao et al. (2026)** — the Blackwell redesign: software-emulated exponentials on the FMA units and conditional online-softmax rescaling, because the exponential unit, not the tensor core, is now the bottleneck. Author's write-up: [tridao.me/blog/2026/flash4](https://tridao.me/blog/2026/flash4/).
 - [GQA: Training Generalized Multi-Query Transformer Models](https://arxiv.org/abs/2305.13245) — **Ainslie et al. (2023)** — a complementary efficiency lever (fewer KV heads); orthogonal to, and composable with, FlashAttention.
 - [Mistral 7B](https://arxiv.org/abs/2310.06825) — **Jiang et al. (2023)** — sliding-window attention with the layered-receptive-field argument ($w$ over $L$ layers reaches $\approx L\,w$); a sparsity approach that composes with FlashAttention.
 - [Online normalizer calculation for softmax](https://arxiv.org/abs/1805.02867) — **Milakov & Gimelshein (2018)** — the single-pass streaming softmax (running max + running sum) that is FlashAttention's mathematical heart.
 - [Self-attention Does Not Need $O(n^2)$ Memory](https://arxiv.org/abs/2112.05682) — **Rabe & Staats (2021)** — the memory-efficient streaming-attention formulation FlashAttention builds on and makes IO-aware.
-- [Roofline: An Insightful Visual Performance Model (CACM 2009)](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2008/EECS-2008-134.html) — **Williams, Waterman & Patterson** — the compute-vs-bandwidth model behind "attention is memory-bound"; free Berkeley tech-report version.
+- [Roofline: An Insightful Visual Performance Model (CACM 2009)](https://escholarship.org/content/qt78h8v7mr/qt78h8v7mr.pdf) — **Williams, Waterman & Patterson** — the compute-vs-bandwidth model behind "attention is memory-bound"; free Berkeley tech-report PDF.
 
 **Books (free chapters)**:
 - [Dive into Deep Learning — Ch. 11 "Attention Mechanisms & Transformers"](https://d2l.ai/chapter_attention-mechanisms-and-transformers/index.html) — **Zhang et al.** — attention internals with runnable code, the computation FlashAttention optimizes.
@@ -58,6 +60,7 @@ updated: 2026-06-26
 **In this platform**:
 - Concept page (full explanation): [Efficient Attention (FlashAttention)](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/efficient-attention/efficient-attention)
 - Foundations (the *why* behind Q, K, V and softmax): [Attention Mechanism](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism) · [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture)
-- Companion (the decode-side IO story): [KV Cache](../../../../llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.md)
-- Builds on this: [Long-Context Methods](../../../../llms-applications-and-agents/llm-model-architectures/long-context-architectures/long-context-architectures.md) · [Quantization](../../../../llms-applications-and-agents/inference-and-runtime/quantization/quantization.md)
-- Puts it to work: [Inference Optimization & Serving](../../../../llms-applications-and-agents/inference-and-runtime/inference-optimization/inference-optimization.md)
+- Companion (the decode-side IO story): [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache)
+- The architectural levers that compose with it: [Attention Architectures — GQA, MLA, Sliding and Linear](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/llm-model-architectures/attention-architectures-gqa-mla-sliding-and-linear/attention-architectures-gqa-mla-sliding-and-linear) — FlashAttention makes exact attention *fast*; these change what attention *computes*
+- Builds on this: [Long-Context Architectures](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/llm-model-architectures/long-context-architectures/long-context-architectures) · [Quantization](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/quantization/quantization)
+- Puts it to work: [Inference Optimization & Serving](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/inference-optimization/inference-optimization)

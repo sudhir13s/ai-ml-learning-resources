@@ -3,7 +3,7 @@ id: "06-nlp/tokenization/references"
 topic: "Tokenization & Subword Algorithms — References"
 parent: "06-nlp/tokenization"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Tokenization & Subword Algorithms — references and further reading
@@ -47,6 +47,8 @@ updated: 2026-06-22
 - [SentencePiece: A simple and language-independent subword tokenizer](https://arxiv.org/abs/1808.06226) — **Kudo & Richardson (2018)** — whitespace-as-`▁`, fully reversible, language-agnostic (used by T5, LLaMA).
 - [Language Models are Unsupervised Multitask Learners (GPT-2)](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf) — **Radford et al. (2019)** — §2.2 introduces byte-level BPE, the no-OOV tokenizer behind GPT.
 - [BPE-Dropout: Simple and Effective Subword Regularization](https://arxiv.org/abs/1910.13267) — **Provilkov et al. (2020)** — stochastic BPE segmentation, the BPE analogue of subword regularization.
+- [Byte Latent Transformer: Patches Scale Better Than Tokens (BLT)](https://arxiv.org/abs/2412.09871) — **Pagnoni et al. (2024)** — the 2025–26 tokenizer-free line: group raw bytes into *dynamic* patches by next-byte entropy, spending compute where the text is unpredictable. Read it as the strongest existing answer to "why is a fixed vocabulary still here?", not as a replacement you would deploy today.
+- [Smarter, Better, Faster, Longer: A Modern Bidirectional Encoder (ModernBERT)](https://arxiv.org/abs/2412.13663) — **Warner et al. (2024)** — §2 documents the practical 2024–26 tokenizer choices for a new model (a code-aware BPE vocabulary, and why the old BERT WordPiece vocabulary was retired).
 
 **Books (free chapters)**:
 - [Speech and Language Processing, 3rd ed. — Ch. 2 "Regular Expressions, Text Normalization, and Edit Distance"](https://web.stanford.edu/~jurafsky/slp3/2.pdf) — **Jurafsky & Martin** — tokenization and BPE in the standard NLP textbook.

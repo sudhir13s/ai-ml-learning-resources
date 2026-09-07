@@ -5,7 +5,7 @@ parent: "02-data-preprocessing"
 level: intermediate
 built_from: ["correlation", "mutual-information", "regularization"]
 interview_frequency: high
-updated: 2026-06-20
+updated: 2026-09-07
 tier: core
 est_minutes: 10
 title: "Feature Selection"
@@ -23,38 +23,37 @@ examples (variance threshold, correlation/mutual-information, RFE, L1/Lasso, tre
 crucial gotcha: **feature selection must happen inside cross-validation**, on training folds only, or you
 leak and over-report performance.
 
-**⭐ Start here — suggested path:**
+**Start here — suggested path:**
 
-1. **The three families** — watch [Filter vs Wrapper vs Embedded](https://www.youtube.com/watch?v=Sc-TNxW3PiI). *The taxonomy every answer should start from.*
-2. **Filter in practice** — watch [Drop features using correlation](https://www.youtube.com/watch?v=FndwYNcVe0U). *Removing redundant/constant features cheaply.*
+1. **The three families** — read [An Introduction to Variable and Feature Selection](https://jmlr.org/papers/volume3/guyon03a/guyon03a.pdf) — **Guyon & Elisseeff**, §1–3. *Filter, wrapper and embedded: the taxonomy every answer should start from, from the survey that defined it.*
+2. **Filter in practice** — read [sklearn: Feature selection](https://scikit-learn.org/stable/modules/feature_selection.html), starting with `VarianceThreshold` and `SelectKBest`. *Removing constant and redundant features cheaply, before anything expensive.*
 3. **The right relevance metric** — watch [Mutual Information, Clearly Explained](https://www.youtube.com/watch?v=eJIp_mgVLwE). *Why MI catches nonlinear relevance that correlation misses.*
 4. **Read the reference** — read [sklearn: Feature selection](https://scikit-learn.org/stable/modules/feature_selection.html). *VarianceThreshold, SelectKBest, RFE, SelectFromModel, L1-based.*
 5. **Trust importances carefully** — read [sklearn: Permutation importance](https://scikit-learn.org/stable/auto_examples/inspection/plot_permutation_importance.html). *Why impurity importance misleads and permutation importance is safer.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [Kaggle Learn — Feature Engineering (Mutual Information)](https://www.kaggle.com/learn/feature-engineering) — **Kaggle** — hands-on MI-based feature ranking on real data.
 - [Google ML Crash Course — Numerical data](https://developers.google.com/machine-learning/crash-course/numerical-data) — **Google** — how regularization and feature relevance interact.
 
-## 🎥 Videos
-- [Filter vs Wrapper vs Embedded Methods](https://www.youtube.com/watch?v=Sc-TNxW3PiI) — **Learn with Whiteboard** — the clearest overview of the three selection families.
-- [Feature Selection — Drop features using Pearson correlation](https://www.youtube.com/watch?v=FndwYNcVe0U) — **Krish Naik** — practical filter method removing redundant features.
-- [Mutual Information, Clearly Explained](https://www.youtube.com/watch?v=eJIp_mgVLwE) — **StatQuest (Josh Starmer)** — the relevance metric behind SelectKBest(mutual_info).
-- [Feature Selection — Variance Threshold (drop constant features)](https://www.youtube.com/watch?v=uMlU2JaiOd8) — **Krish Naik** — the cheapest first-pass filter, with code.
+## Videos
+- [Mutual Information, Clearly Explained](https://www.youtube.com/watch?v=eJIp_mgVLwE) — **StatQuest with Josh Starmer** — the relevance metric behind `SelectKBest(mutual_info_classif)`, and why it sees dependencies correlation cannot.
+- [Regularization Part 1: Ridge (L2) Regression](https://www.youtube.com/watch?v=Q81RR3yKn30) — **StatQuest with Josh Starmer** — the embedded family: shrinkage as selection, and where L1 differs by driving coefficients to exactly zero.
+- [probabl (scikit-learn maintainers' channel)](https://www.youtube.com/@probabl_ai) — **probabl / scikit-learn core developers** — model inspection and permutation importance demonstrated by the maintainers.
 
-## 📄 Key Papers
+## Key Papers
 - [An Introduction to Variable and Feature Selection](https://jmlr.org/papers/volume3/guyon03a/guyon03a.pdf) — **Guyon & Elisseeff (2003)** — the definitive survey of feature-selection methods; free in JMLR.
 - [Conditional Likelihood Maximisation: A Unifying Framework for Information-Theoretic Feature Selection](https://www.jmlr.org/papers/volume13/brown12a/brown12a.pdf) — **Brown et al. (2012)** — unifies mutual-information selection criteria; free in JMLR.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [Feature selection — user guide](https://scikit-learn.org/stable/modules/feature_selection.html) — **scikit-learn** — the authoritative reference for every selector.
 - [Permutation feature importance](https://scikit-learn.org/stable/auto_examples/inspection/plot_permutation_importance.html) — **scikit-learn** — why impurity importance is biased and permutation importance is preferred.
 - [Common pitfalls and recommended practices](https://scikit-learn.org/stable/common_pitfalls.html) — **scikit-learn** — selecting features on the whole dataset is leakage; do it inside CV.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Feature Engineering and Selection — **Ch. 10–11 "Feature Selection"**](http://www.feat.engineering/) — **Kuhn & Johnson** — filter/wrapper/embedded with rigorous resampling; free online.
 - [An Introduction to Statistical Learning (Python) — **Ch. 6 "Linear Model Selection & Regularization"**](https://www.statlearning.com/) — **James, Witten, Hastie & Tibshirani** — subset selection + Lasso; free PDF.
 
-## 🔗 In this platform
+## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 1.05 PCA / SVD](/ai-ml/ai-ml-intuitions/representation/dimensionality-and-latent-structure/pca-and-svd-intuition) · [3.07 Bias–Variance & Generalization](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/generalization/bias-variance-tradeoff-intuition)
 - Next concepts: [06 Feature Engineering](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/feature-engineering/feature-engineering) · [11 Data Leakage](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/data-leakage/data-leakage)
 - Related domain: [03. Supervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/readme)

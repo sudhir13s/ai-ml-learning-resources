@@ -25,7 +25,7 @@ uniform convergence, the no-free-lunch theorem, and the realizable-vs-agnostic d
 classic theory-interview material — and the launchpad for VC dimension (card 6) and Rademacher
 complexity (card 7).
 
-**⭐ Start here — suggested path:**
+**Start here — suggested path:**
 
 1. **Frame the learning problem** — watch [Caltech "Learning From Data", Lecture 1](https://www.youtube.com/watch?v=mbyG85GZ0PI). *Sets up in-sample vs out-of-sample error — the whole motivation for the theory.*
 2. **See why generalization is even possible** — watch [Lecture 5: Training vs Testing](https://www.youtube.com/watch?v=SEYAnnLazMU). *The dichotomy/growth-function idea that replaces "infinite hypotheses = no guarantees".*
@@ -33,32 +33,31 @@ complexity (card 7).
 4. **Do the proof** — derive the finite-hypothesis-class bound (Hoeffding + union bound) from those chapters. *This one-page proof is the heart of the whole subject.*
 5. **Generalize** — move to agnostic PAC and the no-free-lunch theorem (UML Ch. 5), then on to [VC dimension](/ai-ml/ai-ml-learning-resources/specialized-studies/advanced-mathematics-for-ai-research/vc-dimension/vc-dimension). *Where "which classes are learnable?" gets its real answer.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [Learning From Data (Caltech CS156)](https://work.caltech.edu/telecourse.html) — **Yaser Abu-Mostafa (Caltech)** — the legendary intro: learning feasibility, VC, generalization, full video course + slides, free.
 - [CS229T / STAT231 — Statistical Learning Theory (notes)](https://web.stanford.edu/class/cs229t/notes.pdf) — **Percy Liang (Stanford)** — rigorous notes covering PAC, uniform convergence, VC, Rademacher, free PDF.
 - [Learning Theory — course materials](https://www.di.ens.fr/~fbach/learning_theory_class/) — **Francis Bach (ENS/Inria)** — a graduate learning-theory course from one of the field's leaders, free.
 
-## 🎥 Videos
+## Videos
 - [Learning From Data — Lecture 1: The Learning Problem](https://www.youtube.com/watch?v=mbyG85GZ0PI) — **Yaser Abu-Mostafa (Caltech)** — in-sample vs out-of-sample error, the core question.
 - [Learning From Data — Lecture 5: Training Versus Testing](https://www.youtube.com/watch?v=SEYAnnLazMU) — **Yaser Abu-Mostafa (Caltech)** — the growth function and why finite "effective" complexity rescues generalization.
 - [Learning From Data — Lecture 6: Theory of Generalization](https://www.youtube.com/watch?v=6FWRijsmLtE) — **Yaser Abu-Mostafa (Caltech)** — the VC generalization bound, assembled step by step.
 - [OAMLS — Generalization Theory](https://www.youtube.com/watch?v=Wr2yvPPIk6k) — **Peter Bartlett (UC Berkeley)** — the modern research view of PAC-style generalization.
 
-## 📄 Key Papers
+## Key Papers
 - [The Sample Complexity of Pattern Classification with Neural Networks (margin bounds)](https://www.jmlr.org/papers/volume3/bartlett02a/bartlett02a.pdf) — **Bartlett & Mendelson (2002)** — Rademacher/PAC bounds for real-world classifiers, free in JMLR.
 - [Understanding deep learning requires rethinking generalization](https://arxiv.org/abs/1611.03530) — **Zhang et al. (2017)** — the experiment that broke classical PAC intuition and reframed the field.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [Learning Theory from First Principles (free book draft)](https://www.di.ens.fr/~fbach/ltfp_book.pdf) — **Francis Bach** — PAC, ERM, and generalization built from scratch; the best single modern reference, free.
 - [CS229T Statistical Learning Theory — full lecture notes](https://web.stanford.edu/class/cs229t/notes.pdf) — **Percy Liang (Stanford)** — concise, rigorous notes you can read end-to-end.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Understanding Machine Learning — **Ch. 2–4 (PAC, ERM, uniform convergence) & Ch. 5 (no-free-lunch)**](https://www.cs.huji.ac.il/~shais/UnderstandingMachineLearning/understanding-machine-learning-theory-algorithms.pdf) — **Shalev-Shwartz & Ben-David** — the standard PAC text, free PDF.
 - [Learning Theory from First Principles — **Ch. 2–4 (statistical learning, ERM, generalization)**](https://www.di.ens.fr/~fbach/ltfp_book.pdf) — **Francis Bach** — modern, ML-first treatment, free draft.
 
-## 🔗 In this platform
+## In this platform
 - Foundations (the basics this builds on): [Law of Large Numbers & the CLT](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/lln-and-clt/lln-and-clt) · [Hypothesis Testing & Confidence Intervals](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/hypothesis-testing-and-confidence-intervals/hypothesis-testing-and-confidence-intervals)
 - Concept depth (the *why*): [ai-ml-intuitions 3.07 Bias–Variance & Generalization](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/generalization/bias-variance-tradeoff-intuition)
 - Prerequisite & next: [01 Measure Theory & Probability](/ai-ml/ai-ml-learning-resources/specialized-studies/advanced-mathematics-for-ai-research/measure-theory-and-probability-foundations/measure-theory-and-probability-foundations) · [06 VC Dimension](/ai-ml/ai-ml-learning-resources/specialized-studies/advanced-mathematics-for-ai-research/vc-dimension/vc-dimension) · [07 Rademacher Complexity & Generalization Bounds](/ai-ml/ai-ml-learning-resources/specialized-studies/advanced-mathematics-for-ai-research/rademacher-complexity-and-generalization-bounds/rademacher-complexity-and-generalization-bounds)
 - Related domain: [03. Supervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/readme)
-</content>

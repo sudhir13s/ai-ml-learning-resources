@@ -3,7 +3,7 @@ id: "00-basics/overfitting-and-underfitting/references"
 topic: "Overfitting & Underfitting — References"
 parent: "00-basics/overfitting-and-underfitting"
 type: references
-updated: 2026-07-03
+updated: 2026-09-07
 ---
 
 # Overfitting & Underfitting — references and further reading
@@ -23,7 +23,7 @@ updated: 2026-07-03
 - [Machine Learning Fundamentals: Cross Validation](https://www.youtube.com/watch?v=fSytzGwwBVw) — **StatQuest** — how to detect overfitting honestly with train/validation/test and k-fold before it bites you.
 - [Regularization in a Neural Network | Andrew Ng](https://www.youtube.com/watch?v=6g0t3Phly2M) — **Andrew Ng / DeepLearning.AI** — bias/variance diagnosis and regularization from the deep-learning course, from first principles.
 - [The Bias Variance Trade-off (Learning From Data, Lecture 8)](https://www.youtube.com/watch?v=zrEyxfl2-a8) — **Yaser Abu-Mostafa (Caltech CS156)** — the rigorous, geometry-driven derivation of the bias-variance decomposition; the deepest of the videos here.
-- [Overfitting, Underfitting, and Bad Data](https://www.youtube.com/watch?v=0RT2Q0qwXSA) — **IBM Technology** — what goes wrong and how to spot it, concisely.
+- [Stochastic Gradient Descent, Clearly Explained](https://www.youtube.com/watch?v=vMh0zPT0tLI) — **StatQuest with Josh Starmer** — where the noise in training comes from, and why "train longer" is not the same as "fit better".
 
 **Courses (free)**:
 - [Google ML Crash Course — Overfitting & Generalization](https://developers.google.com/machine-learning/crash-course/overfitting/overfitting) — **Google** — the train/validation gap, generalization, and regularization, with interactive widgets.
@@ -38,11 +38,11 @@ updated: 2026-07-03
 
 **Articles / blogs (free, no paywall)**:
 - [Understanding the Bias-Variance Tradeoff](http://scott.fortmann-roe.com/docs/BiasVariance.html) — **Scott Fortmann-Roe** — the classic, clearest essay on the decomposition, with the bullseye diagram everyone borrows.
-- [What Is Overfitting vs. Underfitting?](https://www.ibm.com/think/topics/overfitting-vs-underfitting) — **IBM** — both failure modes side by side with detection and fixes.
+- [Common pitfalls and recommended practices](https://scikit-learn.org/stable/common_pitfalls.html) — **scikit-learn docs** — the leakage and evaluation mistakes that produce fake generalization, each with the corrected code beside it.
 - [Cross-validation: evaluating estimator performance](https://scikit-learn.org/stable/modules/cross_validation.html) — **scikit-learn docs** — train/validation/test and k-fold with runnable code.
 
 **Key sources / derivations** (cited on the concept page):
-- [Neural Networks and the Bias/Variance Dilemma](https://direct.mit.edu/neco/article/4/1/1/5620/Neural-Networks-and-the-Bias-Variance-Dilemma) — **Geman, Bienenstock & Doursat (1992), *Neural Computation***  — the paper that crystallised the bias-variance decomposition for machine learning.
+- [Neural Networks and the Bias/Variance Dilemma](https://www.dam.brown.edu/people/documents/bias-variance.pdf) — **Geman, Bienenstock & Doursat (1992), *Neural Computation*** (author PDF at Brown) — the paper that crystallised the bias-variance decomposition for machine learning.
 - [Ridge Regression: Biased Estimation for Nonorthogonal Problems](https://www.tandfonline.com/doi/abs/10.1080/00401706.1970.10488634) — **Hoerl & Kennard (1970), *Technometrics*** — the origin of L2 (ridge) regularization; the title names the bias-for-variance trade.
 - [A Few Useful Things to Know About Machine Learning](https://homes.cs.washington.edu/~pedrod/papers/cacm12.pdf) — **Pedro Domingos (2012)** — "overfitting has many faces"; the clearest short framing of generalization vs. memorization.
 - [Reconciling modern machine-learning practice and the bias–variance trade-off](https://arxiv.org/abs/1812.11118) — **Belkin et al. (2019)** — "double descent": where the classic U-curve bends back down in heavily overparameterised models.

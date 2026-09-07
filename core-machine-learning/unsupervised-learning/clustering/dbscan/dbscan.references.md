@@ -3,7 +3,7 @@ id: "04-unsupervised-learning/dbscan/references"
 topic: "DBSCAN — References"
 parent: "04-unsupervised-learning/dbscan"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # DBSCAN — references and further reading
@@ -14,7 +14,7 @@ updated: 2026-06-22
 
 1. **Build intuition** — watch [Clustering with DBSCAN, Clearly Explained](https://www.youtube.com/watch?v=RDZUdRSDOok) (**StatQuest**), then play with [Visualizing DBSCAN](https://www.naftaliharris.com/blog/visualizing-dbscan-clustering/). *Watch density reachability grow clusters with the slider and leave noise behind.*
 2. **Get the point taxonomy** — watch [DBSCAN - Explained](https://www.youtube.com/watch?v=WoR_crzMAhQ) (**DataMListic**). *Core / border / noise and density-reachability — the formal idea behind the picture.*
-3. **Choose the parameters** — watch [DBSCAN Clustering Explained](https://www.youtube.com/watch?v=ry7oCBSzFlc) (**M Iqbal**). *How `ε` and `minPts` interact, and reading `ε` off the k-distance elbow.*
+3. **Choose the parameters** — read the [scikit-learn DBSCAN user guide](https://scikit-learn.org/stable/modules/clustering.html#dbscan) and run the [DBSCAN demo](https://scikit-learn.org/stable/auto_examples/cluster/plot_dbscan.html). *How `eps` and `min_samples` interact, and reading `eps` off the k-distance elbow.*
 4. **Read the source** — the [DBSCAN paper (Ester et al., 1996)](https://cdn.aaai.org/KDD/1996/KDD96-037.pdf). *The original density definitions — directly density-reachable, density-reachable, density-connected — straight from the Test-of-Time paper.*
 5. **See the successor for varying density** — read [How HDBSCAN works](https://hdbscan.readthedocs.io/en/latest/how_hdbscan_works.html). *Mutual-reachability + the condensed tree — DBSCAN generalized to all densities at once.*
 6. **Make it concrete** — code it with [scikit-learn DBSCAN](https://scikit-learn.org/stable/modules/clustering.html#dbscan) and run the [DBSCAN demo](https://scikit-learn.org/stable/auto_examples/cluster/plot_dbscan.html). *Tuning `ε`/`minPts` on real data cements it.*
@@ -22,8 +22,7 @@ updated: 2026-06-22
 **Videos:**
 - [Clustering with DBSCAN, Clearly Explained!!!](https://www.youtube.com/watch?v=RDZUdRSDOok) — **StatQuest (Josh Starmer)** — the gentle, visual intro to density clustering and why it beats k-means on weird shapes.
 - [DBSCAN - Explained](https://www.youtube.com/watch?v=WoR_crzMAhQ) — **DataMListic** — core/border/noise points and density-reachability, concisely and correctly.
-- [DBSCAN Clustering Explained](https://www.youtube.com/watch?v=ry7oCBSzFlc) — **M Iqbal** — walks through `ε`/`minPts` choices and the k-distance plot on real examples.
-- [DBSCAN Clustering Coding Tutorial in Python & scikit-learn](https://www.youtube.com/watch?v=VO_uzCU_nKw) — **Greg Hogg** — implement and tune it end-to-end in code.
+- [Clustering: K-means and Hierarchical](https://www.youtube.com/watch?v=QXOkPvFM6NU) — **Serrano.Academy (Luis Serrano)** — the centroid- and linkage-based alternatives DBSCAN is usually chosen over; the contrast that makes density clustering's advantage concrete.
 - [HDBSCAN, Fast Density-Based Clustering — the How and the Why](https://www.youtube.com/watch?v=dGsxd67IFiU) — **John Healy (PyData)** — an HDBSCAN *co-author* explains mutual reachability, the condensed tree, and why it beats DBSCAN on varying density.
 
 **Interactive & visual:**

@@ -5,7 +5,7 @@ parent: "17-tools-and-frameworks"
 level: intermediate
 built_from: ["python", "pytorch"]
 interview_frequency: medium
-updated: 2026-06-20
+updated: 2026-09-07
 tier: core
 est_minutes: 10
 title: "Weights & Biases (experiment tracking & sweeps)"
@@ -24,38 +24,40 @@ do you track experiments?" is a common MLOps interview question. Knowing the `in
 loop, how Sweeps parallelize hyperparameter search, and how Artifacts version data/models is
 practical fluency every team expects.
 
-**⭐ Start here — suggested path:**
+**Start here — suggested path:**
 
 1. **Log your first run** — follow the [W&B Quickstart](https://docs.wandb.ai/quickstart/). *`wandb.init()` + `wandb.log()` gives an instant dashboard — the core idea in 5 minutes.*
 2. **See the full lifecycle** — [Weights & Biases End-to-End Demo](https://www.youtube.com/watch?v=tHAFujRhZLA) (W&B). *How tracking fits into a real train → evaluate → compare workflow.*
 3. **Track experiments properly** — read [Experiments / track](https://docs.wandb.ai/models/track) and log `config` for hyperparameters. *Logging config is what makes runs comparable and reproducible.*
 4. **Automate tuning with Sweeps** — study the [Sweeps guide](https://docs.wandb.ai/guides/sweeps/). *Declarative hyperparameter search is W&B's highest-leverage feature.*
-5. **Go beyond tracking** — [Using W&B beyond experiment tracking](https://www.youtube.com/watch?v=_2DNYGv3jiM) (W&B). *Artifacts, Tables, and Reports for data versioning and collaboration.*
+5. **Go beyond tracking** — [Using W&B beyond experiment tracking](https://www.youtube.com/watch?v=_2DNYGv3jiM) (W&B), then the [Weave quickstart](https://weave-docs.wandb.ai/quickstart). *Artifacts, Tables and Reports version data and results; Weave extends the same idea to LLM traces and evaluations, which is where 2026 experiments actually live.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [W&B documentation](https://docs.wandb.ai/) — **Weights & Biases** — the authoritative guides for tracking, sweeps, artifacts, and reports.
 - [W&B Quickstart](https://docs.wandb.ai/quickstart/) — **Weights & Biases** — the official hands-on first run.
 
-## 🎥 Videos
+## Videos
 - [Weights & Biases End-to-End Demo](https://www.youtube.com/watch?v=tHAFujRhZLA) — **Weights & Biases** — the full model-lifecycle walkthrough.
 - [Using W&B beyond experiment tracking](https://www.youtube.com/watch?v=_2DNYGv3jiM) — **Weights & Biases** — Sweeps, Tables, and Artifacts.
-- [PyTorch for Deep Learning — Full Course](https://www.youtube.com/watch?v=V_xro1bcAuA) — **freeCodeCamp** — the training loop you'd instrument with W&B.
-- [Tutorial: Scalable model training with Ray Tune](https://www.youtube.com/watch?v=eAWUZJe571Y) — **Software Underground** — hyperparameter tuning context (complements W&B Sweeps).
+- [Learn PyTorch for deep learning in a day. Literally.](https://www.youtube.com/watch?v=Z_ikDlimN6A) — **Daniel Bourke** — the training loop you would instrument with `wandb.log`.
+- [Tutorial: Scalable model training with Ray Tune](https://www.youtube.com/watch?v=eAWUZJe571Y) — **Software Underground** — hyperparameter tuning context that complements W&B Sweeps.
 
-## 📄 Key Papers
+## Key Papers
 - [Experiment tracking with Weights & Biases](https://wandb.ai/site/experiment-tracking/) — **Weights & Biases** — the authoritative description of the tracking model.
 - [W&B documentation](https://docs.wandb.ai/) — **Weights & Biases** — the canonical reference for the platform's APIs.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [W&B Quickstart](https://docs.wandb.ai/quickstart/) — **Weights & Biases** — `init`/`log`/`config` in one page.
 - [Sweeps (hyperparameter search)](https://docs.wandb.ai/guides/sweeps/) — **Weights & Biases** — declarative, parallel HPO.
 - [Experiment tracking overview](https://wandb.ai/site/experiment-tracking/) — **Weights & Biases** — what to track and why.
+- [W&B Weave — quickstart](https://weave-docs.wandb.ai/quickstart) — **Weights & Biases** — tracing and evaluation for LLM applications: every prompt, tool call and response captured as a run, with scorers and LLM-as-judge evaluations on top.
+- [Weave overview](https://wandb.ai/site/weave/) — **Weights & Biases** — why generative-AI work needs trace-level observability rather than the scalar metrics that suffice for training runs.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [W&B documentation (full)](https://docs.wandb.ai/) — **Weights & Biases** — a book-length, free guide across all features.
 - [wandb (open-source client & examples)](https://github.com/wandb/wandb) — **Weights & Biases** — the SDK and runnable examples, free on GitHub.
 
-## 🔗 In this platform
+## In this platform
 - Related domain: [12. Deployment & MLOps](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/readme) · [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
 - Pairs with: [05 PyTorch](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/pytorch/pytorch) · [04 scikit-learn](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/scikit-learn/scikit-learn) · [10 Ray](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/ray/ray)
 - Deeper concept (the *why*): experiment tracking & MLOps discipline → [Deployment & MLOps](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/readme)

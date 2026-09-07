@@ -3,7 +3,7 @@ id: "03-supervised-learning/k-nearest-neighbors/references"
 topic: "k-Nearest Neighbors — References"
 parent: "03-supervised-learning/k-nearest-neighbors"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # k-Nearest Neighbors — references and further reading
@@ -23,6 +23,7 @@ updated: 2026-06-22
 - [StatQuest: Cross Validation](https://www.youtube.com/watch?v=fSytzGwwBVw) — **StatQuest (Josh Starmer)** — how you actually pick k without fooling yourself on training error.
 - [Introduction to Learning, Nearest Neighbors (6.034)](https://www.youtube.com/watch?v=09mb78oiPkA) — **Patrick Winston (MIT)** — a full lecture on nearest-neighbor learning, scaling, and the "sleeping at the wheel" intuition for the metric.
 - [Nearest-neighbor regression example](https://www.youtube.com/watch?v=3lp5CmSwrHI) — **Victor Lavrenko (Edinburgh)** — the regression side of k-NN, worked visually.
+- [KNN in Python — Machine Learning From Scratch 01](https://www.youtube.com/watch?v=ngLyX54e1LU) — **Patrick Loeber** — the whole classifier in NumPy: distance computation, sorting for the k nearest, majority vote — no library shortcuts.
 
 **Interactive & visual**:
 - [Nearest Neighbors — classification plots](https://scikit-learn.org/stable/auto_examples/neighbors/plot_classification.html) — **scikit-learn** — runnable example whose figures show the boundary going from jagged (small k) to smooth (large k).

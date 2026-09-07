@@ -3,7 +3,7 @@ id: "02-data-preprocessing/data-leakage/references"
 topic: "Data Leakage — References"
 parent: "02-data-preprocessing/data-leakage"
 type: references
-updated: 2026-07-03
+updated: 2026-09-07
 ---
 
 # Data Leakage — references and further reading
@@ -11,19 +11,18 @@ updated: 2026-07-03
 > Companion link library for **[Data Leakage](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/data-leakage/data-leakage)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Everything here is free / open, and every "Source / derivation" citation on the concept page appears below.
 
 **Start here — suggested path**:
-1. **Get the definition** — watch [What is Data Leakage in Machine Learning?](https://www.youtube.com/watch?v=n9jz7G68pVg) (**Krish Naik**). *The clearest short definition, with practical examples of both contamination and target leakage.*
-2. **See concrete leaky features** — watch [Examples of Data or Target Leakage](https://www.youtube.com/watch?v=NaySLPTCgDM) (**Rajistics**). *Real features that secretly encode the answer, and how they fool a model.*
+1. **Get the definition** — read [Leakage and the Reproducibility Crisis in ML-based Science](https://arxiv.org/abs/2207.07048) (**Kapoor & Narayanan, 2022**), §2. *Eight leakage types, each with published papers that fell into it; the clearest modern definition.*
+2. **See the protocol that catches it** — watch [Cross Validation: Data Science Concepts](https://www.youtube.com/watch?v=wjILv3-UGM8) (**ritvikmath**). *The resampling discipline drawn out, so you can see exactly which step a leak bypasses.*
 3. **Do the hands-on lesson** — do [Kaggle Learn: Data Leakage](https://www.kaggle.com/code/alexisbcook/data-leakage) (**Kaggle**). *Target leakage vs train-test contamination, worked on real data with code.*
 4. **Learn the structural fix** — read [Common pitfalls and recommended practices — Data leakage](https://scikit-learn.org/stable/common_pitfalls.html#data-leakage) (**scikit-learn**). *Why `Pipeline` + fit-on-train-only makes leakage structurally impossible, with runnable code.*
 5. **Read the formal treatment** — read [Leakage in Data Mining](https://www.cs.umb.edu/~ding/history/470_670_fall_2011/papers/cs670_Tran_PreferredPaper_LeakingInDataMining.pdf) (**Kaufman, Rosset, Perlich & Stitelman, 2012**). *The definitive taxonomy, detection, and avoidance — the paper everyone cites.*
 6. **Run it yourself** — open [this chapter's notebook](code/data-leakage.ipynb). *Watch a leaky protocol report 0.86 on pure noise and the Pipeline fix collapse it to 0.48, then measure a real target leak and a temporal leak.*
 
 **Videos**:
-- [What is Data Leakage in Machine Learning?](https://www.youtube.com/watch?v=n9jz7G68pVg) — **Krish Naik** — concise, practical definition with examples of both leakage classes.
-- [Examples of Data or Target Leakage](https://www.youtube.com/watch?v=NaySLPTCgDM) — **Rajistics** — concrete leaky features (proxies for the label) and how they inflate a score.
-- [Machine Learning Fundamentals: Cross Validation](https://www.youtube.com/watch?v=fSytzGwwBVw) — **StatQuest (Josh Starmer)** — the canonical, intuition-first explanation of the resampling protocol leakage corrupts.
+- [Machine Learning Fundamentals: Cross Validation](https://www.youtube.com/watch?v=fSytzGwwBVw) — **StatQuest with Josh Starmer** — the canonical, intuition-first explanation of the resampling protocol leakage corrupts.
+- [Machine Learning Fundamentals: Bias and Variance](https://www.youtube.com/watch?v=EuBBz3bI-aA) — **StatQuest with Josh Starmer** — what an honest generalization estimate looks like, so a leaked score's impossible smoothness stands out.
 - [Selecting the best model with cross-validation](https://www.youtube.com/watch?v=6dbrR-WymjI) — **Data School (Kevin Markham)** — how to cross-validate *correctly* (including preprocessing) so you don't leak, with scikit-learn.
-- [Cross Validation — the right way (and how leakage sneaks in)](https://www.youtube.com/watch?v=wjILv3-UGM8) — **Abhishek Thakur (Kaggle Grandmaster)** — a practitioner's tour of CV done right and the leakage traps competitions are full of.
+- [Cross Validation: Data Science Concepts](https://www.youtube.com/watch?v=wjILv3-UGM8) — **ritvikmath** — the resampling protocol drawn out step by step, which is what makes the leak visible when it happens.
 - [What is data leakage?](https://www.youtube.com/watch?v=cApPa55X2JU) — **CodeEmporium** — intuition and how to reason about train/test contamination.
 
 **Courses (free)**:

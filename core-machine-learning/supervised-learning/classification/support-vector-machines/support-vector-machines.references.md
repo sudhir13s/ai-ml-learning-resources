@@ -3,7 +3,7 @@ id: "03-supervised-learning/support-vector-machines/references"
 topic: "Support Vector Machines — References"
 parent: "03-supervised-learning/support-vector-machines"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Support Vector Machines — references and further reading
@@ -22,6 +22,7 @@ updated: 2026-06-22
 - [SVMs Part 2: The Polynomial Kernel](https://www.youtube.com/watch?v=Toet3EiSFcM) — **StatQuest (Josh Starmer)** — how the polynomial kernel builds non-linear boundaries.
 - [SVMs Part 3: The Radial (RBF) Kernel](https://www.youtube.com/watch?v=Qc5IyLW_hns) — **StatQuest (Josh Starmer)** — the most-used kernel, and what `gamma` controls.
 - [Support Vector Machines — The Math You Should Know](https://www.youtube.com/watch?v=05VABNfa1ds) — **CodeEmporium** — the optimization view: margin objective, Lagrangian, and the dual.
+- [SVM in Python — Machine Learning From Scratch 07](https://www.youtube.com/watch?v=UX0f9BNBcsY) — **Patrick Loeber** — the linear soft-margin SVM built in NumPy: the hinge-loss + L2 objective, its subgradient, and the update rule, with no solver library in sight.
 
 **Interactive & visual**:
 - [RBF SVM parameters — visual sweep](https://scikit-learn.org/stable/auto_examples/svm/plot_rbf_parameters.html) — **scikit-learn** — a grid of `C` × `gamma` showing the boundary go from underfit (too smooth) to overfit (too wiggly).
@@ -40,7 +41,7 @@ updated: 2026-06-22
 **Key papers**:
 - [Support-Vector Networks](https://link.springer.com/article/10.1007/BF00994018) — **Cortes & Vapnik (1995)** — the paper that introduced the soft-margin SVM; publisher page.
 - [Support-Vector Networks (PDF)](https://link.springer.com/content/pdf/10.1007/BF00994018.pdf) — **Cortes & Vapnik (1995)** — the same landmark paper as a free PDF.
-- [Probabilistic Outputs for SVMs and Comparisons to Regularized Likelihood Methods](https://www.cs.colorado.edu/~mozer/Teaching/syllabi/6622/papers/Platt1999.pdf) — **John Platt (1999)** — the original **Platt scaling** method for turning SVM scores into calibrated probabilities.
+- [Probabilistic Outputs for SVMs and Comparisons to Regularized Likelihood Methods](https://home.cs.colorado.edu/~mozer/Teaching/syllabi/6622/papers/Platt1999.pdf) — **John Platt (1999)** — the original **Platt scaling** method for turning SVM scores into calibrated probabilities.
 
 **Books (free chapters)**:
 - [An Introduction to Statistical Learning (ISLR) — Ch. 9 "Support Vector Machines"](https://www.statlearning.com/s/ISLR-Seventh-Printing.pdf) — **James, Witten, Hastie & Tibshirani** — the best applied chapter: maximal-margin → support-vector classifier → kernels, with labs.

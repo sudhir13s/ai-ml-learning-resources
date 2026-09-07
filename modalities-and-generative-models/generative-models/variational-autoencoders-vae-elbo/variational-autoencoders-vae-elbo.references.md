@@ -3,7 +3,7 @@ id: "10-generative-ai/vae/references"
 topic: "Variational Autoencoders (VAE · ELBO) — References"
 parent: "10-generative-ai/vae"
 type: references
-updated: 2026-07-03
+updated: 2026-09-07
 ---
 
 # Variational Autoencoders (VAE · ELBO) — references and further reading
@@ -21,12 +21,14 @@ updated: 2026-07-03
 - [Variational Autoencoders](https://www.youtube.com/watch?v=9zKuYvjFFS8) — **Arxiv Insights (Xander Steenbrugge)** — the best gentle first watch: latent space, sampling, and why a VAE is generative where an autoencoder is not.
 - [MIT 6.S191: Deep Generative Modeling](https://www.youtube.com/watch?v=3G5hWM6jqPk) — **Alexander Amini (MIT)** — the lecture treatment: ELBO, the KL term, the reparameterization trick, then GANs, from the free MIT intro-to-deep-learning course.
 - [Variational Autoencoders | Generative AI Animated](https://www.youtube.com/watch?v=qJeaCHQ1k2w) — **Deepia** — a clean animated derivation of the ELBO and the reparameterization trick, 3Blue1Brown-style.
-- [Variational Autoencoder Paper Walkthrough](https://www.youtube.com/watch?v=5bA6gwo36Cw) — **Aladdin Persson** — reads the Kingma & Welling paper line by line, then codes a VAE in PyTorch — the implementer's view of everything on this page.
+- [From LV-EBM to (vanilla, denoising, contractive, variational) autoencoder (NYU DL 08)](https://www.youtube.com/watch?v=PpcN-F7ovK0) — **Alfredo Canziani (NYU)** — derives the VAE as one point in a family of energy-shaping methods, which is the framing that makes the KL term feel inevitable rather than bolted on.
+- [AE, DAE and VAE with PyTorch (NYU DL 09)](https://www.youtube.com/watch?v=bZF4N8HR1cc) — **Alfredo Canziani (NYU)** — the same derivation carried straight into runnable PyTorch, the implementer's view of everything on this page.
 
 **Courses (free)**:
 - [MIT 6.S191 — Intro to Deep Learning](https://introtodeeplearning.com/) — **MIT (Alexander Amini)** — the "Deep Generative Modeling" lecture covers VAEs end to end (ELBO, reparameterization, β), slides + video free.
 - [Stanford CS231n — Generative Models](https://cs231n.github.io/) — **Stanford** — the generative-models module places VAEs alongside GANs and autoregressive models, with the latent-variable framing.
-- [University of Waterloo STAT 946 / Deep Learning — Variational Autoencoders](https://uwaterloo.ca/data-analytics/teaching) — **Ali Ghodsi** — his lectures derive the ELBO and the reparameterization trick from a probabilistic-modeling angle (lecture videos are on YouTube under his course).
+- [Stanford CS236 — Deep Generative Models](https://deepgenerativemodels.github.io/) — **Stanford (Stefano Ermon)** — free notes; the latent-variable-models lectures derive the ELBO and amortized inference from the probabilistic-modeling side, then place the VAE among flows, autoregressive models, and diffusion.
+- [MIT 6.S184 — Flow Matching and Diffusion Models (2026)](https://www.youtube.com/playlist?list=PL57nT7tSGAAXwjhDYcxEycx5W7YoSrZyt) — **Peter Holderrieth (MIT)** — the current course; Lecture 04 covers latent spaces, which is where the VAE now earns its keep (as the encoder inside latent diffusion).
 - [Hugging Face Diffusion / Generative course material](https://huggingface.co/learn) — **Hugging Face** — hands-on units that use the VAE as the latent-space autoencoder inside latent diffusion (the VAE's role in Stable Diffusion).
 
 **Articles / blogs (free, no paywall)**:
@@ -41,6 +43,10 @@ updated: 2026-07-03
 - [Tutorial on Variational Autoencoders](https://arxiv.org/abs/1606.05908) — **Doersch (2016)** — the most readable long-form VAE derivation; treat it as the extended explanation of the math here.
 - [β-VAE: Learning Basic Visual Concepts with a Constrained Variational Framework](https://openreview.net/forum?id=Sy2fzU9gl) — **Higgins et al. (2017), ICLR** — the KL-weighting knob (β) and the disentanglement it buys, the trade-off measured in this chapter.
 - [An Introduction to Variational Autoencoders](https://arxiv.org/abs/1906.02691) — **Kingma & Welling (2019)** — the authors' own book-length modern treatment (free on arXiv), covering the ELBO, reparameterization, and extensions.
+- [Neural Discrete Representation Learning (VQ-VAE)](https://arxiv.org/abs/1711.00937) — **van den Oord, Vinyals & Kavukcuoglu (2017)** — swaps the Gaussian latent for a learned codebook; the ancestor of every image and audio *tokenizer*.
+- [Taming Transformers for High-Resolution Image Synthesis (VQGAN)](https://arxiv.org/abs/2012.09841) — **Esser, Rombach & Ommer (2021)** — adds adversarial and perceptual losses to the VQ autoencoder, which is what made discrete latents look sharp.
+- [Finite Scalar Quantization: VQ-VAE Made Simple (FSQ)](https://arxiv.org/abs/2309.15505) — **Mentzer et al. (2023)** — replaces the codebook and its auxiliary losses with per-dimension rounding; the 2025–26 default when a generator needs discrete tokens.
+- [High-Resolution Image Synthesis with Latent Diffusion Models](https://arxiv.org/abs/2112.10752) — **Rombach et al. (2022)** — the paper that made the VAE's real 2026 job explicit: a frozen perceptual compressor that diffusion (and flow-matching) models run inside.
 
 **Books (free chapters)**:
 - [Deep Learning — §20.10.3 "Variational Autoencoders"](https://www.deeplearningbook.org/contents/generative_models.html) — **Goodfellow, Bengio & Courville** — VAEs within the deep generative-models chapter, free online.

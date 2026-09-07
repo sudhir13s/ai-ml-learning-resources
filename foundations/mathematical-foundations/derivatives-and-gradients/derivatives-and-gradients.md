@@ -5,7 +5,7 @@ parent: "01-foundations"
 level: beginner
 built_from: ["01-foundations/vectors-and-vector-spaces"]
 interview_frequency: very-high
-updated: 2026-06-20
+updated: 2026-09-07
 tier: core
 est_minutes: 10
 title: "Derivatives & Gradients"
@@ -24,37 +24,39 @@ know the gradient points uphill (so you descend against it), that it's perpendic
 what a directional derivative is, and why a zero gradient marks a stationary point — the setup for
 optimization.
 
-**⭐ Start here — suggested path:**
+**Start here — suggested path:**
 
 1. **Single-variable intuition** — watch [3B1B: The essence of calculus](https://www.youtube.com/watch?v=WUvTyaaNkzM) and [The paradox of the derivative](https://www.youtube.com/watch?v=9vKqVkMQHKk). *Derivative as instantaneous rate, built from the ground up.*
 2. **Go multivariable** — watch [Khan: Gradient and graphs](https://www.youtube.com/watch?v=_-02ze7tf08). *Partial derivatives → the gradient vector and why it points uphill.*
 3. **Formalize** — read [MML Ch. 5 (Vector Calculus)](https://mml-book.github.io/book/mml-book.pdf), §5.1–5.3. *Partial derivatives, gradients, and gradient rules.*
-4. **Reference & practice** — use [Paul's Online Notes: The Gradient Vector](https://tutorial.math.lamar.edu/Classes/CalcIII/GradientVector.aspx) and Khan exercises. *Solidify computation and the steepest-ascent property.*
+4. **Reference & practice** — use [Paul's Online Notes: The Gradient Vector](https://tutorial.math.lamar.edu/Classes/CalcIII/DirectionalDeriv.aspx) and Khan exercises. *Solidify computation and the steepest-ascent property.*
 5. **Connect to ML** — read [ai-ml-intuitions 2.01 Partial Derivatives & the Gradient](/ai-ml/ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/partial-derivatives-and-gradients-intuition). *Where the gradient becomes the training signal.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [MIT 18.01 Single Variable Calculus](https://ocw.mit.edu/courses/18-01-single-variable-calculus-fall-2006/) — **MIT OCW** — derivatives from first principles.
 - [Khan Academy — Multivariable derivatives](https://www.khanacademy.org/math/multivariable-calculus/multivariable-derivatives) — **Khan Academy** — partial derivatives, gradient, directional derivatives, with exercises.
 
-## 🎥 Videos
+## Videos
 - [The essence of calculus](https://www.youtube.com/watch?v=WUvTyaaNkzM) — **3Blue1Brown** — the whole subject's intuition in one video.
 - [The paradox of the derivative | Ch. 2](https://www.youtube.com/watch?v=9vKqVkMQHKk) — **3Blue1Brown** — what a derivative really measures.
 - [Gradient and graphs](https://www.youtube.com/watch?v=_-02ze7tf08) — **Khan Academy** — the gradient as steepest-ascent direction.
 - [Gradients and Partial Derivatives](https://www.youtube.com/watch?v=GkB4vW16QHI) — **Eugene Khutoryansky** — vivid 3D visualization of partials and the gradient.
+- [Mathematics for Machine Learning: What is Gradient?](https://www.youtube.com/watch?v=tqdeAH7azOI) — **Dr. Data Science** — the same object computed numerically in NumPy, which is how you will actually meet it in code.
+- [Essence of calculus (full playlist)](https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr) — **3Blue1Brown** — the whole subject in order, if the single videos above leave gaps.
 
-## 📄 Key Papers
+## Key Papers
 - [MML book — Ch. 5 "Vector Calculus" (§5.1–5.3)](https://mml-book.github.io/book/mml-book.pdf) — **Deisenroth, Faisal & Ong** — derivatives, partial derivatives, and gradients for ML.
 - [CS231n — Optimization & gradients notes](https://cs231n.github.io/optimization-1/) — **Stanford** — numerical vs analytic gradients and gradient checking in practice.
 
-## 📰 Articles / Blogs (free, no paywall)
-- [Paul's Online Notes — The Gradient Vector](https://tutorial.math.lamar.edu/Classes/CalcIII/GradientVector.aspx) — **Paul Dawkins** — the gradient and directional derivatives, with worked examples.
+## Articles / Blogs (free, no paywall)
+- [Paul's Online Notes — Directional Derivatives and the Gradient Vector](https://tutorial.math.lamar.edu/Classes/CalcIII/DirectionalDeriv.aspx) — **Paul Dawkins** — the gradient and directional derivatives, with worked examples.
 - [Paul's Online Notes — Definition of the Derivative](https://tutorial.math.lamar.edu/Classes/CalcI/DefnOfDerivative.aspx) — **Paul Dawkins** — the limit definition, carefully done.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Mathematics for Machine Learning — **Ch. 5 (Vector Calculus)**](https://mml-book.github.io/book/mml-book.pdf) — **Deisenroth et al.** — gradients, gradient rules, and the build-up to backprop.
 - [Calculus (OpenStax) — **Vol. 3, Ch. 4 (Differentiation of Functions of Several Variables)**](https://openstax.org/details/books/calculus-volume-3) — **OpenStax** — free, thorough multivariable derivatives and the gradient.
 
-## 🔗 In this platform
+## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 2.01 Partial Derivatives & the Gradient](/ai-ml/ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/partial-derivatives-and-gradients-intuition)
 - Curriculum context: [Maths for AI-ML — Phase 2 (Calculus, row 2.1)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
 - Prereq: [01 Vectors & Vector Spaces](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/vectors-and-vector-spaces/vectors-and-vector-spaces) · Next: [09 The Chain Rule](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/the-chain-rule/the-chain-rule) · [10 Jacobian & Hessian](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/jacobian-and-hessian/jacobian-and-hessian) · [13 Gradient Descent — theory](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/gradient-descent-theory/gradient-descent-theory)

@@ -3,7 +3,7 @@ id: "06-nlp/decoding-strategies/references"
 topic: "Decoding Strategies — References"
 parent: "06-nlp/decoding-strategies"
 type: references
-updated: 2026-06-27
+updated: 2026-09-07
 ---
 
 # Decoding Strategies — references and further reading
@@ -19,7 +19,8 @@ updated: 2026-06-27
 
 **Videos**:
 - [Random Sampling (Temperature, top-p, top-k) for LLMs](https://www.youtube.com/watch?v=mti5XUm22Og) — **Minsuk Heo** — clear, visual tour of the sampling parameters and how each reshapes the distribution.
-- [The Secret Controls for your LLM: Temperature, Top-K, Top-P](https://www.youtube.com/watch?v=MkaazQttbpc) — **Gary Explains** — practical effect of each knob on real output.
+- [CMU Advanced NLP 2024 (22): From Decoding to Meta Generation](https://www.youtube.com/watch?v=0s1gZe_BcQ0) — **Graham Neubig (CMU)** — the 2024 framing: sampling knobs, then search, verification, and re-ranking as inference-time algorithms over a fixed model.
+- [CMU Neural Nets for NLP 2021 (18): Advanced Search Algorithms](https://www.youtube.com/watch?v=Gl6CPW6l6dA) — **Graham Neubig (CMU)** — beam search and its variants derived as search, with the failure modes (length bias, the beam-search curse) made explicit.
 - [AI Language Models & Transformers](https://www.youtube.com/watch?v=rURRYI66E54) — **Computerphile (Rob Miles)** — why generation samples from a distribution at all; the conceptual ground floor.
 - [Speculative Decoding: When Two LLMs are Faster than One](https://www.youtube.com/watch?v=S-8yr_RibJ4) — **Efficient NLP** — the draft-and-verify speedup explained clearly with the rejection-sampling intuition.
 
@@ -65,5 +66,6 @@ updated: 2026-06-27
 - Puts decoding to work: [12 Machine Translation](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/machine-translation/machine-translation) (beam search) · [13 Text Summarization](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/text-summarization/text-summarization) (beam + no-repeat n-gram)
 - How decoded text is scored: [18 NLP Evaluation Metrics](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/nlp-evaluation-metrics/nlp-evaluation-metrics)
 - The LLM-systems view (KV-cache interaction, prefill/decode phases, throughput): [09 LLMs · 18 Decoding & Sampling](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/decoding-and-sampling/decoding-and-sampling) — the LLM-serving counterpart to this general sequence-generation page (no overlap; cross-linked from the speculative-decoding section)
-- The speedup decode relies on: [09 LLMs · KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) (why decode is memory-bound; speculative decoding)
+- The speedup decode relies on: [09 LLMs · KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) (why decode is memory-bound)
+- Draft-and-verify in depth: [09 LLMs · Speculative Decoding](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/speculative-decoding/speculative-decoding) — the serving-side treatment of the acceptance test that keeps the output distribution exact
 - The *why* behind the math: [ai-ml-intuitions 5.05 Autoregressive Generation & Sampling](/ai-ml/ai-ml-intuitions/generation/autoregressive-generation/autoregressive-generation-and-sampling-controls-intuition) · [5.01 Entropy & KL (temperature)](/ai-ml/ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition)

@@ -3,7 +3,7 @@ id: "03-supervised-learning/decision-trees/references"
 topic: "Decision Trees — References"
 parent: "03-supervised-learning/decision-trees"
 type: references
-updated: 2026-07-03
+updated: 2026-09-07
 ---
 
 # Decision Trees — references and further reading
@@ -22,6 +22,7 @@ updated: 2026-07-03
 - [StatQuest: Decision Trees](https://www.youtube.com/watch?v=7VeUPuFGJHk) — **StatQuest (Josh Starmer)** — the original deep-dive on splitting, impurity, and overfitting.
 - [Regression Trees, Clearly Explained!!!](https://www.youtube.com/watch?v=g9c66TUylZ4) — **StatQuest (Josh Starmer)** — how trees handle continuous targets via variance reduction.
 - [Decision Tree Classification, Clearly Explained!](https://www.youtube.com/watch?v=ZVR2Way4nwQ) — **Normalized Nerd** — a clean visual walkthrough of CART splitting and Gini, with a worked example.
+- [Decision Tree in Python — Machine Learning From Scratch 08](https://www.youtube.com/watch?v=jVh5NA9ERDA) — **Patrick Loeber** — the recursive tree built in NumPy: entropy, information gain, the best-split search, and the stopping rules ([part 2](https://www.youtube.com/watch?v=Bqi7EFFvNOg) finishes the implementation).
 
 **Interactive & visual**:
 - [MLU-Explain: Decision Trees](https://mlu-explain.github.io/decision-tree/) — **Amazon (Jared Wilber)** — fully interactive: grow the tree, watch splits and impurity update live.

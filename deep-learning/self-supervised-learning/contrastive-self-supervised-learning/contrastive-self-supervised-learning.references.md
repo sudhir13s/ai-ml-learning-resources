@@ -3,7 +3,7 @@ id: "04-unsupervised-learning/contrastive-self-supervised/references"
 topic: "Contrastive / Self-Supervised Learning — References"
 parent: "04-unsupervised-learning/contrastive-self-supervised"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Contrastive / Self-Supervised Learning — references and further reading
@@ -37,7 +37,7 @@ updated: 2026-06-22
 - [Contrastive Representation Learning](https://lilianweng.github.io/posts/2021-05-31-contrastive/) — **Lilian Weng (OpenAI)** — the definitive free survey: InfoNCE, SimCLR, MoCo, BYOL, SimSiam, and collapse.
 - [Self-Supervised Representation Learning](https://lilianweng.github.io/posts/2019-11-10-self-supervised/) — **Lilian Weng (OpenAI)** — the companion survey covering pretext tasks (rotation, jigsaw, colorization) that led to contrastive learning.
 - [Advancing Self-Supervised and Semi-Supervised Learning with SimCLR](https://research.google/blog/advancing-self-supervised-and-semi-supervised-learning-with-simclr/) — **Google Research** — the authors' own accessible overview and results.
-- [Self-Supervised Learning: The Dark Matter of Intelligence](https://ai.meta.com/blog/self-supervised-learning-the-dark-matter-of-intelligence/) — **Yann LeCun & Ishan Misra (Meta AI)** — the big-picture case for why self-supervision (and joint-embedding methods) matters.
+- [A Cookbook of Self-Supervised Learning](https://arxiv.org/abs/2304.12210) — **Balestriero, Ibrahim, Misra, LeCun et al. (2023, Meta AI)** — the practitioners' guide from the people who built the field: the big-picture case for joint-embedding methods plus the concrete recipes (augmentations, projection heads, collapse diagnostics, evaluation protocols) that papers assume you already know.
 - [Understanding Contrastive Learning](https://ai.stanford.edu/blog/understanding-contrastive-learning/) — **Stanford AI Lab** — the alignment-and-uniformity view of what the contrastive loss actually optimizes.
 
 **Key papers**:
@@ -62,6 +62,7 @@ updated: 2026-06-22
 **In this platform**:
 - Concept page (full explanation): [Contrastive / Self-Supervised Learning](/ai-ml/ai-ml-learning-resources/deep-learning/self-supervised-learning/contrastive-self-supervised-learning/contrastive-self-supervised-learning)
 - Foundations (the *why*): [ai-ml-intuitions 1.13 Contrastive Learning (SimCLR / InfoNCE)](/ai-ml/ai-ml-intuitions/representation/representation-learning/contrastive-learning-intuition) · [1.14 Triplet Loss](/ai-ml/ai-ml-intuitions/representation/representation-learning/triplet-learning-intuition) · [1.02 Dense Embeddings](/ai-ml/ai-ml-intuitions/representation/embedding-spaces/dense-embeddings-intuition)
+- The two sibling objectives (same goal, no negatives): [Masked Modeling — MAE and BERT-Style Pretraining](/ai-ml/ai-ml-learning-resources/deep-learning/self-supervised-learning/masked-modeling-mae-and-bert-style-pretraining/masked-modeling-mae-and-bert-style-pretraining) (reconstruct what you hid) · [Teacher-Student Self-Distillation — BYOL, DINO, DINOv3](/ai-ml/ai-ml-learning-resources/deep-learning/self-supervised-learning/teacher-student-self-distillation-dino-byol/teacher-student-self-distillation-dino-byol) (match a slow-moving copy of yourself)
 - Loss foundations: [ai-ml-intuitions 5.01 Entropy & KL Divergence](/ai-ml/ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition) — InfoNCE is a cross-entropy / MI-bound loss
 - Evaluating the representation: [k-Nearest Neighbors](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/k-nearest-neighbors/k-nearest-neighbors) — the k-NN probe for self-supervised embeddings
 - Where it leads: [4. Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme) · [Deep Learning concepts](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

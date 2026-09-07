@@ -3,7 +3,7 @@ id: "01-foundations/gradient-descent-theory/references"
 topic: "Gradient Descent — References"
 parent: "01-foundations/gradient-descent-theory"
 type: references
-updated: 2026-06-21
+updated: 2026-09-07
 ---
 
 # Gradient Descent — references and further reading
@@ -29,6 +29,7 @@ updated: 2026-06-21
 **Courses (free)**:
 - [Stanford CS231n — Optimization](https://cs231n.github.io/optimization-1/) — **Stanford** — gradient descent, SGD, and update rules, ML-focused.
 - [Stanford EE364a — Convex Optimization I (descent methods)](https://web.stanford.edu/class/ee364a/) — **Stephen Boyd (Stanford)** — convergence theory for gradient/descent methods.
+- [The Mathematical Engineering of Deep Learning](https://deeplearningmath.org/) — **Liquet, Moka & Nazarathy** — a free course-and-book that develops optimization for deep models from the mathematics up: gradient descent, stochastic variants, and the convergence arguments behind the learning-rate rules.
 
 **Articles / blogs (free, no paywall)**:
 - [An overview of gradient descent optimization algorithms](https://www.ruder.io/optimizing-gradient-descent/) — **Sebastian Ruder** — batch/stochastic/mini-batch and the lineage of optimizers.

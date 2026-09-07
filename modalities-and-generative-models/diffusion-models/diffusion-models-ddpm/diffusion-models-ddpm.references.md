@@ -3,7 +3,7 @@ id: "10-generative-ai/diffusion-ddpm/references"
 topic: "Diffusion Models (DDPM) — References"
 parent: "10-generative-ai/diffusion-ddpm"
 type: references
-updated: 2026-07-04
+updated: 2026-09-07
 ---
 
 # Diffusion Models (DDPM) — references and further reading
@@ -23,6 +23,8 @@ updated: 2026-07-04
 - [DDPM — Diffusion Models Beat GANs (Paper Explained)](https://www.youtube.com/watch?v=W-O7AZNzbzQ) — **Yannic Kilcher** — a careful read of the DDPM line of work and why it overtook GANs.
 - [Diffusion models from scratch in PyTorch](https://www.youtube.com/watch?v=a4Yfz2FxXiY) — **DeepFindr** — implements the noise schedule, U-Net, and training loop end to end — the implementer's view of everything here.
 - [Diffusion Models | PyTorch Implementation](https://www.youtube.com/watch?v=TBCRlnwJtZU) — **Outlier** — the code companion to the math video; build a DDPM step by step.
+- [MIT 6.S184 Lecture 01 — Flow and Diffusion Models (2026)](https://www.youtube.com/watch?v=9eJQQVrUUoI) — **Peter Holderrieth (MIT)** — the current course opening, which derives DDPM as one instance of a general flow/diffusion construction rather than as its own object.
+- [Stanford CME296: Diffusion & Large Vision Models](https://www.youtube.com/playlist?list=PLoROMvodv4rNdy8rt2rZ4T2xM0OjADnfu) — **Stanford Online** — the 2025–26 Stanford course carrying DDPM through to the large vision models built on it.
 
 **Courses (free)**:
 - [Hugging Face — Diffusion Models Course](https://huggingface.co/learn/diffusion-course/unit0/1) — **Hugging Face** — free, code-first: build and sample a DDPM, then scale to Stable Diffusion with the `diffusers` library.
@@ -43,6 +45,9 @@ updated: 2026-07-04
 - [Generative Modeling by Estimating Gradients of the Data Distribution](https://arxiv.org/abs/1907.05600) — **Song & Ermon (2019), NeurIPS** — score matching / NCSN; the score view that DDPM's ε-prediction is (up to scale) an instance of.
 - [Score-Based Generative Modeling through Stochastic Differential Equations](https://arxiv.org/abs/2011.13456) — **Song, Sohl-Dickstein, Kingma, Kumar, Ermon & Poole (2021), ICLR** — unifies DDPM and score matching as discretizations of an SDE; the continuous-time picture.
 - [Denoising Diffusion Implicit Models (DDIM)](https://arxiv.org/abs/2010.02502) — **Song, Meng & Ermon (2021), ICLR** — the deterministic, few-step sampler that fixes DDPM's slow sampling.
+- [Scalable Diffusion Models with Transformers (DiT)](https://arxiv.org/abs/2212.09748) — **Peebles & Xie (2023), ICCV** — replaces DDPM's U-Net denoiser with a transformer over latent patches; the backbone of every 2024–26 image and video system.
+- [Flow Matching for Generative Modeling](https://arxiv.org/abs/2210.02747) — **Lipman et al. (2023), ICLR** — the objective that superseded the DDPM noise schedule in SD3/FLUX-era models: regress a velocity field along straight paths.
+- [Consistency Models](https://arxiv.org/abs/2303.01469) — **Song, Dhariwal, Chen & Sutskever (2023), ICML** — one- and few-step generation by learning a self-consistent map along the probability-flow ODE.
 
 **Books (free chapters)**:
 - [Understanding Deep Learning — Ch. 18 "Diffusion models"](https://udlbook.github.io/udlbook/) — **Simon Prince** — free PDF with clear figures and a careful DDPM derivation.
@@ -61,4 +66,5 @@ updated: 2026-07-04
 - Steering it: [04 Conditional Generation & Classifier-Free Guidance](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/conditional-generation-and-classifier-free-guidance/conditional-generation-and-classifier-free-guidance) — condition the denoiser on text and steer sampling; how text-to-image works on top of the DDPM loop.
 - Fixing the slow sampling: [13 Sampling & Guidance Techniques](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/sampling-and-guidance-techniques/sampling-and-guidance-techniques) — DDIM and fast samplers that cut the T-step chain to tens of steps.
 - The family contrast: [02 GANs and DCGAN](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/gans-and-dcgan/gans-and-dcgan) — adversarial, fast to sample, unstable; diffusion is likelihood-based, stable, sharp, but slow to sample.
+- Where the architecture and objective went in 2025–26: [Diffusion Transformers (DiT)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/diffusion-transformers-dit/diffusion-transformers-dit) · [Flow Matching & Rectified Flow](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/flow-matching-and-rectified-flow/flow-matching-and-rectified-flow) · [Consistency Models & Few-Step Generation](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/consistency-models-and-few-step-generation/consistency-models-and-few-step-generation) · [Video Diffusion Models](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/video-diffusion-models/video-diffusion-models)
 - Field overview: [10 Generative AI](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/readme)

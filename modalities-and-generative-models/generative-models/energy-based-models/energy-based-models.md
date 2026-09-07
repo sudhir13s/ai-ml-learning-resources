@@ -5,7 +5,7 @@ parent: "10-generative-ai"
 level: advanced
 built_from: ["probability", "gradients", "mcmc", "langevin-dynamics", "maximum-likelihood"]
 interview_frequency: low
-updated: 2026-06-20
+updated: 2026-09-07
 tier: core
 est_minutes: 10
 title: "Energy-Based Models"
@@ -36,30 +36,31 @@ in production than diffusion.
 4. **Read the source** — [Implicit Generation and Modeling with Energy-Based Models](https://arxiv.org/abs/1903.08689) — **Du & Mordatch (2019)**. *Modern EBM training with Langevin-dynamics sampling on images.*
 5. **Make it concrete** — connect it to diffusion via [Yang Song's score blog](https://yang-song.net/blog/2021/score/). *Seeing `∇_x log p(x) = −∇_x E_θ(x)` is the unifying "aha."*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [NYU Deep Learning (DLSP) — Energy-Based Models](https://atcold.github.io/NYU-DLSP21/) — **LeCun & Canziani (NYU)** — free lectures + notes; EBMs as the organizing framework for the course.
 - [Stanford CS236 — Deep Generative Models](https://deepgenerativemodels.github.io/) — **Stanford (Ermon)** — free notes; the energy-based and score-based lectures together.
 
-## 🎥 Videos
+## Videos
 - [NYU Deep Learning Week 7 — Energy-based models and self-supervised learning](https://www.youtube.com/watch?v=PHxKk5Y5ayc) — **LeCun / Canziani (NYU)** — the definitive lecture framing of EBMs.
-- [Energy-Based Self-Supervised Learning](https://www.youtube.com/watch?v=bDvpuaPq8Vc) — **Alfredo Canziani (NYU)** — a focused, visual talk on the EBM viewpoint and latent-variable EBMs.
+- [Joint embedding methods and latent-variable EBMs (NYU DL 05L)](https://www.youtube.com/watch?v=xIn-Czj1g2Q) — **Alfredo Canziani (NYU)** — the official NYU lecture on latent-variable EBMs and why the energy surface must be shaped, not just lowered.
+- [Latent Variable EBMs — training (NYU DL 06)](https://www.youtube.com/watch?v=XIMaWj5YjOQ) — **Alfredo Canziani (NYU)** — contrastive vs regularized (architectural) training methods, worked through.
 - [Concept Learning with Energy-Based Models (Paper Explained)](https://www.youtube.com/watch?v=Cs_j-oNwGgg) — **Yannic Kilcher** — a careful read of an EBM paper; the energy/Langevin machinery in action.
 - [L3 Flow Models — CS294-158 Deep Unsupervised Learning](https://www.youtube.com/watch?v=JBb5sSC0JoY) — **Pieter Abbeel (Berkeley)** — sets up likelihood-based vs energy/score models in the same course.
 
-## 📄 Key Papers
+## Key Papers
 - [Implicit Generation and Modeling with Energy-Based Models](https://arxiv.org/abs/1903.08689) — **Du & Mordatch (2019)** — scalable EBM training on images via Langevin-dynamics MCMC sampling.
 - [A Tutorial on Energy-Based Learning](http://yann.lecun.com/exdb/publis/pdf/lecun-06.pdf) — **LeCun et al. (2006)** — the foundational tutorial: energy functions, loss design, and contrastive methods.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [Energy-Based Models (NYU DL Week 7 notes)](https://atcold.github.io/NYU-DLSP20/en/week07/07-1/) — **LeCun / Canziani (NYU)** — the clearest high-level account: energy surfaces, inference, and contrastive training.
 - [Generative Modeling by Estimating Gradients of the Data Distribution](https://yang-song.net/blog/2021/score/) — **Yang Song** — shows the score `∇log p` equals `−∇E`, linking EBMs to diffusion.
 - [UvA DL — Deep Energy-Based Generative Models](https://uvadlc-notebooks.readthedocs.io/en/latest/tutorial_notebooks/tutorial8/Deep_Energy_Models.html) — **University of Amsterdam** — runnable contrastive-divergence + Langevin notebook.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Deep Learning — **Ch. 16 "Structured Probabilistic Models" & §18 "Partition Function"**](https://www.deeplearningbook.org/contents/partition.html) — **Goodfellow, Bengio & Courville** — the partition function and contrastive divergence, free online.
 - [Probabilistic Machine Learning: Advanced Topics — **Ch. 24 "Energy-based models"**](https://probml.github.io/pml-book/book2.html) — **Kevin Murphy** — free PDF; the modern, unified treatment.
 
-## 🔗 In this platform
+## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 5.01 Entropy & KL Divergence](/ai-ml/ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition)
 - Closely related: [06 Score-Based & SDE Diffusion](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/score-based-and-sde-diffusion/score-based-and-sde-diffusion) (the score is the negative energy gradient; both sample by Langevin)
 - Compare with: [02 GANs & DCGAN](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/gans-and-dcgan/gans-and-dcgan) (the discriminator is an implicit energy) · [08 Normalizing Flows](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/normalizing-flows/normalizing-flows)

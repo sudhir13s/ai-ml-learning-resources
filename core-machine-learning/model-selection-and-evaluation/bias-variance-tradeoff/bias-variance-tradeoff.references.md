@@ -3,7 +3,7 @@ id: "03-supervised-learning/bias-variance-tradeoff/references"
 topic: "Bias–Variance Tradeoff — References"
 parent: "03-supervised-learning/bias-variance-tradeoff"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Bias–Variance Tradeoff — references and further reading
@@ -51,4 +51,6 @@ updated: 2026-06-22
 - Concept page (full explanation): [Bias–Variance Tradeoff](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/bias-variance-tradeoff/bias-variance-tradeoff)
 - Concept depth (the *why*): [ai-ml-intuitions 3.07 Bias–Variance & Generalization](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/generalization/bias-variance-tradeoff-intuition) · [3.08 Ensembles (Bagging/Boosting)](/ai-ml/ai-ml-intuitions/architectural-mechanisms/composition/bagging-and-boosting-intuition)
 - Related: [Regularization (Linear Models)](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/regression/regularization-linear-models/regularization-linear-models) (trades bias for variance) · [Bagging](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/bagging/bagging) / [Random Forests](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/random-forests/random-forests) (cut variance) · [Gradient Boosting](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/gradient-boosting-xgboost/gradient-boosting-xgboost) (cuts bias)
+- How you measure the tradeoff without fooling yourself: [Cross-Validation](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/cross-validation/cross-validation) — the variance term is exactly what makes a single train/test split unreliable.
+- What the decomposition does *not* cover: [Calibration and Reliability Diagrams](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/calibration-and-reliability-diagrams/calibration-and-reliability-diagrams) — a model can sit at the sweet spot of the bias–variance curve and still report badly miscalibrated probabilities · [Uncertainty Estimation and Conformal Prediction](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/uncertainty-estimation-and-conformal-prediction/uncertainty-estimation-and-conformal-prediction) — turning "how wrong might this prediction be" into an interval with a coverage guarantee.
 - Math prerequisites: [01. Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme) — expectation, variance, generalization error

@@ -3,7 +3,7 @@ id: "06-nlp/information-retrieval-semantic-search/references"
 topic: "Information Retrieval & Semantic Search — References"
 parent: "06-nlp/information-retrieval-semantic-search"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Information Retrieval & Semantic Search — references and further reading
@@ -18,12 +18,12 @@ updated: 2026-06-22
 5. **Connect to RAG** — read [SLP3 Ch. 14: Question Answering, Information Retrieval, and RAG](https://web.stanford.edu/~jurafsky/slp3/14.pdf) (**Jurafsky & Martin**). *IR + dense retrieval + RAG in the standard text.*
 
 **Videos**:
-- [Sentence Transformers: Embedding, Similarity, Semantic Search & Clustering](https://www.youtube.com/watch?v=OlhNZg4gOvA) — **Pradip Nichite** — end-to-end semantic search in code, the practical companion to this page.
+- [CMU Advanced NLP 2024 (10): Retrieval and RAG](https://www.youtube.com/watch?v=KfQaYk4k9eM) — **Graham Neubig (CMU)** — sparse, dense, and late-interaction retrieval derived in one lecture, then wired into generation.
 - [Intro to Sentence Embeddings with Transformers](https://www.youtube.com/watch?v=jVPd7lEvjtg) — **James Briggs** — the embedding step dense retrieval depends on, built up carefully.
 - [Hierarchical Navigable Small Worlds (HNSW) for Vector Search](https://www.youtube.com/watch?v=QvKMwLjdK-s) — **James Briggs (Pinecone)** — the layered greedy-search graph behind most vector databases, visualized.
 - [Product Quantization for Vector Search](https://www.youtube.com/watch?v=t9mRf2S5vDI) — **James Briggs (Pinecone)** — how PQ compresses vectors to codes, with the memory math.
 - [BM25 — The Best Search Algorithm You've Never Heard Of](https://www.youtube.com/watch?v=ruBm9WywevM) — **ML & DS** — the BM25 saturation/length-normalization terms, clearly.
-- [What is Retrieval-Augmented Generation (RAG)?](https://www.youtube.com/watch?v=T-D1OfcDW1M) — **IBM Technology** — where the retriever you build plugs into the LLM, in five clear minutes.
+- [Stanford CS224N: NLP with Deep Learning (full lecture series)](https://www.youtube.com/playlist?list=PLoROMvodv4rOSH4v6133s9LFPRHjEmbmJ) — **Stanford Online (Christopher Manning)** — the course series covering retrieval for question answering and the dense-retrieval line of work.
 - [FAISS — Facebook AI Similarity Search](https://www.youtube.com/watch?v=sKyvsdEv6rk) — **James Briggs (Pinecone)** — building Flat / IVF / IVFPQ indexes in code, the library every ANN benchmark uses.
 
 **Interactive & visual**:
@@ -54,7 +54,9 @@ updated: 2026-06-22
 - [Product Quantization for Nearest Neighbor Search](https://inria.hal.science/inria-00514462v2/document) — **Jégou, Douze & Schmid (2011)** — splitting vectors into subspaces and quantizing each: the memory win for billion-scale search.
 - [Billion-scale similarity search with GPUs (FAISS)](https://arxiv.org/abs/1702.08734) — **Johnson, Douze & Jégou (2019)** — the library every ANN benchmark is measured against.
 - [Reciprocal Rank Fusion Outperforms Condorcet and Individual Rank Learning](https://plg.uwaterloo.ca/~gvcormac/cormacksigir09-rrf.pdf) — **Cormack, Clarke & Buettcher (2009)** — the original RRF paper; the $\frac{1}{k+r}$ fusion derived on this page.
-- [ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction](https://arxiv.org/abs/2004.12832) — **Khattab & Zaharia (2020)** — the MaxSim late-interaction middle ground between bi- and cross-encoders.
+- [ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction](https://arxiv.org/abs/2004.12832) — **Khattab & Zaharia (2020)** — the MaxSim late-interaction middle ground between bi- and cross-encoders: one vector per token, matched at query time.
+- [ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction](https://arxiv.org/abs/2112.01488) — **Santhanam et al. (2022)** — residual compression cuts the multi-vector index 6–10×, which is what made late interaction deployable and keeps it in 2026 stacks.
+- [MMTEB: Massive Multilingual Text Embedding Benchmark](https://arxiv.org/abs/2502.13595) — **Enevoldsen et al. (2025)** — the 2025 successor to MTEB (500+ tasks, 250+ languages); the honest way to compare retrievers now that single-benchmark scores saturate.
 - [Retrieval-Augmented Generation for Knowledge-Intensive NLP (RAG)](https://arxiv.org/abs/2005.11401) — **Lewis et al. (2020)** — where the retriever you built grounds the generator.
 - [BEIR: A Heterogeneous Benchmark for Zero-shot Evaluation of IR Models](https://arxiv.org/abs/2104.08663) — **Thakur et al. (2021)** — the standard zero-shot retrieval benchmark; reports nDCG@10.
 
@@ -66,4 +68,5 @@ updated: 2026-06-22
 - Concept page (full explanation): [Information Retrieval & Semantic Search](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/information-retrieval-and-semantic-search/information-retrieval-and-semantic-search)
 - Prior steps (the inputs): [03 Bag-of-Words & TF-IDF](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/bag-of-words-and-tf-idf/bag-of-words-and-tf-idf) (lexical / BM25 lineage) · [07 Sentence & Document Embeddings](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sentence-and-document-embeddings/sentence-and-document-embeddings) (dense vectors)
 - Foundations: [k-Nearest-Neighbors](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/k-nearest-neighbors/k-nearest-neighbors) (the search ANN approximates) · [1.06 Vector Similarities — the Scaled Dot-Product](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/scaled-dot-product-intuition) (the scoring function)
+- The production form of the two-stage pipeline: [09 LLMs · Hybrid Search](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search) (BM25 + dense with rank fusion) · [09 LLMs · Reranking](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking) (the cross-encoder second stage) · [09 LLMs · Vector Search](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search) (the index itself)
 - Puts it to work: [11 Question Answering](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/question-answering/question-answering) (the retriever in open-domain QA) · canonical RAG home [11. RAG & LLM Applications](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/overview) · the *why* [ai-ml-intuitions 8.02 Retrieval-Augmented Generation](/ai-ml/ai-ml-intuitions/memory-retrieval-and-context/retrieval-augmented-generation/rag-intuition)

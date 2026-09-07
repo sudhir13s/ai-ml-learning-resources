@@ -3,7 +3,7 @@ id: "04-unsupervised-learning/gmm-em/references"
 topic: "Gaussian Mixture Models & EM — References"
 parent: "04-unsupervised-learning/gmm-em"
 type: references
-updated: 2026-07-03
+updated: 2026-09-07
 ---
 
 # Gaussian Mixture Models & EM — references and further reading
@@ -24,7 +24,6 @@ updated: 2026-07-03
 - [(ML 16.3) Expectation-Maximization (EM) algorithm](https://www.youtube.com/watch?v=AnbiNaVp3eQ) — **mathematicalmonk** — the general EM algorithm and its lower-bound/Jensen justification, beyond just GMMs.
 - [Gaussian Mixture Models](https://www.youtube.com/watch?v=q71Niz856KE) — **Luis Serrano** — illustrations-over-formulas intro to soft clustering; the best first watch.
 - [Gaussian Mixture Models for Clustering](https://www.youtube.com/watch?v=DODphRRL79c) — **Serrano.Academy** — the companion walkthrough connecting GMMs to k-means and EM.
-- [Model-based clustering: an introduction to GMMs](https://www.youtube.com/watch?v=h7RVeO-P3zc) — **Mario Castro** — places GMMs in the broader model-based-clustering view.
 
 **Courses (free)**:
 - [scikit-learn — Gaussian mixture models user guide](https://scikit-learn.org/stable/modules/mixture.html) — **scikit-learn** — covariance types, EM fitting, BIC selection, and Bayesian GMMs, with code.

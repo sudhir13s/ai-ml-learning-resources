@@ -3,7 +3,7 @@ id: "04-unsupervised-learning/spectral-clustering/references"
 topic: "Spectral Clustering — References"
 parent: "04-unsupervised-learning/spectral-clustering"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Spectral Clustering — references and further reading
@@ -12,16 +12,16 @@ updated: 2026-06-22
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Spectral Clustering — Explained](https://www.youtube.com/watch?v=KanQwD8h89w) (**DataMListic**). *See why mapping to an eigenvector space turns tangled clusters into easy ones.*
-2. **See the three steps** — watch [Lecture 34: Spectral Clustering — Three Steps](https://www.youtube.com/watch?v=uxsDKhZHDcc) (**Stanford MMDS, Leskovec**). *Affinity matrix → Laplacian eigenvectors → k-means, made concrete.*
+2. **Understand the Laplacian** — watch [The Graph Laplacian](https://www.youtube.com/watch?v=1OLL7bwJRjY) (**WelcomeAIOverlords / Zak Jost**). *Where L = D − W comes from and what its smallest eigenvectors are actually measuring — the step everything else hangs on.*
 3. **Get the math** — read [A Tutorial on Spectral Clustering](https://people.csail.mit.edu/dsontag/courses/ml14/notes/Luxburg07_tutorial_spectral_clustering.pdf) (**von Luxburg, 2007**). *The Laplacian, unnormalized vs normalized cuts, and why the eigenvectors solve a relaxed graph cut — the definitive treatment.*
 4. **Read the source** — read [On Spectral Clustering: Analysis and an Algorithm](https://proceedings.neurips.cc/paper/2001/file/801272ee79cfde7fa5960571fee36b9b-Paper.pdf) (**Ng, Jordan & Weiss, 2002**). *The normalized-Laplacian algorithm everyone cites and scikit-learn implements.*
 5. **Make it concrete** — code it with the [scikit-learn SpectralClustering guide](https://scikit-learn.org/stable/modules/clustering.html#spectral-clustering) and the [segmentation demo](https://scikit-learn.org/stable/auto_examples/cluster/plot_segmentation_toy.html). *Tuning the affinity and `n_clusters` cements it.*
 
 **Videos**:
 - [Spectral Clustering — Explained](https://www.youtube.com/watch?v=KanQwD8h89w) — **DataMListic** — the cleanest intuition for why the eigenvector embedding untangles non-convex clusters; the best first watch.
-- [Lecture 34 — Spectral Clustering: Three Steps](https://www.youtube.com/watch?v=uxsDKhZHDcc) — **Stanford (MMDS, Leskovec)** — affinity → Laplacian → k-means, the canonical recipe from the Mining of Massive Datasets course.
+- [The Graph Laplacian](https://www.youtube.com/watch?v=1OLL7bwJRjY) — **WelcomeAIOverlords (Zak Jost, AWS)** — the build-up of L = D − W, why it is positive semi-definite, and what its smallest eigenvectors mean; the clearest treatment of the object the whole method rests on.
 - [3 Easy Steps to Understand and Implement Spectral Clustering](https://www.youtube.com/watch?v=YHz0PHcuJnk) — **Normalized Nerd** — adjacency matrix, eigenvalues, and a from-scratch implementation in code.
-- [The Graph Laplacian](https://www.youtube.com/watch?v=oNVB_KKDxRc) — **Visual Kernel** — a beautifully visual build-up of L = D − W and what its eigenvectors mean; grounds the algebra in pictures.
+- [Graphs, Networks, Incidence Matrices (18.06, Lecture 12)](https://www.youtube.com/watch?v=6-wh6yvk6uc) — **Gilbert Strang (MIT OpenCourseWare)** — the linear algebra underneath: the incidence matrix A, why AᵀA *is* the graph Laplacian, and what its null space says about connected components.
 
 **Courses (free)**:
 - [scikit-learn — Spectral clustering user guide](https://scikit-learn.org/stable/modules/clustering.html#spectral-clustering) — **scikit-learn** — affinity choices, the eigen-step, and when to prefer it over k-means, with runnable code; the practical reference.
@@ -36,11 +36,11 @@ updated: 2026-06-22
 
 **Key papers**:
 - [On Spectral Clustering: Analysis and an Algorithm](https://proceedings.neurips.cc/paper/2001/file/801272ee79cfde7fa5960571fee36b9b-Paper.pdf) — **Ng, Jordan & Weiss (2002)** — the normalized-Laplacian + row-normalization algorithm that became the standard (the one on the concept page).
-- [Normalized Cuts and Image Segmentation](https://people.eecs.berkeley.edu/~malik/papers/SM-ncut.pdf) — **Shi & Malik (2000)** — the graph-cut view (NCut) that motivates spectral clustering; author-hosted PDF.
+- [Normalized Cuts and Image Segmentation](https://www.cis.upenn.edu/~jshi/papers/pami_ncut.pdf) — **Shi & Malik (2000)** — the graph-cut view (NCut) that motivates spectral clustering; author-hosted PDF.
 - [A Tutorial on Spectral Clustering](https://arxiv.org/abs/0711.0189) — **von Luxburg (2007)** — the definitive free survey tying Laplacians, cuts, random walks, and algorithms together (arXiv).
 - [Algebraic Connectivity of Graphs](https://dml.cz/handle/10338.dmlcz/101168) — **Fiedler (1973)** — the original paper introducing λ₂ (algebraic connectivity) and the Fiedler vector; the root of spectral partitioning.
 - [Kernel k-means, Spectral Clustering and Normalized Cuts](https://people.bu.edu/bkulis/pubs/spectral_techreport.pdf) — **Dhillon, Guan & Kulis (2004)** — proves spectral clustering and weighted kernel k-means optimize the same objective.
-- [Learning Segmentation by Random Walks](https://www.cs.huji.ac.il/~werman/Papers/meila_shi_2000.pdf) — **Meilă & Shi (2000)** — the random-walk interpretation (NCut = probability of crossing between clusters); the L_rw view on the concept page.
+- [Learning Segmentation by Random Walks](https://www.cis.upenn.edu/~jshi/papers/nips00_maila_shi.pdf) — **Meilă & Shi (2000)** — the random-walk interpretation (NCut = probability of crossing between clusters); the L_rw view on the concept page.
 - [Power Iteration Clustering](https://icml.cc/Conferences/2010/papers/387.pdf) — **Lin & Cohen (2010)** — a fast approximation that skips the full eigendecomposition; one of the scalability levers.
 - [Self-Tuning Spectral Clustering](https://proceedings.neurips.cc/paper/2004/file/40173ea48d9567f1f393b20c855bb40b-Paper.pdf) — **Zelnik-Manor & Perona (2004)** — per-point local bandwidth σᵢ and automatic `k` selection; the practical fix for clusters of different densities/scales.
 

@@ -3,7 +3,7 @@ id: "06-nlp/text-classification-sentiment/references"
 topic: "Text Classification & Sentiment Analysis — References"
 parent: "06-nlp/text-classification-sentiment"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Text Classification & Sentiment Analysis — references and further reading
@@ -14,13 +14,13 @@ updated: 2026-06-22
 1. **Build the intuition** — read [SLP3 Ch. 4 "Naive Bayes, Text Classification, and Sentiment"](https://web.stanford.edu/~jurafsky/slp3/4.pdf) (**Jurafsky & Martin**). *The bag-of-words view of classification, Naive Bayes derived, sentiment.*
 2. **See the strong baseline** — read [Text classification](https://lena-voita.github.io/nlp_course/text_classification.html) (**Lena Voita**). *From BoW + logistic regression up to neural classifiers — the clearest free survey.*
 3. **Build a classic pipeline** — watch [Real-World ML with Scikit-Learn (NLP, classifiers)](https://www.youtube.com/watch?v=M9Itm95JzL0) (**Keith Galli**). *TF-IDF → classifier on real text, end to end.*
-4. **Go neural** — read the [CNN-for-text paper](https://arxiv.org/abs/1408.5882) (**Kim 2014**) and watch [Text Classification Using BERT](https://www.youtube.com/watch?v=D9yyt6BfgAM) (**codebasics**). *When and why deep models help.*
+4. **Go neural** — read the [CNN-for-text paper](https://arxiv.org/abs/1408.5882) (**Kim 2014**) and watch [BERT explained: training, inference, fine-tuning, [CLS]](https://www.youtube.com/watch?v=90mGPxR2GgY) (**Umar Jamil**). *When and why deep models help, and exactly what the classification head sits on.*
 5. **Make it concrete** — follow the [HF text-classification guide](https://huggingface.co/docs/transformers/tasks/sequence_classification) and try the [zero-shot pipeline](https://huggingface.co/tasks/zero-shot-classification). *Fine-tune a transformer, and classify with no labels at all.*
 
 **Videos**:
 - [Real-World Machine Learning with Scikit-Learn (NLP, classifiers)](https://www.youtube.com/watch?v=M9Itm95JzL0) — **Keith Galli** — TF-IDF + classic classifiers, a full runnable pipeline.
-- [Text Classification Using BERT & TensorFlow](https://www.youtube.com/watch?v=D9yyt6BfgAM) — **codebasics** — fine-tune BERT for spam/sentiment, clearly walked.
-- [Sentiment Analysis with BERT Neural Network and Python](https://www.youtube.com/watch?v=szczpgOEdXs) — **Nicholas Renotte** — a hands-on transformer sentiment build.
+- [BERT explained: training, inference, BERT vs GPT, fine-tuning, [CLS]](https://www.youtube.com/watch?v=90mGPxR2GgY) — **Umar Jamil** — what the `[CLS]` vector is and why a linear head on top of it is the whole classifier.
+- [CMU Advanced NLP 2024 (5): Pre-training and Pre-trained Models](https://www.youtube.com/watch?v=2oO8dQwT0ek) — **Graham Neubig (CMU)** — where fine-tuned classification sits among prompting, instruction tuning, and zero-shot use in 2024–26.
 - [Naive Bayes, Clearly Explained](https://www.youtube.com/watch?v=O2L2Uv9pdDA) — **StatQuest (Josh Starmer)** — the most visual walkthrough of the multinomial NB text classifier, the bottom rung of the ladder.
 - [ROC and AUC, Clearly Explained!](https://www.youtube.com/watch?v=4jRBRDbJemM) — **StatQuest (Josh Starmer)** — the clearest visual intuition for ROC/AUC (and why precision-recall is the better lens under imbalance), the evaluation backbone of this page.
 

@@ -3,7 +3,7 @@ id: "03-supervised-learning/random-forests/references"
 topic: "Random Forests — References"
 parent: "03-supervised-learning/random-forests"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Random Forests — references and further reading
@@ -21,7 +21,8 @@ updated: 2026-06-22
 - [Random Forests Part 1 — Building, Using, Evaluating](https://www.youtube.com/watch?v=J4Wdy0Wc_xQ) — **StatQuest (Josh Starmer)** — the gentle, from-scratch build of a forest and OOB error.
 - [Random Forests Part 2 — Missing Data & Clustering](https://www.youtube.com/watch?v=sQ870aTKqiM) — **StatQuest (Josh Starmer)** — proximities, imputation, and what else a forest gives you.
 - [Random Forest Algorithm, Clearly Explained!](https://www.youtube.com/watch?v=v6VJ2RO66Ag) — **Normalized Nerd** — a clean visual walkthrough of bootstrap + feature randomness.
-- [What is Random Forest?](https://www.youtube.com/watch?v=gkXX4h3qYm4) — **IBM Technology** — a crisp conceptual overview of why ensembling trees works.
+- [Random Forests (Ensemble Methods, L07.6)](https://www.youtube.com/watch?v=r5C3TUIw6Zk) — **Sebastian Raschka** — the academic treatment: bagging plus random feature subsets, why decorrelating the trees is the whole trick, and how out-of-bag error is computed.
+- [Random Forest in Python — Machine Learning From Scratch 10](https://www.youtube.com/watch?v=Oq1cKjR8hNo) — **Patrick Loeber** — builds the forest in NumPy on top of a from-scratch decision tree: bootstrap sampling, per-split feature subsets, majority vote.
 
 **Interactive & visual**:
 - [MLU-Explain: Random Forest](https://mlu-explain.github.io/random-forest/) — **Amazon** — fully interactive: watch the trees, the votes, and the boundary form.

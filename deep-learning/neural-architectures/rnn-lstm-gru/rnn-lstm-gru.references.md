@@ -3,7 +3,7 @@ id: "05-deep-learning/rnn-lstm-gru/references"
 topic: "RNN / LSTM / GRU — References"
 parent: "05-deep-learning/rnn-lstm-gru"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # RNN / LSTM / GRU — references and further reading
@@ -37,7 +37,7 @@ updated: 2026-06-22
 - [Written Memories: Understanding, Deriving and Extending the LSTM](https://r2rt.com/written-memories-understanding-deriving-and-extending-the-lstm.html) — **R2RT** — a careful from-first-principles derivation of BPTT and the LSTM gradient highway.
 
 **Key papers**:
-- [Finding Structure in Time](https://www.semanticscholar.org/paper/Finding-Structure-in-Time-Elman/4e6e87bc6e10e1620e7a543a07fb7c480468ca36) — **Elman (1990)** — the Elman RNN: feed the *hidden state* back, the form used today.
+- [Finding Structure in Time](https://onlinelibrary.wiley.com/doi/10.1207/s15516709cog1402_1) — **Elman (1990, *Cognitive Science*)** — the Elman RNN: feed the *hidden state* back, the form used today (publisher page, freely readable).
 - [Learning Long-Term Dependencies with Gradient Descent is Difficult](https://www.iro.umontreal.ca/~lisa/pointeurs/ieeetrnn94.pdf) — **Bengio, Simard & Frasconi (1994)** — the original vanishing/exploding-gradient-through-time analysis.
 - [Long Short-Term Memory](https://deeplearning.cs.cmu.edu/F23/document/readings/LSTM.pdf) — **Hochreiter & Schmidhuber (1997)** — introduces the LSTM cell and the constant error carousel.
 - [Learning to Forget: Continual Prediction with LSTM (in Gers' thesis)](http://www.felixgers.de/papers/phd.pdf) — **Gers, Schmidhuber & Cummins (2000)** — adds the now-standard forget gate to the LSTM.
@@ -58,5 +58,6 @@ updated: 2026-06-22
 - Concept page (full explanation): [RNN / LSTM / GRU](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/rnn-lstm-gru/rnn-lstm-gru)
 - Concept depth (the *why*): [ai-ml-intuitions 4.07 Gating Mechanisms (LSTM/GRU)](/ai-ml/ai-ml-intuitions/architectural-mechanisms/memory-and-gating/lstm-and-gru-gates-intuition)
 - Prerequisite: [Backpropagation & Computational Graphs](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs) (BPTT is backprop on the unrolled graph)
+- Where recurrence went next: [State-Space Models — Foundations](/ai-ml/ai-ml-learning-resources/deep-learning/sequence-modeling/state-space-models-foundations/state-space-models-foundations) (the linear recurrence that trains in parallel) → [Selective State-Space Models (Mamba)](/ai-ml/ai-ml-learning-resources/deep-learning/sequence-modeling/selective-state-space-models-mamba/selective-state-space-models-mamba) (input-dependent gating on that recurrence — the LSTM's idea, made parallelizable) → [Linear and Hybrid Attention Architectures](/ai-ml/ai-ml-learning-resources/deep-learning/sequence-modeling/linear-and-hybrid-attention-architectures/linear-and-hybrid-attention-architectures)
 - Related: [Vanishing / Exploding Gradients](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients) (why RNNs forget) · [Residual / Skip Connections](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/residual-skip-connections/residual-skip-connections) (the same additive-highway trick) · [Attention Mechanism](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism) (what fixed the seq2seq bottleneck) · [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture) (what replaced RNNs) · [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) (the inference-memory contrast) · [06. NLP](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/readme)
 - Field overview: [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

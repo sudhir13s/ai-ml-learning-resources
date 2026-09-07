@@ -3,7 +3,7 @@ id: "05-deep-learning/perceptron-mlp/references"
 topic: "Perceptron & MLP — References"
 parent: "05-deep-learning/perceptron-mlp"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Perceptron and MLP — references and further reading
@@ -15,7 +15,7 @@ updated: 2026-06-22
 2. **See the limit, then the fix** — play with [TensorFlow Playground](https://playground.tensorflow.org/). *Watch a linear model fail on XOR, add one hidden layer + a nonlinearity, and watch it separate the classes — block 2 vs block 3 of the page, animated.*
 3. **Read it from first principles** — [Neural Networks and Deep Learning, Ch. 1](http://neuralnetworksanddeeplearning.com/chap1.html) (**Nielsen**). *Perceptrons → sigmoid neurons → a working MLP, derived gently.*
 4. **See universal approximation visually** — [A Visual Proof that Neural Nets Can Compute Any Function](http://neuralnetworksanddeeplearning.com/chap4.html) (**Nielsen**). *The bump-construction proof, interactive.*
-5. **Go to the source** — read [the perceptron and its learning rule](https://en.wikipedia.org/wiki/Perceptron) (**Rosenblatt 1958**, summarized with the original citation) and the [XOR limitation in *Perceptrons*](https://en.wikipedia.org/wiki/Perceptrons_(book)) (**Minsky & Papert 1969**). *The work that started — and nearly ended — the field.*
+5. **Go to the source** — read [the perceptron and its learning rule](https://en.wikipedia.org/wiki/Perceptron) (**Rosenblatt 1958**, summarized with the original citation) and the [XOR limitation in *Perceptrons*](https://en.wikipedia.org/wiki/Perceptrons_%28book%29) (**Minsky & Papert 1969**). *The work that started — and nearly ended — the field.*
 
 **Videos**:
 - [But what is a neural network?](https://www.youtube.com/watch?v=aircAruvnKk) — **3Blue1Brown** — the definitive visual intro to neurons, weights, biases, and layers as a function.
@@ -26,6 +26,7 @@ updated: 2026-06-22
 **Courses (free)**:
 - [Stanford CS231n — Neural Networks Part 1](https://cs231n.github.io/neural-networks-1/) — **Stanford (Karpathy / Li / Johnson)** — the canonical lecture notes on the neuron model, layers, and architecture.
 - [MIT 6.S191 — Intro to Deep Learning](http://introtodeeplearning.com/) — **MIT (Amini et al.)** — opens with the perceptron and builds to deep feedforward nets in one lecture.
+- [Deep Learning Fundamentals](https://lightning.ai/courses/deep-learning-fundamentals/) — **Sebastian Raschka (Lightning AI)** — free video course; Units 1–2 build the perceptron and the single-layer classifier in PyTorch before any deep net, exactly the ladder this page climbs.
 
 **Articles / blogs (free, no paywall)**:
 - [A Visual Proof that Neural Nets Can Compute Any Function](http://neuralnetworksanddeeplearning.com/chap4.html) — **Michael Nielsen** — the interactive, intuitive proof of universal approximation (the bump construction on the page).
@@ -36,7 +37,7 @@ updated: 2026-06-22
 **Papers (the foundational five — read at least the abstracts)**:
 - [A Logical Calculus of the Ideas Immanent in Nervous Activity](https://www.cs.cmu.edu/~epxing/Class/10715/reading/McCulloch.and.Pitts.pdf) — **McCulloch & Pitts (1943)** — the first formal threshold neuron; networks of them are universal for logic.
 - [The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain](https://en.wikipedia.org/wiki/Perceptron) — **Rosenblatt (1958)** — the perceptron and its learning rule (summarized with the original citation); the start of trainable neural nets.
-- [Perceptrons (the XOR limitation)](https://en.wikipedia.org/wiki/Perceptrons_(book)) — **Minsky & Papert (1969)** — proved single-layer units can't compute non-linearly-separable functions; triggered the first AI winter.
+- [Perceptrons (the XOR limitation)](https://en.wikipedia.org/wiki/Perceptrons_%28book%29) — **Minsky & Papert (1969)** — proved single-layer units can't compute non-linearly-separable functions; triggered the first AI winter.
 - [Approximation by Superpositions of a Sigmoidal Function](https://link.springer.com/article/10.1007/BF02551274) — **Cybenko (1989)** — the universal approximation theorem for sigmoidal one-hidden-layer nets.
 - [Learning representations by back-propagating errors](https://www.cs.toronto.edu/~hinton/absps/naturebp.pdf) — **Rumelhart, Hinton & Williams (1986)** — backpropagation: the algorithm that finally trained the hidden layers Minsky & Papert said no one could.
 
@@ -49,6 +50,7 @@ updated: 2026-06-22
 - [Neural Networks and Deep Learning — Ch. 1 "Using neural nets to recognize handwritten digits"](http://neuralnetworksanddeeplearning.com/chap1.html) — **Michael Nielsen** — perceptrons → sigmoid neurons → a working MLP, from first principles.
 - [Dive into Deep Learning — Ch. 5 "Multilayer Perceptrons"](https://d2l.ai/chapter_multilayer-perceptrons/index.html) — **Zhang et al.** — MLPs, activations, and the forward pass with runnable code.
 - [Deep Learning — Ch. 6 "Deep Feedforward Networks"](https://www.deeplearningbook.org/contents/mlp.html) — **Goodfellow, Bengio & Courville** — the rigorous treatment of feedforward nets and why they're universal approximators.
+- [*Understanding Deep Learning* — Ch. 3 "Shallow neural networks" + Ch. 4 "Deep neural networks"](https://udlbook.github.io/udlbook/) — **Simon J.D. Prince** — free PDF; counts the linear regions a ReLU network carves out, which is the sharpest modern picture of *why* depth beats width.
 
 **In this platform**:
 - Concept page (full explanation): [Perceptron and MLP](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/perceptron-and-mlp/perceptron-and-mlp)

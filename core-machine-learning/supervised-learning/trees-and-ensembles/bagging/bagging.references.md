@@ -3,7 +3,7 @@ id: "03-supervised-learning/bagging/references"
 topic: "Bagging — References"
 parent: "03-supervised-learning/bagging"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Bagging — references and further reading
@@ -21,7 +21,8 @@ updated: 2026-06-22
 - [Bootstrapping Main Ideas!!!](https://www.youtube.com/watch?v=Xz0x-8-cgaQ) — **StatQuest (Josh Starmer)** — the bootstrap resampling that bagging is built on, from scratch.
 - [Bootstrap Aggregation (Bagging)](https://www.youtube.com/watch?v=2Mg8QD0F1dQ) — **Udacity** — how bootstrap models are aggregated into one lower-variance predictor.
 - [Random Forests Part 1 — Building, Using, Evaluating](https://www.youtube.com/watch?v=J4Wdy0Wc_xQ) — **StatQuest (Josh Starmer)** — bagging in action (forests are bagged trees + feature subsampling).
-- [Ensemble Learning: Bagging, Boosting & Stacking in 4 minutes](https://www.youtube.com/watch?v=eLt4a8-316E) — **AssemblyAI** — where bagging sits among the three ensemble families.
+- [Machine Learning Lecture 30: "Bagging" (Cornell CS4780)](https://www.youtube.com/watch?v=0LB1cy2sCXc) — **Kilian Weinberger (Cornell)** — the full lecture: bootstrapping, why averaging cuts variance, the weak-law-of-large-numbers argument, and exactly where the independence assumption breaks.
+- [Intro to ensemble methods (L07.1)](https://www.youtube.com/watch?v=wVRidHbwLB0) — **Sebastian Raschka** — where bagging sits among the ensemble families (voting, bagging, boosting, stacking).
 
 **Interactive & visual**:
 - [MLU-Explain: Random Forest](https://mlu-explain.github.io/random-forest/) — **Amazon** — interactive: see bootstrap samples and aggregation reduce variance (bagging is the engine inside).

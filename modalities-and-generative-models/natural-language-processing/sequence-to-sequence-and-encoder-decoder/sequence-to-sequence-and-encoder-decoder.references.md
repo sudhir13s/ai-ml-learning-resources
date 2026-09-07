@@ -3,7 +3,7 @@ id: "06-nlp/seq2seq-encoder-decoder/references"
 topic: "Sequence-to-Sequence & Encoder–Decoder — References"
 parent: "06-nlp/seq2seq-encoder-decoder"
 type: references
-updated: 2026-06-27
+updated: 2026-09-07
 ---
 
 # Sequence-to-Sequence & Encoder–Decoder — references and further reading
@@ -21,7 +21,8 @@ updated: 2026-06-27
 - [Seq2Seq Encoder–Decoder Neural Networks, Clearly Explained](https://www.youtube.com/watch?v=L8HKweZIOmg) — **StatQuest (Josh Starmer)** — gentle, from-scratch intuition for the whole architecture.
 - [Visualizing Attention, a Transformer's Heart](https://www.youtube.com/watch?v=eMlx5fFNoYc) — **3Blue1Brown** — the most visual explanation of query/key/value, the math attention reduces to.
 - [Attention for Neural Networks, Clearly Explained](https://www.youtube.com/watch?v=PSs6nxngL6k) — **StatQuest (Josh Starmer)** — attention added to seq2seq, step by step, with the alignment intuition.
-- [PyTorch Seq2Seq with Attention for Machine Translation](https://www.youtube.com/watch?v=sQUqQddQtB4) — **Aladdin Persson** — implement encoder, decoder, and Bahdanau attention line by line.
+- [CMU Neural Nets for NLP 2021 (6): Conditioned Generation](https://www.youtube.com/watch?v=3LdDiRM9xE8) — **Graham Neubig (CMU)** — the encoder–decoder derived as conditioned generation, with teacher forcing, decoding, and evaluation in one place.
+- [CMU Neural Nets for NLP 2021 (7): Attention](https://www.youtube.com/watch?v=VvKRZXvDzM4) — **Graham Neubig (CMU)** — attention introduced precisely as the fix for the single-vector bottleneck this page derives.
 - [Encoder–Decoder architecture: Overview](https://www.youtube.com/watch?v=zbdong_h-x4) — **Google Cloud Tech** — concise official overview tying RNN seq2seq to modern Transformer variants.
 
 **Courses (free)**:
@@ -33,7 +34,7 @@ updated: 2026-06-27
 - [Visualizing A Neural Machine Translation Model (seq2seq with attention)](https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/) — **Jay Alammar** — the definitive visual explainer of the bottleneck and attention.
 - [Attention and Augmented Recurrent Neural Networks](https://distill.pub/2016/augmented-rnns/) — **Olah & Carter (Distill)** — beautiful interactive intuition for attention as content-based addressing.
 - [Attention? Attention!](https://lilianweng.github.io/posts/2018-06-24-attention/) — **Lilian Weng (OpenAI)** — a thorough survey of attention variants (additive/multiplicative, soft/hard, self/cross) starting from seq2seq.
-- [Neural Machine Translation with attention (TensorFlow tutorial)](https://www.tensorflow.org/text/tutorials/nmt_with_attention) — **TensorFlow** — build a seq2seq + attention translator and plot the alignment matrices.
+- [Translation with a Sequence-to-Sequence Network and Attention](https://pytorch.org/tutorials/intermediate/seq2seq_translation_tutorial.html) — **PyTorch** — build a seq2seq + attention translator and plot the alignment matrices.
 - [The Annotated Encoder–Decoder with Attention](https://bastings.github.io/annotated_encoder_decoder/) — **Joost Bastings** — Bahdanau's model implemented and annotated line by line in PyTorch.
 
 **Key papers**:
@@ -41,7 +42,7 @@ updated: 2026-06-27
 - [Learning Phrase Representations using RNN Encoder–Decoder](https://arxiv.org/abs/1406.1078) — **Cho et al. (2014)** — the GRU encoder–decoder; the parallel seq2seq foundation, conditioning the decoder on the context each step.
 - [Neural Machine Translation by Jointly Learning to Align and Translate](https://arxiv.org/abs/1409.0473) — **Bahdanau, Cho & Bengio (2015)** — introduces (additive) attention; removes the bottleneck and yields soft alignment.
 - [Effective Approaches to Attention-based Neural Machine Translation](https://arxiv.org/abs/1508.04025) — **Luong, Pham & Manning (2015)** — multiplicative/dot-product attention; global vs local attention.
-- [A Learning Algorithm for Continually Running Fully Recurrent Neural Networks](https://ieeexplore.ieee.org/document/6795228) — **Williams & Zipser (1989)** — the origin of **teacher forcing** (feed the gold previous token while training a recurrent net).
+- [A Learning Algorithm for Continually Running Fully Recurrent Neural Networks](https://doi.org/10.1162/neco.1989.1.2.270) — **Williams & Zipser (1989)** — the origin of **teacher forcing** (feed the gold previous token while training a recurrent net).
 - [Scheduled Sampling for Sequence Prediction with RNNs](https://arxiv.org/abs/1506.03099) — **Bengio et al. (2015)** — the classic remedy for exposure bias (anneal from teacher forcing to own predictions).
 - [Sequence Level Training with Recurrent Neural Networks](https://arxiv.org/abs/1511.06732) — **Ranzato et al. (2016)** — names exposure bias and trains at the sequence level (optimizing the metric directly).
 - [Google's Neural Machine Translation System (GNMT)](https://arxiv.org/abs/1609.08144) — **Wu et al. (2016)** — production-scale seq2seq; the source of the **length-normalization** and **coverage** penalties for beam search.

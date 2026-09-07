@@ -3,7 +3,7 @@ id: "05-deep-learning/backpropagation/references"
 topic: "Backpropagation & Computational Graphs — References"
 parent: "05-deep-learning/backpropagation"
 type: references
-updated: 2026-07-03
+updated: 2026-09-07
 ---
 
 # Backpropagation & Computational Graphs — references and further reading
@@ -29,9 +29,11 @@ updated: 2026-07-03
 **Courses (free)**:
 - [Neural Networks: Zero to Hero](https://karpathy.ai/zero-to-hero.html) — **Andrej Karpathy** — opens by building a full autograd engine (micrograd) by hand; the best way to *internalize* backprop.
 - [Stanford CS231n — Backpropagation, Neural Networks](https://cs231n.github.io/) — **Stanford (Karpathy / Li / Johnson)** — the definitive lecture notes with worked gradient examples and circuit intuition.
+- [Deep Learning Fundamentals](https://lightning.ai/courses/deep-learning-fundamentals/) — **Sebastian Raschka (Lightning AI)** — free video course; Unit 3 derives the gradients by hand before Unit 4 hands the same computation to `autograd`, so you see the graph both ways.
 
 **Articles / blogs (free, no paywall)**:
 - [Calculus on Computational Graphs: Backpropagation](https://colah.github.io/posts/2015-08-Backprop/) — **Chris Olah** — the gold-standard explanation of forward- vs reverse-mode differentiation on a graph.
+- [Hacker's guide to Neural Networks](http://karpathy.github.io/neuralnets/) — **Andrej Karpathy** — backprop taught with *no* matrices and *no* calculus notation: single scalar gates, real numbers, and a numerical gradient check at every step. The essay micrograd grew out of, and the fastest way to make "local gradient × upstream gradient" stop being a formula.
 - [CS231n — Backpropagation, Intuitions](https://cs231n.github.io/optimization-2/) — **Stanford CS231n** — staged worked examples (the "circuit" view of local gradients).
 - [A Gentle Introduction to torch.autograd](https://pytorch.org/tutorials/beginner/blitz/autograd_tutorial.html) — **PyTorch** — how a real framework records the graph and runs the backward pass.
 - [Autodiff Cookbook (JAX)](https://docs.jax.dev/en/latest/notebooks/autodiff_cookbook.html) — **JAX team (Google)** — VJPs (`vjp`), JVPs (`jvp`), and forward- vs reverse-mode composition, with code; the cleanest modern treatment of the VJP view.
@@ -48,6 +50,7 @@ updated: 2026-07-03
 - [Neural Networks and Deep Learning — Ch. 2 "How the backpropagation algorithm works"](http://neuralnetworksanddeeplearning.com/chap2.html) — **Michael Nielsen** — the clearest from-first-principles derivation of the four backprop equations.
 - [Dive into Deep Learning — §5.3 "Forward Propagation, Backward Propagation, and Computational Graphs"](https://d2l.ai/chapter_multilayer-perceptrons/backprop.html) — **Zhang et al.** — backprop on an explicit computational graph, with code.
 - [Deep Learning — Ch. 6.5 "Back-Propagation and Other Differentiation Algorithms"](https://www.deeplearningbook.org/contents/mlp.html) — **Goodfellow, Bengio & Courville** — the rigorous treatment (general computational graphs, reverse-mode autodiff).
+- [*Understanding Deep Learning* — Ch. 7 "Gradients and initialization"](https://udlbook.github.io/udlbook/) — **Simon J.D. Prince** — free PDF; derives the backward pass on a concrete network with every index written out, then connects it to the initialization that keeps those gradients alive.
 
 **In this platform**:
 - Concept page (full explanation): [Backpropagation & Computational Graphs](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs)

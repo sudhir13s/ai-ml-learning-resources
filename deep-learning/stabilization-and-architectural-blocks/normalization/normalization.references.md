@@ -3,7 +3,7 @@ id: "05-deep-learning/normalization/references"
 topic: "Normalization — References"
 parent: "05-deep-learning/normalization"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Normalization — references and further reading
@@ -44,6 +44,9 @@ updated: 2026-06-22
 - [How Does Batch Normalization Help Optimization?](https://arxiv.org/abs/1805.11604) — **Santurkar et al. (2018)** — BN works by smoothing the loss landscape, not "covariate shift."
 - [On Layer Normalization in the Transformer Architecture](https://arxiv.org/abs/2002.04745) — **Xiong et al. (2020)** — the pre-norm vs post-norm analysis; why pre-LN trains stably.
 - [DeepNet: Scaling Transformers to 1,000 Layers](https://arxiv.org/abs/2203.00555) — **Wang et al. (2022)** — DeepNorm, a post-norm variant with residual up-weighting for extreme depth.
+- [Query-Key Normalization for Transformers](https://arxiv.org/abs/2010.04245) — **Henry, Dachapally, Pawar & Chen (2020)** — the origin of QK-Norm: normalize $q$ and $k$ before the dot product so the attention logits stay bounded.
+- [Scaling Vision Transformers to 22 Billion Parameters](https://arxiv.org/abs/2302.05442) — **Dehghani et al. (2023, Google)** — the scale result that made QK-Norm standard: without it, attention logits grow until the softmax collapses to near-one-hot and training diverges (§2.2).
+- [nGPT: Normalized Transformer with Representation Learning on the Hypersphere](https://arxiv.org/abs/2410.01131) — **Loshchilov, Hsieh, Sun & Ginsburg (2024, NVIDIA)** — the logical endpoint of this page: normalize *every* vector to the unit hypersphere and make the residual update a step along it; reports 4–20× fewer steps to a given loss.
 - [Fixup Initialization: Residual Learning Without Normalization](https://arxiv.org/abs/1901.09321) — **Zhang, Dauphin & Ma (2019)** — train very deep ResNets with scaled init and no norm layers.
 - [ReZero is All You Need: Fast Convergence at Large Depth](https://arxiv.org/abs/2003.04887) — **Bachlechner et al. (2020)** — a single zero-initialized residual gate per branch; deep training without normalization.
 - [High-Performance Large-Scale Image Recognition Without Normalization (NFNets)](https://arxiv.org/abs/2102.06171) — **Brock et al. (2021)** — match BatchNorm on ImageNet via weight standardization + adaptive gradient clipping.
@@ -51,6 +54,7 @@ updated: 2026-06-22
 **Books (free chapters)**:
 - [Dive into Deep Learning — §8.5 "Batch Normalization"](https://d2l.ai/chapter_convolutional-modern/batch-norm.html) — **Zhang et al.** — BN forward/backward and its effect, with code.
 - [Deep Learning — §8.7.1 "Batch Normalization"](https://www.deeplearningbook.org/contents/optimization.html) — **Goodfellow, Bengio & Courville** — the optimization view of normalization.
+- [*Understanding Deep Learning* — Ch. 11 "Residual networks" (§11.4 batch normalization)](https://udlbook.github.io/udlbook/) — **Simon J.D. Prince** — free PDF; derives normalization *from* the residual-stream variance problem, which is the framing this page's pre-norm section depends on.
 
 **In this platform**:
 - Concept page (full explanation): [Normalization](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/normalization/normalization)

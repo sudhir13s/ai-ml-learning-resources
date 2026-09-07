@@ -3,7 +3,7 @@ id: "04-unsupervised-learning/anomaly-outlier-detection/references"
 topic: "Anomaly / Outlier Detection — References"
 parent: "04-unsupervised-learning/anomaly-outlier-detection"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Anomaly / Outlier Detection — references and further reading
@@ -11,18 +11,16 @@ updated: 2026-06-22
 > Companion link library for **[Anomaly / Outlier Detection](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/anomaly-detection/anomaly-outlier-detection/anomaly-outlier-detection)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
-1. **Frame the problem** — watch [Unsupervised Anomaly Detection Explained](https://www.youtube.com/watch?v=QZNEJHbophM) (**Data Science Garage**). *Where clustering, density, and isolation methods each apply.*
-2. **Learn the go-to method** — watch [Isolation Forest: a tree-based approach](https://www.youtube.com/watch?v=kqAxfOPlr1U) (**Pratik Nabriya**). *Why random partitioning isolates anomalies in fewer splits — the key intuition.*
-3. **See local density** — watch [Local Outlier Factor, explained with an example](https://www.youtube.com/watch?v=8W3mTEKTORg) (**Endless Engineering**). *Why a point can be normal globally but an outlier relative to its neighbours.*
+1. **Frame the problem** — watch [Applied Machine Learning, Lecture 16 — Outlier detection](https://www.youtube.com/watch?v=DGvskrDu_FU) (**Andreas Müller, Columbia / scikit-learn core developer**). *Outlier vs novelty detection, and where elliptic envelopes, One-Class SVM, Isolation Forest, and LOF each apply.*
+2. **Learn the go-to method** — watch [Unsupervised Anomaly Detection with Isolation Forest](https://www.youtube.com/watch?v=5p8B2Ikcw-k) (**Elena Sharova, PyData London**). *Why random partitioning isolates anomalies in fewer splits — and what that costs on real transaction data.*
+3. **See local density** — read [Outlier detection with Local Outlier Factor](https://scikit-learn.org/stable/auto_examples/neighbors/plot_lof_outlier_detection.html) (**scikit-learn**) next to the [LOF paper](https://www.dbs.ifi.lmu.de/Publikationen/Papers/LOF.pdf). *Why a point can be normal globally but an outlier relative to its neighbours.*
 4. **Read the sources** — [Isolation Forest (Liu, Ting & Zhou, 2008)](https://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/icdm08b.pdf) → [LOF (Breunig et al., 2000)](https://www.dbs.ifi.lmu.de/Publikationen/Papers/LOF.pdf). *The path-length and local-density definitions in their original form.*
 5. **Make it concrete** — code all three with the [scikit-learn outlier detection guide](https://scikit-learn.org/stable/modules/outlier_detection.html) and compare them on the [anomaly-comparison demo](https://scikit-learn.org/stable/auto_examples/miscellaneous/plot_anomaly_comparison.html). *Seeing where each fails cements the choice.*
 
 **Videos**:
-- [Unsupervised Anomaly Detection Explained: Clustering, Density & Isolation Forest](https://www.youtube.com/watch?v=QZNEJHbophM) — **Data Science Garage** — the landscape: which family to reach for and why.
-- [Isolation Forest: A Tree-Based Approach for Outlier Detection](https://www.youtube.com/watch?v=kqAxfOPlr1U) — **Pratik Nabriya** — the isolation intuition and the path-length score, clearly explained.
-- [Local Outlier Factor (LOF) — Explained with Example](https://www.youtube.com/watch?v=8W3mTEKTORg) — **Endless Engineering** — local reachability density worked through step by step.
-- [Anomaly Detection: Algorithm (Gaussian/statistical)](https://www.youtube.com/watch?v=g2YBWQnqOpw) — **Andrew Ng (Stanford / DeepLearning.AI)** — the density-estimation framing and why it differs from supervised learning.
+- [Applied Machine Learning 2019 — Lecture 16: NMF and Outlier detection](https://www.youtube.com/watch?v=DGvskrDu_FU) — **Andreas Müller (Columbia; scikit-learn core developer)** — the whole detector family in one lecture, with the outlier-vs-novelty distinction and the contamination parameter treated honestly.
 - [Unsupervised Anomaly Detection with Isolation Forest (PyData)](https://www.youtube.com/watch?v=5p8B2Ikcw-k) — **Elena Sharova (PyData London)** — a practitioner's end-to-end talk with real data and pitfalls.
+- [The Histogram and Kernel Density Estimation](https://www.youtube.com/watch?v=TxB-rbrXMys) — **Carlos Fernandez-Granda (NYU Courant)** — the density-estimation machinery behind every "score the point's likelihood, flag the tail" detector.
 
 **Interactive & visual**:
 - [Comparing anomaly detection algorithms](https://scikit-learn.org/stable/auto_examples/miscellaneous/plot_anomaly_comparison.html) — **scikit-learn** — the side-by-side decision surfaces of all the major detectors on toy datasets; the clearest "where each fails" picture.
@@ -44,6 +42,8 @@ updated: 2026-06-22
 - [Support Vector Method for Novelty Detection (One-Class SVM)](https://proceedings.neurips.cc/paper/1999/file/8725fb777f25776ffa9076e44fcfd776-Paper.pdf) — **Schölkopf, Platt, Shawe-Taylor, Smola & Williamson (1999/2001)** — learning a boundary around the normal region via a kernel; the source of the ν-property.
 - [Support Vector Data Description (SVDD)](https://link.springer.com/article/10.1023/B:MACH.0000008084.60811.49) — **Tax & Duin (2004)** — the smallest-enclosing-hypersphere cousin of One-Class SVM.
 - [Extended Isolation Forest](https://arxiv.org/abs/1811.02141) — **Hariri, Carrasco Kind & Brunner (2019)** — random-hyperplane splits that remove the axis-parallel bias of the original.
+- [ADBench: Anomaly Detection Benchmark](https://arxiv.org/abs/2206.09426) — **Han, Hu, Huang, Jiang & Zhao (NeurIPS 2022)** — 30 algorithms across 57 datasets; the empirical answer to "is deep anomaly detection worth it" (mostly: not on tabular data), and the reason Isolation Forest is still the default.
+- [PyOD 2: A Python Library for Outlier Detection with LLM-powered Model Selection](https://arxiv.org/abs/2412.12154) — **Chen, Qian, Siu et al. (2024)** — the current state of the standard toolbox: deep detectors under the same API, plus automated detector selection.
 - [Detecting outliers: do not use standard deviation around the mean, use absolute deviation around the median (PDF)](https://dipot.ulb.ac.be/dspace/bitstream/2013/139499/1/Leys_MAD_final-sans%20marque.pdf) — **Leys, Ley, Klein, Bernard & Licata (2013)** — the modern, widely-cited case for the MAD-based modified z-score over the mean/σ rule; open institutional PDF.
 
 **Books (free chapters)**:

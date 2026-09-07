@@ -5,7 +5,7 @@ parent: "18-mlops-and-deployment"
 level: advanced
 built_from: ["ml-pipelines-and-orchestration", "ml-lifecycle"]
 interview_frequency: high
-updated: 2026-06-20
+updated: 2026-09-07
 tier: core
 est_minutes: 10
 title: "CI/CD for ML & Continuous Training (CT)"
@@ -23,7 +23,7 @@ the extra validations (data + model, not just code), what gets versioned and tes
 feature logic, model quality gates), and the CT loop: trigger → retrain → evaluate against a baseline →
 canary/deploy. Tools: GitHub Actions, CML, and pipeline orchestrators.
 
-**⭐ Start here — suggested path:**
+**Start here — suggested path:**
 
 1. **See the levels** — re-read [Google: MLOps level 2 (CI/CD/CT)](https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning). *Where CT plugs into the maturity model.*
 2. **Get the principles** — read [Martin Fowler: Continuous Delivery for ML (CD4ML)](https://martinfowler.com/articles/cd4ml.html). *The canonical CD4ML article — the vocabulary interviewers use.*
@@ -34,6 +34,8 @@ canary/deploy. Tools: GitHub Actions, CML, and pipeline orchestrators.
 ## Courses (free)
 - [Made With ML — CI/CD](https://madewithml.com/courses/mlops/cicd/) — **Goku Mohandas** — full GitHub Actions pipeline for testing, training, and deploying.
 - [CML — Documentation](https://cml.dev/doc) — **Iterative** — continuous ML in CI runners (reports, metrics, cloud GPUs).
+- [Full Stack Deep Learning — the course](https://fullstackdeeplearning.com/course/) — **The Full Stack** — the testing-and-deployment lectures: what a model quality gate looks like in a real pipeline.
+- [Made With ML](https://madewithml.com/) — **Goku Mohandas** — the course hub; the CI/CD lesson sits on top of its testing, versioning, and orchestration lessons.
 
 ## Videos
 - [MLOps Tutorial #1: Intro to Continuous Integration for ML](https://www.youtube.com/watch?v=9BgIDqAzfuA) — **DVCorg** — CI for ML projects, the data/model angle.

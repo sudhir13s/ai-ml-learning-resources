@@ -5,7 +5,7 @@ parent: "01-foundations"
 level: beginner
 built_from: ["01-foundations/vectors-and-vector-spaces"]
 interview_frequency: high
-updated: 2026-06-20
+updated: 2026-09-07
 tier: core
 est_minutes: 10
 title: "Matrices & Matrix Operations"
@@ -23,7 +23,7 @@ category: mathematical-foundations
 question, and it powers interview staples — why `(AB)ᵀ = BᵀAᵀ`, when an inverse exists, what rank
 deficiency means for least squares, and why a layer `Wx + b` is just an affine map.
 
-**⭐ Start here — suggested path:**
+**Start here — suggested path:**
 
 1. **See transformations** — watch [3B1B: Linear transformations & matrices](https://www.youtube.com/watch?v=kYB8IZa5AuE), then [Matrix multiplication as composition](https://www.youtube.com/watch?v=XkY2DOUCWMU). *The single best reframing: a matrix is a function on space, and multiplication is doing one after another.*
 2. **Get the mechanics** — read [MML Ch. 2.2–2.3](https://mml-book.github.io/book/mml-book.pdf) (matrix multiplication, inverse, transpose). *Locks in the algebra rules and when they apply.*
@@ -31,29 +31,31 @@ deficiency means for least squares, and why a layer `Wx + b` is just an affine m
 4. **Determinant intuition** — watch [3B1B: The determinant](https://www.youtube.com/watch?v=Ip3X9LOh2dk). *Why determinant = signed volume scaling, and why det = 0 means non-invertible.*
 5. **Connect to ML** — see matrices-as-maps in [ai-ml-intuitions 1.02 Dense Embeddings](/ai-ml/ai-ml-intuitions/representation/embedding-spaces/dense-embeddings-intuition). *A weight matrix is exactly this transformation.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [MIT 18.06 Linear Algebra](https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/) — **Gilbert Strang (MIT OCW)** — elimination, multiplication, inverses, the four subspaces.
 - [Khan Academy — Matrix transformations](https://www.khanacademy.org/math/linear-algebra/matrix-transformations) — **Khan Academy** — multiplication, inverse, and determinant with exercises.
 
-## 🎥 Videos
+## Videos
 - [Linear transformations and matrices | Ch. 3](https://www.youtube.com/watch?v=kYB8IZa5AuE) — **3Blue1Brown** — a matrix *is* what it does to the basis vectors.
 - [Matrix multiplication as composition | Ch. 4](https://www.youtube.com/watch?v=XkY2DOUCWMU) — **3Blue1Brown** — why `AB` means "apply B, then A" (and why order matters).
 - [The determinant | Ch. 6](https://www.youtube.com/watch?v=Ip3X9LOh2dk) — **3Blue1Brown** — determinant as signed area/volume scaling.
 - [Three-dimensional linear transformations | Ch. 5](https://www.youtube.com/watch?v=rHLEWRxRGiM) — **3Blue1Brown** — the same picture in 3D, where multiplication intuition matters most.
+- [Matrix Multiplication and (Pseudo) Inverse with NumPy](https://www.youtube.com/watch?v=SeBRHg9ZrSs) — **Dr. Data Science** — the same operations executed in code, including the pseudo-inverse you reach for when a matrix is not square or not invertible.
+- [Essential Matrix Algebra for Neural Networks, Clearly Explained](https://www.youtube.com/watch?v=ZTt9gsGcdDo) — **StatQuest with Josh Starmer** — matrix multiplication traced through a small network, which is where these operations first pay off.
 
-## 📄 Key Papers
+## Key Papers
 - [MML book — Ch. 2.2–2.4](https://mml-book.github.io/book/mml-book.pdf) — **Deisenroth, Faisal & Ong** — matrix multiplication, inverse/transpose, rank, and solving linear systems.
 - [The Matrix Cookbook](https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf) — **Petersen & Pedersen** — the canonical free reference of matrix identities and derivative rules.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [Immersive Linear Algebra — Ch. 6 "The Matrix"](https://immersivemath.com/ila/ch06_matrices/ch06.html) — **Ström, Åström & Akenine-Möller** — interactive matrices and transformations.
 - [CS229 Linear Algebra Review](https://cs229.stanford.edu/section/cs229-linalg.pdf) — **Stanford** — matrix operations, trace, rank, and the conventions used throughout ML.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Mathematics for Machine Learning — **Ch. 2 (Linear Algebra)**](https://mml-book.github.io/book/mml-book.pdf) — **Deisenroth et al.** — matrices, multiplication, inverses, systems of equations.
 - [Introduction to Applied Linear Algebra (VMLS) — **Ch. 6–11 (Matrices)**](https://web.stanford.edu/~boyd/vmls/vmls.pdf) — **Boyd & Vandenberghe** — matrices, matrix-vector products, and least squares, applied and free.
 
-## 🔗 In this platform
+## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 1.02 Dense Embeddings](/ai-ml/ai-ml-intuitions/representation/embedding-spaces/dense-embeddings-intuition) · [1.04 Graph Representations](/ai-ml/ai-ml-intuitions/representation/embedding-spaces/graph-representations-intuition)
 - Curriculum context: [Maths for AI-ML — Phase 1 (Linear Algebra)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
 - Prereq: [01 Vectors & Vector Spaces](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/vectors-and-vector-spaces/vectors-and-vector-spaces) · Next: [03 Norms, Inner Products & Orthogonality](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/norms-inner-products-and-orthogonality/norms-inner-products-and-orthogonality) · [04 Eigenvalues & Eigenvectors](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/eigenvalues-and-eigenvectors/eigenvalues-and-eigenvectors)

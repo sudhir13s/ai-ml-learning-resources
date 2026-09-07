@@ -3,7 +3,7 @@ id: "05-deep-learning/cnns/references"
 topic: "CNNs & Convolution — References"
 parent: "05-deep-learning/cnns"
 type: references
-updated: 2026-07-03
+updated: 2026-09-07
 ---
 
 # CNNs & Convolution — references and further reading
@@ -37,7 +37,8 @@ updated: 2026-07-03
 **Articles / blogs (free, no paywall)**:
 - [CS231n — Convolutional Networks](https://cs231n.github.io/convolutional-networks/) — **Stanford CS231n** — the canonical written reference on conv/pool layer mechanics and sizing.
 - [Conv Nets: A Modular Perspective](https://colah.github.io/posts/2014-07-Conv-Nets-Modular/) — **Christopher Olah** — convolution as composable modules; the clearest "why this structure" essay.
-- [An Intuitive Guide to Convolutional Neural Networks](https://www.freecodecamp.org/news/an-intuitive-guide-to-convolutional-neural-networks-260c2de0a050/) — **freeCodeCamp (Daphne Cornelisse)** — filters, strides, and pooling explained from scratch with worked numbers.
+- [CS231n — Understanding and Visualizing Convolutional Networks](https://cs231n.github.io/understanding-cnn/) — **Stanford CS231n** — what the learned filters and activations actually look like, plus the standard ways to inspect them (occlusion maps, nearest neighbours in feature space, t-SNE of codes).
+- [Feature Visualization](https://distill.pub/2017/feature-visualization/) — **Distill (Olah, Mordvintsev & Schubert)** — optimizes an input to maximally excite one unit, revealing the edges → textures → parts → objects hierarchy this page claims convolution builds; the best evidence that the hierarchy is real rather than a convenient story.
 
 **Key papers**:
 - [Backpropagation Applied to Handwritten Zip Code Recognition](http://yann.lecun.com/exdb/publis/pdf/lecun-89e.pdf) — **LeCun, Boser, Denker et al. (1989)** — the first end-to-end trained convolutional network (weight sharing + backprop on digit images), the direct ancestor of every CNN.
@@ -51,10 +52,14 @@ updated: 2026-07-03
 - [Network In Network](https://arxiv.org/abs/1312.4400) — **Lin, Chen & Yan (2013)** — origin of the 1×1 convolution and global average pooling.
 - [Making Convolutional Networks Shift-Invariant Again](https://arxiv.org/abs/1904.11486) — **Zhang (2019)** — why naive downsampling breaks shift-invariance, and anti-aliased pooling as the fix.
 - [An Image is Worth 16×16 Words (ViT)](https://arxiv.org/abs/2010.11929) — **Dosovitskiy et al. (2020)** — Vision Transformers; the data-vs-prior trade against CNNs.
+- [Swin Transformer: Hierarchical Vision Transformer using Shifted Windows](https://arxiv.org/abs/2103.14030) — **Liu et al. (2021, Microsoft)** — puts the CNN's locality and multi-scale hierarchy *back* into a transformer; the clearest evidence that the convolutional priors on this page are genuinely useful rather than historical.
+- [A ConvNet for the 2020s (ConvNeXt)](https://arxiv.org/abs/2201.03545) — **Liu, Mao, Wu, Feichtenhofer, Darrell & Xie (2022, Meta AI)** — modernizes a plain ResNet one change at a time (larger depthwise kernels, fewer activations, LayerNorm, inverted bottleneck) until it matches Swin; read it as a controlled ablation of *which* transformer ideas were actually load-bearing.
+- [ConvNeXt V2: Co-designing and Scaling ConvNets with Masked Autoencoders](https://arxiv.org/abs/2301.00808) — **Woo et al. (2023, Meta AI + KAIST)** — adds a global-response-normalization block so a pure convnet can be pretrained with masked autoencoding; the current reference point for "modern CNN," and the bridge from this page to [Masked Modeling](/ai-ml/ai-ml-learning-resources/deep-learning/self-supervised-learning/masked-modeling-mae-and-bert-style-pretraining/masked-modeling-mae-and-bert-style-pretraining).
 
 **Books (free chapters)**:
 - [Dive into Deep Learning — Ch. 7 "Convolutional Neural Networks" + Ch. 8 (Modern CNNs)](https://d2l.ai/chapter_convolutional-neural-networks/index.html) — **Zhang et al.** — convolution, padding/stride, pooling, and LeNet→ResNet with runnable code.
 - [Deep Learning — Ch. 9 "Convolutional Networks"](https://www.deeplearningbook.org/contents/convnets.html) — **Goodfellow, Bengio & Courville** — the rigorous treatment of convolution, pooling, and the priors CNNs encode (the source for this page's derivations).
+- [*Understanding Deep Learning* — Ch. 10 "Convolutional networks"](https://udlbook.github.io/udlbook/) — **Simon J.D. Prince** — free PDF; derives convolution as a weight-shared, sparsely-connected linear layer, which makes the parameter counts on this page fall out rather than be asserted.
 
 **In this platform**:
 - Concept page (full explanation): [CNNs & Convolution](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/cnns-and-convolution/cnns-and-convolution)

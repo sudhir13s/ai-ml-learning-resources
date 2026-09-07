@@ -3,7 +3,7 @@ id: "04-unsupervised-learning/k-means/references"
 topic: "K-Means Clustering — References"
 parent: "04-unsupervised-learning/k-means"
 type: references
-updated: 2026-07-03
+updated: 2026-09-07
 ---
 
 # K-Means Clustering — references and further reading
@@ -13,7 +13,7 @@ updated: 2026-07-03
 **Start here — suggested path**:
 1. **Build intuition** — watch [StatQuest: K-means clustering](https://www.youtube.com/watch?v=4b5d3muPQmA) (**Josh Starmer**), then play with [Visualizing K-Means](https://www.naftaliharris.com/blog/visualizing-k-means-clustering/) (**Naftali Harris**). *See the assign-then-update loop animate before any math.*
 2. **See why it works** — watch [K-means, how it works](https://www.youtube.com/watch?v=_aWzGGNrcic) (**Victor Lavrenko**). *The objective it minimizes and why each step never increases it (so it converges).*
-3. **Get the math** — read [CS229 notes 7a (k-means)](https://cs229.stanford.edu/notes2020spring/cs229-notes7a.pdf) (**Stanford / Ng**) + watch [Clustering — Lecture 13](https://www.youtube.com/watch?v=0D4LnsJr85Y) (**Andrew Ng**). *Inertia, alternating minimization, restarts, and choosing k.*
+3. **Get the math** — read [CS229 notes 7a (k-means)](https://cs229.stanford.edu/notes2020spring/cs229-notes7a.pdf) (**Stanford / Ng**), then build it with [K-Means Clustering in Python](https://www.youtube.com/watch?v=vtuH4VRq1AU) (**Patrick Loeber**). *Inertia, alternating minimization, restarts, and choosing k — then the same loop in NumPy.*
 4. **Read the sources** — [Lloyd (1982)](https://ieeexplore.ieee.org/document/1056489) → [k-means++ (Arthur & Vassilvitskii, 2007)](https://theory.stanford.edu/~sergei/papers/kMeansPP-soda.pdf). *The original quantization algorithm, then the smart seeding that fixed bad initialization.*
 5. **Make it concrete** — code it with the [scikit-learn KMeans guide](https://scikit-learn.org/stable/modules/clustering.html#k-means) and run [silhouette analysis](https://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html). *Implementing the loop + choosing k cements it.*
 
@@ -21,7 +21,7 @@ updated: 2026-07-03
 - [StatQuest: K-means clustering, Clearly Explained](https://www.youtube.com/watch?v=4b5d3muPQmA) — **StatQuest (Josh Starmer)** — the gentle, from-scratch intuition for the assign/update loop and picking k.
 - [K-means clustering: how it works](https://www.youtube.com/watch?v=_aWzGGNrcic) — **Victor Lavrenko (Edinburgh)** — the objective function and *why* the iteration converges.
 - [Clustering: K-means and Hierarchical](https://www.youtube.com/watch?v=QXOkPvFM6NU) — **Luis Serrano** — illustrations-over-formulas; the clearest mental picture and the link to hierarchical methods.
-- [Clustering — Lecture 13](https://www.youtube.com/watch?v=0D4LnsJr85Y) — **Andrew Ng (Stanford)** — the optimization objective, random initialization, and the elbow method in one lecture.
+- [K-Means Clustering in Python — Machine Learning From Scratch 12](https://www.youtube.com/watch?v=vtuH4VRq1AU) — **Patrick Loeber** — the assign/update loop written out in NumPy: centroid initialization, nearest-centroid assignment, mean recomputation, and the convergence check.
 
 **Interactive & visual**:
 - [Visualizing K-Means Clustering](https://www.naftaliharris.com/blog/visualizing-k-means-clustering/) — **Naftali Harris** — interactive playground; step through initialization and convergence live, including pathological inits.
@@ -37,7 +37,7 @@ updated: 2026-07-03
 - [scikit-learn — Clustering user guide (K-means)](https://scikit-learn.org/stable/modules/clustering.html#k-means) — **scikit-learn** — the practical reference: inertia, k-means++, mini-batch, complexity, and pitfalls.
 - [Selecting the number of clusters with silhouette analysis](https://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html) — **scikit-learn** — the silhouette method worked end to end, with per-cluster plots.
 - [Determine the optimal value of K](https://www.geeksforgeeks.org/machine-learning/ml-determine-the-optimal-value-of-k-in-k-means-clustering/) — **GeeksforGeeks** — a practical elbow + silhouette walkthrough with code.
-- [Silhouette (clustering)](https://en.wikipedia.org/wiki/Silhouette_(clustering)) — **Wikipedia** — the $s(i) = (b-a)/\max(a,b)$ definition and properties, with references.
+- [Silhouette (clustering)](https://en.wikipedia.org/wiki/Silhouette_%28clustering%29) — **Wikipedia** — the $s(i) = (b-a)/\max(a,b)$ definition and properties, with references.
 
 **Key papers**:
 - [Least Squares Quantization in PCM (Lloyd's algorithm)](https://ieeexplore.ieee.org/document/1056489) — **Lloyd (1982, written 1957)** — the original iterative quantization that *is* k-means.

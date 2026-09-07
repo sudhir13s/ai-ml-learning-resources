@@ -5,7 +5,7 @@ parent: "02-data-preprocessing"
 level: intermediate
 built_from: ["pandas", "domain-knowledge", "transformations"]
 interview_frequency: very-high
-updated: 2026-06-20
+updated: 2026-09-07
 tier: core
 est_minutes: 10
 title: "Feature Engineering"
@@ -22,38 +22,37 @@ accuracy gains come from, and the classic interview line is *"feature engineerin
 domain knowledge buys you."* Be ready to walk through constructing a feature, why log/Box-Cox fixes skew,
 when binning helps tree-free models, and how to engineer **without leaking** future or target information.
 
-**⭐ Start here — suggested path:**
+**Start here — suggested path:**
 
-1. **Construct features** — watch [Feature Construction & Splitting](https://www.youtube.com/watch?v=ma-h30PoFms). *Combining and decomposing columns into informative features.*
-2. **Fix skew** — watch [Function Transformer: log / sqrt / reciprocal](https://www.youtube.com/watch?v=cTjj3LE8E90). *Making distributions more normal so models behave.*
-3. **Power transforms** — watch [Power Transformer: Box-Cox / Yeo-Johnson](https://www.youtube.com/watch?v=lV_Z4HbNAx0). *Principled, data-driven variance stabilization.*
-4. **Discretize** — watch [Binning & Binarization](https://www.youtube.com/watch?v=kKWsJGKcMvo). *Turning continuous values into buckets, and when it helps.*
+1. **Construct features** — work [Kaggle Learn — Feature Engineering](https://www.kaggle.com/learn/feature-engineering). *Combining and decomposing columns, mutual information, and interaction terms on real data.*
+2. **Fix skew** — read [sklearn: non-linear transformations](https://scikit-learn.org/stable/modules/preprocessing.html) (`FunctionTransformer`, `QuantileTransformer`). *Log and square-root transforms, and when a rank-based transform is the safer choice.*
+3. **Power transforms** — read the `PowerTransformer` section of the same guide. *Box-Cox and Yeo-Johnson: data-driven variance stabilization, and why Yeo-Johnson tolerates zeros and negatives.*
+4. **Discretize** — read the `KBinsDiscretizer` section and the [cyclical feature example](https://scikit-learn.org/stable/auto_examples/applications/plot_cyclical_feature_engineering.html). *Buckets, quantile bins, and spline features, with a worked demand-forecasting case.*
 5. **Internalize the principle** — read [A Few Useful Things to Know about ML](https://homes.cs.washington.edu/~pedrod/papers/cacm12.pdf). *Domingos on why feature engineering is the key to applied ML.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [Kaggle Learn — Feature Engineering](https://www.kaggle.com/learn/feature-engineering) — **Kaggle** — the best free hands-on course: mutual info, interactions, target encoding, clustering features.
 - [Google ML Crash Course — Numerical & Categorical data](https://developers.google.com/machine-learning/crash-course/numerical-data) — **Google** — feature transforms, bucketing, and crosses, applied.
 
-## 🎥 Videos
-- [Feature Construction & Feature Splitting](https://www.youtube.com/watch?v=ma-h30PoFms) — **CampusX** — building new features by combining/decomposing existing ones.
-- [Function Transformer — Log / Reciprocal / Square-Root](https://www.youtube.com/watch?v=cTjj3LE8E90) — **CampusX** — taming skewed distributions with simple transforms.
-- [Power Transformer — Box-Cox & Yeo-Johnson](https://www.youtube.com/watch?v=lV_Z4HbNAx0) — **CampusX** — data-driven transforms toward normality.
-- [Binning & Binarization — Discretization](https://www.youtube.com/watch?v=kKWsJGKcMvo) — **CampusX** — quantile/KMeans binning and binarization, with code.
+## Videos
+- [Exploratory Data Analysis with Pandas](https://www.youtube.com/watch?v=xi0vhXFPegw) — **Rob Mulla** — where features come from: looking at the columns until the useful combination is obvious.
+- [StatQuest: Histograms, Clearly Explained](https://www.youtube.com/watch?v=qBigTkBLU6g) — **StatQuest with Josh Starmer** — reading skew off a distribution, which is what triggers a log or power transform in the first place.
+- [probabl (scikit-learn maintainers' channel)](https://www.youtube.com/@probabl_ai) — **probabl / scikit-learn core developers** — transformers, `ColumnTransformer` and custom feature code, from the maintainers.
 
-## 📄 Key Papers
+## Key Papers
 - [A Few Useful Things to Know about Machine Learning](https://homes.cs.washington.edu/~pedrod/papers/cacm12.pdf) — **Pedro Domingos (2012)** — the famous "feature engineering is the key" essay; free PDF.
 - [Wide & Deep Learning for Recommender Systems](https://arxiv.org/abs/1606.07792) — **Cheng et al. (2016)** — how hand-crafted cross-features and learned embeddings combine in practice.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [Preprocessing data — user guide](https://scikit-learn.org/stable/modules/preprocessing.html) — **scikit-learn** — PolynomialFeatures, KBinsDiscretizer, PowerTransformer, FunctionTransformer.
 - [feature-engine documentation](https://feature-engine.trainindata.com/en/latest/) — **Train in Data** — a transformer library purpose-built for feature engineering, with clear docs.
 - [Tidy Data](https://vita.had.co.nz/papers/tidy-data.pdf) — **Hadley Wickham** — the data layout that makes feature engineering clean and repeatable.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Feature Engineering and Selection — **Ch. 6 (numeric) & Ch. 5 (categorical)**](http://www.feat.engineering/) — **Kuhn & Johnson** — the canonical free FE text.
 - [Python Data Science Handbook — **§5.4 "Feature Engineering"**](https://jakevdp.github.io/PythonDataScienceHandbook/05.04-feature-engineering.html) — **Jake VanderPlas** — derived features, polynomial features, and pipelines.
 
-## 🔗 In this platform
+## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 1.01 One-Hot Encoding](/ai-ml/ai-ml-intuitions/representation/discrete-representations/one-hot-encoding-intuition) · [1.17 BoW & TF-IDF](/ai-ml/ai-ml-intuitions/representation/discrete-representations/bag-of-words-and-tf-idf-intuition)
 - Next concepts: [07 Feature Selection](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/feature-selection/feature-selection) · [08 Date/Time & Cyclical Features](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/date-time-and-cyclical-features/date-time-and-cyclical-features)
 - Related domain: [03. Supervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/readme)

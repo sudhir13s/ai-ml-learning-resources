@@ -3,7 +3,7 @@ id: "03-supervised-learning/gradient-boosting/references"
 topic: "Gradient Boosting — References"
 parent: "03-supervised-learning/gradient-boosting"
 type: references
-updated: 2026-07-03
+updated: 2026-09-07
 ---
 
 # Gradient Boosting — references and further reading
@@ -36,6 +36,7 @@ updated: 2026-07-03
 - [Introduction to Boosted Trees (XGBoost docs)](https://xgboost.readthedocs.io/en/stable/tutorials/model.html) — **XGBoost** — the official, math-grounded tutorial on the regularized objective.
 - [LightGBM — Features](https://lightgbm.readthedocs.io/en/stable/Features.html) — **Microsoft / LightGBM** — what makes it fast: histograms, leaf-wise growth, GOSS, EFB.
 - [CatBoost — Documentation](https://catboost.ai/docs/en/) — **Yandex / CatBoost** — ordered boosting and categorical-feature handling, by the authors.
+- [XGBoost documentation (current release)](https://xgboost.readthedocs.io/en/stable/) — **XGBoost maintainers** — the moving parts that changed after 2.0: `device="cuda"` replacing the `gpu_hist` tree method, native categorical support, multi-output trees, and the external-memory / distributed backends; check this before copying an older tutorial's parameters.
 
 **Key papers**:
 - [A Decision-Theoretic Generalization of On-Line Learning (AdaBoost)](https://cseweb.ucsd.edu/~yfreund/papers/adaboost.pdf) — **Freund & Schapire (1997)** — the original boosting algorithm; the ancestor gradient boosting generalizes.
@@ -47,6 +48,8 @@ updated: 2026-07-03
 - [CatBoost: Unbiased Boosting with Categorical Features](https://arxiv.org/abs/1706.09516) — **Prokhorenkova et al. (2018)** — ordered boosting + native categorical handling.
 - [A Unified Approach to Interpreting Model Predictions (SHAP)](https://arxiv.org/abs/1705.07874) — **Lundberg & Lee (2017)** — Shapley-value attributions; TreeSHAP is the standard way to explain boosted trees.
 - [Why do tree-based models still outperform deep learning on tabular data?](https://arxiv.org/abs/2207.08815) — **Grinsztajn, Oyallon & Varoquaux (2022)** — the careful benchmark explaining why boosted trees still win on tabular data.
+- [Accurate predictions on small data with a tabular foundation model (TabPFN v2)](https://www.nature.com/articles/s41586-024-08328-6) — **Hollmann, Müller, Purucker et al. (Nature, 2025)** — the first serious challenge to the result above: a transformer pre-trained on synthetic tabular tasks that beats tuned boosting on small datasets (roughly ≤10k rows, ≤500 features) in a single forward pass.
+- [TabPFN: One Model to Rule Them All?](https://arxiv.org/abs/2505.20003) — **Zhang, Tan, Tian & Li (2025)** — an independent statistical study of what the pre-trained tabular model is actually doing (semi-supervised estimation, covariate shift, treatment effects); read it with the benchmark above before deciding boosting is obsolete — it is not, at scale.
 
 **Books (free chapters)**:
 - [The Elements of Statistical Learning — Ch. 10 "Boosting and Additive Trees"](https://hastie.su.domains/ElemStatLearn/) — **Hastie, Tibshirani & Friedman** — the definitive treatment (AdaBoost → gradient boosting → regularization).

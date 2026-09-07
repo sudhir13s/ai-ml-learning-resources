@@ -5,7 +5,7 @@ parent: "01-foundations"
 level: advanced
 built_from: ["01-foundations/probability-and-bayes-theorem", "01-foundations/maximum-likelihood-estimation"]
 interview_frequency: high
-updated: 2026-06-20
+updated: 2026-09-07
 tier: core
 est_minutes: 10
 title: "Bayesian Inference (priors, posteriors, MAP)"
@@ -24,7 +24,7 @@ category: mathematical-foundations
 simple model (e.g. Beta–Binomial), explain conjugacy, and articulate when uncertainty (full
 posterior) matters versus a point estimate.
 
-**⭐ Start here — suggested path:**
+**Start here — suggested path:**
 
 1. **The mindset** — watch [StataCorp: Introduction to Bayesian statistics, part 1](https://www.youtube.com/watch?v=0F0QoMCSKJ4) and revisit [3B1B: Bayes' theorem](https://www.youtube.com/watch?v=HZGCoVF3YvM). *Priors → posteriors as belief updating.*
 2. **MLE vs MAP vs Bayes** — read [MML Ch. 8.3–8.4 (MLE, MAP, Bayesian inference)](https://mml-book.github.io/book/mml-book.pdf). *The three estimators and where the prior enters.*
@@ -32,29 +32,30 @@ posterior) matters versus a point estimate.
 4. **Regularization as a prior** — connect L2/L1 penalties to Gaussian/Laplace priors (covered in CS229 / MML). *The cleanest "why does regularization work" answer.*
 5. **Connect to ML** — read [ai-ml-intuitions 5.02 Latent-Variable Models (ELBO/VAEs)](/ai-ml/ai-ml-intuitions/generation/latent-variable-generation/latent-variable-models-and-elbo-intuition). *Where Bayesian inference scales to deep generative models.*
 
-## 🎓 Courses (free)
-- [Harvard Stat 110: Probability (Bayes & conditioning)](https://projects.iq.harvard.edu/stat110/home) — **Joe Blitzstein (Harvard)** — the probabilistic foundations of Bayesian reasoning, free.
+## Courses (free)
+- [Harvard Stat 110: Probability (Bayes & conditioning)](https://www.youtube.com/playlist?list=PL2SOU6wwxB0uwwH80KTQ6ht66KWxbzTIo) — **Joe Blitzstein (Harvard)** — the probabilistic foundations of Bayesian reasoning, free.
 - [Stanford CS229 — MAP / Bayesian methods notes](https://cs229.stanford.edu/notes2021fall/cs229-notes1.pdf) — **Stanford (Ng et al.)** — MAP estimation and priors as regularization.
 
-## 🎥 Videos
+## Videos
 - [Introduction to Bayesian statistics, part 1: the basic concepts](https://www.youtube.com/watch?v=0F0QoMCSKJ4) — **StataCorp** — priors, likelihoods, and posteriors clearly framed.
 - [Bayes theorem, the geometry of changing beliefs](https://www.youtube.com/watch?v=HZGCoVF3YvM) — **3Blue1Brown** — the update rule that drives all of it.
 - [You Know I'm All About that Bayes (Crash Course Statistics #24)](https://www.youtube.com/watch?v=9TDjifpGj-k) — **CrashCourse** — Bayesian vs frequentist thinking, accessibly.
 - [The Bayesian Trap](https://www.youtube.com/watch?v=R13BD8qKeTg) — **Veritasium** — why the prior (base rate) cannot be ignored.
 
-## 📄 Key Papers
+## Key Papers
 - [MML book — Ch. 8.3–8.4 (Parameter Estimation, Bayesian Inference)](https://mml-book.github.io/book/mml-book.pdf) — **Deisenroth, Faisal & Ong** — MLE/MAP/Bayes and the role of priors.
 - [Auto-Encoding Variational Bayes (VAE)](https://arxiv.org/abs/1312.6114) — **Kingma & Welling (2014)** — Bayesian inference scaled to deep models via the ELBO.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [Think Bayes (online book)](https://allendowney.github.io/ThinkBayes2/) — **Allen B. Downey** — Bayesian inference in Python, fully free and computational.
 - [Seeing Theory — Ch. 5 (Bayesian Inference)](https://seeing-theory.brown.edu/bayesian-inference/index.html) — **Brown University** — interactive priors/likelihoods/posteriors.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Think Bayes — **Ch. 1–5**](https://allendowney.github.io/ThinkBayes2/) — **Allen B. Downey** — Bayes, conjugacy, and estimation in code; free.
+- [Bayes Rules! An Introduction to Applied Bayesian Modeling](https://www.bayesrulesbook.com/) — **Johnson, Ott & Dogucu** — free full text: priors, posteriors, conjugate families, then Markov chain Monte Carlo and posterior checking; the most complete open textbook for building the workflow rather than just the formula.
 - [Mathematics for Machine Learning — **Ch. 8.3–8.4 (Estimation & Bayesian Inference)**](https://mml-book.github.io/book/mml-book.pdf) — **Deisenroth et al.** — the canonical free chapter.
 
-## 🔗 In this platform
+## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 0.01 Probability & Bayes' Theorem](/ai-ml/ai-ml-intuitions/foundational-mental-models/probability-and-belief/probability-and-bayes-intuition) · [5.02 Latent-Variable Models (ELBO/VAEs)](/ai-ml/ai-ml-intuitions/generation/latent-variable-generation/latent-variable-models-and-elbo-intuition)
 - Curriculum context: [Maths for AI-ML — Phase 3 (Probability, row 3.6)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
 - Prereqs: [15 Probability & Bayes' Theorem](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/probability-and-bayes-theorem/probability-and-bayes-theorem) · [19 Maximum Likelihood Estimation](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maximum-likelihood-estimation/maximum-likelihood-estimation)

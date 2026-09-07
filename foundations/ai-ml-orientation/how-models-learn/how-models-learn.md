@@ -6,7 +6,7 @@ level: beginner
 built_from: ["what-is-ai-ml-dl", "types-of-machine-learning"]
 interview_frequency: very-high
 template: concept-deep
-updated: 2026-07-03
+updated: 2026-09-07
 tier: core
 est_minutes: 30
 title: "How Models Learn (loss, gradient descent, the training loop)"
@@ -115,7 +115,7 @@ Look at what these *mean*, connecting back to the intuition. Both are built from
 
 > **Try it:** we start too *low* ($\hat y = 0 <$ most prices), so every residual $\hat y_i - y_i$ is negative and $\partial L/\partial b$ comes out **negative** — the update raises $b$. **Predict:** if instead the line started too *high* (say $b = 10$, above every price), what sign would $\partial L/\partial b$ have, and would the first update raise or lower $b$? (Hint: flip the sign of the residuals.) The gradient always points *away* from the fit, so the update always steps back toward it — from either side.
 
-> **Source / derivation:** gradient descent — step in the negative-gradient direction to minimise a function — dates to [Cauchy's 1847 note *Méthode générale pour la résolution des systèmes d'équations simultanées*](https://www.academie-sciences.fr/pdf/dossiers/Cauchy/Cauchy_pdf/CR1847_t25_p536_538.pdf); its modern treatment for machine-learning objectives is [Goodfellow, Bengio & Courville, *Deep Learning*, Ch. 4.3 (gradient-based optimization) & Ch. 8](https://www.deeplearningbook.org/). Both in the references.
+> **Source / derivation:** gradient descent — step in the negative-gradient direction to minimise a function — dates to [Cauchy's 1847 note *Méthode générale pour la résolution des systèmes d'équations simultanées*](https://gallica.bnf.fr/ark:/12148/bpt6k2982c/f540.item) (*Comptes rendus*, t. 25, pp. 536–538, scanned at Gallica); its modern treatment for machine-learning objectives is [Goodfellow, Bengio & Courville, *Deep Learning*, Ch. 4.3 (gradient-based optimization) & Ch. 8](https://www.deeplearningbook.org/). Both in the references.
 
 ### Piece 3 — the update rule: take a step
 

@@ -3,7 +3,7 @@ id: "06-nlp/text-summarization/references"
 topic: "Text Summarization — References"
 parent: "06-nlp/text-summarization"
 type: references
-updated: 2026-06-27
+updated: 2026-09-07
 ---
 
 # Text Summarization — references and further reading
@@ -11,7 +11,7 @@ updated: 2026-06-27
 > Companion link library for **[Text Summarization](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/text-summarization/text-summarization)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
-1. **Frame the two paradigms** — watch [What is Text Summarization? Extractive & Abstractive](https://www.youtube.com/watch?v=UEikjJ6c63A) (**OnTimeNotes**). *The select-vs-generate distinction before any model.*
+1. **Frame the two paradigms** — read [Summarization (Hugging Face task guide)](https://huggingface.co/docs/transformers/tasks/summarization) (**Hugging Face**). *The select-vs-generate distinction, stated with the code that implements each.*
 2. **See extractive ranking** — read the [TextRank paper](https://aclanthology.org/W04-3252/) (**Mihalcea & Tarau, 2004**). *PageRank-on-sentences — simple, unsupervised, still strong.*
 3. **Get abstractive copying** — read [Get To The Point (Pointer-Generator)](https://arxiv.org/abs/1704.04368) (**See, Liu & Manning, 2017**). *The $p_{gen}$ copy/generate switch + coverage that fix OOV and repetition.*
 4. **Read the modern backbones** — skim [PEGASUS](https://arxiv.org/abs/1912.08777) and [BART](https://arxiv.org/abs/1910.13461). *Pretraining objectives built for (or ideal for) summarization.*
@@ -19,10 +19,9 @@ updated: 2026-06-27
 6. **Make it concrete** — code it with the [Hugging Face Summarization guide](https://huggingface.co/docs/transformers/tasks/summarization). *Fine-tune and evaluate with ROUGE.*
 
 **Videos**:
-- [What is Text Summarization? Extractive & Abstractive](https://www.youtube.com/watch?v=UEikjJ6c63A) — **OnTimeNotes** — clear framing of the two paradigms.
-- [Text Summarization — Extractive vs. Abstractive with HF Transformers](https://www.youtube.com/watch?v=2NQfcS3oIyM) — **SH AI Academy** — both approaches, in code.
-- [Summarize Text using Hugging Face's Summarization Pipeline](https://www.youtube.com/watch?v=LK9dVN9yMYY) — **Bhavesh Bhatt** — abstractive summarization in a few lines.
-- [BERT for Extractive Summarization (BERTSUM walkthrough)](https://www.youtube.com/watch?v=JU6eSLsp6vI) — **TechViz** — how an encoder ranks sentences for extraction.
+- [CMU Neural Nets for NLP 2021 (6): Conditioned Generation](https://www.youtube.com/watch?v=3LdDiRM9xE8) — **Graham Neubig (CMU)** — summarization as conditioned generation: the encoder–decoder, the decoding search, and the evaluation problem, together.
+- [CMU Advanced NLP 2024 (17): Evaluation and Multimodal](https://www.youtube.com/watch?v=iEinTXrwK8A) — **Graham Neubig (CMU)** — why ROUGE stopped being sufficient and what faithfulness evaluation replaced it with.
+- [Stanford CS224N: NLP with Deep Learning (full lecture series)](https://www.youtube.com/playlist?list=PLoROMvodv4rOSH4v6133s9LFPRHjEmbmJ) — **Stanford Online (Christopher Manning)** — the sequence-to-sequence, attention, and natural-language-generation lectures abstractive summarization is built from.
 
 **Courses (free)**:
 - [Hugging Face LLM Course — Ch. 7: Summarization](https://huggingface.co/learn/llm-course/chapter7/5) — **Hugging Face** — fine-tune an abstractive summarizer, code-first.
@@ -31,7 +30,8 @@ updated: 2026-06-27
 **Articles / blogs (free, no paywall)**:
 - [Summarization (Hugging Face task guide)](https://huggingface.co/docs/transformers/tasks/summarization) — **Hugging Face** — end-to-end fine-tune + ROUGE evaluation.
 - [Taming Recurrent Neural Networks for Better Summarization](https://www.abigailsee.com/2017/04/16/taming-rnns-for-better-summarization.html) — **Abigail See** — the pointer-generator's first author explaining copy + coverage, with examples.
-- [Introduction to Text Summarization with TextRank](https://www.analyticsvidhya.com/blog/2018/11/introduction-text-summarization-textrank-python/) — **Analytics Vidhya** — implement extractive TextRank from scratch in Python.
+- [Summarization (Hugging Face LLM Course, Ch. 7)](https://huggingface.co/learn/llm-course/chapter7/5) — **Hugging Face** — fine-tune an abstractive summarizer and score it with ROUGE, end to end in code.
+- [Summarization (NLP-progress)](https://nlpprogress.com/english/summarization.html) — **Sebastian Ruder** — the tracked state of the art per dataset, the fastest way to see whether a method on this page is still competitive.
 - [PEGASUS: A State-of-the-Art Model for Abstractive Summarization](https://research.google/blog/pegasus-a-state-of-the-art-model-for-abstractive-text-summarization/) — **Google Research** — the gap-sentence-generation idea from the team that built it.
 
 **Key papers**:
@@ -54,7 +54,7 @@ updated: 2026-06-27
 - [Asking and Answering Questions to Evaluate Factual Consistency (QAGS)](https://arxiv.org/abs/2004.04228) — **Wang et al. (2020)** — QA-based faithfulness evaluation.
 - [SummaC: Re-Visiting NLI-based Models for Inconsistency Detection](https://arxiv.org/abs/2111.09525) — **Laban et al. (2022)** — entailment-based faithfulness checking.
 - [Longformer: The Long-Document Transformer](https://arxiv.org/abs/2004.05150) — **Beltagy et al. (2020)** — sparse attention (and LED) for long-input summarization.
-- [Automatic Summarization (monograph)](https://www.cis.upenn.edu/~nenkova/1500000015-Nenkova.pdf) — **Nenkova & McKeown (2011)** — the classic survey framing compression, informativeness, and evaluation.
+- [Automatic Summarization (monograph)](https://web.archive.org/web/2021/https://www.cis.upenn.edu/~nenkova/1500000015-Nenkova.pdf) — **Nenkova & McKeown (2011)** — the classic survey framing compression, informativeness, and evaluation; the author's Penn copy is gone, so this is the Internet Archive capture.
 
 **Books (free chapters)**:
 - [Speech and Language Processing, 3rd ed. — Ch. 12 "Machine Translation" (seq2seq + ROUGE-adjacent eval)](https://web.stanford.edu/~jurafsky/slp3/12.pdf) — **Jurafsky & Martin** — the encoder–decoder + attention machinery abstractive summarization reuses.

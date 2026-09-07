@@ -3,7 +3,7 @@ id: "06-nlp/ngram-language-models/references"
 topic: "N-gram Language Models & Smoothing — References"
 parent: "06-nlp/ngram-language-models"
 type: references
-updated: 2026-06-27
+updated: 2026-09-07
 ---
 
 # N-gram Language Models and Smoothing — references and further reading
@@ -20,9 +20,11 @@ updated: 2026-06-27
 **Videos**:
 - [N-gram Language Models](https://www.youtube.com/watch?v=GiyMGBuu45w) — **Machine Learning TV** — clear intro to counts and conditional probabilities.
 - [Kneser-Ney Smoothing (NLP817 3.11)](https://www.youtube.com/watch?v=9SlJ76HtjoE) — **Herman Kamper** — a focused, rigorous lecture on absolute discounting and the continuation probability, the heart of the gold-standard smoother.
-- [N-gram Language Modeling: Theory, Math, and Code](https://www.youtube.com/watch?v=Vc2C1NZkH0E) — **Learn With Yash Agrawal** — chain rule, MLE, and perplexity worked by hand plus a from-scratch implementation.
+- [N-gram language models (NLP817 3.2)](https://www.youtube.com/watch?v=SLsLEYZJ2xU) — **Herman Kamper (Stellenbosch)** — the chain rule, the Markov assumption, and maximum-likelihood counts derived on the board.
 - [What is Perplexity?](https://www.youtube.com/watch?v=NURcDHhYe98) — **Hugging Face** — perplexity as branching factor and its link to entropy, explained concisely.
-- [Interpolation and Backoff (NLP817 3.10)](https://www.youtube.com/watch?v=Q3I3yQYrz3w) — **Herman Kamper** — a focused lecture on linear interpolation vs backoff, the framework Kneser-Ney is expressed in; the companion to his Kneser-Ney lecture above.
+- [Language model interpolation (NLP817 3.9)](https://www.youtube.com/watch?v=HHzUTUbmG4k) — **Herman Kamper (Stellenbosch)** — linear interpolation across orders, the framework Kneser-Ney is expressed in.
+- [Language model backoff (NLP817 3.10)](https://www.youtube.com/watch?v=DdvJ6Vd4EHg) — **Herman Kamper (Stellenbosch)** — backoff as the alternative to interpolation, and why the normalization is the hard part.
+- [CMU Neural Nets for NLP 2021 (2): Language Modeling](https://www.youtube.com/watch?v=ld5qts6LRj4) — **Graham Neubig (CMU)** — walks count-based n-grams straight into neural language models, which is exactly the transition this page sets up.
 
 **Courses (free)**:
 - [Stanford CS124 / CS224N — Language Modeling](https://web.stanford.edu/class/cs224n/) — **Stanford (Manning, Jurafsky)** — the language-modeling lectures that move from n-grams to neural LMs.
@@ -37,7 +39,8 @@ updated: 2026-06-27
 - [A Mathematical Theory of Communication](https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf) — **Claude Shannon (1948)** — founds entropy, cross-entropy, and the prediction-of-English framing every LM inherits.
 - [Estimation of Probabilities from Sparse Data for the Language Model Component of a Speech Recognizer](https://web.archive.org/web/20170825210849/http://l2r.cs.uiuc.edu/~danr/Teaching/CS546-09/Papers/Katz87.pdf) — **Slava Katz (1987)** — Katz backoff with Good-Turing discounting.
 - [The Population Frequencies of Species and the Estimation of Population Parameters](https://www.jstor.org/stable/2333344) — **I. J. Good (1953)** — the Good-Turing estimator (the $N_1/N$ missing-mass idea).
-- [Improved Backing-off for M-gram Language Modeling](https://ieeexplore.ieee.org/document/479394) — **Reinhard Kneser & Hermann Ney (1995)** — the original Kneser-Ney smoothing and continuation probability.
+- [Improved Backing-off for M-gram Language Modeling](https://web.archive.org/web/2020/https://ieeexplore.ieee.org/document/479394) — **Reinhard Kneser & Hermann Ney (1995)** — the original Kneser-Ney smoothing and continuation probability. (IEEE Xplore blocks automated access; this is the Internet Archive capture of the record, DOI `10.1109/ICASSP.1995.479394`.)
+- [Speech and Language Processing, 3rd ed. — Appendix C "Kneser-Ney Smoothing"](https://web.stanford.edu/~jurafsky/slp3/C.pdf) — **Jurafsky & Martin** — the free, full derivation of absolute discounting and the continuation probability, for readers who cannot reach the 1995 paper.
 - [An Empirical Study of Smoothing Techniques for Language Modeling](https://aclanthology.org/J99-1004/) — **Stanley Chen & Joshua Goodman (1999)** — the definitive comparison; introduces *modified* Kneser-Ney and shows it wins.
 - [Class-Based n-gram Models of Natural Language](https://aclanthology.org/J92-4003/) — **Brown, Della Pietra, deSouza, Lai & Mercer (1992)** — the IBM line: Brown clustering, the first big step toward sharing statistics across words (deleted interpolation grew from this group).
 - [A Neural Probabilistic Language Model](https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf) — **Bengio, Ducharme, Vincent & Jauvin (2003)** — the paper that replaced n-gram counts with learned distributed representations.
@@ -57,5 +60,5 @@ updated: 2026-06-27
 - Precursor representation (counts → vectors): [Bag-of-Words and TF-IDF](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/bag-of-words-and-tf-idf/bag-of-words-and-tf-idf) — the other count-based text model.
 - The successor that fixed the semantics gap: [Word Embeddings: Word2Vec, GloVe, FastText](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/word-embeddings-word2vec-glove-fasttext/word-embeddings-word2vec-glove-fasttext) — dense vectors so "blue" and "green" relate.
 - Where perplexity is defined alongside the other metrics: [NLP Evaluation Metrics](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/nlp-evaluation-metrics/nlp-evaluation-metrics).
-- The neural successors to n-gram LMs: [Sequence-to-Sequence and Encoder–Decoder](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sequence-to-sequence-and-encoder-decoder/sequence-to-sequence-and-encoder-decoder), and the LLMs in [LLMs, Applications and Agents](../../../llms-applications-and-agents) (same chain-rule objective, learned estimator).
+- The neural successors to n-gram LMs: [Sequence-to-Sequence and Encoder–Decoder](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sequence-to-sequence-and-encoder-decoder/sequence-to-sequence-and-encoder-decoder), and the LLMs in [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/decoding-and-sampling/decoding-and-sampling) (same chain-rule objective, learned estimator).
 - The *why* behind autoregressive generation: [ai-ml-intuitions 5.05 Autoregressive Generation & Sampling](/ai-ml/ai-ml-intuitions/generation/autoregressive-generation/autoregressive-generation-and-sampling-controls-intuition).

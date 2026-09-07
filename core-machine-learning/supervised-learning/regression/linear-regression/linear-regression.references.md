@@ -3,7 +3,7 @@ id: "03-supervised-learning/linear-regression/references"
 topic: "Linear Regression — References"
 parent: "03-supervised-learning/linear-regression"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Linear Regression — references and further reading
@@ -22,7 +22,8 @@ updated: 2026-06-22
 - [The Main Ideas of Fitting a Line to Data (Least Squares)](https://www.youtube.com/watch?v=PaFPbb66DxQ) — **StatQuest (Josh Starmer)** — why we minimize *squared* residuals, step by step.
 - [Gradient Descent, Step-by-Step](https://www.youtube.com/watch?v=sDv4f4s2SB8) — **StatQuest (Josh Starmer)** — how you fit the line when you can't (or won't) invert XᵀX.
 - [Gradient descent, how neural networks learn](https://www.youtube.com/watch?v=IHZwWFHWa-w) — **3Blue1Brown** — the same loss-surface intuition, and the link to neural nets.
-- [Linear regression (full lecture)](https://www.youtube.com/watch?v=4b4MUYve_U8) — **Andrew Ng / Stanford CS229** — the canonical lecture: model, cost, normal equations, and the probabilistic view derived on the board.
+- [Lecture 03 — The Linear Model I](https://www.youtube.com/watch?v=FIbVs5GbBlQ) — **Yaser Abu-Mostafa (Caltech CS156, "Learning From Data")** — the canonical lecture: the linear model, the squared-error objective, and the one-step analytic solution derived on the board.
+- [Linear Regression in Python — Machine Learning From Scratch 02](https://www.youtube.com/watch?v=4swNt7PiamQ) — **Patrick Loeber** — builds the whole estimator in NumPy (gradient of the MSE, the update loop, prediction) with no library shortcuts; the fastest way to make the math executable.
 
 **Interactive & visual**:
 - [MLU-Explain: Linear Regression](https://mlu-explain.github.io/linear-regression/) — **Amazon (Jared Wilber)** — fully interactive: drag points, watch the fit, residuals, and R² update live.

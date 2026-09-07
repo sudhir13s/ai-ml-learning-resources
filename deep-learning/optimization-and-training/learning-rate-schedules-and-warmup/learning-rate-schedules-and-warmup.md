@@ -6,7 +6,7 @@ level: intermediate
 built_from: ["optimizers", "backpropagation", "gradient-descent"]
 interview_frequency: high
 template: concept-deep
-updated: 2026-06-22
+updated: 2026-09-07
 tier: core
 est_minutes: 35
 title: "Learning-Rate Schedules & Warmup"
@@ -42,6 +42,7 @@ This is a big topic, so here is the full map we'll cover — each is a section b
 4. **Warmup** — what it is and *why* it works (the Adam-variance argument, large batches, transformers).
 5. **Warmup + cosine** — the assembled LLM recipe.
 6. **The Noam / inverse-sqrt schedule** — derived from `Attention Is All You Need`.
+6b. **Warmup-stable-decay (WSD)** — the budget-agnostic three-phase schedule that took over 2025 pretraining.
 7. **Cyclical, one-cycle, and super-convergence** — Smith's LR-up-then-down recipes.
 8. **The LR-range test** — find the peak LR cheaply in one short sweep.
 9. **Warm restarts (SGDR)** — cosine cycles that periodically jump back up.
@@ -258,6 +259,35 @@ Linear up to the peak at step 4000, then $\propto t^{-0.5}$ down. Notice $d_{\te
 
 ---
 
+## Warmup-stable-decay (WSD): the schedule that replaced cosine in 2025 pretraining
+
+Cosine has one structural defect that only bites at frontier scale: **you must fix the total budget $T$ before step 1.** Stop early and you stop mid-slope, at a learning rate far above the value the model would have annealed to — the checkpoint is measurably worse than a run that had been *planned* to end there. Want to train longer? The whole curve is wrong and you effectively restart.
+
+**Warmup-stable-decay** (WSD, introduced with **MiniCPM**, Hu et al. 2024) removes the dependency by splitting the run into three phases instead of two:
+
+$$
+\eta(t)=
+\begin{cases}
+\eta_{\max}\,\dfrac{t}{T_{\text{warm}}}, & t< T_{\text{warm}} \quad(\textbf{warmup})\\[1.5ex]
+\eta_{\max}, & T_{\text{warm}}\le t< T-T_{\text{decay}} \quad(\textbf{stable})\\[1.5ex]
+\eta_{\max}\cdot f\!\left(\dfrac{t-(T-T_{\text{decay}})}{T_{\text{decay}}}\right), & t\ge T-T_{\text{decay}} \quad(\textbf{decay})
+\end{cases}
+$$
+
+with $f$ a decreasing function from 1 to ~0 (linear, cosine, or the exponential $0.5^{x}$ MiniCPM used), and a **short** decay — typically 10–20% of total steps.
+
+**What the three phases buy you:**
+
+- **The stable phase is budget-agnostic.** Every checkpoint in it is a valid *starting* point, so you can extend the run, swap the data mixture, or fork several finishes from one trunk — none of which cosine allows.
+- **The decay phase is where the loss actually drops.** The characteristic WSD loss curve is flat-ish through the stable phase then falls off a cliff during annealing, reaching cosine-quality loss for the same token budget.
+- **Annealing is the natural place for high-quality data.** Because the decay is short and late, teams put their best curated tokens (and often instruction-style data) there — the "mid-training" / data-annealing stage that Llama 3, MiniCPM, and OLMo 2 all describe.
+
+> **Note:** the interview-grade contrast in one line: **cosine needs the budget up front and gives you one usable endpoint; WSD holds a reusable trunk at constant LR and buys the same final loss with a short anneal — which is why 2025-era pretraining recipes and every "continued pretraining" pipeline default to it.** Cosine remains the right choice for a fixed-budget fine-tune, where its flat-bottom landing is still slightly better.
+
+**The third option: no schedule at all.** *Schedule-Free* optimization (Defazio et al. 2024) reaches schedule-quality results with a constant learning rate by replacing the decay with an averaging of the iterates — no $T$, no decay phase, one fewer thing to tune. It is a genuine alternative rather than the default, but naming it shows you know the schedule is a *proxy* for iterate averaging, not a law.
+
+---
+
 ## Cyclical, one-cycle, and super-convergence
 
 Leslie Smith took schedules in a different, counterintuitive direction: instead of only ever *decaying* the rate, **cycle it up and down**.
@@ -356,7 +386,8 @@ Boil it down to what you'd actually do:
 - **Large-batch / multi-GPU training:** apply the **linear scaling rule** to set the peak LR, and **always warm up** (the bigger the peak, the more warmup you need).
 - **Training a vision model fast, fixed budget:** **one-cycle**, peak from the LR-range test. Reach for super-convergence.
 - **Plain SGD on a small model, no rush:** **step decay** (drop ×10 a couple of times) or a single **cosine** decay is fine; warmup is often skippable.
-- **Open-ended training with no fixed $T$:** **inverse-sqrt (Noam)** or **warm restarts** — both make sense without a committed endpoint.
+- **Open-ended training with no fixed $T$:** **WSD** (warmup → constant → short anneal) is the 2025 default; **inverse-sqrt (Noam)** or **warm restarts** are the older answers. All three make sense without a committed endpoint.
+- **Pretraining you may extend, fork, or change the data mixture on:** **WSD** — the constant-LR trunk is the only phase you can safely branch from.
 - **Always, first:** run an **LR-range test** to set the peak. It's one cheap run and it removes the biggest guess.
 
 ```mermaid

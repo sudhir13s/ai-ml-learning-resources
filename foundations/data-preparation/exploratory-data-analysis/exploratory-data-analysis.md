@@ -5,7 +5,7 @@ parent: "02-data-preprocessing"
 level: beginner
 built_from: ["python", "pandas", "descriptive-statistics"]
 interview_frequency: high
-updated: 2026-06-20
+updated: 2026-09-07
 tier: core
 est_minutes: 10
 title: "Exploratory Data Analysis (EDA)"
@@ -22,39 +22,39 @@ data-entry errors, class imbalance, suspicious correlations. Interviewers ask "h
 new dataset?"; a structured EDA answer (univariate → bivariate → multivariate, plus quality checks) signals
 real applied experience.
 
-**⭐ Start here — suggested path:**
+**Start here — suggested path:**
 
-1. **See the workflow** — watch [EDA Univariate Analysis](https://www.youtube.com/watch?v=4HyTlbHUKSw). *Shows the first pass: one variable at a time, distributions and counts.*
-2. **Add relationships** — watch [EDA Bivariate & Multivariate](https://www.youtube.com/watch?v=6D3VtEfCw7w). *How features relate to each other and to the target.*
+1. **See the workflow** — watch [Exploratory Data Analysis with Pandas](https://www.youtube.com/watch?v=xi0vhXFPegw) — **Rob Mulla**. *A full first pass on a real dataset: shape, types, missingness, one variable at a time, then relationships.*
+2. **Read one plot properly** — watch [StatQuest: Histograms, Clearly Explained](https://www.youtube.com/watch?v=qBigTkBLU6g). *Bin width changes the story a distribution tells; knowing that keeps the first pass honest.*
 3. **Get the mindset** — read [R4DS — Exploratory Data Analysis](https://r4ds.had.co.nz/exploratory-data-analysis.html). *The canonical "ask questions about your data" framework (language-agnostic).*
 4. **Practice on real data** — do [Kaggle: Pandas](https://www.kaggle.com/learn/pandas). *Builds the muscle memory of slicing/grouping/aggregating you need for EDA.*
 5. **Make plots speak** — skim the [Seaborn tutorial](https://seaborn.pydata.org/tutorial.html). *Distribution, relational, and categorical plots that reveal structure fast.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [Kaggle Learn — Pandas](https://www.kaggle.com/learn/pandas) — **Kaggle** — short, hands-on; the data-wrangling skills EDA is built on.
-- [Data Analysis with Python](https://www.freecodecamp.org/learn/data-analysis-with-python/) — **freeCodeCamp** — free certification covering NumPy/Pandas/visualization end to end.
+- [Kaggle Learn — Data Visualization](https://www.kaggle.com/learn/data-visualization) — **Kaggle** — short, hands-on lessons on the plots an exploratory pass actually produces.
+- [scikit-learn MOOC — the predictive modelling pipeline](https://inria.github.io/scikit-learn-mooc/) — **INRIA / scikit-learn core developers** — starts where exploration ends: what you learned about the data, encoded into a pipeline.
 
-## 🎥 Videos
-- [EDA using Univariate Analysis](https://www.youtube.com/watch?v=4HyTlbHUKSw) — **CampusX** — the first EDA pass: distributions, counts, summary stats per column.
-- [EDA using Bivariate & Multivariate Analysis](https://www.youtube.com/watch?v=6D3VtEfCw7w) — **CampusX** — feature–feature and feature–target relationships.
-- [Descriptive vs Inferential Statistics](https://www.youtube.com/watch?v=tPhzDKjQBpo) — **CampusX** — the stats vocabulary that EDA summaries rely on.
-- [Advance House Price — EDA Part 1](https://www.youtube.com/watch?v=ioN1jcWxbv8) — **Krish Naik** — a full applied EDA walkthrough on a real Kaggle dataset.
+## Videos
+- [Exploratory Data Analysis with Pandas](https://www.youtube.com/watch?v=xi0vhXFPegw) — **Rob Mulla** — a Kaggle Grandmaster's full first pass on a real dataset: shape, dtypes, missingness, distributions, then relationships.
+- [StatQuest: Histograms, Clearly Explained](https://www.youtube.com/watch?v=qBigTkBLU6g) — **StatQuest with Josh Starmer** — how bin width decides what a distribution appears to say; the most misread plot in every first EDA.
+- [Pandas Tutorials (full playlist)](https://www.youtube.com/playlist?list=PL-osiE80TeTsWmV9i9c58mdDCSskIFdDS) — **Corey Schafer** — the slicing, grouping and aggregation that every exploratory pass is made of.
 
-## 📄 Key Papers
+## Key Papers
 - [The Future of Data Analysis](https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-33/issue-1/The-Future-of-Data-Analysis/10.1214/aoms/1177704711.full) — **John W. Tukey (1962)** — the manifesto that launched EDA as a discipline; free full text on Project Euclid.
 - [Tidy Data](https://vita.had.co.nz/papers/tidy-data.pdf) — **Hadley Wickham (2014)** — why a consistent data layout makes EDA and modeling dramatically easier.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [R for Data Science — Exploratory Data Analysis](https://r4ds.had.co.nz/exploratory-data-analysis.html) — **Wickham & Grolemund** — the definitive "questions-first" EDA framework, fully open.
 - [NIST/SEMATECH e-Handbook — EDA](https://www.itl.nist.gov/div898/handbook/eda/eda.htm) — **NIST** — rigorous, free reference on EDA techniques and assumptions.
 - [Seaborn tutorial](https://seaborn.pydata.org/tutorial.html) — **Seaborn docs** — the visualization grammar (distribution/relational/categorical) for EDA.
 - [pandas — Getting started tutorials](https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html) — **pandas docs** — official, free, task-oriented intro to exploring data.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Python Data Science Handbook — **Ch. 3 (Pandas) & Ch. 4 (Matplotlib)**](https://jakevdp.github.io/PythonDataScienceHandbook/) — **Jake VanderPlas** — the free, runnable NumPy/Pandas/visualization reference.
 - [R for Data Science — **Ch. 7 "Exploratory Data Analysis"**](https://r4ds.had.co.nz/exploratory-data-analysis.html) — **Wickham & Grolemund** — concepts transfer directly to Python.
 
-## 🔗 In this platform
+## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 0.02 Distributions & the Gaussian](/ai-ml/ai-ml-intuitions/foundational-mental-models/probability-and-belief/distributions-and-gaussians-intuition) · [0.03 Expectation, Variance, Covariance](/ai-ml/ai-ml-intuitions/foundational-mental-models/probability-and-belief/expectation-variance-and-covariance-intuition)
 - Next concepts: [02 Feature Scaling & Normalization](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/feature-scaling-and-normalization/feature-scaling-and-normalization) · [05 Outlier Detection & Treatment](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/outlier-detection-and-treatment/outlier-detection-and-treatment)
 - Related domain: [04. Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)

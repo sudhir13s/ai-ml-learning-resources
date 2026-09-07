@@ -24,7 +24,7 @@ regression, SVMs, LASSO) and "no global guarantees" (deep nets). Interviewers as
 convex, how to prove convexity (PSD Hessian, Jensen's inequality, composition rules), and why
 convexity guarantees a unique global optimum.
 
-**⭐ Start here — suggested path:**
+**Start here — suggested path:**
 
 1. **What & why** — watch [Visually Explained: Convexity & Duality](https://www.youtube.com/watch?v=d0CF3d5aEGc) and [What is Mathematical Optimization?](https://www.youtube.com/watch?v=AM6BY4btj-M). *The geometric "below-the-chord" picture and why it matters.*
 2. **The definitions** — read [Boyd & Vandenberghe Ch. 2 (Convex Sets) & Ch. 3 (Convex Functions)](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf). *The canonical free source: convex sets/functions, first- and second-order conditions.*
@@ -32,29 +32,29 @@ convexity guarantees a unique global optimum.
 4. **ML connection** — read MML Ch. 7 (Continuous Optimization). *Convexity, gradient descent, and constrained problems in an ML context.*
 5. **Tie to losses** — note which ML losses are convex in their parameters (linear/logistic regression, SVM hinge) vs not (neural nets). *This framing recurs in interviews.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [Stanford EE364a — Convex Optimization I](https://web.stanford.edu/class/ee364a/) — **Stephen Boyd (Stanford)** — the definitive course; lectures + slides + the free textbook.
 - [MML book companion — Ch. 7 (Continuous Optimization)](https://mml-book.github.io/) — **Deisenroth et al.** — convexity and optimization scoped for ML.
 
-## 🎥 Videos
+## Videos
 - [Convexity and The Principle of Duality](https://www.youtube.com/watch?v=d0CF3d5aEGc) — **Visually Explained** — crisp geometric intuition for convex functions.
 - [What Is Mathematical Optimization?](https://www.youtube.com/watch?v=AM6BY4btj-M) — **Visually Explained** — frames why convex problems are tractable.
 - [Convex Optimization I — Lecture 1](https://www.youtube.com/watch?v=McLq1hEq3UY) — **Stephen Boyd (Stanford)** — the authoritative introduction.
 - [Gradient descent, how neural networks learn | Ch. 2](https://www.youtube.com/watch?v=IHZwWFHWa-w) — **3Blue1Brown** — contrasts the convex bowl with the non-convex landscapes of deep nets.
 
-## 📄 Key Papers
+## Key Papers
 - [Convex Optimization — Ch. 2–3 (Convex Sets & Functions)](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf) — **Boyd & Vandenberghe** — the canonical reference; definitions, conditions, and operations preserving convexity (free PDF).
 - [MML book — Ch. 7 (Continuous Optimization)](https://mml-book.github.io/book/mml-book.pdf) — **Deisenroth, Faisal & Ong** — convexity, gradient descent, and constrained optimization for ML.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [CS231n — Optimization notes](https://cs231n.github.io/optimization-1/) — **Stanford** — convex vs non-convex loss landscapes in deep learning.
 - [EE364a — Convex sets & functions lecture slides](https://web.stanford.edu/class/ee364a/lectures.html) — **Stephen Boyd (Stanford)** — concise free slides for self-study.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Convex Optimization — **Ch. 2–5**](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf) — **Boyd & Vandenberghe** — convex sets, functions, problems, and duality (free PDF).
 - [Mathematics for Machine Learning — **Ch. 7 (Continuous Optimization)**](https://mml-book.github.io/book/mml-book.pdf) — **Deisenroth et al.** — convexity in the ML optimization chapter.
 
-## 🔗 In this platform
+## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 2.05 Gradient Descent & SGD](/ai-ml/ai-ml-intuitions/learning-and-optimization/first-order-optimization/gradient-descent-and-stochastic-gradient-descent-intuition)
 - Curriculum context: [Maths for AI-ML — Phase 5 (Optimization for ML/DL)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
 - Prereqs: [10 Jacobian & Hessian](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/jacobian-and-hessian/jacobian-and-hessian) (PSD Hessian ⇒ convex) · Next: [13 Gradient Descent — theory](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/gradient-descent-theory/gradient-descent-theory) · [14 Lagrange Multipliers](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/lagrange-multipliers-constrained-optimization/lagrange-multipliers-constrained-optimization)

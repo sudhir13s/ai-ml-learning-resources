@@ -5,7 +5,7 @@ parent: "08-reinforcement-learning"
 level: advanced
 built_from: ["policy-gradients-reinforce", "temporal-difference-learning"]
 interview_frequency: high
-updated: 2026-06-20
+updated: 2026-09-07
 tier: core
 est_minutes: 10
 title: "Actor-Critic (A2C / A3C)"
@@ -31,30 +31,30 @@ variance with λ, and what A3C's asynchronous parallel actors buy you (decorrela
 3. **Read the sources** — [A3C paper](https://arxiv.org/abs/1602.01783) then [GAE paper](https://arxiv.org/abs/1506.02438). *Asynchronous advantage actor-critic, and generalized advantage estimation (the λ knob).*
 4. **Code it** — follow [Spinning Up: Vanilla Policy Gradient (with value baseline)](https://spinningup.openai.com/en/latest/algorithms/vpg.html). *VPG is actor-critic with a GAE critic — implementing it makes A2C concrete.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [UCL Course on RL — Lecture 7: Policy Gradient](https://www.davidsilver.uk/teaching/) — **David Silver (DeepMind)** — actor-critic derived from the policy-gradient theorem.
-- [Berkeley CS285 — Actor-Critic Algorithms](https://rail.eecs.berkeley.edu/deeprlcourse/) — **UC Berkeley (Sergey Levine)** — advantage estimation, bias/variance, and GAE in depth.
+- [Berkeley CS285 — Actor-Critic Algorithms](http://rail.eecs.berkeley.edu/deeprlcourse/) — **UC Berkeley (Sergey Levine)** — advantage estimation, bias/variance, and GAE in depth.
 - [Spinning Up — Vanilla Policy Gradient](https://spinningup.openai.com/en/latest/algorithms/vpg.html) — **OpenAI** — actor-critic with a GAE value baseline, with pseudocode and code.
 
-## 🎥 Videos
+## Videos
 - [RL Lecture 7: Policy Gradient Methods](https://www.youtube.com/watch?v=KHZVXao4qXs) — **David Silver (DeepMind)** — REINFORCE → actor-critic, baselines, and the advantage.
-- [Deep RL Bootcamp Lecture 4A: Policy Gradients](https://www.youtube.com/watch?v=S_gwYj1Q-44) — **Pieter Abbeel (Berkeley)** — the baseline/advantage construction that defines actor-critic.
+- [Deep RL Bootcamp — Core Lecture 4a: Policy Gradients and Actor-Critic](https://sites.google.com/view/deep-rl-bootcamp/lectures) — **Pieter Abbeel (Berkeley Deep RL Bootcamp, 2017)** — the baseline/advantage construction that defines actor-critic; video and slides on the official bootcamp page.
 - [An Introduction to Policy Gradient Methods](https://www.youtube.com/watch?v=5P7I-xPq8u8) — **Arxiv Insights** — visual intuition for the critic reducing gradient variance.
 - [An Introduction to Reinforcement Learning](https://www.youtube.com/watch?v=JgvyzIkgxF0) — **Arxiv Insights** — situates actor-critic between value-based and policy-based methods.
 
-## 📄 Key Papers
+## Key Papers
 - [Asynchronous Methods for Deep RL (A3C)](https://arxiv.org/abs/1602.01783) — **Mnih et al. (2016)** — asynchronous advantage actor-critic; parallel actors replace the replay buffer.
 - [High-Dimensional Continuous Control Using Generalized Advantage Estimation (GAE)](https://arxiv.org/abs/1506.02438) — **Schulman et al. (2016)** — the λ-controlled advantage estimator used by A2C/PPO.
 - [Actor-Critic Algorithms](https://proceedings.neurips.cc/paper/1999/hash/6449f44a102fde848669bdd9eb6b76fa-Abstract.html) — **Konda & Tsitsiklis (2000)** — the foundational convergence theory.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [Policy Gradient Algorithms — Actor-Critic, A2C, A3C](https://lilianweng.github.io/posts/2018-04-08-policy-gradient/) — **Lilian Weng** — the actor-critic family derived in one open survey.
 - [Spinning Up — Vanilla Policy Gradient](https://spinningup.openai.com/en/latest/algorithms/vpg.html) — **OpenAI** — actor-critic with GAE, implemented.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Reinforcement Learning: An Introduction (2nd ed.) — **§13.5 "Actor–Critic Methods"**](http://incompleteideas.net/book/RLbook2020.pdf) — **Sutton & Barto** — the actor-critic update with a TD critic and the advantage view.
 - [Algorithms for Reinforcement Learning — **§4 (policy search & actor-critic)**](https://sites.ualberta.ca/~szepesva/papers/RLAlgsInMDPs.pdf) — **Csaba Szepesvári** — the estimation theory behind the critic.
 
-## 🔗 In this platform
+## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 6.02 Policy Gradients (REINFORCE)](/ai-ml/ai-ml-intuitions/decision-making-and-control/policy-learning/policy-gradients-intuition)
 - Prereq: [09 Policy Gradients (REINFORCE)](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/policy-learning/policy-gradients-reinforce/policy-gradients-reinforce) · Next: [11 TRPO](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/policy-learning/trust-region-policy-optimization-trpo/trust-region-policy-optimization-trpo) · [12 PPO](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/policy-learning/proximal-policy-optimization-ppo/proximal-policy-optimization-ppo)

@@ -3,7 +3,7 @@ id: "05-deep-learning/vanishing-exploding-gradients/references"
 topic: "Vanishing / Exploding Gradients — References"
 parent: "05-deep-learning/vanishing-exploding-gradients"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Vanishing / Exploding Gradients — references and further reading
@@ -20,8 +20,8 @@ updated: 2026-06-22
 **Videos**:
 - [Vanishing/Exploding Gradients (C2W1L10)](https://www.youtube.com/watch?v=qhXZsFVxGKo) — **DeepLearningAI (Andrew Ng)** — the clearest short explanation of why depth causes both failure modes.
 - [But what is backpropagation really doing?](https://www.youtube.com/watch?v=Ilg3gGewQ5U) — **3Blue1Brown** — the most visual account of how the gradient is built layer by layer (the product this page analyzes).
-- [Vanishing Gradient Problem, Quickly Explained](https://www.youtube.com/watch?v=8z3DFk4VxRo) — **Developers Hutt** — concise intuition for why gradients shrink through layers.
-- [Vanishing Gradient Problem in RNNs Explained](https://www.youtube.com/watch?v=KFUSJBPFsYs) — **Super Data Science** — why recurrence makes the problem acute, and what gating does.
+- [Lecture 6: Training Neural Networks I (activation saturation and dead gradients)](https://www.youtube.com/watch?v=wEoyxE0GP2M) — **Stanford University School of Engineering (CS231n)** — plots what a saturated sigmoid/tanh does to the local gradient and walks the init/activation choices that keep it alive.
+- [Long Short-Term Memory (LSTM), Clearly Explained](https://www.youtube.com/watch?v=YCzL96nL7j0) — **StatQuest (Josh Starmer)** — unrolls the recurrent multiply-by-the-same-weight chain to show exactly why recurrence explodes or vanishes, then shows the additive cell-state path that fixes it.
 
 **Interactive & visual**:
 - [Building makemore Part 3: Activations & Gradients, BatchNorm](https://www.youtube.com/watch?v=P6sfmUTpUmc) — **Andrej Karpathy** — diagnoses and fixes gradient pathologies *live in code*, plotting activation/gradient histograms layer by layer.
@@ -49,6 +49,7 @@ updated: 2026-06-22
 - [Dive into Deep Learning — §5.4 "Numerical Stability and Initialization"](https://d2l.ai/chapter_multilayer-perceptrons/numerical-stability-and-init.html) — **Zhang et al.** — both failure modes derived, with the init/activation fixes.
 - [Deep Learning — §8.2.5 "Cliffs and Exploding Gradients" + §10.7 "Long-Term Dependencies"](https://www.deeplearningbook.org/contents/optimization.html) — **Goodfellow, Bengio & Courville** — the rigorous analysis and gradient clipping.
 - [Neural Networks and Deep Learning — Ch. 5 "Why are deep nets hard to train?"](http://neuralnetworksanddeeplearning.com/chap5.html) — **Michael Nielsen** — the unstable-gradient problem explained from scratch.
+- [*Understanding Deep Learning* — Ch. 7 "Gradients and initialization"](https://udlbook.github.io/udlbook/) — **Simon J.D. Prince** — free PDF; runs the forward and backward variance recursions explicitly, so both failure modes fall out of one calculation.
 
 **In this platform**:
 - Concept page (full explanation): [Vanishing / Exploding Gradients](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients)

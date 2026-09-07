@@ -3,7 +3,7 @@ id: "03-supervised-learning/regression-metrics/references"
 topic: "Regression Metrics — References"
 parent: "03-supervised-learning/regression-metrics"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Regression Metrics — references and further reading
@@ -21,7 +21,7 @@ updated: 2026-06-22
 - [Linear Regression, Clearly Explained](https://www.youtube.com/watch?v=nk2CQITm_eo) — **StatQuest (Josh Starmer)** — residuals, fit, and R² introduced from scratch.
 - [The Main Ideas of Fitting a Line (Least Squares)](https://www.youtube.com/watch?v=PaFPbb66DxQ) — **StatQuest (Josh Starmer)** — why we square residuals (→ MSE/RMSE) rather than take absolutes.
 - [R-squared, Clearly Explained](https://www.youtube.com/watch?v=2AQKmw14mHM) — **StatQuest (Josh Starmer)** — the variance-explained interpretation, step by step.
-- [Quantile Regression](https://www.youtube.com/watch?v=s203ScSy8RM) — **ritvikmath** — pinball loss and predicting quantiles, drawn out clearly.
+- [Forecasting: Principles and Practice — the author's own overview](https://www.youtube.com/watch?v=7TglVxNgbKQ) — **Rob J. Hyndman (Monash)** — why scale-dependent errors (mean absolute error (MAE), root mean squared error (RMSE)) mislead across series, and what scaled errors fix; from the person who proposed the mean absolute scaled error (MASE).
 
 **Interactive & visual**:
 - [MLU-Explain: Linear Regression](https://mlu-explain.github.io/linear-regression/) — **Amazon** — drag points and watch residuals, R², and the fit update live.

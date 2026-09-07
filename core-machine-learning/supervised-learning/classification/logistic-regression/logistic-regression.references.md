@@ -3,7 +3,7 @@ id: "03-supervised-learning/logistic-regression/references"
 topic: "Logistic Regression — References"
 parent: "03-supervised-learning/logistic-regression"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Logistic Regression — references and further reading
@@ -22,6 +22,7 @@ updated: 2026-06-22
 - [Logistic Regression Details Pt 1: Coefficients](https://www.youtube.com/watch?v=vN5cNN2-HWE) — **StatQuest (Josh Starmer)** — coefficients as log-odds, the classic interview follow-up.
 - [Gradient Descent, Step-by-Step](https://www.youtube.com/watch?v=sDv4f4s2SB8) — **StatQuest (Josh Starmer)** — how the convex log-loss is actually minimized.
 - [Gradient descent, how neural networks learn](https://www.youtube.com/watch?v=IHZwWFHWa-w) — **3Blue1Brown** — why logistic regression is one neuron with a sigmoid.
+- [Logistic Regression in Python — Machine Learning From Scratch 03](https://www.youtube.com/watch?v=JDU3AzH3WKg) — **Patrick Loeber** — implements the sigmoid, the log-loss gradient, and the training loop in NumPy, turning the derivation into runnable code.
 
 **Interactive & visual**:
 - [MLU-Explain: Logistic Regression](https://mlu-explain.github.io/logistic-regression/) — **Amazon (Jared Wilber)** — fully interactive: move the boundary and watch probabilities and log-loss respond.

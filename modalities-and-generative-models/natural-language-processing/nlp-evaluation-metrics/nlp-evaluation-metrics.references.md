@@ -3,7 +3,7 @@ id: "06-nlp/evaluation-metrics/references"
 topic: "NLP Evaluation Metrics — References"
 parent: "06-nlp/evaluation-metrics"
 type: references
-updated: 2026-06-27
+updated: 2026-09-07
 ---
 
 # NLP Evaluation Metrics — references and further reading
@@ -22,10 +22,10 @@ updated: 2026-06-27
 - [BLEU Score (C5W3L06)](https://www.youtube.com/watch?v=DejHQYAGb7Q) — **Andrew Ng (DeepLearning.AI)** — the canonical BLEU explanation, n-gram precision and brevity penalty.
 - [What is the BLEU metric?](https://www.youtube.com/watch?v=M05L1DhFqcw) — **Hugging Face** — concise official walkthrough with a worked example.
 - [What is the ROUGE metric?](https://www.youtube.com/watch?v=TMshhnrEXlg) — **Hugging Face** — recall-oriented summarization scoring, ROUGE-N and ROUGE-L.
-- [Understanding BLEU Score in Machine Translation](https://www.youtube.com/watch?v=zZfTFXUMUxc) — **Developers Hutt** — a fully worked BLEU example including the brevity penalty.
-- [BERTScore explained](https://www.youtube.com/watch?v=Tkc2vfvBSPg) — **Connor Shorten / Henry AI Labs** — embedding-based scoring and why it beats BLEU on paraphrase.
+- [CMU Neural Nets for NLP 2021 (6): Conditioned Generation](https://www.youtube.com/watch?v=3LdDiRM9xE8) — **Graham Neubig (CMU)** — generation evaluation derived where it belongs, next to the decoding algorithm being scored.
+- [CMU Advanced NLP 2024 (17): Evaluation and Multimodal](https://www.youtube.com/watch?v=iEinTXrwK8A) — **Graham Neubig (CMU)** — the 2024 evaluation landscape: reference-based metrics, learned metrics, and LLM judges with their known biases.
 - [The Bootstrap (resampling for confidence intervals)](https://www.youtube.com/watch?v=Xz0x-8-cgaQ) — **StatQuest (Josh Starmer)** — the resampling intuition behind the paired-bootstrap significance test used on this page.
-- [LLM Evaluation & LLM-as-a-Judge](https://www.youtube.com/watch?v=fh70t6hrG-Y) — **Weights & Biases** — how to run an LLM judge and validate it against human preference.
+- [Evaluating language models using perplexity (NLP817 3.5)](https://www.youtube.com/watch?v=72eVFb7USKs) — **Herman Kamper (Stellenbosch)** — perplexity derived from cross-entropy rather than quoted, including what a per-token number does and does not tell you.
 
 **Courses (free)**:
 - [Hugging Face LLM Course — evaluation & metrics](https://huggingface.co/learn/llm-course/chapter7/4) — **Hugging Face** — compute BLEU/ROUGE/F1 in code alongside training.

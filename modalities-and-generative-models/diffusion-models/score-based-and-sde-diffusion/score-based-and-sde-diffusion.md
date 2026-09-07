@@ -5,7 +5,7 @@ parent: "10-generative-ai"
 level: advanced
 built_from: ["diffusion-ddpm", "gradients", "stochastic-processes", "langevin-dynamics"]
 interview_frequency: medium
-updated: 2026-06-20
+updated: 2026-09-07
 tier: core
 est_minutes: 10
 title: "Score-Based & SDE Diffusion"
@@ -44,11 +44,14 @@ deterministic, invertible map.
 - [Diffusion and Score-Based Generative Models](https://www.youtube.com/watch?v=wMmqCMwuM2Q) — **Yang Song (MIT CBMM)** — the author's lecture: score matching → SDE → probability-flow ODE.
 - [Diffusion Models From Scratch | Score-Based Generative Models Explained](https://www.youtube.com/watch?v=B4oHJpEJBAA) — **Outlier** — links the score view to noise-prediction, with clear animations.
 - [What are Diffusion Models?](https://www.youtube.com/watch?v=fbLgFrlTnGU) — **Ari Seff** — the diffusion mental model the score view builds on; useful warm-up.
-- [Diffusion Models | Paper Explanation | Math Explained](https://www.youtube.com/watch?v=HoKDTa5jHvg) — **Outlier** — the DDPM math whose loss is provably the denoising-score-matching loss.
+- [MIT 6.S184 Lecture 03A — Score Functions](https://www.youtube.com/watch?v=ngC3QnYSVNM) — **Peter Holderrieth (MIT)** — the 2026 course treatment: the score as the object that turns an ordinary differential equation into a stochastic one.
+- [Stanford CME296: Diffusion & Large Vision Models](https://www.youtube.com/playlist?list=PLoROMvodv4rNdy8rt2rZ4T2xM0OjADnfu) — **Stanford Online** — the current Stanford course; the score/SDE material in its modern, vision-model context.
 
 ## Key Papers
 - [Generative Modeling by Estimating Gradients of the Data Distribution (NCSN)](https://arxiv.org/abs/1907.05600) — **Song & Ermon (2019)** — score matching across noise scales + annealed Langevin sampling.
 - [Score-Based Generative Modeling through Stochastic Differential Equations](https://arxiv.org/abs/2011.13456) — **Song et al. (2021)** — the SDE framework: forward/reverse SDEs, VE/VP, and the probability-flow ODE.
+- [Flow Matching for Generative Modeling](https://arxiv.org/abs/2210.02747) — **Lipman et al. (2023)** — generalizes the probability-flow ODE: regress a velocity field directly, no forward SDE or score required.
+- [Flow Matching Guide and Code](https://arxiv.org/abs/2412.06264) — **Lipman et al. (2024)** — the authors' long-form 2024 guide, the best single place to see how score-based diffusion sits inside the flow-matching picture.
 
 ## Articles / Blogs (free, no paywall)
 - [Generative Modeling by Estimating Gradients of the Data Distribution](https://yang-song.net/blog/2021/score/) — **Yang Song** — the definitive author blog: scores, Langevin, the SDE unification, with code.
@@ -64,4 +67,5 @@ deterministic, invertible map.
 - Prereq: [05 Diffusion Models (DDPM)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/diffusion-models-ddpm/diffusion-models-ddpm) (the equivalent noise-prediction view)
 - Next concepts: [07 Latent Diffusion & Stable Diffusion](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/latent-diffusion-stable-diffusion/latent-diffusion-stable-diffusion) · [13 Sampling & Guidance Techniques](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/sampling-and-guidance-techniques/sampling-and-guidance-techniques) (DDIM / ODE samplers)
 - Compare with: [09 Energy-Based Models](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/energy-based-models/energy-based-models) (also score/energy-based, sampled by Langevin)
+- Where this went in 2025–26: [Flow Matching & Rectified Flow](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/flow-matching-and-rectified-flow/flow-matching-and-rectified-flow) — the probability-flow ODE generalized into the training objective itself
 - Field overview: [9. Generative AI](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/readme)

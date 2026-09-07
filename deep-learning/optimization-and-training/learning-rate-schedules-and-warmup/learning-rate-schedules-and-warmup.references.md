@@ -3,7 +3,7 @@ id: "05-deep-learning/lr-schedules-warmup/references"
 topic: "Learning-Rate Schedules & Warmup — References"
 parent: "05-deep-learning/lr-schedules-warmup"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Learning-Rate Schedules & Warmup — references and further reading
@@ -20,7 +20,7 @@ updated: 2026-06-22
 **Videos**:
 - [Learning Rate Decay (C2W2L09)](https://www.youtube.com/watch?v=QzulmoOg2JE) — **DeepLearning.AI (Andrew Ng)** — the clearest short motivation for decaying the LR over time.
 - [PyTorch LR Scheduler — Adjust the Learning Rate for Better Results](https://www.youtube.com/watch?v=81NJgoR5RfY) — **Patrick Loeber** — hands-on with PyTorch's built-in schedulers, end to end.
-- [The Learning Rate Finder (fast.ai)](https://www.youtube.com/watch?v=k1GIEkzQ8qc) — **Jeremy Howard (fast.ai)** — the LR-range test and one-cycle, from the person who popularized them.
+- [Lecture 7: Training Neural Networks II (LR schedules, annealing)](https://www.youtube.com/watch?v=_JB0AO7QxSA) — **Stanford University School of Engineering (CS231n, Fei-Fei Li / Johnson / Yeung)** — walks step, exponential, and 1/t decay against the loss curves they produce, then ties the schedule to the optimizer it modulates.
 - [Optimization for Deep Learning (Momentum, RMSProp, Adam)](https://www.youtube.com/watch?v=NE88eqLngkg) — **DeepBean** — situates schedules alongside the adaptive optimizers they modulate.
 - [Let's reproduce GPT-2 (124M)](https://www.youtube.com/watch?v=l8pRSuU81PU) — **Andrej Karpathy** — implements warmup + cosine decay in a real GPT training loop (the recipe in practice).
 
@@ -44,10 +44,14 @@ updated: 2026-06-22
 - [Accurate, Large Minibatch SGD: Training ImageNet in 1 Hour](https://arxiv.org/abs/1706.02677) — **Goyal et al. (2017)** — the **linear scaling rule** + gradual warmup for large batches.
 - [On the Variance of the Adaptive Learning Rate and Beyond (RAdam)](https://arxiv.org/abs/1908.03265) — **Liu et al. (2020)** — *why* warmup is needed: Adam's second-moment estimate has pathologically high variance early.
 - [Decoupled Weight Decay Regularization (AdamW)](https://arxiv.org/abs/1711.05101) — **Loshchilov & Hutter (2019)** — why weight decay is scaled by the (scheduled) learning rate, and the coupling that implies.
+- [MiniCPM: Unveiling the Potential of Small Language Models with Scalable Training Strategies](https://arxiv.org/abs/2404.06395) — **Hu et al. (2024)** — introduces the **warmup-stable-decay (WSD)** schedule: a constant-LR trunk plus a short anneal, which decouples the schedule from the token budget and is why 2025 pretraining recipes stopped defaulting to cosine.
+- [The Road Less Scheduled (Schedule-Free)](https://arxiv.org/abs/2405.15682) — **Defazio et al. (2024)** — matches tuned-schedule performance at a constant learning rate by averaging iterates; the cleanest evidence that a decay schedule is a proxy for averaging, not a law.
+- [Fantastic Pretraining Optimizers and Where to Find Them](https://arxiv.org/abs/2509.02046) — **Wen, Hall, Ma & Liang (2025, Stanford)** — a controlled 2025 sweep in which every optimizer is re-tuned per budget; shows how much the reported gains of new optimizers depend on the schedule and tuning protocol, not the update rule.
 
 **Books (free chapters)**:
 - [Dive into Deep Learning — §12.11 "Learning Rate Scheduling"](https://d2l.ai/chapter_optimization/lr-scheduler.html) — **Zhang et al.** — factor, multi-factor, and cosine schedules with warmup, with code.
 - [Deep Learning — §8.3 "Basic Algorithms" (learning-rate selection)](https://www.deeplearningbook.org/contents/optimization.html) — **Goodfellow, Bengio & Courville** — why the LR dominates and how decay schedules are chosen.
+- [*Understanding Deep Learning* — Ch. 6 "Fitting models"](https://udlbook.github.io/udlbook/) — **Simon J.D. Prince** — free PDF; §6.3–6.4 show what the step size does to the trajectory, which is the picture every schedule on this page is shaping over time.
 
 **In this platform**:
 - Concept page (full explanation): [Learning-Rate Schedules & Warmup](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/learning-rate-schedules-and-warmup/learning-rate-schedules-and-warmup)
