@@ -6,7 +6,7 @@ level: intermediate
 built_from: ["rnn-lstm-gru", "attention", "word-embeddings", "softmax"]
 interview_frequency: high
 template: concept-deep
-updated: 2026-06-27
+updated: 2026-09-07
 tier: core
 est_minutes: 45
 title: "Sequence-to-Sequence & Encoder–Decoder"
@@ -121,7 +121,7 @@ $$\mathcal{L} \;=\; -\sum_{t=1}^{T} \log P\big(y_t^{\star} \mid y_{<t}^{\star},\
 
 where $y^\star$ is the ground-truth target. (Note the $y_{<t}^\star$ — the *gold* prefix. Feeding the gold prefix during training is **teacher forcing**, a deceptively important choice we dissect below.)
 
-> **Source / derivation:** the per-token cross-entropy (negative log-likelihood) trained with the *gold* prefix $y_{<t}^\star$ is the maximum-likelihood objective of **Sutskever et al. (2014)** (§2) and **Cho et al. (2014)** (§2); feeding the gold prefix is **teacher forcing**, **Williams & Zipser (1989), [*A Learning Algorithm for Continually Running Fully Recurrent Neural Networks*](https://ieeexplore.ieee.org/document/6795228)** (Neural Computation 1(2)).
+> **Source / derivation:** the per-token cross-entropy (negative log-likelihood) trained with the *gold* prefix $y_{<t}^\star$ is the maximum-likelihood objective of **Sutskever et al. (2014)** (§2) and **Cho et al. (2014)** (§2); feeding the gold prefix is **teacher forcing**, **Williams & Zipser (1989), [*A Learning Algorithm for Continually Running Fully Recurrent Neural Networks*](https://doi.org/10.1162/neco.1989.1.2.270)** (Neural Computation 1(2)).
 
 > **Worked example 0 — trace the shapes through one forward pass.** Concrete numbers make the tensors stick. Take source length $S=4$, target length $T=3$, embedding $d=256$, hidden $H=512$, target vocab $|V_{\text{tgt}}|=30{,}000$, batch $B=1$.
 > - **Encoder.** Embed: $(B, S) \to (B, S, d) = (1, 4, 256)$. Run the GRU: the state sequence is $(1, 4, 512)$ and the final state $c = h_S$ is $(1, 512)$. (Bidirectional would give $(1, 4, 1024)$ and a $(1, 1024)$ final, projected back to $512$.)
@@ -245,7 +245,7 @@ The bright **diagonal band** is the model saying "to emit the $t$-th output digi
 
 There's a subtle training/inference mismatch lurking in the objective above, and it's a favorite interview probe.
 
-**Teacher forcing.** During *training*, when we compute $P(y_t \mid y_{<t}^\star, x)$, we feed the decoder the **ground-truth** previous token $y_{t-1}^\star$ — *not the token the model itself would have predicted.* This is **teacher forcing** ([Williams & Zipser, 1989](https://ieeexplore.ieee.org/document/6795228)). Why do it? Two big reasons:
+**Teacher forcing.** During *training*, when we compute $P(y_t \mid y_{<t}^\star, x)$, we feed the decoder the **ground-truth** previous token $y_{t-1}^\star$ — *not the token the model itself would have predicted.* This is **teacher forcing** ([Williams & Zipser, 1989](https://doi.org/10.1162/neco.1989.1.2.270)). Why do it? Two big reasons:
 
 1. **Speed / parallelism.** Because every step's input is the known gold token, all $T$ steps can be computed in **one parallel pass** (and in a Transformer decoder, with a causal mask, literally simultaneously). No need to run the slow autoregressive loop during training. This is also why a [KV cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) isn't used in training — the whole target is known up front.
 2. **Stable gradients.** Early in training the model's own predictions are garbage; if you fed them back, errors would compound and the decoder would rarely see a sensible prefix, making learning glacial. Feeding gold prefixes keeps it on a good trajectory.
@@ -277,7 +277,7 @@ The same two regimes, drawn — gold prefix vs the model's own, and where the er
 
 **Scheduled sampling** ([Bengio et al., 2015](https://arxiv.org/abs/1506.03099)) is the classic remedy: during training, **flip a coin each step** — with probability $\epsilon$ feed the gold token, with probability $1-\epsilon$ feed the model's *own* sampled token — and **anneal $\epsilon$ from 1 toward 0** over training. Early on it's pure teacher forcing (stable); later the model practices recovering from its own mistakes (robust). Other remedies: **sequence-level training** that optimizes the actual metric (BLEU) with RL or minimum-risk training so the model is scored on its *own* generations ([Ranzato et al., 2016](https://arxiv.org/abs/1511.06732)); and, in the Transformer era, large-scale pretraining largely *masks* the symptom because the model has seen so much text that off-distribution prefixes are rarer.
 
-> **Source / derivation:** **teacher forcing** is **Williams & Zipser (1989), [*A Learning Algorithm for Continually Running Fully Recurrent Neural Networks*](https://ieeexplore.ieee.org/document/6795228)**; **exposure bias** is named and analyzed in **Ranzato et al. (2016), [*Sequence Level Training with Recurrent Neural Networks*](https://arxiv.org/abs/1511.06732)** (§3); **scheduled sampling** (annealing $\epsilon$ from teacher-forced toward free-running) is **Bengio et al. (2015), [*Scheduled Sampling for Sequence Prediction with RNNs*](https://arxiv.org/abs/1506.03099)** (§2.4).
+> **Source / derivation:** **teacher forcing** is **Williams & Zipser (1989), [*A Learning Algorithm for Continually Running Fully Recurrent Neural Networks*](https://doi.org/10.1162/neco.1989.1.2.270)**; **exposure bias** is named and analyzed in **Ranzato et al. (2016), [*Sequence Level Training with Recurrent Neural Networks*](https://arxiv.org/abs/1511.06732)** (§3); **scheduled sampling** (annealing $\epsilon$ from teacher-forced toward free-running) is **Bengio et al. (2015), [*Scheduled Sampling for Sequence Prediction with RNNs*](https://arxiv.org/abs/1506.03099)** (§2.4).
 
 > **Worked example 3 — teacher forcing vs free-running, traced.** Suppose the gold target is `the black cat <eos>` and at step 3 the model wrongly assigns highest probability to "dog". Trace both regimes:
 > - **Teacher forcing (training):** step 4's input is the **gold** token "cat" regardless of the step-3 slip. The model's step-4 prediction is computed from a *correct* prefix `the black cat`, so the error doesn't propagate; the loss simply penalizes the bad step-3 distribution. Clean gradients, but the model never *practices* the situation it'll actually face.
@@ -488,7 +488,7 @@ no attention (1 vector) |       0.7% |       0.0%
 
 > **Note:** the headline is the gap. The **single context vector essentially cannot copy a 6-digit string** — 0.7% exact match — because it must squeeze the whole source through one fixed bucket. The **attention** model nails ~97% at length 6 and still ~95% at length 18 (*longer than it ever trained on*), because it reads the source afresh each step. This is the bottleneck, measured: not a modeling subtlety but a structural wall, and attention is the way through it. The script also prints the full accuracy-vs-length sweep (the curve in `s2s_bottleneck.png`), the alignment matrix (`s2s_alignment.png`), the by-hand attention step, and the greedy-vs-beam comparison — every number on this page comes from that one seeded run.
 
-> **Tip:** to *internalize* it, change `make_batch` so the target is the **reverse** of the source (a one-line edit) and re-run: the model still learns it, but the alignment heatmap turns from a diagonal into an *anti*-diagonal — proof attention is learning the structure you built into the data, not memorizing. To see it on a *real* task, the [PyTorch seq2seq-with-attention tutorial](https://docs.pytorch.org/tutorials/intermediate/seq2seq_translation_tutorial.html) and the [TensorFlow NMT-with-attention tutorial](https://www.tensorflow.org/text/tutorials/nmt_with_attention) both build a translating encoder–decoder end to end and plot the alignment matrices — the same picture, on French↔English.
+> **Tip:** to *internalize* it, change `make_batch` so the target is the **reverse** of the source (a one-line edit) and re-run: the model still learns it, but the alignment heatmap turns from a diagonal into an *anti*-diagonal — proof attention is learning the structure you built into the data, not memorizing. To see it on a *real* task, the [PyTorch seq2seq-with-attention tutorial](https://docs.pytorch.org/tutorials/intermediate/seq2seq_translation_tutorial.html) builds a translating encoder–decoder end to end and plot the alignment matrices — the same picture, on French↔English.
 
 ---
 

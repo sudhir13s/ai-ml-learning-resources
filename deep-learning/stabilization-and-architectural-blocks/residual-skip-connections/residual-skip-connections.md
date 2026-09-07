@@ -6,7 +6,7 @@ level: intermediate
 built_from: ["backpropagation", "cnns", "vanishing-exploding-gradients"]
 interview_frequency: high
 template: concept-deep
-updated: 2026-06-22
+updated: 2026-09-07
 tier: core
 est_minutes: 50
 title: "Residual / Skip Connections"
@@ -334,6 +334,17 @@ A quick concrete feel for the $\sqrt{L}$ growth: suppose each sublayer's contrib
 Contrast **post-norm**, which *does* renormalize the stream every layer (so magnitude stays bounded) — but pays for it with the obstructed highway and warmup sensitivity we just covered. So the trade is explicit: **post-norm bounds the scale but throttles the gradient; pre-norm frees the gradient but lets the scale drift** (cheaply fixed with one final norm). Modern large models almost universally take the pre-norm side of that trade, because a clean gradient highway through 100 layers is worth far more than tidy intermediate magnitudes.
 
 > **Note:** this is the same tension as pre- vs post-*activation* in ResNets, one level up. The field's verdict in both cases is identical: **protect the gradient highway, manage the scale separately.** Whenever you see a design choice about "where the norm goes relative to the add," that's the question being answered.
+
+### Residual scaling: how deep transformers manage that magnitude
+
+"Manage the scale separately" is not hand-waving — it is a specific, named family of tricks, and every very deep model uses one. All of them multiply *something* by a constant so the per-layer contribution stays small relative to the stream:
+
+- **Scale the branch output at init ($1/\sqrt{2L}$).** GPT-2 divides the initialization of each residual branch's *output projection* by $\sqrt{N}$ where $N$ is the number of residual layers. The reasoning falls straight out of the variance sum above: if you want the stream's variance after $L$ layers to stay $O(1)$ rather than $O(L)$, each contribution must have variance $O(1/L)$, so its weights scale by $1/\sqrt{L}$. (The "2" is because a transformer block contributes *two* residual branches — attention and feed-forward.) This is the single most common form and it costs nothing at runtime.
+- **LayerScale** (Touvron et al. 2021, CaiT) makes the factor **learnable**: $x_{\ell+1} = x_\ell + \operatorname{diag}(\lambda)\,F(x_\ell)$, with $\lambda$ initialized to something tiny like $10^{-4}$ or $10^{-6}$. Every block therefore *starts* as a near-exact identity and the network learns how much each branch is allowed to contribute, per channel. It is what made 24+ layer vision transformers trainable and it is now standard in ViT-family and ConvNeXt-family models.
+- **ReZero** (Bachlechner et al. 2020) is the same idea at its minimum: one **scalar** per branch, initialized to exactly **zero**, so the network begins as a literal identity map and the gates open only as training finds them useful.
+- **DeepNorm** (Wang et al. 2022) goes the other way and up-weights the **stream**: $x_{\ell+1} = \text{LN}(\alpha\,x_\ell + F(x_\ell))$ with a depth-dependent $\alpha>1$, plus a matching down-scale of the branch initialization. Making the identity term dominant restores post-norm's bounded magnitudes *and* a usable gradient path — which is how the paper trained a **1,000-layer** transformer.
+
+> **Tip:** the unifying sentence: **every deep-transformer stability trick makes the residual branch small at initialization, so the network starts as an identity and learns its way off it.** Zero-init the last BatchNorm γ (ResNet), scale the output projection by $1/\sqrt{2L}$ (GPT-2), scale by a learned $\lambda \approx 0$ (LayerScale), scale by a learned scalar $=0$ (ReZero), or up-weight the identity instead (DeepNorm) — five spellings of one idea. Naming the idea rather than the five spellings is what a strong answer sounds like.
 
 ---
 

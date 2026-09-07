@@ -3,7 +3,7 @@ id: "06-nlp/text-preprocessing/references"
 topic: "Text Preprocessing & Normalization — References"
 parent: "06-nlp/text-preprocessing"
 type: references
-updated: 2026-06-27
+updated: 2026-09-07
 ---
 
 # Text Preprocessing & Normalization — references and further reading
@@ -13,16 +13,17 @@ updated: 2026-06-27
 **Start here — suggested path**:
 1. **See the pipeline whole** — read [An Introduction to NLP](https://victorzhou.com/blog/intro-to-nlp/) (**Victor Zhou**). *The end-to-end picture of what each preprocessing step does, before the tools.*
 2. **Get the canonical definitions** — read [Speech and Language Processing, Ch. 2](https://web.stanford.edu/~jurafsky/slp3/2.pdf) (**Jurafsky & Martin**). *Normalization, tokenization, and edit distance in the standard textbook.*
-3. **Nail stemming vs lemmatization** — read [Stemming and lemmatization](https://nlp.stanford.edu/IR-book/html/htmledition/stemming-and-lemmatization-1.html) (**Manning, IR Book Ch. 2**), then watch [Stemming and Lemmatization](https://www.youtube.com/watch?v=HHAilAC3cXw) (**codebasics**). *The precise distinction interviewers probe, then seen in code.*
+3. **Nail stemming vs lemmatization** — read [Stemming and lemmatization](https://nlp.stanford.edu/IR-book/html/htmledition/stemming-and-lemmatization-1.html) (**Manning, IR Book Ch. 2**), then watch [Stems and lemmas (NLP817 2.5)](https://www.youtube.com/watch?v=DWsiL01hMwk) (**Herman Kamper**). *The precise distinction interviewers probe, then the morphology behind it.*
 4. **Understand Unicode normalization** — skim [UAX #15: Unicode Normalization Forms](https://unicode.org/reports/tr15/) (**Unicode Consortium**). *Why NFC vs NFKC matters and what each form does.*
 5. **Run a real pipeline** — work through [NLTK Book Ch. 3](https://www.nltk.org/book/ch03.html) and [spaCy linguistic features](https://spacy.io/usage/linguistic-features). *Tokenize, stem, lemmatize on raw text with two production libraries.*
 
 **Videos**:
-- [Stemming and Lemmatization: NLP Tutorial For Beginners](https://www.youtube.com/watch?v=HHAilAC3cXw) — **codebasics** — NLTK stemming vs spaCy lemmatization side by side in code; the clearest short take.
-- [NLP with spaCy & Python — Course for Beginners](https://www.youtube.com/watch?v=dIUTsFT2MeQ) — **freeCodeCamp.org (Dr. Sowmya Vajjala)** — modern spaCy-based preprocessing from scratch (tokenizing, lemmatizing, the pipeline).
-- [Natural Language Processing with Python & NLTK](https://www.youtube.com/watch?v=X2vAabgKiuM) — **freeCodeCamp.org** — long, thorough walkthrough of tokenizing, stopwords, stemming, and lemmatizing.
+- [Text normalisation and tokenisation (NLP817 2.2)](https://www.youtube.com/watch?v=Y2FBKCwww50) — **Herman Kamper (Stellenbosch)** — the lecture treatment: what each normalization choice decides, and what it silently throws away.
+- [Stems and lemmas (NLP817 2.5)](https://www.youtube.com/watch?v=DWsiL01hMwk) — **Herman Kamper (Stellenbosch)** — stemming vs lemmatization defined precisely, with the morphology that makes the distinction real.
+- [Byte-pair encoding (BPE) (NLP817 2.6)](https://www.youtube.com/watch?v=20xtCxAAkFw) — **Herman Kamper (Stellenbosch)** — the subword algorithm that replaced most of the classical pipeline, derived step by step.
+- [Let's build the GPT Tokenizer](https://www.youtube.com/watch?v=zduSFxRajkE) — **Andrej Karpathy** — builds byte-pair encoding from scratch and shows which preprocessing decisions (casing, whitespace, Unicode) still leak into modern models.
+- [CMU Advanced NLP 2024 (2): Representing Words](https://www.youtube.com/watch?v=F4ww_V6tA-w) — **Graham Neubig (CMU)** — where preprocessing sits in a 2024-era pipeline, and why most of it disappeared.
 - [Tokenization, Stemming, Lemmatization, Stopwords](https://www.youtube.com/watch?v=nxhCyeRR75Q) — **Machine Learning TV** — the full clean-then-classify preprocessing pipeline end to end.
-- [Text Processing — Tokenization, Stop Words, Stemming, Lemmatization (CS50 / Natural Language Processing)](https://www.youtube.com/watch?v=8u66Ava9P-Y) — **freeCodeCamp.org (David J. Malan, Harvard CS50 AI)** — preprocessing within a rigorous, university-grade NLP lecture; situates each step in the larger pipeline.
 
 **Interactive & tools**:
 - [spaCy 101 — linguistic features (interactive)](https://spacy.io/usage/spacy-101) — **Explosion AI** — see tokenization, lemmatization, and POS tagging on your own text with the displaCy visualizer.

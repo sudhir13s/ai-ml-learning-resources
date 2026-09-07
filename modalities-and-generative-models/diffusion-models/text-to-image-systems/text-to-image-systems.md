@@ -5,7 +5,7 @@ parent: "10-generative-ai"
 level: advanced
 built_from: ["diffusion-ddpm", "latent-diffusion", "conditional-cfg", "clip", "transformers"]
 interview_frequency: high
-updated: 2026-06-20
+updated: 2026-09-07
 tier: core
 est_minutes: 10
 title: "Text-to-Image Systems"
@@ -52,11 +52,16 @@ rendering).
 - [Hierarchical Text-Conditional Image Generation with CLIP Latents (DALL·E 2 / unCLIP)](https://arxiv.org/abs/2204.06125) — **Ramesh et al. (2022)** — diffusion prior to a CLIP image embedding + decoder.
 - [Photorealistic Text-to-Image Diffusion Models with Deep Language Understanding (Imagen)](https://arxiv.org/abs/2205.11487) — **Saharia et al. (2022)** — frozen T5 text encoder + cascaded super-resolution.
 - [GLIDE: Text-Guided Diffusion with CLIP/Classifier-Free Guidance](https://arxiv.org/abs/2112.10741) — **Nichol et al. (2022)** — the text-guided-diffusion precursor that established CFG for images.
+- [Scaling Rectified Flow Transformers for High-Resolution Image Synthesis (Stable Diffusion 3)](https://arxiv.org/abs/2403.03206) — **Esser et al. (2024)** — the 2024–26 shape of a text-to-image system: rectified-flow objective, MMDiT transformer, three text encoders including T5.
+- [Scalable Diffusion Models with Transformers (DiT)](https://arxiv.org/abs/2212.09748) — **Peebles & Xie (2023)** — the transformer backbone that replaced the U-Net in SD3, FLUX, and the video systems.
+- [Muse: Text-To-Image Generation via Masked Generative Transformers](https://arxiv.org/abs/2301.00704) — **Chang et al. (2023)** — the non-diffusion branch: parallel masked-token decoding over a discrete image tokenizer, an order of magnitude fewer forward passes.
 
 ## Articles / Blogs (free, no paywall)
 - [How DALL·E 2 Actually Works](https://www.assemblyai.com/blog/how-dall-e-2-actually-works/) — **AssemblyAI** — the clearest unCLIP walkthrough: CLIP, prior, decoder, upsamplers.
 - [How Imagen Actually Works](https://www.assemblyai.com/blog/how-imagen-actually-works/) — **AssemblyAI** — frozen T5 encoder, diffusion, and the super-resolution cascade.
 - [The Illustrated Stable Diffusion](https://jalammar.github.io/illustrated-stable-diffusion/) — **Jay Alammar** — the open-source system's components, visually.
+- [Announcing Black Forest Labs (FLUX.1)](https://bfl.ai/announcements/24-08-01-bfl) — **Black Forest Labs** — the release note for the FLUX family from the original Stable Diffusion authors: a 12B rectified-flow transformer, and the current open-weights reference point.
+- [Perspectives on diffusion](https://sander.ai/2023/07/20/perspectives.html) — **Sander Dieleman (Google DeepMind)** — the several equivalent ways to read a text-to-image model (denoiser, score, flow, autoregression in frequency), which is what makes the 2024–26 rectified-flow shift legible.
 
 ## Books (free, with chapters)
 - [Understanding Deep Learning — **Ch. 18 "Diffusion models"**](https://udlbook.github.io/udlbook/) — **Simon Prince** — free PDF; conditional/text-guided diffusion in the diffusion chapter.
@@ -67,4 +72,5 @@ rendering).
 - Prereq: [07 Latent Diffusion & Stable Diffusion](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/latent-diffusion-stable-diffusion/latent-diffusion-stable-diffusion) · [04 Conditional Generation & CFG](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/conditional-generation-and-classifier-free-guidance/conditional-generation-and-classifier-free-guidance) · [05 Diffusion Models (DDPM)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/diffusion-models-ddpm/diffusion-models-ddpm)
 - Related: [Deep Learning — Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture) (the text encoders) · [LLMs](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme)
 - Next concepts: [12 Evaluation of Generative Models](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/evaluation-of-generative-models/evaluation-of-generative-models) · [13 Sampling & Guidance Techniques](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/sampling-and-guidance-techniques/sampling-and-guidance-techniques)
+- Where these systems went in 2025–26: [Diffusion Transformers (DiT)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/diffusion-transformers-dit/diffusion-transformers-dit) · [Flow Matching & Rectified Flow](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/flow-matching-and-rectified-flow/flow-matching-and-rectified-flow) · [Video Diffusion Models](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/video-diffusion-models/video-diffusion-models) · [Consistency Models & Few-Step Generation](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/consistency-models-and-few-step-generation/consistency-models-and-few-step-generation)
 - Field overview: [9. Generative AI](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/readme)

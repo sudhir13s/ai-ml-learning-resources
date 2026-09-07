@@ -3,7 +3,7 @@ id: "07-computer-vision/object-detection/references"
 topic: "Object Detection — References"
 parent: "07-computer-vision/object-detection"
 type: references
-updated: 2026-07-03
+updated: 2026-09-07
 ---
 
 # Object Detection — references and further reading
@@ -23,11 +23,12 @@ updated: 2026-07-03
 - [mean Average Precision (mAP) explained](https://www.youtube.com/watch?v=FppOzcDvaDI) — **Pinecone (James Briggs)** — the clearest short walkthrough of IoU → precision/recall → the PR curve → AP → mAP.
 - [YOLO object detection explained](https://www.youtube.com/watch?v=svn9-xV7wjk) — **DeepBean** — grid cells, anchors, and the single-pass pipeline, built up step by step.
 - [Non-Maximum Suppression (NMS)](https://www.youtube.com/watch?v=VAo84c1hQX8) — **DeepBean** — the duplicate-removal algorithm and its crowded-scene failure mode, visually.
-- [What is the YOLO algorithm?](https://www.youtube.com/watch?v=ag3DLKsl2vk) — **codebasics** — an accessible, hands-on YOLO walkthrough for first exposure.
+- [Lecture 15: Object Detection (EECS 498)](https://www.youtube.com/watch?v=TB-fdISzpHQ) — **Michigan Online (Justin Johnson)** — the modern retelling of the whole lineage, with anchors, matching, and mAP derived rather than asserted.
+- [DETR: End-to-End Object Detection with Transformers (Paper Explained)](https://www.youtube.com/watch?v=T35ba_VXkMY) — **Yannic Kilcher** — bipartite matching and set prediction, the reformulation that deleted anchors and NMS.
 
 **Interactive & visual**:
 - [Ultralytics YOLO — run a detector in the browser / docs](https://docs.ultralytics.com/) — **Ultralytics** — train and run a modern YOLO detector end to end, fully open.
-- [Papers with Code — Object Detection](https://paperswithcode.com/task/object-detection) — **Papers with Code** — live leaderboards, datasets (COCO, PASCAL VOC), and code for the current state of the art (free).
+- [YOLO26 model docs](https://docs.ultralytics.com/models/yolo26/) — **Ultralytics** — the maintainer's page for the current YOLO generation: end-to-end NMS-free inference, with the speed/accuracy table for edge deployment.
 - [COCO dataset explorer](https://cocodataset.org/#explore) — **COCO** — browse the real annotated images and boxes the field is benchmarked on (the photo used in this chapter is COCO val2017).
 
 **Courses (free)**:
@@ -52,6 +53,8 @@ updated: 2026-07-03
 - [End-to-End Object Detection with Transformers (DETR)](https://arxiv.org/abs/2005.12872) — **Carion, Massa, Synnaeve, Usunier, Kirillov & Zagoruyko (2020)** — detection as set prediction, removing anchors and NMS.
 - [The PASCAL Visual Object Classes (VOC) Challenge](http://host.robots.ox.ac.uk/pascal/VOC/pubs/everingham10.pdf) — **Everingham, Van Gool, Williams, Winn & Zisserman (2010)** — the AP / mAP evaluation protocol and IoU-matching rule.
 - [Microsoft COCO: Common Objects in Context](https://arxiv.org/abs/1405.0312) — **Lin, Maire, Belongie, Hays, Perona, Ramanan, Dollár & Zitnick (2014)** — the benchmark and the stricter mAP@[.5:.95] metric.
+- [DETRs Beat YOLOs on Real-time Object Detection (RT-DETR)](https://arxiv.org/abs/2304.08069) — **Zhao et al. (2023)** — the first NMS-free transformer detector to win on latency as well as accuracy; the reason 2025–26 detectors ship end-to-end.
+- [Segment Anything (SAM)](https://arxiv.org/abs/2304.02643) — **Kirillov et al. (2023)** — promptable class-agnostic masks; increasingly the pairing partner for an open-vocabulary detector rather than a mask head you train.
 
 **Books (free chapters)**:
 - [Dive into Deep Learning — Ch. 14 (Computer Vision: Object Detection)](https://d2l.ai/chapter_computer-vision/index.html) — **Zhang, Lipton, Li & Smola** — bounding boxes, anchors, IoU, NMS, and SSD with runnable code.

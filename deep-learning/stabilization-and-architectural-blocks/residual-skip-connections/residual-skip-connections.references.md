@@ -3,7 +3,7 @@ id: "05-deep-learning/residual-skip-connections/references"
 topic: "Residual / Skip Connections — References"
 parent: "05-deep-learning/residual-skip-connections"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Residual / Skip Connections — references and further reading
@@ -48,9 +48,16 @@ updated: 2026-06-22
 - [On Layer Normalization in the Transformer Architecture](https://arxiv.org/abs/2002.04745) — **Xiong et al. (2020)** — why pre-norm (norm inside the residual branch) trains deep transformers stably without warmup.
 - [A Mathematical Framework for Transformer Circuits](https://transformer-circuits.pub/2021/framework/index.html) — **Elhage et al. (2021, Anthropic)** — the residual stream as the transformer's communication bus and the basis of its additive decomposition.
 
+**Key papers (residual scaling for very deep stacks)**:
+- [ReZero is All You Need: Fast Convergence at Large Depth](https://arxiv.org/abs/2003.04887) — **Bachlechner et al. (2020)** — one zero-initialized scalar per branch, so the network starts as an exact identity; the minimal form of every scaling trick below.
+- [Going deeper with Image Transformers (LayerScale)](https://arxiv.org/abs/2103.17239) — **Touvron et al. (2021, Meta AI)** — a learned per-channel $\lambda$ initialized near zero on each residual branch; the trick that made deep vision transformers trainable and now standard in ViT- and ConvNeXt-family models.
+- [DeepNet: Scaling Transformers to 1,000 Layers](https://arxiv.org/abs/2203.00555) — **Wang et al. (2022, Microsoft)** — DeepNorm up-weights the *identity* term ($\alpha\,x_\ell$) instead of shrinking the branch, recovering post-norm's bounded magnitudes with pre-norm-like stability at 1,000 layers.
+- [Language Models are Unsupervised Multitask Learners (GPT-2)](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf) — **Radford et al. (2019, OpenAI)** — §2.3 states the $1/\sqrt{N}$ scaling of residual-branch output initializations, the most widely copied version of this idea.
+
 **Books (free chapters)**:
 - [Dive into Deep Learning — §8.6 "Residual Networks (ResNet) and ResNeXt"](https://d2l.ai/chapter_convolutional-modern/resnet.html) — **Zhang et al.** — the residual block built, with the gradient-flow argument.
 - [Deep Learning — Ch. 8 (optimization) — gradient flow & shortcut connections](https://www.deeplearningbook.org/contents/optimization.html) — **Goodfellow, Bengio & Courville** — why skip connections ease optimization.
+- [*Understanding Deep Learning* — Ch. 11 "Residual networks"](https://udlbook.github.io/udlbook/) — **Simon J.D. Prince** — free PDF; the unraveled-paths view and the residual-variance calculation worked in full, with the figures this page's $\sqrt{L}$ argument describes.
 
 **In this platform**:
 - Concept page (full explanation): [Residual / Skip Connections](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/residual-skip-connections/residual-skip-connections)

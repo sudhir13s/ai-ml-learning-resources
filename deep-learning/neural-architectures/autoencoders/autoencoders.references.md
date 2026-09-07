@@ -3,7 +3,7 @@ id: "05-deep-learning/autoencoders/references"
 topic: "Autoencoders — References"
 parent: "05-deep-learning/autoencoders"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Autoencoders — references and further reading
@@ -38,7 +38,7 @@ updated: 2026-06-22
 
 **Key papers**:
 - [Reducing the Dimensionality of Data with Neural Networks](https://www.cs.toronto.edu/~hinton/absps/science.pdf) — **Hinton & Salakhutdinov (2006, Science)** — deep autoencoders that beat PCA at dimensionality reduction; the paper that revived the idea.
-- [Neural Networks and Principal Component Analysis: Learning from Examples Without Local Minima](https://doi.org/10.1016/0893-6080(89)90014-2) — **Baldi & Hornik (1989, Neural Networks)** — proves a linear autoencoder's only stable optimum spans the PCA subspace (the result derived on the page). The [Deep Learning Book Ch. 14](https://www.deeplearningbook.org/contents/autoencoders.html) summarizes it.
+- [Neural Networks and Principal Component Analysis: Learning from Examples Without Local Minima](https://doi.org/10.1016/0893-6080%2889%2990014-2) — **Baldi & Hornik (1989, Neural Networks)** — proves a linear autoencoder's only stable optimum spans the PCA subspace (the result derived on the page). The [Deep Learning Book Ch. 14](https://www.deeplearningbook.org/contents/autoencoders.html) summarizes it.
 - [Extracting and Composing Robust Features with Denoising Autoencoders](https://www.cs.toronto.edu/~larocheh/publications/icml-2008-denoising-autoencoders.pdf) — **Vincent et al. (2008)** — the denoising autoencoder for robust representation learning.
 - [A Connection Between Score Matching and Denoising Autoencoders](https://www.iro.umontreal.ca/~vincentp/Publications/smdae_techreport.pdf) — **Vincent (2011)** — proves denoising ≈ learning the score $\nabla\log p(\mathbf{x})$, the bridge to diffusion.
 - [Contractive Auto-Encoders: Explicit Invariance During Feature Extraction](https://icml.cc/2011/papers/455_icmlpaper.pdf) — **Rifai et al. (2011)** — the encoder-Jacobian penalty and its tie to denoising.
@@ -50,6 +50,7 @@ updated: 2026-06-22
 **Books (free chapters)**:
 - [Deep Learning — Ch. 14 "Autoencoders"](https://www.deeplearningbook.org/contents/autoencoders.html) — **Goodfellow, Bengio & Courville** — undercomplete / denoising / sparse / contractive autoencoders, rigorously, with the manifold view.
 - [Dive into Deep Learning](https://d2l.ai/) — **Zhang, Lipton, Li & Smola** — encoder–decoder representations and latent codes with runnable code.
+- [*Understanding Deep Learning* — Ch. 17 "Variational autoencoders"](https://udlbook.github.io/udlbook/) — **Simon J.D. Prince** — free PDF; the clearest textbook derivation of the ELBO and the reparameterization trick, starting from the plain autoencoder this page builds.
 
 **In this platform**:
 - Concept page (full explanation): [Autoencoders](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/autoencoders/autoencoders)
@@ -57,5 +58,6 @@ updated: 2026-06-22
 - The linear baseline (PCA): [04. Unsupervised — Dimensionality Reduction Overview](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/dimensionality-reduction-overview/dimensionality-reduction-overview)
 - Visualization neighbors: [t-SNE](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/t-sne/t-sne) · [UMAP](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/umap/umap)
 - Puts it to work: [Anomaly / Outlier Detection (reconstruction error)](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/anomaly-detection/anomaly-outlier-detection/anomaly-outlier-detection) · [Contrastive / Self-Supervised Learning](/ai-ml/ai-ml-learning-resources/deep-learning/self-supervised-learning/contrastive-self-supervised-learning/contrastive-self-supervised-learning)
+- The autoencoder as a pretraining objective: [Masked Modeling (MAE & BERT-style Pretraining)](/ai-ml/ai-ml-learning-resources/deep-learning/self-supervised-learning/masked-modeling-mae-and-bert-style-pretraining/masked-modeling-mae-and-bert-style-pretraining) — masking replaces the bottleneck as the thing that forces the model to learn structure
 - The generative deep-dive: [10. GenAI — Variational Autoencoders (VAE · ELBO)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/variational-autoencoders-vae-elbo/variational-autoencoders-vae-elbo) · [Latent Diffusion / Stable Diffusion](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/latent-diffusion-stable-diffusion/latent-diffusion-stable-diffusion)
 - Field overview: [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

@@ -3,7 +3,7 @@ id: "05-deep-learning/loss-functions/references"
 topic: "Loss Functions — References"
 parent: "05-deep-learning/loss-functions"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Loss Functions — references and further reading
@@ -22,7 +22,7 @@ updated: 2026-06-22
 - [Intuitively Understanding the Cross Entropy Loss](https://www.youtube.com/watch?v=Pwgpl9mKars) — **Adian Liusie** — builds the loss up from likelihood, very clear.
 - [Logistic Regression Cost Function](https://www.youtube.com/watch?v=SHEPb1JHw5o) — **DeepLearning.AI (Andrew Ng)** — binary cross-entropy derived as a Bernoulli likelihood.
 - [Neural Networks Part 6: Cross Entropy](https://www.youtube.com/watch?v=6ArSys5qHAU) — **StatQuest (Josh Starmer)** — the cleanest from-scratch intuition for cross-entropy.
-- [Why we minimize the negative log-likelihood (MLE)](https://www.youtube.com/watch?v=tnBQzAU1lj0) — **ritvikmath** — the maximum-likelihood principle that generates every loss on this page.
+- [Maximum Likelihood, clearly explained](https://www.youtube.com/watch?v=XepXtl9YKwc) — **StatQuest (Josh Starmer)** — the maximum-likelihood principle that generates every loss on this page, worked by hand.
 
 **Interactive & visual**:
 - [The Softmax function and its derivative](https://e2eml.school/softmax.html) — **Brandon Rohrer** — walks the cancellation that yields the clean $(\hat y - y)$ gradient, step by step.
@@ -50,6 +50,7 @@ updated: 2026-06-22
 - [Pattern Recognition and Machine Learning](https://www.bishopbook.com/) — **Bishop** — §1.2.5 / §3.1.1 derive MSE as Gaussian MLE; §4.3.2 derives the softmax+CE gradient ([community code companion](https://github.com/gerdm/prml)).
 - [Dive into Deep Learning — Ch. 4 "Linear Neural Networks for Classification"](https://d2l.ai/chapter_linear-classification/index.html) — **Zhang et al.** — the loss derived as negative log-likelihood, with code.
 - [Neural Networks and Deep Learning — Ch. 3 (cross-entropy cost)](http://neuralnetworksanddeeplearning.com/chap3.html) — **Michael Nielsen** — why cross-entropy speeds learning vs the quadratic loss, with the saturation argument.
+- [*Understanding Deep Learning* — Ch. 5 "Loss functions"](https://udlbook.github.io/udlbook/) — **Simon J.D. Prince** — free PDF; derives every loss (least squares, binary and multiclass cross-entropy, robust losses) from one recipe: pick a distribution over the output, then maximize its likelihood.
 
 **Reference**:
 - [Huber loss](https://en.wikipedia.org/wiki/Huber_loss) — **Wikipedia** — the definition, the smooth-L1 connection, and the $\delta$ crossover, with the original Huber (1964) citation.

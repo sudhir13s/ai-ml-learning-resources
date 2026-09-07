@@ -5,7 +5,7 @@ parent: "07-computer-vision"
 level: beginner
 built_from: ["convolution", "cnns"]
 interview_frequency: high
-updated: 2026-06-20
+updated: 2026-09-07
 tier: core
 est_minutes: 10
 title: "Pooling & Receptive Fields"
@@ -32,30 +32,31 @@ and "how much context does this neuron have?"
 4. **Get the math** — read [CS231n: Convolutional Networks](https://cs231n.github.io/convolutional-networks/) (pooling + spatial arrangement). *Output-size and receptive-field arithmetic you'll be quizzed on.*
 5. **Go rigorous** — read the ⭐ [Distill: Computing Receptive Fields](https://distill.pub/2019/computing-receptive-fields/). *Closed-form receptive-field math with interactive visuals.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [Stanford CS231n — Convolutional Networks](https://cs231n.github.io/convolutional-networks/) — **Stanford** — the definitive notes on pooling layers, strides, and spatial dimension arithmetic.
 - [Dive into Deep Learning — Pooling](https://d2l.ai/chapter_convolutional-neural-networks/pooling.html) — **Zhang et al.** — free chapter with runnable max/average pooling code.
 
-## 🎥 Videos
+## Videos
 - [Pooling Layers (C4W1L09)](https://www.youtube.com/watch?v=8oOgPUO-TBY) — **DeepLearning.AI (Andrew Ng)** — crisp intro to max/average pooling and downsampling.
 - [Max Pooling in CNNs explained](https://www.youtube.com/watch?v=ZjM_XQa5s6s) — **deeplizard** — visual, intuitive treatment of what pooling preserves.
 - [CNN Receptive Field](https://www.youtube.com/watch?v=ip2HYPC_T9Q) — **Deepia** — clean animation of how the receptive field grows with depth.
 - [Receptive Fields: Why 3×3 conv layer is the best?](https://www.youtube.com/watch?v=lxpQZRvfnCc) — **Soroush Mehraban** — connects receptive field to the VGG 3×3-stacking design choice.
-- [Receptive field & its impact on CNN performance](https://www.youtube.com/watch?v=AIrXjAJ1a1k) — **Bionic Algorithm** — how receptive-field size affects what a network can model.
+- [Lecture 7: Convolutional Networks (EECS 498)](https://www.youtube.com/watch?v=ANyxBVxmdZ0) — **Michigan Online (Justin Johnson)** — pooling, stride, padding, and receptive-field growth derived together with the output-size arithmetic.
+- [Lecture 5 | Convolutional Neural Networks (CS231n)](https://www.youtube.com/watch?v=bNb2fEVKeEo) — **Stanford University School of Engineering** — the same material with the spatial-dimension bookkeeping worked on the board.
 
-## 📄 Key Papers
+## Key Papers
 - [Understanding the Effective Receptive Field in Deep CNNs](https://arxiv.org/abs/1701.04128) — **Luo et al. (2016)** — shows the *effective* receptive field is Gaussian and far smaller than the theoretical one.
 - [Visualizing and Understanding Convolutional Networks](https://arxiv.org/abs/1311.2901) — **Zeiler & Fergus (2014)** — deconv visualizations of what units across the receptive-field hierarchy respond to.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [Computing Receptive Fields of Convolutional Neural Networks](https://distill.pub/2019/computing-receptive-fields/) — **Distill (Araujo et al.)** — the definitive, interactive derivation of receptive-field math.
 - [CS231n notes — pooling & spatial arrangement](https://cs231n.github.io/convolutional-networks/) — **Stanford** — output-size formulas and pooling mechanics, free.
 - [Pooling layers (d2l)](https://d2l.ai/chapter_convolutional-neural-networks/pooling.html) — **Zhang et al.** — explanation plus code, free.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Dive into Deep Learning — **Ch. 7.5 (Pooling)** + **Ch. 7.3 (Padding & Stride)**](https://d2l.ai/chapter_convolutional-neural-networks/index.html) — **Zhang et al.** — pooling and the stride/padding math behind receptive fields, with runnable code.
 
-## 🔗 In this platform
+## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 4.13 Convolution](/ai-ml/ai-ml-intuitions/architectural-mechanisms/locality-and-weight-sharing/convolution-intuition) — receptive fields are a direct consequence of stacking convolutions.
 - Foundation: [Deep Learning › CNNs & Convolution](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/cnns-and-convolution/cnns-and-convolution)
 - Next concepts: [03 Classic CNN Architectures](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/classic-cnn-architectures/classic-cnn-architectures) · [08 Semantic Segmentation](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/semantic-segmentation/semantic-segmentation)

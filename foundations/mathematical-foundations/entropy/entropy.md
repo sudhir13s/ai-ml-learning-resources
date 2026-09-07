@@ -24,7 +24,7 @@ information gain (tree splits). Interviewers ask what entropy measures, why a un
 maximizes it, the units (bits vs nats), and how it connects to coding/compression and to the loss
 functions you train with.
 
-**⭐ Start here — suggested path:**
+**Start here — suggested path:**
 
 1. **Information intuition** — watch [Khan: Information entropy](https://www.youtube.com/watch?v=2s3aJfRr9gE) (and [Measuring information](https://www.youtube.com/watch?v=PtmzfpV6CDE)). *Why "surprise" and "bits" are the right units.*
 2. **For data science** — watch [StatQuest: Entropy (for data science), Clearly Explained](https://www.youtube.com/watch?v=YtebGVx-Fxw). *Entropy as used in trees and ML losses.*
@@ -32,29 +32,29 @@ functions you train with.
 4. **Formalize** — read [MacKay, Information Theory, Inference & Learning Algorithms — Ch. 2 & 4](https://www.inference.org.uk/itprnn/book.pdf). *Entropy, the source-coding theorem, and the units.*
 5. **Connect to ML** — read [ai-ml-intuitions 5.01 Information Theory: Entropy & KL](/ai-ml/ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition). *Where entropy powers ML objectives.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [Khan Academy — Journey into Information Theory](https://www.khanacademy.org/computing/computer-science/informationtheory) — **Khan Academy** — entropy and information from first principles, free.
 - [Stanford EE376A — Information Theory (course materials)](https://web.stanford.edu/class/ee376a/) — **Stanford** — the rigorous treatment of entropy and coding; free notes.
 
-## 🎥 Videos
+## Videos
 - [Information entropy | Journey into information theory](https://www.youtube.com/watch?v=2s3aJfRr9gE) — **Khan Academy** — entropy as expected surprise.
 - [Entropy (for data science) Clearly Explained](https://www.youtube.com/watch?v=YtebGVx-Fxw) — **StatQuest (Josh Starmer)** — entropy for ML and decision trees.
 - [A Short Introduction to Entropy, Cross-Entropy and KL-Divergence](https://www.youtube.com/watch?v=ErfnhcEV1O8) — **Aurélien Géron** — entropy → cross-entropy → KL in 10 minutes.
 - [Measuring information | Journey into information theory](https://www.youtube.com/watch?v=PtmzfpV6CDE) — **Khan Academy** — bits, symbols, and information content.
 
-## 📄 Key Papers
+## Key Papers
 - [A Mathematical Theory of Communication](https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf) — **Claude Shannon (1948)** — the paper that defined entropy and founded information theory.
 - [MacKay — Information Theory, Inference & Learning Algorithms (Ch. 2, 4)](https://www.inference.org.uk/itprnn/book.pdf) — **David MacKay** — entropy and source coding; the free canonical textbook.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [Visual Information Theory](https://colah.github.io/posts/2015-09-Visual-Information/) — **Christopher Olah** — the best free visual essay on entropy, cross-entropy, and KL.
 - [Entropy (MML book, Ch. 6.5 / Information theory notes)](https://mml-book.github.io/book/mml-book.pdf) — **Deisenroth et al.** — entropy in the probability chapter.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Information Theory, Inference, and Learning Algorithms — **Ch. 2, 4 (Entropy, Source Coding)**](https://www.inference.org.uk/itprnn/book.pdf) — **David MacKay** — the free classic.
 - [Elements of Information Theory — **Ch. 2 (Entropy, Relative Entropy & Mutual Information)**](http://www.cs.columbia.edu/~vh/courses/LexicalSemantics/Association/Cover&Thomas-Ch2.pdf) — **Cover & Thomas** — the standard reference's entropy chapter (free PDF).
 
-## 🔗 In this platform
+## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 5.01 Information Theory: Entropy & KL](/ai-ml/ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition)
 - Curriculum context: [Maths for AI-ML — Phase 3 (Information Theory, row 3.5)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
 - Prereq: [16 Random Variables & Distributions](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/random-variables-and-distributions/random-variables-and-distributions) · Next: [23 Cross-Entropy & KL Divergence](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/cross-entropy-and-kl-divergence/cross-entropy-and-kl-divergence) · [24 Mutual Information](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/mutual-information/mutual-information)

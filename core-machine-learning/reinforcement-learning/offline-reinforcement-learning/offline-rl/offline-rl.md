@@ -5,7 +5,7 @@ parent: "08-reinforcement-learning"
 level: advanced
 built_from: ["q-learning", "policy-gradients-reinforce", "continuous-control"]
 interview_frequency: medium
-updated: 2026-06-20
+updated: 2026-09-07
 tier: core
 est_minutes: 10
 title: "Offline RL"
@@ -27,35 +27,35 @@ extrapolation error), what distributional shift is, and how CQL and behavior-con
 
 **⭐ Start here — suggested path:**
 
-1. **Build intuition** — read [BAIR Blog: Offline RL](https://bair.berkeley.edu/blog/2020/12/07/offline/). *Why offline RL is hard (distribution shift) and the families of fixes, by the survey's authors.*
-2. **Read the survey** — [Offline RL: Tutorial, Review, and Perspectives (Levine et al.)](https://arxiv.org/abs/2005.01643). *The definitive reference: problem formulation, error sources, and methods.*
+1. **Build intuition** — read §1–2 of [Offline RL: Tutorial, Review, and Perspectives](https://arxiv.org/abs/2005.01643). *Why offline RL is hard (distribution shift and out-of-distribution action queries) and the families of fixes, from the authors who framed the problem.*
+2. **See the failure named** — read [Off-Policy Deep RL without Exploration (BCQ)](https://arxiv.org/abs/1812.02900). *Extrapolation error: the concrete demonstration that off-policy agents diverge on logged data, and the constrain-to-the-data fix.*
 3. **Get the lecture** — [NeurIPS 2020 Offline RL Tutorial](https://sites.google.com/view/offlinerltutorial-neurips2020/home). *Levine & Kumar's video tutorial with slides — the clearest spoken walkthrough.*
 4. **Get the key method** — [Conservative Q-Learning (CQL)](https://arxiv.org/abs/2006.04779). *How conservatively lower-bounding Q on OOD actions prevents overestimation.*
 
-## 🎓 Courses (free)
-- [Berkeley CS285 — Offline Reinforcement Learning](https://rail.eecs.berkeley.edu/deeprlcourse/) — **UC Berkeley (Sergey Levine)** — the definitive lectures (Levine's group authored CQL and the survey).
+## Courses (free)
+- [Berkeley CS285 — Offline Reinforcement Learning](http://rail.eecs.berkeley.edu/deeprlcourse/) — **UC Berkeley (Sergey Levine)** — the definitive lectures (Levine's group authored CQL and the survey).
 - [NeurIPS 2020 Tutorial: Offline RL](https://sites.google.com/view/offlinerltutorial-neurips2020/home) — **Levine & Kumar** — full video tutorial + slides, free.
 - [Spinning Up — Kinds of RL Algorithms](https://spinningup.openai.com/en/latest/spinningup/rl_intro2.html) — **OpenAI** — off-policy learning, the basis offline RL pushes to its limit.
 
-## 🎥 Videos
+## Videos
 - [Offline Reinforcement Learning Tutorial (NeurIPS 2020)](https://sites.google.com/view/offlinerltutorial-neurips2020/home) — **Sergey Levine & Aviral Kumar** — the canonical spoken walkthrough (linked video).
 - [L2: Deep Q-Learning](https://www.youtube.com/watch?v=Psrhxy88zww) — **Pieter Abbeel (Foundations of Deep RL)** — the off-policy Q-learning offline RL builds on (and where OOD actions bite).
 - [RL Lecture 6: Value Function Approximation](https://www.youtube.com/watch?v=UoPei5o4fps) — **David Silver (DeepMind)** — the deadly triad / extrapolation error that distribution shift amplifies.
 - [RL Series: Overview of Methods](https://www.youtube.com/watch?v=i7q8bISGwMQ) — **Steve Brunton** — situates batch/offline learning in the RL landscape.
 
-## 📄 Key Papers
+## Key Papers
 - [Offline RL: Tutorial, Review, and Perspectives on Open Problems](https://arxiv.org/abs/2005.01643) — **Levine, Kumar, Tucker & Fu (2020)** — the definitive survey.
 - [Conservative Q-Learning for Offline RL (CQL)](https://arxiv.org/abs/2006.04779) — **Kumar et al. (2020)** — lower-bounds OOD Q-values; a standard offline baseline.
 - [Off-Policy Deep RL without Exploration (BCQ)](https://arxiv.org/abs/1812.02900) — **Fujimoto, Meger & Precup (2019)** — names extrapolation error and constrains to in-distribution actions.
 
-## 📰 Articles / Blogs (free, no paywall)
-- [Offline (Batch) Reinforcement Learning](https://bair.berkeley.edu/blog/2020/12/07/offline/) — **BAIR Blog (Levine et al.)** — the problem, why it's hard, and the method families.
+## Articles / Blogs (free, no paywall)
+- [When Should We Prefer Offline RL Over Behavioral Cloning?](https://arxiv.org/abs/2204.05618) — **Kumar, Hong, Singh & Levine (ICLR 2022)** — the decision that actually comes up in practice: when offline RL beats simply cloning the best trajectories, and when it does not.
 - [D4RL: Datasets for Deep Data-Driven RL](https://arxiv.org/abs/2004.07219) — **Fu et al. (2020)** — the standard offline-RL benchmark suite (open).
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Reinforcement Learning: An Introduction (2nd ed.) — **Ch. 11 "Off-policy Methods with Approximation"**](http://incompleteideas.net/book/RLbook2020.pdf) — **Sutton & Barto** — the off-policy / function-approximation instabilities offline RL must overcome.
 - [Algorithms for Reinforcement Learning — **§3 (off-policy value estimation)**](https://sites.ualberta.ca/~szepesva/papers/RLAlgsInMDPs.pdf) — **Csaba Szepesvári** — the theory behind off-policy estimation error.
 
-## 🔗 In this platform
+## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 6.01 Bellman Optimality & Q-Learning](/ai-ml/ai-ml-intuitions/decision-making-and-control/value-learning/bellman-equation-and-q-learning-intuition)
 - Prereq: [06 Q-Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/value-based-learning/q-learning/q-learning) · [13 Continuous Control (DDPG/TD3/SAC)](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/policy-learning/continuous-control-ddpg-td3-sac/continuous-control-ddpg-td3-sac)

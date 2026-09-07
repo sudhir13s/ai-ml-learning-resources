@@ -3,7 +3,7 @@ id: "06-nlp/sequence-labeling-pos-ner/references"
 topic: "Sequence Labeling — References"
 parent: "06-nlp/sequence-labeling-pos-ner"
 type: references
-updated: 2026-06-27
+updated: 2026-09-07
 ---
 
 # Sequence Labeling — references and further reading
@@ -12,16 +12,16 @@ updated: 2026-06-27
 
 **Start here — suggested path**:
 1. **Frame the task** — read [SLP3 Ch. 17](https://web.stanford.edu/~jurafsky/slp3/17.pdf) intro on POS/NER and BIO tagging (**Jurafsky & Martin**). *Get the task and tagging schemes before any model.*
-2. **See HMM + Viterbi** — watch [POS Tagging using the Viterbi algorithm](https://www.youtube.com/watch?v=QYzTTFxcc9I) (**Data Science in your pocket**), then the [fully worked numeric example](https://www.youtube.com/watch?v=OBemI2BapE0). *The classic generative tagger, decoded by hand.*
+2. **See HMM + Viterbi** — watch [The Viterbi algorithm for HMMs (NLP817 5.4)](https://www.youtube.com/watch?v=u4IBPD43VuY) (**Herman Kamper**), then the [fully worked numeric example (NLP817 5.5)](https://www.youtube.com/watch?v=14fC-uo7vD0). *The classic generative tagger, derived and then decoded by hand.*
 3. **Get the CRF** — read [SLP3 Ch. 17 §17.4](https://web.stanford.edu/~jurafsky/slp3/17.pdf) and Sutton & McCallum's [CRF tutorial](https://homepages.inf.ed.ac.uk/csutton/publications/crftutv2.pdf). *Why a globally-normalized CRF beats the MEMM — the part interviews probe.*
 4. **Read the neural sources** — [biLSTM-CRF](https://arxiv.org/abs/1508.01991) → [Neural NER](https://arxiv.org/abs/1603.01360) → [end-to-end char-CNN-biLSTM-CRF](https://arxiv.org/abs/1603.01354). *How LSTMs + a CRF layer became the standard.*
 5. **Make it concrete** — try [spaCy NER](https://spacy.io/usage/linguistic-features#named-entities) or the [HF token-classification tutorial](https://huggingface.co/docs/transformers/en/tasks/token_classification), and score with [seqeval](https://github.com/chakki-works/seqeval). *Tag real text, inspect spans, compute entity F1.*
 
 **Videos**:
-- [POS Tagging using the Viterbi algorithm](https://www.youtube.com/watch?v=QYzTTFxcc9I) — **Data Science in your pocket** — HMM + Viterbi for POS, end to end.
-- [POS Tagging, Viterbi Algorithm — Solved Problem](https://www.youtube.com/watch?v=OBemI2BapE0) — **Varsha's engineering stuff** — a fully worked numeric Viterbi trace, the kind asked in interviews.
-- [POS Tagging, HMM, Viterbi — Emission & Transition matrices](https://www.youtube.com/watch?v=hjFbmosY9y4) — **Varsha's engineering stuff** — the transition/emission probability tables made explicit.
-- [CS224N: Named Entity Recognition lecture](https://www.youtube.com/watch?v=8u8sAtbDImI) — **Stanford (Manning)** — NER framed within the deep-learning NLP course.
+- [The Viterbi algorithm for HMMs (NLP817 5.4)](https://www.youtube.com/watch?v=u4IBPD43VuY) — **Herman Kamper (Stellenbosch)** — the dynamic program derived from the HMM definition, not asserted.
+- [Viterbi HMM example (NLP817 5.5)](https://www.youtube.com/watch?v=14fC-uo7vD0) — **Herman Kamper (Stellenbosch)** — a fully worked numeric trace with explicit transition and emission tables, the kind interviews ask for.
+- [CMU Neural Nets for NLP 2021 (11): Structured Prediction with Local Independence Assumptions](https://www.youtube.com/watch?v=SId98zY-D9Y) — **Graham Neubig (CMU)** — BIO tagging, CRFs, and why global normalization beats per-token softmax.
+- [Stanford CS224N: NLP with Deep Learning (full lecture series)](https://www.youtube.com/playlist?list=PLoROMvodv4rOSH4v6133s9LFPRHjEmbmJ) — **Stanford Online (Christopher Manning)** — the course series that frames NER and tagging inside modern neural NLP.
 
 **Courses (free)**:
 - [Stanford CS224N: NLP with Deep Learning](https://web.stanford.edu/class/cs224n/) — **Stanford (Manning)** — sequence-modeling and NER lectures grounding tagging tasks.

@@ -5,7 +5,7 @@ parent: "08-reinforcement-learning"
 level: intermediate
 built_from: ["bellman-equations", "markov-decision-processes"]
 interview_frequency: high
-updated: 2026-06-20
+updated: 2026-09-07
 tier: core
 est_minutes: 10
 title: "Dynamic Programming — Value & Policy Iteration"
@@ -30,29 +30,29 @@ theorem), their complexity, and why DP needs a known model — which motivates M
 3. **Compare the two** — [Steve Brunton: Model-Based RL — Policy & Value Iteration](https://www.youtube.com/watch?v=sJIFUTITfBc). *Side-by-side of the two algorithms and when each is cheaper.*
 4. **Code it** — implement value iteration on a grid-world following the [Spinning Up intro](https://spinningup.openai.com/en/latest/spinningup/rl_intro2.html). *Watch values propagate from the goal outward until the greedy policy stops changing.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [UCL Course on RL — Lecture 3: Planning by Dynamic Programming](https://www.davidsilver.uk/teaching/) — **David Silver (DeepMind)** — the canonical lecture on policy evaluation, policy iteration, and value iteration.
 - [Stanford CS234 — Planning & DP](https://web.stanford.edu/class/cs234/) — **Stanford (Emma Brunskill)** — convergence proofs and the contraction argument.
 - [Spinning Up — Kinds of RL Algorithms](https://spinningup.openai.com/en/latest/spinningup/rl_intro2.html) — **OpenAI** — situates model-based DP against model-free learning.
 
-## 🎥 Videos
+## Videos
 - [RL Lecture 3: Planning by Dynamic Programming](https://www.youtube.com/watch?v=Nd1-UUMVfz4) — **David Silver (DeepMind)** — policy evaluation → policy iteration → value iteration, fully derived.
 - [Model-Based RL: Policy Iteration, Value Iteration](https://www.youtube.com/watch?v=sJIFUTITfBc) — **Steve Brunton** — clear, intuitive contrast of the two exact methods.
 - [L1: MDPs & Exact Solution Methods](https://www.youtube.com/watch?v=2GwBez0D20A) — **Pieter Abbeel (Foundations of Deep RL)** — value iteration and policy iteration as the exact solvers.
 - [Reinforcement Learning 2: Markov Decision Processes](https://www.youtube.com/watch?v=RmOdTQYQqmQ) — **DeepMind x UCL** — sets up the Bellman backups that DP iterates.
 
-## 📄 Key Papers
+## Key Papers
 - [Reinforcement Learning: A Survey](https://www.jair.org/index.php/jair/article/view/10166) — **Kaelbling, Littman & Moore (1996)** — frames DP (value/policy iteration) as the exact MDP solvers.
 - [Algorithms for Reinforcement Learning](https://sites.ualberta.ca/~szepesva/papers/RLAlgsInMDPs.pdf) — **Csaba Szepesvári (2010)** — convergence of value and policy iteration via the Bellman operator.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [A (Long) Peek into RL — Dynamic Programming](https://lilianweng.github.io/posts/2018-02-19-rl-overview/) — **Lilian Weng** — policy iteration and value iteration with worked notation.
 - [Spinning Up — Kinds of RL Algorithms](https://spinningup.openai.com/en/latest/spinningup/rl_intro2.html) — **OpenAI** — where exact DP sits relative to model-free and model-based learning.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Reinforcement Learning: An Introduction (2nd ed.) — **Ch. 4 "Dynamic Programming"**](http://incompleteideas.net/book/RLbook2020.pdf) — **Sutton & Barto** — the definitive chapter: iterative policy evaluation, policy/value iteration, GPI, asynchronous DP.
 - [Algorithms for Reinforcement Learning — **§2 (planning in MDPs)**](https://sites.ualberta.ca/~szepesva/papers/RLAlgsInMDPs.pdf) — **Csaba Szepesvári** — the math behind why DP converges.
 
-## 🔗 In this platform
+## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 6.01 Bellman Optimality & Q-Learning](/ai-ml/ai-ml-intuitions/decision-making-and-control/value-learning/bellman-equation-and-q-learning-intuition)
 - Prereq: [02 Bellman Equations](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/foundations/bellman-equations/bellman-equations) · Next: [04 Monte Carlo Methods](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/value-based-learning/monte-carlo-methods/monte-carlo-methods) · [05 Temporal-Difference Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/value-based-learning/temporal-difference-learning/temporal-difference-learning)

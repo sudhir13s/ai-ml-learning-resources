@@ -6,7 +6,7 @@ level: beginner
 built_from: ["feedforward-networks", "calculus"]
 interview_frequency: high
 template: concept-deep
-updated: 2026-06-22
+updated: 2026-09-07
 tier: core
 est_minutes: 40
 title: "Activation Functions (ReLU · GELU · sigmoid · tanh · softmax)"
@@ -217,7 +217,11 @@ This is the FFN used in **LLaMA, PaLM, Mistral, and most modern LLMs**. Two prac
 
 > **Tip:** when an interviewer asks "what activation does LLaMA use?", the precise answer is **SwiGLU in the FFN** (a gated SiLU), **not** a plain pointwise activation — and the attention sublayer has no activation between Q·Kᵀ and the softmax. Conflating "the model's activation" with a single function is a common slip.
 
-> *Where this comes from: GLU is **Language Modeling with Gated Convolutional Networks** (Dauphin et al. 2017); the SwiGLU result is **GLU Variants Improve Transformer** (Shazeer 2020) — references.*
+**GeGLU is the same idea with a GELU gate** — $\big(xW_1\big)\odot\text{GELU}\big(xW_3\big)$ — and it is what Google's Gemma family ships, exactly as Llama, Qwen, and DeepSeek ship SwiGLU. As of 2026 the honest statement is that **a gated feed-forward block is the default and the choice of gate (SiLU vs GELU) is a near-tie**; no frontier open-weight model uses a plain pointwise FFN any more.
+
+> **Note:** gating outgrew this page. The same multiplicative, input-dependent gate now appears in the selection mechanism of state-space models and in the gated attention of 2025 architectures — see [Gating Mechanisms](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/gating-mechanisms/gating-mechanisms) for gating treated as a mechanism in its own right, rather than as one more entry in the activation zoo.
+
+> *Where this comes from: GLU is **Language Modeling with Gated Convolutional Networks** (Dauphin et al. 2017); the SwiGLU and GeGLU results are both in **GLU Variants Improve Transformer** (Shazeer 2020) — references.*
 
 ---
 

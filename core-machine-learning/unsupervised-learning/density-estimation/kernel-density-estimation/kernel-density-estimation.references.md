@@ -3,7 +3,7 @@ id: "04-unsupervised-learning/kernel-density-estimation/references"
 topic: "Kernel Density Estimation — References"
 parent: "04-unsupervised-learning/kernel-density-estimation"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Kernel Density Estimation — references and further reading
@@ -18,10 +18,10 @@ updated: 2026-06-22
 5. **Read the source** — [On Estimation of a Probability Density Function and Mode](https://projecteuclid.org/euclid.aoms/1177704472) (**Parzen 1962**). *The foundational "Parzen window" paper that defines KDE.*
 
 **Videos**:
-- [The Histogram and Kernel Density Estimation](https://www.youtube.com/watch?v=SUvPJ4URYGA) — **Justin Esarey** — KDE as a smoothed histogram; the clearest first intuition.
+- [The Histogram and Kernel Density Estimation](https://www.youtube.com/watch?v=SUvPJ4URYGA) — **Carlos Fernandez-Granda (NYU Courant)** — KDE as a smoothed histogram; the clearest first intuition.
 - [Kernel Density Estimation](https://www.youtube.com/watch?v=qc9elACH8LA) — **Kapil Sachdeva** — bandwidth selection and the bias–variance trade-off in depth.
 - [Kernel Density Estimation — Explained](https://www.youtube.com/watch?v=6sGOMbC5xdE) — **DataMListic** — the estimator formula and the role of the kernel, concisely.
-- [Kernel Density Estimation Explained | Statistics for Data Science](https://www.youtube.com/watch?v=k0uyEzcNj4U) — **DataMites** — a worked example end to end, good for a second pass.
+- [The Histogram and Kernel Density Estimation (nonparametric density estimators)](https://www.youtube.com/watch?v=TxB-rbrXMys) — **Carlos Fernandez-Granda (NYU Courant)** — the re-recorded, longer treatment: why the histogram is a density estimator at all, what the kernel and bandwidth each control, and how the bias–variance trade-off appears in the picture.
 
 **Interactive & visual**:
 - [Kernel Density Estimation — interactive explainer](https://mathisonian.github.io/kde/) — **Matthew Conlen** — drag the bandwidth and kernel; the best visual intuition, fully free.

@@ -5,7 +5,7 @@ parent: "17-tools-and-frameworks"
 level: advanced
 built_from: ["python", "pytorch"]
 interview_frequency: medium
-updated: 2026-06-20
+updated: 2026-09-07
 tier: core
 est_minutes: 10
 title: "Ray (distributed training, tuning, serving)"
@@ -24,38 +24,42 @@ most common Python-native way to do it. Interviews and real work touch on the ta
 why `ray.get` is blocking, how Ray Tune parallelizes hyperparameter search, and how Ray Train wraps
 distributed data-parallel training without the usual boilerplate.
 
-**⭐ Start here — suggested path:**
+**Start here — suggested path:**
 
 1. **Run it locally** — read [Ray Getting Started](https://docs.ray.io/en/latest/ray-overview/getting-started.html). *Install, then parallelize a function with `@ray.remote` — the core idea in minutes.*
-2. **See the big picture** — [Ray: A Framework for Scaling Python & ML](https://www.youtube.com/watch?v=uzt-CwohQC8) (Anyscale). *Where tasks, actors, and the ML libraries fit together.*
+2. **See the big picture** — [Ray Summit 2025 keynote](https://www.youtube.com/watch?v=YoPskpg3zJQ) — **Anyscale**. *Where tasks, actors, and the ML libraries fit together, and what changed in Ray 2.x.*
 3. **Distribute training** — work the [Ray Train docs](https://docs.ray.io/en/latest/train/train.html) + [Ray Train video](https://www.youtube.com/watch?v=GmtyTb0eARo). *Distributed data-parallel training with little boilerplate is the highest-value use.*
 4. **Parallelize tuning** — study [Ray Tune](https://docs.ray.io/en/latest/tune/index.html) and watch [Scalable model training with Ray Tune](https://www.youtube.com/watch?v=eAWUZJe571Y). *A distributed hyperparameter sweep in <10 lines is Ray's signature win.*
 5. **Understand the architecture** — read the [Ray paper](https://arxiv.org/abs/1712.05889). *The tasks/actors execution model is what every interview probes.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [Ray documentation](https://docs.ray.io/en/latest/index.html) — **Anyscale / Ray team** — the authoritative guides for Core, Train, Tune, Serve, Data, and RLlib.
 - [Ray Getting Started](https://docs.ray.io/en/latest/ray-overview/getting-started.html) — **Ray team** — the official on-ramp with runnable quickstarts per library.
 
-## 🎥 Videos
-- [Ray: A Framework for Scaling and Distributing Python & ML](https://www.youtube.com/watch?v=uzt-CwohQC8) — **Anyscale** — the overview of the whole stack.
+## Videos
+- [Ray Summit 2025 Keynote — Day 1](https://www.youtube.com/watch?v=YoPskpg3zJQ) — **Anyscale** — the current shape of the stack, straight from the maintainers.
+- [Ray + vLLM: multi-node orchestration for sparse mixture-of-experts serving](https://www.youtube.com/watch?v=J3zJ1MZtLN8) — **Anyscale** — Ray Serve driving vLLM across nodes; the 2025-26 pattern for serving a model too big for one GPU.
 - [Ray Train: A Production-Ready Library for Distributed Deep Learning](https://www.youtube.com/watch?v=GmtyTb0eARo) — **Anyscale** — distributed training in depth.
 - [Tutorial: Scalable model training with Ray Tune](https://www.youtube.com/watch?v=eAWUZJe571Y) — **Software Underground** — hands-on hyperparameter tuning at scale.
 - [Ray Tune: Distributed Hyperparameter Optimization Made Simple](https://www.youtube.com/watch?v=KgYZtlbFYXE) — **SF Python (Xiaowei Jiang)** — the tuning library explained.
 
-## 📄 Key Papers
+## Key Papers
 - [Ray: A Distributed Framework for Emerging AI Applications](https://arxiv.org/abs/1712.05889) — **Moritz et al. (2018), OSDI** — the foundational paper on Ray's tasks/actors model.
 - [Ray documentation](https://docs.ray.io/en/latest/index.html) — **Ray team** — the canonical reference for the API and libraries.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [Ray Getting Started](https://docs.ray.io/en/latest/ray-overview/getting-started.html) — **Ray team** — `@ray.remote` tasks/actors in a few cells.
 - [Ray Train: Scalable Model Training](https://docs.ray.io/en/latest/train/train.html) — **Ray team** — distributed training patterns and APIs.
 - [Ray Tune](https://docs.ray.io/en/latest/tune/index.html) — **Ray team** — experiment execution and hyperparameter tuning at scale.
+- [Ray Data](https://docs.ray.io/en/latest/data/data.html) — **Ray team** — streaming, distributed batch inference and preprocessing; the Ray 2.x library most teams reach for first.
+- [Ray Serve](https://docs.ray.io/en/latest/serve/index.html) — **Ray team** — composable model serving, including LLM deployments backed by vLLM.
+- [KubeRay — Ray on Kubernetes](https://docs.ray.io/en/latest/cluster/kubernetes/index.html) — **Ray team** — how Ray clusters are actually run in production in 2026.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Ray documentation (full)](https://docs.ray.io/en/latest/index.html) — **Ray team** — a book-length, free, library-by-library guide.
 - [ray-project/ray (examples & docs source)](https://github.com/ray-project/ray) — **Anyscale** — runnable examples and the source, free on GitHub.
 
-## 🔗 In this platform
+## In this platform
 - Related domain: [12. Deployment & MLOps](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/readme) · [10. Reinforcement Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/readme) *(RLlib)*
 - Pairs with: [05 PyTorch](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/pytorch/pytorch) · [12 Weights & Biases](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/weights-and-biases/weights-and-biases)
 - Deeper concept (the *why*): distributed training & serving → [Deployment & MLOps](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/readme)

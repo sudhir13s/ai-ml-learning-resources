@@ -3,7 +3,7 @@ id: "05-deep-learning/transformer/references"
 topic: "Transformer Architecture — References"
 parent: "05-deep-learning/transformer"
 type: references
-updated: 2026-06-21
+updated: 2026-09-07
 ---
 
 # Transformer Architecture — references and further reading
@@ -38,6 +38,7 @@ updated: 2026-06-21
 - [Transformers from scratch](https://peterbloem.nl/blog/transformers) — **Peter Bloem** — a rigorous, from-first-principles derivation of self-attention and the block.
 - [Attention? Attention!](https://lilianweng.github.io/posts/2018-06-24-attention/) — **Lilian Weng (OpenAI)** — a thorough survey of attention variants leading up to the transformer.
 - [nanoGPT](https://github.com/karpathy/nanoGPT) — **Andrej Karpathy** — a clean, complete decoder-only transformer in ~300 lines; the canonical "read the whole thing" reference implementation.
+- [How to Scale Your Model — "Transformers"](https://jax-ml.github.io/scaling-book/transformers/) — **the JAX team (Google DeepMind)** — the systems view of the same block: FLOPs, bytes, and arithmetic intensity per operation, so you can predict from the architecture alone which parts will be compute-bound and which memory-bound. The natural next read once you can draw the block.
 
 **Key papers**:
 - [Attention Is All You Need](https://arxiv.org/abs/1706.03762) — **Vaswani et al. (2017)** — the transformer; non-negotiable reading.
@@ -57,6 +58,7 @@ updated: 2026-06-21
 **Books (free chapters)**:
 - [Dive into Deep Learning — Ch. 11 "Attention Mechanisms and Transformers"](https://d2l.ai/chapter_attention-mechanisms-and-transformers/index.html) — **Zhang et al.** — attention, multi-head, positional encoding, and the full transformer with runnable code.
 - [Speech and Language Processing, 3rd ed. — Ch. 9–10 (RNNs → Transformers)](https://web.stanford.edu/~jurafsky/slp3/) — **Jurafsky & Martin** — self-attention and transformers framed for language, free draft.
+- [*Understanding Deep Learning* — Ch. 12 "Transformers"](https://udlbook.github.io/udlbook/) — **Simon J.D. Prince** — free PDF; the full block with every shape written out, plus the encoder / decoder / encoder-decoder families side by side.
 
 **In this platform**:
 - Concept page (full explanation): [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture)
@@ -65,4 +67,6 @@ updated: 2026-06-21
 - Block internals: [11 Normalization](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/normalization/normalization) (LayerNorm / RMSNorm, pre- vs post-norm) · [18 Residual / Skip Connections](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/residual-skip-connections/residual-skip-connections) (the residual stream) · [03 Activation Functions](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/activation-functions/activation-functions) (ReLU → GELU → SwiGLU in the FFN) · [17 Positional Encoding](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/positional-encoding/positional-encoding)
 - Prerequisite: [14 RNN / LSTM / GRU](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/rnn-lstm-gru/rnn-lstm-gru) (what the transformer replaced)
 - At scale / inference: [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) · [Efficient Attention (FlashAttention)](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/efficient-attention/efficient-attention)
+- What the 2025 block actually looks like: [Attention Architectures — GQA, MLA, Sliding and Linear](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/llm-model-architectures/attention-architectures-gqa-mla-sliding-and-linear/attention-architectures-gqa-mla-sliding-and-linear) (the attention sublayer) · [Positional Representations in LLMs](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/llm-model-architectures/positional-representations-in-llms/positional-representations-in-llms) (RoPE and its context-extension tricks) · [Mixture of Experts](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/llm-model-architectures/mixture-of-experts/mixture-of-experts) (the feed-forward sublayer, made sparse)
+- The competing block design: [Selective State-Space Models (Mamba)](/ai-ml/ai-ml-learning-resources/deep-learning/sequence-modeling/selective-state-space-models-mamba/selective-state-space-models-mamba) · [Linear and Hybrid Attention Architectures](/ai-ml/ai-ml-learning-resources/deep-learning/sequence-modeling/linear-and-hybrid-attention-architectures/linear-and-hybrid-attention-architectures) — most 2025 long-context models interleave these layers with attention rather than replacing it
 - Field overview: [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme) · related: [06. NLP](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/readme) · [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme)

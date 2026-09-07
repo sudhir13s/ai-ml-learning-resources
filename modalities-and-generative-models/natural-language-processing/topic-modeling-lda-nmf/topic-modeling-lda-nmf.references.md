@@ -3,7 +3,7 @@ id: "06-nlp/topic-modeling/references"
 topic: "Topic Modeling — References"
 parent: "06-nlp/topic-modeling"
 type: references
-updated: 2026-06-27
+updated: 2026-09-07
 ---
 
 # Topic Modeling — references and further reading
@@ -21,8 +21,8 @@ updated: 2026-06-27
 - [Latent Dirichlet Allocation (Part 1 of 2)](https://www.youtube.com/watch?v=T05t-SqKArY) — **Luis Serrano** — the clearest visual intro to the generative model; start here.
 - [Training LDA: Gibbs Sampling (Part 2 of 2)](https://www.youtube.com/watch?v=BaM1uiCpj_E) — **Luis Serrano** — how Gibbs sampling recovers topics from the generated documents.
 - [Topic Models: Gibbs Sampling](https://www.youtube.com/watch?v=u7l5hhmdc0M) — **Jordan Boyd-Graber** — the collapsed-Gibbs update derived and explained by a topic-modeling researcher (the update used on this page).
-- [Topic Models — Introduction](https://www.youtube.com/watch?v=IUAHUEpFucA) — **Jordan Boyd-Graber** — the latent-variable framing and the generative story, by a domain researcher.
-- [Intuition behind LDA for Topic Modeling](https://www.youtube.com/watch?v=Cpt97BpI-t4) — **Bhavesh Bhatt** — an applied walkthrough with code, documents → topics → words.
+- [Probabilistic Topic Models and User Behavior](https://www.youtube.com/watch?v=FkckgwMHP2s) — **David Blei (Columbia), via the University of Edinburgh School of Informatics** — LDA's own author on the generative story, posterior inference, and what topic models are actually good for.
+- [CMU Neural Nets for NLP 2021 (20): Models with Latent Random Variables](https://www.youtube.com/watch?v=Z5knlb6MMOI) — **Graham Neubig (CMU)** — the latent-variable framing LDA belongs to, carried through to neural topic models.
 - [BERTopic explained](https://www.youtube.com/watch?v=uZxQz87lb84) — **Maarten Grootendorst (author)** — the embed → cluster → c-TF-IDF pipeline of the modern embedding-based approach, from its creator.
 
 **Courses (free)**:
@@ -40,7 +40,7 @@ updated: 2026-06-27
 - [Dynamic Topic Models](https://mimno.infosci.cornell.edu/info6150/readings/dynamic_topic_models.pdf) — **Blei & Lafferty (2006)** — topics that evolve over time, the basis of trend analysis.
 - [BERTopic: Neural topic modeling with a class-based TF-IDF procedure](https://arxiv.org/abs/2203.05794) — **Grootendorst (2022)** — the leading embedding-based topic model (embed → UMAP → HDBSCAN → c-TF-IDF).
 - [Reading Tea Leaves: How Humans Interpret Topic Models](https://proceedings.neurips.cc/paper/2009/hash/f92586a25bb3145facd64ab20fd554ff-Abstract.html) — **Chang et al. (2009)** — the result that lower perplexity can mean *less* interpretable topics; why we trust coherence over perplexity.
-- [Finding Scientific Topics](https://www.pnas.org/doi/10.1073/pnas.0307752101) — **Griffiths & Steyvers (2004)** — collapsed Gibbs sampling for LDA; Eq. (5) is the conditional derived and coded on this page.
+- [Finding Scientific Topics](https://web.archive.org/web/2020/https://www.pnas.org/content/pnas/101/suppl_1/5228.full.pdf) — **Griffiths & Steyvers (2004)** — collapsed Gibbs sampling for LDA; Eq. (5) is the conditional derived and coded on this page.
 - [Online Learning for Latent Dirichlet Allocation](https://papers.nips.cc/paper/2010/hash/71f6278d140af599e06ad9bf1ba03cb0-Abstract.html) — **Hoffman, Blei & Bach (2010)** — the online/stochastic mini-batch variational inference that scales LDA to huge corpora.
 - [Probabilistic Latent Semantic Indexing](https://arxiv.org/abs/1301.6705) — **Hofmann (1999)** — pLSA, LDA's predecessor; the latent-topic-variable idea, the source of the pLSA mixture on this page.
 - [Learning the Parts of Objects by Non-negative Matrix Factorization](https://www.nature.com/articles/44565) — **Lee & Seung (1999)** — NMF and the parts-based "faces" demonstration; the source of the $V \approx WH$ interpretation.

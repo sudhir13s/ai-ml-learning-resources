@@ -3,7 +3,7 @@ id: "05-deep-learning/hyperparameter-tuning/references"
 topic: "Hyperparameter Tuning — References"
 parent: "05-deep-learning/hyperparameter-tuning"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Hyperparameter Tuning — references and further reading
@@ -53,10 +53,12 @@ updated: 2026-06-22
 **Books (free chapters)**:
 - [Deep Learning — §11.4 Selecting Hyperparameters](https://www.deeplearningbook.org/contents/guidelines.html) — **Goodfellow, Bengio & Courville** — manual vs automatic search and what each knob does.
 - [Automated Machine Learning: Methods, Systems, Challenges](https://www.automl.org/book/) — **Hutter, Kotthoff & Vanschoren (eds.)** — the open-access AutoML book; full chapters on HPO, Bayesian opt, and NAS.
+- [*Understanding Deep Learning* — Ch. 8 "Measuring performance"](https://udlbook.github.io/udlbook/) — **Simon J.D. Prince** — free PDF; the train/validation/test discipline and double descent — what your search is actually optimizing, and how it can lie to you.
 
 **In this platform**:
 - Concept page (full explanation): [Hyperparameter Tuning](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/hyperparameter-tuning/hyperparameter-tuning)
 - Prerequisites — the knobs you're tuning: [Optimizers](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/optimizers) · [Learning-Rate Schedules & Warmup](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/learning-rate-schedules-and-warmup/learning-rate-schedules-and-warmup) · [Regularization](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/regularization/regularization)
 - The validation protocol (leak-free model selection): [Cross-Validation](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/cross-validation/cross-validation)
+- The classical-ML side of the same problem: [Hyperparameter Search — a Bridge](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/hyperparameter-search-a-bridge/hyperparameter-search-a-bridge) — grid, random, and Bayesian search framed for models that fit in minutes, where an exhaustive sweep is still affordable
 - Concept depth (the *why*): [ai-ml-intuitions 2.09 Learning Rate Schedules](/ai-ml/ai-ml-intuitions/learning-and-optimization/adaptive-optimization/learning-rate-schedules-intuition) · [3.07 Bias–Variance & Generalization](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/generalization/bias-variance-tradeoff-intuition)
 - Field overview: [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme) · Related: [13. Tools & Frameworks](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/readme) (Optuna / Ray Tune in practice)

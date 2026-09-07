@@ -24,7 +24,7 @@ reasoning shows up in interviews. You should explain what a p-value does (and do
 Type I vs Type II error and power, what "95% confidence" actually claims, and why multiple
 comparisons inflate false positives.
 
-**⭐ Start here — suggested path:**
+**Start here — suggested path:**
 
 1. **Hypothesis tests & null** — watch [StatQuest: Hypothesis Testing & the Null Hypothesis](https://www.youtube.com/watch?v=0oc49DyA3hU). *The framework before any formulas.*
 2. **p-values, correctly** — watch [StatQuest: p-values, what they are and how to interpret them](https://www.youtube.com/watch?v=vemZtEM63GY). *Kills the most common misinterpretation.*
@@ -32,29 +32,29 @@ comparisons inflate false positives.
 4. **Formalize** — read [OpenStax Introductory Statistics — Hypothesis Testing & CIs](https://openstax.org/books/introductory-statistics/pages/9-introduction). *Test statistics, errors, power, and interval construction.*
 5. **Connect to ML** — read [ai-ml-intuitions 0.05 Hypothesis Testing & Confidence Intervals](/ai-ml/ai-ml-intuitions/foundational-mental-models/probability-and-belief/hypothesis-testing-and-confidence-intuition). *Evaluating model comparisons honestly.*
 
-## 🎓 Courses (free)
-- [Harvard Stat 110 → inference](https://projects.iq.harvard.edu/stat110/home) — **Joe Blitzstein (Harvard)** — the probability foundations behind tests and intervals, free.
+## Courses (free)
+- [Harvard Stat 110 → inference](https://www.youtube.com/playlist?list=PL2SOU6wwxB0uwwH80KTQ6ht66KWxbzTIo) — **Joe Blitzstein (Harvard)** — the probability foundations behind tests and intervals, free.
 - [Khan Academy — Significance tests & confidence intervals](https://www.khanacademy.org/math/statistics-probability/significance-tests-one-sample) — **Khan Academy** — full unit with exercises.
 
-## 🎥 Videos
+## Videos
 - [Hypothesis Testing and the Null Hypothesis, Clearly Explained](https://www.youtube.com/watch?v=0oc49DyA3hU) — **StatQuest (Josh Starmer)** — the testing framework.
 - [p-values: what they are and how to interpret them](https://www.youtube.com/watch?v=vemZtEM63GY) — **StatQuest (Josh Starmer)** — the correct interpretation.
 - [Confidence Intervals, Clearly Explained](https://www.youtube.com/watch?v=TqOeMYtOc1w) — **StatQuest (Josh Starmer)** — what coverage really means.
 - [P-values and significance tests](https://www.youtube.com/watch?v=KS6KEWaoOOE) — **Khan Academy** — a complementary, exercise-oriented walkthrough.
 
-## 📄 Key Papers
+## Key Papers
 - [OpenStax Introductory Statistics — Ch. 9 (Hypothesis Testing with One Sample)](https://openstax.org/books/introductory-statistics/pages/9-introduction) — **OpenStax** — test statistics, Type I/II errors, and power, free and rigorous.
 - [MML book — Ch. 6 (Probability)](https://mml-book.github.io/book/mml-book.pdf) — **Deisenroth, Faisal & Ong** — the distribution machinery tests are built on.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [Seeing Theory — Ch. 4 (Frequentist Inference)](https://seeing-theory.brown.edu/frequentist-inference/index.html) — **Brown University** — interactive p-values and confidence intervals.
 - [Statistical significance & A/B testing](https://www.evanmiller.org/how-not-to-run-an-ab-test.html) — **Evan Miller** — a classic free essay on testing pitfalls (peeking, multiple comparisons).
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Introductory Statistics (OpenStax) — **Ch. 8 (Confidence Intervals), Ch. 9 (Hypothesis Testing)**](https://openstax.org/details/books/introductory-statistics) — **OpenStax** — free, thorough, with examples.
 - [Think Stats — **Ch. 9 (Hypothesis Testing)**](https://greenteapress.com/wp/think-stats-2e/) — **Allen B. Downey** — computational hypothesis testing in Python; free.
 
-## 🔗 In this platform
+## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 0.05 Hypothesis Testing & Confidence Intervals](/ai-ml/ai-ml-intuitions/foundational-mental-models/probability-and-belief/hypothesis-testing-and-confidence-intuition)
 - Curriculum context: [Maths for AI-ML — Phase 4 (Statistics, row 4.2)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
 - Prereq: [18 Law of Large Numbers & the CLT](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/lln-and-clt/lln-and-clt)

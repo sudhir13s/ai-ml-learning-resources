@@ -5,7 +5,7 @@ parent: "07-computer-vision"
 level: intermediate
 built_from: ["cnns", "classic-cnn-architectures", "pooling-and-receptive-fields"]
 interview_frequency: high
-updated: 2026-06-20
+updated: 2026-09-07
 tier: core
 est_minutes: 10
 title: "Semantic Segmentation (FCN, U-Net, DeepLab)"
@@ -32,32 +32,34 @@ instances) and instance segmentation. U-Net in particular is ubiquitous in medic
 4. **Read the sources** — [FCN](https://arxiv.org/abs/1411.4038) → [U-Net](https://arxiv.org/abs/1505.04597) → [DeepLabv3](https://arxiv.org/abs/1706.05587). *Fully convolutional → skip connections → atrous convolution.*
 5. **Make it concrete** — work through [d2l: Semantic Segmentation](https://d2l.ai/chapter_computer-vision/semantic-segmentation-and-dataset.html) + [transposed conv / FCN](https://d2l.ai/chapter_computer-vision/fcn.html). *Build an FCN and see per-pixel predictions.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [Stanford CS231n](https://cs231n.github.io/) — **Stanford** — Lecture 11 covers FCN and dense prediction alongside detection.
 - [Dive into Deep Learning — Semantic Segmentation & FCN](https://d2l.ai/chapter_computer-vision/semantic-segmentation-and-dataset.html) — **Zhang et al.** — free chapters with transposed convolutions and a runnable FCN.
 
-## 🎥 Videos
+## Videos
 - [U-Net clearly explained](https://www.youtube.com/watch?v=oxcgx75k6yU) — **TileStats** — the encoder–decoder + skip-connection architecture, beautifully clear.
 - [CS231n Lecture 11 — Detection & Segmentation](https://www.youtube.com/watch?v=nDPWywWRIRo) — **Stanford** — FCN, upsampling, and dense prediction in context.
 - [Detection & Segmentation (Lecture 16)](https://www.youtube.com/watch?v=9AyMR4IhSWQ) — **Justin Johnson (Michigan)** — a thorough modern treatment of segmentation networks.
 - [5-Minute Teaser: U-Net for Biomedical Image Segmentation](https://www.youtube.com/watch?v=81AvQQnpG4Q) — **U-Net authors** — the original short presentation of U-Net.
 
-## 📄 Key Papers
+## Key Papers
 - [Fully Convolutional Networks for Semantic Segmentation (FCN)](https://arxiv.org/abs/1411.4038) — **Long et al. (2015)** — replaced FC layers with convs for dense pixel prediction.
 - [U-Net: Convolutional Networks for Biomedical Image Segmentation](https://arxiv.org/abs/1505.04597) — **Ronneberger et al. (2015)** — symmetric encoder–decoder with skip connections; the workhorse.
 - [DeepLab (atrous convolution + CRF)](https://arxiv.org/abs/1606.00915) — **Chen et al. (2016)** — dilated convs keep resolution and receptive field.
 - [Rethinking Atrous Convolution (DeepLabv3)](https://arxiv.org/abs/1706.05587) — **Chen et al. (2017)** — atrous spatial pyramid pooling; a strong, widely used baseline.
+- [Segment Anything (SAM)](https://arxiv.org/abs/2304.02643) — **Kirillov et al. (2023)** — class-agnostic promptable masks; in 2026 the common first step is SAM masks plus a label, not a per-dataset segmentation head.
+- [SAM 3: Segment Anything with Concepts](https://arxiv.org/abs/2511.16719) — **Meta AI (2025)** — open-vocabulary text prompts turn "which classes did you train on?" into a runtime question.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [Semantic Segmentation & dataset (d2l)](https://d2l.ai/chapter_computer-vision/semantic-segmentation-and-dataset.html) — **Zhang et al.** — the task, dataset, and metrics, free.
 - [Fully Convolutional Networks (d2l)](https://d2l.ai/chapter_computer-vision/fcn.html) — **Zhang et al.** — transposed convolution and a runnable FCN.
 - [Intersection over Union (IoU)](https://learnopencv.com/intersection-over-union-iou-in-object-detection-and-segmentation/) — **LearnOpenCV** — the overlap metric used for segmentation too, free.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Dive into Deep Learning — **Ch. 14.9 (Semantic Segmentation)** + **14.10 (Transposed Conv)** + **14.11 (FCN)**](https://d2l.ai/chapter_computer-vision/index.html) — **Zhang et al.** — dense prediction with runnable code.
 - [Computer Vision: Algorithms and Applications, 2nd ed. — **Ch. 6.4 (Semantic segmentation)**](https://szeliski.org/Book/) — **Richard Szeliski** — segmentation in context, free.
 
-## 🔗 In this platform
+## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 4.13 Convolution](/ai-ml/ai-ml-intuitions/architectural-mechanisms/locality-and-weight-sharing/convolution-intuition) — atrous/transposed conv are convolution variants.
 - Foundation: [Pooling & Receptive Fields](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/pooling-and-receptive-fields/pooling-and-receptive-fields) (why we downsample then upsample) · [Classic CNN Architectures](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/classic-cnn-architectures/classic-cnn-architectures)
 - Next concepts: [09 Instance Segmentation](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/instance-segmentation/instance-segmentation) · [10 Detection & Segmentation Metrics](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/detection-and-segmentation-metrics/detection-and-segmentation-metrics)

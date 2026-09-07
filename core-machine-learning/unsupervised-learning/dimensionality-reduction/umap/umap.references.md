@@ -3,7 +3,7 @@ id: "04-unsupervised-learning/umap/references"
 topic: "UMAP — References"
 parent: "04-unsupervised-learning/umap"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # UMAP — references and further reading
@@ -45,6 +45,8 @@ updated: 2026-06-22
 - [On UMAP's True Loss Function](https://arxiv.org/abs/2103.14608) — **Damrich & Hamprecht (2021)** — shows UMAP's *effective* loss differs from the stated cross-entropy; essential for an honest, senior-level account of why UMAP behaves as it does.
 - [Attraction-Repulsion Spectrum in Neighbor Embeddings](https://arxiv.org/abs/2007.08902) — **Böhm, Berens & Kobak (2022)** — places t-SNE and UMAP on one continuum controlled by the attraction/repulsion balance; the clearest unifying view.
 - [Dimensionality Reduction: A Comparative Review](https://lvdmaaten.github.io/publications/papers/TR_Dimensionality_Reduction_Review_2009.pdf) — **van der Maaten, Postma & van den Herik (2009)** — free survey placing manifold methods against PCA and t-SNE; the landscape in one paper.
+- [Understanding How Dimension Reduction Tools Work (PaCMAP)](https://jmlr.org/papers/v22/20-1061.html) — **Wang, Huang, Rudin & Shaposhnik (JMLR 2021)** — takes UMAP, t-SNE, and TriMap apart into their attractive/repulsive force pairs, shows which term controls global structure, and introduces PaCMAP; the paper to read before claiming one tool "preserves global structure."
+- [The specious art of single-cell genomics](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011288) — **Chari & Pachter (2023)** — measures how badly 2-D embeddings distort neighbourhoods and inter-cluster distance; the current, and still unresolved, case against over-reading a UMAP plot.
 
 **Books (free, with chapters):**
 - [The Elements of Statistical Learning — §14.9 "Nonlinear Dimension Reduction and Local MDS"](https://hastie.su.domains/ElemStatLearn/) — **Hastie, Tibshirani & Friedman** — free PDF; the manifold-learning family UMAP belongs to (Isomap, LLE, Laplacian eigenmaps).

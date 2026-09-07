@@ -6,7 +6,7 @@ level: intermediate
 built_from: ["seq2seq-encoder-decoder", "attention", "contextual-embeddings", "decoding-strategies", "tf-idf"]
 interview_frequency: medium
 template: concept-deep
-updated: 2026-06-27
+updated: 2026-09-07
 tier: core
 est_minutes: 40
 title: "Text Summarization (extractive & abstractive)"
@@ -42,7 +42,7 @@ $$\rho \;=\; \frac{\text{length}(S)}{\text{length}(D)},$$
 
 usually in tokens or sentences. A news headline is $\rho \approx 0.02$; an abstract of a paper $\rho \approx 0.05$; a "TL;DR" of an email thread maybe $\rho \approx 0.2$. The target $\rho$ is a **design choice**, not a model property — and the lower you push it, the more aggressively the system must decide what to *drop*. This is why "length control" is a first-class requirement (more below).
 
-> **Source / derivation:** the compression ratio (and the informativeness/fluency/faithfulness framing below) follows the textbook treatment in [Jurafsky & Martin, *Speech and Language Processing*, 3rd ed.](https://web.stanford.edu/~jurafsky/slp3/) and the survey [Nenkova & McKeown, *Automatic Summarization* (2011)](https://www.cis.upenn.edu/~nenkova/1500000015-Nenkova.pdf).
+> **Source / derivation:** the compression ratio (and the informativeness/fluency/faithfulness framing below) follows the textbook treatment in [Jurafsky & Martin, *Speech and Language Processing*, 3rd ed.](https://web.stanford.edu/~jurafsky/slp3/) and the survey [Nenkova & McKeown, *Automatic Summarization* (2011)](https://web.archive.org/web/2021/https://www.cis.upenn.edu/~nenkova/1500000015-Nenkova.pdf) (the author's copy is gone from the Penn site; this is the Internet Archive capture).
 
 **2. Informativeness vs. fluency vs. faithfulness.** A good summary must be:
 

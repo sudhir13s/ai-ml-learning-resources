@@ -3,7 +3,7 @@ id: "06-nlp/coreference-resolution/references"
 topic: "Coreference Resolution — References"
 parent: "06-nlp/coreference-resolution"
 type: references
-updated: 2026-06-27
+updated: 2026-09-07
 ---
 
 # Coreference Resolution — references and further reading
@@ -20,8 +20,8 @@ updated: 2026-06-27
 **Videos**:
 - [Stanford CS224N Lec 13 — Coreference Resolution](https://www.youtube.com/watch?v=rpwEWLaueRk) — **Stanford (Christopher Manning)** — the canonical lecture: mention-ranking → end-to-end neural span-ranking, by one of the field's leaders.
 - [Anaphora and Coreference Resolution, Discourse Connectives](https://www.youtube.com/watch?v=jaN8kJ7JeY0) — **IIT Madras B.S. Programme** — the linguistic foundations: anaphora, cataphora, salience.
-- [Reference Resolution — Anaphora & Coreference](https://www.youtube.com/watch?v=v73Xc7GaR60) — **Dhana DataSciEngg Lectures** — worked examples of resolving references step by step.
-- [Coreference Resolution in NLP](https://www.youtube.com/watch?v=Zz5UveXquLY) — **TecHno RayZ** — concise concept-level overview for a first pass.
+- [CMU Neural Nets for NLP 2021 (23): Document-level Models](https://www.youtube.com/watch?v=e1CSUzP3XWs) — **Graham Neubig (CMU)** — coreference placed inside document-level modelling, which is where the span-ranking objective actually comes from.
+- [Stanford CS224N: NLP with Deep Learning (full lecture series)](https://www.youtube.com/playlist?list=PLoROMvodv4rOSH4v6133s9LFPRHjEmbmJ) — **Stanford Online (Christopher Manning)** — the course series housing the coreference lecture and its neural span-ranking derivation.
 
 **Courses (free)**:
 - [Stanford CS224N: NLP with Deep Learning](https://web.stanford.edu/class/cs224n/) — **Stanford (Manning)** — the course housing the dedicated coreference lecture and notes.
@@ -39,7 +39,7 @@ updated: 2026-06-27
 - [SpanBERT: Improving Pre-training by Representing and Predicting Spans](https://arxiv.org/abs/1907.10529) — **Joshi, Chen, Liu, Weld, Zettlemoyer & Levy (2020)** — span-boundary pretraining; the encoder that pushed coref past 79 CoNLL F1.
 - [A Machine Learning Approach to Coreference Resolution of Noun Phrases](https://aclanthology.org/J01-4004/) — **Soon, Ng & Lim (2001)** — the canonical mention-pair model with hand-engineered features.
 - [Deep Reinforcement Learning for Mention-Ranking Coreference Models](https://arxiv.org/abs/1609.08667) — **Clark & Manning (2016)** — neural mention-ranking and entity-level coref with RL.
-- [Resolving Pronoun References (the Hobbs algorithm)](https://doi.org/10.1016/0024-3841(78)90006-2) — **Jerry Hobbs (1978)** — the syntactic-tree-search baseline; "Hobbs distance" survives as a feature.
+- [Resolving Pronoun References (the Hobbs algorithm)](https://doi.org/10.1016/0024-3841%2878%2990006-2) — **Jerry Hobbs (1978)**, *Lingua* 44(4) — the syntactic-tree-search baseline; "Hobbs distance" survives as a feature. (The parentheses in this DOI are percent-encoded so the link resolves.)
 - [A Model-Theoretic Coreference Scoring Scheme (MUC)](https://aclanthology.org/M95-1005/) — **Vilain, Burger, Aberdeen, Connolly & Hirschman (1995)** — the link-based MUC metric.
 - [Algorithms for Scoring Coreference Chains (B³)](https://www.aaai.org/Papers/Symposia/Spring/1998/SS-98-01/SS98-01-013.pdf) — **Bagga & Baldwin (1998)** — the mention-based B³ metric computed by hand in the page.
 - [On Coreference Resolution Performance Metrics (CEAF)](https://aclanthology.org/H05-1004/) — **Xiaoqiang Luo (2005)** — the entity-alignment CEAF metric (φ4).

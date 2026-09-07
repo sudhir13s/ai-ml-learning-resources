@@ -3,7 +3,7 @@ id: "05-deep-learning/dropout/references"
 topic: "Dropout — References"
 parent: "05-deep-learning/dropout"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Dropout — references and further reading
@@ -22,7 +22,7 @@ updated: 2026-06-22
 - [Dropout Regularization (C2W1L06)](https://www.youtube.com/watch?v=D8PJAL-MZv8) — **DeepLearningAI (Andrew Ng)** — the mechanics: random unit removal each pass.
 - [Understanding Dropout (C2W1L07)](https://www.youtube.com/watch?v=ARq74QuavAo) — **DeepLearningAI (Andrew Ng)** — why it prevents co-adaptation and acts like an ensemble.
 - [Regularization (C2W1L04)](https://www.youtube.com/watch?v=6g0t3Phly2M) — **DeepLearningAI (Andrew Ng)** — situates dropout alongside L1/L2.
-- [Training a Neural Network explained](https://www.youtube.com/watch?v=sZAlS3_dnk0) — **deeplizard** — where dropout fits in the train/validation/test workflow.
+- [Building makemore Part 3: Activations & Gradients, BatchNorm](https://www.youtube.com/watch?v=P6sfmUTpUmc) — **Andrej Karpathy** — not about dropout directly, but it is the clearest demonstration of *why* a train-mode-only layer needs its inference behaviour handled explicitly, using BatchNorm's running statistics as the worked case.
 
 **Interactive & visual**:
 - [Dive into Deep Learning — Dropout (runnable)](https://d2l.ai/chapter_multilayer-perceptrons/dropout.html) — **Zhang et al.** — implement inverted dropout from scratch and run it in-browser (Colab/notebook); watch the train/val gap respond to `p`.
@@ -51,6 +51,7 @@ updated: 2026-06-22
 **Books (free chapters)**:
 - [Dive into Deep Learning — §5.6 "Dropout"](https://d2l.ai/chapter_multilayer-perceptrons/dropout.html) — **Zhang et al.** — inverted dropout, expectations, and code.
 - [Deep Learning — §7.12 "Dropout"](https://www.deeplearningbook.org/contents/regularization.html) — **Goodfellow, Bengio & Courville** — the rigorous ensemble/bagging and geometric-mean-averaging view.
+- [*Understanding Deep Learning* — Ch. 9 "Regularization" (§9.3 dropout)](https://udlbook.github.io/udlbook/) — **Simon J.D. Prince** — free PDF; places dropout beside the other regularizers and is explicit about the implicit-ensemble reading and its limits.
 
 **In this platform**:
 - Concept page (full explanation): [Dropout](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/dropout/dropout)

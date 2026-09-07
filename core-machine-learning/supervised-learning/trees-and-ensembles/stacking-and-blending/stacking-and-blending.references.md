@@ -3,7 +3,7 @@ id: "03-supervised-learning/stacking-blending/references"
 topic: "Stacking & Blending — References"
 parent: "03-supervised-learning/stacking-blending"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Stacking & Blending — references and further reading
@@ -11,7 +11,7 @@ updated: 2026-06-22
 > Companion link library for **[Stacking & Blending](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/trees-and-ensembles/stacking-and-blending/stacking-and-blending)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
-1. **Build intuition** — watch [Ensemble Learning: Bagging, Boosting & Stacking in 4 minutes](https://www.youtube.com/watch?v=eLt4a8-316E) (**AssemblyAI**). *See where stacking sits among ensembles: a meta-model on top of base models.*
+1. **Build intuition** — watch [Intro to ensemble methods (L07.1)](https://www.youtube.com/watch?v=wVRidHbwLB0) (**Sebastian Raschka**). *See where stacking sits among ensembles: a meta-model on top of base models, versus averaging and boosting.*
 2. **See it built** — watch [Stacking (Ensemble Methods, L07.7)](https://www.youtube.com/watch?v=8T2emza6g80) (**Sebastian Raschka**). *A clear academic walkthrough of the two-level architecture and out-of-fold predictions.*
 3. **Get the math** — read [ESL Ch. 8.8 "Model Averaging and Stacking"](https://hastie.su.domains/ElemStatLearn/). *Why out-of-fold predictions and a simple meta-learner avoid overfitting.*
 4. **Read the source** — skim [Wolpert: Stacked Generalization](https://www.semanticscholar.org/paper/Stacked-generalization-Wolpert/82e34a7d1c7e58e6a9b32cf45fae67aca308e02a) and [Breiman: Stacked Regressions](https://link.springer.com/article/10.1007/BF00117832). *The original idea and the regression form with non-negativity constraints.*
@@ -19,8 +19,7 @@ updated: 2026-06-22
 
 **Videos**:
 - [Stacking (Ensemble Methods, L07.7)](https://www.youtube.com/watch?v=8T2emza6g80) — **Sebastian Raschka** — the clearest academic walkthrough of the meta-learner and out-of-fold predictions.
-- [Ensemble Learning: Bagging, Boosting & Stacking in 4 minutes](https://www.youtube.com/watch?v=eLt4a8-316E) — **AssemblyAI** — the fastest map of where stacking fits among ensembles.
-- [Stacking Classifier — Ensemble Classifiers](https://www.youtube.com/watch?v=sBrQnqwMpvA) — **Bhavesh Bhatt** — a hands-on code build of a stacking ensemble end to end.
+- [Intro to ensemble methods (L07.1)](https://www.youtube.com/watch?v=wVRidHbwLB0) — **Sebastian Raschka** — the map of the ensemble family (voting, bagging, boosting, stacking) and what each one buys you.
 - [StatQuest: AdaBoost, and the ensemble big picture](https://www.youtube.com/watch?v=LsK-xG1cLYA) — **StatQuest (Josh Starmer)** — the boosting contrast that frames why stacking adds a third, learned-combination strategy.
 
 **Courses (free)**:
@@ -30,6 +29,7 @@ updated: 2026-06-22
 
 **Articles / blogs (free, no paywall)**:
 - [Ensemble methods — Stacked generalization (scikit-learn)](https://scikit-learn.org/stable/modules/ensemble.html#stacked-generalization) — **scikit-learn** — the practical reference: `StackingClassifier`/`StackingRegressor`, `cv`, `final_estimator`, `passthrough`.
+- [mlxtend `StackingCVClassifier` — user guide](https://rasbt.github.io/mlxtend/user_guide/classifier/StackingCVClassifier/) — **Sebastian Raschka (mlxtend maintainer)** — the cross-validated stacking build with the out-of-fold construction spelled out in code, by the author of the L07 lecture above.
 - [Stacking Ensemble Machine Learning with Python](https://machinelearningmastery.com/stacking-ensemble-machine-learning-with-python/) — **Jason Brownlee** — a free, end-to-end worked example of stacking and blending.
 - [Blending Ensemble Machine Learning with Python](https://machinelearningmastery.com/blending-ensemble-machine-learning-with-python/) — **Jason Brownlee** — the holdout-based blending variant, contrasted with k-fold stacking.
 - [The Bias–Variance Tradeoff](https://scott.fortmann-roe.com/docs/BiasVariance.html) — **Scott Fortmann-Roe** — the error-decomposition lens explaining why combining diverse models helps.

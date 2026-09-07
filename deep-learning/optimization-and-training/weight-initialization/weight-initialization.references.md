@@ -3,7 +3,7 @@ id: "05-deep-learning/weight-initialization/references"
 topic: "Weight Initialization — References"
 parent: "05-deep-learning/weight-initialization"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Weight Initialization — references and further reading
@@ -19,9 +19,8 @@ updated: 2026-06-22
 
 **Videos**:
 - [Weight Initialization in a Deep Network (C2W1L11)](https://www.youtube.com/watch?v=s2coXdufOzE) — **DeepLearningAI (Andrew Ng)** — the clearest short derivation of variance-preserving init.
-- [Weight Initialization explained — reducing the vanishing gradient problem](https://www.youtube.com/watch?v=8krd5qKVw-Q) — **deeplizard** — why zero/large init fails and how Xavier/He fix it.
-- [Xavier & He Initialization](https://www.youtube.com/watch?v=LKWatKGRZLI) — **Six Sigma Pro SMART** — side-by-side walk-through of both schemes.
-- [Why don't we initialize the weights of a neural network to zero?](https://www.youtube.com/watch?v=LBMVyXfZQy0) — **Bhavesh Bhatt** — the symmetry-breaking argument, concretely.
+- [Building makemore Part 3: Activations & Gradients, BatchNorm](https://www.youtube.com/watch?v=P6sfmUTpUmc) — **Andrej Karpathy** — derives the fan-in scaling *live*, then measures the activation and gradient histograms it fixes; the single best hour on this topic anywhere.
+- [Lecture 6: Training Neural Networks I (weight initialization)](https://www.youtube.com/watch?v=wEoyxE0GP2M) — **Stanford University School of Engineering (CS231n)** — plots what all-zero, too-small, and too-large init do to per-layer activation statistics, then motivates Xavier and He from those plots.
 
 **Interactive & visual**:
 - [Initializing neural networks](https://www.deeplearning.ai/ai-notes/initialization/index.html) — **DeepLearning.AI** — interactive sliders showing how init scale collapses or explodes signal flow through a network, with the variance math.
@@ -44,11 +43,13 @@ updated: 2026-06-22
 - [Improving Transformer Optimization Through Better Initialization (T-Fixup)](https://proceedings.mlr.press/v119/huang20f/huang20f.pdf) — **Huang et al. (2020)** — transformer-specific init that removes the need for LayerNorm warmup.
 - [All you need is a good init (LSUV)](https://arxiv.org/abs/1511.06422) — **Mishkin & Matas (2015)** — Layer-Sequential Unit-Variance: orthogonal init + data-driven per-layer rescaling.
 - [An Empirical Exploration of Recurrent Network Architectures](https://proceedings.mlr.press/v37/jozefowicz15.pdf) — **Jozefowicz, Zaremba & Sutskever (2015)** — the LSTM forget-gate-bias-1 trick, measured.
+- [Tensor Programs V: Tuning Large Neural Networks via Zero-Shot Hyperparameter Transfer (μP)](https://arxiv.org/abs/2203.03466) — **Yang, Hu et al. (2022)** — the parametrization in which init scale *and* learning rate transfer from a small proxy model to a large one; the modern reason init is treated as part of a width-scaling rule rather than a per-model constant.
 
 **Books (free chapters)**:
 - [Dive into Deep Learning — §5.4 "Numerical Stability and Initialization"](https://d2l.ai/chapter_multilayer-perceptrons/numerical-stability-and-init.html) — **Zhang et al.** — vanishing/exploding signals and Xavier init, with code.
 - [Deep Learning — §8.4 "Parameter Initialization Strategies"](https://www.deeplearningbook.org/contents/optimization.html) — **Goodfellow, Bengio & Courville** — the rigorous treatment of init and its effect on optimization.
 - [Neural Networks and Deep Learning — Ch. 3 (weight initialization)](http://neuralnetworksanddeeplearning.com/chap3.html) — **Michael Nielsen** — why scaling init by fan-in speeds early learning.
+- [*Understanding Deep Learning* — Ch. 7 "Gradients and initialization"](https://udlbook.github.io/udlbook/) — **Simon J.D. Prince** — free PDF; runs the forward and backward variance recursions together, so you see init as the fixed point that keeps *both* signals stable.
 
 **In this platform**:
 - Concept page (full explanation): [Weight Initialization](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/weight-initialization/weight-initialization)

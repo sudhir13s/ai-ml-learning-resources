@@ -3,7 +3,7 @@ id: "04-unsupervised-learning/t-sne/references"
 topic: "t-SNE — References"
 parent: "04-unsupervised-learning/t-sne"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # t-SNE — references and further reading
@@ -13,14 +13,13 @@ updated: 2026-06-22
 **Start here — suggested path**:
 1. **Build intuition** — watch [StatQuest: t-SNE, Clearly Explained](https://www.youtube.com/watch?v=NEaUSP4YerM) (**Josh Starmer**). *Why similar points attract and dissimilar ones repel in the low-D map — the gentlest first watch.*
 2. **See the caveats** — read [How to Use t-SNE Effectively](https://distill.pub/2016/misread-tsne/) (**Wattenberg, Viégas & Johnson, Distill**). *Interactive: how perplexity, iterations, and randomness change the picture — the single most important read here.*
-3. **Get the math** — watch [t-SNE: Clearly Explained](https://www.youtube.com/watch?v=43ySR7_Yb4E) (**Deepia**), then read the [original paper](https://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf). *Conditional probabilities, the Student-t tail, the KL objective, the gradient.*
+3. **Get the math** — watch [Visualizing Data Using t-SNE](https://www.youtube.com/watch?v=RJVL80Gg3lA) (**Laurens van der Maaten, Google TechTalk**), then read the [original paper](https://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf). *Conditional probabilities, the Student-t tail, the KL objective, the gradient — from the author himself.*
 4. **Read the source** — [van der Maaten & Hinton (2008)](https://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf) then [Barnes-Hut t-SNE (2014)](https://arxiv.org/abs/1301.3342). *The method, then the O(n log n) approximation behind every modern implementation.*
 5. **Make it concrete** — code it with [scikit-learn TSNE](https://scikit-learn.org/stable/modules/manifold.html#t-sne) and sweep perplexity. *Watch the embedding change to internalize "don't over-read it."*
 
 **Videos**:
 - [StatQuest: t-SNE, Clearly Explained](https://www.youtube.com/watch?v=NEaUSP4YerM) — **StatQuest (Josh Starmer)** — the gentle from-scratch intuition for attraction/repulsion; the best first watch.
-- [t-SNE: Clearly Explained](https://www.youtube.com/watch?v=43ySR7_Yb4E) — **Deepia** — the full probabilistic derivation and the KL-divergence objective, visually.
-- [t-SNE explained](https://www.youtube.com/watch?v=RJVL80Gg3lA) — **ritvikmath** — perplexity and the Gaussian/Student-t pairing, concisely and clearly.
+- [Visualizing Data Using t-SNE](https://www.youtube.com/watch?v=RJVL80Gg3lA) — **Laurens van der Maaten (Google TechTalks)** — the author's own talk: the crowding problem, the Gaussian/Student-t pairing, and what perplexity really controls.
 - [PCA, t-SNE, and UMAP — Modern Approaches to Dimension Reduction](https://www.youtube.com/watch?v=YPJQydzTLwQ) — **Leland McInnes (PyData)** — situates t-SNE between PCA and UMAP, with its trade-offs, from the UMAP author.
 
 **Interactive & visual**:
@@ -42,6 +41,9 @@ updated: 2026-06-22
 - [Stochastic Neighbor Embedding](https://www.cs.toronto.edu/~hinton/absps/sne.pdf) — **Hinton & Roweis (2002/03)** — the SNE predecessor t-SNE improves on; where the probability formulation came from.
 - [Accelerating t-SNE using Tree-Based Algorithms (Barnes-Hut)](https://arxiv.org/abs/1301.3342) — **van der Maaten (2014)** — the O(n log n) approximation behind every modern implementation.
 - [Dimensionality Reduction: A Comparative Review](https://lvdmaaten.github.io/publications/papers/TR_Dimensionality_Reduction_Review_2009.pdf) — **van der Maaten, Postma & van den Herik (2009)** — t-SNE benchmarked against PCA and the other non-linear methods; the landscape in one paper.
+- [Understanding How Dimension Reduction Tools Work (PaCMAP)](https://jmlr.org/papers/v22/20-1061.html) — **Wang, Huang, Rudin & Shaposhnik (JMLR 2021)** — dissects t-SNE, UMAP, and TriMap into attractive/repulsive force pairs and shows which choices control local vs global structure; the reference frame for the whole family.
+- [The art of using t-SNE for single-cell transcriptomics](https://www.nature.com/articles/s41467-019-13056-x) — **Kobak & Berens (2019)** — the protocol that fixed t-SNE's reputation on large data: PCA initialization, exaggeration schedules, and why initialization (not the algorithm) drives global structure.
+- [The specious art of single-cell genomics](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011288) — **Chari & Pachter (2023)** — the sharpest modern critique: two-dimensional embeddings distort distances so much that many published conclusions do not survive; read it before trusting a t-SNE picture.
 - [UMAP: Uniform Manifold Approximation and Projection](https://arxiv.org/abs/1802.03426) — **McInnes, Healy & Melville (2018)** — the modern alternative; read for the t-SNE-vs-UMAP comparison and the global-structure argument.
 
 **Books (free chapters)**:

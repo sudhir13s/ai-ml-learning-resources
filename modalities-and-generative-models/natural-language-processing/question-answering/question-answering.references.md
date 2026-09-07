@@ -3,7 +3,7 @@ id: "06-nlp/question-answering/references"
 topic: "Question Answering — References"
 parent: "06-nlp/question-answering"
 type: references
-updated: 2026-06-27
+updated: 2026-09-07
 ---
 
 # Question Answering — references and further reading
@@ -19,10 +19,11 @@ updated: 2026-06-27
 
 **Videos**:
 - [Applying BERT to Question Answering (SQuAD v1.1)](https://www.youtube.com/watch?v=l8ZYCvgGu0o) — **Chris McCormick** — start/end span prediction explained in detail, the clearest walkthrough of the span head.
-- [Stanford CS224N: Question Answering](https://www.youtube.com/watch?v=yIdF-17HwSk) — **Stanford (Chris Manning / Danqi Chen)** — reading comprehension and open-domain QA from the people who built DrQA/SQuAD.
-- [Stanford CS224N: Natural Language Generation](https://www.youtube.com/watch?v=1uMo8olr5ng) — **Stanford** — why EM/F1 break on generated answers and how generation is evaluated; the evaluation half of QA.
+- [CMU Neural Nets for NLP 2021 (16): Machine Reading with Neural Nets](https://www.youtube.com/watch?v=x2pQYCdJkOc) — **Graham Neubig (CMU)** — reading comprehension as a task family: span extraction, multi-hop, and what the benchmarks actually test.
+- [CMU Advanced NLP 2024 (10): Retrieval and RAG](https://www.youtube.com/watch?v=KfQaYk4k9eM) — **Graham Neubig (CMU)** — the retriever–reader pipeline in its 2024 form, including where retrieval quality caps answer quality.
+- [Stanford CS224N: NLP with Deep Learning (full lecture series)](https://www.youtube.com/playlist?list=PLoROMvodv4rOSH4v6133s9LFPRHjEmbmJ) — **Stanford Online (Christopher Manning)** — the course series housing the question-answering and natural-language-generation lectures.
 - [Text Extraction From a Corpus Using BERT (QA)](https://www.youtube.com/watch?v=XaQ0CBlQ4cY) — **Abhishek Thakur** — implement extractive QA hands-on, end to end.
-- [RAG: Retrieval-Augmented Generation, explained](https://www.youtube.com/watch?v=T-D1OfcDW1M) — **IBM Technology** — the retrieve-then-generate idea and why it grounds answers, concisely.
+- [BERT explained: training, inference, BERT vs GPT, fine-tuning, [CLS]](https://www.youtube.com/watch?v=90mGPxR2GgY) — **Umar Jamil** — the encoder and its task heads in detail, including the span-prediction head this page derives.
 - [Building Production-Ready RAG Applications](https://www.youtube.com/watch?v=TRjq7t2Ms5I) — **Jerry Liu (LlamaIndex)** — open-domain QA as it is actually built today: retrieval quality, chunking, and the failure modes.
 
 **Courses (free)**:

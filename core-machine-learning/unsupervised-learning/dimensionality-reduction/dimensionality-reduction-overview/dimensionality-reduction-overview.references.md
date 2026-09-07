@@ -3,7 +3,7 @@ id: "04-unsupervised-learning/dimensionality-reduction-overview/references"
 topic: "Dimensionality Reduction — References"
 parent: "04-unsupervised-learning/dimensionality-reduction-overview"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Dimensionality Reduction — references and further reading
@@ -23,6 +23,7 @@ updated: 2026-06-22
 - [Principal Component Analysis (PCA)](https://www.youtube.com/watch?v=g-Hb26agBFg) — **Luis Serrano** — illustrations-over-formulas intro; the best first watch for variance/projection.
 - [Singular Value Decomposition (SVD) and PCA](https://www.youtube.com/watch?v=gXbThCXjZFM) — **Steve Brunton (UW)** — the SVD view of PCA, the numerically preferred route, derived cleanly.
 - [PyData: PCA, t-SNE, and UMAP — Modern Approaches to Dimension Reduction](https://www.youtube.com/watch?v=YPJQydzTLwQ) — **Leland McInnes (UMAP author)** — the unifying tour across linear and non-linear methods.
+- [PCA in Python — Machine Learning From Scratch 11](https://www.youtube.com/watch?v=52d7ha-GdV8) — **Patrick Loeber** — mean-centring, the covariance matrix, `numpy.linalg.eig`, and projecting onto the top components, written out in NumPy.
 
 **Interactive & visual:**
 - [Principal Component Analysis — interactive explainer](https://setosa.io/ev/principal-component-analysis/) — **Victor Powell & Lewis Lehe (Setosa)** — drag the data, watch the components rotate.

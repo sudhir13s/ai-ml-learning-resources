@@ -5,7 +5,7 @@ parent: "08-reinforcement-learning"
 level: intermediate
 built_from: ["probability", "expectation", "exploration-vs-exploitation"]
 interview_frequency: high
-updated: 2026-06-20
+updated: 2026-09-07
 tier: core
 est_minutes: 10
 title: "Multi-Armed Bandits"
@@ -32,30 +32,30 @@ context-free and contextual bandits — and why a bandit is "an MDP with one sta
 3. **Watch the lecture** — [David Silver Lecture 9: Exploration & Exploitation](https://www.youtube.com/watch?v=sGuiWX07sKw). *Frames bandits as the regret-minimization core of exploration.*
 4. **Go rigorous** — [Bandit Algorithms (Lattimore & Szepesvári)](https://tor-lattimore.com/downloads/book/book.pdf). *The definitive free book: stochastic, adversarial, and contextual bandits with proofs.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [UCL Course on RL — Lecture 9: Exploration & Exploitation](https://www.davidsilver.uk/teaching/) — **David Silver (DeepMind)** — bandits, regret, UCB, Thompson sampling.
 - [Stanford CS234 — Exploration & Bandits](https://web.stanford.edu/class/cs234/) — **Stanford (Emma Brunskill)** — bandit regret bounds and the link to RL exploration.
-- [Berkeley CS285 — Exploration](https://rail.eecs.berkeley.edu/deeprlcourse/) — **UC Berkeley (Sergey Levine)** — bandit-style exploration scaled to deep RL.
+- [Berkeley CS285 — Exploration](http://rail.eecs.berkeley.edu/deeprlcourse/) — **UC Berkeley (Sergey Levine)** — bandit-style exploration scaled to deep RL.
 
-## 🎥 Videos
+## Videos
 - [RL Lecture 9: Exploration & Exploitation](https://www.youtube.com/watch?v=sGuiWX07sKw) — **David Silver (DeepMind)** — bandits, regret, UCB, and Thompson sampling derived.
 - [RL Series: Overview of Methods](https://www.youtube.com/watch?v=i7q8bISGwMQ) — **Steve Brunton** — where bandits sit relative to full sequential RL.
 - [Reinforcement Learning: Essential Concepts](https://www.youtube.com/watch?v=Z-T0iJEXiwM) — **StatQuest (Josh Starmer)** — gentle grounding in reward estimation and action selection.
 - [An Introduction to Reinforcement Learning](https://www.youtube.com/watch?v=JgvyzIkgxF0) — **Arxiv Insights** — the exploration–exploitation framing bandits isolate.
 
-## 📄 Key Papers
+## Key Papers
 - [Finite-time Analysis of the Multiarmed Bandit Problem (UCB1)](https://link.springer.com/article/10.1023/A:1013689704352) — **Auer, Cesa-Bianchi & Fischer (2002)** — UCB1 and its logarithmic regret.
 - [An Empirical Evaluation of Thompson Sampling](https://proceedings.neurips.cc/paper/2011/hash/e53a0a2978c28872a4505bdb51db06dc-Abstract.html) — **Chapelle & Li (2011)** — Thompson sampling's strong empirical performance for (contextual) bandits.
 - [A Contextual-Bandit Approach to Personalized News (LinUCB)](https://arxiv.org/abs/1003.0146) — **Li et al. (2010)** — contextual bandits in production (news recommendation).
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [The Multi-Armed Bandit Problem and Its Solutions](https://lilianweng.github.io/posts/2018-01-23-multi-armed-bandit/) — **Lilian Weng** — the canonical open tutorial: ε-greedy, UCB, Thompson, regret.
 - [Spinning Up — Key Concepts in RL](https://spinningup.openai.com/en/latest/spinningup/rl_intro.html) — **OpenAI** — situates bandits as the single-state special case of RL.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Reinforcement Learning: An Introduction (2nd ed.) — **Ch. 2 "Multi-armed Bandits"**](http://incompleteideas.net/book/RLbook2020.pdf) — **Sutton & Barto** — action-value estimation, ε-greedy, optimistic init, UCB, gradient bandits.
 - [Bandit Algorithms](https://tor-lattimore.com/downloads/book/book.pdf) — **Lattimore & Szepesvári** — the definitive free reference: stochastic, adversarial, contextual bandits, with regret proofs.
 
-## 🔗 In this platform
+## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 6.04 MDPs & Exploration](/ai-ml/ai-ml-intuitions/decision-making-and-control/mdps-and-environments/mdps-and-exploration-intuition)
 - Closely related: [14 Exploration vs Exploitation](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/foundations/exploration-vs-exploitation/exploration-vs-exploitation) · Generalizes to: [01 Markov Decision Processes](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/foundations/markov-decision-processes/markov-decision-processes)

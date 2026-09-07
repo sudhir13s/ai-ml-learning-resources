@@ -6,7 +6,7 @@ level: intermediate
 built_from: ["linear-regression", "logistic-regression", "bias-variance", "gradient-descent"]
 interview_frequency: very-high
 template: concept-deep
-updated: 2026-06-22
+updated: 2026-09-07
 tier: core
 est_minutes: 40
 title: "Regularization for Linear Models (Ridge · Lasso · Elastic-Net)"
@@ -425,7 +425,7 @@ from sklearn.linear_model import Ridge, Lasso
 from sklearn.preprocessing import StandardScaler
 np.set_printoptions(precision=4, suppress=True)
 
-# 1) Ridge closed form  w = (XᵀX + λI)⁻¹ Xᵀy   ==  sklearn Ridge
+# 1) Ridge closed form w = (XᵀX + λI)⁻¹ Xᵀy == sklearn Ridge
 rng = np.random.default_rng(0); n, p = 50, 4
 X = rng.normal(size=(n, p)); X[:, 1] = X[:, 0] + 0.01*rng.normal(size=n)   # collinear pair
 w_true = np.array([2.0, -1.0, 0.5, 3.0]); y = X @ w_true + rng.normal(0, 0.5, n)
@@ -436,7 +436,7 @@ print("Ridge closed form :", w_closed)
 print("Ridge sklearn     :", w_sklearn)
 print("match             :", np.allclose(w_closed, w_sklearn, atol=1e-6))
 
-# 2) Soft-thresholding operator  Sλ(z) = sign(z)·max(|z|−λ, 0)
+# 2) Soft-thresholding operator Sλ(z) = sign(z)·max(|z|−λ, 0)
 soft = lambda z, l: np.sign(z) * np.maximum(np.abs(z) - l, 0.0)
 print("\nSoft-threshold (λ=1):", {z: round(float(soft(z, 1.0)), 2) for z in (0.6, 1.0, 2.5, -3.0)})
 

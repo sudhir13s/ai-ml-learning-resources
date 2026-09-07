@@ -6,7 +6,7 @@ level: intermediate
 built_from: ["decision-trees", "gradient-descent", "bias-variance"]
 interview_frequency: very-high
 template: concept-deep
-updated: 2026-07-03
+updated: 2026-09-07
 tier: core
 est_minutes: 55
 title: "Gradient Boosting (XGBoost · LightGBM · CatBoost)"
@@ -293,7 +293,7 @@ Here's what the workflow actually looks like with the real library on real data 
 Verified on xgboost 3.3, CPU."""
 from xgboost import XGBRegressor
 from sklearn.metrics import r2_score
-# cal = load_california()  # the real 8-feature California Housing split from gradient_boosting.py
+# cal = load_california() # the real 8-feature California Housing split from gradient_boosting.py
 
 model = XGBRegressor(
     n_estimators=2000,          # an UPPER BOUND — early stopping picks the real count

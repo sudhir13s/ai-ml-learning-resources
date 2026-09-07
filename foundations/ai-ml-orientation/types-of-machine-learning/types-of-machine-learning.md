@@ -5,7 +5,7 @@ parent: "00-basics"
 level: beginner
 built_from: ["what-is-ai-ml-dl"]
 interview_frequency: very-high
-updated: 2026-06-20
+updated: 2026-09-07
 tier: core
 est_minutes: 10
 title: "Types of Machine Learning (supervised / unsupervised / reinforcement)"
@@ -24,42 +24,41 @@ The follow-up — "is this a classification or clustering problem?" / "when woul
 whether you can map a *business problem* to the right paradigm, which is the first thing you do on any
 real project.
 
-**⭐ Start here — suggested path:**
+**Start here — suggested path:**
 
-1. **See all three side by side** — watch [Supervised vs Unsupervised vs Reinforcement Learning](https://www.youtube.com/watch?v=1FZ0A1QCMWc). *One video, the whole taxonomy, with examples.*
+1. **See the supervised case first** — watch [A Gentle Introduction to Machine Learning](https://www.youtube.com/watch?v=Gv9_4yMHFhI) — **StatQuest**. *The paradigm you will meet most, with the vocabulary the other two are defined against.*
 2. **Lock in supervised vs unsupervised** — read [Google: Types of ML systems](https://developers.google.com/machine-learning/intro-to-ml/supervised). *The two you'll meet most, defined precisely with the classification/regression vs clustering split.*
-3. **Make supervised concrete** — watch [Supervised ML Explained for Beginners](https://www.youtube.com/watch?v=Mu3POlNoLdc). *Labels → prediction, with intuition for classification vs regression.*
+3. **Make unsupervised concrete** — watch [StatQuest: K-means clustering](https://www.youtube.com/watch?v=4b5d3muPQmA). *Structure discovered with no labels, so the contrast with supervised learning becomes physical rather than definitional.*
 4. **Understand reinforcement learning** — watch [RL: Crash Course AI](https://www.youtube.com/watch?v=nIgIv4IfJ6s). *Agent, environment, reward — the loop that trains game players and robots.*
 5. **Map problems to paradigms** — skim [Google: Framing an ML problem](https://developers.google.com/machine-learning/problem-framing/ml-framing). *Turn "we want to predict X" into the right learning type and label.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [Google ML Crash Course — Types of ML systems](https://developers.google.com/machine-learning/intro-to-ml/supervised) — **Google** — free; defines supervised/unsupervised/RL and the classification vs regression split.
 - [Machine Learning Specialization (free to audit)](https://www.coursera.org/specializations/machine-learning-introduction) — **Andrew Ng / DeepLearning.AI** — courses 1–3 walk supervised → unsupervised → recommenders/RL.
 - [Elements of AI — Ch. 4: Machine Learning](https://course.elementsofai.com/4) — **U. Helsinki** — free, plain-language tour of the learning types.
 
-## 🎥 Videos
-- [Supervised vs Unsupervised vs Reinforcement Learning](https://www.youtube.com/watch?v=1FZ0A1QCMWc) — **Simplilearn** — the whole taxonomy with concrete examples in one go.
-- [Supervised vs Unsupervised Learning](https://www.youtube.com/watch?v=1AVrWvRvfxs) — **IBM Technology** — crisp 5-minute contrast of the two main paradigms.
-- [Supervised Machine Learning Explained for Beginners](https://www.youtube.com/watch?v=Mu3POlNoLdc) — **Programming with Mosh** — labels → prediction, classification vs regression intuition.
-- [Reinforcement Learning: Crash Course AI](https://www.youtube.com/watch?v=nIgIv4IfJ6s) — **CrashCourse** — agent/environment/reward loop, accessibly.
-- [An Introduction to Reinforcement Learning](https://www.youtube.com/watch?v=JgvyzIkgxF0) — **Arxiv Insights** — clear visual intro to the RL setting and why it's different.
+## Videos
+- [A Gentle Introduction to Machine Learning](https://www.youtube.com/watch?v=Gv9_4yMHFhI) — **StatQuest with Josh Starmer** — the supervised setting made concrete: labels, training data, and what "prediction" means.
+- [StatQuest: K-means clustering](https://www.youtube.com/watch?v=4b5d3muPQmA) — **StatQuest with Josh Starmer** — the unsupervised half: structure found without any labels at all.
+- [Reinforcement Learning: Crash Course AI](https://www.youtube.com/watch?v=nIgIv4IfJ6s) — **CrashCourse** — the agent, environment and reward loop, accessibly.
+- [An Introduction to Reinforcement Learning](https://www.youtube.com/watch?v=JgvyzIkgxF0) — **Arxiv Insights** — a clear visual introduction to the RL setting and why it differs from the other two.
 
-## 📄 Key Papers
+## Key Papers
 - [A Few Useful Things to Know About Machine Learning](https://homes.cs.washington.edu/~pedrod/papers/cacm12.pdf) — **Pedro Domingos (2012)** — frames learning as "representation + evaluation + optimization" across paradigms.
 - [Reinforcement Learning: An Introduction — Ch. 1](http://incompleteideas.net/book/the-book-2nd.html) — **Sutton & Barto** — the definition of the RL problem from the field's standard text.
 - [Deep Learning (Nature review)](https://www.nature.com/articles/nature14539) — **LeCun, Bengio & Hinton (2015)** — how supervised/unsupervised learning sit inside deep learning.
 
-## 📰 Articles / Blogs (free, no paywall)
-- [Supervised vs. Unsupervised Learning](https://www.ibm.com/think/topics/supervised-vs-unsupervised-learning) — **IBM** — authoritative contrast with when-to-use guidance.
+## Articles / Blogs (free, no paywall)
+- [Choosing the right estimator](https://scikit-learn.org/stable/machine_learning_map.html) — **scikit-learn** — a flowchart from "what kind of problem is this?" to a concrete algorithm; the taxonomy applied to a real decision.
 - [Framing an ML problem](https://developers.google.com/machine-learning/problem-framing/ml-framing) — **Google** — how to decide classification vs regression vs clustering for a real task.
 - [A (Long) Peek into Reinforcement Learning](https://lilianweng.github.io/posts/2018-02-19-rl-overview/) — **Lilian Weng (OpenAI)** — the clearest free overview of what RL is and its core pieces.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Dive into Deep Learning — Ch. 1.3 "Kinds of ML Problems"](https://d2l.ai/chapter_introduction/index.html) — **Zhang et al.** — free; supervised/unsupervised/RL with examples.
 - [An Introduction to Statistical Learning — Ch. 2](https://www.statlearning.com/) — **James, Witten, Hastie & Tibshirani** — free PDF; supervised vs unsupervised, the canonical treatment.
 - [Reinforcement Learning: An Introduction (2nd ed.)](http://incompleteideas.net/book/the-book-2nd.html) — **Sutton & Barto** — free; the RL paradigm in full.
 
-## 🔗 In this platform
+## In this platform
 - Next concepts: [03 The ML Workflow & Lifecycle](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/the-ml-workflow-and-lifecycle/the-ml-workflow-and-lifecycle) · [04 How Models Learn](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/how-models-learn/how-models-learn)
 - Go deeper — supervised: [03. Supervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/readme)
 - Go deeper — unsupervised: [04. Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)

@@ -3,7 +3,7 @@ id: "06-nlp/machine-translation/references"
 topic: "Machine Translation — References"
 parent: "06-nlp/machine-translation"
 type: references
-updated: 2026-06-27
+updated: 2026-09-07
 ---
 
 # Machine Translation — references and further reading
@@ -12,14 +12,15 @@ updated: 2026-06-27
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Seq2Seq Encoder–Decoder Neural Networks, Clearly Explained](https://www.youtube.com/watch?v=L8HKweZIOmg) (**StatQuest, Josh Starmer**). *The translation pipeline, gently, before any attention.*
-2. **See attention fix MT** — read ⭐ [Visualizing A Neural Machine Translation Model](https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/) (**Jay Alammar**), then watch [Stanford CS224N Lec 7 — Translation, Seq2Seq, Attention](https://www.youtube.com/watch?v=wzfWHP6SXxY). *Watch the single-vector bottleneck appear and attention remove it.*
+2. **See attention fix MT** — read ⭐ [Visualizing A Neural Machine Translation Model](https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/) (**Jay Alammar**), then watch [CMU Neural Nets for NLP 2021 (6): Conditioned Generation](https://www.youtube.com/watch?v=3LdDiRM9xE8) (**Graham Neubig**). *Watch the single-vector bottleneck appear and attention remove it.*
 3. **Get the math (and the metric)** — read [SLP3 Ch. 13 "Machine Translation"](https://web.stanford.edu/~jurafsky/slp3/13.pdf) (**Jurafsky & Martin**). *Encoder–decoder MT, beam search, and BLEU, rigorously and free.*
 4. **Understand evaluation** — read the original [BLEU paper](https://aclanthology.org/P02-1040/) (**Papineni et al. 2002**) and the [sacreBLEU "Call for Clarity"](https://aclanthology.org/W18-6319/) (**Post 2018**). *The metric that ran the field, and why you must report it carefully.*
-5. **Make it concrete** — run the [opus-mt-fr-en](https://huggingface.co/Helsinki-NLP/opus-mt-fr-en) model and the from-scratch BLEU in this chapter's [notebook](code/machine-translation.ipynb), or the [TensorFlow NMT-with-attention tutorial](https://www.tensorflow.org/text/tutorials/nmt_with_attention). *Translate, then score.*
+5. **Make it concrete** — run the [opus-mt-fr-en](https://huggingface.co/Helsinki-NLP/opus-mt-fr-en) model and the from-scratch BLEU in this chapter's [notebook](code/machine-translation.ipynb), or the [PyTorch seq2seq-with-attention translation tutorial](https://pytorch.org/tutorials/intermediate/seq2seq_translation_tutorial.html). *Translate, then score.*
 
 **Videos**:
 - [Seq2Seq Encoder–Decoder Neural Networks, Clearly Explained](https://www.youtube.com/watch?v=L8HKweZIOmg) — **StatQuest (Josh Starmer)** — the gentlest possible MT intuition.
-- [Stanford CS224N Lec 7 — Translation, Seq2Seq, Attention](https://www.youtube.com/watch?v=wzfWHP6SXxY) — **Stanford (Chris Manning / John Hewitt)** — the rigorous NMT + attention + BLEU lecture, with the beam-search and evaluation discussion.
+- [CMU Neural Nets for NLP 2021 (6): Conditioned Generation](https://www.youtube.com/watch?v=3LdDiRM9xE8) — **Graham Neubig (CMU)** — encoder–decoder translation, decoding-time search, and evaluation in one lecture, from a machine-translation researcher.
+- [Stanford CS224N: NLP with Deep Learning (full lecture series)](https://www.youtube.com/playlist?list=PLoROMvodv4rOSH4v6133s9LFPRHjEmbmJ) — **Stanford Online (Christopher Manning)** — the course series containing the translation, sequence-to-sequence, and attention lectures.
 - [Bleu Score (C5W3L06)](https://www.youtube.com/watch?v=DejHQYAGb7Q) — **DeepLearning.AI (Andrew Ng)** — modified n-gram precision and the brevity penalty, built up clearly; the canonical short BLEU explainer.
 - [Transformer Neural Networks — EXPLAINED! (Attention is all you need)](https://www.youtube.com/watch?v=TQQlZhbC5ps) — **CodeEmporium** — the architecture that replaced RNN-MT.
 - [Encoder–decoder architecture: Overview](https://www.youtube.com/watch?v=zbdong_h-x4) — **Google Cloud Tech** — concise official framing of the seq2seq translation pipeline.
@@ -31,7 +32,7 @@ updated: 2026-06-27
 **Articles / blogs (free, no paywall)**:
 - [Visualizing A Neural Machine Translation Model](https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/) — **Jay Alammar** — the definitive visual explainer of seq2seq + attention for MT.
 - [Seq2seq and Attention](https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html) — **Lena Voita** — free, rigorous, MT-focused treatment with diagrams.
-- [Neural Machine Translation with attention (TensorFlow tutorial)](https://www.tensorflow.org/text/tutorials/nmt_with_attention) — **TensorFlow** — build and train an NMT model end to end.
+- [Translation with a Sequence-to-Sequence Network and Attention](https://pytorch.org/tutorials/intermediate/seq2seq_translation_tutorial.html) — **PyTorch** — build and train an attention-based NMT model end to end.
 - [OPUS-MT — open neural translation models](https://github.com/Helsinki-NLP/Opus-MT) — **Helsinki-NLP (Tiedemann et al.)** — the open MT models (incl. the `opus-mt-fr-en` used on the concept page) and how they're trained.
 - [sacreBLEU](https://github.com/mjpost/sacrebleu) — **Matt Post** — the standard, tokenization-fixed BLEU/chrF/TER implementation; read the README on *why* raw BLEU is not comparable. (The from-scratch BLEU/chrF in this chapter's code is verified against it.)
 - [IBM Model 1 and 2 — lecture notes](http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/ibm12.pdf) — **Michael Collins (Columbia)** — the clearest standalone derivation of the EM word-alignment update used on the concept page.

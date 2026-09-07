@@ -3,7 +3,7 @@ id: "08-rl/policy-gradients-reinforce/references"
 topic: "Policy Gradients (REINFORCE) — References"
 parent: "08-rl/policy-gradients-reinforce"
 type: references
-updated: 2026-07-03
+updated: 2026-09-07
 ---
 
 # Policy Gradients (REINFORCE) — references and further reading
@@ -19,15 +19,15 @@ updated: 2026-07-03
 
 **Videos**:
 - [RL Course, Lecture 7 — Policy Gradient Methods](https://www.youtube.com/watch?v=KHZVXao4qXs) — **David Silver (DeepMind / UCL)** — the policy-gradient theorem, the score-function trick, baselines, and the move to actor-critic, from a co-author of DQN.
-- [Deep RL Bootcamp, Lecture 4A: Policy Gradients](https://www.youtube.com/watch?v=S_gwYj1Q-44) — **Pieter Abbeel (UC Berkeley)** — the full derivation of the estimator and the practical variance-reduction toolkit (reward-to-go, baselines).
-- [Deep RL from Pong Pixels — Policy Gradients](https://www.youtube.com/watch?v=tqrcjHuNdmQ) — **Andrej Karpathy** — the intuition and code for training a policy by "make the actions that led to reward more likely," building directly on his classic write-up.
+- [Deep RL Bootcamp — Core Lecture 4a: Policy Gradients and Actor-Critic](https://sites.google.com/view/deep-rl-bootcamp/lectures) — **Pieter Abbeel (Berkeley Deep RL Bootcamp, 2017)** — the full derivation of the estimator and the practical variance-reduction toolkit (reward-to-go, baselines); video and slides on the official bootcamp page.
+- [Deep RL Bootcamp — Core Lecture 4b: Pong from Pixels](https://sites.google.com/view/deep-rl-bootcamp/lectures) — **Andrej Karpathy (Berkeley Deep RL Bootcamp, 2017)** — the intuition and code for training a policy by "make the actions that led to reward more likely," building directly on his classic write-up.
 - [CS285 Lecture 5: Policy Gradients](https://www.youtube.com/watch?v=GKoKNYaBvM0) — **Sergey Levine (UC Berkeley)** — a rigorous, from-first-principles derivation of the policy gradient, causality/reward-to-go, and baselines.
 - [Reinforcement Learning: Policy Gradient Methods](https://www.youtube.com/watch?v=e20EY4tFC_Q) — **Steve Brunton (University of Washington)** — a crisp, geometric walk through gradient ascent on expected return.
 
 **Courses (free)**:
 - [UCL Course on RL — Lecture 7: Policy Gradient](https://www.davidsilver.uk/teaching/) — **David Silver (DeepMind)** — the theorem, REINFORCE, baselines, and actor-critic, with slides.
 - [Spinning Up in Deep RL — Intro to Policy Optimization](https://spinningup.openai.com/en/latest/spinningup/rl_intro3.html) — **OpenAI** — derives the policy gradient, the reward-to-go and baseline variants, then the vanilla-policy-gradient implementation.
-- [Berkeley CS285 — Policy Gradients](https://rail.eecs.berkeley.edu/deeprlcourse/) — **UC Berkeley (Sergey Levine)** — the rigorous derivation, the variance-reduction toolkit, and the connection to actor-critic.
+- [Berkeley CS285 — Policy Gradients](http://rail.eecs.berkeley.edu/deeprlcourse/) — **UC Berkeley (Sergey Levine)** — the rigorous derivation, the variance-reduction toolkit, and the connection to actor-critic.
 - [Hugging Face Deep RL Course — Unit 4: Policy Gradient with PyTorch](https://huggingface.co/learn/deep-rl-course/unit4/introduction) — **Thomas Simonini (Hugging Face)** — a free hands-on unit that codes REINFORCE from scratch and trains it on CartPole, the same environment this page solves.
 
 **Articles / blogs (free, no paywall)**:
@@ -58,4 +58,5 @@ updated: 2026-07-03
 - Where the baseline becomes a critic: [10 Actor-Critic (A2C / A3C)](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/policy-learning/actor-critic-a2c-a3c/actor-critic-a2c-a3c) — replace the mean-return baseline with a learned value function $V_\phi(s)$ and bootstrap it; REINFORCE-with-baseline is the seed of actor-critic.
 - The modern successor: [12 Proximal Policy Optimization (PPO)](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/policy-learning/proximal-policy-optimization-ppo/proximal-policy-optimization-ppo) — fixes REINFORCE's on-policy sample inefficiency with a clipped surrogate and importance sampling; the algorithm behind RLHF.
 - The exploration view: [14 Exploration vs Exploitation](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/foundations/exploration-vs-exploitation/exploration-vs-exploitation) — a stochastic policy explores *by construction*; the entropy of $\pi_\theta$ is the exploration knob here.
+- Where REINFORCE resurfaced (2024–26): [Reinforcement Learning for Reasoning — GRPO and RLVR](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/reinforcement-learning-for-reasoning-grpo-and-rlvr/reinforcement-learning-for-reasoning-grpo-and-rlvr) — GRPO is the score-function estimator on this page with the learned critic removed and the baseline computed from a *group* of sampled completions; the reasoning-model training loop is REINFORCE-with-baseline at scale.
 - Field overview: [Reinforcement Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/readme)

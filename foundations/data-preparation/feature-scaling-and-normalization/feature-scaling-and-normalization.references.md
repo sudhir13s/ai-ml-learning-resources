@@ -3,7 +3,7 @@ id: "02-data-preprocessing/feature-scaling/references"
 topic: "Feature Scaling & Normalization — References"
 parent: "02-data-preprocessing/feature-scaling"
 type: references
-updated: 2026-07-03
+updated: 2026-09-07
 ---
 
 # Feature Scaling & Normalization — references and further reading
@@ -11,19 +11,16 @@ updated: 2026-07-03
 > Companion link library for **[Feature Scaling & Normalization](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/feature-scaling-and-normalization/feature-scaling-and-normalization)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Everything here is free / open, and every "Source / derivation" citation on the concept page appears below.
 
 **Start here — suggested path**:
-1. **Get the distinction** — watch [StatQuest: Normalization vs. Standardization, Clearly Explained](https://www.youtube.com/watch?v=1YpKUpitT98) (**StatQuest**). *The single most-asked framing — which one, when — cleared up in a few minutes.*
+1. **Get the distinction** — read [About Feature Scaling and Normalization](https://sebastianraschka.com/Articles/2014_about_feature_scaling.html) (**Sebastian Raschka**). *The single most-asked framing — z-score or min-max, and when — with the formulas and worked examples.*
 2. **Feel why it matters** — read [Importance of feature scaling](https://scikit-learn.org/stable/auto_examples/preprocessing/plot_scaling_importance.html) (**scikit-learn**). *Scaling materially changing PCA + a classifier's results, on the same Wine dataset this chapter uses.*
 3. **See all the scalers at once** — read [Compare the effect of different scalers on data with outliers](https://scikit-learn.org/stable/auto_examples/preprocessing/plot_all_scaling.html) (**scikit-learn**). *Standard / min-max / robust / quantile side by side — the outlier behaviour made visual.*
 4. **Learn it applied** — do [Google ML Crash Course — Numerical data: Normalization](https://developers.google.com/machine-learning/crash-course/numerical-data/normalization) (**Google**). *Z-score, min-max, log and clipping, with interactive widgets and when to use each.*
 5. **Run it yourself** — open [this chapter's notebook](code/feature-scaling-and-normalization.ipynb). *Rebuild the three scalers, match them to scikit-learn, and measure the accuracy jump on real Wine.*
 
 **Videos**:
-- [StatQuest: Normalization vs. Standardization, Clearly Explained](https://www.youtube.com/watch?v=1YpKUpitT98) — **StatQuest (Josh Starmer)** — the canonical, intuition-first explanation of the two main scalers and when each applies.
-- [Feature Scaling — why, and StandardScaler / MinMax / Robust](https://www.youtube.com/watch?v=nmBqnKSSKfM) — **Andrew Ng / DeepLearning.AI (Gradient Descent in Practice)** — why scaling makes gradient descent converge faster, from the Machine Learning Specialization, from first principles.
-- [Feature Scaling — Standardization (Day 24)](https://www.youtube.com/watch?v=1Yw9sC0PNwY) — **CampusX** — z-score scaling in depth with code and the train-only fit rule.
-- [Feature Scaling — Normalization: MinMax / MaxAbs / Robust](https://www.youtube.com/watch?v=eBrGyuA2MIg) — **CampusX** — all the non-standard scalers and when to use each, with sklearn.
-- [Why & When Should We Perform Feature Normalization?](https://www.youtube.com/watch?v=s9e2A04lmXI) — **Krish Naik** — focuses on which algorithms actually need scaling (and which don't).
-- [Data Preprocessing: Feature Scaling](https://www.youtube.com/watch?v=P3xPQyfMybg) — **DataMListic** — short, visual, standard-vs-normal comparison.
+- [Gradient descent, how neural networks learn](https://www.youtube.com/watch?v=IHZwWFHWa-w) — **3Blue1Brown** — the loss surface scaling reshapes: unscaled features make the valley a ravine, and gradient descent zig-zags down it.
+- [StatQuest: K-nearest neighbors, Clearly Explained](https://www.youtube.com/watch?v=HVXime0nQeI) — **StatQuest with Josh Starmer** — a distance-based model, where an unscaled feature with a large range silently dominates every neighbour computation.
+- [StatQuest: Principal Component Analysis (PCA), Step-by-Step](https://www.youtube.com/watch?v=FgakZw6K1QQ) — **StatQuest with Josh Starmer** — variance-based methods change their answer entirely when you rescale the inputs; the experiment on this page is exactly that.
 
 **Courses (free)**:
 - [Google ML Crash Course — Numerical data (Normalization)](https://developers.google.com/machine-learning/crash-course/numerical-data/normalization) — **Google** — free, applied treatment of z-score, min-max, log, and clipping with widgets.

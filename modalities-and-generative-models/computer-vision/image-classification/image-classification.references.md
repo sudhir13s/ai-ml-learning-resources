@@ -3,7 +3,7 @@ id: "07-computer-vision/image-classification/references"
 topic: "Image Classification — References"
 parent: "07-computer-vision/image-classification"
 type: references
-updated: 2026-07-03
+updated: 2026-09-07
 ---
 
 # Image Classification — references and further reading
@@ -26,8 +26,8 @@ updated: 2026-07-03
 
 **Interactive & visual**:
 - [CNN Explainer](https://poloclub.github.io/cnn-explainer/) — **Georgia Tech (Polo Club)** — a real trained image classifier running in your browser; hover any neuron to watch pixels become class scores, layer by layer.
-- [Papers with Code — Image Classification](https://paperswithcode.com/task/image-classification) — **Papers with Code** — live leaderboards, datasets, and code for the current state of the art (free).
-- [Know Your Data / TensorFlow Datasets — CIFAR-10](https://www.tensorflow.org/datasets/catalog/cifar10) — **TensorFlow** — browse the actual dataset used in this chapter, class by class.
+- [Hugging Face — Image Classification models](https://huggingface.co/models?pipeline_tag=image-classification) — **Hugging Face** — the live catalogue of pretrained classifiers with weights, model cards, and inference widgets; the practical replacement for the retired Papers-with-Code leaderboards.
+- [The CIFAR-10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html) — **Alex Krizhevsky (Toronto)** — the dataset page from its creator: the ten classes, the collection method, and the sample grid used in this chapter.
 
 **Courses (free)**:
 - [Stanford CS231n — Deep Learning for Computer Vision](https://cs231n.github.io/) — **Stanford** — the definitive course; the [classification](https://cs231n.github.io/classification/) and [transfer-learning](https://cs231n.github.io/transfer-learning/) notes are the canonical written references for this page.

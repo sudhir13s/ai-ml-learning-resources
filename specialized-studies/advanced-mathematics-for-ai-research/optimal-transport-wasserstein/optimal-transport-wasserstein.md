@@ -24,7 +24,7 @@ gradient-penalty fixes), flow matching, domain adaptation, and distribution-shif
 it's finite and meaningful even for non-overlapping supports — which is *exactly* why it stabilizes
 generative training. Kantorovich duality is a flagship use of the convex duality from card 4.
 
-**⭐ Start here — suggested path:**
+**Start here — suggested path:**
 
 1. **Get the intuition** — watch [A Primer on Optimal Transport, Part 1](https://www.youtube.com/watch?v=6iR1E6t1MMQ) (Cuturi). *Monge → Kantorovich → Wasserstein, the conceptual ladder.*
 2. **See the duality** — watch [Linking the Theory and Practice of Optimal Transport](https://www.youtube.com/watch?v=yiLS8JXJXig) (Solomon). *Kantorovich–Rubinstein duality, the form WGAN uses.*
@@ -32,33 +32,35 @@ generative training. Kantorovich duality is a flagship use of the convex duality
 4. **Understand Sinkhorn** — study the entropic-regularization chapter and the [arXiv version](https://arxiv.org/abs/1803.00567). *Entropic OT is what makes Wasserstein differentiable and GPU-friendly.*
 5. **Connect to generative models** — read [WGAN](https://arxiv.org/abs/1701.07875), then watch [a deeper OT-for-ML talk](https://www.youtube.com/watch?v=k1CeOJdQQrc). *Where OT actually lives in modern ML research.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [Computational Optimal Transport — free book & course](https://optimaltransport.github.io/book/) — **Gabriel Peyré & Marco Cuturi** — the definitive resource: Monge/Kantorovich, duality, Sinkhorn, applications, fully free.
 - [Optimal Transport and Wasserstein Distance — lecture notes](https://www.stat.cmu.edu/~larry/=sml/Opt.pdf) — **Larry Wasserman (CMU)** — a crisp, statistics-flavored intro, free PDF.
 - [Geometric / OT lectures hub](https://optimaltransport.github.io/) — **Peyré (CNRS/ENS)** — slides, course notes, and numerical tours, free.
 
-## 🎥 Videos
+## Videos
 - [A Primer on Optimal Transport, Part 1](https://www.youtube.com/watch?v=6iR1E6t1MMQ) — **Marco Cuturi (MLSS)** — Monge, Kantorovich, and the Wasserstein distance from scratch.
 - [Linking the Theory and Practice of Optimal Transport](https://www.youtube.com/watch?v=yiLS8JXJXig) — **Justin Solomon (MIT, Harvard CMSA)** — duality and computation, clearly connected.
 - [A Primer on Optimal Transport Theory and Algorithms (MLSS Kraków 2023)](https://www.youtube.com/watch?v=k1CeOJdQQrc) — **Marco Cuturi** — an updated, algorithm-focused tour incl. Sinkhorn.
 - [Shape Analysis, Lecture 17: Optimal Transport](https://www.youtube.com/watch?v=ILRxpUKWGWA) — **Justin Solomon (MIT 6.838)** — OT applied to geometry, a vivid worked setting.
 
-## 📄 Key Papers
+## Key Papers
 - [Computational Optimal Transport (monograph)](https://arxiv.org/abs/1803.00567) — **Peyré & Cuturi (2019)** — the free arXiv monograph: formulations, duality, entropic OT, Sinkhorn.
 - [Sinkhorn Distances: Lightspeed Computation of Optimal Transport](https://arxiv.org/abs/1306.0895) — **Marco Cuturi (2013)** — entropic regularization, the paper that made OT scalable.
 - [Wasserstein GAN](https://arxiv.org/abs/1701.07875) — **Arjovsky, Chintala & Bottou (2017)** — Wasserstein distance as a generative-model objective.
+- [Flow Matching Guide and Code](https://arxiv.org/abs/2412.06264) — **Lipman, Chen, Ben-Hamu, Gat et al. (Meta FAIR, 2024)** — the self-contained review of the training objective that now drives 2026 image, video and audio generation; optimal transport is the coupling that makes its paths straight.
+- [Improving and Generalizing Flow-Based Generative Models with Minibatch Optimal Transport](https://arxiv.org/abs/2302.00482) — **Tong, Fatras, Malkin et al. (2023)** — makes the OT link explicit: pairing samples by an OT plan straightens trajectories and cuts sampling steps.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [Computational Optimal Transport — online book chapters](https://optimaltransport.github.io/book/) — **Peyré & Cuturi** — every chapter readable online, with code notebooks.
 - [Optimal Transport and Wasserstein Distance (CMU notes)](https://www.stat.cmu.edu/~larry/=sml/Opt.pdf) — **Larry Wasserman** — the fastest rigorous summary for ML readers, free.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Computational Optimal Transport — **Ch. 2 (Kantorovich), Ch. 3 (duality), Ch. 4 (Sinkhorn)**](https://optimaltransport.github.io/book/) — **Peyré & Cuturi** — the field's standard free text.
 - [Mathematics for Machine Learning — **Ch. 6 (Probability) & Ch. 7 (Optimization)**](https://mml-book.github.io/book/mml-book.pdf) — **Deisenroth, Faisal & Ong** — the probability + LP/duality background, free.
 
-## 🔗 In this platform
+## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 5.04 GANs & WGAN](/ai-ml/ai-ml-intuitions/generation/adversarial-generation/gans-and-wasserstein-gans-intuition) · [1.10 Mahalanobis Distance](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/mahalanobis-distance-intuition)
 - Foundations (the basics this builds on): [Cross-Entropy & KL Divergence](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/cross-entropy-and-kl-divergence/cross-entropy-and-kl-divergence)
 - Prerequisite & next: [04 Convex Analysis & Duality](/ai-ml/ai-ml-learning-resources/specialized-studies/advanced-mathematics-for-ai-research/convex-analysis-and-duality/convex-analysis-and-duality) · [08 Information Geometry](/ai-ml/ai-ml-learning-resources/specialized-studies/advanced-mathematics-for-ai-research/information-geometry/information-geometry)
+- Where this math is applied today: [Flow Matching & Rectified Flow](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/flow-matching-and-rectified-flow/flow-matching-and-rectified-flow) — optimal transport is its mathematical spine.
 - Related domain: [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
-</content>

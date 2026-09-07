@@ -3,7 +3,7 @@ id: "03-supervised-learning/regularization-linear-models/references"
 topic: "Regularization for Linear Models — References"
 parent: "03-supervised-learning/regularization-linear-models"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Regularization for Linear Models — references and further reading
@@ -35,7 +35,7 @@ updated: 2026-06-22
 **Articles / blogs (free, no paywall)**:
 - [Linear models — Ridge, Lasso, Elastic-Net (scikit-learn user guide)](https://scikit-learn.org/stable/modules/linear_model.html#ridge-regression-and-classification) — **scikit-learn** — the practical reference: penalties, solvers, and `alpha` selection.
 - [A Visual Explanation for Regularization of Linear Models](https://explained.ai/regularization/) — **Terence Parr & Jeremy Howard** — the clearest free deep-dive on the diamond/circle geometry, with interactive figures.
-- [Lasso (statistics) — the soft-thresholding view](https://en.wikipedia.org/wiki/Lasso_(statistics)) — **Wikipedia** — the orthonormal-case soft-threshold derivation and the regularization path, with citations.
+- [Lasso (statistics) — the soft-thresholding view](https://en.wikipedia.org/wiki/Lasso_%28statistics%29) — **Wikipedia** — the orthonormal-case soft-threshold derivation and the regularization path, with citations.
 
 **Key papers**:
 - [Ridge regression (history + the Hoerl–Kennard 1970 result)](https://en.wikipedia.org/wiki/Ridge_regression) — summarizing **Hoerl & Kennard (1970)**, *Technometrics* — the paper that introduced Ridge and the $\lambda I$ trick for multicollinearity (the original is paywalled; this is the free, well-cited summary).

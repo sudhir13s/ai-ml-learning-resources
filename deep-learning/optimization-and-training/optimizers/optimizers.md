@@ -6,7 +6,7 @@ level: intermediate
 built_from: ["backpropagation", "gradient-descent", "calculus"]
 interview_frequency: very-high
 template: concept-deep
-updated: 2026-06-22
+updated: 2026-09-07
 tier: core
 est_minutes: 45
 title: "Optimizers (SGD · Momentum · Adam · AdamW · RMSprop)"
@@ -419,6 +419,16 @@ Beyond the AdamW default, a few directions appear in modern recipes and intervie
 - **Adafactor** (Shazeer & Stern 2018) — factorizes the second-moment matrix into row and column statistics to use **sublinear** memory (it doesn't store a full per-parameter $v$). Built for training huge models where Adam's two full states won't fit; used for large T5.
 - **8-bit Adam** (Dettmers et al.) — stores Adam's two states in 8-bit with block-wise quantization, cutting optimizer memory ~4× with negligible quality loss; a staple of memory-constrained fine-tuning.
 - **Shampoo / Sophia** — the second-order-ish methods above, aimed at faster large-scale pretraining.
+
+### Where the frontier actually moved (2024–2026)
+
+AdamW is still the safe default and still what most teams ship, but it is no longer unchallenged. Three threads matter:
+
+- **Muon** (Keller Jordan, 2024) is the one that broke through. It keeps a momentum buffer like SGD, then **orthogonalizes** the resulting update *matrix* — approximately replacing $M$ by the $UV^\top$ of its singular value decomposition, computed with a few cheap Newton–Schulz iterations, so no single direction dominates the step. Jeremy Bernstein derives this as steepest descent under a **spectral-norm** trust region, which is exactly what Adam's per-*element* rescaling cannot do: Adam normalizes coordinates, Muon normalizes the matrix. It applies only to 2-D hidden weights (embeddings, biases and norm gains stay on AdamW), it holds the NanoGPT speedrun records, and Moonshot AI scaled it to a 16B mixture-of-experts model at roughly **2× AdamW's compute efficiency**.
+- **SOAP** (Vyas, Morwani et al. 2024) closes the loop with the second-order family above: it shows **Shampoo is Adafactor run in Shampoo's eigenbasis**, then runs *Adam* in that eigenbasis instead — keeping the preconditioner's rotation while dropping most of its per-step cost. If "Adam is a diagonal approximation to $H^{-1}$" landed, SOAP is "run Adam in a better-chosen basis."
+- **Schedule-free** methods (Defazio et al. 2024) attack a different knob: hold the learning rate constant and recover the benefit of decay by **averaging the iterates**, removing the schedule — and its committed step budget — from the recipe entirely.
+
+> **Gotcha:** be skeptical of headline speedups. *Fantastic Pretraining Optimizers and Where to Find Them* (Wen, Hall, Ma & Liang, Stanford 2025) re-tuned every candidate at every budget and found the claimed 1.4–2× gains shrink to roughly **1.1–1.4× over a properly tuned AdamW**, with the margin narrowing as models grow. Much of a published optimizer win is a comparison against an under-tuned baseline. The interview-safe statement: *"AdamW is the default; Muon is the first credible challenger with large-scale evidence; the measured gap is smaller than the abstracts claim."*
 
 ---
 

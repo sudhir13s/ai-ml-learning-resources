@@ -6,7 +6,7 @@ level: intermediate
 built_from: ["probability", "text-preprocessing", "bag-of-words-and-tf-idf"]
 interview_frequency: high
 template: concept-deep
-updated: 2026-06-27
+updated: 2026-09-07
 tier: core
 est_minutes: 45
 title: "N-gram Language Models & Smoothing"
@@ -352,7 +352,7 @@ Notice the unigram term is small but **nonzero** — so even a context the trigr
 
 Kneser-Ney (Kneser & Ney 1995, refined by Chen & Goodman 1998) is the **best-performing classical n-gram smoother**, and the empirical winner of Chen & Goodman's exhaustive study. It combines two ideas: **absolute discounting** and a clever **continuation probability** for the lower-order model.
 
-> **Source / derivation:** Kneser-Ney smoothing — absolute discounting plus the continuation (lower-order) distribution based on distinct preceding contexts — is [Reinhard Kneser & Hermann Ney, *Improved Backing-off for M-gram Language Modeling* (1995)](https://ieeexplore.ieee.org/document/479394). *Modified* Kneser-Ney (the three-discount refinement) and the bake-off that crowned it are [Stanley Chen & Joshua Goodman, *An Empirical Study of Smoothing Techniques for Language Modeling* (1999)](https://aclanthology.org/J99-1004/); the worked formulae here follow [Jurafsky & Martin, SLP3 Ch. 3, §3.7](https://web.stanford.edu/~jurafsky/slp3/3.pdf).
+> **Source / derivation:** Kneser-Ney smoothing — absolute discounting plus the continuation (lower-order) distribution based on distinct preceding contexts — is [Reinhard Kneser & Hermann Ney, *Improved Backing-off for M-gram Language Modeling* (1995)](https://web.archive.org/web/2020/https://ieeexplore.ieee.org/document/479394). *Modified* Kneser-Ney (the three-discount refinement) and the bake-off that crowned it are [Stanley Chen & Joshua Goodman, *An Empirical Study of Smoothing Techniques for Language Modeling* (1999)](https://aclanthology.org/J99-1004/); the worked formulae here follow [Jurafsky & Martin, SLP3 Ch. 3, §3.7](https://web.stanford.edu/~jurafsky/slp3/3.pdf).
 
 ### Part A — absolute discounting
 

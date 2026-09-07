@@ -6,7 +6,7 @@ level: beginner
 built_from: ["how-models-learn"]
 interview_frequency: very-high
 template: concept-deep
-updated: 2026-07-03
+updated: 2026-09-07
 tier: core
 est_minutes: 35
 title: "Overfitting & Underfitting (bias-variance, the U-curve, regularization)"
@@ -143,7 +143,7 @@ Three terms, and each is exactly the intuition from the exam story, now precise:
 - **Variance $= \mathbb{E}[(\hat f - \bar f)^2]$** — how much the prediction *bounces around* its own average as the training sample changes. This is being *inconsistent* — the overfit model that memorises a different set of noise for every sample. A too-complex model has high variance.
 - **Noise $\sigma^2$** — the **irreducible error**. It does not depend on the model at all. No algorithm, however clever, can predict the unpredictable part of $y$. It is the floor; the best possible model reaches $\sigma^2$ and no lower.
 
-> **Source / derivation:** the bias-variance decomposition of expected squared error was crystallised for the neural-network / machine-learning setting by [Geman, Bienenstock & Doursat, "Neural Networks and the Bias/Variance Dilemma," *Neural Computation* 4(1), 1992](https://direct.mit.edu/neco/article/4/1/1/5620/Neural-Networks-and-the-Bias-Variance-Dilemma). The clean textbook derivation above follows [James, Witten, Hastie & Tibshirani, *An Introduction to Statistical Learning*, §2.2.2 (the bias-variance trade-off)](https://www.statlearning.com/) and [Goodfellow, Bengio & Courville, *Deep Learning*, Ch. 5.4 (bias & variance)](https://www.deeplearningbook.org/). All three are free/open and in the references.
+> **Source / derivation:** the bias-variance decomposition of expected squared error was crystallised for the neural-network / machine-learning setting by [Geman, Bienenstock & Doursat, "Neural Networks and the Bias/Variance Dilemma," *Neural Computation* 4(1), 1992](https://www.dam.brown.edu/people/documents/bias-variance.pdf). The clean textbook derivation above follows [James, Witten, Hastie & Tibshirani, *An Introduction to Statistical Learning*, §2.2.2 (the bias-variance trade-off)](https://www.statlearning.com/) and [Goodfellow, Bengio & Courville, *Deep Learning*, Ch. 5.4 (bias & variance)](https://www.deeplearningbook.org/). All three are free/open and in the references.
 
 ### Why this is the U-curve
 

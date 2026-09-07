@@ -3,7 +3,7 @@ id: "06-nlp/sentence-document-embeddings/references"
 topic: "Sentence & Document Embeddings — References"
 parent: "06-nlp/sentence-document-embeddings"
 type: references
-updated: 2026-06-27
+updated: 2026-09-07
 ---
 
 # Sentence & Document Embeddings — references and further reading
@@ -19,8 +19,8 @@ updated: 2026-06-27
 
 **Videos**:
 - [Intro to Sentence Embeddings with Transformers](https://www.youtube.com/watch?v=jVPd7lEvjtg) — **James Briggs** — clear motivation + cosine-similarity intuition for sentence vectors.
-- [SBERT (Sentence Transformers) is not BERT Sentence Embedding](https://www.youtube.com/watch?v=lVqwznaVi78) — **Discover AI** — the siamese architecture and why pooled BERT alone fails.
-- [Sentence Transformers: Embedding, Similarity, Semantic Search & Clustering](https://www.youtube.com/watch?v=OlhNZg4gOvA) — **Pradip Nichite** — end-to-end code for the four core applications.
+- [CMU Neural Nets for NLP 2021 (9): Sentence and Contextual Word Representations](https://www.youtube.com/watch?v=0UNNRxhnjHg) — **Graham Neubig (CMU)** — why pooled token vectors are not sentence vectors, and what training objective fixes that.
+- [CMU Advanced NLP 2024 (10): Retrieval and RAG](https://www.youtube.com/watch?v=KfQaYk4k9eM) — **Graham Neubig (CMU)** — the job these embeddings are actually hired for, with the contrastive training recipe that shapes them.
 - [Unsupervised Sentence Transformers (how TSDAE works)](https://www.youtube.com/watch?v=pNvujJ1XyeQ) — **James Briggs** — training sentence encoders without labels (a sibling of SimCSE).
 
 **Interactive & visual**:
@@ -47,6 +47,9 @@ updated: 2026-06-27
 - [Text Embeddings by Weakly-Supervised Contrastive Pre-training (E5)](https://arxiv.org/abs/2212.03533) — **Wang et al. (2022)** — the contrastive recipe + `query:`/`passage:` instruction prefixes behind modern embedding models.
 - [C-Pack / BGE: Packed Resources for General Chinese & English Embeddings](https://arxiv.org/abs/2309.07597) — **Xiao et al. (2023)** — the BGE family, a strong open multi-stage contrastive embedding model.
 - [MTEB: Massive Text Embedding Benchmark](https://arxiv.org/abs/2210.07316) — **Muennighoff et al. (2022)** — the 8-task, 50+-dataset benchmark that is the field's scoreboard.
+- [MMTEB: Massive Multilingual Text Embedding Benchmark](https://arxiv.org/abs/2502.13595) — **Enevoldsen et al. (2025)** — the 2025 successor: 500+ tasks across 250+ languages, built because MTEB scores saturated and stopped separating models.
+- [Qwen3 Embedding: Advancing Text Embedding and Reranking Through Foundation Models](https://arxiv.org/abs/2506.05176) — **Zhang et al. (2025)** — the 2025 shift to embeddings distilled from a large language model backbone, with instruction-aware queries and matched rerankers.
+- [Matryoshka Representation Learning](https://arxiv.org/abs/2205.13147) — **Kusupati et al. (2022)** — trains one vector whose prefixes are themselves usable embeddings; the reason 2025-era models let you truncate 4096 dimensions to 256 and keep most of the quality.
 - [ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction](https://arxiv.org/abs/2004.12832) — **Khattab & Zaharia (2020)** — per-token vectors + MaxSim late interaction, between bi- and cross-encoders.
 - [Dense Passage Retrieval for Open-Domain QA (DPR)](https://arxiv.org/abs/2004.04906) — **Karpukhin et al. (2020)** — dense bi-encoder retrieval that beats BM25; the retriever pattern behind RAG.
 

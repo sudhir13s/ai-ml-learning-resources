@@ -3,7 +3,7 @@ id: "05-deep-learning/optimizers/references"
 topic: "Optimizers — References"
 parent: "05-deep-learning/optimizers"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Optimizers — references and further reading
@@ -23,7 +23,8 @@ updated: 2026-06-22
 - [Gradient Descent With Momentum (C2W2L06)](https://www.youtube.com/watch?v=k8fTYJPd3_I) — **DeepLearning.AI (Andrew Ng)** — momentum as an exponentially-weighted average of gradients.
 - [Adam Optimization Algorithm (C2W2L08)](https://www.youtube.com/watch?v=JXQT_vxqwIs) — **DeepLearning.AI (Andrew Ng)** — momentum + RMSprop combined, with bias correction.
 - [Gradient Descent, Step-by-Step](https://www.youtube.com/watch?v=sDv4f4s2SB8) — **StatQuest (Josh Starmer)** — the mechanics of a gradient step, worked by hand.
-- [All Optimizers In One Video — SGD, Momentum, Adagrad, RMSprop, Adam](https://www.youtube.com/watch?v=TudQZtgpoHk) — **Krish Naik** — every update rule contrasted end to end.
+- [Lecture 7: Training Neural Networks II (SGD → Momentum → AdaGrad → Adam)](https://www.youtube.com/watch?v=_JB0AO7QxSA) — **Stanford University School of Engineering (CS231n)** — the whole ladder derived on the ill-conditioned-surface picture this page uses, then the second-order digression.
+- [Building makemore Part 3: Activations & Gradients, BatchNorm](https://www.youtube.com/watch?v=P6sfmUTpUmc) — **Andrej Karpathy** — watches the update-to-weight ratio live and shows what a badly-scaled optimizer step actually looks like in the histograms.
 
 **Interactive & visual**:
 - [Interactive Visualization of Optimization Algorithms](https://emiliendupont.github.io/2018/01/24/optimization-visualization/) — **Emilien Dupont** — animate SGD/Momentum/RMSprop/Adam descending real loss surfaces; see how they reach different minima.
@@ -37,6 +38,9 @@ updated: 2026-06-22
 - [An overview of gradient descent optimization algorithms](https://www.ruder.io/optimizing-gradient-descent/) — **Sebastian Ruder** — the canonical survey: SGD, momentum, AdaGrad, RMSprop, Adam.
 - [Why Momentum Really Works](https://distill.pub/2017/momentum/) — **Distill (Gabriel Goh)** — interactive geometry of momentum and conditioning.
 - [CS231n — Parameter Updates](https://cs231n.github.io/neural-networks-3/) — **Stanford CS231n** — a practical comparison of update rules and when each helps.
+- [Muon: An optimizer for the hidden layers of neural networks](https://kellerjordan.github.io/posts/muon/) — **Keller Jordan** — the author's own write-up of the orthogonalized-momentum update (Newton–Schulz on the momentum matrix) that now holds the NanoGPT speedrun records.
+- [Deriving Muon](https://jeremybernste.in/writing/deriving-muon) — **Jeremy Bernstein** — derives Muon as steepest descent under a spectral-norm trust region, which is the *why* behind the orthogonalization step Keller Jordan's post describes operationally.
+- [modded-nanogpt (the NanoGPT speedrun)](https://github.com/KellerJordan/modded-nanogpt) — **Keller Jordan et al.** — the open leaderboard where optimizer and architecture changes are measured in wall-clock time to a fixed loss; the fastest public feedback loop on whether an optimizer idea is real.
 
 **Key papers**:
 - [A Stochastic Approximation Method](https://www.jstor.org/stable/2236626) — **Robbins & Monro (1951)** — the founding theory of stochastic approximation, the root of SGD.
@@ -53,8 +57,15 @@ updated: 2026-06-22
 - [Sophia: A Scalable Stochastic Second-order Optimizer](https://arxiv.org/abs/2305.14342) — **Liu et al. (2023)** — a cheap diagonal-Hessian optimizer aimed at faster LLM pre-training.
 - [An overview of gradient descent optimization algorithms (paper)](https://arxiv.org/abs/1609.04747) — **Ruder (2016)** — the arXiv version of the canonical survey collecting every rule above.
 
+**Key papers (2024–2026: the post-AdamW frontier)**:
+- [SOAP: Improving and Stabilizing Shampoo using Adam](https://arxiv.org/abs/2409.11321) — **Vyas, Morwani et al. (2024)** — shows Shampoo is Adafactor run in Shampoo's eigenbasis, then runs Adam there instead; the cleanest bridge from the Shampoo section above to what people actually train with.
+- [Muon is Scalable for LLM Training](https://arxiv.org/abs/2502.16982) — **Liu et al. (2025, Moonshot AI)** — scales Muon to a 16B mixture-of-experts model and reports ~2× the compute efficiency of AdamW; the first large-scale evidence that the AdamW default is beatable.
+- [The Road Less Scheduled (Schedule-Free)](https://arxiv.org/abs/2405.15682) — **Defazio et al. (2024)** — constant learning rate plus iterate averaging, matching tuned schedules with one fewer hyperparameter.
+- [Fantastic Pretraining Optimizers and Where to Find Them](https://arxiv.org/abs/2509.02046) — **Wen, Hall, Ma & Liang (2025, Stanford)** — re-tunes every candidate optimizer at every budget and finds the headline speedups shrink to ~1.1–1.4× over a properly tuned AdamW; read this before believing any optimizer benchmark.
+
 **Books (free chapters)**:
 - [Deep Learning — §8.3 "Basic Algorithms" + §8.5 "Adaptive Learning Rates"](https://www.deeplearningbook.org/contents/optimization.html) — **Goodfellow, Bengio & Courville** — the rigorous treatment of momentum and adaptive methods.
+- [*Understanding Deep Learning* — Ch. 6 "Fitting models"](https://udlbook.github.io/udlbook/) — **Simon J.D. Prince** — free PDF; gradient descent → momentum → Nesterov → Adam derived in one continuous argument, with the loss-surface figures that make the ravine concrete.
 
 **In this platform**:
 - Concept page (full explanation): [Optimizers](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/optimizers)

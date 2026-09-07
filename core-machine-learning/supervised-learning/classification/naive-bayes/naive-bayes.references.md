@@ -3,7 +3,7 @@ id: "03-supervised-learning/naive-bayes/references"
 topic: "Naive Bayes — References"
 parent: "03-supervised-learning/naive-bayes"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Naive Bayes — references and further reading
@@ -22,6 +22,7 @@ updated: 2026-06-22
 - [Gaussian Naive Bayes, Clearly Explained!!!](https://www.youtube.com/watch?v=H3EjCKtlVog) — **StatQuest (Josh Starmer)** — extending Naive Bayes to continuous features.
 - [The Math Behind Bayesian Classifiers Clearly Explained!](https://www.youtube.com/watch?v=lFJbZ6LVxN8) — **Normalized Nerd** — a clean visual derivation of the posterior and the decision rule.
 - [Naive Bayes Classifier: A Friendly Approach](https://www.youtube.com/watch?v=Q8l0Vip5YUw) — **Serrano.Academy (Luis Serrano)** — a warm, worked-example walkthrough of the whole method.
+- [Naive Bayes in Python — Machine Learning From Scratch 05](https://www.youtube.com/watch?v=BqUmKsfSWho) — **Patrick Loeber** — builds the Gaussian classifier in NumPy: per-class means and variances, the log-probability sum, the argmax decision.
 
 **Interactive & visual**:
 - [Speech and Language Processing — Ch. 4 (worked Naive Bayes, with figures)](https://web.stanford.edu/~jurafsky/slp3/4.pdf) — **Jurafsky & Martin** — a fully worked sentiment example with the count tables and the log-space arithmetic drawn out.

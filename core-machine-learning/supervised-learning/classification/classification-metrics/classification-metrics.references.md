@@ -3,7 +3,7 @@ id: "03-supervised-learning/classification-metrics/references"
 topic: "Classification Metrics — References"
 parent: "03-supervised-learning/classification-metrics"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Classification Metrics — references and further reading
@@ -22,7 +22,6 @@ updated: 2026-06-22
 - [Machine Learning Fundamentals: The Confusion Matrix](https://www.youtube.com/watch?v=Kdsp6soqA7o) — **StatQuest (Josh Starmer)** — the four cells everything else is built from.
 - [Machine Learning Fundamentals: Sensitivity and Specificity](https://www.youtube.com/watch?v=vP06aMoz4v8) — **StatQuest (Josh Starmer)** — recall vs specificity and the threshold tradeoff.
 - [ROC and AUC, Clearly Explained!](https://www.youtube.com/watch?v=4jRBRDbJemM) — **StatQuest (Josh Starmer)** — the threshold-free ranking metric, drawn out step by step.
-- [Precision, Recall and F1-score Explained Clearly](https://www.youtube.com/watch?v=Rm-6TagS71U) — **Neuro Splash** — a clean visual walkthrough of precision, recall, and the harmonic-mean F1.
 - [How to evaluate a classifier in scikit-learn](https://www.youtube.com/watch?v=85dtiMz9tSo) — **Data School (Kevin Markham)** — confusion matrix, precision/recall, ROC/AUC, and threshold tuning, end to end in code.
 
 **Interactive & visual**:

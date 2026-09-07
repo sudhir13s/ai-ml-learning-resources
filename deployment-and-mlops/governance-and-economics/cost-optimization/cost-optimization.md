@@ -5,7 +5,7 @@ parent: "18-mlops-and-deployment"
 level: advanced
 built_from: ["scaling-inference", "model-serving"]
 interview_frequency: medium
-updated: 2026-06-20
+updated: 2026-09-07
 tier: core
 est_minutes: 10
 title: "Cost Optimization for ML Systems"
@@ -25,7 +25,17 @@ capacity, token volume), the trade-offs (latency vs throughput vs cost vs qualit
 batching, autoscaling/scale-to-zero, spot instances, quantization, caching, and batch vs online. Ties
 together serving, scaling, and LLMOps.
 
-**⭐ Start here — suggested path:**
+**The 2026 GPU-economics checklist** — the levers, in the order they usually pay off:
+
+- **Buy the right way**: on-demand for spiky serving, **committed/reserved** capacity for the steady
+  floor, **spot/preemptible** for checkpointed training and batch scoring (never for latency-critical serving).
+- **Raise utilization before adding capacity**: continuous batching, GPU sharing/multi-instance GPU (MIG),
+  and scale-to-zero on idle replicas beat a bigger cluster.
+- **Shrink the work**: quantization (INT8/FP8/4-bit) and a smaller model routed by difficulty often cut
+  cost more than any infrastructure change.
+- **Do not pay twice**: prompt/prefix caching and exact-response caching remove whole prefill passes.
+
+**Start here — suggested path:**
 
 1. **Find the cost drivers** — read [Cost-Effective Machine Learning with Ray](https://www.anyscale.com/blog/cost-effective-machine-learning-with-ray). *Idle GPUs, over-provisioning, and where the money actually goes.*
 2. **Lever 1 — batch vs online** — re-read [Static vs Dynamic Inference](https://developers.google.com/machine-learning/crash-course/production-ml-systems/static-vs-dynamic-inference). *Batch is dramatically cheaper when latency permits.*
@@ -33,29 +43,35 @@ together serving, scaling, and LLMOps.
 4. **Lever 3 — cheaper inference** — watch [Enabling Cost-Efficient LLM Serving with Ray Serve](https://www.youtube.com/watch?v=TJ5K1CO9Wbs). *Batching + quantization + right-sized hardware on real LLM workloads.*
 5. **LLM-specific economics** — read [Building LLM Applications for Production](https://huyenchip.com/2023/04/11/llm-engineering.html) (cost/latency section). *Token cost, caching, model-size trade-offs for LLM systems.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [Ray Serve — Documentation (autoscaling & batching)](https://docs.ray.io/en/latest/serve/index.html) — **Anyscale** — the main cost levers for serving, hands-on.
 - [Made With ML — MLOps Course](https://madewithml.com/courses/mlops/) — **Goku Mohandas** — efficiency considerations across the production stack.
 
-## 🎥 Videos
+## Videos
 - [Enabling Cost-Efficient LLM Serving with Ray Serve](https://www.youtube.com/watch?v=TJ5K1CO9Wbs) — **Anyscale** — batching, autoscaling, and hardware choices to cut serving cost.
 - [Optimizing LLM Inference with AWS Trainium, Ray, vLLM, and Anyscale](https://www.youtube.com/watch?v=tzzduslVzos) — **Anyscale** — cheaper accelerators + efficient serving stack.
 - [Accelerated LLM Inference with Anyscale (Ray Summit 2024)](https://www.youtube.com/watch?v=_sDMsg0STqs) — **Anyscale** — throughput-per-dollar improvements for inference.
 - [Productionizing ML at Scale with Ray Serve](https://www.youtube.com/watch?v=UtH-CMpmxvI) — **Anyscale** — GPU utilization and scaling efficiency under load.
 
-## 📄 Key Papers
+## Key Papers
 - [Challenges in Deploying ML: A Survey of Case Studies](https://arxiv.org/abs/2011.09926) — **Paleyes et al. (2020)** — resource/cost constraints as a recurring deployment challenge.
 - [Hidden Technical Debt in Machine Learning Systems](https://papers.nips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf) — **Sculley et al. (2015)** — infrastructure debt that quietly inflates cost.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [Cost-Effective Machine Learning with Ray](https://www.anyscale.com/blog/cost-effective-machine-learning-with-ray) — **Anyscale** — practical cost levers: utilization, spot, autoscaling.
 - [Static vs Dynamic Inference](https://developers.google.com/machine-learning/crash-course/production-ml-systems/static-vs-dynamic-inference) — **Google** — batch vs online as a cost decision.
 - [Building LLM Applications for Production](https://huyenchip.com/2023/04/11/llm-engineering.html) — **Chip Huyen** — LLM cost/latency economics (caching, model size, tokens).
+- [Building a Generative AI Platform](https://huyenchip.com/2024/07/25/genai-platform.html) — **Chip Huyen** — where cost accrues in a 2026 LLM stack: routing to smaller models, caching layers, and guardrail overhead.
+- [Automatic Prefix Caching](https://docs.vllm.ai/en/latest/features/automatic_prefix_caching.html) — **vLLM maintainers** — the single highest-leverage inference saving when prompts share a long prefix: reuse the KV cache instead of re-running prefill.
+- [The GPU Glossary](https://modal.com/gpu-glossary) — **Modal** — the hardware vocabulary (streaming multiprocessors, high-bandwidth memory, tensor cores) you need to reason about what a GPU-hour actually buys.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Designing Machine Learning Systems — **Ch. 7 "Model Deployment"** & **Ch. 10 "Infrastructure & Tooling"** (cost & efficiency)](https://huyenchip.com/mlops/) — **Chip Huyen** — author notes/talks free.
 - [Machine Learning Engineering — **Ch. 8 "Model Deployment"** (efficiency & resource trade-offs)](http://www.mlebook.com/wiki/doku.php) — **Andriy Burkov** — read-first chapters free.
 
-## 🔗 In this platform
+## In this platform
 - Builds on: [09 Model Serving](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/model-serving/model-serving) · [10 Scaling Inference](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/scaling-inference/scaling-inference) · [15 LLMOps](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/governance-and-economics/llmops/llmops)
+- The caching lever, in depth: [Caching & Cost Optimization for LLMs](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/caching-and-cost-optimization/caching-and-cost-optimization)
+- The throughput lever, in depth: [Continuous Batching & Scheduling](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/continuous-batching-and-scheduling/continuous-batching-and-scheduling)
+- What a GPU-hour buys: [GPUs & Accelerators for Deep Learning](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/data-and-training-platforms/gpus-and-accelerators-for-deep-learning/gpus-and-accelerators-for-deep-learning)
 - Related concept (covered elsewhere): LLM inference cost techniques (quantization, KV-cache, batching) → [LLMs — Inference Optimization & Serving](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/inference-optimization/inference-optimization) · [Quantization](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/quantization/quantization)

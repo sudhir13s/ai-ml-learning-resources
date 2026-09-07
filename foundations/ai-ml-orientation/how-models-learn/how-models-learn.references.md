@@ -3,7 +3,7 @@ id: "00-basics/how-models-learn/references"
 topic: "How Models Learn — References"
 parent: "00-basics/how-models-learn"
 type: references
-updated: 2026-07-03
+updated: 2026-09-07
 ---
 
 # How Models Learn — references and further reading
@@ -23,7 +23,7 @@ updated: 2026-07-03
 - [Stochastic Gradient Descent, Clearly Explained](https://www.youtube.com/watch?v=vMh0zPT0tLI) — **StatQuest** — why we use mini-batches and what "stochastic" buys us at scale.
 - [Machine Learning Fundamentals: Cross Validation](https://www.youtube.com/watch?v=fSytzGwwBVw) — **StatQuest** — train/val/test and k-fold, the honest way to estimate performance.
 - [Building a neural network FROM SCRATCH](https://www.youtube.com/watch?v=w8yWXqWQYmU) — **Samson Zhang** — the full learn loop (forward → loss → backprop → update) in NumPy, no frameworks.
-- [Gradient Descent — Andrew Ng (ML Specialization, C1)](https://www.youtube.com/watch?v=4b4MUYve_U8) — **Andrew Ng / DeepLearning.AI** — the cost function and the gradient-descent update derived from scratch, the classic treatment.
+- [The spelled-out intro to neural networks and backpropagation: building micrograd](https://www.youtube.com/watch?v=VMj-3S1tku0) — **Andrej Karpathy** — the loop built from nothing: a scalar autodiff engine, a loss, and the update rule, typed out line by line.
 
 **Courses (free)**:
 - [Google ML Crash Course — Linear Regression (Loss & Gradient Descent)](https://developers.google.com/machine-learning/crash-course/linear-regression/loss) — **Google** — the cleanest loss → gradient-descent walkthrough, with interactive widgets and a learning-rate playground.
@@ -37,12 +37,12 @@ updated: 2026-07-03
 
 **Articles / blogs (free, no paywall)**:
 - [An overview of gradient descent optimization algorithms](https://www.ruder.io/optimizing-gradient-descent/) — **Sebastian Ruder** — the reference survey of SGD, momentum, and Adam; read once the intuition lands.
-- [Gradient Descent — explained](https://www.ibm.com/think/topics/gradient-descent) — **IBM** — a clear text walkthrough of the optimization loop and the learning rate.
+- [Why Momentum Really Works](https://distill.pub/2017/momentum/) — **Gabriel Goh (Distill)** — an interactive account of what the learning rate and momentum do to convergence; the next step once plain gradient descent makes sense.
 - [Cross-validation: evaluating estimator performance](https://scikit-learn.org/stable/modules/cross_validation.html) — **scikit-learn docs** — train/val/test and k-fold with runnable code.
 - [A Recipe for Training Neural Networks](https://karpathy.github.io/2019/04/25/recipe/) — **Andrej Karpathy** — how the loop behaves in practice, and the failure modes (great once you've trained a few models).
 
 **Key sources / derivations** (cited on the concept page):
-- [Méthode générale pour la résolution des systèmes d'équations simultanées](https://www.academie-sciences.fr/pdf/dossiers/Cauchy/Cauchy_pdf/CR1847_t25_p536_538.pdf) — **Cauchy (1847)** — the original note introducing the gradient-descent idea (step in the negative-gradient direction).
+- [Méthode générale pour la résolution des systèmes d'équations simultanées](https://gallica.bnf.fr/ark:/12148/bpt6k2982c/f540.item) — **Cauchy (1847)**, *Comptes rendus de l'Académie des sciences*, t. 25, pp. 536–538 — the original note introducing the gradient-descent idea (step in the negative-gradient direction); scanned page at Gallica (BnF), since the Académie's own PDF is gone.
 - [Deep Learning — Ch. 4 (numerical computation / gradient-based optimization) & Ch. 8 (optimization for training)](https://www.deeplearningbook.org/) — **Goodfellow, Bengio & Courville** — the modern reference for gradient descent on ML objectives; Ch. 5.1.4 gives MSE as a maximum-likelihood loss.
 - [An overview of gradient descent optimization algorithms](https://www.ruder.io/optimizing-gradient-descent/) — **Sebastian Ruder (2016)** — the survey behind the "batch vs SGD vs Adam" note.
 - [A Few Useful Things to Know About Machine Learning](https://homes.cs.washington.edu/~pedrod/papers/cacm12.pdf) — **Pedro Domingos (2012)** — why generalisation (the test set) is the real goal, not training error.

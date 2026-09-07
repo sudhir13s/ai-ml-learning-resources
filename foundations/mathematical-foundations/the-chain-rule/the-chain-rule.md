@@ -5,7 +5,7 @@ parent: "01-foundations"
 level: intermediate
 built_from: ["01-foundations/derivatives-and-gradients"]
 interview_frequency: very-high
-updated: 2026-06-20
+updated: 2026-09-07
 tier: core
 est_minutes: 10
 title: "The Chain Rule (& Backpropagation)"
@@ -23,7 +23,7 @@ Interviewers ask you to differentiate composed functions by hand, explain forwar
 (why reverse is cheap for scalar losses), and derive the gradient through a small network — all
 chain rule.
 
-**⭐ Start here — suggested path:**
+**Start here — suggested path:**
 
 1. **Single-variable chain rule** — watch [3B1B: Visualizing the chain rule and product rule](https://www.youtube.com/watch?v=YG15m2VwSjA). *See where the product of derivatives comes from.*
 2. **From chain rule to backprop** — watch [3B1B: Backpropagation, intuitively](https://www.youtube.com/watch?v=Ilg3gGewQ5U) then [Backpropagation calculus](https://www.youtube.com/watch?v=tIeHLnjs5U8). *The exact moment the chain rule becomes a learning algorithm.*
@@ -31,29 +31,30 @@ chain rule.
 4. **Matrix/vector form** — read [Matrix Calculus for Deep Learning](https://explained.ai/matrix-calculus/). *The vector chain rule and Jacobian-product view used in real frameworks.*
 5. **Connect to ML** — read [ai-ml-intuitions 2.02 Backpropagation (The Chain Rule)](/ai-ml/ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/chain-rule-and-backpropagation-intuition). *The platform's deep dive on credit assignment.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [Stanford CS231n — Backpropagation notes](https://cs231n.github.io/optimization-2/) — **Stanford** — the chain rule on computational graphs, with worked gradient flows.
 - [Khan Academy — Multivariable chain rule](https://www.khanacademy.org/math/multivariable-calculus/multivariable-derivatives/multivariable-chain-rule/v/multivariable-chain-rule) — **Khan Academy** — the multivariable version with exercises.
 
-## 🎥 Videos
+## Videos
 - [Visualizing the chain rule and product rule | Ch. 4](https://www.youtube.com/watch?v=YG15m2VwSjA) — **3Blue1Brown** — the geometric why behind the chain rule.
 - [Backpropagation, intuitively | Deep Learning Ch. 3](https://www.youtube.com/watch?v=Ilg3gGewQ5U) — **3Blue1Brown** — chain rule as gradient flow through a network.
 - [Backpropagation calculus | Deep Learning Ch. 4](https://www.youtube.com/watch?v=tIeHLnjs5U8) — **3Blue1Brown** — the explicit chain-rule derivation.
 - [The spelled-out intro to backpropagation (micrograd)](https://www.youtube.com/watch?v=VMj-3S1tku0) — **Andrej Karpathy** — build reverse-mode autodiff from scratch.
 
-## 📄 Key Papers
+## Key Papers
 - [MML book — Ch. 5.2–5.6 (Vector Calculus / chain rule, backprop)](https://mml-book.github.io/book/mml-book.pdf) — **Deisenroth, Faisal & Ong** — the chain rule, gradients of compositions, and automatic differentiation.
 - [Matrix Calculus for Deep Learning](https://explained.ai/matrix-calculus/) — **Parr & Howard** — the vector/matrix chain rule needed for real backprop.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [Calculus on Computational Graphs: Backpropagation](https://colah.github.io/posts/2015-08-Backprop/) — **Christopher Olah** — the clearest free essay on chain rule over graphs.
 - [Paul's Online Notes — Chain Rule](https://tutorial.math.lamar.edu/Classes/CalcI/ChainRule.aspx) — **Paul Dawkins** — mechanics and worked examples.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Mathematics for Machine Learning — **Ch. 5 (Vector Calculus)**](https://mml-book.github.io/book/mml-book.pdf) — **Deisenroth et al.** — chain rule and automatic differentiation.
 - [Dive into Deep Learning — **§2.5 (Automatic Differentiation), §5.3 (Backprop)**](https://d2l.ai/chapter_preliminaries/autograd.html) — **Zhang et al.** — chain rule, autograd, and backprop with runnable code.
+- [The Mathematical Engineering of Deep Learning](https://deeplearningmath.org/) — **Liquet, Moka & Nazarathy** — a free book-and-course that carries the chain rule through to full backpropagation in matrix form, with the notation stated carefully enough to follow every index.
 
-## 🔗 In this platform
+## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 2.02 Backpropagation (The Chain Rule)](/ai-ml/ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/chain-rule-and-backpropagation-intuition) · [2.04 Computational Graphs / Autograd](/ai-ml/ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/computational-graphs-and-autograd-intuition)
 - Curriculum context: [Maths for AI-ML — Phase 2 (Calculus, row 2.2)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
 - Prereq: [08 Derivatives & Gradients](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/derivatives-and-gradients/derivatives-and-gradients) · Next: [10 Jacobian & Hessian](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/jacobian-and-hessian/jacobian-and-hessian)

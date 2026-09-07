@@ -5,7 +5,7 @@ parent: "08-reinforcement-learning"
 level: intermediate
 built_from: ["markov-decision-processes", "expectation", "recursion"]
 interview_frequency: very-high
-updated: 2026-06-20
+updated: 2026-09-07
 tier: core
 est_minutes: 10
 title: "Bellman Equations"
@@ -31,29 +31,29 @@ becomes the TD target.
 3. **See why iteration converges** — [Lilian Weng: RL overview (Bellman section)](https://lilianweng.github.io/posts/2018-02-19-rl-overview/). *The γ-contraction argument — why repeatedly applying the Bellman operator finds the fixed point.*
 4. **Make it concrete** — trace the equation through a grid-world in [David Silver Lecture 3 (DP)](https://www.youtube.com/watch?v=Nd1-UUMVfz4). *Watch value iteration apply the Bellman optimality backup until it converges.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [UCL Course on RL — Lectures 2 & 3](https://www.davidsilver.uk/teaching/) — **David Silver (DeepMind)** — derives the Bellman expectation and optimality equations and uses them in DP.
 - [Spinning Up — Bellman Equations](https://spinningup.openai.com/en/latest/spinningup/rl_intro.html#bellman-equations) — **OpenAI** — compact statement of all four Bellman equations (on-policy / optimal × V / Q).
 - [Stanford CS234 — Lecture 2 (MDPs & Bellman)](https://web.stanford.edu/class/cs234/) — **Stanford (Emma Brunskill)** — the contraction-mapping view and convergence.
 
-## 🎥 Videos
+## Videos
 - [RL Lecture 2: MDPs (value functions & Bellman)](https://www.youtube.com/watch?v=lfHX2hHRMVQ) — **David Silver (DeepMind)** — derives the Bellman expectation equation from first principles.
 - [RL Lecture 3: Planning by Dynamic Programming](https://www.youtube.com/watch?v=Nd1-UUMVfz4) — **David Silver (DeepMind)** — the Bellman optimality backup in action via value/policy iteration.
 - [Reinforcement Learning 2: Markov Decision Processes](https://www.youtube.com/watch?v=RmOdTQYQqmQ) — **DeepMind x UCL** — a clean second derivation of the Bellman equations.
 - [Reinforcement Learning: Essential Concepts](https://www.youtube.com/watch?v=Z-T0iJEXiwM) — **StatQuest (Josh Starmer)** — gentle visual grounding for value and the one-step recursion.
 
-## 📄 Key Papers
+## Key Papers
 - [Reinforcement Learning: A Survey](https://www.jair.org/index.php/jair/article/view/10166) — **Kaelbling, Littman & Moore (1996)** — presents the Bellman equations as the basis for value-based RL.
 - [Algorithms for Reinforcement Learning](https://sites.ualberta.ca/~szepesva/papers/RLAlgsInMDPs.pdf) — **Csaba Szepesvári (2010)** — rigorous treatment of the Bellman operator as a γ-contraction and its fixed point.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [A (Long) Peek into Reinforcement Learning — Bellman equations](https://lilianweng.github.io/posts/2018-02-19-rl-overview/) — **Lilian Weng** — clear derivation plus the contraction/convergence intuition.
 - [Spinning Up — Bellman Equations](https://spinningup.openai.com/en/latest/spinningup/rl_intro.html#bellman-equations) — **OpenAI** — the four Bellman equations stated precisely in one place.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Reinforcement Learning: An Introduction (2nd ed.) — **§3.5–3.6 & Ch. 4 "Dynamic Programming"**](http://incompleteideas.net/book/RLbook2020.pdf) — **Sutton & Barto** — the Bellman expectation and optimality equations, backup diagrams, and policy-evaluation iteration.
 - [Algorithms for Reinforcement Learning — **§2 (the Bellman operators)**](https://sites.ualberta.ca/~szepesva/papers/RLAlgsInMDPs.pdf) — **Csaba Szepesvári** — the operator-theoretic view that proves convergence.
 
-## 🔗 In this platform
+## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 6.01 Bellman Optimality & Q-Learning](/ai-ml/ai-ml-intuitions/decision-making-and-control/value-learning/bellman-equation-and-q-learning-intuition)
 - Prereq: [01 Markov Decision Processes](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/foundations/markov-decision-processes/markov-decision-processes) · Next: [03 Dynamic Programming](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/foundations/dynamic-programming-value-and-policy-iteration/dynamic-programming-value-and-policy-iteration)

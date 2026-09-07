@@ -5,7 +5,7 @@ parent: "08-reinforcement-learning"
 level: advanced
 built_from: ["q-learning", "deep-learning", "function-approximation"]
 interview_frequency: very-high
-updated: 2026-06-20
+updated: 2026-09-07
 tier: core
 est_minutes: 10
 title: "Deep Q-Networks (DQN)"
@@ -30,35 +30,35 @@ evaluation to cut overestimation), **Dueling** (split value/advantage streams), 
 1. **Build intuition** — watch [Pieter Abbeel L2: Deep Q-Learning](https://www.youtube.com/watch?v=Psrhxy88zww). *The cleanest modern derivation of DQN: replay, target net, and the loss.*
 2. **Read the source** — [Human-level control through deep RL (DQN, Nature 2015)](https://www.nature.com/articles/nature14236). *The paper; focus on the replay + target-network stability tricks and the Atari results.*
 3. **Get the variants** — [Lilian Weng: DQN and its extensions](https://lilianweng.github.io/posts/2018-02-19-rl-overview/). *Double, Dueling, Prioritized, and how Rainbow combines them.*
-4. **Code it** — [Johnny Code: DQN explained & implemented](https://www.youtube.com/watch?v=EUrWGTCGzlA). *Build the replay buffer + target network in PyTorch end to end.*
+4. **Code it** — [CleanRL `dqn.py` — the annotated single-file implementation](https://docs.cleanrl.dev/rl-algorithms/dqn/). *Replay buffer, target network, ε-schedule and the exact hyperparameters, in ~200 lines with reproduced benchmark curves.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [UCL Course on RL — Lecture 6: Value Function Approximation](https://www.davidsilver.uk/teaching/) — **David Silver (DeepMind)** — function approximation, the deadly triad, and DQN.
-- [Berkeley CS285 — Deep RL (Q-learning lectures)](https://rail.eecs.berkeley.edu/deeprlcourse/) — **UC Berkeley (Sergey Levine)** — deep Q-learning theory, replay, and target networks in depth.
+- [Berkeley CS285 — Deep RL (Q-learning lectures)](http://rail.eecs.berkeley.edu/deeprlcourse/) — **UC Berkeley (Sergey Levine)** — deep Q-learning theory, replay, and target networks in depth.
 - [Spinning Up — Kinds of RL Algorithms](https://spinningup.openai.com/en/latest/spinningup/rl_intro2.html) — **OpenAI** — where value-based deep RL sits in the landscape.
 
-## 🎥 Videos
+## Videos
 - [L2: Deep Q-Learning](https://www.youtube.com/watch?v=Psrhxy88zww) — **Pieter Abbeel (Foundations of Deep RL)** — DQN derived: replay buffer, target network, loss.
 - [RL Lecture 6: Value Function Approximation](https://www.youtube.com/watch?v=UoPei5o4fps) — **David Silver (DeepMind)** — why naïve function approximation diverges and how DQN stabilizes it.
-- [Deep Q-Learning / Deep Q-Network (DQN) Explained](https://www.youtube.com/watch?v=EUrWGTCGzlA) — **Johnny Code** — DQN implemented step by step in PyTorch.
+- [Deep RL Bootcamp — Core Lecture 3: DQN and Variants](https://sites.google.com/view/deep-rl-bootcamp/lectures) — **Volodymyr Mnih (DeepMind; DQN's first author, Berkeley Deep RL Bootcamp 2017)** — replay, target networks, Double and Dueling DQN, from the person who built it; video and slides on the official bootcamp page.
 - [An Introduction to Reinforcement Learning](https://www.youtube.com/watch?v=JgvyzIkgxF0) — **Arxiv Insights** — visual context for deep value-based RL.
 
-## 📄 Key Papers
+## Key Papers
 - [Playing Atari with Deep RL](https://arxiv.org/abs/1312.5602) — **Mnih et al. (2013)** — the original DQN with experience replay.
 - [Human-level Control through Deep RL](https://www.nature.com/articles/nature14236) — **Mnih et al. (2015)** — the Nature paper adding the target network; Atari from pixels.
 - [Deep RL with Double Q-learning](https://arxiv.org/abs/1509.06461) — **van Hasselt, Guez & Silver (2016)** — fixes DQN's value overestimation.
 - [Dueling Network Architectures](https://arxiv.org/abs/1511.06581) — **Wang et al. (2016)** — separate value and advantage streams.
 - [Rainbow: Combining Improvements in Deep RL](https://arxiv.org/abs/1710.02298) — **Hessel et al. (2018)** — integrates six DQN extensions (incl. prioritized replay & distributional C51).
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [A (Long) Peek into RL — Deep Q-Network](https://lilianweng.github.io/posts/2018-02-19-rl-overview/) — **Lilian Weng** — DQN plus the Double/Dueling/Prioritized variants in one tour.
 - [Prioritized Experience Replay](https://arxiv.org/abs/1511.05952) — **Schaul et al. (2016)** — the replay-sampling improvement, with clear motivation (open arXiv).
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Reinforcement Learning: An Introduction (2nd ed.) — **Ch. 9–11 (function approximation, the deadly triad)**](http://incompleteideas.net/book/RLbook2020.pdf) — **Sutton & Barto** — on/off-policy approximation and why DQN's tricks are necessary.
 - [Dive into Deep Learning — **Ch. 17 (Reinforcement Learning)**](https://d2l.ai/chapter_reinforcement-learning/index.html) — **Zhang et al.** — value iteration → Q-learning with runnable code, a stepping stone to DQN.
 
-## 🔗 In this platform
+## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 6.01 Bellman Optimality & Q-Learning](/ai-ml/ai-ml-intuitions/decision-making-and-control/value-learning/bellman-equation-and-q-learning-intuition)
 - Prereq: [06 Q-Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/value-based-learning/q-learning/q-learning) · Alternative family: [09 Policy Gradients (REINFORCE)](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/policy-learning/policy-gradients-reinforce/policy-gradients-reinforce)
 - Related domain: [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

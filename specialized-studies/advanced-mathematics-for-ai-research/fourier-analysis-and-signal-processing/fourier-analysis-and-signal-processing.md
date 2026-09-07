@@ -25,7 +25,7 @@ are a direct Fourier idea; Fourier features and the spectral bias of neural nets
 frequencies networks learn first*. This card also feeds the graph-Fourier basis in spectral graph
 theory (card 11).
 
-**⭐ Start here — suggested path:**
+**Start here — suggested path:**
 
 1. **See it visually** — watch [But what is the Fourier Transform?](https://www.youtube.com/watch?v=spUNpyF58BY) (3Blue1Brown). *The winding-machine picture that makes the transform intuitive.*
 2. **Understand series** — watch [But what is a Fourier series?](https://www.youtube.com/watch?v=r6sGWTCMz2k) (3Blue1Brown). *From heat flow to "any signal is a sum of rotations".*
@@ -33,34 +33,34 @@ theory (card 11).
 4. **Read the rigorous course** — work [Stanford EE261 (The Fourier Transform and its Applications)](https://see.stanford.edu/Course/EE261). *The definitive engineering-math treatment: transform, sampling, DFT.*
 5. **Reach ML applications** — connect to [positional encodings](/ai-ml/ai-ml-intuitions/representation/embedding-spaces/positional-representations-intuition) and Fourier features. *Where Fourier analysis shows up directly in modern architectures.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [Stanford EE261 — The Fourier Transform and its Applications](https://see.stanford.edu/Course/EE261) — **Brad Osgood (Stanford)** — the classic full course (series → transform → sampling → DFT), free video + [free book PDF](https://see.stanford.edu/materials/lsoftaee261/book-fall-07.pdf).
 - [Fourier Analysis — Data-Driven Science & Engineering (Ch. 2)](https://databookuw.com/) — **Steve Brunton & Nathan Kutz (UW)** — Fourier/wavelets with Python/MATLAB code, free book + videos.
 - [Mathematics of the DFT — free book](https://www.dsprelated.com/freebooks/mdft/) — **Julius O. Smith (Stanford CCRMA)** — a careful, complete free text on the DFT and its math.
 
-## 🎥 Videos
+## Videos
 - [But what is the Fourier Transform? A visual introduction](https://www.youtube.com/watch?v=spUNpyF58BY) — **3Blue1Brown** — the most intuitive explanation of the transform anywhere.
 - [But what is a Fourier series? From heat flow to circle drawings](https://www.youtube.com/watch?v=r6sGWTCMz2k) — **3Blue1Brown** — Fourier series via rotating vectors.
 - [The Fast Fourier Transform (FFT)](https://www.youtube.com/watch?v=E8HeD-MUrjY) — **Steve Brunton (UW)** — the FFT algorithm and why it's O(n log n).
-- [Singular Value Decomposition (SVD): Overview](https://www.youtube.com/watch?v=gXbThCXjZFM) — **Steve Brunton (UW)** — the sister linear-algebra transform, often paired with Fourier in signal processing.
+- [Fourier Series: Part 1](https://www.youtube.com/watch?v=MB6XGQWLV04) — **Steve Brunton** — derives the series coefficients as inner-product projections onto sines and cosines: the cleanest "Fourier is just an orthogonal basis" framing.
+- [Fourier Analysis (Data-Driven Science and Engineering playlist)](https://www.youtube.com/playlist?list=PLMrJAkhIeNNT_Xh3Oy0Y4LTj0Oxo8GqsC) — **Steve Brunton** — series → transform → DFT → FFT → wavelets in one ordered playlist, each video paired with runnable code.
 
-## 📄 Key Papers
+## Key Papers
 - [Fourier Features Let Networks Learn High-Frequency Functions in Low-Dimensional Domains](https://arxiv.org/abs/2006.10739) — **Tancik et al. (2020)** — Fourier features fix the spectral bias of MLPs; the bridge to NeRF/implicit models.
 - [On the Spectral Bias of Neural Networks](https://arxiv.org/abs/1806.08734) — **Rahaman et al. (2019)** — neural nets learn low frequencies first; a Fourier-analytic finding, free on arXiv.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [The Fourier Transform and its Applications — free book PDF](https://see.stanford.edu/materials/lsoftaee261/book-fall-07.pdf) — **Brad Osgood (Stanford EE261)** — the full course text, openly posted.
 - [Fourier and Wavelet Transforms — chapter & notebooks](https://databookuw.com/) — **Brunton & Kutz** — applied Fourier with runnable code, free.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Data-Driven Science and Engineering — **Ch. 2 (Fourier & Wavelet Transforms)**](https://databookuw.com/) — **Brunton & Kutz** — Fourier with ML/engineering applications, free PDF + videos.
 - [The Fourier Transform and its Applications — **full free book**](https://see.stanford.edu/materials/lsoftaee261/book-fall-07.pdf) — **Brad Osgood (Stanford)** — the EE261 course text.
 - [Mathematics of the DFT — **Ch. on the DFT & convolution theorem**](https://www.dsprelated.com/freebooks/mdft/) — **Julius O. Smith** — rigorous, complete, and free online.
 
-## 🔗 In this platform
+## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 1.03 Positional Encoding](/ai-ml/ai-ml-intuitions/representation/embedding-spaces/positional-representations-intuition)
 - Foundations (the basics this builds on): [Norms, Inner Products & Orthogonality](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/norms-inner-products-and-orthogonality/norms-inner-products-and-orthogonality) · [Eigenvalues & Eigenvectors](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/eigenvalues-and-eigenvectors/eigenvalues-and-eigenvectors)
 - Prerequisite & related: [02 Functional Analysis](/ai-ml/ai-ml-learning-resources/specialized-studies/advanced-mathematics-for-ai-research/functional-analysis/functional-analysis) · [11 Spectral Graph Theory (graph Fourier)](/ai-ml/ai-ml-learning-resources/specialized-studies/advanced-mathematics-for-ai-research/spectral-graph-theory/spectral-graph-theory) · [13 Random Matrix Theory](/ai-ml/ai-ml-learning-resources/specialized-studies/advanced-mathematics-for-ai-research/random-matrix-theory/random-matrix-theory)
 - Applied downstream: [Audio Representations — Waveform, Spectrogram, Mel, MFCC](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/audio-and-speech/audio-representations-waveform-spectrogram-mel-mfcc/audio-representations-waveform-spectrogram-mel-mfcc) — the short-time Fourier transform as every audio model's input layer
 - Related domain: [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
-</content>

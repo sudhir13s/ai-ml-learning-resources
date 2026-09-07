@@ -6,7 +6,7 @@ level: beginner
 built_from: ["linear-algebra", "gradient-descent", "calculus"]
 interview_frequency: very-high
 template: concept-deep
-updated: 2026-06-22
+updated: 2026-09-07
 tier: core
 est_minutes: 35
 title: "Linear Regression"
@@ -373,7 +373,7 @@ y = Xraw @ np.array([1.5, -2.0, 0.7]) + 4.0 + rng.normal(0, 1.0, n)
 X = (Xraw - Xraw.mean(0)) / Xraw.std(0)              # standardize -> well-conditioned for GD
 Xb = np.c_[np.ones(n), X]                            # add bias column of ones
 
-# 1) Normal equation: SOLVE X^T X w = X^T y  (never invert explicitly)
+# 1) Normal equation: SOLVE X^T X w = X^T y (never invert explicitly)
 beta_closed = np.linalg.solve(Xb.T @ Xb, Xb.T @ y)
 
 # 2) Gradient descent on the SAME loss: grad = (2/n) X^T (yhat - y)

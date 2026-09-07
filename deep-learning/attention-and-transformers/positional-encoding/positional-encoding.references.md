@@ -3,7 +3,7 @@ id: "05-deep-learning/positional-encoding/references"
 topic: "Positional Encoding — References"
 parent: "05-deep-learning/positional-encoding"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Positional Encoding — references and further reading
@@ -49,11 +49,13 @@ updated: 2026-06-22
 **Books (free chapters)**:
 - [Dive into Deep Learning — §11.6 "Self-Attention and Positional Encoding"](https://d2l.ai/chapter_attention-mechanisms-and-transformers/self-attention-and-positional-encoding.html) — **Zhang et al.** — sinusoidal encoding derived and coded.
 - [Speech and Language Processing, 3rd ed. — Ch. 9 "Transformers"](https://web.stanford.edu/~jurafsky/slp3/) — **Jurafsky & Martin** — positional encoding within the transformer, free online draft.
+- [*Understanding Deep Learning* — Ch. 12 "Transformers" (§12.5 positional encoding)](https://udlbook.github.io/udlbook/) — **Simon J.D. Prince** — free PDF; states the permutation-equivariance property that makes a positional signal necessary, then derives the absolute and relative schemes from it.
 
 **In this platform**:
 - Concept page (full explanation): [Positional Encoding](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/positional-encoding/positional-encoding)
 - Prerequisites (the *why* behind Q, K, V and the block): [Attention Mechanism](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism) · [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture)
 - Builds on this (RoPE caching, long context): [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache)
+- Where these encodings go in a real LLM: [Positional Representations in LLMs](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/llm-model-architectures/positional-representations-in-llms/positional-representations-in-llms) — RoPE base-frequency scaling, NTK-aware and YaRN interpolation, and the context-extension recipes built on the schemes derived here · [Long-Context Architectures](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/llm-model-architectures/long-context-architectures/long-context-architectures)
 - Concept depth (the *why*): [ai-ml-intuitions 1.03 Positional Encoding](/ai-ml/ai-ml-intuitions/representation/embedding-spaces/positional-representations-intuition)
 - Field overview: [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
 - Related domain: [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme) (RoPE/ALiBi for long-context models)

@@ -5,7 +5,7 @@ parent: "01-foundations"
 level: intermediate
 built_from: ["01-foundations/eigenvalues-and-eigenvectors", "01-foundations/singular-value-decomposition"]
 interview_frequency: very-high
-updated: 2026-06-20
+updated: 2026-09-07
 tier: core
 est_minutes: 10
 title: "Principal Component Analysis (PCA) — the math"
@@ -24,7 +24,7 @@ be able to set it up two ways — maximize projected variance (Rayleigh quotient
 of the covariance) and minimize reconstruction error — and explain the SVD route, why you center
 (and sometimes standardize), and how explained-variance ratios pick `k`.
 
-**⭐ Start here — suggested path:**
+**Start here — suggested path:**
 
 1. **Intuition first** — watch [StatQuest: PCA, Step-by-Step](https://www.youtube.com/watch?v=FgakZw6K1QQ) (or the [5-minute version](https://www.youtube.com/watch?v=HMOI_lkzW08)). *Builds the "rotate to variance axes" picture without heavy math.*
 2. **The two derivations** — read [MML Ch. 10 (Dimensionality Reduction with PCA)](https://mml-book.github.io/book/mml-book.pdf). *Max-variance and min-reconstruction-error views, both worked.*
@@ -32,29 +32,30 @@ of the covariance) and minimize reconstruction error — and explain the SVD rou
 4. **Pin the prerequisites** — review [04 Eigenvalues](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/eigenvalues-and-eigenvectors/eigenvalues-and-eigenvectors) + [06 SVD](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/singular-value-decomposition/singular-value-decomposition). *PCA is their direct application; make sure the covariance-eigenvector link is solid.*
 5. **Connect to ML** — read [ai-ml-intuitions 1.05 Spectral Methods (PCA/SVD)](/ai-ml/ai-ml-intuitions/representation/dimensionality-and-latent-structure/pca-and-svd-intuition). *The ML payoff and how PCA sits next to t-SNE/UMAP.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [Stanford CS229 — Lecture notes on PCA](https://cs229.stanford.edu/notes2021fall/cs229-notes10.pdf) — **Stanford (Ng et al.)** — the rigorous variance-maximization derivation.
 - [Mathematics for ML: PCA (course resources)](https://mml-book.github.io/) — **Deisenroth et al.** — the companion course's PCA chapter and exercises.
 
-## 🎥 Videos
+## Videos
 - [StatQuest: Principal Component Analysis (PCA), Step-by-Step](https://www.youtube.com/watch?v=FgakZw6K1QQ) — **StatQuest (Josh Starmer)** — the gold-standard intuition build-up.
 - [StatQuest: PCA main ideas in only 5 minutes](https://www.youtube.com/watch?v=HMOI_lkzW08) — **StatQuest (Josh Starmer)** — the fast refresher.
 - [Principal Component Analysis (PCA)](https://www.youtube.com/watch?v=fkf4IBRSeEc) — **Steve Brunton** — PCA as SVD of centered data, with the math.
 - [Eigenvectors and eigenvalues | Ch. 14](https://www.youtube.com/watch?v=PFDu9oVAE-g) — **3Blue1Brown** — the eigen-intuition PCA rests on.
 
-## 📄 Key Papers
+## Key Papers
 - [MML book — Ch. 10 "Dimensionality Reduction with PCA"](https://mml-book.github.io/book/mml-book.pdf) — **Deisenroth, Faisal & Ong** — both PCA derivations end-to-end.
 - [A Tutorial on Principal Component Analysis](https://arxiv.org/abs/1404.1100) — **Jonathon Shlens (2014)** — the widely-cited, beginner-friendly tutorial linking PCA and SVD.
 
-## 📰 Articles / Blogs (free, no paywall)
-- [Making sense of PCA, eigenvectors & eigenvalues](https://stats.stackexchange.com/questions/2691/making-sense-of-principal-component-analysis-eigenvectors-eigenvalues) — **amoeba (CrossValidated)** — the famous, deeply intuitive top answer; fully free.
+## Articles / Blogs (free, no paywall)
+- [A Tutorial on Principal Component Analysis](https://arxiv.org/abs/1404.1100) — **Jonathon Shlens (Google Brain)** — the intuition, the covariance derivation, and the SVD equivalence in one readable paper.
 - [CS229 PCA notes](https://cs229.stanford.edu/notes2021fall/cs229-notes10.pdf) — **Stanford** — the clean derivation as a PDF.
+- [Explained Visually — Principal Component Analysis](https://setosa.io/ev/principal-component-analysis/) — **Victor Powell & Lewis Lehe** — rotate a 3D cloud and watch the projection it is being compressed onto; the geometric claim before the algebra.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Mathematics for Machine Learning — **Ch. 10 (PCA)**](https://mml-book.github.io/book/mml-book.pdf) — **Deisenroth et al.** — the definitive free chapter.
 - [An Introduction to Statistical Learning — **Ch. 12 (Unsupervised Learning / PCA)**](https://www.statlearning.com/) — **James, Witten, Hastie & Tibshirani** — applied PCA with the variance-explained view.
 
-## 🔗 In this platform
+## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 1.05 Spectral Methods (PCA/SVD)](/ai-ml/ai-ml-intuitions/representation/dimensionality-and-latent-structure/pca-and-svd-intuition) · [1.11–1.12 t-SNE/UMAP](/ai-ml/ai-ml-intuitions/representation/dimensionality-and-latent-structure/tsne-and-umap-intuition)
 - Curriculum context: [Maths for AI-ML — Phase 1 (Linear Algebra, row 1.6)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
 - Prereqs: [04 Eigenvalues](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/eigenvalues-and-eigenvectors/eigenvalues-and-eigenvectors) · [06 SVD](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/singular-value-decomposition/singular-value-decomposition)

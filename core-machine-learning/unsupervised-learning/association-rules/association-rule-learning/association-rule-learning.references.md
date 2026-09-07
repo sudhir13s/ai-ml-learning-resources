@@ -3,7 +3,7 @@ id: "04-unsupervised-learning/association-rule-learning/references"
 topic: "Association Rule Learning — References"
 parent: "04-unsupervised-learning/association-rule-learning"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # Association Rule Learning — references and further reading
@@ -11,19 +11,15 @@ updated: 2026-06-22
 > Companion link library for **[Association Rule Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/association-rules/association-rule-learning/association-rule-learning)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author (Agrawal, Han, Zaki), the canonical free textbook (MMDS, ESL), or a recognized deep maintainer (Raschka's mlxtend, Hahsler's arules) — chosen for depth on *this* topic, not popularity.
 
 **Start here — suggested path**:
-1. **Build intuition** — watch [Apriori Algorithm Explained | Finding Frequent Itemsets](https://www.youtube.com/watch?v=guVvtZ7ZClw) (**edureka!**). *Support / confidence / lift and the candidate-generation loop on a small basket example — the clearest first pass.*
-2. **See the pruning** — watch [Association Rule Mining — Apriori, step by step](https://www.youtube.com/watch?v=rXBc25pXhpk) (**Sinzsma**). *Why "every subset of a frequent set is frequent" lets you discard most candidates, worked itemset by itemset.*
+1. **Build intuition** — read [CS246 Lecture 2 slides, "Association Rules"](https://web.stanford.edu/class/cs246/slides/02-assocrules.pdf) (**Jure Leskovec, Stanford**). *Support / confidence / lift and the candidate-generation loop on a small basket example, from the course that owns this topic.*
+2. **See the pruning** — read [MMDS §6.2 "A-Priori Algorithm"](http://infolab.stanford.edu/~ullman/mmds/ch6.pdf) (**Leskovec, Rajaraman & Ullman**). *Why "every subset of a frequent set is frequent" lets you discard most candidates, worked pass by pass — including the memory argument that motivates it.*
 3. **Get the math** — read [MMDS Ch. 6 "Frequent Itemsets"](http://infolab.stanford.edu/~ullman/mmds/ch6.pdf) (**Leskovec, Rajaraman & Ullman**). *The formal support / confidence / lift definitions and the A-priori principle at scale.*
 4. **Read the sources** — [Apriori (Agrawal & Srikant, 1994)](https://www.macs.hw.ac.uk/~dwcorne/Teaching/agrawal94fast.pdf) → [FP-Growth (Han, Pei & Yin, 2000)](https://link.springer.com/article/10.1023/B:DAMI.0000005258.31418.83). *The candidate-generation algorithm, then the prefix-tree method that avoids it.*
 5. **Make it concrete** — code it with [mlxtend's Apriori & association rules](https://rasbt.github.io/mlxtend/user_guide/frequent_patterns/apriori/) (**Sebastian Raschka**). *Mining real baskets and ranking rules by lift cements it.*
 
-**Videos**:
-- [Apriori Algorithm Explained | Association Rule Mining | Finding Frequent Itemset](https://www.youtube.com/watch?v=guVvtZ7ZClw) — **edureka!** — support / confidence / lift and candidate generation on a clear example; the best concise first watch.
-- [Association Rule Mining — Apriori Algorithm Explained Step by Step](https://www.youtube.com/watch?v=rXBc25pXhpk) — **Sinzsma** — the downward-closure pruning worked through itemset by itemset.
-- [Apriori Algorithm — Association Rule Learning](https://www.youtube.com/watch?v=T3Pd_3QP9J4) — **Super Data Science** — a second walkthrough that emphasizes the rule-quality metrics and thresholds.
-
 **Courses (free)**:
 - [Mining of Massive Datasets — Frequent Itemsets](http://www.mmds.org/) — **Leskovec, Rajaraman & Ullman (Stanford)** — free course + book; the definitive treatment of Apriori, support / confidence / lift, and scaling to huge baskets.
+- [CS246 — Association Rules (lecture slides)](https://web.stanford.edu/class/cs246/slides/02-assocrules.pdf) — **Jure Leskovec (Stanford)** — the current course slides: the market-basket model, the A-priori principle, and the PCY / multistage refinements, with the memory analysis that explains why each exists.
 - [mlxtend — Frequent patterns user guide](https://rasbt.github.io/mlxtend/user_guide/frequent_patterns/apriori/) — **Sebastian Raschka** — the practical Python reference with runnable Apriori, FP-Growth, and rule generation.
 
 **Articles / blogs (free, no paywall)**:

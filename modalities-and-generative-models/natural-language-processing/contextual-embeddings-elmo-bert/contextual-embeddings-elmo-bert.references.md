@@ -3,7 +3,7 @@ id: "06-nlp/contextual-embeddings/references"
 topic: "Contextual Embeddings — References"
 parent: "06-nlp/contextual-embeddings"
 type: references
-updated: 2026-06-27
+updated: 2026-09-07
 ---
 
 # Contextual Embeddings — references and further reading
@@ -12,14 +12,14 @@ updated: 2026-06-27
 
 **Start here — suggested path**:
 1. **Build intuition** — read [The Illustrated BERT, ELMo & co.](https://jalammar.github.io/illustrated-bert/) (**Jay Alammar**). *The clearest visual story of how contextual representations work — the one explainer to read first.*
-2. **Watch it explained** — [BERT Neural Network — EXPLAINED!](https://www.youtube.com/watch?v=xI0HHN5XKDo) (**CodeEmporium**), then [What is BERT?](https://www.youtube.com/watch?v=7kLi8u2dJz0) (**codebasics**). *Two short, complementary takes on masked-LM and bidirectionality.*
+2. **Watch it explained** — [BERT Neural Network — EXPLAINED!](https://www.youtube.com/watch?v=xI0HHN5XKDo) (**CodeEmporium**), then [CMU Neural Nets for NLP 2021 (9): Sentence and Contextual Word Representations](https://www.youtube.com/watch?v=0UNNRxhnjHg) (**Graham Neubig**). *A short take on masked-LM and bidirectionality, then the lecture that places ELMo and BERT in one lineage.*
 3. **Place it in history** — [NLP's ImageNet Moment Has Arrived](https://www.ruder.io/nlp-imagenet/) (**Sebastian Ruder**). *Why pretrained contextual models reset the whole field.*
 4. **Read the sources** — [ELMo](https://arxiv.org/abs/1802.05365) → [BERT](https://arxiv.org/abs/1810.04805). *Deep contextualized representations, then masked-LM deep bidirectionality.*
 5. **Make it concrete** — [BERT Word Embeddings Tutorial](https://mccormickml.com/2019/05/14/BERT-word-embeddings-tutorial/) (**Chris McCormick**). *Extract real contextual vectors and inspect them, layer by layer — mirrors this page's code.*
 
 **Videos**:
 - [BERT Neural Network — EXPLAINED!](https://www.youtube.com/watch?v=xI0HHN5XKDo) — **CodeEmporium** — clear intuition for masked-LM and why bidirectional context matters.
-- [What is BERT?](https://www.youtube.com/watch?v=7kLi8u2dJz0) — **codebasics** — gentle, example-driven first look.
+- [CMU Neural Nets for NLP 2021 (9): Sentence and Contextual Word Representations](https://www.youtube.com/watch?v=0UNNRxhnjHg) — **Graham Neubig (CMU)** — ELMo, BERT, and the contextual-representation family taught as one line of work rather than three separate models.
 - [BERT explained: training, inference, BERT vs GPT, fine-tuning, [CLS]](https://www.youtube.com/watch?v=90mGPxR2GgY) — **Umar Jamil** — a deep, careful walkthrough of exactly the topics on this page (MLM, [CLS], BERT vs GPT, fine-tuning).
 - [Transformer Models and BERT Model: Overview](https://www.youtube.com/watch?v=hsp1OAcoLBY) — **Google Cloud** — concise official overview tying transformers to BERT.
 - [BERT Explained!](https://www.youtube.com/watch?v=OR0wfP2FD3c) — **Connor Shorten** — walks through the paper's key ideas.
@@ -38,6 +38,7 @@ updated: 2026-06-27
 - [NLP's ImageNet Moment Has Arrived](https://www.ruder.io/nlp-imagenet/) — **Sebastian Ruder** — the historical context for why pretrained contextual models took over.
 - [BERT Word Embeddings Tutorial](https://mccormickml.com/2019/05/14/BERT-word-embeddings-tutorial/) — **Chris McCormick** — hands-on extraction of contextual vectors, which layers to pool, subword handling (blog + Colab).
 - [BERT 101 — State Of The Art NLP Model Explained](https://huggingface.co/blog/bert-101) — **Hugging Face** — a clean, modern walkthrough of BERT, MLM/NSP, and how to use it.
+- [Finally, a Replacement for BERT (ModernBERT)](https://huggingface.co/blog/modernbert) — **Hugging Face** — the authors' own write-up of what changed and what it costs, with benchmark tables; the practical answer to "should I still fine-tune BERT in 2026?".
 - [The Annotated Transformer](https://nlp.seas.harvard.edu/annotated-transformer/) — **Harvard NLP** — the encoder internals (self-attention, FFN, layer-norm) behind BERT, implemented line by line.
 
 **Key papers**:
@@ -50,6 +51,7 @@ updated: 2026-06-27
 - [Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks](https://arxiv.org/abs/1908.10084) — **Reimers & Gurevych (2019)** — why raw BERT sentence vectors fail, and the Siamese fix.
 - [BERT Rediscovers the Classical NLP Pipeline](https://arxiv.org/abs/1905.05950) — **Tenney et al. (2019)** — layer probing: BERT learns POS→syntax→semantics bottom-to-top.
 - [DistilBERT, a distilled version of BERT](https://arxiv.org/abs/1910.01108) — **Sanh et al. (2019)** — 40% smaller, ~97% of the quality via knowledge distillation.
+- [Smarter, Better, Faster, Longer: A Modern Bidirectional Encoder (ModernBERT)](https://arxiv.org/abs/2412.13663) — **Warner et al. (2024)** — the 2024–25 encoder refresh: rotary position embeddings, alternating local/global attention, an 8k context, and 2 trillion training tokens; the encoder to reach for now instead of BERT-base.
 
 **Books (free chapters)**:
 - [Speech and Language Processing, 3rd ed. — Ch. 11 "Fine-Tuning and Masked Language Models"](https://web.stanford.edu/~jurafsky/slp3/11.pdf) — **Jurafsky & Martin** — contextual embeddings, BERT, MLM, and fine-tuning in the standard text.

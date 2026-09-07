@@ -5,7 +5,7 @@ parent: "10-generative-ai"
 level: advanced
 built_from: ["diffusion-ddpm", "score-sde", "conditional-cfg", "ode-solvers"]
 interview_frequency: medium
-updated: 2026-06-20
+updated: 2026-09-07
 tier: core
 est_minutes: 10
 title: "Sampling & Guidance Techniques"
@@ -45,12 +45,16 @@ and can over-saturate.
 - [Diffusion Models | Paper Explanation | Math Explained](https://www.youtube.com/watch?v=HoKDTa5jHvg) — **Outlier** — the reverse-process sampling loop the fast samplers accelerate.
 - [Diffusion models from scratch in PyTorch](https://www.youtube.com/watch?v=a4Yfz2FxXiY) — **DeepFindr** — codes the sampling loop, the natural place to swap in DDIM.
 - [Variational Autoencoders and Diffusion Models (M2L summer school)](https://www.youtube.com/watch?v=pea3sH6orMc) — **Tim Salimans (Google)** — a researcher's view of diffusion sampling and distillation for speed.
+- [Stanford CME296: Diffusion & Large Vision Models](https://www.youtube.com/playlist?list=PLoROMvodv4rNdy8rt2rZ4T2xM0OjADnfu) — **Stanford Online** — the current Stanford course, including how samplers and guidance are chosen in production vision systems.
 
 ## Key Papers
 - [Denoising Diffusion Implicit Models (DDIM)](https://arxiv.org/abs/2010.02502) — **Song, Meng & Ermon (2021)** — deterministic, non-Markovian sampling; 10–50× fewer steps.
 - [DPM-Solver: A Fast ODE Solver for Diffusion Sampling in ~10 Steps](https://arxiv.org/abs/2206.00927) — **Lu et al. (2022)** — high-order ODE solver for the probability-flow ODE.
 - [Classifier-Free Diffusion Guidance](https://arxiv.org/abs/2207.12598) — **Ho & Salimans (2022)** — the guidance-scale mechanism that trades diversity for fidelity.
 - [Elucidating the Design Space of Diffusion-Based Generative Models (EDM)](https://arxiv.org/abs/2206.00364) — **Karras et al. (2022)** — disentangles noise schedule, sampler, and preconditioning.
+- [Consistency Models](https://arxiv.org/abs/2303.01469) — **Song et al. (2023)** — a model trained so that every point on a probability-flow ODE trajectory maps to the same origin, giving one- and few-step sampling.
+- [Latent Consistency Models](https://arxiv.org/abs/2310.04378) — **Luo et al. (2023)** — consistency distillation applied in latent space; 2–4 step Stable Diffusion sampling in practice.
+- [Flow Straight and Fast: Rectified Flow](https://arxiv.org/abs/2209.03003) — **Liu, Gong & Liu (2022)** — straightens the sampling trajectory at training time so a coarse solver suffices; the idea behind SD3-era few-step sampling.
 
 ## Articles / Blogs (free, no paywall)
 - [Guidance: a cheat code for diffusion models](https://sander.ai/2022/05/26/guidance.html) — **Sander Dieleman** — the definitive account of guidance and the guidance-scale trade-off.
@@ -65,4 +69,5 @@ and can over-saturate.
 - Concept depth (the *why*): [ai-ml-intuitions 5.05 Autoregressive Generation & Sampling](/ai-ml/ai-ml-intuitions/generation/autoregressive-generation/autoregressive-generation-and-sampling-controls-intuition) · [5.03 Diffusion Models](/ai-ml/ai-ml-intuitions/generation/diffusion-and-score-models/diffusion-forward-and-reverse-process-intuition)
 - Prereq: [05 Diffusion Models (DDPM)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/diffusion-models-ddpm/diffusion-models-ddpm) · [06 Score-Based & SDE Diffusion](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/score-based-and-sde-diffusion/score-based-and-sde-diffusion) (the probability-flow ODE) · [04 Conditional Generation & CFG](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/conditional-generation-and-classifier-free-guidance/conditional-generation-and-classifier-free-guidance)
 - Related: [07 Latent Diffusion & Stable Diffusion](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/latent-diffusion-stable-diffusion/latent-diffusion-stable-diffusion) · [11 Text-to-Image Systems](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/text-to-image-systems/text-to-image-systems) (where guidance scale is the key knob)
+- Where fast sampling went in 2025–26: [Consistency Models & Few-Step Generation](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/consistency-models-and-few-step-generation/consistency-models-and-few-step-generation) · [Distillation for Fast Sampling](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/distillation-for-fast-sampling/distillation-for-fast-sampling) · [Flow Matching & Rectified Flow](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/flow-matching-and-rectified-flow/flow-matching-and-rectified-flow)
 - Field overview: [9. Generative AI](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/readme)

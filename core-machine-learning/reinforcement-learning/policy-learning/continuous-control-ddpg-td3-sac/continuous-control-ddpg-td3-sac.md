@@ -5,7 +5,7 @@ parent: "08-reinforcement-learning"
 level: advanced
 built_from: ["deep-q-networks", "actor-critic", "policy-gradients-reinforce"]
 interview_frequency: high
-updated: 2026-06-20
+updated: 2026-09-07
 tier: core
 est_minutes: 10
 title: "Continuous Control — DDPG · TD3 · SAC"
@@ -33,32 +33,32 @@ robustness, and how the temperature α is auto-tuned).
 3. **Get the entropy view** — [Spinning Up: SAC](https://spinningup.openai.com/en/latest/algorithms/sac.html) + [Lilian Weng: Policy Gradient (SAC section)](https://lilianweng.github.io/posts/2018-04-08-policy-gradient/). *Maximum-entropy RL and why it's the modern default.*
 4. **Read the sources** — [DDPG](https://arxiv.org/abs/1509.02971) → [TD3](https://arxiv.org/abs/1802.09477) → [SAC](https://arxiv.org/abs/1801.01290). *The progression of fixes that produced today's best continuous-control methods.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [Spinning Up — DDPG / TD3 / SAC](https://spinningup.openai.com/en/latest/algorithms/sac.html) — **OpenAI** — the three algorithms with shared notation, pseudocode, and code.
-- [Berkeley CS285 — Actor-Critic & Q-Learning for Continuous Actions](https://rail.eecs.berkeley.edu/deeprlcourse/) — **UC Berkeley (Sergey Levine)** — DDPG/SAC and max-entropy RL in depth (Levine co-authored SAC).
+- [Berkeley CS285 — Actor-Critic & Q-Learning for Continuous Actions](http://rail.eecs.berkeley.edu/deeprlcourse/) — **UC Berkeley (Sergey Levine)** — DDPG/SAC and max-entropy RL in depth (Levine co-authored SAC).
 - [Hugging Face Deep RL Course — Actor-Critic / SAC](https://huggingface.co/learn/deep-rl-course) — **Hugging Face** — hands-on continuous-control training.
 
-## 🎥 Videos
+## Videos
 - [An Introduction to Policy Gradient Methods](https://www.youtube.com/watch?v=5P7I-xPq8u8) — **Arxiv Insights** — the policy-based foundation these actor-critics extend.
-- [Deep RL Bootcamp L5: Natural PG, TRPO, PPO](https://www.youtube.com/watch?v=xvRrgxcpaHY) — **John Schulman (Berkeley)** — context on policy optimization that frames off-policy actor-critics.
+- [Deep RL Bootcamp — Core Lecture 7: SVG, DDPG and Stochastic Computation Graphs](https://sites.google.com/view/deep-rl-bootcamp/lectures) — **John Schulman (Berkeley Deep RL Bootcamp, 2017)** — the reparameterization view that DDPG and SAC are built on; video and slides on the official bootcamp page.
 - [RL Lecture 7: Policy Gradient Methods](https://www.youtube.com/watch?v=KHZVXao4qXs) — **David Silver (DeepMind)** — the deterministic-policy-gradient lineage (Silver authored DPG).
 - [L2: Deep Q-Learning](https://www.youtube.com/watch?v=Psrhxy88zww) — **Pieter Abbeel (Foundations of Deep RL)** — the DQN critic + replay machinery DDPG/TD3 reuse.
 
-## 📄 Key Papers
+## Key Papers
 - [Continuous Control with Deep RL (DDPG)](https://arxiv.org/abs/1509.02971) — **Lillicrap et al. (2016)** — deterministic actor-critic for continuous actions.
 - [Addressing Function Approximation Error in Actor-Critic (TD3)](https://arxiv.org/abs/1802.09477) — **Fujimoto et al. (2018)** — twin critics, delayed updates, target smoothing.
 - [Soft Actor-Critic (SAC)](https://arxiv.org/abs/1801.01290) — **Haarnoja et al. (2018)** — maximum-entropy off-policy actor-critic.
 - [SAC: Algorithms and Applications](https://arxiv.org/abs/1812.05905) — **Haarnoja et al. (2018)** — automatic temperature tuning and real-robot results.
 - [Deterministic Policy Gradient Algorithms (DPG)](https://proceedings.mlr.press/v32/silver14.html) — **Silver et al. (2014)** — the deterministic-policy-gradient theorem DDPG builds on.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [Policy Gradient Algorithms — DDPG, TD3, SAC](https://lilianweng.github.io/posts/2018-04-08-policy-gradient/) — **Lilian Weng** — all three derived in one open survey, with the entropy view.
 - [Spinning Up — SAC](https://spinningup.openai.com/en/latest/algorithms/sac.html) — **OpenAI** — the max-entropy objective and implementation, free.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Reinforcement Learning: An Introduction (2nd ed.) — **Ch. 13 (policy gradients) & Ch. 10 (on-policy control with approximation)**](http://incompleteideas.net/book/RLbook2020.pdf) — **Sutton & Barto** — the policy-gradient and function-approximation foundations these methods extend.
 - [Algorithms for Reinforcement Learning — **§4 (policy search)**](https://sites.ualberta.ca/~szepesva/papers/RLAlgsInMDPs.pdf) — **Csaba Szepesvári** — the policy-gradient framing for continuous actions.
 
-## 🔗 In this platform
+## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 6.02 Policy Gradients (REINFORCE)](/ai-ml/ai-ml-intuitions/decision-making-and-control/policy-learning/policy-gradients-intuition)
 - Prereq: [08 Deep Q-Networks](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/value-based-learning/deep-q-networks-dqn/deep-q-networks-dqn) · [10 Actor-Critic](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/policy-learning/actor-critic-a2c-a3c/actor-critic-a2c-a3c) · [12 PPO](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/policy-learning/proximal-policy-optimization-ppo/proximal-policy-optimization-ppo)

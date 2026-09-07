@@ -3,7 +3,7 @@ id: "06-nlp/bow-tfidf/references"
 topic: "Bag-of-Words & TF-IDF — References"
 parent: "06-nlp/bow-tfidf"
 type: references
-updated: 2026-06-27
+updated: 2026-09-07
 ---
 
 # Bag-of-Words & TF-IDF — references and further reading
@@ -23,8 +23,8 @@ updated: 2026-06-27
 - [TF-IDF : Data Science Concepts](https://www.youtube.com/watch?v=OymqCnh-APA) — **ritvikmath** — the cleanest derivation of *why* TF-IDF reweights, on a whiteboard.
 - [Term Frequency–Inverse Document Frequency (TF-IDF) Explained](https://www.youtube.com/watch?v=zLMEnNbdh4Q) — **DataMListic** — short, sharp explanation of the formula and the log-IDF.
 - [BM25 : The Most Important Text Metric in Data Science](https://www.youtube.com/watch?v=ruBm9WywevM) — **ritvikmath** — derives BM25 from TF-IDF, the saturation and length knobs explained.
-- [Calculate TF-IDF in NLP (Simple Example)](https://www.youtube.com/watch?v=vZAXpvHhQow) — **Data Science Garage** — a fully worked numeric example by hand, matching this page's style.
-- [NLP: Bag of Words (BoW) | Sklearn CountVectorizer](https://www.youtube.com/watch?v=0VwKMu7N014) — **Practical Data Science and ML** — implement BoW with scikit-learn step by step.
+- [CMU Neural Nets for NLP 2021 (8): Distributional Semantics and Word Vectors](https://www.youtube.com/watch?v=A7o1zJ1eY9o) — **Graham Neubig (CMU)** — count-based document/word matrices derived first, so the jump to learned embeddings is a continuation rather than a reset.
+- [A first NLP example (NLP817 2.1)](https://www.youtube.com/watch?v=k4Co_47zeO4) — **Herman Kamper (Stellenbosch)** — a complete count-vector text classifier worked end to end before any weighting scheme is introduced.
 - [Using TF-IDF to convert text to useful features](https://www.youtube.com/watch?v=hXNbFNCgPfY) — **Mike Bernico** — TF-IDF as the input to a real classifier pipeline.
 
 **Courses (free)**:
@@ -44,7 +44,7 @@ updated: 2026-06-27
 **Papers**:
 - [A Statistical Interpretation of Term Specificity (IDF)](https://www.staff.city.ac.uk/~sbrp622/idfpapers/ksj_orig.pdf) — **Karen Spärck Jones (1972)** — the original paper that introduced inverse document frequency and the term-specificity argument; the source for the IDF formula on the page.
 - [A Vector Space Model for Automatic Indexing](https://dl.acm.org/doi/10.1145/361219.361220) — **Salton, Wong & Yang (1975)** — the vector space model: documents and queries as points in term space, relevance as the cosine of the angle; the source for the cosine-similarity formula.
-- [Term-weighting approaches in automatic text retrieval](https://www.cs.odu.edu/~jbollen/IR04/readings/article1-29-03.pdf) — **Salton & Buckley (1988)** — systematizes the TF-IDF family (the SMART term-weighting variants); the source for the TF variants and the TF×IDF combination.
+- [Term-weighting approaches in automatic text retrieval](https://doi.org/10.1016/0306-4573%2888%2990021-0) — **Salton & Buckley (1988)** — systematizes the TF-IDF family (the SMART term-weighting variants); the source for the TF variants and the TF×IDF combination.
 - [Okapi at TREC-3 (the original BM25)](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/okapi_trec3.pdf) — **Robertson, Walker, Jones, Hancock-Beaulieu & Gatford (1994)** — the experiments that introduced the BM25 ranking function and its $k_1$/$b$ knobs.
 - [The Probabilistic Relevance Framework: BM25 and Beyond](https://www.staff.city.ac.uk/~sbrp622/papers/foundations_bm25_review.pdf) — **Robertson & Zaragoza (2009)** — the definitive derivation of BM25 from probabilistic retrieval theory, by its authors; the source for the BM25 formula on the page.
 

@@ -3,7 +3,7 @@ id: "06-nlp/word-embeddings/references"
 topic: "Word Embeddings — References"
 parent: "06-nlp/word-embeddings"
 type: references
-updated: 2026-06-27
+updated: 2026-09-07
 ---
 
 # Word Embeddings — references and further reading
@@ -44,7 +44,7 @@ updated: 2026-06-27
 - [The Illustrated Word2Vec](https://jalammar.github.io/illustrated-word2vec/) — **Jay Alammar** — the most-loved visual walkthrough of embeddings and skip-gram; the clearest first read.
 - [On Word Embeddings — Part 1](https://www.ruder.io/word-embeddings-1/) — **Sebastian Ruder** — the definitive survey series (history, models, math).
 - [Word2Vec Tutorial — The Skip-Gram Model](https://mccormickml.com/2016/04/19/word2vec-tutorial-the-skip-gram-model/) — **Chris McCormick** — step-by-step skip-gram with negative sampling, from the input pairs to the gradients.
-- [Word2Vec (TensorFlow tutorial)](https://www.tensorflow.org/text/tutorials/word2vec) — **TensorFlow** — implement skip-gram + negative sampling end to end in code.
+- [Word2Vec model tutorial](https://radimrehurek.com/gensim/auto_examples/tutorials/run_word2vec.html) — **gensim (Radim Řehůřek)** — train skip-gram with negative sampling on a real corpus and inspect the resulting vectors, from the library that popularized word2vec outside Google.
 
 **Papers**:
 - [Distributional Structure](https://doi.org/10.1080/00437956.1954.11659520) — **Harris (1954)** — the linguistics primary source for the distributional hypothesis ("words in similar contexts have similar meanings") that every embedding method operationalizes.

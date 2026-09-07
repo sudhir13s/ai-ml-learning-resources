@@ -3,7 +3,7 @@ id: "05-deep-learning/attention-mechanism/references"
 topic: "Attention Mechanism — References"
 parent: "05-deep-learning/attention-mechanism"
 type: references
-updated: 2026-06-21
+updated: 2026-09-07
 ---
 
 # Attention Mechanism — references and further reading
@@ -53,6 +53,7 @@ updated: 2026-06-21
 **Books (free chapters)**:
 - [Dive into Deep Learning — Ch. 11 "Attention Mechanisms and Transformers"](https://d2l.ai/chapter_attention-mechanisms-and-transformers/index.html) — **Zhang et al.** — scoring functions, Q/K/V, and multi-head attention with code.
 - [Speech and Language Processing, 3rd ed. — Ch. 9–10 (Attention & Transformers)](https://web.stanford.edu/~jurafsky/slp3/) — **Jurafsky & Martin** — attention framed for language, free draft chapters.
+- [*Understanding Deep Learning* — Ch. 12 "Transformers"](https://udlbook.github.io/udlbook/) — **Simon J.D. Prince** — free PDF; builds self-attention from the requirement that the operation be permutation-equivariant and shape-agnostic, which explains *why* Q, K, V take the form they do.
 
 **In this platform**:
 - Concept page (full explanation): [Attention Mechanism](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism)
@@ -61,4 +62,6 @@ updated: 2026-06-21
 - Needed because attention is order-blind: [17 Positional Encoding](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/positional-encoding/positional-encoding) (sinusoidal, learned, RoPE, ALiBi)
 - Builds into: [16 Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture) — attention wrapped in residual + norm + FFN into a full model
 - At inference / efficiency: [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) · [Efficient Attention (FlashAttention)](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/efficient-attention/efficient-attention)
+- What 2025 models changed about this operation: [Attention Architectures — GQA, MLA, Sliding and Linear](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/llm-model-architectures/attention-architectures-gqa-mla-sliding-and-linear/attention-architectures-gqa-mla-sliding-and-linear) — how many heads share keys and values, and which keys a query is allowed to see
+- The alternative to attention entirely: [Selective State-Space Models (Mamba)](/ai-ml/ai-ml-learning-resources/deep-learning/sequence-modeling/selective-state-space-models-mamba/selective-state-space-models-mamba) — a fixed-size recurrent state instead of an all-pairs comparison · [Linear and Hybrid Attention Architectures](/ai-ml/ai-ml-learning-resources/deep-learning/sequence-modeling/linear-and-hybrid-attention-architectures/linear-and-hybrid-attention-architectures)
 - Field overview: [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
