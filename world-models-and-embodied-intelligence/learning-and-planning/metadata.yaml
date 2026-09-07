@@ -1,0 +1,7 @@
+# Reading order for this category. `page-order:` is the ONE ordering key
+# estate-wide (structure-authoring-contract Rule 4); entries are relative
+# and extension-less. README.md is repo-facing and deliberately absent.
+page-order:
+  - imagination-based-learning-dreamer/imagination-based-learning-dreamer
+  - search-and-rollouts-muzero/search-and-rollouts-muzero
+  - model-predictive-control-with-learned-models/model-predictive-control-with-learned-models

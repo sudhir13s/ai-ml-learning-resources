@@ -1,0 +1,12 @@
+# Reading order for this category. `page-order:` is the ONE ordering key
+# estate-wide (structure-authoring-contract Rule 4); entries are relative
+# and extension-less. README.md is repo-facing and deliberately absent.
+page-order:
+  - video-representations-and-temporal-modeling/video-representations-and-temporal-modeling
+  - video-transformers-timesformer-vivit/video-transformers-timesformer-vivit
+  - self-supervised-video-pretraining-videomae/self-supervised-video-pretraining-videomae
+  - action-recognition-and-video-classification/action-recognition-and-video-classification
+  - temporal-localization-and-moment-retrieval/temporal-localization-and-moment-retrieval
+  - video-language-models/video-language-models
+  - long-video-understanding/long-video-understanding
+  - efficient-video-inference/efficient-video-inference

@@ -467,6 +467,8 @@ step 299: NT-Xent=0.0451  positive-pair cos=+1.000
 - *Alignment vs uniformity?* Positives **close** (alignment) + embeddings **spread** on the sphere (uniformity) — a collapsed model has great alignment but terrible uniformity.
 - *How is CLIP contrastive?* Same InfoNCE, but the positive pair is a matched **(image, caption)** instead of two augmentations — enabling zero-shot classification.
 
+The two sibling objectives have their own pages: [Masked Modeling — MAE and BERT-Style Pretraining](/ai-ml/ai-ml-learning-resources/deep-learning/self-supervised-learning/masked-modeling-mae-and-bert-style-pretraining/masked-modeling-mae-and-bert-style-pretraining) and [Teacher-Student Self-Distillation — BYOL, DINO, DINOv3](/ai-ml/ai-ml-learning-resources/deep-learning/self-supervised-learning/teacher-student-self-distillation-dino-byol/teacher-student-self-distillation-dino-byol).
+
 ---
 
 ## References and further reading

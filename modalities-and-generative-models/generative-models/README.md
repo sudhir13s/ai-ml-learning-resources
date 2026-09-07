@@ -41,6 +41,7 @@ Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its p
 
 ### Related concepts (covered in another section)
 > These topics are foundational or live in another domain, so they're kept in one place to avoid repetition.
+- **Flow matching & rectified flow** — the continuous-normalizing-flow formulation that current image and video models train with → [Diffusion Models · Flow Matching & Rectified Flow](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/flow-matching-and-rectified-flow/flow-matching-and-rectified-flow)
 - **Autoencoders (plain / denoising / sparse)** — the deterministic precursor to the VAE → [Deep Learning · Autoencoders](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/autoencoders/autoencoders)
 - **LLM text generation & autoregressive language models** — GPT-style next-token generation → [LLMs](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme)
 - **Decoding strategies for text** (greedy · beam · top-k · top-p) → [NLP · Decoding Strategies](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/decoding-strategies/decoding-strategies)

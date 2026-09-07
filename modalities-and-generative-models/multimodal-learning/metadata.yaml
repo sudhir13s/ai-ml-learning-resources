@@ -1,0 +1,14 @@
+# Reading order for this category. `page-order:` is the ONE ordering key
+# estate-wide (structure-authoring-contract Rule 4); entries are relative
+# and extension-less. README.md is repo-facing and deliberately absent.
+page-order:
+  - clip-and-contrastive-vision-language-pretraining/clip-and-contrastive-vision-language-pretraining
+  - modern-dual-encoders-siglip-and-retrieval/modern-dual-encoders-siglip-and-retrieval
+  - interleaved-and-few-shot-vlms-flamingo/interleaved-and-few-shot-vlms-flamingo
+  - visual-instruction-tuning-llava/visual-instruction-tuning-llava
+  - modern-open-vlm-architectures/modern-open-vlm-architectures
+  - fusion-strategies-early-late-and-native-multimodality/fusion-strategies-early-late-and-native-multimodality
+  - unified-token-spaces-and-any-to-any-models/unified-token-spaces-and-any-to-any-models
+  - document-and-chart-understanding/document-and-chart-understanding
+  - multimodal-rag/multimodal-rag
+  - multimodal-benchmarks-and-evaluation/multimodal-benchmarks-and-evaluation

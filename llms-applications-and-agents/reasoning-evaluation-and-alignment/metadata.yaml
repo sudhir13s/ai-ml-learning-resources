@@ -4,6 +4,7 @@
 page-order:
   - prompting-and-in-context-learning/prompting-and-in-context-learning
   - chain-of-thought-and-reasoning/chain-of-thought-and-reasoning
+  - test-time-computation-and-scaling/test-time-computation-and-scaling
   - hallucination-and-grounding/hallucination-and-grounding
   - llm-evaluation/llm-evaluation
   - safety-and-alignment/safety-and-alignment

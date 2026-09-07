@@ -31,29 +31,29 @@ question. Expect the DAG model, idempotency and retries, why data pipelines diff
 4. **Build a real pipeline** — work [Made With ML: Orchestration](https://madewithml.com/courses/mlops/orchestration/). *Wires data → train → evaluate into a runnable, scheduled DAG.*
 5. **Compare tools** — watch [Orchestrating ML with Airflow, Kubeflow & Prefect](https://www.youtube.com/watch?v=d2kFomZJJAc). *The decision criteria interviewers expect you to weigh.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [Made With ML — Orchestration](https://madewithml.com/courses/mlops/orchestration/) — **Goku Mohandas** — build and schedule a real ML DAG.
 - [Apache Airflow — Fundamentals Tutorial](https://airflow.apache.org/docs/apache-airflow/stable/index.html) — **Apache Airflow** — official docs + tutorial for authoring DAGs.
 
-## 🎥 Videos
+## Videos
 - [Learn Apache Airflow in 10 Minutes](https://www.youtube.com/watch?v=5peQThvQmQk) — **community** — crisp intro to DAGs, tasks, and scheduling.
 - [Intro to Kubeflow Pipelines](https://www.youtube.com/watch?v=_AY8mmbR1o4) — **Google Cloud Tech** — ML-native pipelines, reusable components, metadata tracking.
 - [Orchestrating ML with Airflow, Kubeflow & Prefect](https://www.youtube.com/watch?v=d2kFomZJJAc) — **Uplatz** — side-by-side of the major orchestrators for ML.
 - [Machine Learning Pipelines with DVC (Hands-On)](https://www.youtube.com/watch?v=71IGzyH95UY) — **DVCorg** — lightweight, reproducible pipelines with DAG stages and caching.
 
-## 📄 Key Papers
+## Key Papers
 - [MLOps: Continuous delivery and automation pipelines in ML](https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning) — **Google Cloud** — the whitepaper defining ML pipeline automation (level 1).
 - [Hidden Technical Debt in Machine Learning Systems](https://papers.nips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf) — **Sculley et al. (2015)** — "pipeline jungles" and glue code that orchestration is meant to tame.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [Three Levels of ML Software](https://ml-ops.org/content/three-levels-of-ml-software) — **ml-ops.org** — data/model/code pipelines and how they automate the lifecycle.
 - [Kubeflow Pipelines — Overview](https://www.kubeflow.org/docs/components/pipelines/overview/) — **Kubeflow** — the ML-pipeline component model on Kubernetes.
 - [Apache Airflow — Documentation](https://airflow.apache.org/docs/apache-airflow/stable/index.html) — **Apache** — DAGs, operators, scheduling, and executors.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Designing Machine Learning Systems — **Ch. 6 "Model Development"** & **Ch. 10 "Infrastructure & Tooling"** (orchestration)](https://huyenchip.com/mlops/) — **Chip Huyen** — author notes/talks free.
 - [Machine Learning Engineering — **Ch. 7–8** (model deployment & pipelines)](http://www.mlebook.com/wiki/doku.php) — **Andriy Burkov** — read-first chapters free.
 
-## 🔗 In this platform
+## In this platform
 - Builds on: [01 ML Lifecycle & MLOps Maturity](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/lifecycle-and-reproducibility/ml-lifecycle-and-mlops-maturity/ml-lifecycle-and-mlops-maturity) · [05 Feature Stores](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/data-and-training-platforms/feature-stores/feature-stores)
 - Next concepts: [07 CI/CD for ML & CT](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/release-and-deployment/cicd-for-ml-and-continuous-training/cicd-for-ml-and-continuous-training) · [10 Scaling Inference](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/scaling-inference/scaling-inference)

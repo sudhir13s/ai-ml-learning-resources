@@ -690,7 +690,7 @@ The story in three rows: at a 10-step gap both models nail it. At **30 and 50 st
 - *A practical LSTM trick?* Initialize the **forget-gate bias to ~1** so it remembers from the start of training.
 - *What was the seq2seq bottleneck, and what fixed it?* One fixed-size context vector for the whole input; **attention** (look back at all encoder states) fixed it, then transformers dropped recurrence.
 - *RNN vs transformer?* RNN: sequential, $O(1)$-per-step streaming, $O(n)$ compute. Transformer: parallel training, $O(1)$ path length, $O(n^2)$ compute + growing KV cache — which is why it won at scale.
-- *What's the modern recurrent revival?* State-space models (S4, **Mamba**) — linear recurrences with a selective state, trainable via parallel scan, $O(1)$-per-step inference, long context.
+- *What's the modern recurrent revival?* State-space models (S4, **Mamba**) — linear recurrences with a selective state, trainable via parallel scan, $O(1)$-per-step inference, long context. That revival has its own home: [State-Space Models — Foundations](/ai-ml/ai-ml-learning-resources/deep-learning/sequence-modeling/state-space-models-foundations/state-space-models-foundations).
 
 ---
 

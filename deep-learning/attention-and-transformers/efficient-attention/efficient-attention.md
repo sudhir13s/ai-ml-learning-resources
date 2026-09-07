@@ -378,7 +378,7 @@ What FlashAttention actually buys, with verified figures:
 - *Why subtract the max?* Numerical stability — keeps every exponent $\le 0$ so $e^x$ doesn't overflow.
 - *What does the backward pass do differently?* Recomputes the score matrix on the fly (storing only the $O(N)$ statistics) instead of keeping the $O(N^2)$ matrix.
 - *Where does the speedup come from if FLOPs are unchanged?* Fewer HBM accesses ($O(N^2)\to O(N)$ traffic), and attention is bandwidth-bound.
-- *FlashAttention vs sparse/linear attention?* Exact + IO-aware (fewer bytes) vs approximate + FLOP-reducing (less math). Orthogonal; composable.
+- *FlashAttention vs sparse/linear attention?* Exact + IO-aware (fewer bytes) vs approximate + FLOP-reducing (less math). Orthogonal; composable. The approximate side is owned by [Linear and Hybrid Attention Architectures](/ai-ml/ai-ml-learning-resources/deep-learning/sequence-modeling/linear-and-hybrid-attention-architectures/linear-and-hybrid-attention-architectures).
 - *What did v2 and v3 improve?* v2: parallelism / work partitioning (~2× over v1). v3: Hopper asynchrony + FP8 (~1.5–2× over v2).
 
 ---

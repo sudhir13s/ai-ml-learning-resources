@@ -8,7 +8,10 @@ page-order:
   - kv-cache/kv-cache-flashattention-and-flashdecoding
   - kv-cache/kv-cache-in-production
   - decoding-and-sampling/decoding-and-sampling
+  - speculative-decoding/speculative-decoding
   - quantization/quantization
   - inference-optimization/inference-optimization
   - inference-optimization/vllm-and-paged-attention
+  - continuous-batching-and-scheduling/continuous-batching-and-scheduling
   - caching-and-cost-optimization/caching-and-cost-optimization
+  - small-and-on-device-language-models/small-and-on-device-language-models

@@ -1,0 +1,14 @@
+# Reading order for this category. `page-order:` is the ONE ordering key
+# estate-wide (structure-authoring-contract Rule 4); entries are relative
+# and extension-less. README.md is repo-facing and deliberately absent.
+page-order:
+  - audio-representations-waveform-spectrogram-mel-mfcc/audio-representations-waveform-spectrogram-mel-mfcc
+  - audio-tokenization-and-neural-codecs/audio-tokenization-and-neural-codecs
+  - asr-fundamentals-ctc-seq2seq-wer/asr-fundamentals-ctc-seq2seq-wer
+  - self-supervised-speech-wav2vec2-hubert/self-supervised-speech-wav2vec2-hubert
+  - whisper-and-weakly-supervised-asr/whisper-and-weakly-supervised-asr
+  - tts-fundamentals-tacotron-vits-vocoders/tts-fundamentals-tacotron-vits-vocoders
+  - modern-tts-and-voice-cloning/modern-tts-and-voice-cloning
+  - speaker-identification-and-diarization/speaker-identification-and-diarization
+  - realtime-and-streaming-voice-agents/realtime-and-streaming-voice-agents
+  - music-and-audio-generation-overview/music-and-audio-generation-overview

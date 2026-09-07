@@ -3,7 +3,7 @@ id: "18-mlops-and-deployment"
 topic: "MLOps & Deployment"
 level: advanced
 built_from: ["tools-and-frameworks", "software-engineering"]
-updated: 2026-06-27
+updated: 2026-09-07
 ---
 
 # MLOps & Deployment
@@ -12,10 +12,10 @@ updated: 2026-06-27
 
 **⭐ Start here:** [Made With ML](https://madewithml.com/) — **Goku Mohandas** — the best free, end-to-end MLOps course (design → develop → deploy → iterate).
 
-## 📑 Concept Index
-Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) — a short guided learning
+## Concept Index
+Every chapter is a self-contained folder (`<topic>/<topic>.md`) — a short guided learning
 path plus the best **free, open** courses, videos, papers, articles, and books for that topic.
-> **✅ ready · ⬜ coming soon.** New here? Start with the field overview above, then work top to bottom.
+> Every chapter below is written and ready. New here? Start with the field overview above, then work top to bottom.
 
 ### Foundations & lifecycle
 1. ✅ [ML Lifecycle & MLOps Maturity](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/lifecycle-and-reproducibility/ml-lifecycle-and-mlops-maturity/ml-lifecycle-and-mlops-maturity)
@@ -28,20 +28,28 @@ path plus the best **free, open** courses, videos, papers, articles, and books f
 6. ✅ [ML Pipelines & Orchestration (Airflow · Kubeflow)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/data-and-training-platforms/ml-pipelines-and-orchestration/ml-pipelines-and-orchestration)
 7. ✅ [CI/CD for ML & Continuous Training (CT)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/release-and-deployment/cicd-for-ml-and-continuous-training/cicd-for-ml-and-continuous-training)
 
+### Training platforms & hardware
+8. ✅ [GPUs & Accelerators for Deep Learning (roofline · kernels · mixed precision)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/data-and-training-platforms/gpus-and-accelerators-for-deep-learning/gpus-and-accelerators-for-deep-learning)
+9. ✅ [Distributed Training — Parallelism, FSDP & ZeRO](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/data-and-training-platforms/distributed-training-parallelism-fsdp-zero/distributed-training-parallelism-fsdp-zero)
+
 ### Packaging & serving
-8. ✅ [Model Packaging & Containerization (Docker)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/model-packaging-and-containerization/model-packaging-and-containerization)
-9. ✅ [Model Serving (REST/gRPC · batch vs online · BentoML/Triton/TF-Serving)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/model-serving/model-serving)
-10. ✅ [Scaling Inference (autoscaling · GPU · Ray Serve)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/scaling-inference/scaling-inference)
+10. ✅ [Model Packaging & Containerization (Docker)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/model-packaging-and-containerization/model-packaging-and-containerization)
+11. ✅ [Model Serving (REST/gRPC · batch vs online · BentoML/Triton/TF-Serving)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/model-serving/model-serving)
+12. ✅ [Scaling Inference (autoscaling · GPU · Ray Serve)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/scaling-inference/scaling-inference)
+
+### Release, rollback & recovery
+13. ✅ [A/B Testing · Shadow & Canary Deployment](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/release-and-deployment/ab-testing-shadow-and-canary-deployment/ab-testing-shadow-and-canary-deployment)
+14. ✅ [Rollback & Recovery for ML Systems](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/release-and-deployment/rollback-and-recovery-for-ml-systems/rollback-and-recovery-for-ml-systems)
 
 ### Operations, monitoring & governance
-11. ✅ [Model Monitoring & Observability](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/monitoring-and-reliability/model-monitoring-and-observability/model-monitoring-and-observability)
-12. ✅ [Data & Concept Drift Detection](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/monitoring-and-reliability/data-and-concept-drift-detection/data-and-concept-drift-detection)
-13. ✅ [Model Registry & Governance](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/governance-and-economics/model-registry-and-governance/model-registry-and-governance)
-14. ✅ [A/B Testing · Shadow & Canary Deployment](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/release-and-deployment/ab-testing-shadow-and-canary-deployment/ab-testing-shadow-and-canary-deployment)
+15. ✅ [Model Monitoring & Observability](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/monitoring-and-reliability/model-monitoring-and-observability/model-monitoring-and-observability)
+16. ✅ [Data & Concept Drift Detection](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/monitoring-and-reliability/data-and-concept-drift-detection/data-and-concept-drift-detection)
+17. ✅ [AI Incident Response & Postmortems](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/monitoring-and-reliability/ai-incident-response-and-postmortems/ai-incident-response-and-postmortems)
+18. ✅ [Model Registry & Governance](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/governance-and-economics/model-registry-and-governance/model-registry-and-governance)
 
 ### LLMs & cost
-15. ✅ [LLMOps (eval · guardrails · prompt versioning · cost/latency)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/governance-and-economics/llmops/llmops)
-16. ✅ [Cost Optimization for ML Systems](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/governance-and-economics/cost-optimization/cost-optimization)
+19. ✅ [LLMOps (eval · guardrails · prompt versioning · cost/latency)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/governance-and-economics/llmops/llmops)
+20. ✅ [Cost Optimization for ML Systems](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/governance-and-economics/cost-optimization/cost-optimization)
 
 ### Related concepts (canonical home is another section)
 > These topics have a canonical home elsewhere in the platform — linked here, not duplicated.
@@ -49,19 +57,26 @@ path plus the best **free, open** courses, videos, papers, articles, and books f
 - **LLM inference internals** (KV-cache, quantization, paged attention, serving stacks) → [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme)
 - **Data preprocessing & feature engineering** (cleaning, encoding, scaling, splits) → [02. Data_Preprocessing](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/readme)
 
-## 🎓 Courses (free)
+## Courses (free)
 - [Made With ML](https://madewithml.com/) — **Goku Mohandas** — production ML + MLOps, code and reasoning.
-- [Full Stack Deep Learning](https://fullstackdeeplearning.com/) — **FSDL** — free lectures on shipping ML products.
+- [Full Stack Deep Learning](https://fullstackdeeplearning.com/) — **FSDL (Charles Frye, Sergey Karayev, Josh Tobin)** — free lectures on shipping ML products.
+- [Stanford CS336 — Language Modeling from Scratch (Spring 2025)](https://stanford-cs336.github.io/spring2025/) — **Percy Liang & Tatsunori Hashimoto (Stanford)** — the training-platform half of MLOps: kernels, GPUs, parallelism, built by hand.
+- [Deep Learning Systems (CMU 10-414/714)](https://dlsyscourse.org/lectures/) — **Tianqi Chen & Zico Kolter (Carnegie Mellon)** — what sits under the framework: autodiff, operators, GPU backends.
 
-## 🎥 Videos
+## Videos
 - [MLOps Zoomcamp](https://github.com/DataTalksClub/mlops-zoomcamp) — **DataTalks.Club** — free, hands-on, project-based (experiment tracking → orchestration → monitoring → deployment).
+- [Full Stack Deep Learning 2022 lecture series](https://www.youtube.com/playlist?list=PL1T8fO7ArWleMMI8KPJ_5D5XSlovTW_Ur) — **The Full Stack** — deployment, monitoring, troubleshooting and testing, on video.
 
-## 📰 Articles / Reference
-- [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) — **Google** — 43 hard-won best practices for production ML.
+## Articles / Reference
+- [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) — **Martin Zinkevich (Google)** — 43 hard-won best practices for production ML.
 - [Designing ML Systems — notes & talks](https://huyenchip.com/mlops/) — **Chip Huyen** — the practitioner's map of the MLOps landscape.
+- [Continuous Delivery for Machine Learning](https://martinfowler.com/articles/cd4ml.html) — **Sato, Wider & Windheuser (martinfowler.com)** — versioning code, model and data as one reversible release.
+- [The Ultra-Scale Playbook: Training LLMs on GPU Clusters](https://huggingface.co/spaces/nanotron/ultrascale-playbook) — **Hugging Face nanotron team** — the current canonical text on large-scale distributed training.
 
-## 📚 Books
-- [Designing Machine Learning Systems](https://www.oreilly.com/library/view/designing-machine-learning/9781098107956/) — **Chip Huyen** — the definitive modern text (paid, but chapters/notes are free online).
+## Books
+- [*Site Reliability Engineering* and *The SRE Workbook*](https://sre.google/books/) — **Google** — free online; incident management, release engineering and postmortem culture.
+- [*Designing Machine Learning Systems* — notes and companion repository](https://github.com/chiphuyen/dmls-book) — **Chip Huyen** — the definitive modern text; the book is paid, the author's notes and code are free.
 
-## 🔗 In this platform
-- Inference economics: [ai-ml-intuitions Module 7](../../ai-ml-intuitions/scaling-adaptation-and-efficiency/) · [LLM Systems curriculum](/ai-ml/ai-ml-learning-resources/meta/llm-systems-curriculum)
+## In this platform
+- Inference economics: [Cost Optimization for ML Systems](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/governance-and-economics/cost-optimization/cost-optimization) · [Scaling Inference](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/scaling-inference/scaling-inference) · [LLM Systems curriculum](/ai-ml/ai-ml-learning-resources/meta/llm-systems-curriculum)
+- Offline evaluation feeds everything here: [Error Analysis & Model Debugging](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/error-analysis-and-model-debugging/error-analysis-and-model-debugging) · [Calibration & Reliability Diagrams](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/calibration-and-reliability-diagrams/calibration-and-reliability-diagrams)

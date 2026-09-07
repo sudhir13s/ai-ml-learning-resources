@@ -6,3 +6,4 @@ page-order:
   - dropout/dropout
   - normalization/normalization
   - residual-skip-connections/residual-skip-connections
+  - gating-mechanisms/gating-mechanisms

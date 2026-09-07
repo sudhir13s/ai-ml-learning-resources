@@ -554,3 +554,5 @@ A few beliefs that sound right and trip up even experienced practitioners:
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
 **→ [Cross-Validation — references and further reading](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/cross-validation/cross-validation#references-further-reading)**
+
+**In this platform:** a cross-validated score says nothing about whether the *probabilities* are trustworthy — that is [Calibration & Reliability Diagrams](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/calibration-and-reliability-diagrams/calibration-and-reliability-diagrams), and the held-out fold is also what buys a coverage guarantee in [Uncertainty Estimation & Conformal Prediction](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/uncertainty-estimation-and-conformal-prediction/uncertainty-estimation-and-conformal-prediction).

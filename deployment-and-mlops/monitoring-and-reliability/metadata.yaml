@@ -4,3 +4,4 @@
 page-order:
   - model-monitoring-and-observability/model-monitoring-and-observability
   - data-and-concept-drift-detection/data-and-concept-drift-detection
+  - ai-incident-response-and-postmortems/ai-incident-response-and-postmortems

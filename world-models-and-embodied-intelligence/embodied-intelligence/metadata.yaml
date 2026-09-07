@@ -1,0 +1,6 @@
+# Reading order for this category. `page-order:` is the ONE ordering key
+# estate-wide (structure-authoring-contract Rule 4); entries are relative
+# and extension-less. README.md is repo-facing and deliberately absent.
+page-order:
+  - embodied-agents-and-perception-action-loops/embodied-agents-and-perception-action-loops
+  - vision-language-action-models/vision-language-action-models

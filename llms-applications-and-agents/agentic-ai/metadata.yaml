@@ -1,0 +1,21 @@
+# Reading order for this category. `page-order:` is the ONE ordering key
+# estate-wide (structure-authoring-contract Rule 4); entries are relative
+# and extension-less. README.md is repo-facing and deliberately absent.
+page-order:
+  - agent-foundations/agent-foundations
+  - reason-and-act/reason-and-act
+  - tool-use/tool-use
+  - planning/planning
+  - reflection/reflection
+  - memory/memory
+  - context-engineering/context-engineering
+  - multi-agent-systems/multi-agent-systems
+  - model-context-protocol/model-context-protocol
+  - agent-interoperability-protocols-a2a/agent-interoperability-protocols-a2a
+  - agent-frameworks/agent-frameworks
+  - llm-app-orchestration/llm-app-orchestration
+  - coding-and-computer-use-agents/code-agents
+  - coding-and-computer-use-agents/computer-use-and-gui-agents
+  - agent-evaluation/agent-evaluation
+  - agent-safety/agent-safety
+  - prompt-injection-and-agent-guardrails/prompt-injection-and-agent-guardrails

@@ -1,0 +1,7 @@
+# Reading order for this category. `page-order:` is the ONE ordering key
+# estate-wide (structure-authoring-contract Rule 4); entries are relative
+# and extension-less. README.md is repo-facing and deliberately absent.
+page-order:
+  - what-is-a-world-model/what-is-a-world-model
+  - world-model-taxonomy/world-model-taxonomy
+  - observation-state-action-and-partial-observability/observation-state-action-and-partial-observability
