@@ -12,9 +12,9 @@ updated: 2026-06-27
 
 **⭐ Start here:** [What are Diffusion Models?](https://www.youtube.com/watch?v=fbLgFrlTnGU) — **Ari Seff** — the clearest intro to the method behind Stable Diffusion / DALL·E.
 
-## 📑 Concept Index
+## Concept Index
 Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its page.
-> **✅ ready · ⬜ coming soon.** New to generative modeling? Start with the field overview below, then work top to bottom.
+> **All pages ready.** New to generative modeling? Start with the field overview below, then work top to bottom.
 
 ### Likelihood-based models (VAEs, flows, autoregressive)
 1. ✅ [Variational Autoencoders (VAE · ELBO · reparameterization)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/variational-autoencoders-vae-elbo/variational-autoencoders-vae-elbo)
@@ -48,22 +48,22 @@ Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its p
 - **Gaussian Mixture Models & the EM algorithm** — the classic latent-variable model → [Unsupervised Learning · GMM & EM](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/clustering/gaussian-mixture-models-and-em/gaussian-mixture-models-and-em)
 - **Information theory** (entropy · cross-entropy · KL divergence) — the objective under every likelihood model → [Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme)
 
-## 🎓 Courses (free)
+## Courses (free)
 - [How Diffusion Models Work](https://www.deeplearning.ai/short-courses/how-diffusion-models-work/) — **DeepLearning.AI** — free short course, build one.
 - [Hugging Face Diffusion Models Course](https://huggingface.co/learn/diffusion-course) — **Hugging Face** — free, code-first.
 
-## 🎥 Videos
+## Videos
 - [Diffusion models from scratch in PyTorch](https://www.youtube.com/watch?v=a4Yfz2FxXiY) — **DeepFindr** — implement DDPM end to end.
 - [Variational Autoencoders](https://www.youtube.com/watch?v=9zKuYvjFFS8) — **Arxiv Insights** — the best VAE intro.
 
-## 📄 Key Papers
+## Key Papers
 - [DDPM (Denoising Diffusion Probabilistic Models)](https://arxiv.org/abs/2006.11239) — **Ho et al. (2020)** — the modern diffusion formulation.
 - [High-Resolution Image Synthesis with Latent Diffusion](https://arxiv.org/abs/2112.10752) — **Rombach et al. (2022)** — Stable Diffusion.
 - [Generative Adversarial Networks](https://arxiv.org/abs/1406.2661) — **Goodfellow et al. (2014)** — the GAN that started it.
 
-## 📰 Articles
+## Articles
 - [What are Diffusion Models? (Lil'Log)](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/) — **Lilian Weng** — the canonical math walkthrough.
 - [The Annotated Diffusion Model](https://huggingface.co/blog/annotated-diffusion) — **Hugging Face** — runnable code + math.
 
-## 🔗 In this platform
-- Math: [ai-ml-intuitions Module 5 (Generation)](../../../ai-ml-intuitions/generation/)
+## In this platform
+- Math: [ai-ml-intuitions Module 5 (Generation)](/ai-ml/ai-ml-intuitions/generation)

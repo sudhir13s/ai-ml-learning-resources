@@ -452,7 +452,7 @@ import torch, numpy as np
 torch.manual_seed(0)
 
 # [A] ORTHOGONAL init preserves the hidden-state norm under MANY applications
-#     (the RNN regime), where a variance-preserving Gaussian drifts.
+# (the RNN regime), where a variance-preserving Gaussian drifts.
 W_orth = torch.empty(128, 128); torch.nn.init.orthogonal_(W_orth)
 W_gauss = torch.randn(128, 128) * (1 / np.sqrt(128))     # variance-preserving Gaussian
 x = torch.randn(128)

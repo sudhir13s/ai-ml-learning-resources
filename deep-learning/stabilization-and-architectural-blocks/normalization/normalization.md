@@ -317,12 +317,12 @@ N, C, H, W = 2, 8, 4, 4
 x = torch.randn(N, C, H, W) * 2 + 1
 eps = 1e-5
 
-# G=1: normalize over ALL channels+spatial per sample  == LayerNorm over (C,H,W)
+# G=1: normalize over ALL channels+spatial per sample == LayerNorm over (C,H,W)
 gn1 = nn.GroupNorm(1, C, eps=eps, affine=False)
 ln  = (x - x.mean((1,2,3), keepdim=True)) / torch.sqrt(x.var((1,2,3), unbiased=False, keepdim=True) + eps)
 print("G=1 vs LayerNorm(C,H,W) :", (gn1(x) - ln).abs().max().item())
 
-# G=C: normalize each channel per sample over spatial  == InstanceNorm
+# G=C: normalize each channel per sample over spatial == InstanceNorm
 gnC = nn.GroupNorm(C, C, eps=eps, affine=False)
 inn = nn.InstanceNorm2d(C, eps=eps, affine=False)
 print("G=C vs InstanceNorm     :", (gnC(x) - inn(x)).abs().max().item())

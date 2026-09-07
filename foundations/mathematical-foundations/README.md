@@ -12,7 +12,7 @@ updated: 2026-06-27
 
 **⭐ Start here:** [3Blue1Brown — Essence of Linear Algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab) + [Essence of Calculus](https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr).
 
-## 📑 Concept Index
+## Concept Index
 Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its page and — where
 present — a curated `.references.md` resource card (free, open courses · videos · papers · articles ·
 books · cross-links). These are the **canonical homes** for the math the rest of the platform leans
@@ -59,22 +59,22 @@ than re-deriving the math.
 - **Dimensionality reduction for visualization** — t-SNE · UMAP → [Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)
 - **Clustering & EM** — k-means · Gaussian Mixture Models → [Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)
 
-## 🎓 Courses (free)
+## Courses (free)
 - [MIT 18.06 Linear Algebra](https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/) — **Gilbert Strang (MIT OCW)** — the legendary linear-algebra course.
 - [Harvard Stat 110: Probability](https://projects.iq.harvard.edu/stat110/home) — **Joe Blitzstein** — the gold-standard probability course.
 
-## 🎥 Videos
+## Videos
 - [Essence of Linear Algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab) — **3Blue1Brown** — see what matrices *do*.
 - [Statistics Fundamentals](https://www.youtube.com/playlist?list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9) — **StatQuest** — probability & stats, intuition-first.
 
-## 📰 Articles
+## Articles
 - [Stanford CS229 math review (linear algebra, probability)](https://cs229.stanford.edu/section/cs229-linalg.pdf) — **Stanford** — the applied cheat-sheet.
 - [Python Crash Course](https://realpython.com/python-crash-course/) — **Real Python** — NumPy/Pandas/Matplotlib that ML actually uses.
 
-## 📚 Books (free)
+## Books (free)
 - [Mathematics for Machine Learning](https://mml-book.github.io/) — **Deisenroth et al.** — the on-ramp to all of it.
 - [Think Stats](https://greenteapress.com/wp/think-stats-2e/) — **Allen B. Downey** — free, computational statistics in Python.
 
-## 🔗 In this platform
+## In this platform
 - The full math curriculum (phases + specializations): [Maths for AI-ML](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
-- Math-as-ML-concepts deep dives: [ai-ml-intuitions Module 0–2](../../../ai-ml-intuitions/)
+- Math-as-ML-concepts deep dives: [ai-ml-intuitions Module 0–2](/ai-ml/ai-ml-intuitions)

@@ -515,7 +515,7 @@ for residual in (False, True):
     tag = "healthy (highway)" if g1 > 1e-3 else "VANISHED"
     print(f"  {'residual' if residual else 'plain   '}: grad@block1 = {g1:.2e}  -> {tag}")
 
-# --- 2. the +1 identity made literal:  d(F(x)+x)/dx = F'(x) + 1  (Example 2) ---
+# --- 2. the +1 identity made literal: d(F(x)+x)/dx = F'(x) + 1 (Example 2) ---
 x0 = torch.tensor([1.5], requires_grad=True)
 (torch.tanh(2.0 * x0) + x0).backward()
 print(f"\n== the +1 (Example 2) ==")

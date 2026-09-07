@@ -484,7 +484,7 @@ print("naive(big)    =", naive.numpy(), "  stable(big) =", stable.numpy().round(
 for T in (0.5, 1.0, 2.0):
     print(f"  T={T}: {F.softmax(z[:3] / T, -1).numpy().round(3)}")
 
-# --- 5. softmax Jacobian: diag(s) - s sᵀ  vs autograd ---
+# --- 5. softmax Jacobian: diag(s) - s sᵀ vs autograd ---
 z = torch.tensor([2.0, 1.0, 0.1], requires_grad=True)
 s = F.softmax(z, -1)
 J_auto = torch.stack([torch.autograd.grad(s[i], z, retain_graph=True)[0] for i in range(3)])

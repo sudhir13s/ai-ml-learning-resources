@@ -1,8 +1,8 @@
-# 📚 Mathematics for AI/ML — Curriculum & Resource Index
+# Mathematics for AI/ML — Curriculum & Resource Index
 
 > **Role of this page:** the *learning path* for ML math — what to study, in what order, and
 > with which courses/videos. **Deep understanding lives in the
-> [`ai-ml-intuitions`](../../../../ai-ml-intuitions/) repo** (intuition, equations, walkthroughs,
+> [`ai-ml-intuitions`](/ai-ml/ai-ml-intuitions) repo** (intuition, equations, walkthroughs,
 > diagrams, code); this page tells you *when* to read each of its pages and *what to watch
 > first*. Absorbed from the retired `math-for-AIML-Q5` syllabus.
 
@@ -10,18 +10,18 @@
 
 | Phase | Discipline | Primarily unlocks (ai-ml-intuitions) | Status |
 | :-- | :--- | :--- | :-- |
-| **1** | **Linear Algebra** | [Module 1 — Representation](../../../../ai-ml-intuitions/representation/) | ✅ below |
-| **2** | Calculus & Matrix Calculus | [Module 2 — Optimization](../../../../ai-ml-intuitions/learning-and-optimization/) (2A) | ✅ below |
-| **3** | Probability & Information Theory | [Module 5 — Generation](../../../../ai-ml-intuitions/generation/), parts of 3 | ✅ below |
-| **4** | Statistics & Statistical Learning | [Module 3 — Evaluation](../../../../ai-ml-intuitions/objectives-and-evaluation/) | ✅ below |
-| **5** | Optimization for ML/DL | [Module 2 — Optimization](../../../../ai-ml-intuitions/learning-and-optimization/) (2B) | ✅ below |
-| **6** | Applied Math for Modern DL | [Modules 4](../../../../ai-ml-intuitions/training-stability/) & [6](../../../../ai-ml-intuitions/decision-making-and-control/) | ✅ below |
+| **1** | **Linear Algebra** | [Module 1 — Representation](/ai-ml/ai-ml-intuitions/representation) | ✅ below |
+| **2** | Calculus & Matrix Calculus | [Module 2 — Optimization](/ai-ml/ai-ml-intuitions/learning-and-optimization) (2A) | ✅ below |
+| **3** | Probability & Information Theory | [Module 5 — Generation](/ai-ml/ai-ml-intuitions/generation), parts of 3 | ✅ below |
+| **4** | Statistics & Statistical Learning | [Module 3 — Evaluation](/ai-ml/ai-ml-intuitions/objectives-and-evaluation) | ✅ below |
+| **5** | Optimization for ML/DL | [Module 2 — Optimization](/ai-ml/ai-ml-intuitions/learning-and-optimization) (2B) | ✅ below |
+| **6** | Applied Math for Modern DL | [Modules 4](/ai-ml/ai-ml-intuitions/training-stability) & [6](/ai-ml/ai-ml-intuitions/decision-making-and-control) | ✅ below |
 | — | **Specializations** | [Computer Vision](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/readme) · [Neuroscience & Brain-Inspired AI](/ai-ml/ai-ml-learning-resources/specialized-studies/neuroscience-and-brain-inspired-ai/readme) · [Advanced Research Math](/ai-ml/ai-ml-learning-resources/specialized-studies/advanced-mathematics-for-ai-research/readme) | ✅ separate pages |
 
 > **Mapping note:** discipline → module is *primary, not exclusive* — one discipline feeds
 > several modules (probability underlies both Evaluation and Generation). The two indexes cut
 > the same content two ways: by **discipline** (here) and by **ML-pipeline stage**
-> ([Master Pattern Map](../../../../ai-ml-intuitions/0_Master_Pattern_Map.md)).
+> ([Master Pattern Map](/ai-ml/ai-ml-intuitions)).
 
 ---
 

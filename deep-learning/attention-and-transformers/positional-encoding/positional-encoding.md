@@ -466,7 +466,7 @@ def pe_matrix(n_pos, d, base=10000.0):          # the d2l / Annotated-Transforme
 byhand = torch.tensor([[pe_scalar(p, i, 4) for i in range(4)] for p in range(3)])
 print("matrix matches by-hand:", torch.allclose(pe_matrix(3, 4), byhand, atol=1e-6))
 
-# ---- 2. PE(pos+k) = R_k @ PE(pos)  (the rotation property) ----
+# ---- 2. PE(pos+k) = R_k @ PE(pos) (the rotation property) ----
 d_model = 16
 def pe_vec(pos):
     i = np.arange(d_model)

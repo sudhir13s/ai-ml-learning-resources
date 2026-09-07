@@ -11,7 +11,7 @@ updated: 2026-06-27
 
 **⭐ Start here:** [The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/) — **Jay Alammar** — the single best explainer of the architecture behind all modern NLP.
 
-## 📑 Concept Index
+## Concept Index
 Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its page and a curated
 `.references.md` resource card (free, open courses · videos · papers · articles · books · cross-links).
 > **✅ ready.** New to NLP? Start with the field overview above, then work top to bottom.
@@ -46,20 +46,20 @@ Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its p
 - **Large language models** — BERT · GPT · T5 / BART · Fine-tuning · Prompting · RLHF → [LLMs](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme)
 - **Retrieval-augmented generation** → [RAG & LLM Applications](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/overview)
 
-## 🎓 Courses (free)
+## Courses (free)
 - [CS224N: NLP with Deep Learning](https://web.stanford.edu/class/cs224n/) — **Stanford (Manning)** — the definitive university NLP course; lectures on YouTube.
 - [Hugging Face NLP Course](https://huggingface.co/learn/nlp-course) — **Hugging Face** — free, code-first, modern (transformers in practice).
 
-## 🎥 Videos
+## Videos
 - [Let's build GPT from scratch](https://www.youtube.com/watch?v=kCc8FmEb1nY) — **Andrej Karpathy** — build a transformer line by line.
 - [Transformers (chapters 5–7)](https://www.youtube.com/watch?v=wjZofJX0v4M) — **3Blue1Brown** — attention, visualized.
 
-## 📄 Key Papers
+## Key Papers
 - [Attention Is All You Need](https://arxiv.org/abs/1706.03762) — **Vaswani et al. (2017)** — the transformer; non-negotiable.
 - [BERT](https://arxiv.org/abs/1810.04805) — **Devlin et al. (2018)** — the pretraining paradigm shift.
 
-## 📚 Books (free)
+## Books (free)
 - [Speech and Language Processing (3rd ed.)](https://web.stanford.edu/~jurafsky/slp3/) — **Jurafsky & Martin** — free draft; the field's standard reference.
 
-## 🔗 In this platform
-- Math: [ai-ml-intuitions 1.02 embeddings, 1.15 tokenization, Module 4 attention](../../../ai-ml-intuitions/) · LLMs: [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme)
+## In this platform
+- Math: [ai-ml-intuitions 1.02 embeddings, 1.15 tokenization, Module 4 attention](/ai-ml/ai-ml-intuitions) · LLMs: [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme)

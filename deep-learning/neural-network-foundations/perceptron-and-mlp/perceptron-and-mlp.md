@@ -318,9 +318,9 @@ print(f"[XOR · 1 perceptron] ran {ep} epochs (hit cap = never converged) | "
 
 # ---------------------------------------------------------------------------
 # 3) A 2-2-1 MLP (trained by gradient descent) SOLVES XOR -> 100%
-#    NOTE: the tiny 2-2-1 net has known local minima (it gets stuck ~60% of
-#    random inits at 75% acc), so we use a few random RESTARTS and keep the
-#    best — exactly what a practitioner does for such a small, finicky net.
+# NOTE: the tiny 2-2-1 net has known local minima (it gets stuck ~60% of
+# random inits at 75% acc), so we use a few random RESTARTS and keep the
+# best — exactly what a practitioner does for such a small, finicky net.
 # ---------------------------------------------------------------------------
 Xt = torch.tensor(X, dtype=torch.float32)
 yt = torch.tensor(y_xor, dtype=torch.float32).unsqueeze(1)
