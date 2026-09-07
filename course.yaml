@@ -197,6 +197,7 @@ spec:
       - audio-and-speech
       - lifecycle-and-reproducibility
       - data-and-training-platforms
+      - training-infrastructure
       - packaging-and-serving
       - release-and-deployment
       - monitoring-and-reliability
@@ -675,8 +676,13 @@ spec:
         # data-and-training-platforms
         - path: deployment-and-mlops/data-and-training-platforms/feature-stores/feature-stores.md
         - path: deployment-and-mlops/data-and-training-platforms/ml-pipelines-and-orchestration/ml-pipelines-and-orchestration.md
-        - path: deployment-and-mlops/data-and-training-platforms/gpus-and-accelerators-for-deep-learning/gpus-and-accelerators-for-deep-learning.md
-        - path: deployment-and-mlops/data-and-training-platforms/distributed-training-parallelism-fsdp-zero/distributed-training-parallelism-fsdp-zero.md
+        # training-infrastructure
+        - path: deployment-and-mlops/training-infrastructure/gpus-and-accelerators-for-deep-learning/gpus-and-accelerators-for-deep-learning.md
+        - path: deployment-and-mlops/training-infrastructure/mixed-precision-and-memory-efficient-training/mixed-precision-and-memory-efficient-training.md
+        - path: deployment-and-mlops/training-infrastructure/distributed-training-parallelism-fsdp-zero/distributed-training-parallelism-fsdp-zero.md
+        - path: deployment-and-mlops/training-infrastructure/checkpointing-and-fault-tolerant-training/checkpointing-and-fault-tolerant-training.md
+        - path: deployment-and-mlops/training-infrastructure/cluster-scheduling-and-training-orchestration/cluster-scheduling-and-training-orchestration.md
+        - path: deployment-and-mlops/training-infrastructure/training-cost-and-capacity-planning/training-cost-and-capacity-planning.md
         # packaging-and-serving
         - path: deployment-and-mlops/packaging-and-serving/model-packaging-and-containerization/model-packaging-and-containerization.md
         - path: deployment-and-mlops/packaging-and-serving/model-serving/model-serving.md

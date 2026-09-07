@@ -28,28 +28,32 @@ path plus the best **free, open** courses, videos, papers, articles, and books f
 6. ✅ [ML Pipelines & Orchestration (Airflow · Kubeflow)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/data-and-training-platforms/ml-pipelines-and-orchestration/ml-pipelines-and-orchestration)
 7. ✅ [CI/CD for ML & Continuous Training (CT)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/release-and-deployment/cicd-for-ml-and-continuous-training/cicd-for-ml-and-continuous-training)
 
-### Training platforms & hardware
-8. ✅ [GPUs & Accelerators for Deep Learning (roofline · kernels · mixed precision)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/data-and-training-platforms/gpus-and-accelerators-for-deep-learning/gpus-and-accelerators-for-deep-learning)
-9. ✅ [Distributed Training — Parallelism, FSDP & ZeRO](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/data-and-training-platforms/distributed-training-parallelism-fsdp-zero/distributed-training-parallelism-fsdp-zero)
+### Training infrastructure (the compute plane)
+8. ✅ [GPUs & Accelerators for Deep Learning (roofline · kernels · mixed precision)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/training-infrastructure/gpus-and-accelerators-for-deep-learning/gpus-and-accelerators-for-deep-learning)
+9. ✅ [Mixed Precision & Memory-Efficient Training](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/training-infrastructure/mixed-precision-and-memory-efficient-training/mixed-precision-and-memory-efficient-training)
+10. ✅ [Distributed Training — Parallelism, FSDP & ZeRO](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/training-infrastructure/distributed-training-parallelism-fsdp-zero/distributed-training-parallelism-fsdp-zero)
+11. ✅ [Checkpointing & Fault-Tolerant Training](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/training-infrastructure/checkpointing-and-fault-tolerant-training/checkpointing-and-fault-tolerant-training)
+12. ✅ [Cluster Scheduling & Training Orchestration](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/training-infrastructure/cluster-scheduling-and-training-orchestration/cluster-scheduling-and-training-orchestration)
+13. ✅ [Training Cost & Capacity Planning](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/training-infrastructure/training-cost-and-capacity-planning/training-cost-and-capacity-planning)
 
 ### Packaging & serving
-10. ✅ [Model Packaging & Containerization (Docker)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/model-packaging-and-containerization/model-packaging-and-containerization)
-11. ✅ [Model Serving (REST/gRPC · batch vs online · BentoML/Triton/TF-Serving)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/model-serving/model-serving)
-12. ✅ [Scaling Inference (autoscaling · GPU · Ray Serve)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/scaling-inference/scaling-inference)
+14. ✅ [Model Packaging & Containerization (Docker)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/model-packaging-and-containerization/model-packaging-and-containerization)
+15. ✅ [Model Serving (REST/gRPC · batch vs online · BentoML/Triton/TF-Serving)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/model-serving/model-serving)
+16. ✅ [Scaling Inference (autoscaling · GPU · Ray Serve)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/scaling-inference/scaling-inference)
 
 ### Release, rollback & recovery
-13. ✅ [A/B Testing · Shadow & Canary Deployment](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/release-and-deployment/ab-testing-shadow-and-canary-deployment/ab-testing-shadow-and-canary-deployment)
-14. ✅ [Rollback & Recovery for ML Systems](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/release-and-deployment/rollback-and-recovery-for-ml-systems/rollback-and-recovery-for-ml-systems)
+17. ✅ [A/B Testing · Shadow & Canary Deployment](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/release-and-deployment/ab-testing-shadow-and-canary-deployment/ab-testing-shadow-and-canary-deployment)
+18. ✅ [Rollback & Recovery for ML Systems](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/release-and-deployment/rollback-and-recovery-for-ml-systems/rollback-and-recovery-for-ml-systems)
 
 ### Operations, monitoring & governance
-15. ✅ [Model Monitoring & Observability](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/monitoring-and-reliability/model-monitoring-and-observability/model-monitoring-and-observability)
-16. ✅ [Data & Concept Drift Detection](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/monitoring-and-reliability/data-and-concept-drift-detection/data-and-concept-drift-detection)
-17. ✅ [AI Incident Response & Postmortems](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/monitoring-and-reliability/ai-incident-response-and-postmortems/ai-incident-response-and-postmortems)
-18. ✅ [Model Registry & Governance](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/governance-and-economics/model-registry-and-governance/model-registry-and-governance)
+19. ✅ [Model Monitoring & Observability](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/monitoring-and-reliability/model-monitoring-and-observability/model-monitoring-and-observability)
+20. ✅ [Data & Concept Drift Detection](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/monitoring-and-reliability/data-and-concept-drift-detection/data-and-concept-drift-detection)
+21. ✅ [AI Incident Response & Postmortems](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/monitoring-and-reliability/ai-incident-response-and-postmortems/ai-incident-response-and-postmortems)
+22. ✅ [Model Registry & Governance](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/governance-and-economics/model-registry-and-governance/model-registry-and-governance)
 
 ### LLMs & cost
-19. ✅ [LLMOps (eval · guardrails · prompt versioning · cost/latency)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/governance-and-economics/llmops/llmops)
-20. ✅ [Cost Optimization for ML Systems](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/governance-and-economics/cost-optimization/cost-optimization)
+23. ✅ [LLMOps (eval · guardrails · prompt versioning · cost/latency)](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/governance-and-economics/llmops/llmops)
+24. ✅ [Cost Optimization for ML Systems](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/governance-and-economics/cost-optimization/cost-optimization)
 
 ### Related concepts (canonical home is another section)
 > These topics have a canonical home elsewhere in the platform — linked here, not duplicated.

@@ -80,7 +80,8 @@ sparse autoencoders, probing).
 | Sub-area | Level |
 | :--- | :--- |
 | [Lifecycle and Reproducibility](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/lifecycle-and-reproducibility/readme) | intermediate |
-| [Data and Training Platforms](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/data-and-training-platforms/readme) — feature stores, pipelines, GPUs and accelerators, distributed training | intermediate |
+| [Data and Training Platforms](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/data-and-training-platforms/readme) — feature stores, pipelines and orchestration | intermediate |
+| [Training Infrastructure](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/training-infrastructure/readme) — GPUs and accelerators, mixed precision, distributed training, checkpointing, cluster scheduling, training cost | advanced |
 | [Packaging and Serving](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/readme) | intermediate |
 | [Release and Deployment](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/release-and-deployment/readme) — CI/CD, canary and shadow, rollback and recovery | intermediate |
 | [Monitoring and Reliability](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/monitoring-and-reliability/readme) — monitoring, drift, AI incident response | intermediate |

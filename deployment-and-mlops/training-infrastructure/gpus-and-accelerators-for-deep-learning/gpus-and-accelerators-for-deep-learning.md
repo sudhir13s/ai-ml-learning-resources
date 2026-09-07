@@ -1,16 +1,16 @@
 ---
-id: "deployment-and-mlops/data-and-training-platforms/gpus-and-accelerators-for-deep-learning"
+id: "deployment-and-mlops/training-infrastructure/gpus-and-accelerators-for-deep-learning"
 topic: "GPUs & Accelerators for Deep Learning"
 level: advanced
 built_from: ["ml-pipelines-and-orchestration"]
-leads_to: ["deployment-and-mlops/data-and-training-platforms/distributed-training-parallelism-fsdp-zero", "18-mlops/scaling-inference"]
+leads_to: ["deployment-and-mlops/training-infrastructure/distributed-training-parallelism-fsdp-zero", "18-mlops/scaling-inference"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core
 est_minutes: 18
 title: "GPUs & Accelerators for Deep Learning"
 minutes: 18
-category: data-and-training-platforms
+category: training-infrastructure
 ---
 
 # GPUs & Accelerators for Deep Learning
@@ -76,7 +76,7 @@ a workload that is bandwidth-bound, or profiling with the CUDA context initializ
 
 ## In this platform
 
-- Downstream: [Distributed Training — Parallelism, FSDP & ZeRO](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/data-and-training-platforms/distributed-training-parallelism-fsdp-zero/distributed-training-parallelism-fsdp-zero) — what happens when one device is not enough
+- Downstream: [Distributed Training — Parallelism, FSDP & ZeRO](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/training-infrastructure/distributed-training-parallelism-fsdp-zero/distributed-training-parallelism-fsdp-zero) — what happens when one device is not enough
 - Attention kernels have their own owner: [Efficient Attention](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/efficient-attention/efficient-attention) (FlashAttention in depth)
 - Serving-side consequences: [Scaling Inference](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/scaling-inference/scaling-inference) · [Model Serving](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/model-serving/model-serving) · [Quantization](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/quantization/quantization) · [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache)
 - What the hardware bill looks like: [Cost Optimization for ML Systems](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/governance-and-economics/cost-optimization/cost-optimization)
