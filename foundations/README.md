@@ -12,7 +12,7 @@ updated: 2026-06-27
 
 **⭐ Start here:** [3Blue1Brown — Neural Networks](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) for intuition, then [Andrew Ng's ML Specialization](https://www.coursera.org/specializations/machine-learning-introduction) for structure.
 
-## 📑 Concept Index
+## Concept Index
 Brand new to ML? You're in the right place. Every chapter is a self-contained folder
 (`NN-Concept/NN-Concept.md`) — pick a concept to open its page. Work top to bottom and you'll go
 from "what even is ML?" to shipping your first model.
@@ -36,6 +36,16 @@ from "what even is ML?" to shipping your first model.
 ### Put it together
 12. ✅ [Your First ML Project (end-to-end with scikit-learn)](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/your-first-ml-project/your-first-ml-project)
 
+### AI Paradigms and Knowledge — how the field got here
+> The four ways artificial intelligence has been attempted, and how the strongest 2026 systems
+> combine them. Read this once the orientation pages above make sense —
+> [sub-area index](/ai-ml/ai-ml-learning-resources/foundations/ai-paradigms-and-knowledge/readme).
+13. ✅ [Symbolic AI and Good Old-Fashioned AI](/ai-ml/ai-ml-learning-resources/foundations/ai-paradigms-and-knowledge/symbolic-ai-and-good-old-fashioned-ai/symbolic-ai-and-good-old-fashioned-ai)
+14. ✅ [The Statistical Learning Paradigm](/ai-ml/ai-ml-learning-resources/foundations/ai-paradigms-and-knowledge/statistical-learning-paradigm/statistical-learning-paradigm)
+15. ✅ [The Neural Learning Paradigm](/ai-ml/ai-ml-learning-resources/foundations/ai-paradigms-and-knowledge/neural-learning-paradigm/neural-learning-paradigm)
+16. ✅ [Probabilistic Reasoning and Graphical Models](/ai-ml/ai-ml-learning-resources/foundations/ai-paradigms-and-knowledge/probabilistic-reasoning-and-graphical-models/probabilistic-reasoning-and-graphical-models)
+17. ✅ [Neuro-Symbolic AI Overview](/ai-ml/ai-ml-learning-resources/foundations/ai-paradigms-and-knowledge/neuro-symbolic-ai-overview/neuro-symbolic-ai-overview)
+
 ### Related concepts (covered in another section)
 > These topics start here but live in depth elsewhere — follow the link when you're ready to go deeper.
 - **The math behind it all** — linear algebra · calculus · probability · statistics → [01. Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme)
@@ -45,21 +55,23 @@ from "what even is ML?" to shipping your first model.
 - **Neural networks & deep learning** — MLPs · backprop · CNNs · transformers → [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
 - **Frameworks in depth** — PyTorch · TensorFlow · scikit-learn pipelines → [13. Tools & Frameworks](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/readme)
 
-## 🎓 Courses (free)
+## Courses (free)
 - [Machine Learning Specialization](https://www.coursera.org/specializations/machine-learning-introduction) — **Andrew Ng / DeepLearning.AI** — free to audit; the canonical first ML course on Earth.
 - [Practical Deep Learning for Coders](https://course.fast.ai/) — **fast.ai (Jeremy Howard)** — code-first, get real models running on day one.
 
-## 🎥 Videos / Channels
+## Videos / Channels
 - [3Blue1Brown](https://www.youtube.com/@3blue1brown) — **Grant Sanderson** — the best visual math + neural-net intuition anywhere.
 - [StatQuest](https://www.youtube.com/@statquest) — **Josh Starmer** — every ML concept "clearly explained," step by step.
 
-## 📰 Articles / Guides
+## Articles / Guides
 - [A Visual Introduction to Machine Learning](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/) — **R2D3** — the clearest visual first-contact with ML.
 - [Machine Learning Guide (curated mega-list)](https://github.com/mikeroyal/Machine-Learning-Guide) — **mikeroyal** — a vetted index of everything, when you want to go deeper.
 
-## 📚 Books (free)
+## Books (free)
 - [Dive into Deep Learning (d2l.ai)](https://d2l.ai/) — **Zhang et al.** — free, interactive, runnable.
 - [Mathematics for Machine Learning](https://mml-book.github.io/) — **Deisenroth, Faisal & Ong** — free; the math you'll actually need.
 
-## 🔗 In this platform
-- Intuition: [ai-ml-intuitions](../../ai-ml-intuitions/) · Practice: [AI-ML-problemsets](../../AI-ML-problemsets/) · Math: [Foundations](mathematical-foundations/)
+## In this platform
+- Paradigms and history: [AI Paradigms and Knowledge](/ai-ml/ai-ml-learning-resources/foundations/ai-paradigms-and-knowledge/readme)
+- Math prerequisites: [Mathematical Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme)
+- Research habits: [Research Literacy](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/readme) · Tooling: [Tools and Frameworks](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/readme)

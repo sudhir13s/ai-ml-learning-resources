@@ -31,29 +31,30 @@ late or absent), and the tool stack (Evidently, Prometheus, Grafana). Drift dete
 4. **Batch vs online monitoring** — watch [Evidently: Batch architecture dashboard](https://www.youtube.com/watch?v=u4Mcu0hXfMA) and [Online architecture dashboard](https://www.youtube.com/watch?v=2hTRXEOJF8k). *Two deployment shapes, two monitoring designs.*
 5. **Go to drift** — move to [12 Data & Concept Drift Detection](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/monitoring-and-reliability/data-and-concept-drift-detection/data-and-concept-drift-detection). *The statistical heart of why model quality degrades.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [Made With ML — Monitoring](https://madewithml.com/courses/mlops/monitoring/) — **Goku Mohandas** — monitor performance, data, and drift in a real system.
 - [Evidently — ML Observability Course](https://learn.evidentlyai.com/ml-observability-course/module-1-introduction/ml-monitoring-observability) — **Evidently AI** — free, end-to-end open course on monitoring/observability.
 
-## 🎥 Videos
+## Videos
 - [Evidently AI Tutorial — Open-Source ML Monitoring & Observability](https://www.youtube.com/watch?v=cgc3dSEAel0) — **community** — the metrics, reports, and dashboards in practice.
 - [ML Model Monitoring Dashboard with Evidently — Batch Architecture](https://www.youtube.com/watch?v=u4Mcu0hXfMA) — **Evidently AI** — code practice for batch monitoring.
 - [ML Model Monitoring Dashboard with Evidently — Online Architecture](https://www.youtube.com/watch?v=2hTRXEOJF8k) — **Evidently AI** — code practice for live-service monitoring.
 - [Data Drift & Early Monitoring for ML Models](https://www.youtube.com/watch?v=N12uMO-fj40) — **Emeli (Evidently AI)** — meetup talk on what to monitor and why.
 
-## 📄 Key Papers
+## Key Papers
 - [Hidden Technical Debt in Machine Learning Systems](https://papers.nips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf) — **Sculley et al. (2015)** — "monitoring & testing" debt; why ML systems erode silently.
 - [Challenges in Deploying ML: A Survey of Case Studies](https://arxiv.org/abs/2011.09926) — **Paleyes et al. (2020)** — post-deployment monitoring failures across industry.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [How to Monitor Machine Learning Models](https://christophergs.com/machine%20learning/2020/03/14/how-to-monitor-machine-learning-models/) — **Christopher Samiullah** — the canonical free three-layer monitoring guide.
 - [Evidently — Model Monitoring](https://www.evidentlyai.com/ml-in-production/model-monitoring) — **Evidently AI** — what to track and how, with the delayed-label problem.
 - [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) — **Google** — monitoring and "test in production" heuristics.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Designing Machine Learning Systems — **Ch. 8 "Data Distribution Shifts & Monitoring"**](https://huyenchip.com/mlops/) — **Chip Huyen** — the canonical chapter on monitoring + shift (author notes free).
 - [Machine Learning Engineering — **Ch. 9 "Model Serving, Monitoring & Maintenance"**](http://www.mlebook.com/wiki/doku.php) — **Andriy Burkov** — read-first chapters free.
 
-## 🔗 In this platform
+## In this platform
 - Builds on: [01 ML Lifecycle & MLOps Maturity](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/lifecycle-and-reproducibility/ml-lifecycle-and-mlops-maturity/ml-lifecycle-and-mlops-maturity) · [09 Model Serving](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/model-serving/model-serving)
 - Next concepts: [12 Data & Concept Drift Detection](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/monitoring-and-reliability/data-and-concept-drift-detection/data-and-concept-drift-detection) · [13 Model Registry & Governance](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/governance-and-economics/model-registry-and-governance/model-registry-and-governance)
+- What happens after the alert fires: [AI Incident Response & Postmortems](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/monitoring-and-reliability/ai-incident-response-and-postmortems/ai-incident-response-and-postmortems)

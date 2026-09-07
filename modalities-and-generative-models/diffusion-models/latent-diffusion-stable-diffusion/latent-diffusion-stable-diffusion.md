@@ -35,30 +35,30 @@ diffusion (speed and memory vs a slight quality ceiling from the autoencoder).
 4. **Read the source** — [High-Resolution Image Synthesis with Latent Diffusion Models](https://arxiv.org/abs/2112.10752) — **Rombach et al. (2022)**. *The LDM paper; perceptual compression + cross-attention conditioning.*
 5. **Make it concrete** — run the [Hugging Face `diffusers` quickstart](https://huggingface.co/docs/diffusers/index), or watch [Coding Stable Diffusion from scratch](https://www.youtube.com/watch?v=ZBKpAp_6TGI) — **Umar Jamil**. *Generating from a prompt and tweaking the guidance scale cements it.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [Hugging Face — Diffusion Models Course (Stable Diffusion unit)](https://huggingface.co/learn/diffusion-course/unit0/1) — **Hugging Face** — free, code-first; build conditioned latent diffusion with `diffusers`.
 - [Stanford CS236 — Deep Generative Models](https://deepgenerativemodels.github.io/) — **Stanford (Ermon)** — free notes; situates latent diffusion within the broader generative-models map.
 
-## 🎥 Videos
+## Videos
 - [How AI Image Generators Work (Stable Diffusion / DALL·E)](https://www.youtube.com/watch?v=1CIpzeNxIhU) — **Computerphile** — the best plain-language overview of the whole pipeline.
 - [How does Stable Diffusion work? — Latent Diffusion Models EXPLAINED](https://www.youtube.com/watch?v=J87hffSMB60) — **AI Coffee Break (Letitia)** — why latent space, and the VAE + U-Net + text-encoder design.
 - [Stable Diffusion — What, Why, How?](https://www.youtube.com/watch?v=ltLNYA3lWAQ) — **Edan Meyer** — a thorough, accessible walkthrough of each component and the sampling loop.
 - [Coding Stable Diffusion from scratch in PyTorch](https://www.youtube.com/watch?v=ZBKpAp_6TGI) — **Umar Jamil** — builds the full system (VAE, CLIP, U-Net, sampler) line by line.
 
-## 📄 Key Papers
+## Key Papers
 - [High-Resolution Image Synthesis with Latent Diffusion Models](https://arxiv.org/abs/2112.10752) — **Rombach et al. (2022)** — Stable Diffusion: diffuse in VAE latent space with cross-attention conditioning.
 - [Classifier-Free Diffusion Guidance](https://arxiv.org/abs/2207.12598) — **Ho & Salimans (2022)** — the guidance mechanism that gives Stable Diffusion its prompt adherence.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [The Illustrated Stable Diffusion](https://jalammar.github.io/illustrated-stable-diffusion/) — **Jay Alammar** — the canonical visual explainer; VAE, text encoder, U-Net, cross-attention.
 - [Stable Diffusion with 🧨 Diffusers](https://huggingface.co/blog/stable_diffusion) — **Hugging Face** — the architecture plus runnable code for each stage, free.
 - [The Annotated Diffusion Model](https://huggingface.co/blog/annotated-diffusion) — **Hugging Face** — the U-Net denoiser internals that latent diffusion reuses, free.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Understanding Deep Learning — **Ch. 18 "Diffusion models"**](https://udlbook.github.io/udlbook/) — **Simon Prince** — free PDF; conditioning and latent diffusion in the diffusion chapter.
 - [Probabilistic Machine Learning: Advanced Topics — **Ch. 25 "Diffusion models"**](https://probml.github.io/pml-book/book2.html) — **Kevin Murphy** — free PDF; latent and conditional diffusion in the modern treatment.
 
-## 🔗 In this platform
+## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 5.03 Diffusion Models](/ai-ml/ai-ml-intuitions/generation/diffusion-and-score-models/diffusion-forward-and-reverse-process-intuition) · [5.02 ELBO & VAEs](/ai-ml/ai-ml-intuitions/generation/latent-variable-generation/latent-variable-models-and-elbo-intuition)
 - Prereq: [05 Diffusion Models (DDPM)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/diffusion-models-ddpm/diffusion-models-ddpm) · [01 Variational Autoencoders](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/variational-autoencoders-vae-elbo/variational-autoencoders-vae-elbo) (the latent compressor) · [04 Conditional Generation & CFG](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/conditional-generation-and-classifier-free-guidance/conditional-generation-and-classifier-free-guidance)
 - Related: [Deep Learning — Attention Mechanism](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism) (cross-attention conditions the U-Net)

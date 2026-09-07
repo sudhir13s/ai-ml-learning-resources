@@ -13,7 +13,7 @@ updated: 2026-07-04
 **Start here — suggested path**:
 1. **Build intuition** — watch ⭐ [What are Diffusion Models?](https://www.youtube.com/watch?v=fbLgFrlTnGU) by **Ari Seff**. *The clearest first picture: forward-noising and learned reverse-denoising, with no equations in the way.*
 2. **See why it works** — watch [Diffusion Models | Paper Explanation | Math Explained](https://www.youtube.com/watch?v=HoKDTa5jHvg) by **Outlier**. *Walks the forward/reverse process, the closed form, and the simplified ε-prediction loss, beautifully animated.*
-3. **Get the math** — read [What are Diffusion Models? (Lil'Log)](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/) by **Lilian Weng** and [Understanding Diffusion Models: A Unified Perspective](https://calvinyluo.com/2022/08/26/diffusion-tutorial.html) by **Calvin Luo**. *The full ELBO derivation, VAE→diffusion, down to the ε-prediction objective and the score connection.*
+3. **Get the math** — read [What are Diffusion Models? (Lil'Log)](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/) by **Lilian Weng** and [Understanding Diffusion Models: A Unified Perspective](https://arxiv.org/abs/2208.11970) by **Calvin Luo**. *The full ELBO derivation, VAE→diffusion, down to the ε-prediction objective and the score connection.*
 4. **Read the source** — [Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239) by **Ho, Jain & Abbeel (2020)**. *The paper that made diffusion work; the simplified training objective this chapter derives.*
 5. **Make it concrete** — run this chapter's [notebook](code/diffusion-models-ddpm.ipynb): a from-scratch DDPM on a real 2-D distribution, with the closed-form forward asserted equal to the iterative chain, and the trained model's samples asserted to match the target by energy distance.
 
@@ -32,7 +32,7 @@ updated: 2026-07-04
 
 **Articles / blogs (free, no paywall)**:
 - [What are Diffusion Models? (Lil'Log)](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/) — **Lilian Weng (OpenAI)** — the canonical open math walkthrough from forward process to the training loss and beyond.
-- [Understanding Diffusion Models: A Unified Perspective](https://calvinyluo.com/2022/08/26/diffusion-tutorial.html) — **Calvin Luo** — the cleanest VAE→diffusion ELBO derivation; reads like lecture notes, fully open.
+- [Understanding Diffusion Models: A Unified Perspective](https://arxiv.org/abs/2208.11970) — **Calvin Luo** — the cleanest VAE→diffusion ELBO derivation; reads like lecture notes, fully open.
 - [The Annotated Diffusion Model](https://huggingface.co/blog/annotated-diffusion) — **Hugging Face (Rogge & Rasul)** — runnable PyTorch + the DDPM math side by side, free.
 - [Generative Modeling by Estimating Gradients of the Data Distribution](https://yang-song.net/blog/2021/score/) — **Yang Song** — the score-based view of diffusion (the ε↔∇log p bridge) from its originator; the natural next step after this page.
 

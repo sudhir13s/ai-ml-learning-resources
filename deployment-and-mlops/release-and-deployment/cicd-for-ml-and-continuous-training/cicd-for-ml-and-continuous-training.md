@@ -31,29 +31,30 @@ canary/deploy. Tools: GitHub Actions, CML, and pipeline orchestrators.
 4. **Automate model tracking in CI** — watch [MLOps Tutorial #3: Track ML models with Git & GitHub Actions](https://www.youtube.com/watch?v=xPncjKH6SPk). *Comparing model metrics across branches in a PR — the model quality gate.*
 5. **Build the pipeline** — work [Made With ML: CI/CD](https://madewithml.com/courses/mlops/cicd/). *A complete GitHub Actions CI/CD/CT flow for an ML project.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [Made With ML — CI/CD](https://madewithml.com/courses/mlops/cicd/) — **Goku Mohandas** — full GitHub Actions pipeline for testing, training, and deploying.
 - [CML — Documentation](https://cml.dev/doc) — **Iterative** — continuous ML in CI runners (reports, metrics, cloud GPUs).
 
-## 🎥 Videos
+## Videos
 - [MLOps Tutorial #1: Intro to Continuous Integration for ML](https://www.youtube.com/watch?v=9BgIDqAzfuA) — **DVCorg** — CI for ML projects, the data/model angle.
 - [MLOps Tutorial #3: Track ML Models with Git & GitHub Actions](https://www.youtube.com/watch?v=xPncjKH6SPk) — **DVCorg** — automated model comparison and quality gates in PRs.
 - [MLOps Tutorial #4: GitHub Actions with Your Own GPUs](https://www.youtube.com/watch?v=rVq-SCNyxVc) — **DVCorg** — self-hosted GPU runners for continuous training.
-- [Learn MLOps with MLflow and Databricks — Full Course](https://www.youtube.com/watch?v=tVskbekONlw) — **freeCodeCamp** — the train → register → deploy CD path end to end.
+- [Full Stack Deep Learning 2022 lecture series](https://www.youtube.com/playlist?list=PL1T8fO7ArWleMMI8KPJ_5D5XSlovTW_Ur) — **The Full Stack (Charles Frye, Sergey Karayev, Josh Tobin)** — the deployment and testing lectures, covering the train → validate → ship path end to end.
 
-## 📄 Key Papers
+## Key Papers
 - [MLOps: Continuous delivery and automation pipelines in ML](https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning) — **Google Cloud** — defines CI/CD/CT and the level-2 architecture.
 - [Hidden Technical Debt in Machine Learning Systems](https://papers.nips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf) — **Sculley et al. (2015)** — why untested glue code and configs are the dominant production risk.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [Continuous Delivery for Machine Learning (CD4ML)](https://martinfowler.com/articles/cd4ml.html) — **Sato, Wider & Windheuser (martinfowler.com)** — the definitive CD4ML reference.
 - [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) — **Google** — testing and launch discipline for production ML.
 - [CML — Continuous Machine Learning](https://cml.dev/) — **Iterative** — CI/CD patterns purpose-built for ML.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Designing Machine Learning Systems — **Ch. 9 "Continual Learning & Test in Production"**](https://huyenchip.com/mlops/) — **Chip Huyen** — continuous training, retraining cadence, and testing in prod (author notes free).
 - [Machine Learning Engineering — **Ch. 8 "Model Deployment"** (CI/CD & retraining)](http://www.mlebook.com/wiki/doku.php) — **Andriy Burkov** — read-first chapters free.
 
-## 🔗 In this platform
+## In this platform
 - Builds on: [01 ML Lifecycle & MLOps Maturity](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/lifecycle-and-reproducibility/ml-lifecycle-and-mlops-maturity/ml-lifecycle-and-mlops-maturity) · [06 ML Pipelines & Orchestration](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/data-and-training-platforms/ml-pipelines-and-orchestration/ml-pipelines-and-orchestration)
 - Next concepts: [12 Data & Concept Drift Detection](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/monitoring-and-reliability/data-and-concept-drift-detection/data-and-concept-drift-detection) · [14 A/B Testing · Shadow & Canary](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/release-and-deployment/ab-testing-shadow-and-canary-deployment/ab-testing-shadow-and-canary-deployment)
+- A pipeline is only as good as its undo: [Rollback & Recovery for ML Systems](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/release-and-deployment/rollback-and-recovery-for-ml-systems/rollback-and-recovery-for-ml-systems)

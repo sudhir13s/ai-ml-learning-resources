@@ -4,3 +4,5 @@
 page-order:
   - feature-stores/feature-stores
   - ml-pipelines-and-orchestration/ml-pipelines-and-orchestration
+  - gpus-and-accelerators-for-deep-learning/gpus-and-accelerators-for-deep-learning
+  - distributed-training-parallelism-fsdp-zero/distributed-training-parallelism-fsdp-zero

@@ -36,32 +36,32 @@ and can over-saturate.
 4. **Read the sources** — [DDIM](https://arxiv.org/abs/2010.02502) — **Song et al. (2021)** · [DPM-Solver](https://arxiv.org/abs/2206.00927) — **Lu et al. (2022)** · [Classifier-Free Guidance](https://arxiv.org/abs/2207.12598) — **Ho & Salimans (2022)** · [EDM design space](https://arxiv.org/abs/2206.00364) — **Karras et al. (2022)**. *Faster samplers, then the unifying design space.*
 5. **Make it concrete** — swap schedulers in the [Diffusers schedulers guide](https://huggingface.co/docs/diffusers/using-diffusers/schedulers) and sweep the guidance scale. *Feeling steps↔quality and scale↔diversity cements it.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [Hugging Face — Diffusion Models Course (sampling & schedulers)](https://huggingface.co/learn/diffusion-course/unit0/1) — **Hugging Face** — free, code-first; swap DDPM/DDIM/DPM-Solver schedulers and see the effect.
 - [Stanford CS236 — Deep Generative Models](https://deepgenerativemodels.github.io/) — **Stanford (Ermon)** — free notes; score-based sampling and the probability-flow ODE.
 
-## 🎥 Videos
+## Videos
 - [Diffusion models explained: how does OpenAI's GLIDE work?](https://www.youtube.com/watch?v=344w5h24-h8) — **AI Coffee Break (Letitia)** — guidance and conditional sampling, clearly visualized.
 - [Diffusion Models | Paper Explanation | Math Explained](https://www.youtube.com/watch?v=HoKDTa5jHvg) — **Outlier** — the reverse-process sampling loop the fast samplers accelerate.
 - [Diffusion models from scratch in PyTorch](https://www.youtube.com/watch?v=a4Yfz2FxXiY) — **DeepFindr** — codes the sampling loop, the natural place to swap in DDIM.
 - [Variational Autoencoders and Diffusion Models (M2L summer school)](https://www.youtube.com/watch?v=pea3sH6orMc) — **Tim Salimans (Google)** — a researcher's view of diffusion sampling and distillation for speed.
 
-## 📄 Key Papers
+## Key Papers
 - [Denoising Diffusion Implicit Models (DDIM)](https://arxiv.org/abs/2010.02502) — **Song, Meng & Ermon (2021)** — deterministic, non-Markovian sampling; 10–50× fewer steps.
 - [DPM-Solver: A Fast ODE Solver for Diffusion Sampling in ~10 Steps](https://arxiv.org/abs/2206.00927) — **Lu et al. (2022)** — high-order ODE solver for the probability-flow ODE.
 - [Classifier-Free Diffusion Guidance](https://arxiv.org/abs/2207.12598) — **Ho & Salimans (2022)** — the guidance-scale mechanism that trades diversity for fidelity.
 - [Elucidating the Design Space of Diffusion-Based Generative Models (EDM)](https://arxiv.org/abs/2206.00364) — **Karras et al. (2022)** — disentangles noise schedule, sampler, and preconditioning.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [Guidance: a cheat code for diffusion models](https://sander.ai/2022/05/26/guidance.html) — **Sander Dieleman** — the definitive account of guidance and the guidance-scale trade-off.
 - [What are Diffusion Models? (Lil'Log)](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/) — **Lilian Weng** — the DDIM and faster-sampling sections with the math.
 - [Diffusers — Schedulers guide](https://huggingface.co/docs/diffusers/using-diffusers/schedulers) — **Hugging Face** — compares DDPM/DDIM/DPM-Solver/EDM samplers with code, free.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Understanding Deep Learning — **Ch. 18 "Diffusion models"**](https://udlbook.github.io/udlbook/) — **Simon Prince** — free PDF; the reverse process, DDIM, and guidance.
 - [Probabilistic Machine Learning: Advanced Topics — **Ch. 25 "Diffusion models"**](https://probml.github.io/pml-book/book2.html) — **Kevin Murphy** — free PDF; samplers, the probability-flow ODE, and guidance.
 
-## 🔗 In this platform
+## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 5.05 Autoregressive Generation & Sampling](/ai-ml/ai-ml-intuitions/generation/autoregressive-generation/autoregressive-generation-and-sampling-controls-intuition) · [5.03 Diffusion Models](/ai-ml/ai-ml-intuitions/generation/diffusion-and-score-models/diffusion-forward-and-reverse-process-intuition)
 - Prereq: [05 Diffusion Models (DDPM)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/diffusion-models-ddpm/diffusion-models-ddpm) · [06 Score-Based & SDE Diffusion](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/score-based-and-sde-diffusion/score-based-and-sde-diffusion) (the probability-flow ODE) · [04 Conditional Generation & CFG](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/conditional-generation-and-classifier-free-guidance/conditional-generation-and-classifier-free-guidance)
 - Related: [07 Latent Diffusion & Stable Diffusion](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/latent-diffusion-stable-diffusion/latent-diffusion-stable-diffusion) · [11 Text-to-Image Systems](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/text-to-image-systems/text-to-image-systems) (where guidance scale is the key knob)

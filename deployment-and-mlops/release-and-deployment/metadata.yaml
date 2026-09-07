@@ -4,3 +4,4 @@
 page-order:
   - cicd-for-ml-and-continuous-training/cicd-for-ml-and-continuous-training
   - ab-testing-shadow-and-canary-deployment/ab-testing-shadow-and-canary-deployment
+  - rollback-and-recovery-for-ml-systems/rollback-and-recovery-for-ml-systems

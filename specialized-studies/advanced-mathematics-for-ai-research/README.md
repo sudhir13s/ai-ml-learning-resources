@@ -51,6 +51,7 @@ not an afternoon.
 - **Applied optimizers** — Momentum · Adam · AdamW · LR schedules · K-FAC in practice → [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
 - **Clustering & dimensionality reduction** — k-means · GMM/EM · PCA · t-SNE · UMAP → [Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)
 - **Reinforcement learning** — MDPs · Bellman operators · policy gradients · bandits → [Reinforcement Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/readme)
+- **Structure instead of estimation** — logic, knowledge graphs, differentiable programming, neural theorem proving, and the applied side of causality → [Neuro-Symbolic and Structured Intelligence](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/readme)
 
 ## Core resource backbone
 - **Convex Optimization** (Boyd & Vandenberghe) — [free book + lectures](https://web.stanford.edu/~boyd/cvxbook/)

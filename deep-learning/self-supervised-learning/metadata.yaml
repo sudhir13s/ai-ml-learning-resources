@@ -3,3 +3,5 @@
 # and extension-less. README.md is repo-facing and deliberately absent.
 page-order:
   - contrastive-self-supervised-learning/contrastive-self-supervised-learning
+  - masked-modeling-mae-and-bert-style-pretraining/masked-modeling-mae-and-bert-style-pretraining
+  - teacher-student-self-distillation-dino-byol/teacher-student-self-distillation-dino-byol

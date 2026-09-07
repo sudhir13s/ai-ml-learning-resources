@@ -5,6 +5,17 @@ page-order:
   - conditional-generation-and-classifier-free-guidance/conditional-generation-and-classifier-free-guidance
   - diffusion-models-ddpm/diffusion-models-ddpm
   - score-based-and-sde-diffusion/score-based-and-sde-diffusion
+  - flow-matching-and-rectified-flow/flow-matching-and-rectified-flow
   - latent-diffusion-stable-diffusion/latent-diffusion-stable-diffusion
   - text-to-image-systems/text-to-image-systems
   - sampling-and-guidance-techniques/sampling-and-guidance-techniques
+  - diffusion-transformers-dit/diffusion-transformers-dit
+  - consistency-models-and-few-step-generation/consistency-models-and-few-step-generation
+  - distillation-for-fast-sampling/distillation-for-fast-sampling
+  - controlnet-and-conditioning-adapters/controlnet-and-conditioning-adapters
+  - image-editing-and-inversion/image-editing-and-inversion
+  - personalization-dreambooth-textual-inversion-lora/personalization-dreambooth-textual-inversion-lora
+  - video-diffusion-models/video-diffusion-models
+  - 3d-generation-score-distillation/3d-generation-score-distillation
+  - diffusion-inference-optimization/diffusion-inference-optimization
+  - safety-provenance-and-watermarking/safety-provenance-and-watermarking

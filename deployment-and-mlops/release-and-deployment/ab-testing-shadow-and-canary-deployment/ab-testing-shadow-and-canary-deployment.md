@@ -32,30 +32,30 @@ counterpart to monitoring. (The *statistics* of A/B tests live in 01. Foundation
 4. **Then A/B** — watch [A/B Testing & Canary Deployments for ML Models](https://www.youtube.com/watch?v=57HEs4l6_44). *Splitting traffic and choosing the decision metric.*
 5. **Get the stats right** — for hypothesis tests, power, and CUPED, go to [01. Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme). *MLOps owns the deployment mechanics; Foundations owns the experiment statistics.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [Made With ML — MLOps Course (deployment strategies)](https://madewithml.com/courses/mlops/) — **Goku Mohandas** — safe rollout within the production workflow.
 - [Google — Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) — **Google** — "measure the metric that matters" and launch discipline.
 
-## 🎥 Videos
+## Videos
 - [A/B Testing & Canary Deployments for ML Models: Safe Rollouts](https://www.youtube.com/watch?v=57HEs4l6_44) — **Uplatz** — the rollout strategies compared.
 - [Shadow Deployment in Machine Learning Explained](https://www.youtube.com/watch?v=1NUshG4ahoU) — **community** — what shadow mode is and why it's the safe first step.
 - [Deploying AI Models: How Does Shadow Deployment Work?](https://www.youtube.com/watch?v=gCnp8QWtCMc) — **community** — the mechanics of mirroring production traffic.
 - [How to Master Shadow Deployment for Model Testing](https://www.youtube.com/watch?v=_kokPCOkvec) — **community** — deeper walkthrough of shadow testing in practice.
 
-## 📄 Key Papers
+## Key Papers
 - [Challenges in Deploying ML: A Survey of Case Studies](https://arxiv.org/abs/2011.09926) — **Paleyes et al. (2020)** — why offline metrics mislead and rollout safety matters.
 - [The ML Test Score](https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/) — **Breck et al. (Google, 2017)** — "test in production" as part of production readiness.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [Canary Release](https://martinfowler.com/bliki/CanaryRelease.html) — **Martin Fowler** — the canonical definition of progressive rollout.
 - [Continuous Delivery for ML (CD4ML)](https://martinfowler.com/articles/cd4ml.html) — **martinfowler.com** — model rollout inside the CD pipeline.
 - [Shadow Tests (SageMaker)](https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests.html) — **AWS** — production shadow-testing mechanics and metrics.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Designing Machine Learning Systems — **Ch. 9 "Continual Learning & Test in Production"** (shadow, canary, A/B)](https://huyenchip.com/mlops/) — **Chip Huyen** — the canonical chapter on test-in-prod (author notes free).
 - [Machine Learning Engineering — **Ch. 8 "Model Deployment"** (deployment strategies)](http://www.mlebook.com/wiki/doku.php) — **Andriy Burkov** — read-first chapters free.
 
-## 🔗 In this platform
+## In this platform
 - Builds on: [09 Model Serving](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/model-serving/model-serving) · [13 Model Registry & Governance](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/governance-and-economics/model-registry-and-governance/model-registry-and-governance)
 - Next concepts: [12 Data & Concept Drift Detection](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/monitoring-and-reliability/data-and-concept-drift-detection/data-and-concept-drift-detection) · [07 CI/CD for ML & CT](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/release-and-deployment/cicd-for-ml-and-continuous-training/cicd-for-ml-and-continuous-training)
 - Related concept (covered elsewhere): A/B-test statistics (hypothesis tests, power, CUPED) → [01. Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme)

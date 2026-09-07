@@ -1,0 +1,9 @@
+# Reading order for this category. `page-order:` is the ONE ordering key
+# estate-wide (structure-authoring-contract Rule 4); entries are relative
+# and extension-less. README.md is repo-facing and deliberately absent.
+page-order:
+  - symbolic-ai-and-good-old-fashioned-ai/symbolic-ai-and-good-old-fashioned-ai
+  - statistical-learning-paradigm/statistical-learning-paradigm
+  - neural-learning-paradigm/neural-learning-paradigm
+  - probabilistic-reasoning-and-graphical-models/probabilistic-reasoning-and-graphical-models
+  - neuro-symbolic-ai-overview/neuro-symbolic-ai-overview

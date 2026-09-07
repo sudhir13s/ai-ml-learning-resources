@@ -4,3 +4,7 @@
 page-order:
   - bias-variance-tradeoff/bias-variance-tradeoff
   - cross-validation/cross-validation
+  - hyperparameter-search-a-bridge/hyperparameter-search-a-bridge
+  - calibration-and-reliability-diagrams/calibration-and-reliability-diagrams
+  - uncertainty-estimation-and-conformal-prediction/uncertainty-estimation-and-conformal-prediction
+  - error-analysis-and-model-debugging/error-analysis-and-model-debugging

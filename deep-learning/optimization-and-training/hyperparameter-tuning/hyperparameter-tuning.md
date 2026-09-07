@@ -486,3 +486,5 @@ A page on tuning is incomplete without the failure modes, because most wasted sw
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
 **→ [Hyperparameter Tuning — references and further reading](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/hyperparameter-tuning/hyperparameter-tuning#references-further-reading)**
+
+**In this platform:** for the classical-ML view of the same search methods — grid, random, Bayesian and Hyperband on scikit-learn-scale models — see [Hyperparameter Search — a bridge](/ai-ml/ai-ml-learning-resources/core-machine-learning/model-selection-and-evaluation/hyperparameter-search-a-bridge/hyperparameter-search-a-bridge), which points back here for the full derivation.

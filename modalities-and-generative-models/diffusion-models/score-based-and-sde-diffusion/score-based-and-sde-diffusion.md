@@ -36,30 +36,30 @@ deterministic, invertible map.
 4. **Read the sources** — [Generative Modeling by Estimating Gradients (NCSN)](https://arxiv.org/abs/1907.05600) — **Song & Ermon (2019)** → [Score-Based Generative Modeling through SDEs](https://arxiv.org/abs/2011.13456) — **Song et al. (2021)**. *Annealed Langevin first, then the SDE framework that subsumes DDPM.*
 5. **Make it concrete** — read [The Annotated Diffusion Model](https://huggingface.co/blog/annotated-diffusion) — **Hugging Face**, then map `ε`-prediction to score `s_θ ≈ −ε/σ`. *Seeing the two parameterizations coincide is the "aha."*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [Stanford CS236 — Deep Generative Models](https://deepgenerativemodels.github.io/) — **Stanford (Ermon)** — free lecture notes; the score-matching and energy/score lectures are the canonical course treatment.
 - [Hugging Face — Diffusion Models Course](https://huggingface.co/learn/diffusion-course/unit0/1) — **Hugging Face** — free; the `diffusers` score-SDE pipelines let you sample with SDE/ODE solvers.
 
-## 🎥 Videos
+## Videos
 - [Diffusion and Score-Based Generative Models](https://www.youtube.com/watch?v=wMmqCMwuM2Q) — **Yang Song (MIT CBMM)** — the author's lecture: score matching → SDE → probability-flow ODE.
 - [Diffusion Models From Scratch | Score-Based Generative Models Explained](https://www.youtube.com/watch?v=B4oHJpEJBAA) — **Outlier** — links the score view to noise-prediction, with clear animations.
 - [What are Diffusion Models?](https://www.youtube.com/watch?v=fbLgFrlTnGU) — **Ari Seff** — the diffusion mental model the score view builds on; useful warm-up.
 - [Diffusion Models | Paper Explanation | Math Explained](https://www.youtube.com/watch?v=HoKDTa5jHvg) — **Outlier** — the DDPM math whose loss is provably the denoising-score-matching loss.
 
-## 📄 Key Papers
+## Key Papers
 - [Generative Modeling by Estimating Gradients of the Data Distribution (NCSN)](https://arxiv.org/abs/1907.05600) — **Song & Ermon (2019)** — score matching across noise scales + annealed Langevin sampling.
 - [Score-Based Generative Modeling through Stochastic Differential Equations](https://arxiv.org/abs/2011.13456) — **Song et al. (2021)** — the SDE framework: forward/reverse SDEs, VE/VP, and the probability-flow ODE.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [Generative Modeling by Estimating Gradients of the Data Distribution](https://yang-song.net/blog/2021/score/) — **Yang Song** — the definitive author blog: scores, Langevin, the SDE unification, with code.
 - [What are Diffusion Models? (Lil'Log)](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/) — **Lilian Weng** — includes the score-based and SDE sections linking to DDPM.
-- [Understanding Diffusion Models: A Unified Perspective](https://calvinyluo.com/2022/08/26/diffusion-tutorial.html) — **Calvin Luo** — derives the score interpretation of the DDPM objective explicitly.
+- [Understanding Diffusion Models: A Unified Perspective](https://arxiv.org/abs/2208.11970) — **Calvin Luo** — derives the score interpretation of the DDPM objective explicitly.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Probabilistic Machine Learning: Advanced Topics — **Ch. 25 "Diffusion models" (score-based & SDE sections)**](https://probml.github.io/pml-book/book2.html) — **Kevin Murphy** — free PDF; score matching and the SDE view in one place.
 - [Understanding Deep Learning — **Ch. 18 "Diffusion models"**](https://udlbook.github.io/udlbook/) — **Simon Prince** — free PDF; the score/SDE connection with clean figures.
 
-## 🔗 In this platform
+## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 5.03 Diffusion Models](/ai-ml/ai-ml-intuitions/generation/diffusion-and-score-models/diffusion-forward-and-reverse-process-intuition)
 - Prereq: [05 Diffusion Models (DDPM)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/diffusion-models-ddpm/diffusion-models-ddpm) (the equivalent noise-prediction view)
 - Next concepts: [07 Latent Diffusion & Stable Diffusion](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/latent-diffusion-stable-diffusion/latent-diffusion-stable-diffusion) · [13 Sampling & Guidance Techniques](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/diffusion-models/sampling-and-guidance-techniques/sampling-and-guidance-techniques) (DDIM / ODE samplers)
