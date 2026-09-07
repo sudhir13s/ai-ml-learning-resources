@@ -1,0 +1,10 @@
+# Reading order for this category. `page-order:` is the ONE ordering key
+# estate-wide (structure-authoring-contract Rule 4); entries are relative
+# and extension-less. README.md is repo-facing and deliberately absent.
+page-order:
+  - gpus-and-accelerators-for-deep-learning/gpus-and-accelerators-for-deep-learning
+  - mixed-precision-and-memory-efficient-training/mixed-precision-and-memory-efficient-training
+  - distributed-training-parallelism-fsdp-zero/distributed-training-parallelism-fsdp-zero
+  - checkpointing-and-fault-tolerant-training/checkpointing-and-fault-tolerant-training
+  - cluster-scheduling-and-training-orchestration/cluster-scheduling-and-training-orchestration
+  - training-cost-and-capacity-planning/training-cost-and-capacity-planning

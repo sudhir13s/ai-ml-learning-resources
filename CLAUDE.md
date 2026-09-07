@@ -148,9 +148,10 @@ Ordered by learning progression, each declared as a section in `course.yaml`:
   llm-model-architectures · training-and-adaptation · inference-and-runtime ·
   reasoning-evaluation-and-alignment · rag-and-knowledge-systems · agentic-ai.
 - **`deployment-and-mlops/`** — lifecycle-and-reproducibility · data-and-training-platforms
-  (incl. GPUs and accelerators · distributed training) · packaging-and-serving ·
-  release-and-deployment (incl. rollback and recovery) · monitoring-and-reliability (incl. AI
-  incident response) · governance-and-economics.
+  (feature stores · pipelines) · training-infrastructure (GPUs and accelerators · mixed
+  precision · distributed training · checkpointing · cluster scheduling · training cost) ·
+  packaging-and-serving · release-and-deployment (incl. rollback and recovery) ·
+  monitoring-and-reliability (incl. AI incident response) · governance-and-economics.
 - **`world-models-and-embodied-intelligence/`** — world-model-foundations ·
   predictive-representation-models · latent-dynamics · learning-and-planning ·
   spatial-and-physical-world-models · video-and-generative-world-models ·

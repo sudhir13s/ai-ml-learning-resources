@@ -1,5 +1,5 @@
 ---
-id: "deployment-and-mlops/data-and-training-platforms/distributed-training-parallelism-fsdp-zero"
+id: "deployment-and-mlops/training-infrastructure/distributed-training-parallelism-fsdp-zero"
 topic: "Distributed Training — Parallelism, FSDP & ZeRO"
 level: advanced
 built_from: ["gpus-and-accelerators-for-deep-learning", "ml-pipelines-and-orchestration"]
@@ -10,7 +10,7 @@ tier: core
 est_minutes: 20
 title: "Distributed Training — Parallelism, FSDP & ZeRO"
 minutes: 20
-category: data-and-training-platforms
+category: training-infrastructure
 ---
 
 # Distributed Training — Parallelism, FSDP & ZeRO
@@ -78,7 +78,7 @@ pipeline and data parallelism are what you stretch across the slower inter-node 
 
 ## In this platform
 
-- Prerequisite: [GPUs & Accelerators for Deep Learning](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/data-and-training-platforms/gpus-and-accelerators-for-deep-learning/gpus-and-accelerators-for-deep-learning) — the memory hierarchy and bandwidth numbers this page spends
+- Prerequisite: [GPUs & Accelerators for Deep Learning](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/training-infrastructure/gpus-and-accelerators-for-deep-learning/gpus-and-accelerators-for-deep-learning) — the memory hierarchy and bandwidth numbers this page spends
 - Runs on top of: [ML Pipelines & Orchestration](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/data-and-training-platforms/ml-pipelines-and-orchestration/ml-pipelines-and-orchestration) · [Feature Stores](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/data-and-training-platforms/feature-stores/feature-stores)
 - The inference mirror image: [Scaling Inference](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/packaging-and-serving/scaling-inference/scaling-inference) · [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) · [Inference Optimization](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/inference-optimization/inference-optimization)
 - What a run costs, and how to shrink it: [Cost Optimization for ML Systems](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/governance-and-economics/cost-optimization/cost-optimization)
