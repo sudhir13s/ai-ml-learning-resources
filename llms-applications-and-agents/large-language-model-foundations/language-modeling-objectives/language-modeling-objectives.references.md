@@ -3,7 +3,7 @@ id: "09-llms/language-modeling-objectives/references"
 topic: "Language Modeling Objectives — References"
 parent: "09-llms/language-modeling-objectives"
 type: references
-updated: 2026-06-26
+updated: 2026-09-07
 ---
 
 # Language Modeling Objectives — references and further reading
@@ -32,6 +32,7 @@ updated: 2026-06-26
 - [Stanford CS324 — Large Language Models](https://stanford-cs324.github.io/winter2022/) — **Stanford** — defines the LM objective and exactly what it does and doesn't learn.
 - [Stanford CS336 — Language Modeling from Scratch](https://stanford-cs336.github.io/spring2025/) — **Stanford** — builds an LM end to end, objective included.
 - [Hugging Face LLM Course — Ch. 1: Transformer models](https://huggingface.co/learn/llm-course/chapter1/1) — **Hugging Face** — causal vs masked vs seq2seq objectives, with code.
+- [LLM Chronicles](https://www.youtube.com/playlist?list=PLNg09XqZv0dEWPpb1jJf8woP3cl_boYWZ) — **Donato Capitella** — a free, ordered curriculum from artificial neurons through recurrent networks, attention, and transformers to agents, each concept given a whiteboard derivation and then a runnable lab notebook; the gentlest complete path to the causal objective if the papers are still too steep.
 
 **Articles / blogs (free, no paywall)**:
 - [The Illustrated GPT-2](https://jalammar.github.io/illustrated-gpt2/) — **Jay Alammar** — visualizes autoregressive next-token generation, the causal objective made pictures.
@@ -60,7 +61,7 @@ updated: 2026-06-26
 
 **In this platform**:
 - Concept page (full explanation): [Language Modeling Objectives](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/language-modeling-objectives/language-modeling-objectives)
-- Foundations (the *why* behind transformers and softmax): [Transformer Architecture](../../../../deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture.md) · [Attention Mechanism](../../../../deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism.md)
-- The pre-neural baseline: [N-gram Language Models and Smoothing](../../../../modalities-and-generative-models/natural-language-processing/n-gram-language-models-and-smoothing/n-gram-language-models-and-smoothing.md) · the masked-LM encoders: [Contextual Embeddings (ELMo / BERT)](../../../../modalities-and-generative-models/natural-language-processing/contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert.md)
+- Foundations (the *why* behind transformers and softmax): [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture) · [Attention Mechanism](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism)
+- The pre-neural baseline: [N-gram Language Models and Smoothing](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/n-gram-language-models-and-smoothing/n-gram-language-models-and-smoothing) · the masked-LM encoders: [Contextual Embeddings (ELMo / BERT)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert)
 - Builds on this: [Decoder-only Architecture](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/decoder-only-models/decoder-only-models) · [Pretraining at Scale](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/pretraining/pretraining) · [Scaling Laws](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/scaling-laws/scaling-laws)
 - Puts it to work: [Decoding and Sampling](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/decoding-and-sampling/decoding-and-sampling) · [LLM Evaluation and Benchmarks](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/llm-evaluation/llm-evaluation)

@@ -3,7 +3,7 @@ id: "09-llms/knowledge-distillation/references"
 topic: "Knowledge Distillation — References"
 parent: "09-llms/knowledge-distillation"
 type: references
-updated: 2026-06-26
+updated: 2026-09-07
 ---
 
 # Knowledge Distillation — references and further reading
@@ -19,13 +19,12 @@ updated: 2026-06-26
 
 **Videos**:
 - [Knowledge Distillation in Neural Networks — Explained!](https://www.youtube.com/watch?v=BUCSTKQOzcM) — **CodeEmporium** — the clearest conceptual intro: teacher/student, soft targets, temperature.
-- [Knowledge Distillation in ML: Full Tutorial with Code](https://www.youtube.com/watch?v=l44uC7jfnvY) — **Greg Hogg** — the KD loss implemented and trained end to end.
 - [Deep Dive into LLMs like ChatGPT](https://www.youtube.com/watch?v=7xTGNNLPyMI) — **Andrej Karpathy** — where distilled small models and synthetic-data training fit in the modern LLM landscape.
-- [Stanford CS25: Efficient Transformers / Model Compression](https://www.youtube.com/watch?v=P_jeWu5G7Bw) — **Stanford CS25** — distillation alongside quantization and pruning in the compression toolbox.
+- [Stanford CS336 — Language Modeling from Scratch, Spring 2025 (lectures)](https://www.youtube.com/playlist?list=PLoROMvodv4rOY23Y0BoGoBGgQ1zmU_MT_) — **Stanford Online** — distillation alongside quantization and pruning in the efficiency lectures, costed against a real training budget.
 
 **Interactive & hands-on**:
 - [Knowledge Distillation tutorial (runnable notebook)](https://docs.pytorch.org/tutorials/beginner/knowledge_distillation_tutorial.html) — **PyTorch** — the soft-target loss, the temperature, and a CIFAR teacher→student run you can execute cell by cell.
-- [Hugging Face — task-specific distillation example](https://github.com/huggingface/transformers/tree/main/examples/research_projects/distillation) — **Hugging Face** — the actual DistilBERT distillation code (triple loss, layer init) to read and adapt.
+- [Hugging Face — DistilBERT distillation example (archived at v4.40)](https://github.com/huggingface/transformers/tree/v4.40.0/examples/research_projects/distillation) — **Hugging Face** — the actual DistilBERT distillation code (triple loss, layer init) to read and adapt; pinned to the last release that carried it, since `research_projects/` was removed from `main`.
 
 **Courses (free)**:
 - [Stanford CS336 — Language Modeling from Scratch](https://stanford-cs336.github.io/spring2025/) — **Stanford** — distillation within the full efficiency/compression stack for LLMs.
@@ -46,6 +45,9 @@ updated: 2026-06-26
 - [Knowledge Distillation: A Survey](https://arxiv.org/abs/2006.05525) — **Gou et al. (2021)** — the standard survey; the source of the response/feature/relation and offline/online/self taxonomy used on the page.
 - [Sequence-Level Knowledge Distillation](https://arxiv.org/abs/1606.07947) — **Kim & Rush (2016)** — distill on the teacher's *generated sequences* rather than per-token soft targets; the generation/LLM-relevant form. *(Concept-page source for sequence-level KD.)*
 - [TinyBERT: Distilling BERT for Natural Language Understanding](https://arxiv.org/abs/1909.10351) — **Jiao et al. (2019)** — multi-component feature distillation (embeddings, hidden states, **attention matrices**) in a two-stage scheme. *(Concept-page source for TinyBERT.)*
+- [MiniLLM: Knowledge Distillation of Large Language Models](https://arxiv.org/abs/2306.08543) — **Gu et al. (2023, ICLR 2024)** — swaps forward KL for **reverse** KL so the student stops trying to cover the teacher's whole distribution and instead concentrates on its high-probability modes; the correction that makes generative distillation work.
+- [Gemma 2: Improving Open Language Models at a Practical Size](https://arxiv.org/abs/2408.00118) — **Gemma team, Google DeepMind (2024)** — distillation used as the *pretraining* objective, not a post-hoc compression step: train the 2B and 9B models on a large teacher's full token distribution and beat same-size models trained on hard labels. The 2025-26 reason small open models are as good as they are.
+- [A Survey on Knowledge Distillation of Large Language Models](https://arxiv.org/abs/2402.13116) — **Xu et al. (2024)** — the modern map: black-box distillation from API models, self-instruct data generation, rationale and preference distillation, plus the licensing question every practitioner hits.
 
 **Books (free chapters)**:
 - [Dive into Deep Learning](https://d2l.ai/) — **Zhang, Lipton, Li & Smola** — the efficiency/computational-performance chapters that frame compression (distillation, quantization, pruning).

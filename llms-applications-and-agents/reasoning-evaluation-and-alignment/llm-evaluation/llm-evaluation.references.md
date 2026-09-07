@@ -3,7 +3,7 @@ id: "09-llms/llm-evaluation-and-benchmarks/references"
 topic: "LLM Evaluation & Benchmarks — References"
 parent: "09-llms/llm-evaluation-and-benchmarks"
 type: references
-updated: 2026-06-27
+updated: 2026-09-07
 ---
 
 # LLM Evaluation & Benchmarks — references and further reading
@@ -11,7 +11,7 @@ updated: 2026-06-27
 > Companion link library for **[LLM Evaluation & Benchmarks](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/llm-evaluation/llm-evaluation)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is free / open-access; every paper is linked by its arXiv ID. Sources cited in the page's `Source / derivation` blockquotes all appear in **Papers** (or **Books**) below.
 
 **Start here — suggested path**:
-1. **Get the landscape** — watch [What are LLM Benchmarks?](https://www.youtube.com/watch?v=kDY4TodQwbg) (**IBM Technology**). *MMLU, scoring, and what benchmarks do and don't measure.*
+1. **Get the landscape** — read [Understanding the 4 Main Approaches to LLM Evaluation](https://magazine.sebastianraschka.com/p/llm-evaluation-4-approaches) (**Sebastian Raschka**). *Multiple-choice benchmarks, verifiers, LLM judges, and human preference — what each actually measures, implemented from scratch.*
 2. **Feel why it's hard** — watch [Deep Dive into LLMs like ChatGPT](https://www.youtube.com/watch?v=7xTGNNLPyMI) (**Andrej Karpathy**, eval section). *How models are evaluated across the whole pipeline, and where it breaks.*
 3. **Do the perplexity math** — read [Speech and Language Processing, Ch. 3 §3.7](https://web.stanford.edu/~jurafsky/slp3/3.pdf) (**Jurafsky & Martin**). *Perplexity = inverse geometric-mean probability = exp(cross-entropy), derived.*
 4. **See preference eval** — read [Chatbot Arena (LMSYS)](https://lmsys.org/blog/2023-05-03-arena/) (**LMSYS**). *Elo from human pairwise votes — the live leaderboard.*
@@ -19,12 +19,12 @@ updated: 2026-06-27
 6. **Run an eval** — [EleutherAI lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness). *The standard tool behind the Open LLM Leaderboard.*
 
 **Videos**:
-- [What are Large Language Model (LLM) Benchmarks?](https://www.youtube.com/watch?v=kDY4TodQwbg) — **IBM Technology** — the clearest short intro to benchmarks, scoring, and their limits.
 - [Deep Dive into LLMs like ChatGPT](https://www.youtube.com/watch?v=7xTGNNLPyMI) — **Andrej Karpathy** — the full pipeline including how models are evaluated and why benchmarks mislead.
+- [Stanford CS336 — Language Modeling from Scratch, Spring 2025 (lectures)](https://www.youtube.com/playlist?list=PLoROMvodv4rOY23Y0BoGoBGgQ1zmU_MT_) — **Stanford Online** — the evaluation lecture: what a benchmark number is actually measuring once you have built the model it scores.
 - [Intro to Large Language Models](https://www.youtube.com/watch?v=zjkBMFhNj_g) — **Andrej Karpathy** — capabilities/limits framing that motivates the whole evaluation portfolio.
 - [Reinforcement Learning from Human Feedback (RLHF), Clearly Explained](https://www.youtube.com/watch?v=qPN_XZcJf_s) — **StatQuest (Josh Starmer)** — preference data and the Bradley–Terry reward model that Elo evaluation shares.
 - [The Elo Rating System, Explained](https://www.youtube.com/watch?v=AsYfbmp0To0) — **Singing Banana (James Grime)** — the chess Elo update and the +400 ⇒ 10× odds convention behind Chatbot Arena.
-- [Why Neural Networks Can Be Overconfident (Calibration)](https://www.youtube.com/watch?v=A3iVj9D8mLk) — **DeepFindr** — reliability diagrams and ECE, the calibration lens, visually.
+- [How We Build Effective Agents](https://www.youtube.com/watch?v=D7_ipDqhtwk) — **Barry Zhang (Anthropic), AI Engineer** — why a benchmark score does not survive contact with a real task, and what a team measures instead once the model is inside a product.
 
 **Interactive & visual**:
 - [Chatbot Arena Leaderboard (live)](https://lmarena.ai/) — **LMArena (formerly LMSYS)** — the live pairwise-vote Elo leaderboard; watch ratings update from real human votes.
@@ -43,6 +43,11 @@ updated: 2026-06-27
 - [Perplexity of fixed-length models](https://huggingface.co/docs/transformers/en/perplexity) — **Hugging Face** — how perplexity is actually computed (sliding window, tokenizer caveats) with runnable code.
 - [Evaluating LLMs is a minefield](https://www.cs.princeton.edu/~arvindn/talks/evaluating_llms_minefield/) — **Narayanan & Kapoor (Princeton)** — contamination, construct validity, and why headline scores mislead.
 - [A Survey on Evaluation of Large Language Models (companion site)](https://llm-eval.github.io/) — **Chang et al.** — a structured map of what/how/where LLMs are evaluated.
+- [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) — **Hamel Husain** — the practitioner counterweight to leaderboards: error-analyse real traces, write assertions, and validate the LLM judge against human labels before you trust its score.
+- [LLM-as-a-Judge cookbook](https://huggingface.co/learn/cookbook/en/llm_judge) — **Hugging Face** — a runnable judge with the bias mitigations applied (rubric, few-shot anchors, agreement check against humans).
+- [simple-evals](https://github.com/openai/simple-evals) — **OpenAI** — the reference harness behind widely quoted 2025 numbers, with the exact prompts and answer-extraction rules; useful for seeing how much of a "benchmark score" is really harness choices.
+
+**Where evaluation stands in 2026:** the older batteries (MMLU, HellaSwag, GSM8K) are saturated and contaminated, so the live questions moved to **contamination-resistant and harder sets** ([GPQA](https://arxiv.org/abs/2311.12022), [LiveBench](https://arxiv.org/abs/2406.19314) with its continuously refreshed questions, [Humanity's Last Exam](https://arxiv.org/abs/2501.14249)), to **execution-verified tasks** ([SWE-bench Verified](https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified)), and to **agent reliability** ([τ-bench](https://arxiv.org/abs/2406.12045), which measures whether the same task succeeds *k* times in a row). If you are asked "how would you evaluate this model," the expected answer names a verifier or a live-refreshed set, not MMLU.
 
 **Key papers** (every paper cited in the page's `Source / derivation` blockquotes is here):
 - [Evaluating Large Language Models Trained on Code (Codex / HumanEval)](https://arxiv.org/abs/2107.03374) — **Chen et al. (2021)** — introduces HumanEval and the **unbiased pass@k** estimator $1 - \binom{n-c}{k}/\binom{n}{k}$ (§2.1) the page derives.
@@ -68,6 +73,6 @@ updated: 2026-06-27
 
 **In this platform**:
 - Concept page (full explanation): [LLM Evaluation & Benchmarks](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/llm-evaluation/llm-evaluation)
-- Foundations (the *why* behind the math): [NLP Evaluation Metrics (perplexity, BLEU, ROUGE, BERTScore)](../../../../modalities-and-generative-models/natural-language-processing/nlp-evaluation-metrics/nlp-evaluation-metrics.md) · [Information Theory: Entropy & KL Divergence](/ai-ml/ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition)
+- Foundations (the *why* behind the math): [NLP Evaluation Metrics (perplexity, BLEU, ROUGE, BERTScore)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/nlp-evaluation-metrics/nlp-evaluation-metrics) · [Information Theory: Entropy & KL Divergence](/ai-ml/ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition)
 - Shares the math: [RLHF & DPO](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/preference-and-alignment-training/preference-and-alignment-training) (the Bradley–Terry reward model is the same logistic as Elo)
 - Related concepts: [Chain-of-Thought Reasoning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/chain-of-thought-and-reasoning/chain-of-thought-and-reasoning) (why GSM8K rewards reasoning) · [Decoding & Sampling](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/decoding-and-sampling/decoding-and-sampling) (the sampling that pass@k accounts for) · [Hallucination & Alignment Basics](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/safety-and-alignment/safety-and-alignment) (why calibration matters)

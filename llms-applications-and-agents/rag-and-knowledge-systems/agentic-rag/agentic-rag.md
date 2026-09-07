@@ -6,7 +6,7 @@ level: advanced
 built_from: ["advanced-rag", "query-transformation", "rag-fundamentals"]
 interview_frequency: high
 template: concept-deep
-updated: 2026-07-02
+updated: 2026-09-07
 tier: core
 est_minutes: 25
 title: "Agentic RAG"
@@ -216,7 +216,7 @@ are close, the argmax is a coin-flip, which is why production routers sometimes 
 tie-break (we'll *see* a near-tie in the code).
 
 > **Source / derivation:** routing as similarity-to-tool-description is the LlamaIndex
-> [RouterQueryEngine](https://docs.llamaindex.ai/en/stable/examples/query_engine/RouterQueryEngine/)
+> [RouterQueryEngine](https://developers.llamaindex.ai/python/framework/module_guides/querying/router/)
 > pattern; learned query-complexity routing (simple vs multi-step) is [Adaptive-RAG](https://arxiv.org/abs/2403.14403)
 > (Jeong et al. 2024). Both in the references.
 
@@ -478,7 +478,7 @@ routing named as first-class objects:
   express.
 - **[LlamaIndex](https://docs.llamaindex.ai/en/stable/examples/agent/react_agent/)** ships the loop as
   `ReActAgent`, plus
-  [`RouterQueryEngine`](https://docs.llamaindex.ai/en/stable/examples/query_engine/RouterQueryEngine/)
+  [`RouterQueryEngine`](https://developers.llamaindex.ai/python/framework/module_guides/querying/router/)
   (pick one source by description) and
   [`SubQuestionQueryEngine`](https://docs.llamaindex.ai/en/stable/examples/query_engine/sub_question_query_engine/)
   (decompose a compound query, answer each part, combine) — the three patterns this page built from

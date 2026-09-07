@@ -6,7 +6,7 @@ level: intermediate
 built_from: ["bm25", "dense-embeddings", "cosine-similarity", "rag-fundamentals"]
 interview_frequency: high
 template: concept-deep
-updated: 2026-06-27
+updated: 2026-09-07
 tier: core
 est_minutes: 30
 title: "Hybrid Search (BM25 + Dense)"
@@ -220,7 +220,7 @@ The scale problem evaporates if you throw away the raw scores and keep only the 
 
 $$\text{RRF}(d)\;=\;\sum_{i\,\in\,\text{lists}}\frac{1}{k+r_i(d)}$$
 
-> **Source / derivation:** [Cormack, Clarke & Büttcher, *Reciprocal Rank Fusion Outperforms Condorcet and Individual Rank Learning Methods* (SIGIR 2009)](https://plg.uwaterloo.ca/~gvcormack/cormacksigir09-rrf.pdf) — introduces RRF (Eq. 1) and the constant $k=60$, showing this simple rank-based fusion beats more complex learned combination methods.
+> **Source / derivation:** [Cormack, Clarke & Büttcher, *Reciprocal Rank Fusion Outperforms Condorcet and Individual Rank Learning Methods* (SIGIR 2009)](https://cormack.uwaterloo.ca/cormacksigir09-rrf.pdf) — introduces RRF (Eq. 1) and the constant $k=60$, showing this simple rank-based fusion beats more complex learned combination methods.
 
 where $r_i(d)$ is document $d$'s **1-based rank** in list $i$ (rank 1 = best), and $k$ is a constant that damps the influence of low ranks. Because RRF reads only ranks, it needs **no normalization** and is **immune to the scale mismatch** — its single biggest practical advantage. The constant $k$ controls how sharply rank-1 dominates: the notebook prints the weights at $k=60$ — rank 1 is worth `0.01639`, rank 10 is worth `0.01429`, rank 100 worth `0.00625`. A **smaller** $k$ makes being #1 far more decisive; a **larger** $k$ flattens the curve so deep ranks still count.
 
@@ -311,11 +311,11 @@ Read it: **BM25 alone misses half the queries** (recall@3 = 0.500 — it never r
 collection.query.hybrid(query="telemetry error", alpha=0.6, limit=3)
 
 # Elasticsearch / OpenSearch — RRF over a BM25 retriever + a kNN (dense) retriever
-#   "retriever": { "rrf": { "retrievers": [ {"standard": {...BM25...}}, {"knn": {...}} ],
-#                           "rank_constant": 60, "rank_window_size": 100 } }
+# "retriever": { "rrf": { "retrievers": [ {"standard": {...BM25...}}, {"knn": {...}} ],
+# "rank_constant": 60, "rank_window_size": 100 } }
 
 # Qdrant — Query API: prefetch both, fuse with RRF
-#   client.query_points(prefetch=[dense_q, sparse_q], query=models.FusionQuery(fusion=models.Fusion.RRF))
+# client.query_points(prefetch=[dense_q, sparse_q], query=models.FusionQuery(fusion=models.Fusion.RRF))
 
 # pgvector + Postgres FTS — blend ts_rank (lexical) with 1 - (embedding <=> query) (cosine)
 # Pinecone — sparse-dense vectors in one index; the dot product spans both parts

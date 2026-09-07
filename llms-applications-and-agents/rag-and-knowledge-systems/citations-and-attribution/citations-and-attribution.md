@@ -6,7 +6,7 @@ level: intermediate
 built_from: ["rag-fundamentals", "rag-evaluation", "advanced-rag-parent-doc-fusion-self-rag"]
 interview_frequency: high
 template: concept-deep
-updated: 2026-07-02
+updated: 2026-09-07
 tier: core
 est_minutes: 25
 title: "Citations & Attribution (post-hoc attribution · citation precision/recall)"
@@ -522,7 +522,7 @@ column grades or repairs any output. Schematic; placements from each provider's 
 
 Where it shows up (each verified against the provider's own docs):
 
-- **Consumer answer engines.** [Perplexity](https://www.perplexity.ai/) and Bing/Copilot put **inline
+- **Consumer answer engines.** Perplexity, Bing/Copilot, and Google's AI Overviews all put **inline
   numbered citations** on every answer, sourced from live web results — the citation *is* the product,
   because it's what makes a synthesized answer trustworthy enough to act on.
 - **Anthropic Citations API.** Set `"citations": {"enabled": true}` on a document and Claude returns,

@@ -3,7 +3,7 @@ id: "15-rag-and-llm-apps/embedding-models-for-retrieval/references"
 topic: "Embedding Models for Retrieval — References"
 parent: "15-rag-and-llm-apps/embedding-models-for-retrieval"
 type: references
-updated: 2026-06-27
+updated: 2026-09-07
 ---
 
 # Embedding Models for Retrieval — references and further reading
@@ -20,8 +20,8 @@ updated: 2026-06-27
 **Videos**:
 - [Intro to Sentence Embeddings with Transformers](https://www.youtube.com/watch?v=WS1uVMGhlWQ) — **James Briggs** — from BERT token vectors to pooled sentence embeddings; the foundation of dense retrieval.
 - [Introduction to Semantic Search](https://www.youtube.com/watch?v=OcJZ6XWrTEA) — **Luis Serrano (Cohere)** — clear visual case for embedding-based retrieval over keyword search.
-- [Text Embeddings, Classification, and Semantic Search (with Python)](https://www.youtube.com/watch?v=sNa_uiqSlJo) — **Shaw Talebi** — code-first walkthrough of generating embeddings and building semantic search.
-- [What is a Vector Database? Powering Semantic Search](https://www.youtube.com/watch?v=gl1r1XV0SLw) — **IBM Technology** — how query/document embeddings are stored and matched downstream (bridges to chapter 4).
+- [Sentence Transformers and Embedding Evaluation](https://www.youtube.com/watch?v=apuDeylm1uE) — **Nils Reimers (Cohere)** — the creator of Sentence-Transformers on how these models are actually trained and, more usefully, how to judge whether one fits *your* corpus rather than a leaderboard.
+- [Multilingual and cross-lingual embeddings](https://www.youtube.com/watch?v=Axk4NIk3edg) — **Nils Reimers (Cohere)** — why one vector space can hold many languages, and the failure modes when queries and documents are not in the same one.
 
 **Interactive & visual**:
 - [Embedding Projector](https://projector.tensorflow.org/) — **TensorFlow** — explore a real embedding space in 2D/3D; *see* semantically similar text cluster, the geometry retrieval relies on.
@@ -35,7 +35,7 @@ updated: 2026-06-27
 - [Semantic Search (asymmetric vs symmetric)](https://www.sbert.net/examples/sentence_transformer/applications/semantic-search/README.html) — **Sentence-Transformers** — the canonical how-to for query vs document encoding and when search is asymmetric.
 - [Choosing an Embedding Model](https://www.pinecone.io/learn/series/rag/embedding-models-rundown/) — **Pinecone** — practical rundown of model families and selection criteria for RAG.
 - [MTEB: Massive Text Embedding Benchmark](https://huggingface.co/blog/mteb) — **Hugging Face** — what the leaderboard measures and how to read the Retrieval task.
-- [New embedding models and API updates (`text-embedding-3`)](https://openai.com/index/new-embedding-models-and-api-updates/) — **OpenAI** — the source for `text-embedding-3-small` (1536) / `-large` (3072) dims and Matryoshka `dimensions` shortening.
+- [Embeddings guide](https://platform.openai.com/docs/guides/embeddings) — **OpenAI** — the maintained reference for `text-embedding-3-small` (1536) / `-large` (3072) and the Matryoshka `dimensions` parameter that lets you truncate them.
 - [Introducing Embed v3](https://cohere.com/blog/introducing-embed-v3) — **Cohere** — the embed-v3 family, input types (`search_query`/`search_document`), and the asymmetric treatment baked in.
 
 **Key papers**:
@@ -45,6 +45,8 @@ updated: 2026-06-27
 - [Matryoshka Representation Learning (MRL)](https://arxiv.org/abs/2205.13147) — **Kusupati et al. (2022)** — nested embeddings you can truncate; the source for the dimension-shortening (`dimensions` parameter) on the page.
 - [Text Embeddings by Weakly-Supervised Contrastive Pre-training (E5)](https://arxiv.org/abs/2212.03533) — **Wang et al. (2022)** — a leading open retrieval-embedding recipe and the source of the `"query:"`/`"passage:"` asymmetric prefixes.
 - [MTEB: Massive Text Embedding Benchmark](https://arxiv.org/abs/2210.07316) — **Muennighoff et al. (2022)** — the benchmark (incl. the Retrieval task) behind the leaderboard you cite when choosing a model.
+- [Qwen3 Embedding: Advancing Text Embedding and Reranking Through Foundation Models](https://arxiv.org/abs/2506.05176) — **Qwen team (2025)** — the current shape of a strong open embedding family: an instruction-following embedder derived from a general LLM, in several sizes, with Matryoshka dimensions and a matching reranker.
+- [ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction](https://arxiv.org/abs/2112.01488) — **Santhanam et al. (2022)** — the alternative to a single pooled vector: keep one embedding per token and score with MaxSim. Worth knowing because 2025-26 stacks increasingly reach for late interaction when one vector per chunk loses too much.
 
 **Books (free, with chapters)**:
 - [Speech and Language Processing, 3rd ed. — Ch. 6 "Vector Semantics and Embeddings"](https://web.stanford.edu/~jurafsky/slp3/6.pdf) — **Jurafsky & Martin** — the reference chapter on vector semantics, cosine, and the geometry underlying retrieval embeddings (free PDF).

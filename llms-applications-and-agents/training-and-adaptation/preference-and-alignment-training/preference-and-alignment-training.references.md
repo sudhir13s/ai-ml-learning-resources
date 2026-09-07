@@ -3,7 +3,7 @@ id: "09-llms/rlhf-and-dpo/references"
 topic: "RLHF & DPO — References"
 parent: "09-llms/rlhf-and-dpo"
 type: references
-updated: 2026-06-22
+updated: 2026-09-07
 ---
 
 # RLHF & DPO — references and further reading
@@ -31,6 +31,7 @@ updated: 2026-06-22
 - [Illustrating Reinforcement Learning from Human Feedback (RLHF)](https://huggingface.co/blog/rlhf) — **Hugging Face** — the canonical illustrated explainer.
 - [RLHF: Reinforcement Learning from Human Feedback](https://huyenchip.com/2023/05/02/rlhf.html) — **Chip Huyen** — a clear, systems-minded walkthrough.
 - [LLM Training: RLHF and Its Alternatives](https://magazine.sebastianraschka.com/p/llm-training-rlhf-and-its-alternatives) — **Sebastian Raschka** — RLHF, DPO, and the preference-tuning landscape.
+- [*A Little Bit of Reinforcement Learning from Human Feedback* (the RLHF Book)](https://rlhfbook.com/) — **Nathan Lambert** — the free, continuously updated book on post-training by one of its practitioners: reward modeling, PPO, DPO, GRPO, and RLVR derived in one consistent notation. The single best free reference on this page's subject.
 
 **Key papers**:
 - [Rank Analysis of Incomplete Block Designs: I. The Method of Paired Comparisons](https://www.jstor.org/stable/2334029) — **Bradley & Terry (1952)** — the 70-year-old pairwise-comparison model the reward-model loss is built on; $P(i \succ j) = \sigma(\text{strength gap})$.
@@ -46,6 +47,9 @@ updated: 2026-06-22
 - [ORPO: Monolithic Preference Optimization without a Reference Model](https://arxiv.org/abs/2403.07691) — **Hong, Lee & Thorne (2024)** — fold preference tuning into SFT, no reference model.
 - [DeepSeekMath (GRPO)](https://arxiv.org/abs/2402.03300) — **Shao et al. (2024)** — critic-free group-relative policy optimization.
 - [Llama 2](https://arxiv.org/abs/2307.09288) — **Touvron et al. (2023)** — a detailed, reproducible RLHF chat recipe (rejection sampling + PPO).
+- [SimPO: Simple Preference Optimization with a Reference-Free Reward](https://arxiv.org/abs/2405.14734) — **Meng, Xia & Chen (2024, NeurIPS)** — length-normalized log-probability as the implicit reward, plus a target margin; drops the reference model entirely and fixes DPO's length bias. The strongest of the DPO variants in head-to-head evaluations.
+- [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning](https://arxiv.org/abs/2501.12948) — **DeepSeek-AI (2025)** — the paper that redirected the field: GRPO against **verifiable** rewards (does the answer check out?) rather than a learned preference model, with reasoning emerging from RL alone.
+- [Tülu 3: Pushing Frontiers in Open Language Model Post-Training](https://arxiv.org/abs/2411.15124) — **Lambert et al. (2024, Allen Institute for AI)** — the fully open post-training recipe end to end: SFT, DPO, and reinforcement learning with verifiable rewards (RLVR), with data and evaluation released.
 
 **Books (free chapters)**:
 - [Speech and Language Processing, 3rd ed. — Ch. 12 "Model Alignment, Prompting & In-Context Learning"](https://web.stanford.edu/~jurafsky/slp3/) — **Jurafsky & Martin** — RLHF in the alignment chapter.
@@ -53,8 +57,9 @@ updated: 2026-06-22
 
 **In this platform**:
 - Concept page (full explanation): [RLHF & DPO](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/preference-and-alignment-training/preference-and-alignment-training)
-- Hands-on project: [RLHF & Alignment workflow](../../../../Practitioner-Workflows/RLHF-and-Alignment/RLHF-and-Alignment.md) (collect pairs → reward model → PPO → DPO, step by step)
+- Hands-on project: [Preference Alignment workflow](/ai-ml/practitioner-workflows/training-and-adaptation/preference-alignment) (collect pairs → reward model → PPO → DPO, step by step)
 - Concept depth (the *why*): [ai-ml-intuitions 6.03 PPO and RLHF](/ai-ml/ai-ml-intuitions/decision-making-and-control/stable-policy-optimization/ppo-and-rl-from-human-feedback-intuition) · [6.02 Policy Gradients / REINFORCE](/ai-ml/ai-ml-intuitions/decision-making-and-control/policy-learning/policy-gradients-intuition)
 - Prerequisites: [Supervised Fine-Tuning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/supervised-fine-tuning/supervised-fine-tuning) · [Instruction Tuning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/instruction-tuning/instruction-tuning)
-- RL foundations: [Reinforcement Learning](../../../../core-machine-learning/reinforcement-learning/README.md) (PPO & policy gradients)
+- RL foundations: [Reinforcement Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/readme) (PPO & policy gradients)
+- Where preference training went next: [Reinforcement Learning for Reasoning (GRPO and RLVR)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/reinforcement-learning-for-reasoning-grpo-and-rlvr/reinforcement-learning-for-reasoning-grpo-and-rlvr) — the same RL machinery pointed at *verifiable* rewards instead of a learned preference model.
 - Related: [Hallucination & Alignment Basics](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/safety-and-alignment/safety-and-alignment)

@@ -6,7 +6,7 @@ level: intermediate
 built_from: ["embedding-models-for-retrieval", "cosine-similarity", "k-means-clustering"]
 interview_frequency: high
 template: concept-deep
-updated: 2026-07-02
+updated: 2026-09-07
 tier: core
 est_minutes: 35
 title: "Vector Databases & ANN Indexes (HNSW · IVF)"
@@ -152,7 +152,7 @@ $$
 \text{IVF cost} \;\approx\; \underbrace{n_{\text{list}} \cdot d}_{\text{scan centroids (routing)}} \;+\; \underbrace{\frac{N}{n_{\text{list}}} \cdot n_{\text{probe}} \cdot d}_{\text{scan the probed cells}}.
 $$
 
-> **Source / derivation:** [Jégou, Douze & Schmid (2011), *Product Quantization for Nearest Neighbor Search*, IEEE TPAMI (DOI 10.1109/TPAMI.2010.57)](https://www.semanticscholar.org/paper/Product-Quantization-for-Nearest-Neighbor-Search-J%C3%A9gou-Douze/4748d22348e72e6e06c2476486afddbc76e5eca7) — §IV introduces the inverted-file (IVFADC) structure: a coarse quantizer (k-means cells) you probe, with the cost split into the centroid scan plus the probed inverted lists.
+> **Source / derivation:** [Jégou, Douze & Schmid (2011), *Product Quantization for Nearest Neighbor Search*, IEEE TPAMI (DOI 10.1109/TPAMI.2010.57)](https://inria.hal.science/inria-00514462/document) — §IV introduces the inverted-file (IVFADC) structure: a coarse quantizer (k-means cells) you probe, with the cost split into the centroid scan plus the probed inverted lists.
 
 Symbols: $N$ vectors, $d$ dimensions, $n_{\text{list}}$ cells, $n_{\text{probe}}$ cells probed. **Choosing `nlist`.** Differentiating the cost w.r.t. $n_{\text{list}}$ and setting it to zero gives $n_{\text{list}}^\star \propto \sqrt{N\,n_{\text{probe}}}$ — so the common rule of thumb $n_{\text{list}}\approx\sqrt N$ (up to a small constant) *balances the two terms*, making both $\approx\sqrt N\cdot d$ and the whole query **sub-linear** in $N$ — the entire point. Too few cells and each cell is huge (you scan a lot per probe); too many and the centroid scan itself dominates *and* cells become underpopulated. We use $n_{\text{list}}=256$ over 30k vectors (a few × $\sqrt{30000}\approx 173$), which the histogram above shows fills cells to a healthy ~117 on average.
 
@@ -195,7 +195,7 @@ $$
 \text{raw bits} = d \cdot 32, \qquad \text{PQ bits} = m \cdot \text{nbits}, \qquad \text{ratio} = \frac{32\,d}{m\cdot\text{nbits}}.
 $$
 
-> **Source / derivation:** [Jégou, Douze & Schmid (2011), *Product Quantization for Nearest Neighbor Search*, IEEE TPAMI (DOI 10.1109/TPAMI.2010.57)](https://www.semanticscholar.org/paper/Product-Quantization-for-Nearest-Neighbor-Search-J%C3%A9gou-Douze/4748d22348e72e6e06c2476486afddbc76e5eca7) — §III defines PQ (decompose into $m$ subspaces, quantize each with a $2^{\text{nbits}}$-entry codebook, store the codes) and §III-A the asymmetric-distance trick.
+> **Source / derivation:** [Jégou, Douze & Schmid (2011), *Product Quantization for Nearest Neighbor Search*, IEEE TPAMI (DOI 10.1109/TPAMI.2010.57)](https://inria.hal.science/inria-00514462/document) — §III defines PQ (decompose into $m$ subspaces, quantize each with a $2^{\text{nbits}}$-entry codebook, store the codes) and §III-A the asymmetric-distance trick.
 
 For our real corpus ($d = 384$, $m = 48$, nbits $= 8$): raw $= 384 \times 4 = \mathbf{1{,}536}$ bytes; PQ $= 48 \times 8 / 8 = \mathbf{48}$ bytes — a **32× memory cut** (46.1 MB → 1.44 MB for the whole corpus). We measured the real mean reconstruction error at ~0.386 (cosine ≈ 0.922 between original and decode), which is why PQ costs some recall (below). It's usually combined with IVF (the `IndexIVFPQ` family) for billion-scale search.
 

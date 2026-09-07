@@ -3,7 +3,7 @@ id: "09-llms/prompting-and-in-context-learning/references"
 topic: "Prompting & In-Context Learning — References"
 parent: "09-llms/prompting-and-in-context-learning"
 type: references
-updated: 2026-06-27
+updated: 2026-09-07
 ---
 
 # Prompting & In-Context Learning — references and further reading
@@ -20,8 +20,8 @@ updated: 2026-06-27
 **Videos**:
 - [Intro to Large Language Models](https://www.youtube.com/watch?v=zjkBMFhNj_g) — **Andrej Karpathy** — prompting as conditioning a next-token predictor; the foundational mental model for ICL.
 - [Deep Dive into LLMs like ChatGPT](https://www.youtube.com/watch?v=7xTGNNLPyMI) — **Andrej Karpathy** — how prompting interacts with the rest of the stack (instruction tuning, RLHF); where ICL sits.
-- [Prompt Engineering Tutorial — Master ChatGPT and LLM Responses](https://www.youtube.com/watch?v=_ZvnD73m40o) — **freeCodeCamp** — a full, structured walkthrough of effective prompting patterns.
 - [Visualizing Attention, a Transformer's Heart](https://www.youtube.com/watch?v=eMlx5fFNoYc) — **3Blue1Brown** — the most visual explanation of Q/K/V; watch it to *see* the attention that induction heads exploit.
+- [Stanford CS336 — Language Modeling from Scratch, Spring 2025 (lectures)](https://www.youtube.com/playlist?list=PLoROMvodv4rOY23Y0BoGoBGgQ1zmU_MT_) — **Stanford Online** — the alignment and evaluation lectures show what instruction tuning changes about how a model responds to a prompt, which is the boundary between prompting and post-training.
 
 **Interactive & visual**:
 - [LLM Visualizer (3D)](https://bbycroft.net/llm) — **Brendan Bycroft** — walk a token through a small GPT's full forward pass and see where attention reads from earlier positions (the substrate of induction).
@@ -35,6 +35,7 @@ updated: 2026-06-27
 - [Prompt Engineering](https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/) — **Lilian Weng (OpenAI)** — a rigorous survey of ICL, demonstration selection, calibration, and CoT, with the key papers organised.
 - [Prompt Engineering Guide](https://www.promptingguide.ai/) — **DAIR.AI** — the definitive free, open prompting reference: zero/few-shot, roles, delimiters, structured outputs, and technique library.
 - [Understanding Large Language Models](https://magazine.sebastianraschka.com/p/understanding-large-language-models) — **Sebastian Raschka** — where in-context learning sits among LLM capabilities and post-training methods.
+- [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) — **Anthropic (2025)** — the piece that replaced "prompt engineering" as the practitioner's frame: with long contexts and tool results, the question stopped being how to word a prompt and became **what earns a place in the context window at all**. Read it once you have the ICL mechanics above.
 - [How does in-context learning work? A framework for understanding the differences from training](https://ai.stanford.edu/blog/understanding-incontext/) — **Stanford AI Lab (Xie & Min)** — the Bayesian-task-inference view, explained for a general audience by the authors.
 
 **Key papers**:
@@ -57,6 +58,6 @@ updated: 2026-06-27
 - Concept depth (the intuition): [Module 8.01 In-Context Learning & Prompting](/ai-ml/ai-ml-intuitions/reasoning-and-agency/in-context-behavior/in-context-learning-and-prompting-intuition)
 - The next step (a specific prompting technique): [Chain-of-Thought Reasoning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/chain-of-thought-and-reasoning/chain-of-thought-and-reasoning)
 - Contrast — methods that change weights: [Supervised Fine-Tuning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/supervised-fine-tuning/supervised-fine-tuning) · [Instruction Tuning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/instruction-tuning/instruction-tuning) · [RLHF & DPO](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/preference-and-alignment-training/preference-and-alignment-training)
-- Foundations (the attention that induction heads exploit): [Attention Mechanism](../../../../deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism.md) · [Decoder-only Architecture](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/decoder-only-models/decoder-only-models)
+- Foundations (the attention that induction heads exploit): [Attention Mechanism](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism) · [Decoder-only Architecture](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/decoder-only-models/decoder-only-models)
 - Where ICL is put to work: [RAG & LLM Applications](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/overview) · the [KV cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) and [long-context methods](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/llm-model-architectures/long-context-architectures/long-context-architectures) that make long few-shot prompts affordable
 - Decoding that turns the ICL-conditioned distribution into text: [Decoding & Sampling](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/decoding-and-sampling/decoding-and-sampling)

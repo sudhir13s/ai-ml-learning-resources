@@ -3,7 +3,7 @@ id: "09-llms/inference-optimization-and-serving/references"
 topic: "Inference Optimization & Serving — References"
 parent: "09-llms/inference-optimization-and-serving"
 type: references
-updated: 2026-06-26
+updated: 2026-09-07
 ---
 
 # Inference Optimization & Serving — references and further reading
@@ -20,7 +20,7 @@ updated: 2026-06-26
 **Videos**:
 - [Inference, Serving, PagedAttention and vLLM](https://www.youtube.com/watch?v=3TBT4WPkDaw) — **AI Makerspace** — the serving-engine view: paging, continuous batching, and the metrics that matter.
 - [Fast LLM Serving with vLLM and PagedAttention](https://www.youtube.com/watch?v=5ZlavKF_98U) — **Anyscale (Woosuk Kwon)** — the first author of vLLM walks through PagedAttention and continuous batching.
-- [Enabling Cost-Efficient LLM Serving with Speculative Decoding](https://www.youtube.com/watch?v=Ttw57Hj1zR8) — **Trelis Research** — draft-and-verify decoding explained and benchmarked end to end.
+- [Stanford CS336 — Language Modeling from Scratch, Spring 2025 (lectures)](https://www.youtube.com/playlist?list=PLoROMvodv4rOY23Y0BoGoBGgQ1zmU_MT_) — **Stanford Online** — the inference, GPU/kernel, and parallelism lectures: the serving stack taught from a real build rather than from an API.
 - [How a Transformer works at inference vs training time](https://www.youtube.com/watch?v=IGu7ivuy1Ag) — **Niels Rogge (Hugging Face)** — prefill vs decode, the split every serving optimization is built on.
 
 **Courses (free)**:
@@ -36,6 +36,10 @@ updated: 2026-06-26
 - [LLM Inference Performance Engineering: Best Practices](https://www.databricks.com/blog/llm-inference-performance-engineering-best-practices) — **Databricks** — TTFT/TPOT, batching, and the latency/throughput budget in practice.
 - [Flash-Decoding for long-context inference](https://pytorch.org/blog/flash-decoding/) — **Tri Dao, Daniel Haziza, Francisco Massa, Grigory Sizov (PyTorch)** — parallelizing a single decode query across the KV cache; the decode-time counterpart to FlashAttention (no paper — this blog is the canonical source).
 - [Accelerating Generative AI II: GPT, Fast](https://pytorch.org/blog/accelerating-generative-ai-2/) — **PyTorch team** — KV cache, quantization, and speculative decoding in a real fast-decode implementation.
+- [How to Scale Your Model — Inference](https://jax-ml.github.io/scaling-book/inference) — **Google DeepMind JAX team (2025)** — the clearest first-principles treatment of prefill vs decode arithmetic, batch-size sweet spots, and how sharding choices set the latency/throughput frontier.
+- [vLLM V1: a major upgrade to the core architecture](https://blog.vllm.ai/2025/01/27/v1-alpha-release.html) — **vLLM team (2025)** — the rewritten engine most 2025 deployments run: zero-overhead scheduling, prefix caching on by default, and chunked prefill as the standard mode.
+- [The Anatomy of vLLM](https://blog.vllm.ai/2025/09/05/anatomy-of-vllm.html) — **vLLM team (2025)** — a guided walk through the engine's real code path, from request arrival to sampled token; the best way to see how the pieces on this page fit together.
+- [Deploying DeepSeek with PD disaggregation and large-scale expert parallelism](https://lmsys.org/blog/2025-05-05-large-scale-ep/) — **LMSYS / SGLang team (2025)** — a measured production account of disaggregated prefill/decode plus expert parallelism on a frontier mixture-of-experts model.
 
 **Key papers**:
 - [Accelerating Large Language Model Decoding with Speculative Sampling](https://arxiv.org/abs/2302.01318) — **Chen et al. (2023, DeepMind)** — concurrent derivation of speculative sampling with the distribution-preserving acceptance step.
@@ -45,7 +49,9 @@ updated: 2026-06-26
 - [FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness](https://arxiv.org/abs/2205.14135) — **Dao et al. (2022)** — the IO-aware tiled attention kernel serving engines build on (FlashDecoding follows for decode).
 - [Mooncake: A KVCache-centric Disaggregated Architecture for LLM Serving](https://arxiv.org/abs/2407.00079) — **Qin et al. (2024, Moonshot AI)** — disaggregated prefill/decode with a shared KV-cache pool across machines.
 - [Orca: A Distributed Serving System for Transformer-Based Generative Models](https://www.usenix.org/conference/osdi22/presentation/yu) — **Yu et al. (2022, OSDI)** — introduces iteration-level (continuous) batching, the source for the static-vs-continuous lever on the page (open-access PDF on the USENIX page).
-- [Roofline: An Insightful Visual Performance Model](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2008/EECS-2008-134.html) — **Williams, Waterman & Patterson (CACM 2009)** — the compute-vs-bandwidth model behind "decode is memory-bound"; free Berkeley tech-report version (source for the roofline ridge-point derivation on the page).
+- [Roofline: An Insightful Visual Performance Model](https://escholarship.org/content/qt78h8v7mr/qt78h8v7mr.pdf) — **Williams, Waterman & Patterson (CACM 2009)** — the compute-vs-bandwidth model behind "decode is memory-bound"; free Berkeley Lab eScholarship copy (source for the roofline ridge-point derivation on the page).
+- [DistServe: Disaggregating Prefill and Decoding for Goodput-Optimized LLM Serving](https://arxiv.org/abs/2401.09670) — **Zhong et al. (2024, OSDI)** — the paper behind the 2025 default: run prefill and decode on separate GPU pools so a long prompt never stalls another request's decode.
+- [Medusa: Simple LLM Inference Acceleration with Multiple Decoding Heads](https://arxiv.org/abs/2401.10774) — **Cai et al. (2024)** — self-speculation with extra heads instead of a separate draft model; the design most 2025 engines ship.
 - [SGLang: Efficient Execution of Structured Language Model Programs (RadixAttention)](https://arxiv.org/abs/2312.07104) — **Zheng et al. (2023)** — prefix-sharing the KV cache via a radix tree for fast longest-prefix reuse.
 
 **Interactive & visual**:
@@ -56,6 +62,7 @@ updated: 2026-06-26
 - Concept page (full explanation): [Inference Optimization & Serving](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/inference-optimization/inference-optimization)
 - The memory object being served: [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) — prefill/decode split, the memory-bound decode arithmetic, and the four cache-shrinking levers this page builds on.
 - The decode loop being served: [Decoder-only Architecture](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/decoder-only-models/decoder-only-models) · [Decoding & Sampling](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/decoding-and-sampling/decoding-and-sampling)
-- The kernels under the engine: [Efficient Attention (FlashAttention)](../../../../deep-learning/attention-and-transformers/efficient-attention/efficient-attention.md)
+- The kernels under the engine: [Efficient Attention (FlashAttention)](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/efficient-attention/efficient-attention)
 - Cutting the bytes streamed: [Quantization](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/quantization/quantization)
-- Foundations (the *why* behind K, Q, V): [Attention Mechanism](../../../../deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism.md) · [Transformer Architecture](../../../../deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture.md)
+- Going deeper on draft-and-verify: [Speculative Decoding](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/speculative-decoding/speculative-decoding)
+- Foundations (the *why* behind K, Q, V): [Attention Mechanism](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism) · [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture)

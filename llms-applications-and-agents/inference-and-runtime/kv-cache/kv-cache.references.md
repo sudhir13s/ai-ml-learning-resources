@@ -3,7 +3,7 @@ id: "09-llms/kv-cache/references"
 topic: "KV Cache — References"
 parent: "09-llms/kv-cache"
 type: references
-updated: 2026-06-21
+updated: 2026-09-07
 ---
 
 # KV Cache — references and further reading
@@ -36,7 +36,8 @@ updated: 2026-06-21
 **Articles / blogs (free, no paywall)**:
 - [Transformer Inference Arithmetic](https://kipp.ly/transformer-inference-arithmetic/) — **Kipply** — KV-cache memory/bandwidth as the decode bottleneck, with the arithmetic.
 - [Large Transformer Model Inference Optimization](https://lilianweng.github.io/posts/2023-01-10-inference-optimization/) — **Lilian Weng (OpenAI)** — KV cache, MQA/GQA, and cache compression in one survey.
-- [Optimizing your LLM in production](https://huggingface.co/blog/optimizing-llm-inference) — **Hugging Face** — KV cache, MQA/GQA, and the memory math for serving.
+- [Optimizing LLMs for Speed and Memory](https://huggingface.co/docs/transformers/en/llm_tutorial_optimization) — **Hugging Face** — KV cache, MQA/GQA, and the memory math for serving, kept current in the Transformers docs.
+- [How to Scale Your Model — Inference](https://jax-ml.github.io/scaling-book/inference) — **Google DeepMind JAX team (2025)** — the arithmetic of prefill vs decode, KV-cache bandwidth, and where each phase sits against the hardware roofline.
 - [vLLM: Easy, Fast, and Cheap LLM Serving with PagedAttention](https://blog.vllm.ai/2023/06/20/vllm.html) — **vLLM team (UC Berkeley)** — the cache-paging idea, from the people who built it.
 - [Transformer Math 101](https://blog.eleuther.ai/transformer-math/) — **EleutherAI** — full memory accounting that includes the KV cache.
 - [Accelerating Generative AI II: GPT, Fast](https://pytorch.org/blog/accelerating-generative-ai-2/) — **PyTorch team** — KV cache + quantization in a real fast-decode implementation.
@@ -58,13 +59,13 @@ updated: 2026-06-21
 - [FlashAttention: Fast and Memory-Efficient Exact Attention](https://arxiv.org/abs/2205.14135) — **Dao et al. (2022)** — IO-aware tiled attention (the online-softmax trick); FlashDecoding follows for decode.
 - [SGLang: Efficient Execution with RadixAttention](https://arxiv.org/abs/2312.07104) — **Zheng et al. (2023)** — prefix-sharing the KV cache via a radix tree.
 - [Mooncake: A KVCache-centric Disaggregated Architecture](https://arxiv.org/abs/2407.00079) — **Qin et al. (2024)** — disaggregated prefill/decode with a shared KV-cache pool.
-- [Roofline: An Insightful Visual Performance Model (CACM 2009)](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2008/EECS-2008-134.html) — **Williams, Waterman & Patterson** — the compute-vs-bandwidth model behind "decode is memory-bound"; link is the free Berkeley tech-report version of the CACM 2009 paper.
+- [Roofline: An Insightful Visual Performance Model (CACM 2009)](https://escholarship.org/content/qt78h8v7mr/qt78h8v7mr.pdf) — **Williams, Waterman & Patterson** — the compute-vs-bandwidth model behind "decode is memory-bound"; link is the free Berkeley Lab eScholarship copy of the CACM 2009 paper.
 
 **Books (free chapters)**:
 - [Speech and Language Processing, 3rd ed. — Ch. 10 "Large Language Models"](https://web.stanford.edu/~jurafsky/slp3/10.pdf) — **Jurafsky & Martin** — autoregressive decoding, the loop the cache accelerates.
 
 **In this platform**:
 - Concept page (full explanation): [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache)
-- Foundations (the *why* behind K, Q, V): [Attention Mechanism](../../../../deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism.md) · [Transformer Architecture](../../../../deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture.md)
-- Builds on this: [Decoder-only Architecture](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/decoder-only-models/decoder-only-models) · [Efficient Attention (FlashAttention)](../../../../deep-learning/attention-and-transformers/efficient-attention/efficient-attention.md) · [Long-Context Methods](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/llm-model-architectures/long-context-architectures/long-context-architectures) · [Quantization](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/quantization/quantization)
+- Foundations (the *why* behind K, Q, V): [Attention Mechanism](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism) · [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture)
+- Builds on this: [Decoder-only Architecture](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/decoder-only-models/decoder-only-models) · [Efficient Attention (FlashAttention)](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/efficient-attention/efficient-attention) · [Attention Architectures (GQA, MLA, sliding, linear)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/llm-model-architectures/attention-architectures-gqa-mla-sliding-and-linear/attention-architectures-gqa-mla-sliding-and-linear) · [Long-Context Methods](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/llm-model-architectures/long-context-architectures/long-context-architectures) · [Quantization](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/quantization/quantization)
 - Puts it to work: [Inference Optimization & Serving](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/inference-optimization/inference-optimization)

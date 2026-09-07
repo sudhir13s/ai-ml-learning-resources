@@ -3,7 +3,7 @@ id: "15-rag-and-llm-apps/advanced-rag-parent-doc-fusion-self-rag/references"
 topic: "Advanced RAG (Parent-Document · RAG-Fusion · Self-RAG) — References"
 parent: "15-rag-and-llm-apps/advanced-rag-parent-doc-fusion-self-rag"
 type: references
-updated: 2026-07-01
+updated: 2026-09-07
 ---
 
 # Advanced RAG (Parent-Document · RAG-Fusion · Self-RAG) — references and further reading
@@ -18,14 +18,11 @@ updated: 2026-07-01
 5. **Build the loop yourself** — read [LangGraph's Self-RAG tutorial](https://langchain-ai.github.io/langgraph/tutorials/rag/langgraph_self_rag/). *The reflect loop (grade docs → grade grounding → grade usefulness → regenerate) implemented as a graph.*
 
 **Videos**:
-- [Advanced RAG — Parent-Document & small-to-big retrieval](https://www.youtube.com/watch?v=lQhU3Rmc410) — **LlamaIndex (Jerry Liu)** — sentence-window and auto-merging retrievers, the retrieve-small-read-large pattern, from the framework's author.
-- [Self-RAG explained — retrieve, generate, critique](https://www.youtube.com/watch?v=Eb7QF1nDWGU) — **Sam Witteveen** — the reflection-token idea and the reflect loop in plain terms, with code.
-- [Self-Reflective RAG with LangGraph (Self-RAG + CRAG)](https://www.youtube.com/watch?v=pbAd8O1Lvm4) — **LangChain (Lance Martin)** — implementing Self-RAG and Corrective RAG as graphs; the clearest walkthrough of the grading loop.
-- [RAG-Fusion — better retrieval by fanning out queries](https://www.youtube.com/watch?v=GchC5WxeXGc) — **Prompt Engineering** — the multi-query + RRF pattern this chapter reuses, with a worked example.
-- [ParentDocumentRetriever in LangChain](https://www.youtube.com/watch?v=wSi0fxkH6e0) — **Coding Crash Courses** — building the child→parent retriever step by step.
+- [Self-Reflective RAG with LangGraph (Self-RAG + CRAG)](https://www.youtube.com/watch?v=pbAd8O1Lvm4) — **Lance Martin (LangChain)** — implementing Self-RAG and Corrective RAG as graphs, by the maintainer who wrote the tutorials; the clearest walkthrough of the grading loop.
+- [Stanford CS25: Retrieval-Augmented Language Models](https://www.youtube.com/watch?v=mE7IDf2SmJg) — **Douwe Kiela (Stanford Online)** — a RAG co-author on why naive retrieve-then-read is not enough, and which of these advanced variants the research actually supports.
 
 **Interactive & visual**:
-- [LangGraph Self-RAG notebook](https://github.com/langchain-ai/langgraph/blob/main/docs/docs/tutorials/rag/langgraph_self_rag.ipynb) — **LangChain** — a runnable graph of the grade-docs → grade-grounding → grade-usefulness loop.
+- [LangGraph Self-RAG tutorial](https://langchain-ai.github.io/langgraph/tutorials/rag/langgraph_self_rag/) — **LangChain** — a runnable graph of the grade-docs → grade-grounding → grade-usefulness loop (the notebook now lives in the docs site).
 - [Self-RAG project page + demo](https://selfrag.github.io/) — **Asai et al.** — the authors' models, data, and an interactive demo of reflection-token generation.
 
 **Courses (free)**:
@@ -45,6 +42,8 @@ updated: 2026-07-01
 - [Reciprocal Rank Fusion outperforms Condorcet and individual Rank Learning Methods](https://doi.org/10.1145/1571941.1572114) — **Cormack, Clarke & Büttcher (SIGIR 2009)** — the RRF that RAG-Fusion fuses with ($k=60$); worked in full in [chapter 5](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search). ([free PDF](https://cormack.uwaterloo.ca/cormacksigir09-rrf.pdf))
 - [Dense Passage Retrieval for Open-Domain QA (DPR)](https://arxiv.org/abs/2004.04906) — **Karpukhin et al. (2020)** — the dense bi-encoder retrieval every technique here sits on top of.
 - [Lost in the Middle: How Language Models Use Long Contexts](https://arxiv.org/abs/2307.03172) — **Liu et al. (2023)** — why bigger context isn't free (models under-use mid-context evidence): the reason a parent must be section-sized, not a whole chapter.
+- [ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction](https://arxiv.org/abs/2112.01488) — **Santhanam et al. (2022)** — score a query against *every token* of a passage instead of one pooled vector; the accuracy of a cross-encoder at close to bi-encoder cost. The 2025-26 alternative to bolting a reranker onto a weak first stage.
+- [Introducing Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval) — **Anthropic (2024)** — a different answer to the same small-vs-big tension this page opens with: keep the small chunk, but prepend a model-written summary of its parent document before embedding. Measured 35–49% fewer retrieval failures, and it composes with everything here.
 
 **Books (free chapters)**:
 - [Speech and Language Processing, 3rd ed. — Ch. 14 "Question Answering & Information Retrieval"](https://web.stanford.edu/~jurafsky/slp3/14.pdf) — **Jurafsky & Martin** — retrieval, grounding, and the recall/precision metrics this page measures against.

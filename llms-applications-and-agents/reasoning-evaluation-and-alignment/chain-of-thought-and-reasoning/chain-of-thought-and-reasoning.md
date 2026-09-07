@@ -6,7 +6,7 @@ level: advanced
 built_from: ["09-llms/prompting-and-in-context-learning", "09-llms/decoding-and-sampling"]
 interview_frequency: high
 template: concept-deep
-updated: 2026-06-27
+updated: 2026-09-07
 tier: standard
 est_minutes: 30
 leads_to: ["09-llms/decoding-and-sampling"]
@@ -221,11 +221,11 @@ graph TD
 - **ReAct** ([Yao et al. 2022](https://arxiv.org/abs/2210.03629)) — interleave **Rea**soning with **Act**ions: the model reasons a step, then takes an action (search a knowledge base, call a tool, query an API), reads the result, and reasons further. This is the planning core of LLM agents — CoT that can *touch the world*.
 - **PAL / Program-aided language models** ([Gao et al. 2022](https://arxiv.org/abs/2211.10435)) — let the model write the *reasoning* but offload the *computation* to a Python interpreter: it emits code, the code runs, and the exact result comes back. This sidesteps the fact that LLMs are unreliable arithmetic engines — the chain decides *what* to compute, the interpreter computes it *correctly*.
 - **CoT distillation** — train a small model to imitate a large model's reasoning chains, transferring reasoning ability downward. This is a distillation technique; see **[Knowledge Distillation](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/knowledge-distillation/knowledge-distillation)** for the mechanism (we deliberately don't duplicate it here).
-- **Test-time-compute reasoning models (o1-style)** — the modern frontier. Rather than a few prompted steps, these models are *trained* (with reinforcement learning on their own reasoning) to produce **long internal chains of thought** before answering, and they get reliably better as you let them "think" for more tokens. CoT went from a prompting trick to a *trained capability* and a *compute dial*.
+- **Reasoning models** — the modern frontier, and no longer a preview. Rather than a few prompted steps, these models are *trained* to produce **long internal chains of thought** before answering, and they get reliably better as you let them think for more tokens. [DeepSeek-R1](https://arxiv.org/abs/2501.12948) (2025) showed the training signal can be as simple as **is the final answer verifiably correct** — no human-written reasoning traces at all — and that self-checking behaviour ("wait, let me reconsider") *emerges* from that alone. CoT went from a prompting trick to a trained capability and a compute dial; the dial itself is covered in [Test-Time Computation and Scaling](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/test-time-computation-and-scaling/test-time-computation-and-scaling), and the training method in [Reinforcement Learning for Reasoning (GRPO and RLVR)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/reinforcement-learning-for-reasoning-grpo-and-rlvr/reinforcement-learning-for-reasoning-grpo-and-rlvr).
 
 ![Illustrative, tracing the qualitative o1-style result: task accuracy rises as the model is allowed to spend more reasoning ("thinking") tokens before committing to an answer — with diminishing returns on a log budget. This is CoT turned into a controllable test-time-compute knob: spend more inference compute, get more accuracy. The y-axis is unit-free; the point is the shape.](images/cot_test_time_compute.png)
 
-> **Source / derivation:** that scaling **test-time (inference) compute** — longer reasoning chains, more samples — improves accuracy with diminishing returns is documented for reasoning models; an accessible primer is OpenAI's [*Learning to Reason with LLMs* (o1)](https://openai.com/index/learning-to-reason-with-llms/) and the analysis in [Snell et al., *Scaling LLM Test-Time Compute Optimally* (2024)](https://arxiv.org/abs/2408.03314). The curve above is **illustrative** — it traces that qualitative diminishing-returns shape, not specific reported values.
+> **Source / derivation:** that scaling **test-time (inference) compute** — longer reasoning chains, more samples — improves accuracy with diminishing returns is documented for reasoning models; an accessible primer is Lilian Weng's [*Why We Think* (2025)](https://lilianweng.github.io/posts/2025-05-01-thinking/) and the analysis in [Snell et al., *Scaling LLM Test-Time Compute Optimally* (2024)](https://arxiv.org/abs/2408.03314). The curve above is **illustrative** — it traces that qualitative diminishing-returns shape, not specific reported values.
 
 ---
 

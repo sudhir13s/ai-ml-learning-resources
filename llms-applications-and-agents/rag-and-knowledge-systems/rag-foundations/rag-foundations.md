@@ -6,7 +6,7 @@ level: intermediate
 built_from: ["embeddings", "cosine-similarity", "transformers", "prompting"]
 interview_frequency: very-high
 template: concept-deep
-updated: 2026-08-06
+updated: 2026-09-07
 tier: core
 est_minutes: 25
 title: "RAG Fundamentals (retrieve-then-generate)"
@@ -16,7 +16,7 @@ category: rag-and-knowledge-systems
 
 # RAG Fundamentals: retrieve, then generate
 
-Ask a strong language model a real but *obscure* factual question — *"What was reversed about the temperature scale in 1745?"* — and watch what happens. Here is `meta-llama/Llama-3.1-8B-Instruct`, answering live from memory alone, in [the notebook next to this page](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-foundations/notebook):
+Ask a strong language model a real but *obscure* factual question — *"What was reversed about the temperature scale in 1745?"* — and watch what happens. Here is `meta-llama/Llama-3.1-8B-Instruct`, answering live from memory alone, in [the notebook next to this page](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-foundations/rag-foundations):
 
 ```
 In 1745, the temperature scale was reversed by Anders Celsius.
@@ -126,11 +126,11 @@ graph TD
 
 Stage by stage:
 
-1. **Chunk.** Split each document into passages small enough to embed meaningfully and to fit several into a prompt — typically a few hundred tokens. (Our real corpus ships pre-chunked: 3,200 passages, median **48 words** each.) Too big and a chunk dilutes its own meaning and blows the context budget; too small and it loses the surrounding context needed to answer. (This one decision is so consequential it gets its own chapter — [Chunking](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/chunking/notes-theory).)
+1. **Chunk.** Split each document into passages small enough to embed meaningfully and to fit several into a prompt — typically a few hundred tokens. (Our real corpus ships pre-chunked: 3,200 passages, median **48 words** each.) Too big and a chunk dilutes its own meaning and blows the context budget; too small and it loses the surrounding context needed to answer. (This one decision is so consequential it gets its own chapter — [Chunking](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/chunking/chunking).)
 2. **Embed.** Map each chunk to a dense vector with an embedding model, so that *semantically similar text lands at nearby points*. This is what lets retrieval match on **meaning**, not just keywords — "liftoff date" can find a passage that says "was launched on." Our real embedder turns each passage into a **384-dimensional unit vector**.
-3. **Index.** Store all chunk vectors (with their source text) in a structure built for fast nearest-neighbour search. Here that's a real **FAISS** index holding 3,200 vectors; at production scale it's an approximate-nearest-neighbour (ANN) index in a vector database ([Vector Search](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/vector-search/notes-theory)).
+3. **Index.** Store all chunk vectors (with their source text) in a structure built for fast nearest-neighbour search. Here that's a real **FAISS** index holding 3,200 vectors; at production scale it's an approximate-nearest-neighbour (ANN) index in a vector database ([Vector Search](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search)).
 4. **Retrieve.** At query time, embed the question with the **same** model, then find the **top-k** chunks whose vectors are closest to the query vector. "Closest" almost always means highest **cosine similarity** — the math of the next section. On our corpus this is ~**10–30 ms** per query.
-5. **Rerank (optional but high-value).** Re-score a shortlist of retrieved candidates with a **cross-encoder** that reads each (query, passage) pair jointly — far more accurate than the fast bi-encoder, so it fixes the misordering the first stage leaves. (We measure its effect below; full treatment in [Reranking](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reranking/notes-theory).)
+5. **Rerank (optional but high-value).** Re-score a shortlist of retrieved candidates with a **cross-encoder** that reads each (query, passage) pair jointly — far more accurate than the fast bi-encoder, so it fixes the misordering the first stage leaves. (We measure its effect below; full treatment in [Reranking](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking).)
 6. **Augment.** Splice the retrieved chunks into a prompt template alongside the question, with an instruction like *"answer using only the context below."* This is the literal "open book on the desk."
 7. **Generate.** The LLM reads the augmented prompt and produces an answer grounded in the supplied passages — ideally with citations back to which chunk each claim came from (our real answer ends with `[1]`).
 
@@ -196,9 +196,9 @@ In practice most production systems use the cheaper approximation: take the sing
 
 ## Worked example: a real RAG you can re-run end to end
 
-Let's walk the **real** pipeline. Everything below is produced by [the teaching notebook](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-foundations/notebook) and the [production-shaped module](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-foundations/source-2) (`RagPipeline`) beside this page — real dataset, real models, real FAISS, real LLM calls. Every number and every answer is a pasted, executed output; nothing here is hand-typed.
+Let's walk the **real** pipeline. Everything below is produced by [the teaching notebook](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-foundations/rag-foundations) and the [production-shaped module](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-foundations/rag-foundations) (`RagPipeline`) beside this page — real dataset, real models, real FAISS, real LLM calls. Every number and every answer is a pasted, executed output; nothing here is hand-typed.
 
-> **Runnable module + step-by-step notebook:** the [deep teaching notebook](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-foundations/notebook) runs each stage with an intuition lead-in, and the [typed module it imports](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-foundations/source-2) is what backs it (`python rag_fundamentals.py` runs the headline demo). Both set the **libomp OpenMP guard** (`KMP_DUPLICATE_LIB_OK`, `OMP_NUM_THREADS=1`) *before* importing faiss/torch — without it, faiss + torch loading two OpenMP runtimes segfaults on macOS. That guard is the first real-world gotcha of building RAG locally.
+> **Runnable module + step-by-step notebook:** the [deep teaching notebook](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-foundations/rag-foundations) runs each stage with an intuition lead-in, and the [typed module it imports](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-foundations/rag-foundations) is what backs it (`python rag_fundamentals.py` runs the headline demo). Both set the **libomp OpenMP guard** (`KMP_DUPLICATE_LIB_OK`, `OMP_NUM_THREADS=1`) *before* importing faiss/torch — without it, faiss + torch loading two OpenMP runtimes segfaults on macOS. That guard is the first real-world gotcha of building RAG locally.
 
 **Step 1 — load the real corpus and build the index.** `RagPipeline(passages)` embeds all 3,200 Wikipedia passages with `all-MiniLM-L6-v2` and adds them to a FAISS `IndexFlatIP`:
 
@@ -335,7 +335,7 @@ from langchain_huggingface import HuggingFaceEmbeddings
 emb = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 vectorstore = FAISS.from_texts(passages, embedding=emb)               # chunk+embed+index
 retriever   = vectorstore.as_retriever(search_kwargs={"k": 3})       # retrieve top-k
-# rag_chain = retriever | prompt_template | llm                       # augment + generate
+# rag_chain = retriever | prompt_template | llm # augment + generate
 ```
 
 ---
@@ -347,12 +347,12 @@ RAG fails in characteristic ways, and *every one of them is a retrieval problem 
 **1. Chunk-boundary loss.** Split a document badly and the answer straddles two chunks — half in one, half in the next — so no single chunk is fully retrievable.
 
 - *Failing:* a chunker cuts every 100 words mid-sentence. A passage *"...the scale was reversed by // Carolus Linnaeus in 1745..."* splits the actor from the action. A query matches the first half (no name) or the second (no context), and the model never sees the complete fact. (Our real corpus avoids this because doc[144] keeps "reversed by Carolus Linnaeus in 1745" *whole* in one chunk — which is exactly why retrieval + generation nailed it.)
-- *Fix:* chunk on **semantic boundaries** (paragraphs, sections), add **overlap** between adjacent chunks so a straddling fact appears whole in at least one, and keep chunks coherent. This is consequential enough to be the next chapter, [Chunking](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/chunking/notes-theory).
+- *Fix:* chunk on **semantic boundaries** (paragraphs, sections), add **overlap** between adjacent chunks so a straddling fact appears whole in at least one, and keep chunks coherent. This is consequential enough to be the next chapter, [Chunking](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/chunking/chunking).
 
 **2. Retrieval misses / low recall.** The answering passage exists in the corpus but isn't in the top-k — so the model has the wrong evidence and either says "I don't know" or grounds on a distractor.
 
 - *Failing (measured):* on our real corpus, **dense recall@1 is only 0.42** — the top hit supports the answer barely half the time. And we saw the *mechanism* of the miss directly: for the Lincoln query the bi-encoder ranked the empty "Young Abraham Lincoln" chunk #1 over the actual inauguration passage.
-- *Fix (measured):* better (learned, semantic) **embeddings** so paraphrases match ([Embedding Models](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/embedding-models/notes-theory)); **hybrid search** combining dense + keyword/BM25 ([Hybrid Search](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/hybrid-search/notes-theory)); raise **k**; add a **re-ranker** — which lifted our real **recall@1 from 0.42 to 0.65** ([Reranking](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reranking/notes-theory)).
+- *Fix (measured):* better (learned, semantic) **embeddings** so paraphrases match ([Embedding Models](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/embedding-models/embedding-models)); **hybrid search** combining dense + keyword/BM25 ([Hybrid Search](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search)); raise **k**; add a **re-ranker** — which lifted our real **recall@1 from 0.42 to 0.65** ([Reranking](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking)).
 
 **3. Lost in the middle.** Even when the right passage *is* retrieved, LLMs use evidence best when it sits at the **start or end** of a long context and *worst when buried in the middle* — a documented U-shaped accuracy curve.
 
@@ -390,7 +390,7 @@ RAG fails in characteristic ways, and *every one of them is a retrieval problem 
 
 - **The knowledge is already in the weights and stable.** Asking a general model general facts ("who was the 16th US president?") needs no retrieval — the model knows it cold, and adding retrieval only adds latency and a distractor. (RAG earns its keep precisely on the *obscure* edge — the Linnaeus attribution the model got wrong from memory.)
 - **You need a behavior or skill, not a fact.** "Always reply in formal Japanese" or "write in our house style" is a fine-tuning job; no retrieved passage instills a style.
-- **The whole relevant corpus fits comfortably in the context window** *and* cost/latency allow stuffing it all in. Then you may not need *selective* retrieval at all — though at scale this gets expensive and runs straight into lost-in-the-middle (the [Long-Context vs RAG](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/long-context-vs-rag/notes-theory) chapter weighs this directly).
+- **The whole relevant corpus fits comfortably in the context window** *and* cost/latency allow stuffing it all in. Then you may not need *selective* retrieval at all — though at scale this gets expensive and runs straight into lost-in-the-middle (the [Long-Context vs RAG](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/long-context-vs-rag/long-context-vs-rag) chapter weighs this directly).
 - **The task is pure reasoning/transformation over text already in the prompt** (summarize *this*, translate *this*). There's nothing external to retrieve.
 
 ---
@@ -404,7 +404,7 @@ RAG is the backbone of nearly every knowledge-grounded LLM product shipping toda
 - **Coding assistants** — retrieve relevant files/symbols from *your* repository into the prompt so completions reflect your actual codebase, not generic patterns from pretraining.
 - **Perplexity-style answer engines** — retrieve live web results, then generate a synthesized answer *with inline citations* — RAG over the open web, with provenance as the headline feature.
 
-**Scaling the toy to real:** three things change from our 3,200-vector demo to a billion-chunk system. (1) **The index** — `IndexFlatIP` does exact search in ~ms here; at millions/billions of vectors you switch to an **approximate** index (HNSW, IVF-PQ) in a vector database, trading a little recall for sub-linear search ([Vector Search](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/vector-search/notes-theory)). (2) **Freshness** — a real re-indexing pipeline replaces our one-shot build. (3) **Retrieval quality** — everything the rest of this domain is about: better chunking, better embeddings, hybrid search, reranking (which we saw lift recall@1 by 23 points), query transformation, and evaluation.
+**Scaling the toy to real:** three things change from our 3,200-vector demo to a billion-chunk system. (1) **The index** — `IndexFlatIP` does exact search in ~ms here; at millions/billions of vectors you switch to an **approximate** index (HNSW, IVF-PQ) in a vector database, trading a little recall for sub-linear search ([Vector Search](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search)). (2) **Freshness** — a real re-indexing pipeline replaces our one-shot build. (3) **Retrieval quality** — everything the rest of this domain is about: better chunking, better embeddings, hybrid search, reranking (which we saw lift recall@1 by 23 points), query transformation, and evaluation.
 
 **When to reach for it:** the moment your app must answer over knowledge that is **private, changing, or must be cited** — which is most real LLM applications. It's the *default* architecture for knowledge-grounded assistants precisely because it's cheap to update (re-index, don't retrain), model-agnostic (wrap any LLM), and auditable (every claim traces to a source).
 
@@ -420,7 +420,7 @@ This page owns the **mechanism** — what RAG is, the math the retriever runs, a
 - **Design one as a system** — [Document Q&A and RAG: the shared architecture](/ai-system-design/system-families/document-qa-rag) covers the serving topology, the ingestion path, capacity and the failure domains an interviewer will push on.
 - **Read a production service** — [RAG document search](/python/python-production-examples/rag-document-search/readme) is a running Python service with the same stages wired end to end, laid out the way real code is.
 
-Inside this tab, the ordering knob you just measured is the subject of the next pages: [Chunking](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/chunking/notes-theory), [Embedding Models](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/embedding-models/notes-theory), [Vector Search](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/vector-search/notes-theory), [Hybrid Search](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/hybrid-search/notes-theory), [Reranking](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reranking/notes-theory) and [RAG Evaluation](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-evaluation/notes-theory).
+Inside this tab, the ordering knob you just measured is the subject of the next pages: [Chunking](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/chunking/chunking), [Embedding Models](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/embedding-models/embedding-models), [Vector Search](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search), [Hybrid Search](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search), [Reranking](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking) and [RAG Evaluation](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-evaluation/rag-evaluation).
 
 ---
 

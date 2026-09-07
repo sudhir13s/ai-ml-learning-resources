@@ -18,39 +18,39 @@ courses, videos, papers, articles, books and cross-links). New here? Read the fi
 then work top to bottom.
 
 ### Foundations of retrieval-augmented generation
-1. [RAG Fundamentals (retrieve-then-generate)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-foundations/notes-theory)
-2. [Document Chunking Strategies](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/chunking/notes-theory)
-3. [Embedding Models for Retrieval](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/embedding-models/notes-theory)
+1. [RAG Fundamentals (retrieve-then-generate)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-foundations/rag-foundations)
+2. [Document Chunking Strategies](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/chunking/chunking)
+3. [Embedding Models for Retrieval](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/embedding-models/embedding-models)
 
 ### Indexing & search
-4. [Vector Databases & ANN Indexes (HNSW · IVF)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/vector-search/notes-theory)
-5. [Hybrid Search (BM25 + dense)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/hybrid-search/notes-theory)
-6. [Re-ranking (cross-encoders)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reranking/notes-theory)
-7. [Query Transformation (HyDE · multi-query)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/query-transformation/notes-theory)
+4. [Vector Databases & ANN Indexes (HNSW · IVF)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search)
+5. [Hybrid Search (BM25 + dense)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search)
+6. [Re-ranking (cross-encoders)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking)
+7. [Query Transformation (HyDE · multi-query)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/query-transformation/query-transformation)
 
 ### Advanced retrieval architectures
-8. [Advanced RAG (parent-doc · fusion · self-RAG)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/advanced-rag/notes-theory)
-9. [GraphRAG](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/graph-rag/notes-theory)
-10. [Agentic RAG](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-rag/notes-theory)
+8. [Advanced RAG (parent-doc · fusion · self-RAG)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/advanced-rag/advanced-rag)
+9. [GraphRAG](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/graph-rag/graph-rag)
+10. [Agentic RAG](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/agentic-rag/agentic-rag)
 
 ### Quality, reliability & evaluation
-11. [RAG Evaluation (RAGAS · faithfulness · groundedness)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-evaluation/notes-theory)
-12. [Long-Context vs RAG](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/long-context-vs-rag/notes-theory)
-13. [Citations & Attribution](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/citations-and-attribution/notes-theory)
-14. [Guardrails & Hallucination Mitigation](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/hallucination-and-grounding/notes-theory)
+11. [RAG Evaluation (RAGAS · faithfulness · groundedness)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-evaluation/rag-evaluation)
+12. [Long-Context vs RAG](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/long-context-vs-rag/long-context-vs-rag)
+13. [Citations & Attribution](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/citations-and-attribution/citations-and-attribution)
+14. [Guardrails & Hallucination Mitigation](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/hallucination-and-grounding/hallucination-and-grounding)
 
 ### Building & operating LLM apps
-15. [LLM App Orchestration (chains · routing)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/llm-app-orchestration/notes-theory)
-16. [Caching & Cost Optimization for LLM Apps](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/caching-and-cost-optimization/notes-theory)
+15. [LLM App Orchestration (chains · routing)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/llm-app-orchestration/llm-app-orchestration)
+16. [Caching & Cost Optimization for LLM Apps](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/caching-and-cost-optimization/caching-and-cost-optimization)
 
 ### Related concepts (canonical home is another section)
 > These topics are foundations or neighbors of RAG, but their canonical home is another section —
 > linked here to avoid repetition.
-- **Word & sentence/document embeddings (the encoders RAG retrieves with)** → [NLP](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/overview/overview-6) ([Word Embeddings](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/word-embeddings-word2vec-glove-fasttext/notes-theory) · [Sentence & Document Embeddings](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/sentence-and-document-embeddings/notes-theory) · [Information Retrieval & Semantic Search](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/information-retrieval-and-semantic-search/notes-theory))
-- **Transformer architecture · Attention** (the generator's engine) → [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/overview/overview)
-- **LLM internals — prompting, fine-tuning, decoding, RLHF, KV-cache, long-context** → [LLMs](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/overview/overview-3) ([Prompting & In-Context Learning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/prompting-and-in-context-learning/notes-theory) · [Long-Context Methods](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/long-context-architectures/notes-theory) · [Hallucination & Alignment](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/safety-and-alignment/notes-theory))
-- **Agents & tool use** (the broader agent loop that Agentic RAG specializes) → [Agentic AI](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/overview/overview)
-- **ANN / clustering math** (the geometry under vector indexes) → [Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/overview/overview-3)
+- **Word & sentence/document embeddings (the encoders RAG retrieves with)** → [NLP](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/readme) ([Word Embeddings](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/word-embeddings-word2vec-glove-fasttext/word-embeddings-word2vec-glove-fasttext) · [Sentence & Document Embeddings](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/sentence-and-document-embeddings/sentence-and-document-embeddings) · [Information Retrieval & Semantic Search](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/information-retrieval-and-semantic-search/information-retrieval-and-semantic-search))
+- **Transformer architecture · Attention** (the generator's engine) → [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
+- **LLM internals — prompting, fine-tuning, decoding, RLHF, KV-cache, long-context** → [LLMs](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme) ([Prompting & In-Context Learning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/prompting-and-in-context-learning/prompting-and-in-context-learning) · [Long-Context Methods](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/llm-model-architectures/long-context-architectures/long-context-architectures) · [Hallucination & Alignment](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/safety-and-alignment/safety-and-alignment))
+- **Agents & tool use** (the broader agent loop that Agentic RAG specializes) → [Agentic AI](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/overview)
+- **ANN / clustering math** (the geometry under vector indexes) → [Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)
 
 ## Courses (free)
 - [LangChain: Chat with Your Data](https://www.deeplearning.ai/short-courses/langchain-chat-with-your-data/) — **DeepLearning.AI** — the canonical free RAG short course.

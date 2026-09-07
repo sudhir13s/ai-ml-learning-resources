@@ -3,7 +3,7 @@ id: "09-llms/hallucination-and-alignment-basics/references"
 topic: "Hallucination & Alignment Basics — References"
 parent: "09-llms/hallucination-and-alignment-basics"
 type: references
-updated: 2026-06-27
+updated: 2026-09-07
 ---
 
 # Hallucination & Alignment Basics — references and further reading
@@ -11,15 +11,14 @@ updated: 2026-06-27
 > Companion link library for **[Hallucination & Alignment Basics](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/safety-and-alignment/safety-and-alignment)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer, free / open-access, chosen for depth on *this* topic. Every formula on the concept page cites a source here.
 
 **Start here — suggested path**:
-1. **Build the intuition** — watch [Why Large Language Models Hallucinate](https://www.youtube.com/watch?v=cfqtFvWOfg0) (**IBM Technology**). *The clearest short intro to types, causes, and mitigations.*
+1. **Build the intuition** — read [Extrinsic Hallucinations in LLMs](https://lilianweng.github.io/posts/2024-07-07-hallucination/) (**Lilian Weng**). *Types, causes, detection, and mitigation in one survey — the clearest first pass before the incentive argument below.*
 2. **Get the incentive argument** — read [Why Language Models Hallucinate](https://arxiv.org/abs/2509.04664) (**Kalai et al. 2025**). *Hallucination is the optimal response to a train/eval rule that punishes "I don't know."*
 3. **Get the taxonomy & survey** — read [Extrinsic Hallucinations in LLMs](https://lilianweng.github.io/posts/2024-07-07-hallucination/) (**Lilian Weng**). *The definitive free survey: taxonomy, detection, mitigation.*
 4. **See the alignment mechanism** — watch [RLHF, Clearly Explained](https://www.youtube.com/watch?v=qPN_XZcJf_s) (**StatQuest**) then read [InstructGPT](https://arxiv.org/abs/2203.02155) (**Ouyang et al. 2022**). *What preference tuning actually optimizes.*
 5. **Connect the fixes** — [RLHF & DPO](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/preference-and-alignment-training/preference-and-alignment-training) (preference tuning) + [RAG](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/overview) (grounding) + [Decoding & Sampling](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/decoding-and-sampling/decoding-and-sampling) (temperature). *The main levers, each its own chapter.*
 
 **Videos**:
-- [Why Large Language Models Hallucinate](https://www.youtube.com/watch?v=cfqtFvWOfg0) — **IBM Technology** — the clearest concise explainer of causes and mitigations; the best first watch.
-- [Reinforcement Learning with Human Feedback (RLHF), Clearly Explained](https://www.youtube.com/watch?v=qPN_XZcJf_s) — **StatQuest (Josh Starmer)** — the alignment mechanism that reshapes honesty, built up from scratch.
+- [Reinforcement Learning with Human Feedback (RLHF), Clearly Explained](https://www.youtube.com/watch?v=qPN_XZcJf_s) — **StatQuest (Josh Starmer)** — the alignment mechanism that reshapes honesty, built up from scratch; the best first watch.
 - [Deep Dive into LLMs like ChatGPT](https://www.youtube.com/watch?v=7xTGNNLPyMI) — **Andrej Karpathy** — where hallucination and alignment sit in the full pretraining → SFT → RLHF pipeline (the "why models hallucinate" segment is excellent).
 - [Intro to Large Language Models](https://www.youtube.com/watch?v=zjkBMFhNj_g) — **Andrej Karpathy** — the "LLM OS" view plus the safety, jailbreak, and alignment discussion.
 - [Direct Preference Optimization (DPO), explained](https://www.youtube.com/watch?v=hvGa5Mba4c8) — **Umar Jamil** — DPO's objective derived and coded line-by-line, the no-reward-model alignment route.
@@ -40,6 +39,11 @@ updated: 2026-06-27
 - [Detecting hallucinations in large language models using semantic entropy](https://www.nature.com/articles/s41586-024-07421-0) — **Farquhar et al. (Nature 2024)** — open-access: cluster sampled answers by meaning and measure entropy *over meanings* — the strongest sampling-based hallucination detector.
 - [Reducing hallucination in structured outputs via RAG](https://www.anthropic.com/research) — **Anthropic** — grounding and retrieval as the primary factuality lever (research index).
 - [Measuring faithfulness: SummaC, AlignScore and the NLI approach](https://github.com/yuh-zha/AlignScore) — **Zha et al.** — code + explanation of entailment-based faithfulness scoring.
+- [*A Little Bit of Reinforcement Learning from Human Feedback* (the RLHF Book)](https://rlhfbook.com/) — **Nathan Lambert** — the free, continuously updated reference on the alignment machinery itself: reward models, PPO, DPO, GRPO, and where each fails.
+- [Prompt injection — the ongoing series](https://simonwillison.net/series/prompt-injection/) — **Simon Willison** — the safety failure that alignment training does *not* fix: instructions arriving through data. Essential once a model is given tools.
+- [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) — **OWASP GenAI Security Project** — the application-security counterpart to model alignment, with mitigations per risk.
+
+**Where alignment stands in 2026:** the training side moved past pure preference optimization — reasoning models are now shaped by **reinforcement learning against verifiable rewards** ([DeepSeek-R1](https://arxiv.org/abs/2501.12948), [Tülu 3](https://arxiv.org/abs/2411.15124)), which sidesteps reward-model over-optimization but only where a checker exists. The deployment side moved the other way: as models gained tools, the dominant safety problem became **injection through data**, which no amount of alignment training removes. Both belong in a complete answer — see [Reinforcement Learning for Reasoning (GRPO and RLVR)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/reinforcement-learning-for-reasoning-grpo-and-rlvr/reinforcement-learning-for-reasoning-grpo-and-rlvr) and [Prompt Injection and Agent Guardrails](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/prompt-injection-and-agent-guardrails/prompt-injection-and-agent-guardrails).
 
 **Key papers** (every formula on the page cites one of these):
 - [Why Language Models Hallucinate](https://arxiv.org/abs/2509.04664) — **Kalai et al. (2025)** — hallucination as the *statistically optimal* response to a binary scoring rule that punishes abstention; the incentive-misalignment argument.

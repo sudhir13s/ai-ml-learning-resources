@@ -3,7 +3,7 @@ id: "15-rag-and-llm-apps/query-transformation-hyde-multi-query/references"
 topic: "Query Transformation (HyDE & Multi-Query) — References"
 parent: "15-rag-and-llm-apps/query-transformation-hyde-multi-query"
 type: references
-updated: 2026-07-01
+updated: 2026-09-07
 ---
 
 # Query Transformation (HyDE & Multi-Query) — references and further reading
@@ -14,15 +14,13 @@ updated: 2026-07-01
 1. **Feel the problem** — read [the HyDE paper](https://arxiv.org/abs/2212.10496) (**Gao et al. 2022**), abstract + §1–3. *Why a hypothetical answer is a better retrieval probe than the raw question — the core idea, stated cleanly.*
 2. **See it as query expansion** — read [query2doc](https://arxiv.org/abs/2303.07678) (**Wang et al. 2023**). *The append-the-pseudo-document variant, with concrete BM25 gains — sharpens the "replace vs append" distinction.*
 3. **Build Multi-Query** — read [LangChain's MultiQueryRetriever how-to](https://python.langchain.com/docs/how_to/MultiQueryRetriever/) (**LangChain**). *Generate N reformulations, retrieve each, return the unique union — the pattern the page builds by hand.*
-4. **Add the fusion** — read the [RAG-Fusion write-up](https://towardsdatascience.com/forget-rag-the-future-is-rag-fusion-1147298d8ad1/) (**Adrian Raudaschl / TDS**). *Multi-Query + RRF, the pattern most production stacks default to.*
+4. **Add the fusion** — read [RAG-Fusion: A New Take on Retrieval-Augmented Generation](https://arxiv.org/abs/2402.03367) (**Rackauckas 2024**). *Multi-Query + reciprocal rank fusion evaluated properly — the pattern most production stacks default to, with its failure cases named.*
 5. **Wire HyDE in a framework** — read [LlamaIndex's HyDE query-transform docs](https://developers.llamaindex.ai/python/framework/optimizing/advanced_retrieval/query_transformations/). *`HyDEQueryTransform` + `TransformQueryEngine`, the library one-liner and its knobs.*
 
 **Videos**:
-- [Advanced RAG — Query Transformations (HyDE, Multi-Query, RAG-Fusion)](https://www.youtube.com/watch?v=sVcwVQRHIc8) — **LangChain (Lance Martin)** — the "RAG from Scratch" episode that walks HyDE, multi-query, and decomposition on real code; the single best overview of this chapter's topic.
-- [HyDE — Hypothetical Document Embeddings, explained](https://www.youtube.com/watch?v=v_BnBEubv58) — **Connor Shorten (Weaviate)** — the paper's idea in plain terms, with the "wrong hypothetical still works" intuition.
-- [Multi-Query & RAG-Fusion — better retrieval by rewriting the query](https://www.youtube.com/watch?v=77qELPbNgxA) — **LangChain (Lance Martin)** — the multi-query + reciprocal-rank-fusion pattern, built step by step.
-- [RAG-Fusion — how it works and why it beats plain RAG](https://www.youtube.com/watch?v=GchC5WxeXGc) — **Prompt Engineering** — the fan-out-then-fuse pattern with a worked example.
-- [Query Transformations for RAG (step-back, decomposition, HyDE)](https://www.youtube.com/watch?v=miDqLc4-nyc) — **LlamaIndex / community** — the wider family of query rewrites and when each helps.
+- [RAG from Scratch, Part 6 — Query Translation and RAG-Fusion](https://www.youtube.com/watch?v=77qELPbNgxA) — **LangChain (Lance Martin)** — the multi-query + reciprocal-rank-fusion pattern built step by step by the maintainer who wrote the reference implementation.
+- [Advanced RAG 05 — HyDE: Hypothetical Document Embeddings](https://www.youtube.com/watch?v=v_BnBEubv58) — **Sam Witteveen** — the paper's idea in plain terms, with the "a wrong hypothetical still retrieves the right neighbourhood" intuition.
+- [Stanford CS25: Retrieval-Augmented Language Models](https://www.youtube.com/watch?v=mE7IDf2SmJg) — **Douwe Kiela (Stanford Online)** — why the query side, not just the index, is where most retrieval quality is won or lost.
 
 **Interactive & visual**:
 - [Nearest-neighbour / embedding explorer (TensorFlow Embedding Projector)](https://projector.tensorflow.org/) — **Google** — project real embeddings to 2D/3D and *see* the question↔answer gap the page measures, on your own text.
@@ -33,11 +31,11 @@ updated: 2026-07-01
 - [DeepLearning.AI — Building and Evaluating Advanced RAG](https://www.deeplearning.ai/short-courses/building-evaluating-advanced-rag/) — **DeepLearning.AI + LlamaIndex (free short course)** — query transformation inside a full advanced-RAG pipeline, with evaluation.
 
 **Articles / blogs (free, no paywall)**:
-- [RAG-Fusion: the next frontier of search](https://towardsdatascience.com/forget-rag-the-future-is-rag-fusion-1147298d8ad1/) — **Adrian Raudaschl (Towards Data Science)** — the article that popularized Multi-Query + RRF, with the reasoning and code.
+- [Query Transformations](https://blog.langchain.com/query-transformations/) — **Lance Martin (LangChain)** — the taxonomy of query rewrites in one place, from the maintainer's own blog.
 - [How to use the MultiQueryRetriever](https://python.langchain.com/docs/how_to/MultiQueryRetriever/) — **LangChain docs** — the exact API the page cites (default 3 reformulations, unique union), with a runnable example.
 - [Query Transformations](https://blog.langchain.dev/query-transformations/) — **LangChain blog (Lance Martin)** — a taxonomy of query rewrites (rewrite-retrieve-read, multi-query, HyDE, decomposition, step-back) and when each applies.
 - [Advanced Retrieval — Query Transformations (HyDE)](https://developers.llamaindex.ai/python/framework/optimizing/advanced_retrieval/query_transformations/) — **LlamaIndex docs** — `HyDEQueryTransform` + `TransformQueryEngine`, including the "HyDE can produce nonsense" caveat the pitfalls section echoes.
-- [Advanced RAG: Query Expansion](https://www.pinecone.io/learn/query-expansion/) — **Pinecone** — HyDE and generated-query expansion framed as retrieval-side upgrades, vendor-neutral.
+- [Query Expansion by Prompting Large Language Models](https://arxiv.org/abs/2305.03653) — **Jagerman, Zhuang, Qin, Wang & Bendersky (2023, Google)** — the controlled study of LLM-generated query expansion against classical pseudo-relevance feedback: which prompt style helps, and by how much.
 
 **Key papers**:
 - [Precise Zero-Shot Dense Retrieval without Relevance Labels (HyDE)](https://arxiv.org/abs/2212.10496) — **Gao, Ma, Lin & Callan (2022)** — the HyDE paper: generate a hypothetical document, encode it, retrieve; the encoder's "dense bottleneck filters out the incorrect details." The primary source for this page's HyDE section.

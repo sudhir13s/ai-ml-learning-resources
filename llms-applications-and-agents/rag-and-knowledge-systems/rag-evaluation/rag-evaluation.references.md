@@ -3,7 +3,7 @@ id: "15-rag-and-llm-apps/rag-evaluation/references"
 topic: "RAG Evaluation (RAGAS · faithfulness · groundedness) — References"
 parent: "15-rag-and-llm-apps/rag-evaluation"
 type: references
-updated: 2026-07-02
+updated: 2026-09-07
 ---
 
 # RAG Evaluation — references and further reading
@@ -20,14 +20,13 @@ updated: 2026-07-02
 1. **Learn the two halves** — watch [RAG Evaluation: Precision, Recall, Faithfulness, RAGAS](https://www.youtube.com/watch?v=7_LTU0LA374) (**Logical Lenses**). *Separate retrieval metrics from generation metrics.*
 2. **Master the RAG triad** — read [TruLens: The RAG Triad](https://www.trulens.org/getting_started/core_concepts/rag_triad/). *Context relevance + faithfulness + answer relevance = no-hallucination confidence.*
 3. **Know the metrics precisely** — read [RAGAS: Available Metrics](https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/). *Exactly what faithfulness, context precision, and context recall compute.*
-4. **See it scored** — watch [RAG Evaluation Metrics Explained](https://www.youtube.com/watch?v=wOoYP55eYF0) (**Shrijayan**). *Worked examples of each metric on real query/context/answer triples.*
+4. **See it scored honestly** — read [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) (**Hamel Husain**). *Why a metric dashboard is not an eval: look at your data, write assertions first, and only then reach for an LLM judge — the practitioner correction to the metric list above.*
 5. **Read the source** — skim the [RAGAS paper](https://arxiv.org/abs/2309.15217) (**Es et al. 2023**). *Reference-free, LLM-judged evaluation of RAG pipelines — the framework this chapter builds toward.*
 
 **Videos**:
 - [RAG Evaluation: Precision, Recall, Faithfulness, RAGAS Explained Clearly](https://www.youtube.com/watch?v=7_LTU0LA374) — **Logical Lenses** — a clear split of retrieval vs generation metrics.
-- [RAG Evaluation Metrics Explained](https://www.youtube.com/watch?v=wOoYP55eYF0) — **Shrijayan** — context precision/recall, relevancy, and faithfulness with worked examples.
-- [What is RAGAS? Explained in 60 Seconds](https://www.youtube.com/watch?v=KNlD8hwmUdM) — **CodeCraft Academy** — a fast orientation to the RAGAS metric set.
 - [RAG Time! Evaluate RAG with LLM Evals and Benchmarking](https://www.youtube.com/watch?v=LrMguHcbpO8) — **Arize AI** — LLM-as-judge evals and how to benchmark a RAG system.
+- [Stanford CS25: Retrieval-Augmented Language Models](https://www.youtube.com/watch?v=mE7IDf2SmJg) — **Douwe Kiela (Stanford Online)** — a RAG co-author on why end-to-end scores hide which stage failed, and what the research community measures instead.
 
 **Interactive & visual**:
 - [RAGAS — Get Started: Evaluate a RAG system](https://docs.ragas.io/en/stable/getstarted/rag_eval/) — **Exploding Gradients** — a runnable, free walkthrough of evaluating a pipeline end to end.
@@ -43,6 +42,8 @@ updated: 2026-07-02
 - [RAGAS: Available Metrics](https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/) — **Exploding Gradients** — the authoritative metric definitions the page's faithfulness / context-precision math is derived from.
 - [explodinggradients/ragas (GitHub)](https://github.com/explodinggradients/ragas) — **Exploding Gradients** — the open-source library to read and run.
 - [LLM-as-a-Judge](https://huggingface.co/learn/cookbook/en/llm_judge) — **Hugging Face** — how (and how *not*) to use an LLM as the evaluator behind these metrics; practical remedies for judge bias.
+- [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) — **Hamel Husain** — the practitioner's correction to metric-first evaluation: start from error analysis on real traces, write assertions, and treat the LLM judge as a component that itself needs validating against human labels.
+- [RAG evaluation cookbook](https://huggingface.co/learn/cookbook/en/rag_evaluation) — **Hugging Face** — a runnable end-to-end evaluation: build a synthetic test set, filter it for quality, score with a judge, and check the judge against human agreement.
 - [LangSmith — Evaluation](https://docs.smith.langchain.com/evaluation/concepts) — **LangChain** — running evaluators over a dataset, tracking scores across versions, and gating regressions in CI (the offline-eval → CI loop the page's production section describes).
 
 **Key papers**:

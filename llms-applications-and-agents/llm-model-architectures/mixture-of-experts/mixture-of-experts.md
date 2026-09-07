@@ -6,7 +6,7 @@ level: advanced
 built_from: ["09-llms/decoder-only-architecture", "softmax", "09-llms/scaling-laws", "transformer-architecture"]
 interview_frequency: high
 template: concept-deep
-updated: 2026-06-22
+updated: 2026-09-07
 tier: flagship
 est_minutes: 45
 leads_to: ["09-llms/inference-optimization-and-serving"]
@@ -37,7 +37,7 @@ I'm going to build this the way I'd actually walk a teammate through it on a whi
 
 To feel why MoE exists, you have to feel the waste it removes — exactly as with the KV cache.
 
-A standard transformer block has two halves: **attention** (tokens exchange information) and a **feed-forward network (FFN)** (each token is transformed independently). As the [Transformer Architecture](../../../../deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture.md) page derives, the FFN — the $d \to 4d \to d$ expansion — holds roughly **two-thirds of every block's parameters**. It is where the model does most of its per-token "thinking," and it is the heaviest part of the compute. In a **dense** model, *that entire FFN runs for every single token.* Every token — the word "the", a closing bracket, a rare technical term — pushes through all $\sim\!\tfrac{2}{3}$ of the block's weights.
+A standard transformer block has two halves: **attention** (tokens exchange information) and a **feed-forward network (FFN)** (each token is transformed independently). As the [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture) page derives, the FFN — the $d \to 4d \to d$ expansion — holds roughly **two-thirds of every block's parameters**. It is where the model does most of its per-token "thinking," and it is the heaviest part of the compute. In a **dense** model, *that entire FFN runs for every single token.* Every token — the word "the", a closing bracket, a rare technical term — pushes through all $\sim\!\tfrac{2}{3}$ of the block's weights.
 
 That is the waste. Most tokens are easy and don't need the model's full representational firepower; but a dense model has no way to spend *less* compute on an easy token and *more* on a hard one. Compute is flat, regardless of difficulty, because **parameters and FLOPs are the same thing in a dense model**: to use a parameter is to multiply by it.
 
@@ -101,7 +101,7 @@ Hold three pictures and the rest follows.
 
 The magic number is the **ratio of total specialists to consulted specialists**. A hospital with 100 specialists that consults 2 per patient has $50\times$ the *knowledge* of a 2-specialist clinic but does the *same work per patient*. That ratio — $N/k$ — is exactly the **sparsity factor** that lets MoE models carry tens of times more parameters than they spend per token.
 
-> **Tip:** the dense transformer is *already* "a differentiable router" in disguise — that's the second framing on the [Transformer Architecture](../../../../deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture.md) page, where **attention** dynamically routes *information between positions*. MoE adds a *second* kind of routing: not "which tokens talk to which" but "**which parameters each token uses**." Once you see both, MoE stops feeling exotic — it's the same routing instinct applied to the FFN.
+> **Tip:** the dense transformer is *already* "a differentiable router" in disguise — that's the second framing on the [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture) page, where **attention** dynamically routes *information between positions*. MoE adds a *second* kind of routing: not "which tokens talk to which" but "**which parameters each token uses**." Once you see both, MoE stops feeling exotic — it's the same routing instinct applied to the FFN.
 
 ---
 
@@ -466,6 +466,14 @@ MoE went from research curiosity to the dominant frontier architecture in a few 
 - **Mixtral 8×7B (2024)** — open-weights top-2-of-8; brought MoE to the mainstream.
 - **DeepSeek-MoE / V2 / V3 (2024)** — fine-grained + shared experts, auxiliary-loss-free balancing; the current state of the art (V3: 671B total / 37B active).
 - **Grok-1, Qwen-MoE, Arctic, DBRX, Mixtral 8×22B, …** — MoE is now the default for cost-efficient frontier models. When a lab ships a model that's "as smart as a 200B dense model but serves like a 40B," it's almost always an MoE.
+
+**Where it stands in 2026** — three things settled since the list above:
+
+- **Auxiliary-loss-free balancing won.** [DeepSeek-V3](https://arxiv.org/abs/2412.19437) (671B total / 37B active) balances load by adjusting a per-expert **bias added to the routing scores**, not by adding a gradient term — so balancing no longer fights the language-modeling objective. Expect to be asked why that is better than the auxiliary loss derived above.
+- **Fine-grained experts became the norm.** [Qwen3](https://arxiv.org/abs/2505.09388) routes to 8 of 128 experts; DeepSeek-V3 to 8 of 256 plus a shared always-on expert. Many small experts beat few large ones at equal active parameters, because the router gets a far larger combinatorial space to specialize in.
+- **The weights ship sparse and low-precision.** [gpt-oss](https://arxiv.org/abs/2508.10925) (OpenAI, 2025) released a 117B/5.1B-active MoE with the expert weights natively in MXFP4 — so a frontier-class open model fits on a single 80 GB accelerator. Serving one is now an **expert-parallelism** problem: experts sharded across GPUs, tokens dispatched all-to-all to wherever their expert lives ([LMSYS, 2025](https://lmsys.org/blog/2025-05-05-large-scale-ep/)).
+
+For a component-by-component diff of these 2025 designs against GPT-2, see [The Big LLM Architecture Comparison](https://magazine.sebastianraschka.com/p/the-big-llm-architecture-comparison) (Sebastian Raschka).
 
 > **Note:** the through-line of seven years: the **architecture barely changed** (experts + router + top-k, straight from 2017), but the **training and systems** matured — load balancing, z-loss, capacity tuning, expert parallelism, fine-grained + shared experts, auxiliary-loss-free balancing. MoE's history is a case study in how a simple idea becomes practical only once the *engineering around it* is solved. The idea was always there; making it *stable and servable at scale* took a decade.
 

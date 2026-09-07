@@ -3,7 +3,7 @@ id: "15-rag-and-llm-apps/guardrails-hallucination-mitigation/references"
 topic: "Guardrails & Hallucination Mitigation — References"
 parent: "15-rag-and-llm-apps/guardrails-hallucination-mitigation"
 type: references
-updated: 2026-07-02
+updated: 2026-09-07
 ---
 
 # Guardrails & Hallucination Mitigation — references and further reading
@@ -26,8 +26,7 @@ updated: 2026-07-02
 **Videos**:
 - [What are guardrails for LLMs?](https://www.youtube.com/watch?v=FLOXGvqdwbM) — **Red Hat** — a clear conceptual overview of input/output rails and why they exist.
 - [How to implement LLM guardrails for RAG applications](https://www.youtube.com/watch?v=l5K4r_TJz_8) — **IBM Developer** — fact-checking and output moderation inside a RAG pipeline.
-- [Guardrails for LLM Applications (with Guardrails AI)](https://www.youtube.com/watch?v=7V1w5gnZ-kw) — **Sunny Savita** — building input/output validators and retries with the Guardrails AI library, in code.
-- [NeMo Guardrails — Tame your LLM without Prompt Engineering](https://www.youtube.com/watch?v=3DfV6URqrZA) — **Coding Crash Courses** — programmable Colang rails for topic/safety control.
+- [How We Build Effective Agents](https://www.youtube.com/watch?v=D7_ipDqhtwk) — **Barry Zhang (Anthropic), AI Engineer** — where checks belong inside a production loop, and why a validator that only inspects the final answer catches the failure far too late.
 
 **Interactive & visual**:
 - [Guardrails AI — docs & quickstart](https://www.guardrailsai.com/docs) — **Guardrails AI** — a runnable, free walkthrough of `Guard` objects and input/output validators.
@@ -44,6 +43,10 @@ updated: 2026-07-02
 - [guardrails-ai/guardrails (GitHub)](https://github.com/guardrails-ai/guardrails) — **Guardrails AI** — validators for structure, PII, toxicity, and hallucination, open source.
 - [Prompt Shields in Azure AI Content Safety](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection) — **Microsoft** — how the production input rail detects direct + indirect injection, with the API.
 - [Groundedness detection (Azure AI Content Safety)](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/groundedness) — **Microsoft** — the production output rail: detect (and correct) ungrounded generations against provided sources.
+- [Prompt injection — the ongoing series](https://simonwillison.net/series/prompt-injection/) — **Simon Willison** — the running record of attacks that defeat instruction-level rails; read it before believing any guardrail that lives only in a system prompt.
+- [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) — **OWASP GenAI Security Project** — the checklist form of this page: each risk with its recognized mitigations, useful for structuring a design-review answer.
+
+For the injection attack surface and architectural defenses in depth, see [Prompt Injection and Agent Guardrails](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/prompt-injection-and-agent-guardrails/prompt-injection-and-agent-guardrails).
 
 **Key papers**:
 - [Not what you've signed up for: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection](https://arxiv.org/abs/2302.12173) — **Greshake et al. (2023)** — the threat model the input rail defends against: instructions planted in retrieved content that the LLM then follows.

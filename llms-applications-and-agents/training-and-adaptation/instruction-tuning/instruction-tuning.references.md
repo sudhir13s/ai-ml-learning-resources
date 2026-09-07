@@ -3,7 +3,7 @@ id: "09-llms/instruction-tuning/references"
 topic: "Instruction Tuning — References"
 parent: "09-llms/instruction-tuning"
 type: references
-updated: 2026-06-27
+updated: 2026-09-07
 ---
 
 # Instruction Tuning — references and further reading
@@ -15,13 +15,12 @@ updated: 2026-06-27
 2. **Read the source** — [Finetuned Language Models Are Zero-Shot Learners (FLAN)](https://arxiv.org/abs/2109.01652) (**Wei et al. 2021**). *The result: multitask instruction tuning → zero-shot generalization to held-out task types.*
 3. **Get the scaling story** — [Scaling Instruction-Finetuned Language Models (FLAN-T5)](https://arxiv.org/abs/2210.11416) (**Chung et al. 2022**). *More tasks, more diversity, and CoT data — what each buys.*
 4. **See the cheap recipe** — [Stanford Alpaca](https://crfm.stanford.edu/2023/03/13/alpaca.html) + [Self-Instruct](https://arxiv.org/abs/2212.10560). *Bootstrap instruction data from the model itself → an open instruction-follower cheaply.*
-5. **Do it hands-on** — [Fine-tuning LLMs with example code](https://www.youtube.com/watch?v=eC6Hd1hFvos) (**Shaw Talebi**) + this chapter's [notebook](code/14-Instruction-Tuning.ipynb). *Build and watch the generalization gap yourself.*
+5. **Do it hands-on** — read the [TRL `SFTTrainer` guide](https://huggingface.co/docs/trl/en/sft_trainer) (**Hugging Face**) and run this chapter's notebook from the topic's `code/` folder. *Chat templates, prompt-loss masking, and packing — then watch the generalization gap yourself.*
 
 **Videos**:
 - [Deep Dive into LLMs like ChatGPT](https://www.youtube.com/watch?v=7xTGNNLPyMI) — **Andrej Karpathy** — the clearest tour of pretraining → instruction/SFT → RLHF, with instruction data's exact role.
-- [Fine-tuning Large Language Models (with example code)](https://www.youtube.com/watch?v=eC6Hd1hFvos) — **Shaw Talebi** — instruction-style SFT end to end, in code.
-- [LLM Fine-Tuning Crash Course: 1-Hour End-to-End](https://www.youtube.com/watch?v=mrKuDK9dGlg) — **AI Anytime** — instruction-dataset prep → training → eval, hands-on.
-- [Stanford CS25 — Building Llama from scratch / instruction tuning](https://www.youtube.com/watch?v=rE7lTk7tlFY) — **Stanford CS25** — instruction tuning within a modern post-training stack.
+- [Build a Large Language Model (From Scratch) — video series](https://www.youtube.com/playlist?list=PLTKMiZHVd_2IIEsoJrWACkIxLRdfMlw11) — **Sebastian Raschka** — the instruction-tuning chapter built in code: dataset formatting, prompt masking, and the training loop, with nothing hidden behind a trainer class.
+- [Stanford CS336 — Language Modeling from Scratch, Spring 2025 (lectures)](https://www.youtube.com/playlist?list=PLoROMvodv4rOY23Y0BoGoBGgQ1zmU_MT_) — **Stanford Online** — the alignment and data lectures place instruction tuning inside the full post-training stack.
 
 **Interactive & visual**:
 - [LLM Visualizer (3D)](https://bbycroft.net/llm) — **Brendan Bycroft** — walk a token through a small GPT's forward pass; grounds *what* the instruction-conditioned model is actually computing.
@@ -46,6 +45,7 @@ updated: 2026-06-27
 - [Self-Instruct: Aligning LMs with Self-Generated Instructions](https://arxiv.org/abs/2212.10560) — **Wang et al. (2022)** — bootstrap instruction data from the model itself; the synthetic-data recipe behind Alpaca.
 - [LIMA: Less Is More for Alignment](https://arxiv.org/abs/2305.11206) — **Zhou et al. (2023)** — ~1,000 high-quality instruction examples can rival far larger noisy mixes; quality > quantity.
 - [The FLAN Collection](https://arxiv.org/abs/2301.13688) — **Longpre et al. (2023)** — systematic study of *what makes an instruction mix effective* (mixing strategy, balancing, input inversion).
+- [Tülu 3: Pushing Frontiers in Open Language Model Post-Training](https://arxiv.org/abs/2411.15124) — **Lambert et al. (2024, Allen Institute for AI)** — the current open reference for the whole post-training pipeline: how the instruction mix is curated and decontaminated, and how the SFT stage is evaluated before preference training touches it.
 
 **Books (free chapters)**:
 - [Speech and Language Processing, 3rd ed. — Ch. 12 "Model Alignment, Prompting & In-Context Learning"](https://web.stanford.edu/~jurafsky/slp3/) — **Jurafsky & Martin** — instruction tuning within the alignment chapter.

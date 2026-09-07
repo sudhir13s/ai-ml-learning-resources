@@ -3,7 +3,7 @@ id: "09-llms/decoding-and-sampling/references"
 topic: "Decoding & Sampling — References"
 parent: "09-llms/decoding-and-sampling"
 type: references
-updated: 2026-06-27
+updated: 2026-09-07
 ---
 
 # Decoding & Sampling — references and further reading
@@ -14,14 +14,14 @@ updated: 2026-06-27
 1. **Get the overview** — watch [Greedy? Min-p? Beam Search? How LLMs Actually Pick Words](https://www.youtube.com/watch?v=o-_SZ_itxeA) (**AI Coffee Break with Letitia**). *Greedy, beam, top-k/p, min-p in one clear survey — the cleanest map of the whole space.*
 2. **Read with runnable code** — [How to generate text: decoding methods with Transformers](https://huggingface.co/blog/how-to-generate) (**Hugging Face**). *Every method with copy-pasteable examples — the canonical code-first explainer.*
 3. **See the failure mode** — read [The Curious Case of Neural Text Degeneration](https://arxiv.org/abs/1904.09751) (**Holtzman et al. 2019**). *Why likelihood-maximizing decoders degenerate, and the nucleus (top-p) fix — the conceptual heart of the topic.*
-4. **Compare the knobs side-by-side** — read [How do temperature, top-k, and top-p sampling differ?](https://magazine.sebastianraschka.com/p/llm-sampling) (**Sebastian Raschka**). *A crisp, correct contrast of the three core sampling controls.*
+4. **Compare the knobs side-by-side** — read [How do temperature, top-k, and top-p sampling differ?](https://sebastianraschka.com/faq/docs/temperature-topk-topp-sampling.html) (**Sebastian Raschka**). *A crisp, correct contrast of the three core sampling controls.*
 5. **Use it in practice** — [Generation strategies](https://huggingface.co/docs/transformers/en/generation_strategies) (**Hugging Face**). *The actual parameters and defaults you'll tune in real systems.*
 
 **Videos**:
 - [Greedy? Min-p? Beam Search? How LLMs Actually Pick Words](https://www.youtube.com/watch?v=o-_SZ_itxeA) — **AI Coffee Break with Letitia** — the clearest survey of decoding strategies, greedy through min-p.
 - [Let's build GPT: from scratch, in code, spelled out](https://www.youtube.com/watch?v=kCc8FmEb1nY) — **Andrej Karpathy** — the generation loop where temperature and sampling are implemented line by line.
 - [Beam Search — decoding strategy explained](https://www.youtube.com/watch?v=vCcXs5nxmbI) — **The AI Loop** — beam-search intuition and the width/length-penalty tradeoffs.
-- [Nucleus Sampling: The Curious Case of Neural Text Degeneration](https://www.youtube.com/watch?v=dCORspO2yVY) — **TechViz** — the top-p paper walked through, with the degeneration plots.
+- [Let's reproduce GPT-2 (124M)](https://www.youtube.com/watch?v=l8pRSuU81PU) — **Andrej Karpathy** — the sampling loop inside a real training/eval script, including why the default settings look the way they do.
 
 **Interactive & visual**:
 - [LLM Visualizer (3D)](https://bbycroft.net/llm) — **Brendan Bycroft** — walk a token through a small GPT's full forward pass and *see* the logits the decoder then samples from.
@@ -33,7 +33,7 @@ updated: 2026-06-27
 
 **Articles / blogs (free, no paywall)**:
 - [How to generate text: decoding methods with Transformers](https://huggingface.co/blog/how-to-generate) — **Hugging Face (Patrick von Platen)** — the canonical, code-first decoding explainer (greedy, beam, top-k, top-p side by side).
-- [Understanding the Three Most Common LLM Sampling Strategies](https://magazine.sebastianraschka.com/p/llm-sampling) — **Sebastian Raschka** — a crisp, correct contrast of temperature, top-k, and top-p.
+- [How do temperature, top-k, and top-p sampling differ?](https://sebastianraschka.com/faq/docs/temperature-topk-topp-sampling.html) — **Sebastian Raschka** — a crisp, correct contrast of the three core sampling controls, with the code for each.
 - [Controllable Neural Text Generation](https://lilianweng.github.io/posts/2021-01-02-controllable-text-generation/) — **Lilian Weng (OpenAI)** — decoding and steering generation, including degeneration and sampling.
 - [Speeding up the GPT — KV cache](https://www.dipkumar.dev/becoming-the-unbeatable/posts/gpt-kvcache/) — **Dipkumar Patel** — the generation loop the decoder runs inside (where the distribution is produced each step).
 
@@ -45,6 +45,7 @@ updated: 2026-06-27
 - [Google's Neural Machine Translation System (GNMT)](https://arxiv.org/abs/1609.08144) — **Wu et al. (2016)** — §7 gives the length-normalized beam-search score $\frac{1}{L^\alpha}\sum_t \log p$ that corrects beam's bias toward short sequences.
 - [Locally Typical Sampling](https://arxiv.org/abs/2202.00666) — **Meister, Pimentel, Wiher & Cotterell (2022)** — keep tokens whose information content is *typical* (near the distribution's entropy), an information-theoretic alternative to top-p.
 - [The Curious Case of Neural Text Degeneration (Nucleus Sampling)](https://arxiv.org/abs/1904.09751) — **Holtzman, Buys, Du, Forbes & Choi (2019)** — introduces top-p (nucleus) sampling and the degeneration analysis; the single most important paper for this topic.
+- [Turning Up the Heat: Min-p Sampling for Creative and Coherent LLM Outputs](https://arxiv.org/abs/2407.01082) — **Nguyen et al. (2024, ICLR 2025)** — the truncation rule that scales the cutoff with the top token's probability; now a standard knob in vLLM, llama.cpp, and Transformers, and the reason "top-p vs min-p" is a live 2026 interview question.
 
 **Books (free, with chapters)**:
 - [Dive into Deep Learning — Ch. 10 "Beam Search"](https://d2l.ai/chapter_recurrent-modern/beam-search.html) — **Zhang, Lipton, Li & Smola** — greedy as the $b=1$ special case, beam search, and length-normalized scoring with runnable code.
@@ -52,8 +53,7 @@ updated: 2026-06-27
 
 **In this platform**:
 - Concept page (full explanation): [Decoding & Sampling](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/decoding-and-sampling/decoding-and-sampling)
-- Related (NLP card, seq2seq framing): [Decoding Strategies](../../../../modalities-and-generative-models/natural-language-processing/decoding-strategies/decoding-strategies.md)
-- Foundations: [Loss Functions (softmax & cross-entropy)](../../../../deep-learning/optimization-and-training/loss-functions/loss-functions.md) · [Language Modeling Objectives](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/language-modeling-objectives/language-modeling-objectives) · [Decoder-only Architecture](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/decoder-only-models/decoder-only-models)
-- Makes it fast (a *speed* technique, not a strategy): [Inference Optimization & Serving — speculative decoding](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/inference-optimization/inference-optimization)
-- Uses it: [Chain-of-Thought Reasoning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/chain-of-thought-and-reasoning/chain-of-thought-and-reasoning) · [LLM Evaluation & Benchmarks](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/llm-evaluation/llm-evaluation)
-```
+- Related (NLP card, seq2seq framing): [Decoding Strategies](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/decoding-strategies/decoding-strategies)
+- Foundations: [Loss Functions (softmax & cross-entropy)](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/loss-functions/loss-functions) · [Language Modeling Objectives](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/language-modeling-objectives/language-modeling-objectives) · [Decoder-only Architecture](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/decoder-only-models/decoder-only-models)
+- Makes it fast (a *speed* technique, not a strategy): [Speculative Decoding](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/speculative-decoding/speculative-decoding) · [Inference Optimization & Serving](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/inference-optimization/inference-optimization)
+- Uses it: [Chain-of-Thought Reasoning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/chain-of-thought-and-reasoning/chain-of-thought-and-reasoning) · [LLM Evaluation & Benchmarks](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/llm-evaluation/llm-evaluation) · [Test-Time Computation and Scaling](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/test-time-computation-and-scaling/test-time-computation-and-scaling)

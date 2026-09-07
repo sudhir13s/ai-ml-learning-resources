@@ -1,5 +1,8 @@
 ---
 id: vllm-and-paged-attention
+topic: "vLLM and Paged Attention"
+level: advanced
+updated: 2026-09-07
 title: vLLM and Paged Attention
 minutes: 20
 category: inference-and-runtime
@@ -70,6 +73,16 @@ When a model does not fit on one GPU you split it:
 - **Pipeline parallelism (PP):** split the model into stage *ranges* of layers across GPUs/nodes; activations pass stage-to-stage. PP communicates far less, tolerating cross-node links, but introduces **pipeline bubbles** (idle stages waiting for upstream) unless you micro-batch.
 
 Rule of thumb: TP within a node for latency-critical serving, PP across nodes only when the model is too large for one node's GPUs. Getting this wrong — splitting a TP group across nodes — produces high latency with *dropping* GPU utilization, a silent topology bug.
+
+### Where the engine stands in 2026
+
+The 2023 design above is still the skeleton; three things changed in the answer an interviewer now expects:
+
+- **vLLM V1 made the optional flags the defaults.** The 2025 core rewrite removed the scheduler overhead that capped small-model throughput and turned **prefix caching and chunked prefill on by default** ([vLLM team, 2025](https://blog.vllm.ai/2025/01/27/v1-alpha-release.html)); the engine's request path is walked end to end in [The Anatomy of vLLM](https://blog.vllm.ai/2025/09/05/anatomy-of-vllm.html).
+- **Prefill/decode disaggregation shipped.** Separate prefill and decode pools with a KV-cache transfer between them are now standard for large deployments — measured publicly by SGLang on DeepSeek with expert parallelism ([LMSYS, 2025](https://lmsys.org/blog/2025-05-05-large-scale-ep/)), and productized as NVIDIA Dynamo ([NVIDIA, 2025](https://developer.nvidia.com/blog/introducing-nvidia-dynamo-a-low-latency-distributed-inference-framework-for-scaling-reasoning-ai-models/)). The research source is [DistServe](https://arxiv.org/abs/2401.09670).
+- **Mixture-of-experts models added a fourth parallelism axis.** Frontier open models route to a few of hundreds of experts, so serving them means **expert parallelism** on top of TP/PP — experts sharded across GPUs, tokens dispatched to wherever their expert lives. See [Mixture of Experts](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/llm-model-architectures/mixture-of-experts/mixture-of-experts).
+
+Speculative decoding is the other lever this page's stack leans on; its acceptance-rate math and the shift from separate draft models to self-speculation get their own page: [Speculative Decoding](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/speculative-decoding/speculative-decoding).
 
 ## Common pitfalls
 

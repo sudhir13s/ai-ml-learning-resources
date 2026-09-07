@@ -6,7 +6,7 @@ level: advanced
 built_from: ["positional-encoding", "attention", "09-llms/kv-cache", "rope"]
 interview_frequency: high
 template: concept-deep
-updated: 2026-06-26
+updated: 2026-09-07
 tier: standard
 est_minutes: 25
 leads_to: ["09-llms/inference-optimization-and-serving"]
@@ -36,7 +36,7 @@ I'm going to walk this the way I'd actually explain it to a teammate who just wa
 
 To extend context you must pay three separate tolls. Confusing them is the root of most long-context confusion, so let's feel each one with real numbers, using a 32-layer, 7B-class model as the running example.
 
-**Wall 1 — attention compute is $O(N^2)$.** Self-[attention](../../../../deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism.md) compares every token to every other token, so the score matrix has $N^2$ entries. Go from a 4K to a 128K context — a 32× longer sequence — and the attention matrix grows by $32^2 = \mathbf{1024\times}$. At 128K that's $131072^2 \approx 1.7\times10^{10}$ entries **per layer, per head**. Materialising that matrix in memory is impossible; even computing it is the dominant cost. *(This wall is knocked down by [FlashAttention](../../../../deep-learning/attention-and-transformers/efficient-attention/efficient-attention.md) — which never materialises the matrix — and by the **sparse/sliding** attention patterns below.)*
+**Wall 1 — attention compute is $O(N^2)$.** Self-[attention](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism) compares every token to every other token, so the score matrix has $N^2$ entries. Go from a 4K to a 128K context — a 32× longer sequence — and the attention matrix grows by $32^2 = \mathbf{1024\times}$. At 128K that's $131072^2 \approx 1.7\times10^{10}$ entries **per layer, per head**. Materialising that matrix in memory is impossible; even computing it is the dominant cost. *(This wall is knocked down by [FlashAttention](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/efficient-attention/efficient-attention) — which never materialises the matrix — and by the **sparse/sliding** attention patterns below.)*
 
 **Wall 2 — the KV cache grows linearly with $N$.** Every token's key and value vectors are cached so they're not recomputed (see [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache)). For Llama-2-7B (MHA) the cache is **0.5 MiB per token**. At a 128K context that's
 
@@ -224,7 +224,9 @@ Two honest mentions, kept brief because they're parallel research lines rather t
 
 > **Source / derivation:** [Dai et al., *Transformer-XL: Attentive Language Models Beyond a Fixed-Length Context* (2019)](https://arxiv.org/abs/1901.02860) — segment-level recurrence with cached states, plus the relative positional encoding scheme that made the recurrence position-consistent across segments.
 
-**State-space models (Mamba).** A genuinely different architecture: replace attention with a **selective state-space recurrence** that processes the sequence in $O(N)$ time and *constant* memory per step — no KV cache that grows with $N$ at all. The honest caveat: SSMs compress all history into a fixed-size state, so they can struggle with exact long-range *retrieval* (finding a specific earlier token) where attention excels. Many 2024+ frontier models are **hybrids** — mostly SSM layers with a few attention layers to recover retrieval. This is an active frontier, not a settled replacement; we note it and move on.
+**State-space models (Mamba).** A genuinely different architecture: replace attention with a **selective state-space recurrence** that processes the sequence in $O(N)$ time and *constant* memory per step — no KV cache that grows with $N$ at all ([Gu & Dao 2023](https://arxiv.org/abs/2312.00752)). The honest caveat: state-space models compress all history into a fixed-size state, so they can struggle with exact long-range *retrieval* (finding a specific earlier token) where attention excels.
+
+**The hybrid is what actually shipped.** By 2025-26 the settled answer is neither pure attention nor pure recurrence: interleave **many state-space layers with a few full-attention layers**, so the cheap layers carry the sequence and the rare attention layers preserve exact recall. [Jamba](https://arxiv.org/abs/2403.19887) (AI21, 2024) is the clearest published instance — a 256K-context hybrid whose KV cache is a small fraction of a comparable transformer's. Treat "hybrid attention" as the current default for very long context, not as a research curiosity.
 
 ---
 
@@ -376,6 +378,12 @@ Tying the techniques to models you've heard of. Note that **every** one of these
 > **Note (Qwen's 1M tier):** Qwen-2.5's **128K** models use YaRN, but the **1M** tier (Qwen2.5-1M) adds **Dual Chunk Attention (DCA)** on top — DCA splits the sequence into chunks and remaps positions so intra- and inter-chunk distances both stay within the trained range, which YaRN alone does not achieve at 1M. So the honest attribution is **YaRN to 128K, YaRN + DCA to 1M**.
 
 > **Note:** read the columns, not the rows. **Position** is almost always RoPE plus some scaling (PI/NTK/YaRN); **compute** is FlashAttention (often with a sliding window); **memory** is GQA or MLA plus a paged, often quantized cache. "128K context" is the *product* of one choice from each column. Llama-3 extended from 8K to 128K by **continued pretraining on long sequences with RoPE scaling**, not by changing the architecture.
+
+**What 2026 added to that table** — three updates worth saying out loud in an interview:
+
+- **Million-token context is documented, not just claimed.** [Qwen2.5-1M](https://arxiv.org/abs/2501.15383) publishes the whole recipe: a progressive length-extension curriculum, dual chunk attention, and a chunked-prefill inference stack — the first fully described 1M-token open model.
+- **MLA and hybrid attention are the memory answer, not GQA.** Latent-KV compression ([DeepSeek-V2](https://arxiv.org/abs/2405.04434)) and Mamba-plus-attention hybrids ([Jamba](https://arxiv.org/abs/2403.19887)) both attack the cache directly rather than shaving heads off it; the attention shapes themselves are compared on [Attention Architectures (GQA, MLA, sliding, linear)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/llm-model-architectures/attention-architectures-gqa-mla-sliding-and-linear/attention-architectures-gqa-mla-sliding-and-linear).
+- **The evaluation moved on from needle-in-a-haystack.** [RULER](https://arxiv.org/abs/2404.06654) (NVIDIA) adds multi-hop tracing, aggregation, and multi-needle tasks, and finds that most models' *effective* context sits far below the advertised number — so "128K" is a claim to be tested, not a spec.
 
 > **Tip:** when an interviewer asks "how would you extend this 4K model to 32K?", the gold answer walks all three walls: *(1)* **YaRN-scale RoPE** and fine-tune briefly so positions generalise; *(2)* serve with **FlashAttention** (and consider a **sliding window** if the task is local) so the $O(N^2)$ compute is tractable; *(3)* use **GQA + a quantized/paged KV cache** (and **sinks** for endless streams) so the cache fits. Then *(4)* **validate with needle-in-a-haystack**, not perplexity.
 

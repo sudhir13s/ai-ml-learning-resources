@@ -55,5 +55,5 @@ updated: 2026-06-22
 - The modern alternative (faster, has a transform, more global): [08 UMAP](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/dimensionality-reduction/umap/umap)
 - The KL-divergence objective (the *why* of the cost): [ai-ml-intuitions 5.01 Entropy & KL Divergence](/ai-ml/ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition)
 - Concept depth (the *why*): [ai-ml-intuitions 1.11–1.12 Dimensionality Reduction (t-SNE / UMAP)](/ai-ml/ai-ml-intuitions/representation/dimensionality-and-latent-structure/tsne-and-umap-intuition)
-- Prereq math: [Vectors and Vector Spaces](/ai-ml/ai-ml-learning-resources/foundations/vectors-and-vector-spaces/notes-theory) and [Matrices and Matrix Operations](/ai-ml/ai-ml-learning-resources/foundations/matrices-and-matrix-operations/notes-theory)
+- Prereq math: [Vectors and Vector Spaces](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/vectors-and-vector-spaces/vectors-and-vector-spaces) and [Matrices and Matrix Operations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/matrices-and-matrix-operations/matrices-and-matrix-operations)
 - Field overview: [4. Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)

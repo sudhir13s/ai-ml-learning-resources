@@ -6,7 +6,7 @@ level: advanced
 built_from: ["09-llms/kv-cache", "09-llms/decoder-only-architecture", "09-llms/efficient-attention-flashattention"]
 interview_frequency: high
 template: concept-deep
-updated: 2026-06-26
+updated: 2026-09-07
 tier: standard
 est_minutes: 30
 leads_to: ["09-llms/quantization"]
@@ -146,7 +146,7 @@ Now the roofline. An A100 does ~312 TFLOP/s of compute but only ~2 TB/s of bandw
 
 $$\text{ridge} \;=\; \frac{312\times10^{12}\text{ FLOP/s}}{2\times10^{12}\text{ bytes/s}} \;=\; \mathbf{156\ \text{FLOP/byte}}.$$
 
-> **Source / derivation:** [Williams, Waterman & Patterson, *Roofline: An Insightful Visual Performance Model* (CACM 2009)](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2008/EECS-2008-134.html) — the model that pits a kernel's arithmetic intensity against the machine's compute-to-bandwidth ratio (the ridge point); below the ridge a kernel is memory-bound. Its application to transformer decode is [Pope et al., *Efficiently Scaling Transformer Inference* (2022)](https://arxiv.org/abs/2211.05102).
+> **Source / derivation:** [Williams, Waterman & Patterson, *Roofline: An Insightful Visual Performance Model* (CACM 2009)](https://escholarship.org/content/qt78h8v7mr/qt78h8v7mr.pdf) — the model that pits a kernel's arithmetic intensity against the machine's compute-to-bandwidth ratio (the ridge point); below the ridge a kernel is memory-bound. Its application to transformer decode is [Pope et al., *Efficiently Scaling Transformer Inference* (2022)](https://arxiv.org/abs/2211.05102).
 
 A kernel needs ~156 FLOP/byte to keep the compute units busy; decode delivers ~1. So decode is **deeply** memory-bound — by a factor of ~156 — exactly the ratio the notebook prints. **The cure is batching.** Process $B$ sequences together and you read each weight **once** but do $B\times$ the math, multiplying arithmetic intensity by $B$ and walking the kernel up toward the ridge.
 
@@ -330,7 +330,7 @@ The story is right there: at high acceptance ($\alpha = 0.9$) you get a **~2.9×
 
 The three above are the headline wins; a production stack layers several more, each cross-linking a neighbouring chapter:
 
-- **FlashAttention kernels** (cross-link **[06](../../../../deep-learning/attention-and-transformers/efficient-attention/efficient-attention.md)**). The levers above set *how many bytes* must move; the attention **kernel** sets *how close to peak bandwidth* you move them. FlashAttention computes exact attention without materializing the $n\times n$ score matrix in HBM; **FlashDecoding** parallelizes a single decode query across chunks of the KV cache to keep a long-context decode step bandwidth-saturated.
+- **FlashAttention kernels** (cross-link **[Efficient Attention](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/efficient-attention/efficient-attention)**). The levers above set *how many bytes* must move; the attention **kernel** sets *how close to peak bandwidth* you move them. FlashAttention computes exact attention without materializing the $n\times n$ score matrix in HBM; **FlashDecoding** parallelizes a single decode query across chunks of the KV cache to keep a long-context decode step bandwidth-saturated.
 - **Quantization** (cross-link **[10](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/quantization/quantization)**). Storing weights and/or the KV cache in FP8/INT8/INT4 **halves or quarters the bytes streamed** — and in a bandwidth-bound regime, fewer bytes ≈ proportionally faster, on top of fitting more requests. FP8 KV cache is hardware-native on Hopper and often near-lossless.
 - **Prefix caching** (RadixAttention). Many requests share a long identical prefix (a fixed system prompt, a few-shot preamble, a shared document). Compute it **once** and reuse the KV blocks for every request that shares it — turning most of prefill into a cache hit for agent/chat workloads. Built directly on PagedAttention's block sharing.
 - **Prefill/decode disaggregation.** Since prefill is compute-bound and decode is memory-bound, run them on **separate GPU pools** tuned for each bottleneck and ship the KV cache between them over a fast interconnect — so a heavy prefill never stalls everyone's token stream.
@@ -409,6 +409,12 @@ Tying the levers to systems you can run today:
 - **TensorRT-LLM** (NVIDIA) and **TGI** (Hugging Face) implement the same playbook — in-flight batching, paged KV, quantization, FlashAttention kernels — confirming this is the industry-standard stack, not one vendor's trick.
 - **SGLang's RadixAttention** organizes shared prefixes in a radix tree for fast longest-prefix KV reuse — a large win for agent and few-shot workloads with multi-thousand-token shared preambles ([Zheng et al. 2023](https://arxiv.org/abs/2312.07104)).
 - **Mooncake** (Moonshot AI) runs **disaggregated prefill/decode** with a shared KV-cache pool across machines, a design now adopted by several of the largest deployments to hit latency targets at scale ([Qin et al. 2024](https://arxiv.org/abs/2407.00079)).
+
+**Where the stack stands in 2026** — three shifts have moved from "advanced option" to default:
+
+- **vLLM V1** rewrote the engine core in 2025: the scheduler overhead that capped small-model throughput is gone, and **prefix caching plus chunked prefill are on by default** rather than opt-in flags ([vLLM team, 2025](https://blog.vllm.ai/2025/01/27/v1-alpha-release.html)).
+- **Prefill/decode disaggregation is production practice, not a paper** — SGLang's public DeepSeek deployment runs separate prefill and decode pools alongside large-scale expert parallelism, with per-node throughput published ([LMSYS, 2025](https://lmsys.org/blog/2025-05-05-large-scale-ep/)); NVIDIA's Dynamo ships the same split as a product ([NVIDIA, 2025](https://developer.nvidia.com/blog/introducing-nvidia-dynamo-a-low-latency-distributed-inference-framework-for-scaling-reasoning-ai-models/)).
+- **Speculation moved in-model.** Separate draft models are giving way to self-speculation — extra decoding heads trained on the target itself ([Medusa, Cai et al. 2024](https://arxiv.org/abs/2401.10774)) — which removes the second model from the serving graph; the mechanics and the acceptance-rate math get their own page: [Speculative Decoding](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/speculative-decoding/speculative-decoding).
 
 > **Note:** the numbers above are **measured** by their respective papers/posts (linked, in references); the throughput-vs-batch table and batching/speculation results on *this* page are **modeled** from named A100/Llama-3-8B constants — reproducible on any machine, and labelled as modeled throughout. Both are honest; know which is which.
 

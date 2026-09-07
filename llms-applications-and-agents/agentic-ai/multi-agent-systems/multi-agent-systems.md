@@ -5,7 +5,7 @@ parent: "16-agentic-ai"
 level: advanced
 built_from: ["llm-agents-overview", "planning"]
 interview_frequency: high
-updated: 2026-06-20
+updated: 2026-09-07
 tier: core
 est_minutes: 10
 title: "Multi-Agent Systems & Orchestration"
@@ -24,38 +24,42 @@ explain *when multi-agent helps* (parallelism, separation of concerns, specializ
 just adds cost and failure modes*, and name the trade-offs Anthropic flags in their multi-agent
 research system (token cost, coordination overhead, evaluation difficulty).
 
-**⭐ Start here — suggested path:**
+**Start here — suggested path:**
 
-1. **Decide if you even need it** — read ⭐ [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents). *Orchestrator–worker patterns and the "keep it simple" bar before going multi-agent.*
+1. **Decide if you even need it** — read [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents). *Orchestrator–worker patterns and the "keep it simple" bar before going multi-agent.*
 2. **See topologies** — watch [Conceptual Guide: Multi-Agent Architectures](https://www.youtube.com/watch?v=4nZl32FwU-o). *Network, supervisor, hierarchical — the standard orchestration shapes.*
 3. **Read a real system** — read [How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system). *Concrete wins and costs of orchestrator + sub-agents at scale.*
 4. **Study a framework's take** — read [AutoGen](https://arxiv.org/abs/2308.08155) (conversational) and [MetaGPT](https://arxiv.org/abs/2308.00352) (role-based). *Two influential designs for agent collaboration.*
 5. **Build one** — do [Multi-AI Agent Systems with crewAI](https://learn.deeplearning.ai/courses/multi-ai-agent-systems-with-crewai). *Role-based crews make orchestration tangible.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [Multi-AI Agent Systems with crewAI](https://learn.deeplearning.ai/courses/multi-ai-agent-systems-with-crewai) — **DeepLearning.AI × crewAI** — role-based multi-agent teams, free.
 - [AI Agentic Design Patterns with AutoGen](https://learn.deeplearning.ai/courses/ai-agentic-design-patterns-with-autogen) — **DeepLearning.AI × Microsoft/Penn State** — conversational multi-agent patterns.
 
-## 🎥 Videos
+## Videos
 - [Conceptual Guide: Multi-Agent Architectures](https://www.youtube.com/watch?v=4nZl32FwU-o) — **LangChain** — supervisor, hierarchical, and network topologies.
 - [How We Build Effective Agents](https://www.youtube.com/watch?v=D7_ipDqhtwk) — **Barry Zhang (Anthropic)** — orchestrator–worker as a first-class pattern.
 - [Andrew Ng on AI Agentic Workflows](https://www.youtube.com/watch?v=q1XFm21I-VQ) — **Andrew Ng** — multi-agent collaboration as a design pattern.
 - [Tips for Building AI Agents](https://www.youtube.com/watch?v=LP5OCa20Zpg) — **Anthropic** — when multiple agents help vs add cost.
 
-## 📄 Key Papers
+## Key Papers
 - [AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation](https://arxiv.org/abs/2308.08155) — **Wu et al. (2023)** — conversational multi-agent framework.
 - [MetaGPT: Meta Programming for Multi-Agent Collaboration](https://arxiv.org/abs/2308.00352) — **Hong et al. (2023)** — role-based agents with SOP-style workflows.
 - [The Rise and Potential of LLM-Based Agents: A Survey](https://arxiv.org/abs/2308.11432) — **Xi et al. (2023)** — single- vs multi-agent taxonomy and coordination.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) — **Anthropic** — orchestrator–worker and parallelization workflows.
 - [How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system) — **Anthropic** — real costs, wins, and evaluation of a multi-agent system.
 - [LLM Powered Autonomous Agents](https://lilianweng.github.io/posts/2023-06-23-agent/) — **Lilian Weng** — agent components that multi-agent systems compose.
+- [Agent2Agent (A2A) protocol](https://a2a-protocol.org/latest/) — **A2A maintainers (Linux Foundation)** — the 2025 attempt to standardize agent-to-agent communication: agent cards for capability discovery, task lifecycle, and long-running exchanges across vendors. Where MCP standardizes an agent's reach into tools, A2A standardizes its reach into other agents.
+- [A practical guide to building agents](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf) — **OpenAI (2025)** — the manager-with-hand-offs pattern versus a decentralized swarm, and the blunt advice to exhaust single-agent designs first.
 
-## 📚 Books (free, with chapters)
+**The honest 2026 read:** Anthropic's own multi-agent report measures roughly **15× the token cost** of a single-agent chat for the same task, and finds the pattern pays only when subtasks are genuinely parallel and read-heavy (broad research, wide search). For anything with tight sequential dependencies, one agent with good tools still wins. Say that trade-off out loud before naming a topology.
+
+## Books (free, with chapters)
 - [Artificial Intelligence: A Modern Approach — **Ch. 18 "Multiagent Decision Making"**](https://aima.cs.berkeley.edu/) — **Russell & Norvig** — the classical foundations of agents interacting and cooperating.
 
-## 🔗 In this platform
+## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 8.03 Agents & Tool Use](/ai-ml/ai-ml-intuitions/reasoning-and-agency/agents-and-tools/agent-loop-and-tool-use-intuition)
 - Prev / next: [04 Planning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/planning/planning) · [08 Model Context Protocol (MCP)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/model-context-protocol/model-context-protocol) · [09 Agent Frameworks](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/agent-frameworks/agent-frameworks)
 - Related (canonical home): [Prompting & In-Context Learning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/prompting-and-in-context-learning/prompting-and-in-context-learning)

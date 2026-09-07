@@ -3,7 +3,7 @@ id: "15-rag-and-llm-apps/citations-and-attribution/references"
 topic: "Citations & Attribution (post-hoc attribution · citation precision/recall) — References"
 parent: "15-rag-and-llm-apps/citations-and-attribution"
 type: references
-updated: 2026-07-02
+updated: 2026-09-07
 ---
 
 # Citations & Attribution — references and further reading
@@ -26,14 +26,13 @@ updated: 2026-07-02
 
 **Videos**:
 - [RAG — but with Verified Citations!](https://www.youtube.com/watch?v=-wGzSnhQKPM) — **Trelis Research** — making citations point to spans that genuinely support each claim (the entailment, not topical, idea).
-- [How to Get LLM Answers With Sources — Advanced RAG](https://www.youtube.com/watch?v=69gUQ4XHg0o) — **M&M Tech** — returning source documents alongside answers via LangChain LCEL, the plumbing of post-hoc attribution.
+- [Stanford CS25: Retrieval-Augmented Language Models](https://www.youtube.com/watch?v=mE7IDf2SmJg) — **Douwe Kiela (Stanford Online)** — a co-author of the original RAG paper on why attribution, not retrieval accuracy alone, is what makes a grounded system trustworthy.
 - [Building a RAG System with In-line Citations Using Workflows](https://www.youtube.com/watch?v=P4xHWojIB-M) — **LlamaIndex** — inline `[1][2]` citations wired into a retrieval workflow (the `CitationQueryEngine` idea).
 - [Unlocking Advanced RAG: Citations and Attributions](https://www.youtube.com/watch?v=RnCuOL-LBAw) — **Zilliz** — attribution patterns and why grounding-with-citations reduces hallucination.
 - [How to stop LLM Hallucinations: Grounding via RAG (with RAGAS)](https://www.youtube.com/watch?v=4xcbXDjnjS4) — **Underfitted** — grounding and groundedness evaluation, the metric attribution must satisfy.
 
 **Interactive & visual**:
-- [Perplexity](https://www.perplexity.ai/) — **Perplexity AI** — a live consumer answer engine where every answer carries inline numbered citations to its web sources; the clearest working demo of the pattern.
-- [Anthropic Citations — Claude docs](https://platform.claude.com/docs/en/docs/build-with-claude/citations) — **Anthropic** — the request/response format for generation-time citations (`citations.enabled`, `cited_text`, `document_index`, char spans), runnable.
+- [Anthropic Citations — Claude docs](https://platform.claude.com/docs/en/docs/build-with-claude/citations) — **Anthropic** — the request/response format for generation-time citations (`citations.enabled`, `cited_text`, `document_index`, char spans), runnable; the closest thing to a live demo of fine-grained attribution.
 - [princeton-nlp/ALCE (GitHub)](https://github.com/princeton-nlp/ALCE) — **Princeton NLP** — the open-source benchmark + evaluation code (NLI-based citation recall/precision) to read and run.
 
 **Courses (free)**:
@@ -43,7 +42,7 @@ updated: 2026-07-02
 **Articles / blogs (free, no paywall)**:
 - [How to get a model to cite sources](https://python.langchain.com/docs/how_to/qa_citations/) — **LangChain** — the canonical menu of citation techniques (tool IDs, snippets, prompting, retrieval/generation post-processing) with code.
 - [Introducing Citations](https://www.anthropic.com/news/introducing-citations-api) — **Anthropic** — model-native, sentence-level source grounding; why it beats many custom prompt-based setups.
-- [Attributing Sources in RAG Generated Output](https://apxml.com/courses/getting-started-rag/chapter-4-rag-generation-augmentation/attributing-sources) — **APX ML** — a clear, free walkthrough of prompting for and post-processing citations in a RAG pipeline.
+- [Grounding with Google Search — Vertex AI](https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview) — **Google Cloud** — the third production shape of attribution: the platform grounds a response against a search or data-store corpus and returns supporting chunks with confidence scores, rather than asking the model to cite itself.
 - [The RAG Triad — Groundedness](https://www.trulens.org/getting_started/core_concepts/rag_triad/) — **TruLens** — groundedness = decompose the response into claims and find support for each in the context; the attribution-adjacent metric.
 - [Vertex AI — Grounding & citation metadata](https://cloud.google.com/vertex-ai/generative-ai/docs/reference/rest/v1beta1/GroundingMetadata) — **Google Cloud** — the `groundingMetadata` / `groundingChunks` / `groundingSupports` response that links generated segments to their sources.
 - [CitationQueryEngine](https://developers.llamaindex.ai/python/examples/query_engine/citation_query_engine/) — **LlamaIndex** — how the engine splits sources into citation chunks, injects `[1][2]`, and returns `source_nodes` for verification.
