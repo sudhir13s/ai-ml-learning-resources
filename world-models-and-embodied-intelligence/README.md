@@ -56,12 +56,20 @@ five-step start-here path, and verified courses, videos, papers, articles and bo
 
 14. [Evaluating World Models: Prediction, Planning and Physical Consistency](/ai-ml/ai-ml-learning-resources/world-models-and-embodied-intelligence/evaluation-and-safety/evaluating-world-models-prediction-planning-and-physical-consistency/evaluating-world-models-prediction-planning-and-physical-consistency) — Physics-IQ, IntPhys 2, Physion, and the failure modes that matter.
 
-### Chartered but not yet filled
+### Spatial and physical world models
 
-Two chartered sub-areas have no pages yet; the nearest owner is listed so nothing is orphaned.
+15. [Spatial Representations](/ai-ml/ai-ml-learning-resources/world-models-and-embodied-intelligence/spatial-and-physical-world-models/spatial-representations/spatial-representations) — scene graphs, voxels, neural fields, Gaussian splatting, bird's-eye-view features.
+16. [3D Scene Understanding](/ai-ml/ai-ml-learning-resources/world-models-and-embodied-intelligence/spatial-and-physical-world-models/3d-scene-understanding/3d-scene-understanding) — VGGT, DUSt3R, feed-forward geometry, and the VSI-Bench spatial-reasoning gap.
+17. [Object Permanence](/ai-ml/ai-ml-learning-resources/world-models-and-embodied-intelligence/spatial-and-physical-world-models/object-permanence/object-permanence) — occlusion, tracking through occlusion, IntPhys 2, and the developmental evidence.
+18. [Intuitive Physics](/ai-ml/ai-ml-learning-resources/world-models-and-embodied-intelligence/spatial-and-physical-world-models/intuitive-physics/intuitive-physics) — Physion, Physics-IQ, V-JEPA surprise, graph-network simulators, Genesis.
+19. [Causal World Models](/ai-ml/ai-ml-learning-resources/world-models-and-embodied-intelligence/spatial-and-physical-world-models/causal-world-models/causal-world-models) — interventions versus predictions, counterfactual rollouts, the Schölkopf and Bengio programme.
 
-- **spatial-and-physical-world-models** — spatial representations, 3D scene understanding, object permanence, intuitive physics and causal world models. Nearest owners today: [3D and Depth Estimation](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/3d-and-depth-estimation/3d-and-depth-estimation) for the geometry, and [Evaluating World Models](/ai-ml/ai-ml-learning-resources/world-models-and-embodied-intelligence/evaluation-and-safety/evaluating-world-models-prediction-planning-and-physical-consistency/evaluating-world-models-prediction-planning-and-physical-consistency) for the intuitive-physics benchmarks.
-- **memory-and-cognitive-maps** — episodic world memory, spatial memory, cognitive maps and persistent environment state. Nearest owner today: [Memory Systems, Hippocampus and Replay](/ai-ml/ai-ml-learning-resources/specialized-studies/neuroscience-and-brain-inspired-ai/memory-systems-hippocampus-replay/memory-systems-hippocampus-replay).
+### Memory and cognitive maps
+
+20. [Episodic World Memory](/ai-ml/ai-ml-learning-resources/world-models-and-embodied-intelligence/memory-and-cognitive-maps/episodic-world-memory/episodic-world-memory) — Genie 3's minutes-scale consistency, WorldMem, diffusion forcing, MERLIN.
+21. [Spatial Memory](/ai-ml/ai-ml-learning-resources/world-models-and-embodied-intelligence/memory-and-cognitive-maps/spatial-memory/spatial-memory) — learned maps, Active Neural SLAM, Habitat navigation, maps that emerge unbidden.
+22. [Cognitive Maps](/ai-ml/ai-ml-learning-resources/world-models-and-embodied-intelligence/memory-and-cognitive-maps/cognitive-maps/cognitive-maps) — Tolman, place and grid cells, successor representations, the Tolman-Eichenbaum Machine.
+23. [Persistent Environment State](/ai-ml/ai-ml-learning-resources/world-models-and-embodied-intelligence/memory-and-cognitive-maps/persistent-environment-state/persistent-environment-state) — state that survives episodes, object-level persistence, WorldScore.
 
 ## Courses (free)
 
