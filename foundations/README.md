@@ -64,7 +64,7 @@ from "what even is ML?" to shipping your first model.
 - [StatQuest](https://www.youtube.com/@statquest) — **Josh Starmer** — every ML concept "clearly explained," step by step.
 
 ## Articles / Guides
-- [A Visual Introduction to Machine Learning](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/) — **R2D3** — the clearest visual first-contact with ML.
+- [A Visual Introduction to Machine Learning](https://r2d3.us/visual-intro-to-machine-learning-part-1/) — **R2D3** — the clearest visual first-contact with ML.
 - [Machine Learning Guide (curated mega-list)](https://github.com/mikeroyal/Machine-Learning-Guide) — **mikeroyal** — a vetted index of everything, when you want to go deeper.
 
 ## Books (free)
