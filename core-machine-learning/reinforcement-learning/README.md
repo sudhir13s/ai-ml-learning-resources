@@ -12,7 +12,7 @@ updated: 2026-06-27
 
 **⭐ Start here:** [Hugging Face Deep RL Course](https://huggingface.co/learn/deep-rl-course) — free, hands-on, you train agents.
 
-## 📑 Concept Index
+## Concept Index
 Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its page — a short guided
 learning path plus the best **free, open** courses, videos, papers, articles, and books for that topic.
 > **✅ ready.** New to RL? Start with the field overview below, then work top to bottom.
@@ -53,20 +53,20 @@ learning path plus the best **free, open** courses, videos, papers, articles, an
 - **RLHF / alignment for LLMs** — reward models, PPO-on-language, DPO → [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme). *RL owns the policy-gradient / PPO **mechanics** ([12 PPO](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/policy-learning/proximal-policy-optimization-ppo/proximal-policy-optimization-ppo)); the LLM-alignment RLHF card lives in the LLMs section and links back here.*
 - **Deep learning prerequisites** — backprop, optimizers, function approximation → [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
 
-## 🎓 Courses (free)
+## Courses (free)
 - [DeepMind x UCL: RL Lecture Series](https://www.youtube.com/playlist?list=PLqYmG7hTraZDVH599EItlEWsUOsJbAodm) — **David Silver / DeepMind** — the classic, by an AlphaGo author.
 - [CS285: Deep Reinforcement Learning](http://rail.eecs.berkeley.edu/deeprlcourse/) — **UC Berkeley (Sergey Levine)** — the definitive deep-RL course.
 
-## 🎥 Videos
+## Videos
 - [Reinforcement Learning: Essential Concepts](https://www.youtube.com/watch?v=Z-T0iJEXiwM) — **StatQuest with Josh Starmer** — gentle, visual intro to states, actions, rewards and policies.
 - [Policy Gradients & PPO](https://www.youtube.com/watch?v=5P7I-xPq8u8) — **Arxiv Insights** — the modern policy-method intuition.
 
-## 📄 Key Papers
+## Key Papers
 - [Playing Atari with Deep RL (DQN)](https://arxiv.org/abs/1312.5602) — **Mnih et al. (2013)** — deep RL is born.
 - [Proximal Policy Optimization (PPO)](https://arxiv.org/abs/1707.06347) — **Schulman et al. (2017)** — the workhorse behind RLHF.
 
-## 📚 Books (free)
+## Books (free)
 - [Reinforcement Learning: An Introduction](http://incompleteideas.net/book/the-book-2nd.html) — **Sutton & Barto** — free; *the* RL textbook.
 
-## 🔗 In this platform
-- Math: [ai-ml-intuitions Module 6 (RL & Alignment)](../../../ai-ml-intuitions/decision-making-and-control/)
+## In this platform
+- Math: [ai-ml-intuitions Module 6 (RL & Alignment)](/ai-ml/ai-ml-intuitions/decision-making-and-control)

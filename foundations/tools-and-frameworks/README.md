@@ -12,10 +12,10 @@ updated: 2026-06-27
 
 **⭐ Start here:** [PyTorch official tutorials](https://pytorch.org/tutorials/) — **PyTorch team** — authoritative, from 60-min blitz to advanced.
 
-## 📑 Concept Index
+## Concept Index
 Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) — a short guided learning
 path plus the best **free, open** courses, videos, references, articles, and guides for that tool.
-> **✅ ready · ⬜ coming soon.** New here? Start with the field overview above, then work top to bottom.
+> **All pages ready.** New here? Start with the field overview above, then work top to bottom.
 
 ### Numerical & data foundations
 1. ✅ [NumPy (arrays, broadcasting, vectorization)](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/numpy/numpy)
@@ -44,18 +44,18 @@ path plus the best **free, open** courses, videos, references, articles, and gui
 - **Transformers, attention & LLM internals** (what Hugging Face / PyTorch build) → [LLMs](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme) · [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
 - **Vector databases, LangChain & RAG pipelines** (tools layered on top) → [RAG & LLM Applications](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/overview) · [Agentic AI](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/overview)
 
-## 🎓 Courses / Tutorials (free)
+## Courses / Tutorials (free)
 - [PyTorch official tutorials](https://pytorch.org/tutorials/) — **PyTorch team** — authoritative, from 60-min blitz to advanced.
 - [Hugging Face courses](https://huggingface.co/learn) — **Hugging Face** — Transformers, Datasets, Diffusers, ecosystem-wide.
 
-## 🎥 Videos
-- [PyTorch for Deep Learning (full course)](https://www.youtube.com/watch?v=V_xro1bcAuA) — **Daniel Bourke / freeCodeCamp** — 25h, beginner→capable.
+## Videos
+- [Learn PyTorch for Deep Learning: Zero to Mastery](https://www.learnpytorch.io/) — **Daniel Bourke** — the free book-and-video course, beginner to capable, with every notebook runnable.
 - [JAX intro](https://www.youtube.com/watch?v=WdTeDXsOSj4) — **Google DeepMind** — when you need speed/functional autodiff.
 
-## 📰 Reference
+## Reference
 - [PyTorch docs](https://pytorch.org/docs/stable/index.html) — **PyTorch** — the daily reference.
 - [The Incredible PyTorch](https://github.com/ritchieng/the-incredible-pytorch) — **ritchieng** — a curated index of tutorials, libraries, papers.
 - Experiment tracking: [Weights & Biases](https://docs.wandb.ai/) · [MLflow](https://mlflow.org/docs/latest/index.html).
 
-## 🔗 In this platform
+## In this platform
 - Deep PyTorch mechanics: [PyTorch-fundamental-notes](../../../PyTorch-fundamental-notes/)

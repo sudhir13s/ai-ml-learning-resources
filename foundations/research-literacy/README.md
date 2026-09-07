@@ -12,12 +12,12 @@ updated: 2026-06-27
 
 **⭐ Start here:** [The Batch](https://www.deeplearning.ai/the-batch/) — **Andrew Ng / DeepLearning.AI** — weekly, accessible research roundup.
 
-## 📑 Concept Index
+## Concept Index
 Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) — a short guided path plus the
 best **free, open** courses, videos, papers, articles, and tools for staying current. These are
 *practices* (how to keep up), not the frontier topics themselves — those live in their own domains
 (see "Related concepts" below).
-> **✅ ready · ⬜ coming soon.** New here? Start with the field overview above, then work top to bottom.
+> **All pages ready.** New here? Start with the field overview above, then work top to bottom.
 
 ### Reading & finding research
 1. ✅ [How to Read ML Papers](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/how-to-read-ml-papers/how-to-read-ml-papers)
@@ -46,22 +46,22 @@ best **free, open** courses, videos, papers, articles, and tools for staying cur
 - **Agentic AI** — tool use, planning, multi-agent systems → [12. Agentic AI](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/overview)
 - **Retrieval-augmented generation & LLM apps** → [11. RAG & LLM Applications](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/overview)
 
-## 📰 High-signal newsletters / blogs (free)
+## High-signal newsletters / blogs (free)
 - [Import AI](https://importai.net/) — **Jack Clark** — weekly, policy + research, low hype.
 - [The Batch](https://www.deeplearning.ai/the-batch/) — **Andrew Ng / DeepLearning.AI** — weekly, accessible research roundup.
 - [Lil'Log](https://lilianweng.github.io/) — **Lilian Weng** — deep, authoritative explainers of new methods.
 - [Ahead of AI](https://magazine.sebastianraschka.com/) — **Sebastian Raschka** — research + practice, well-sourced.
 
-## 🎥 Channels / Talks
+## Channels / Talks
 - [Yannic Kilcher](https://www.youtube.com/@YannicKilcher) — paper breakdowns, fast turnaround.
 - [Stanford CS25: Transformers United](https://web.stanford.edu/class/cs25/) — **Stanford** — frontier guest lectures, free.
 
-## 📄 Where the research lives
+## Where the research lives
 - [arXiv cs.LG / cs.CL](https://arxiv.org/list/cs.LG/recent) + [alphaXiv](https://www.alphaxiv.org/) — track new methods; Papers with Code shut down in 2025 and its leaderboards now live on the Hugging Face Hub.
 - [Hugging Face Daily Papers](https://huggingface.co/papers) — community-surfaced top papers.
 - [Hugging Face blog](https://huggingface.co/blog) — release-tracking.
 
-## 🧭 How to read
+## How to read
 - Don't chase everything. Pick 1–2 newsletters, skim weekly; deep-read a paper only when it
   changes how you'd build something. Anchor new ideas to the stable concepts in
-  [ai-ml-intuitions](../../../ai-ml-intuitions/) rather than the hype cycle.
+  [ai-ml-intuitions](/ai-ml/ai-ml-intuitions) rather than the hype cycle.

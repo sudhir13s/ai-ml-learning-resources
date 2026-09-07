@@ -6,13 +6,13 @@ built_from: ["foundations"]
 updated: 2026-06-27
 ---
 
-# 🔬 Advanced Research Mathematics — Curriculum (Specialization)
+# Advanced Research Mathematics — Curriculum (Specialization)
 > Elective deep-dive track for research-grade ML math, absorbed and expanded from the retired
 > `math-for-AIML-Q5` research specialization. This is the *third tier*: study after the
 > [main curriculum's](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme) phases and the corresponding
-> [ai-ml-intuitions](../../../ai-ml-intuitions/) modules. Each row names the payoff that justifies it.
+> [ai-ml-intuitions](/ai-ml/ai-ml-intuitions) modules. Each row names the payoff that justifies it.
 
-## 📑 Concept Index
+## Concept Index
 Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its gold-standard resource
 card — a short guided learning path plus the best **free, open** graduate / research-level courses,
 lectures, key papers, articles, and book chapters for that topic. This domain owns the
@@ -74,7 +74,7 @@ not an afternoon.
 | **R9. Advanced optimization** | convex analysis, proximal methods, mirror descent, min-max/saddle problems, **implicit bias of GD** | Boyd & Vandenberghe; Bach's blog | why SGD finds *generalizing* minima — the field's deepest open question |
 | **R10. Transformer theory** | attention as kernel similarity, low-rank attention views, expressivity limits, scaling-law theory | *Transformer Circuits* (Anthropic); Tay et al. efficiency survey | mechanistic interpretability; principled architecture work beyond [4.15](/ai-ml/ai-ml-intuitions/architectural-mechanisms/composition/transformer-block-intuition) |
 | **R11. Generative-model theory** | **score matching, SDE/probability-flow views of diffusion**, flow matching, energy-based models | Song's score-SDE paper + blog; Lipman's flow-matching | where [5.03 diffusion](/ai-ml/ai-ml-intuitions/generation/diffusion-and-score-models/diffusion-forward-and-reverse-process-intuition) research actually lives |
-| **R12. Causality & decision theory** | structural causal models, counterfactuals, **bandit theory**, Bellman operators, control links | Pearl *Causality* / *Book of Why*; Lattimore & Szepesvári *Bandit Algorithms* (free) | causal ML; the rigorous backbone under [Module 6](../../../ai-ml-intuitions/decision-making-and-control/) |
+| **R12. Causality & decision theory** | structural causal models, counterfactuals, **bandit theory**, Bellman operators, control links | Pearl *Causality* / *Book of Why*; Lattimore & Szepesvári *Bandit Algorithms* (free) | causal ML; the rigorous backbone under [Module 6](/ai-ml/ai-ml-intuitions/decision-making-and-control) |
 
 ### How to use this track
 - **Don't read it linearly.** Pick the track your current work touches (building GNNs → R8;

@@ -6,16 +6,16 @@ built_from: ["foundations", "deep-learning"]
 updated: 2026-06-27
 ---
 
-# 🧠 Neuroscience & Brain-Inspired AI — Curriculum (Specialization)
+# Neuroscience & Brain-Inspired AI — Curriculum (Specialization)
 > Elective deep-dive track, absorbed and expanded from the retired `math-for-AIML-Q5`
 > neuroscience specialization. Format: what to study → why → best resources → connections
-> back to [ai-ml-intuitions](../../../ai-ml-intuitions/).
+> back to [ai-ml-intuitions](/ai-ml/ai-ml-intuitions).
 
 **Goal:** the mathematics of biological computation — neuron dynamics, plasticity, neural
 coding — and the two-way street between neuroscience and modern AI (what the brain inspired,
 and where the analogies break).
 
-## 📑 Concept Index
+## Concept Index
 Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its resource card — a short
 guided learning path plus the best **free, open** courses, videos, papers, articles, and books for that
 topic.

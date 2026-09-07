@@ -10,7 +10,7 @@ updated: 2026-06-27
 > 80% of real ML work. Cleaning, scaling, encoding, splitting, and engineering features that
 > make models work — before any model is trained.
 
-## 📑 Concept Index
+## Concept Index
 Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) — pick a concept to open its
 page: a short guided learning path plus the best **free, open** courses, videos, papers, articles,
 and books for that topic.
@@ -48,21 +48,21 @@ and books for that topic.
 - **Feature stores & serving-time feature pipelines** → [14. Deployment & MLOps](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/readme)
 - **Bias–variance & generalization** → [03. Supervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/readme)
 
-## 🎓 Courses (free)
+## Courses (free)
 - [Kaggle Learn: Data Cleaning + Feature Engineering](https://www.kaggle.com/learn) — **Kaggle** — short, hands-on, free micro-courses with real datasets.
 - [Data Analysis with Python](https://www.freecodecamp.org/learn/data-analysis-with-python/) — **freeCodeCamp** — Pandas/NumPy end to end.
 
-## 🎥 Videos
+## Videos
 - [Pandas tutorials](https://www.youtube.com/playlist?list=PL-osiE80TeTsWmV9i9c58mdDCSskIFdDS) — **Corey Schafer** — the clearest Pandas walkthroughs.
-- [Feature Engineering](https://www.youtube.com/watch?v=6WDFfaYtN6s) — **StatQuest / Krish Naik** — encoding, scaling, leakage explained.
+- [Feature Engineering](https://www.kaggle.com/learn/feature-engineering) — **Kaggle Learn** — mutual information, encodings, clustering and PCA features, hands-on and free.
 
-## 📰 Articles
+## Articles
 - [scikit-learn: Preprocessing data](https://scikit-learn.org/stable/modules/preprocessing.html) — **scikit-learn docs** — the authoritative reference + recipes.
 - [Data leakage, explained](https://machinelearningmastery.com/data-leakage-machine-learning/) — **Machine Learning Mastery** — the #1 silent bug in applied ML.
 
-## 📚 Books (free)
+## Books (free)
 - [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/) — **Jake VanderPlas** — free; NumPy/Pandas/sklearn bible.
 - [Feature Engineering and Selection](http://www.feat.engineering/) — **Kuhn & Johnson** — free online.
 
-## 🔗 In this platform
-- Why scaling/encoding matters mathematically: [ai-ml-intuitions Module 1](../../../ai-ml-intuitions/representation/)
+## In this platform
+- Why scaling/encoding matters mathematically: [ai-ml-intuitions Module 1](/ai-ml/ai-ml-intuitions/representation)

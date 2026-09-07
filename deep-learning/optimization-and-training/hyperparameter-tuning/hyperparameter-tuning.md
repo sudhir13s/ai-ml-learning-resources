@@ -438,9 +438,9 @@ for p in (0.10, 0.05, 0.01):              # target: land in the top-p fraction
     for c in (0.95, 0.99):                # with confidence c
         n = math.log(1 - c) / math.log(1 - p)
         print(f"top {p:>4.0%} @ {c:.0%} confidence -> {math.ceil(n):>3d} trials")
-# top  10% @ 95% confidence ->  29 trials
-# top   5% @ 95% confidence ->  59 trials   <- the famous "~60 trials for the top 5%"
-# top   1% @ 95% confidence -> 299 trials
+# top 10% @ 95% confidence -> 29 trials
+# top 5% @ 95% confidence -> 59 trials <- the famous "~60 trials for the top 5%"
+# top 1% @ 95% confidence -> 299 trials
 ```
 
 > **Note:** the headline is the same across both snippets — **use the trials you've already run.** TPE beats random by modeling the landscape; the budget formula tells you how long a *blind* search must be to get lucky. The first is sample-efficiency; the second is your floor when you can't (or won't) model.

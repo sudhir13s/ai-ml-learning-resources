@@ -457,7 +457,7 @@ def cos(a, b):
     va, vb = g[a], g[b]
     return float(va @ vb / (np.linalg.norm(va) * np.linalg.norm(vb)))
 
-# THE analogy: king - man + woman = ?   (input words auto-excluded by most_similar)
+# THE analogy: king - man + woman = ? (input words auto-excluded by most_similar)
 print("king - man + woman ->", g.most_similar(positive=["king", "woman"], negative=["man"], topn=3))
 # a capital-city analogy: paris - france + italy = ?
 print("paris - france + italy ->", g.most_similar(positive=["paris", "italy"], negative=["france"], topn=3))
@@ -547,12 +547,12 @@ print(f"scores: u_o.v_c={s_o:.4f}  u_n.v_c={s_n:.4f}  u3.v_c={s3:.4f}")
 Z = math.exp(s_o) + math.exp(s_n) + math.exp(s3)
 print(f"p(o|c) full softmax = {math.exp(s_o)/Z:.4f}")
 
-# (b) negative-sampling loss with k=1 negative:  -[log sig(s_o) + log sig(-s_n)]
+# (b) negative-sampling loss with k=1 negative: -[log sig(s_o) + log sig(-s_n)]
 sig = lambda z: 1 / (1 + math.exp(-z))
 loss = -(math.log(sig(s_o)) + math.log(sig(-s_n)))
 print(f"sigma(u_o.v_c)={sig(s_o):.4f}  sigma(-u_n.v_c)={sig(-s_n):.4f}  NS loss={loss:.4f}")
 
-# (c) gradient of the NS loss w.r.t. v_c:  (sig(s_o)-1)*u_o + sig(s_n)*u_n
+# (c) gradient of the NS loss w.r.t. v_c: (sig(s_o)-1)*u_o + sig(s_n)*u_n
 grad_vc = (sig(s_o) - 1) * uo + sig(s_n) * un
 print("grad_vc =", np.round(grad_vc, 4))
 

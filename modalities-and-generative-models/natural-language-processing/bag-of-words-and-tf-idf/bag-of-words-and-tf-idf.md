@@ -421,7 +421,7 @@ counts = cv.fit_transform(docs).toarray()
 terms = cv.get_feature_names_out()
 print("vocabulary:", list(terms))
 print("BoW counts (rows = docs):\n", counts)
-# D1 row: [1 0 0 0 0 1 1 1 2]  -> cat,mat,on,sat once; the twice
+# D1 row: [1 0 0 0 0 1 1 1 2] -> cat,mat,on,sat once; the twice
 
 # ---- 2. TF-IDF by hand (raw tf, smoothed idf, L2 norm) -----------------
 N = len(docs)

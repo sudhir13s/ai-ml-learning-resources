@@ -468,7 +468,7 @@ cell = nn.RNNCell(D, H, nonlinearity="tanh")
 x  = torch.tensor([[1.0, -1.0]])           # one input vector
 h0 = torch.tensor([[0.5, -0.5]])           # previous hidden state
 
-# from scratch:  h1 = tanh(W_xh x + W_hh h0 + b)
+# from scratch: h1 = tanh(W_xh x + W_hh h0 + b)
 Wxh, Whh = cell.weight_ih, cell.weight_hh
 b = cell.bias_ih + cell.bias_hh
 pre = x @ Wxh.T + h0 @ Whh.T + b
@@ -513,7 +513,7 @@ print("forward states:", [round(float(hh.detach()), 5) for hh in hs[1:]])
 print("autograd dL/dWhh =", round(float(Whh.grad), 6))
 print("autograd dL/dWxh =", round(float(Wxh.grad), 6))
 
-# --- by hand: h_t=tanh(a_t),  tanh'(a)=1-h^2 ---
+# --- by hand: h_t=tanh(a_t), tanh'(a)=1-h^2 ---
 h1, h2, h3 = [float(x.detach()) for x in hs[1:]]
 d1, d2, d3 = 1 - h1**2, 1 - h2**2, 1 - h3**2     # tanh' at each step
 W = float(Whh.detach())
@@ -544,7 +544,7 @@ contractive recurrent Jacobian. Verified on Python 3.12 (numpy), CPU."""
 import numpy as np
 np.set_printoptions(precision=4, suppress=True)
 
-# J = W_hh^T diag(tanh').  Use a contractive W_hh and a representative tanh'=0.9.
+# J = W_hh^T diag(tanh'). Use a contractive W_hh and a representative tanh'=0.9.
 W = np.array([[0.6, 0.1],
               [0.2, 0.5]])
 J = W.T @ np.diag([0.9, 0.9])

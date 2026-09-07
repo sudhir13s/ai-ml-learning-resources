@@ -6,14 +6,14 @@ built_from: ["deep-learning", "linear-algebra"]
 updated: 2026-06-27
 ---
 
-# 🖼️ Computer Vision
+# Computer Vision
 > The mathematical and deep-learning spine of vision — images as signals, convolution and
 > frequency thinking, projective geometry and cameras, deep vision architectures (CNNs · ViTs),
 > detection & segmentation, and generative/self-supervised vision.
 
-## 📑 Concept Index
+## Concept Index
 Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its page.
-> **✅ ready · ⬜ coming soon.** New to vision? Start with the field overview below, then work top to bottom.
+> **All pages ready.** New to vision? Start with the field overview below, then work top to bottom.
 
 ### Image processing & classical features
 1. ✅ [Image Representation & Filtering (edges · HOG · SIFT)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/image-representation-and-filtering/image-representation-and-filtering)
@@ -46,7 +46,7 @@ Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its p
 - **Image generation** — GANs · Diffusion · text-to-image → [GenAI](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/readme)
 - **Contrastive / embedding math** (InfoNCE, triplet loss reused by self-supervised vision) → [NLP](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/readme) · [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
 
-## 📐 Mathematics curriculum (specialization)
+## Mathematics curriculum (specialization)
 
 > Elective deep-dive track, absorbed and expanded from the retired `math-for-AIML-Q5`
 > CV specialization. Same format as the [main math curriculum](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme):

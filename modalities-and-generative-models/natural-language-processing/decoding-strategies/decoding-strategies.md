@@ -502,9 +502,9 @@ logits = np.array([3.0, 2.0, 1.0, 0.0])   # tokens A, B, C, D
 for T in (0.5, 1.0, 2.0):
     p = softmax(logits / T)
     print(f"T={T}: " + "  ".join(f"{x:.3f}" for x in p))
-# T=0.5: 0.865  0.117  0.016  0.002   (sharper -> toward greedy)
-# T=1.0: 0.644  0.237  0.087  0.032   (raw model)
-# T=2.0: 0.455  0.276  0.167  0.102   (flatter -> toward uniform)
+# T=0.5: 0.865 0.117 0.016 0.002 (sharper -> toward greedy)
+# T=1.0: 0.644 0.237 0.087 0.032 (raw model)
+# T=2.0: 0.455 0.276 0.167 0.102 (flatter -> toward uniform)
 
 # --- 2) top-k vs top-p truncation (same 8-token distribution) --------------
 p = np.array([0.40, 0.25, 0.13, 0.08, 0.06, 0.04, 0.025, 0.015])
