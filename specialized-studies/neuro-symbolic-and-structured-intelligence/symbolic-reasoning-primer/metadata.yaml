@@ -4,4 +4,5 @@
 page-order:
   - knowledge-representation/knowledge-representation
   - logic-and-inference/logic-and-inference
+  - rules-constraints-and-ontologies/rules-constraints-and-ontologies
   - knowledge-graphs/knowledge-graphs

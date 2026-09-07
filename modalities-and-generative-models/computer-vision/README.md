@@ -29,15 +29,16 @@ Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its p
 7. ✅ [Object Detection (R-CNN family · YOLO · SSD)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/object-detection/object-detection)
 8. ✅ [Semantic Segmentation (FCN · U-Net · DeepLab)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/semantic-segmentation/semantic-segmentation)
 9. ✅ [Instance Segmentation (Mask R-CNN)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/instance-segmentation/instance-segmentation)
-10. ✅ [Detection & Segmentation Metrics (IoU · mAP)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/detection-and-segmentation-metrics/detection-and-segmentation-metrics)
+10. ✅ [Segment Anything & Promptable Segmentation (SAM · SAM 2 · SAM 3)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/segment-anything-and-promptable-segmentation/segment-anything-and-promptable-segmentation)
+11. ✅ [Detection & Segmentation Metrics (IoU · mAP)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/detection-and-segmentation-metrics/detection-and-segmentation-metrics)
 
 ### Modern & specialized vision
-11. ✅ [Vision Transformers (ViT)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/vision-transformers/vision-transformers)
-12. ✅ [Self-Supervised Vision (SimCLR · MAE · DINO)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/self-supervised-vision/self-supervised-vision)
-13. ✅ [Pose Estimation](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/pose-estimation/pose-estimation)
-14. ✅ [Optical Flow & Video Understanding](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/optical-flow-and-video/optical-flow-and-video)
-15. ✅ [Optical Character Recognition (OCR)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/ocr/ocr)
-16. ✅ [3D & Depth Estimation](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/3d-and-depth-estimation/3d-and-depth-estimation)
+12. ✅ [Vision Transformers (ViT)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/vision-transformers/vision-transformers)
+13. ✅ [Self-Supervised Vision (SimCLR · MAE · DINO)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/self-supervised-vision/self-supervised-vision)
+14. ✅ [Pose Estimation](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/pose-estimation/pose-estimation)
+15. ✅ [Optical Flow & Video Understanding](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/optical-flow-and-video/optical-flow-and-video)
+16. ✅ [Optical Character Recognition (OCR)](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/ocr/ocr)
+17. ✅ [3D & Depth Estimation](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/3d-and-depth-estimation/3d-and-depth-estimation)
 
 ### Related concepts (covered in another section)
 > These topics are foundational or generative and live in their canonical home to avoid repetition.

@@ -3,3 +3,6 @@
 # and extension-less. README.md is repo-facing and deliberately absent.
 page-order:
   - neuro-symbolic-ai/neuro-symbolic-ai
+  - symbolic-knowledge-as-neural-input/symbolic-knowledge-as-neural-input
+  - neural-models-with-symbolic-constraints/neural-models-with-symbolic-constraints
+  - symbolic-reasoning-over-neural-representations/symbolic-reasoning-over-neural-representations

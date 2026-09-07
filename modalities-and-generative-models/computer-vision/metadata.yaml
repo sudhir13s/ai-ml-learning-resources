@@ -11,6 +11,7 @@ page-order:
   - object-detection/object-detection
   - semantic-segmentation/semantic-segmentation
   - instance-segmentation/instance-segmentation
+  - segment-anything-and-promptable-segmentation/segment-anything-and-promptable-segmentation
   - detection-and-segmentation-metrics/detection-and-segmentation-metrics
   - vision-transformers/vision-transformers
   - self-supervised-vision/self-supervised-vision

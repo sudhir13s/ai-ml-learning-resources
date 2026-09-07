@@ -2,5 +2,6 @@
 # estate-wide (structure-authoring-contract Rule 4); entries are relative
 # and extension-less. README.md is repo-facing and deliberately absent.
 page-order:
+  - differentiable-logic/differentiable-logic
   - differentiable-programming/differentiable-programming
   - neural-theorem-proving/neural-theorem-proving
