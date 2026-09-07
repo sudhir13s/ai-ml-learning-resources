@@ -74,4 +74,4 @@ recall.
 - Every new endpoint is new attack surface: [Prompt Injection and Agent Guardrails](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/prompt-injection-and-agent-guardrails/prompt-injection-and-agent-guardrails) · [Safety, Guardrails and Human-in-the-Loop](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/agent-safety/agent-safety)
 - How you would test a federation: [Agent Evaluation](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/agent-evaluation/agent-evaluation)
 - Intuition track: [Multi-Agent Coordination](/ai-ml/ai-ml-intuitions/reasoning-and-agency/multi-agent-systems/multi-agent-coordination-intuition)
-- Build it as a workflow: [A2A](/ai-ml/practitioner-workflows/llm-application-workflows/a2a) · [MCP](/ai-ml/practitioner-workflows/llm-application-workflows/mcp)
+- Build it as a workflow: [A2A](/ai-ml/practitioner-workflows/workflow-library/agentic-systems/a2a) · [MCP](/ai-ml/practitioner-workflows/workflow-library/agentic-systems/mcp)
