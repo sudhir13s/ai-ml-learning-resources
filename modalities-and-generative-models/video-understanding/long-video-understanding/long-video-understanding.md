@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/video-understanding/long-video-understandi
 topic: "Long-Video Understanding"
 level: advanced
 built_from: ["video-language-models", "temporal-localization-and-moment-retrieval"]
-leads_to: ["efficient-video-inference"]
+leads_to: ["modalities-and-generative-models/video-understanding/efficient-video-inference"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core

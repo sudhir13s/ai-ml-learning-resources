@@ -3,7 +3,7 @@ id: "specialized-studies/neuro-symbolic-and-structured-intelligence/neural-symbo
 topic: "Symbolic Knowledge as Neural Input"
 level: advanced
 built_from: ["specialized-studies/neuro-symbolic-and-structured-intelligence/symbolic-reasoning-primer/knowledge-graphs", "specialized-studies/neuro-symbolic-and-structured-intelligence/neural-symbolic-integration/neuro-symbolic-ai"]
-leads_to: ["specialized-studies/neuro-symbolic-and-structured-intelligence/neural-symbolic-integration/neural-models-with-symbolic-constraints", "graph-rag"]
+leads_to: ["specialized-studies/neuro-symbolic-and-structured-intelligence/neural-symbolic-integration/neural-models-with-symbolic-constraints", "15-rag-and-llm-apps/graphrag"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

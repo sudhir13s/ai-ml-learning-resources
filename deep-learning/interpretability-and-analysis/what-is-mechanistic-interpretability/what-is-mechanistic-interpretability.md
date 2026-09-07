@@ -3,7 +3,7 @@ id: "deep-learning/interpretability-and-analysis/what-is-mechanistic-interpretab
 topic: "What Is Mechanistic Interpretability"
 level: intermediate
 built_from: ["transformer-architecture", "backpropagation-and-computational-graphs"]
-leads_to: ["transformer-circuits-induction-heads-and-attention-patterns", "superposition-and-sparse-autoencoders"]
+leads_to: ["deep-learning/interpretability-and-analysis/transformer-circuits-induction-heads-and-attention-patterns", "deep-learning/interpretability-and-analysis/superposition-and-sparse-autoencoders"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

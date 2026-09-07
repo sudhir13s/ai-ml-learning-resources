@@ -3,7 +3,7 @@ id: "world-models-and-embodied-intelligence/learning-and-planning/imagination-ba
 topic: "Imagination-Based Learning (Dreamer)"
 level: advanced
 built_from: ["recurrent-state-space-models-and-stochastic-dynamics"]
-leads_to: ["search-and-rollouts-muzero", "model-predictive-control-with-learned-models"]
+leads_to: ["world-models-and-embodied-intelligence/learning-and-planning/search-and-rollouts-muzero", "world-models-and-embodied-intelligence/learning-and-planning/model-predictive-control-with-learned-models"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

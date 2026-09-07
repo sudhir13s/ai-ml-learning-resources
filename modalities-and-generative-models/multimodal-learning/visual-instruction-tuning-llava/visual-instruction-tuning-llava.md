@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/multimodal-learning/visual-instruction-tun
 topic: "Visual Instruction Tuning — the LLaVA Recipe"
 level: advanced
 built_from: ["clip-and-contrastive-vision-language-pretraining", "modern-dual-encoders-siglip-and-retrieval", "interleaved-and-few-shot-vlms-flamingo"]
-leads_to: ["modern-open-vlm-architectures", "multimodal-benchmarks-and-evaluation"]
+leads_to: ["modalities-and-generative-models/multimodal-learning/modern-open-vlm-architectures", "modalities-and-generative-models/multimodal-learning/multimodal-benchmarks-and-evaluation"]
 interview_frequency: very-high
 updated: 2026-09-07
 tier: core

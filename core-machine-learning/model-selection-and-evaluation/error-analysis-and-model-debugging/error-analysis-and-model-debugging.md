@@ -3,7 +3,7 @@ id: "core-machine-learning/model-selection-and-evaluation/error-analysis-and-mod
 topic: "Error Analysis & Model Debugging"
 level: intermediate
 built_from: ["cross-validation", "calibration-and-reliability-diagrams", "uncertainty-estimation-and-conformal-prediction"]
-leads_to: ["ml-lifecycle-and-mlops-maturity", "model-monitoring-and-observability"]
+leads_to: ["18-mlops/ml-lifecycle-and-mlops-maturity", "18-mlops/model-monitoring-and-observability"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core

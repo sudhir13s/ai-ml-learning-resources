@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/multimodal-learning/interleaved-and-few-sh
 topic: "Interleaved and Few-Shot VLMs — the Flamingo Lineage"
 level: advanced
 built_from: ["clip-and-contrastive-vision-language-pretraining"]
-leads_to: ["visual-instruction-tuning-llava", "fusion-strategies-early-late-and-native-multimodality"]
+leads_to: ["modalities-and-generative-models/multimodal-learning/visual-instruction-tuning-llava", "modalities-and-generative-models/multimodal-learning/fusion-strategies-early-late-and-native-multimodality"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core

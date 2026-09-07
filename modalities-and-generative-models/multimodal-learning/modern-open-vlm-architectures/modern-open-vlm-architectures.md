@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/multimodal-learning/modern-open-vlm-archit
 topic: "Modern Open VLM Architectures"
 level: advanced
 built_from: ["visual-instruction-tuning-llava", "modern-dual-encoders-siglip-and-retrieval"]
-leads_to: ["document-and-chart-understanding", "multimodal-benchmarks-and-evaluation", "unified-token-spaces-and-any-to-any-models"]
+leads_to: ["modalities-and-generative-models/multimodal-learning/document-and-chart-understanding", "modalities-and-generative-models/multimodal-learning/multimodal-benchmarks-and-evaluation", "modalities-and-generative-models/multimodal-learning/unified-token-spaces-and-any-to-any-models"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core

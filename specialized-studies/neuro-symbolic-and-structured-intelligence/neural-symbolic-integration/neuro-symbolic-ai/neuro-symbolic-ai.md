@@ -3,7 +3,7 @@ id: "specialized-studies/neuro-symbolic-and-structured-intelligence/neural-symbo
 topic: "Neuro-Symbolic AI"
 level: advanced
 built_from: ["neuro-symbolic-ai-overview", "logic-and-inference"]
-leads_to: ["differentiable-programming", "neural-theorem-proving", "program-synthesis-and-code-reasoning"]
+leads_to: ["specialized-studies/neuro-symbolic-and-structured-intelligence/differentiable-reasoning/differentiable-programming", "specialized-studies/neuro-symbolic-and-structured-intelligence/differentiable-reasoning/neural-theorem-proving", "specialized-studies/neuro-symbolic-and-structured-intelligence/modern-applications/program-synthesis-and-code-reasoning"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

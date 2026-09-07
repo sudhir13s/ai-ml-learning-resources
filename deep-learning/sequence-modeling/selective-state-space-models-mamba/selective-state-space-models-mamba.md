@@ -3,7 +3,7 @@ id: "deep-learning/sequence-modeling/selective-state-space-models-mamba"
 topic: "Selective State-Space Models — Mamba and Mamba-2"
 level: advanced
 built_from: ["structured-state-space-models-s4", "state-space-models-foundations"]
-leads_to: ["linear-and-hybrid-attention-architectures"]
+leads_to: ["deep-learning/sequence-modeling/linear-and-hybrid-attention-architectures"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core

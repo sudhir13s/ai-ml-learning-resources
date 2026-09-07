@@ -3,7 +3,7 @@ id: "core-machine-learning/model-selection-and-evaluation/calibration-and-reliab
 topic: "Calibration & Reliability Diagrams"
 level: intermediate
 built_from: ["classification-metrics", "cross-validation", "bias-variance-tradeoff"]
-leads_to: ["uncertainty-estimation-and-conformal-prediction", "error-analysis-and-model-debugging"]
+leads_to: ["core-machine-learning/model-selection-and-evaluation/uncertainty-estimation-and-conformal-prediction", "core-machine-learning/model-selection-and-evaluation/error-analysis-and-model-debugging"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core

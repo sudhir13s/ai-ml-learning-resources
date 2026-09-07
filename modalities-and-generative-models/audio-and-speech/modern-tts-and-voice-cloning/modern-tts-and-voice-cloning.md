@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/audio-and-speech/modern-tts-and-voice-clon
 topic: "Modern TTS & Voice Cloning"
 level: advanced
 built_from: ["tts-fundamentals-tacotron-vits-vocoders", "audio-tokenization-and-neural-codecs"]
-leads_to: ["realtime-and-streaming-voice-agents"]
+leads_to: ["modalities-and-generative-models/audio-and-speech/realtime-and-streaming-voice-agents"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

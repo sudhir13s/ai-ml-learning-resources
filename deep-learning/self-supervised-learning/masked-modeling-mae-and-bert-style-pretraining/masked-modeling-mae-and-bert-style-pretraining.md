@@ -3,7 +3,7 @@ id: "deep-learning/self-supervised-learning/masked-modeling-mae-and-bert-style-p
 topic: "Masked Modeling — MAE and BERT-Style Pretraining"
 level: intermediate
 built_from: ["contrastive-self-supervised-learning", "transformer-architecture", "autoencoders"]
-leads_to: ["teacher-student-self-distillation-dino-byol"]
+leads_to: ["deep-learning/self-supervised-learning/teacher-student-self-distillation-dino-byol"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core

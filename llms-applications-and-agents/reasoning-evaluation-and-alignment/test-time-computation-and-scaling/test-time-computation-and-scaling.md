@@ -3,7 +3,7 @@ id: "llms-applications-and-agents/reasoning-evaluation-and-alignment/test-time-c
 topic: "Test-Time Computation and Scaling"
 level: advanced
 built_from: ["chain-of-thought-and-reasoning", "decoding-and-sampling"]
-leads_to: ["llm-evaluation", "reinforcement-learning-for-reasoning-grpo-and-rlvr"]
+leads_to: ["09-llms/llm-evaluation-and-benchmarks", "llms-applications-and-agents/training-and-adaptation/reinforcement-learning-for-reasoning-grpo-and-rlvr"]
 interview_frequency: very-high
 updated: 2026-09-07
 tier: core

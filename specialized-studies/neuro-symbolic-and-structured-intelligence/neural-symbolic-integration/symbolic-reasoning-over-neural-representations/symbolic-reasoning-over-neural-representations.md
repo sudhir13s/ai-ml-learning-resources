@@ -3,7 +3,7 @@ id: "specialized-studies/neuro-symbolic-and-structured-intelligence/neural-symbo
 topic: "Symbolic Reasoning over Neural Representations"
 level: advanced
 built_from: ["specialized-studies/neuro-symbolic-and-structured-intelligence/neural-symbolic-integration/neuro-symbolic-ai", "specialized-studies/neuro-symbolic-and-structured-intelligence/neural-symbolic-integration/neural-models-with-symbolic-constraints"]
-leads_to: ["specialized-studies/neuro-symbolic-and-structured-intelligence/modern-applications/program-synthesis-and-code-reasoning", "what-is-mechanistic-interpretability"]
+leads_to: ["specialized-studies/neuro-symbolic-and-structured-intelligence/modern-applications/program-synthesis-and-code-reasoning", "deep-learning/interpretability-and-analysis/what-is-mechanistic-interpretability"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

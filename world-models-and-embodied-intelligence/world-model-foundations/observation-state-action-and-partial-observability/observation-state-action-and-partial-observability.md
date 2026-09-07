@@ -3,7 +3,7 @@ id: "world-models-and-embodied-intelligence/world-model-foundations/observation-
 topic: "Observation, State, Action and Partial Observability"
 level: intermediate
 built_from: ["markov-decision-processes", "what-is-a-world-model"]
-leads_to: ["recurrent-state-space-models-and-stochastic-dynamics", "latent-prediction-and-object-centric-representations"]
+leads_to: ["world-models-and-embodied-intelligence/latent-dynamics/recurrent-state-space-models-and-stochastic-dynamics", "world-models-and-embodied-intelligence/predictive-representation-models/latent-prediction-and-object-centric-representations"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

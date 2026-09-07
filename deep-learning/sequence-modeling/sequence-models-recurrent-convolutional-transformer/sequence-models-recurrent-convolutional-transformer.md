@@ -3,7 +3,7 @@ id: "deep-learning/sequence-modeling/sequence-models-recurrent-convolutional-tra
 topic: "Sequence Models — Recurrent, Convolutional, Transformer, State-Space"
 level: intermediate
 built_from: ["rnn-lstm-gru", "cnns-and-convolution", "attention-mechanism"]
-leads_to: ["state-space-models-foundations", "linear-and-hybrid-attention-architectures"]
+leads_to: ["deep-learning/sequence-modeling/state-space-models-foundations", "deep-learning/sequence-modeling/linear-and-hybrid-attention-architectures"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core

@@ -3,7 +3,7 @@ id: "world-models-and-embodied-intelligence/predictive-representation-models/jep
 topic: "JEPA Foundations"
 level: advanced
 built_from: ["latent-prediction-and-object-centric-representations", "world-model-taxonomy"]
-leads_to: ["video-jepa-and-action-conditioned-jepa"]
+leads_to: ["world-models-and-embodied-intelligence/predictive-representation-models/video-jepa-and-action-conditioned-jepa"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

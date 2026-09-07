@@ -3,7 +3,7 @@ id: "foundations/ai-paradigms-and-knowledge/neural-learning-paradigm"
 topic: "The Neural Learning Paradigm"
 level: beginner
 built_from: ["statistical-learning-paradigm"]
-leads_to: ["probabilistic-reasoning-and-graphical-models", "neuro-symbolic-ai-overview"]
+leads_to: ["foundations/ai-paradigms-and-knowledge/probabilistic-reasoning-and-graphical-models", "foundations/ai-paradigms-and-knowledge/neuro-symbolic-ai-overview"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core

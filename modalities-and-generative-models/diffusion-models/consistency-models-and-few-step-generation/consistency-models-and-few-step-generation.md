@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/diffusion-models/consistency-models-and-fe
 topic: "Consistency Models & Few-Step Generation"
 level: advanced
 built_from: ["score-based-and-sde-diffusion", "sampling-and-guidance-techniques", "flow-matching-and-rectified-flow"]
-leads_to: ["distillation-for-fast-sampling", "diffusion-inference-optimization"]
+leads_to: ["modalities-and-generative-models/diffusion-models/distillation-for-fast-sampling", "modalities-and-generative-models/diffusion-models/diffusion-inference-optimization"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

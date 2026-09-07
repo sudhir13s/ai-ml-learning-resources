@@ -3,7 +3,7 @@ id: "llms-applications-and-agents/training-and-adaptation/synthetic-data-and-dat
 topic: "Synthetic Data and Data Curation"
 level: intermediate
 built_from: ["pretraining", "instruction-tuning"]
-leads_to: ["reinforcement-learning-for-reasoning-grpo-and-rlvr", "llm-evaluation"]
+leads_to: ["llms-applications-and-agents/training-and-adaptation/reinforcement-learning-for-reasoning-grpo-and-rlvr", "09-llms/llm-evaluation-and-benchmarks"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core

@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/multimodal-learning/multimodal-rag"
 topic: "Multimodal RAG"
 level: advanced
 built_from: ["clip-and-contrastive-vision-language-pretraining", "modern-dual-encoders-siglip-and-retrieval", "document-and-chart-understanding"]
-leads_to: ["multimodal-benchmarks-and-evaluation"]
+leads_to: ["modalities-and-generative-models/multimodal-learning/multimodal-benchmarks-and-evaluation"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core

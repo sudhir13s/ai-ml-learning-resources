@@ -3,7 +3,7 @@ id: "llms-applications-and-agents/llm-model-architectures/attention-architecture
 topic: "Attention Architectures — GQA, MLA, Sliding-Window and Linear"
 level: advanced
 built_from: ["attention-mechanism", "efficient-attention", "kv-cache-variants"]
-leads_to: ["long-context-architectures", "mixture-of-experts"]
+leads_to: ["09-llms/long-context-methods", "09-llms/mixture-of-experts"]
 interview_frequency: very-high
 updated: 2026-09-07
 tier: core

@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/video-understanding/video-transformers-tim
 topic: "Video Transformers — TimeSformer & ViViT"
 level: advanced
 built_from: ["video-representations-and-temporal-modeling", "vision-transformers"]
-leads_to: ["self-supervised-video-pretraining-videomae", "efficient-video-inference"]
+leads_to: ["modalities-and-generative-models/video-understanding/self-supervised-video-pretraining-videomae", "modalities-and-generative-models/video-understanding/efficient-video-inference"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

@@ -3,7 +3,7 @@ id: "world-models-and-embodied-intelligence/world-model-foundations/world-model-
 topic: "World Model Taxonomy"
 level: intermediate
 built_from: ["what-is-a-world-model"]
-leads_to: ["observation-state-action-and-partial-observability", "jepa-foundations"]
+leads_to: ["world-models-and-embodied-intelligence/world-model-foundations/observation-state-action-and-partial-observability", "world-models-and-embodied-intelligence/predictive-representation-models/jepa-foundations"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

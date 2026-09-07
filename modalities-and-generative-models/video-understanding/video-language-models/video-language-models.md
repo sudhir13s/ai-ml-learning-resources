@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/video-understanding/video-language-models"
 topic: "Video-Language Models"
 level: advanced
 built_from: ["self-supervised-video-pretraining-videomae", "video-transformers-timesformer-vivit"]
-leads_to: ["long-video-understanding", "efficient-video-inference"]
+leads_to: ["modalities-and-generative-models/video-understanding/long-video-understanding", "modalities-and-generative-models/video-understanding/efficient-video-inference"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core

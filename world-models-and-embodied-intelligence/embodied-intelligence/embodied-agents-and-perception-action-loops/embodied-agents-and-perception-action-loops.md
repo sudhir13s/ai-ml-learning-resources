@@ -3,7 +3,7 @@ id: "world-models-and-embodied-intelligence/embodied-intelligence/embodied-agent
 topic: "Embodied Agents and Perception-Action Loops"
 level: intermediate
 built_from: ["observation-state-action-and-partial-observability", "model-predictive-control-with-learned-models"]
-leads_to: ["vision-language-action-models"]
+leads_to: ["world-models-and-embodied-intelligence/embodied-intelligence/vision-language-action-models"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

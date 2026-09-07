@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/diffusion-models/flow-matching-and-rectifi
 topic: "Flow Matching & Rectified Flow"
 level: advanced
 built_from: ["score-based-and-sde-diffusion", "diffusion-models-ddpm", "normalizing-flows"]
-leads_to: ["diffusion-transformers-dit", "consistency-models-and-few-step-generation", "distillation-for-fast-sampling"]
+leads_to: ["modalities-and-generative-models/diffusion-models/diffusion-transformers-dit", "modalities-and-generative-models/diffusion-models/consistency-models-and-few-step-generation", "modalities-and-generative-models/diffusion-models/distillation-for-fast-sampling"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core

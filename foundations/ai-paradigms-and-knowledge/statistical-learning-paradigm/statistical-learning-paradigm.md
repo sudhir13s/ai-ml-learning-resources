@@ -3,7 +3,7 @@ id: "foundations/ai-paradigms-and-knowledge/statistical-learning-paradigm"
 topic: "The Statistical Learning Paradigm"
 level: beginner
 built_from: ["symbolic-ai-and-good-old-fashioned-ai"]
-leads_to: ["neural-learning-paradigm", "probabilistic-reasoning-and-graphical-models"]
+leads_to: ["foundations/ai-paradigms-and-knowledge/neural-learning-paradigm", "foundations/ai-paradigms-and-knowledge/probabilistic-reasoning-and-graphical-models"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core

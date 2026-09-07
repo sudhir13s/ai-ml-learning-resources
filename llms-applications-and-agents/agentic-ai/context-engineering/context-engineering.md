@@ -3,7 +3,7 @@ id: "llms-applications-and-agents/agentic-ai/context-engineering"
 topic: "Context Engineering"
 level: advanced
 built_from: ["prompting-and-in-context-learning", "memory", "tool-use"]
-leads_to: ["multi-agent-systems", "agent-evaluation"]
+leads_to: ["16-agentic-ai/multi-agent", "16-agentic-ai/evaluation"]
 interview_frequency: very-high
 updated: 2026-09-07
 tier: core

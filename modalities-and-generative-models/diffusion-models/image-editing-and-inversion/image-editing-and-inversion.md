@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/diffusion-models/image-editing-and-inversi
 topic: "Image Editing & Inversion"
 level: advanced
 built_from: ["sampling-and-guidance-techniques", "controlnet-and-conditioning-adapters", "latent-diffusion-stable-diffusion"]
-leads_to: ["personalization-dreambooth-textual-inversion-lora", "safety-provenance-and-watermarking"]
+leads_to: ["modalities-and-generative-models/diffusion-models/personalization-dreambooth-textual-inversion-lora", "modalities-and-generative-models/diffusion-models/safety-provenance-and-watermarking"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

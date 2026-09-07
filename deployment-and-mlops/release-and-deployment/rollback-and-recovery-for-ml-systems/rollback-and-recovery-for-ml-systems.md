@@ -3,7 +3,7 @@ id: "deployment-and-mlops/release-and-deployment/rollback-and-recovery-for-ml-sy
 topic: "Rollback & Recovery for ML Systems"
 level: advanced
 built_from: ["cicd-for-ml-and-continuous-training", "ab-testing-shadow-and-canary-deployment"]
-leads_to: ["ai-incident-response-and-postmortems"]
+leads_to: ["deployment-and-mlops/monitoring-and-reliability/ai-incident-response-and-postmortems"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core

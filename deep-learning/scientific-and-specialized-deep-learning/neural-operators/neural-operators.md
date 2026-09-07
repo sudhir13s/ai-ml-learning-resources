@@ -3,7 +3,7 @@ id: "deep-learning/scientific-and-specialized-deep-learning/neural-operators"
 topic: "Neural Operators"
 level: advanced
 built_from: ["physics-informed-neural-networks", "graph-neural-networks"]
-leads_to: ["equivariant-and-geometric-deep-learning"]
+leads_to: ["deep-learning/scientific-and-specialized-deep-learning/equivariant-and-geometric-deep-learning"]
 interview_frequency: low
 updated: 2026-09-07
 tier: core

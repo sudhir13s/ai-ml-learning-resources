@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/multimodal-learning/modern-dual-encoders-s
 topic: "Modern Dual Encoders — SigLIP and Retrieval"
 level: intermediate
 built_from: ["clip-and-contrastive-vision-language-pretraining"]
-leads_to: ["visual-instruction-tuning-llava", "modern-open-vlm-architectures", "multimodal-rag"]
+leads_to: ["modalities-and-generative-models/multimodal-learning/visual-instruction-tuning-llava", "modalities-and-generative-models/multimodal-learning/modern-open-vlm-architectures", "modalities-and-generative-models/multimodal-learning/multimodal-rag"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core

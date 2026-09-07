@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/diffusion-models/diffusion-inference-optim
 topic: "Diffusion Inference Optimization"
 level: advanced
 built_from: ["sampling-and-guidance-techniques", "distillation-for-fast-sampling", "diffusion-transformers-dit"]
-leads_to: ["safety-provenance-and-watermarking"]
+leads_to: ["modalities-and-generative-models/diffusion-models/safety-provenance-and-watermarking"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core

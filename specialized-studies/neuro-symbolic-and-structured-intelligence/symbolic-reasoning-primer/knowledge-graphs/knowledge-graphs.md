@@ -3,7 +3,7 @@ id: "specialized-studies/neuro-symbolic-and-structured-intelligence/symbolic-rea
 topic: "Knowledge Graphs"
 level: intermediate
 built_from: ["knowledge-representation", "logic-and-inference"]
-leads_to: ["neuro-symbolic-ai", "causal-and-relational-reasoning"]
+leads_to: ["specialized-studies/neuro-symbolic-and-structured-intelligence/neural-symbolic-integration/neuro-symbolic-ai", "specialized-studies/neuro-symbolic-and-structured-intelligence/structured-reasoning/causal-and-relational-reasoning"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

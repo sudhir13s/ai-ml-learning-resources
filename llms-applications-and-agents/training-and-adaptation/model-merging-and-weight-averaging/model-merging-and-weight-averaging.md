@@ -3,7 +3,7 @@ id: "llms-applications-and-agents/training-and-adaptation/model-merging-and-weig
 topic: "Model Merging and Weight Averaging"
 level: advanced
 built_from: ["supervised-fine-tuning", "lora-and-parameter-efficient-fine-tuning"]
-leads_to: ["mixture-of-experts", "llm-evaluation"]
+leads_to: ["09-llms/mixture-of-experts", "09-llms/llm-evaluation-and-benchmarks"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

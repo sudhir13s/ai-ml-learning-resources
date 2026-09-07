@@ -3,7 +3,7 @@ id: "world-models-and-embodied-intelligence/latent-dynamics/recurrent-state-spac
 topic: "Recurrent State-Space Models and Stochastic Dynamics"
 level: advanced
 built_from: ["observation-state-action-and-partial-observability", "rnn-lstm-gru"]
-leads_to: ["imagination-based-learning-dreamer", "model-predictive-control-with-learned-models"]
+leads_to: ["world-models-and-embodied-intelligence/learning-and-planning/imagination-based-learning-dreamer", "world-models-and-embodied-intelligence/learning-and-planning/model-predictive-control-with-learned-models"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

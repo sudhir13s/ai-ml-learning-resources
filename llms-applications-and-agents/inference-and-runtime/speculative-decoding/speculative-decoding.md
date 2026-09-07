@@ -3,7 +3,7 @@ id: "llms-applications-and-agents/inference-and-runtime/speculative-decoding"
 topic: "Speculative Decoding"
 level: advanced
 built_from: ["decoding-and-sampling", "kv-cache"]
-leads_to: ["continuous-batching-and-scheduling", "inference-optimization"]
+leads_to: ["llms-applications-and-agents/inference-and-runtime/continuous-batching-and-scheduling", "09-llms/inference-optimization-and-serving"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core

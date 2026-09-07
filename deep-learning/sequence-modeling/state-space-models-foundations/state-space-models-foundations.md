@@ -3,7 +3,7 @@ id: "deep-learning/sequence-modeling/state-space-models-foundations"
 topic: "State-Space Models — Foundations"
 level: advanced
 built_from: ["sequence-models-recurrent-convolutional-transformer", "rnn-lstm-gru"]
-leads_to: ["structured-state-space-models-s4", "selective-state-space-models-mamba"]
+leads_to: ["deep-learning/sequence-modeling/structured-state-space-models-s4", "deep-learning/sequence-modeling/selective-state-space-models-mamba"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

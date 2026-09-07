@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/audio-and-speech/whisper-and-weakly-superv
 topic: "Whisper & Large-Scale Weakly-Supervised ASR"
 level: intermediate
 built_from: ["asr-fundamentals-ctc-seq2seq-wer"]
-leads_to: ["realtime-and-streaming-voice-agents", "speaker-identification-and-diarization"]
+leads_to: ["modalities-and-generative-models/audio-and-speech/realtime-and-streaming-voice-agents", "modalities-and-generative-models/audio-and-speech/speaker-identification-and-diarization"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core

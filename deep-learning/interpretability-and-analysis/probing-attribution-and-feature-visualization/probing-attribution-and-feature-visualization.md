@@ -3,7 +3,7 @@ id: "deep-learning/interpretability-and-analysis/probing-attribution-and-feature
 topic: "Probing, Attribution and Feature Visualization"
 level: advanced
 built_from: ["what-is-mechanistic-interpretability", "transformer-circuits-induction-heads-and-attention-patterns"]
-leads_to: ["interpretability-for-vision-and-classic-models"]
+leads_to: ["deep-learning/interpretability-and-analysis/interpretability-for-vision-and-classic-models"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

@@ -3,7 +3,7 @@ id: "llms-applications-and-agents/llm-model-architectures/positional-representat
 topic: "Positional Representations in LLMs"
 level: advanced
 built_from: ["positional-encoding", "attention-architectures-gqa-mla-sliding-and-linear"]
-leads_to: ["long-context-architectures"]
+leads_to: ["09-llms/long-context-methods"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core

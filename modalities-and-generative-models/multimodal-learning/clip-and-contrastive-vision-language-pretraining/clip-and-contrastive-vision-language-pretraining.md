@@ -3,7 +3,7 @@ id: "modalities-and-generative-models/multimodal-learning/clip-and-contrastive-v
 topic: "CLIP and Contrastive Vision-Language Pretraining"
 level: intermediate
 built_from: ["vision-transformers", "contrastive-self-supervised-learning", "contextual-embeddings-elmo-bert"]
-leads_to: ["modern-dual-encoders-siglip-and-retrieval", "interleaved-and-few-shot-vlms-flamingo", "multimodal-rag"]
+leads_to: ["modalities-and-generative-models/multimodal-learning/modern-dual-encoders-siglip-and-retrieval", "modalities-and-generative-models/multimodal-learning/interleaved-and-few-shot-vlms-flamingo", "modalities-and-generative-models/multimodal-learning/multimodal-rag"]
 interview_frequency: very-high
 updated: 2026-09-07
 tier: core

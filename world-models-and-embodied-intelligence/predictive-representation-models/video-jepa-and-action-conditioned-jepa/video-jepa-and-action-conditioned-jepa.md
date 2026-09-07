@@ -3,7 +3,7 @@ id: "world-models-and-embodied-intelligence/predictive-representation-models/vid
 topic: "Video JEPA and Action-Conditioned JEPA"
 level: advanced
 built_from: ["jepa-foundations"]
-leads_to: ["model-predictive-control-with-learned-models", "vision-language-action-models"]
+leads_to: ["world-models-and-embodied-intelligence/learning-and-planning/model-predictive-control-with-learned-models", "world-models-and-embodied-intelligence/embodied-intelligence/vision-language-action-models"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core

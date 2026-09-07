@@ -3,7 +3,7 @@ id: "specialized-studies/neuro-symbolic-and-structured-intelligence/symbolic-rea
 topic: "Knowledge Representation"
 level: intermediate
 built_from: ["symbolic-ai-and-good-old-fashioned-ai"]
-leads_to: ["logic-and-inference", "knowledge-graphs"]
+leads_to: ["specialized-studies/neuro-symbolic-and-structured-intelligence/symbolic-reasoning-primer/logic-and-inference", "specialized-studies/neuro-symbolic-and-structured-intelligence/symbolic-reasoning-primer/knowledge-graphs"]
 interview_frequency: low
 updated: 2026-09-07
 tier: core

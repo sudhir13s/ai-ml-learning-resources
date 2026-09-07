@@ -3,7 +3,7 @@ id: "llms-applications-and-agents/inference-and-runtime/continuous-batching-and-
 topic: "Continuous Batching and Scheduling"
 level: advanced
 built_from: ["inference-optimization", "kv-cache"]
-leads_to: ["caching-and-cost-optimization", "small-and-on-device-language-models"]
+leads_to: ["15-rag-and-llm-apps/caching-and-cost-optimization", "llms-applications-and-agents/inference-and-runtime/small-and-on-device-language-models"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core

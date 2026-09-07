@@ -3,7 +3,7 @@ id: "deployment-and-mlops/data-and-training-platforms/gpus-and-accelerators-for-
 topic: "GPUs & Accelerators for Deep Learning"
 level: advanced
 built_from: ["ml-pipelines-and-orchestration"]
-leads_to: ["distributed-training-parallelism-fsdp-zero", "scaling-inference"]
+leads_to: ["deployment-and-mlops/data-and-training-platforms/distributed-training-parallelism-fsdp-zero", "18-mlops/scaling-inference"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core

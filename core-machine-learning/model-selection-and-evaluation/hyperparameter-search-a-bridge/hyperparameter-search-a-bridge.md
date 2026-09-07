@@ -3,7 +3,7 @@ id: "core-machine-learning/model-selection-and-evaluation/hyperparameter-search-
 topic: "Hyperparameter Search — a bridge"
 level: beginner
 built_from: ["cross-validation", "bias-variance-tradeoff"]
-leads_to: ["calibration-and-reliability-diagrams"]
+leads_to: ["core-machine-learning/model-selection-and-evaluation/calibration-and-reliability-diagrams"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core
