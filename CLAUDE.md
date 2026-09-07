@@ -128,31 +128,50 @@ Ordered by learning progression, each declared as a section in `course.yaml`:
 
 - **`foundations/`** — ai-ml-orientation · programming-and-data-foundations ·
   mathematical-foundations (+ the `maths-for-ai-ml/` deep math curriculum) · data-preparation ·
-  tools-and-frameworks · research-literacy.
+  ai-paradigms-and-knowledge · tools-and-frameworks · research-literacy.
 - **`core-machine-learning/`** — supervised-learning (regression · classification ·
   trees-and-ensembles) · unsupervised-learning (clustering · dimensionality-reduction ·
   density-estimation · anomaly-detection · association-rules) · reinforcement-learning
   (foundations · value-based-learning · policy-learning · model-based · offline · multi-agent) ·
-  model-selection-and-evaluation.
+  model-selection-and-evaluation (bias-variance · cross-validation · hyperparameter-search bridge ·
+  calibration · uncertainty and conformal prediction · error analysis).
 - **`deep-learning/`** — neural-network-foundations · optimization-and-training ·
   stabilization-and-architectural-blocks · neural-architectures · attention-and-transformers ·
-  self-supervised-learning.
+  sequence-modeling (state-space models · S4 · Mamba · linear and hybrid attention) ·
+  self-supervised-learning · scientific-and-specialized-deep-learning (GNNs · PINNs · neural
+  operators · equivariance) · interpretability-and-analysis (mechanistic interpretability ·
+  circuits · superposition and sparse autoencoders · probing · vision and classic models).
 - **`modalities-and-generative-models/`** — natural-language-processing · computer-vision ·
-  generative-models · diffusion-models · multimodal-learning · video-understanding ·
-  audio-and-speech.
-- **`llms-applications-and-agents/`** — rag-and-knowledge-systems · agentic-ai ·
-  inference-and-runtime · reasoning-evaluation-and-alignment.
-- **`deployment-and-mlops/`** — lifecycle-and-reproducibility · data-and-training-platforms ·
-  packaging-and-serving · release-and-deployment · monitoring-and-reliability ·
-  governance-and-economics.
+  generative-models · diffusion-models (17 pages, flow matching homed here) · multimodal-learning ·
+  video-understanding · audio-and-speech.
+- **`llms-applications-and-agents/`** — large-language-model-foundations ·
+  llm-model-architectures · training-and-adaptation · inference-and-runtime ·
+  reasoning-evaluation-and-alignment · rag-and-knowledge-systems · agentic-ai.
+- **`deployment-and-mlops/`** — lifecycle-and-reproducibility · data-and-training-platforms
+  (incl. GPUs and accelerators · distributed training) · packaging-and-serving ·
+  release-and-deployment (incl. rollback and recovery) · monitoring-and-reliability (incl. AI
+  incident response) · governance-and-economics.
+- **`world-models-and-embodied-intelligence/`** — world-model-foundations ·
+  predictive-representation-models · latent-dynamics · learning-and-planning ·
+  video-and-generative-world-models · embodied-intelligence · evaluation-and-safety
+  (spatial-and-physical-world-models and memory-and-cognitive-maps are chartered gaps, listed
+  in the section README, never scaffolded).
 - **`specialized-studies/`** — advanced-mathematics-for-ai-research ·
-  neuroscience-and-brain-inspired-ai.
+  neuroscience-and-brain-inspired-ai · neuro-symbolic-and-structured-intelligence (nested
+  section; its sub-folders are the categories: symbolic-reasoning-primer ·
+  neural-symbolic-integration · differentiable-reasoning · structured-reasoning ·
+  modern-applications).
 
-Every section is now on its chartered kebab-case name; the last legacy ordinal folder was
-re-homed into `llms-applications-and-agents/` (and, for FlashAttention, into
-`deep-learning/attention-and-transformers/efficient-attention/`) by the LLM wave.
-`world-models-and-embodied-intelligence/` is chartered but has no content yet, so it is
-deliberately absent rather than stubbed.
+Every section is on its chartered kebab-case name. The 2026-09 completeness pass (T-556)
+authored the previously empty chartered sub-areas and the world-models section with real
+curated pages, and added `deep-learning/interpretability-and-analysis` (recorded in the
+charter). Every sub-area and section now has a `README.md` index; `agentic-ai/` and
+`rag-and-knowledge-systems/` keep their `overview.md` in that role.
+
+**Quality bar for every link (owner ruling, 2026-09-07):** primary authors and recognised deep
+explainers only — never tutorial-tier or clickbait channels; every URL fetched before it is
+written (YouTube via the oEmbed endpoint, which reports private/removed videos); no emoji in
+any heading; 2025–26 currency on every page whose subject moved.
 
 `_meta/llm_systems_curriculum.md` is the 14-chapter LLM-systems syllabus — a personal study
 notebook parked in `_meta/` (owner ruling 2026-08-19) until its content is absorbed into the

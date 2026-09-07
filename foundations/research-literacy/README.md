@@ -57,7 +57,7 @@ best **free, open** courses, videos, papers, articles, and tools for staying cur
 - [Stanford CS25: Transformers United](https://web.stanford.edu/class/cs25/) — **Stanford** — frontier guest lectures, free.
 
 ## 📄 Where the research lives
-- [arXiv cs.LG / cs.CL](https://arxiv.org/list/cs.LG/recent) + [Papers with Code](https://paperswithcode.com/) — track new methods + leaderboards.
+- [arXiv cs.LG / cs.CL](https://arxiv.org/list/cs.LG/recent) + [alphaXiv](https://www.alphaxiv.org/) — track new methods; Papers with Code shut down in 2025 and its leaderboards now live on the Hugging Face Hub.
 - [Hugging Face Daily Papers](https://huggingface.co/papers) — community-surfaced top papers.
 - [Hugging Face blog](https://huggingface.co/blog) — release-tracking.
 

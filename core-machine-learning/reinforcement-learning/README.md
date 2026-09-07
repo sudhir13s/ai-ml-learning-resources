@@ -55,10 +55,10 @@ learning path plus the best **free, open** courses, videos, papers, articles, an
 
 ## 🎓 Courses (free)
 - [DeepMind x UCL: RL Lecture Series](https://www.youtube.com/playlist?list=PLqYmG7hTraZDVH599EItlEWsUOsJbAodm) — **David Silver / DeepMind** — the classic, by an AlphaGo author.
-- [CS285: Deep Reinforcement Learning](https://rail.eecs.berkeley.edu/deeprlcourse/) — **UC Berkeley (Sergey Levine)** — the definitive deep-RL course.
+- [CS285: Deep Reinforcement Learning](http://rail.eecs.berkeley.edu/deeprlcourse/) — **UC Berkeley (Sergey Levine)** — the definitive deep-RL course.
 
 ## 🎥 Videos
-- [RL & Q-Learning (StatQuest)](https://www.youtube.com/watch?v=qhRNvCVVZaA) — **Josh Starmer** — gentle, visual intro.
+- [Reinforcement Learning: Essential Concepts](https://www.youtube.com/watch?v=Z-T0iJEXiwM) — **StatQuest with Josh Starmer** — gentle, visual intro to states, actions, rewards and policies.
 - [Policy Gradients & PPO](https://www.youtube.com/watch?v=5P7I-xPq8u8) — **Arxiv Insights** — the modern policy-method intuition.
 
 ## 📄 Key Papers
