@@ -3,7 +3,7 @@ id: "09-llms/chain-of-thought-reasoning/references"
 topic: "Chain-of-Thought Reasoning — References"
 parent: "09-llms/chain-of-thought-reasoning"
 type: references
-updated: 2026-06-27
+updated: 2026-09-07
 ---
 
 # Chain-of-Thought Reasoning — references and further reading
@@ -15,7 +15,7 @@ updated: 2026-06-27
 2. **Read the source** — [Chain-of-Thought Prompting Elicits Reasoning in LLMs](https://arxiv.org/abs/2201.11903) (**Wei et al. 2022**). *The founding few-shot result and the emergent-at-scale finding.*
 3. **See the minimal trigger** — [Large Language Models are Zero-Shot Reasoners](https://arxiv.org/abs/2205.11916) (**Kojima et al. 2022**). *"Let's think step by step" — zero-shot CoT, no examples.*
 4. **Boost reliability** — [Self-Consistency Improves CoT Reasoning](https://arxiv.org/abs/2203.11171) (**Wang et al. 2022**). *Sample many chains, majority-vote — the key practical upgrade.*
-5. **Connect to the frontier** — [Learning to Reason with LLMs (o1)](https://openai.com/index/learning-to-reason-with-llms/) (**OpenAI**). *CoT as a trained capability and a test-time-compute dial.*
+5. **Connect to the frontier** — read [Why We Think](https://lilianweng.github.io/posts/2025-05-01-thinking/) (**Lilian Weng, 2025**), then the [DeepSeek-R1 paper](https://arxiv.org/abs/2501.12948). *How chain-of-thought stopped being a prompt trick and became a trained capability with a test-time-compute dial.*
 
 **Videos**:
 - [Chain-of-Thought Prompting — Explained!](https://www.youtube.com/watch?v=AFE6x81AP4k) — **CodeEmporium** — the cleanest short intro to what CoT is and why it boosts reasoning.
@@ -33,7 +33,7 @@ updated: 2026-06-27
 
 **Articles / blogs (free, no paywall)**:
 - [Language Models Perform Reasoning via Chain of Thought](https://research.google/blog/language-models-perform-reasoning-via-chain-of-thought/) — **Google Research** — the accessible summary of the founding CoT result, with the GSM8K numbers.
-- [Learning to Reason with LLMs (o1)](https://openai.com/index/learning-to-reason-with-llms/) — **OpenAI** — CoT trained into long internal chains; the test-time-compute paradigm.
+- [Why We Think](https://lilianweng.github.io/posts/2025-05-01-thinking/) — **Lilian Weng (2025)** — the definitive free survey of test-time computation: thinking tokens, sampling-and-verifying, long chains trained by reinforcement learning, and the honest limits of each. The single best read for where reasoning stands in 2026.
 - [LLM Powered Autonomous Agents](https://lilianweng.github.io/posts/2023-06-23-agent/) — **Lilian Weng (OpenAI)** — CoT / ReAct as the planning core of agents.
 - [Prompt Engineering Guide — reasoning techniques](https://www.promptingguide.ai/) — **DAIR.AI** — CoT, zero-shot CoT, self-consistency, ToT compared with examples.
 
@@ -49,6 +49,9 @@ updated: 2026-06-27
 - [Towards Revealing the Mystery behind Chain of Thought: A Theoretical Perspective](https://arxiv.org/abs/2305.15408) — **Feng et al. (2023)** — why intermediate tokens increase a transformer's expressive power.
 - [The Expressive Power of Transformers with Chain of Thought](https://arxiv.org/abs/2310.07923) — **Merrill & Sabharwal (2023)** — formal serial-depth gains from chain-of-thought decoding.
 - [Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Parameters](https://arxiv.org/abs/2408.03314) — **Snell et al. (2024)** — when spending inference compute (samples / longer chains) beats a bigger model.
+- [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning](https://arxiv.org/abs/2501.12948) — **DeepSeek-AI (2025)** — the paper that closed the loop: reinforcement learning against *verifiable* answers, with no supervised chain-of-thought data, produces long self-checking chains on its own. Read §2 for the emergent "wait, let me reconsider" behaviour.
+- [s1: Simple Test-Time Scaling](https://arxiv.org/abs/2501.19393) — **Muennighoff et al. (2025)** — 1,000 curated examples plus a "budget forcing" trick (append *Wait* to make the model keep thinking) recovers much of the reasoning gain; the cheapest demonstration that the length of the chain is itself the dial.
+**What changed since the founding papers:** chain-of-thought is no longer something you *prompt* for — frontier models are trained to produce it and to spend a controllable amount of compute doing so. The mechanics of that dial (sampling and verification, budget forcing, process reward models) are their own subject: see [Test-Time Computation and Scaling](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/test-time-computation-and-scaling/test-time-computation-and-scaling), and the training method that produces it in [Reinforcement Learning for Reasoning (GRPO and RLVR)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/reinforcement-learning-for-reasoning-grpo-and-rlvr/reinforcement-learning-for-reasoning-grpo-and-rlvr).
 
 **Books (free, with chapters)**:
 - [Speech and Language Processing, 3rd ed. — Ch. 12 "Model Alignment, Prompting & In-Context Learning"](https://web.stanford.edu/~jurafsky/slp3/) — **Jurafsky & Martin** — the prompting/reasoning chapter, free PDF.

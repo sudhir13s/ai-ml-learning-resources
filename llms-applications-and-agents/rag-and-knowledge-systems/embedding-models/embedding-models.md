@@ -6,7 +6,7 @@ level: intermediate
 built_from: ["rag-fundamentals", "document-chunking", "sentence-embeddings", "cosine-similarity"]
 interview_frequency: high
 template: concept-deep
-updated: 2026-06-27
+updated: 2026-09-07
 tier: core
 est_minutes: 25
 title: "Embedding Models for Retrieval"
@@ -219,7 +219,7 @@ from sentence_transformers import SentenceTransformer
 model = SentenceTransformer("all-MiniLM-L6-v2")
 q = model.encode(queries, normalize_embeddings=True)   # (4, 384)
 p = model.encode(passages, normalize_embeddings=True)
-# cosine = q @ p.T  → paraphrase diagonal ~0.63, unrelated ~0.16, gap +0.47
+# cosine = q @ p.T → paraphrase diagonal ~0.63, unrelated ~0.16, gap +0.47
 ```
 
 ```

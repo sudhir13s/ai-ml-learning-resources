@@ -5,7 +5,7 @@ parent: "16-agentic-ai"
 level: advanced
 built_from: ["llms", "prompting-and-in-context-learning"]
 interview_frequency: very-high
-updated: 2026-06-20
+updated: 2026-09-07
 tier: core
 est_minutes: 10
 title: "LLM Agents — Overview & the Agent Loop"
@@ -24,38 +24,43 @@ difference between **workflows** (predefined paths) and **agents** (the model dr
 and *when not* to build an agent (cost, latency, reliability) — the single most common senior-level
 trap in this area.
 
-**⭐ Start here — suggested path:**
+**Start here — suggested path:**
 
-1. **Get the canonical mental model** — read ⭐ [Lilian Weng: LLM Powered Autonomous Agents](https://lilianweng.github.io/posts/2023-06-23-agent/). *The reference survey: it defines the planning + memory + tool-use decomposition everyone else builds on.*
+1. **Get the canonical mental model** — read [Lilian Weng: LLM Powered Autonomous Agents](https://lilianweng.github.io/posts/2023-06-23-agent/). *The reference survey: it defines the planning + memory + tool-use decomposition everyone else builds on.*
 2. **Learn the engineering judgment** — read [Anthropic: Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents). *Workflows vs agents and when each is the right tool — the part interviews probe.*
 3. **See it framed visually** — watch [How We Build Effective Agents (Barry Zhang)](https://www.youtube.com/watch?v=D7_ipDqhtwk). *The same ideas from the people who wrote the guide, with concrete patterns.*
 4. **Ground it historically** — skim [AIMA Ch. 2 "Intelligent Agents"](https://aima.cs.berkeley.edu/). *Agents, environments, and rationality predate LLMs; this is where the vocabulary comes from.*
 5. **Build one** — do the [Hugging Face Agents Course, Unit 1](https://huggingface.co/learn/agents-course/unit1/introduction). *Implementing a think-act-observe loop makes the abstraction concrete.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [Hugging Face Agents Course](https://huggingface.co/learn/agents-course/unit1/introduction) — **Hugging Face** — free end-to-end course: agent loop, tools, memory, frameworks.
 - [AI Agents in LangGraph](https://learn.deeplearning.ai/courses/ai-agents-in-langgraph) — **DeepLearning.AI × LangChain** — free short course building agent loops from scratch.
 
-## 🎥 Videos
+## Videos
 - [Intro to Large Language Models](https://www.youtube.com/watch?v=zjkBMFhNj_g) — **Andrej Karpathy** — the "LLM OS" framing where the model orchestrates tools and memory.
 - [How We Build Effective Agents](https://www.youtube.com/watch?v=D7_ipDqhtwk) — **Barry Zhang (Anthropic)** — workflows vs agents and the patterns that actually work.
 - [Tips for Building AI Agents](https://www.youtube.com/watch?v=LP5OCa20Zpg) — **Anthropic** — practical do's and don'ts from a team shipping agents.
-- [AI Agents Fundamentals in 21 Minutes](https://www.youtube.com/watch?v=qU3fmidNbJE) — **Tina Huang** — fast, concrete walk through the loop, tools, and memory.
+- [Building Agents with Model Context Protocol — full workshop](https://www.youtube.com/watch?v=kQmXtrmQ5Zg) — **Mahesh Murag (Anthropic), AI Engineer** — the environment half of the loop: how an agent actually reaches tools and data, built live from first principles.
 
-## 📄 Key Papers
+## Key Papers
 - [LLM Powered Autonomous Agents](https://lilianweng.github.io/posts/2023-06-23-agent/) — **Lilian Weng (2023)** — the survey that defined the modern agent decomposition.
 - [The Rise and Potential of LLM-Based Agents: A Survey](https://arxiv.org/abs/2308.11432) — **Xi et al. (2023)** — broad taxonomy of agent components, single- vs multi-agent.
 - [ReAct: Synergizing Reasoning and Acting](https://arxiv.org/abs/2210.03629) — **Yao et al. (2022)** — the reason→act→observe loop that underlies most agents.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) — **Anthropic** — the clearest, least-hyped guide; workflows vs agents and when to use each.
 - [LLM Agents](https://www.promptingguide.ai/research/llm-agents) — **Prompt Engineering Guide** — concise, open overview of the agent components and patterns.
 - [How Agents Can Improve LLM Performance](https://www.deeplearning.ai/the-batch/how-agents-can-improve-llm-performance/) — **Andrew Ng (The Batch)** — the four agentic design patterns (reflection, tool use, planning, multi-agent).
+- [Agents](https://huyenchip.com/2025/01/07/agents.html) — **Chip Huyen (2025)** — a long, systems-minded treatment of planning, tool selection, failure modes, and the evaluation problem; the best single 2025 read after Anthropic's guide.
+- [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) — **Anthropic (2025)** — the shift the field made in 2025: the hard part of an agent is no longer the loop but *what occupies its context window at each step*. Covers compaction, sub-agent hand-off, and just-in-time retrieval.
+- [A practical guide to building agents](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf) — **OpenAI (2025)** — the complementary vendor view: when to use single vs multi-agent, guardrail placement, and hand-off design.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Artificial Intelligence: A Modern Approach — **Ch. 2 "Intelligent Agents"**](https://aima.cs.berkeley.edu/) — **Russell & Norvig** — the classic definition of agents, environments, and rationality (free chapter PDFs on the book site).
 
-## 🔗 In this platform
+## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 8.03 Agents & Tool Use](/ai-ml/ai-ml-intuitions/reasoning-and-agency/agents-and-tools/agent-loop-and-tool-use-intuition)
-- Next concepts: [02 ReAct](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/reason-and-act/reason-and-act) · [03 Tool Use & Function Calling](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/tool-use/tool-use) · [04 Planning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/planning/planning)
+- Next concepts: [ReAct](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/reason-and-act/reason-and-act) · [Tool Use & Function Calling](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/tool-use/tool-use) · [Planning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/planning/planning)
+- What fills the loop's context each step: [Context Engineering](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/context-engineering/context-engineering)
+- How agents reach each other: [Agent Interoperability Protocols (A2A)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/agent-interoperability-protocols-a2a/agent-interoperability-protocols-a2a)
 - Related (canonical home): [Prompting & In-Context Learning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/prompting-and-in-context-learning/prompting-and-in-context-learning) · [Chain-of-Thought](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/chain-of-thought-and-reasoning/chain-of-thought-and-reasoning)

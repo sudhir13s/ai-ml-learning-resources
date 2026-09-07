@@ -3,7 +3,7 @@ id: "15-rag-and-llm-apps/caching-and-cost-optimization/references"
 topic: "Caching & Cost Optimization for LLM Apps — References"
 parent: "15-rag-and-llm-apps/caching-and-cost-optimization"
 type: references
-updated: 2026-07-02
+updated: 2026-09-07
 ---
 
 # Caching & Cost Optimization — references and further reading
@@ -17,22 +17,17 @@ updated: 2026-07-02
 > a primary source.
 
 **Start here — suggested path**:
-1. **Cut input cost first** — watch [Prompt Caching Guide](https://www.youtube.com/watch?v=RDjaUJz-uWo) (**PromptHub**). *How OpenAI/Anthropic/Google prefix-cache the static parts of a prompt for 50–90% savings.*
+1. **Cut input cost first** — read [Prompt caching with Claude](https://www.anthropic.com/news/prompt-caching) (**Anthropic**). *What providers actually cache — the static prefix — and the discount it buys.*
 2. **Read the mechanics** — read [Anthropic: Prompt Caching](https://platform.claude.com/docs/en/docs/build-with-claude/prompt-caching) + [OpenAI: Prompt Caching](https://developers.openai.com/api/docs/guides/prompt-caching). *Cache breakpoints, automatic vs explicit, cache-write vs cache-read pricing.*
-3. **Add semantic caching** — watch [Semantic Caching Explained (Redis)](https://www.youtube.com/watch?v=NrqvtsnjIHU) (**Nariman Codes**). *Serve cached answers for *similar* (not identical) queries via embeddings.*
-4. **Build a semantic cache** — watch [GPTCache — Save Cost on LLMs](https://www.youtube.com/watch?v=Yug3gObpX-g) (**Fahd Mirza**), and read the [GPTCache repo](https://github.com/zilliztech/GPTCache). *A working embedding-based response cache.*
+3. **See how the engine does it** — read [Automatic prefix caching](https://docs.vllm.ai/en/latest/features/automatic_prefix_caching.html) (**vLLM**). *The same idea one level down: hashing KV blocks so a shared prefix is computed once, on by default since vLLM V1.*
+4. **Add semantic caching** — read [What is Semantic Caching?](https://redis.io/blog/what-is-semantic-caching/) (**Redis**) and the [GPTCache repo](https://github.com/zilliztech/GPTCache). *Serving cached answers for* similar *(not identical) queries via embeddings, and the false-hit risk that comes with it.*
 5. **Read the source** — skim [GPTCache (Bang 2023, NLP-OSS)](https://aclanthology.org/2023.nlposs-1.24/). *The semantic-cache design — embedding similarity + a threshold — this chapter builds from scratch.*
-
-**Videos**:
-- [Prompt Caching Guide](https://www.youtube.com/watch?v=RDjaUJz-uWo) — **PromptHub** — how prefix caching works across OpenAI/Anthropic/Google, and how to structure prompts for hits.
-- [Semantic Caching Explained: Reduce AI API Costs with Redis](https://www.youtube.com/watch?v=NrqvtsnjIHU) — **Nariman Codes** — embedding-similarity caching at the gateway, and when it pays off.
-- [GPTCache — Save Cost on LLMs](https://www.youtube.com/watch?v=Yug3gObpX-g) — **Fahd Mirza** — installing and using a semantic response cache locally.
-- [Caching Strategies to Slash Your LLM Bill](https://www.youtube.com/watch?v=j9wVKM89XFU) — **MadeForCloud** — prompt + semantic caching combined, with a cost demo.
 
 **Interactive & visual**:
 - [GPTCache — GitHub](https://github.com/zilliztech/GPTCache) — **Zilliz** — the reference semantic-cache library to read and run: embedding + similarity evaluation + cache store, wrapping the LLM client.
 - [Anthropic Prompt Caching — docs](https://platform.claude.com/docs/en/docs/build-with-claude/prompt-caching) — **Anthropic** — the exact `cache_control` request format, TTLs, and cache-write/read pricing, runnable.
 - [OpenAI Prompt Caching — guide](https://developers.openai.com/api/docs/guides/prompt-caching) — **OpenAI** — automatic prefix caching, the 1,024-token minimum, and the cached-token discount (up to ~90% input-cost / ~80% latency reduction).
+- [vLLM — automatic prefix caching](https://docs.vllm.ai/en/latest/features/automatic_prefix_caching.html) — **vLLM project** — the open-source implementation of what providers sell as prompt caching: hash the KV blocks, reuse the shared prefix. On by default since V1, so self-hosted stacks get the same win.
 
 **Courses (free)**:
 - [LangChain for LLM Application Development](https://www.deeplearning.ai/short-courses/langchain-for-llm-application-development/) — **DeepLearning.AI × LangChain** — covers caching and efficient chains as part of building real apps.
@@ -41,7 +36,8 @@ updated: 2026-07-02
 **Articles / blogs (free, no paywall)**:
 - [What is Semantic Caching?](https://redis.io/blog/what-is-semantic-caching/) — **Redis** — how similarity-based caching works, the false-hit risk, and when it pays off.
 - [zilliztech/GPTCache (GitHub README)](https://github.com/zilliztech/GPTCache) — **Zilliz** — the semantic-cache library's design (embedding, similarity eval, eviction) with runnable examples.
-- [Prompt Caching in the API](https://openai.com/index/api-prompt-caching/) — **OpenAI** — the announcement + how automatic prompt caching cuts input cost and latency.
+- [Prompt caching with Claude](https://www.anthropic.com/news/prompt-caching) — **Anthropic** — the explicit-breakpoint model (you mark what to cache) and the cache-write vs cache-read price split, the counterpart to OpenAI's automatic scheme.
+- [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) — **Anthropic (2025)** — why a stable, append-only context prefix is now a *cost* design decision as much as a quality one: every edit above the breakpoint throws away the cache.
 - [LangChain — LLM caching (how-to)](https://python.langchain.com/docs/how_to/llm_caching/) — **LangChain** — `set_llm_cache(InMemoryCache())` and semantic-cache backends, the API used on the page.
 
 **Key papers**:

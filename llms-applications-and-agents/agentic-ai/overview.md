@@ -18,34 +18,34 @@ open** course, video, paper, article, or book for that topic. New here? Read the
 above, then work top to bottom.
 
 ### Foundations
-1. [LLM Agents — Overview & the Agent Loop](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agent-foundations/notes-theory)
-2. [ReAct — Reason + Act](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reason-and-act/notes-theory)
-3. [Tool Use & Function Calling](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/tool-use/notes-theory)
+1. [LLM Agents — Overview & the Agent Loop](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/agent-foundations/agent-foundations)
+2. [ReAct — Reason + Act](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/reason-and-act/reason-and-act)
+3. [Tool Use & Function Calling](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/tool-use/tool-use)
 
 ### Reasoning, planning & memory
-4. [Planning — Task Decomposition & Plan-and-Execute](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/planning/notes-theory)
-5. [Reflection & Self-Critique](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reflection/notes-theory)
-6. [Memory for Agents (short- & long-term)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/memory/notes-theory)
+4. [Planning — Task Decomposition & Plan-and-Execute](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/planning/planning)
+5. [Reflection & Self-Critique](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/reflection/reflection)
+6. [Memory for Agents (short- & long-term)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/memory/memory)
 
 ### Systems, protocols & frameworks
-7. [Multi-Agent Systems & Orchestration](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/multi-agent-systems/notes-theory)
-8. [Model Context Protocol (MCP)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/model-context-protocol/notes-theory)
-9. [Agent Frameworks (LangGraph, etc., conceptual)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agent-frameworks/notes-theory)
+7. [Multi-Agent Systems & Orchestration](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/multi-agent-systems/multi-agent-systems)
+8. [Model Context Protocol (MCP)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/model-context-protocol/model-context-protocol)
+9. [Agent Frameworks (LangGraph, etc., conceptual)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/agent-frameworks/agent-frameworks)
 
 ### Applied agents
-10. [Code Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/overview/code-agents)
-11. [Computer-Use & GUI Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/overview/computer-use-and-gui-agents)
+10. [Code Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/coding-and-computer-use-agents/code-agents)
+11. [Computer-Use & GUI Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/coding-and-computer-use-agents/computer-use-and-gui-agents)
 
 ### Evaluation & safety
-12. [Agent Evaluation & Benchmarks (AgentBench · SWE-bench)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agent-evaluation/notes-theory)
-13. [Safety, Guardrails & Human-in-the-Loop](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agent-safety/notes-theory)
+12. [Agent Evaluation & Benchmarks (AgentBench · SWE-bench)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/agent-evaluation/agent-evaluation)
+13. [Safety, Guardrails & Human-in-the-Loop](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/agent-safety/agent-safety)
 
 ### Related concepts (canonical home is another section)
 > These topics are foundations or applications of agents, but their canonical home is another section —
 > linked here to avoid repetition.
-- **Prompting & In-Context Learning · Chain-of-Thought · Fine-tuning / SFT · RLHF** → [LLMs](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/overview/overview-3) ([Prompting](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/prompting-and-in-context-learning/notes-theory) · [Chain-of-Thought](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/chain-of-thought-and-reasoning/notes-theory) · [SFT](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/supervised-fine-tuning/notes-theory) · [RLHF & DPO](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/preference-and-alignment-training/notes-theory))
-- **Retrieval-Augmented Generation (RAG) & retrieval** → [RAG & LLM Applications](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/overview/overview-2)
-- **RL foundations (MDPs · policies · reward)** → [Reinforcement Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/overview/overview)
+- **Prompting & In-Context Learning · Chain-of-Thought · Fine-tuning / SFT · RLHF** → [LLMs](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme) ([Prompting](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/prompting-and-in-context-learning/prompting-and-in-context-learning) · [Chain-of-Thought](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/chain-of-thought-and-reasoning/chain-of-thought-and-reasoning) · [SFT](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/supervised-fine-tuning/supervised-fine-tuning) · [RLHF & DPO](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/preference-and-alignment-training/preference-and-alignment-training))
+- **Retrieval-Augmented Generation (RAG) & retrieval** → [RAG & LLM Applications](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/overview)
+- **RL foundations (MDPs · policies · reward)** → [Reinforcement Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/readme)
 
 ## Courses (free)
 - [AI Agents in LangGraph](https://www.deeplearning.ai/short-courses/ai-agents-in-langgraph/) — **DeepLearning.AI × LangChain** — free short course on agent loops.

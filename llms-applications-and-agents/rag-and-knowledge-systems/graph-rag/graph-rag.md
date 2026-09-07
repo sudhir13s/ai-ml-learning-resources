@@ -6,7 +6,7 @@ level: advanced
 built_from: ["rag-fundamentals", "advanced-rag-parent-doc-fusion-self-rag", "embedding-models-for-retrieval"]
 interview_frequency: high
 template: concept-deep
-updated: 2026-07-02
+updated: 2026-09-07
 tier: core
 est_minutes: 30
 title: "GraphRAG"
@@ -263,9 +263,9 @@ The graph found 3 structural clusters — the corpus's themes — with positive 
 
 ```python
 # Microsoft GraphRAG — the full local/global pipeline (needs an LLM for extraction + reports)
-#   graphrag index --root ./ragproject          # LLM extraction → graph → communities → reports
-#   graphrag query --method local  --query "..."  # multi-hop / specific-entity
-#   graphrag query --method global --query "..."  # whole-corpus / thematic (map-reduce)
+# graphrag index --root ./ragproject # LLM extraction → graph → communities → reports
+# graphrag query --method local --query "..." # multi-hop / specific-entity
+# graphrag query --method global --query "..." # whole-corpus / thematic (map-reduce)
 
 # LlamaIndex — PropertyGraphIndex: LLM extracts triples, builds a queryable graph
 from llama_index.core import PropertyGraphIndex

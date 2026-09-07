@@ -6,7 +6,7 @@ level: advanced
 built_from: ["09-llms/decoder-only-architecture", "09-llms/kv-cache", "numerical-precision"]
 interview_frequency: high
 template: concept-deep
-updated: 2026-06-26
+updated: 2026-09-07
 tier: flagship
 est_minutes: 30
 leads_to: ["09-llms/knowledge-distillation"]
@@ -309,7 +309,7 @@ $$XW = \big(X \cdot \operatorname{diag}(s)^{-1}\big)\big(\operatorname{diag}(s) 
 
 **GGUF** is the on-device format (the `llama.cpp` ecosystem) and its **k-quant** schemes (`Q4_K_M`, `Q5_K_M`, `Q6_K`, …) are highly-tuned group-wise quantizations that mix bit-widths *within* a tensor (more bits for sensitive layers like attention/`down_proj`, fewer for the rest) plus a second level of quantization on the block scales. It's what powers local LLMs on CPUs, Macs, and consumer GPUs.
 
-> **Note:** GGUF k-quants are an engineering format more than a single paper-backed algorithm; the canonical reference is the [`llama.cpp` quantization documentation](https://github.com/ggml-org/llama.cpp/blob/master/examples/quantize/README.md). The naming: `Q4_K_M` = 4-bit, k-quant, **M**edium variant; higher letter = more bits for the sensitive tensors.
+> **Note:** GGUF k-quants are an engineering format more than a single paper-backed algorithm; the canonical reference is the [`llama.cpp` quantization documentation](https://github.com/ggml-org/llama.cpp/blob/master/tools/quantize/README.md). The naming: `Q4_K_M` = 4-bit, k-quant, **M**edium variant; higher letter = more bits for the sensitive tensors.
 
 **Contributes:** the practical, ubiquitous **local-inference** format — fine-grained group-wise k-quants tuned per-tensor for CPU/Mac/consumer-GPU deployment.
 
@@ -454,6 +454,13 @@ Concrete, verified anchors:
 - **GGUF k-quants** power **llama.cpp** / **Ollama** / **LM Studio** — the standard way millions of people run LLMs locally. `Q4_K_M` is the most-downloaded variant: 4-bit, k-quant, medium — the practical sweet spot.
 - **FP8** is the emerging production default on Hopper/Blackwell GPUs: hardware-native 8-bit floating point, often essentially lossless, increasingly used for *both* weights and the **KV cache** (tying back to the [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) quantization lever).
 - **The recurring stack:** a "70B served cheaply" deployment is usually **int4 (AWQ/GPTQ) weights + FP8 KV cache + PagedAttention + FlashAttention** — quantization shrinks the weights *and* the cache, and the [serving](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/inference-optimization/inference-optimization) stack handles the rest.
+
+**What changed by 2026** — the centre of gravity moved from integer formats to low-precision *floating-point* ones:
+
+- **FP8 is no longer emerging, it is the baseline.** The E4M3 / E5M2 formats were standardized in 2022 ([Micikevicius et al.](https://arxiv.org/abs/2209.05433)) and Hopper-class hardware executes them natively, so FP8 weights + FP8 KV cache is the ordinary starting point rather than an optimization.
+- **4-bit floating point arrived in silicon.** **NVFP4** — 4-bit floats with a two-level micro-block scale — is accelerated natively on Blackwell and holds accuracy far closer to BF16 than INT4 at the same bit budget ([NVIDIA, 2025](https://developer.nvidia.com/blog/introducing-nvfp4-for-efficient-and-accurate-low-precision-inference/)). The open-weight release of **gpt-oss** with its mixture-of-experts weights natively in MXFP4 ([OpenAI, 2025](https://arxiv.org/abs/2508.10925)) made a 4-bit float the *shipping* format of a frontier model, not a post-hoc compression of one.
+- **Quantization moved into the framework.** `torchao` puts int4/int8/FP8 quantization in core PyTorch as composable dtypes ([PyTorch team](https://pytorch.org/blog/pytorch-native-architecture-optimization/)), and the [maintained Transformers comparison](https://huggingface.co/docs/transformers/en/quantization/overview) is now the place to check which scheme your hardware actually accelerates — the answer changes per GPU generation.
+- **The outlier story got sharper.** Beyond outlier *channels*, a handful of individual **super weights** can wreck a model when rounded ([Yu et al., 2024](https://arxiv.org/abs/2411.02355)) — which is why "keep a tiny fraction in high precision" keeps reappearing in every new method.
 
 ---
 

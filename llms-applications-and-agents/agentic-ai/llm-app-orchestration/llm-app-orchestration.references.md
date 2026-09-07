@@ -3,7 +3,7 @@ id: "15-rag-and-llm-apps/llm-app-orchestration/references"
 topic: "LLM App Orchestration (chains · routing · stateful graphs) — References"
 parent: "15-rag-and-llm-apps/llm-app-orchestration"
 type: references
-updated: 2026-07-02
+updated: 2026-09-07
 ---
 
 # LLM App Orchestration — references and further reading
@@ -19,14 +19,13 @@ updated: 2026-07-02
 1. **Compose with chains** — watch [LangChain Expression Language (LCEL) Explained](https://www.youtube.com/watch?v=O0dUOtOIrfs) (**James Briggs**). *The pipe `|` model: compose Runnables into a chain with streaming/async for free.*
 2. **Read the model** — read [LangChain: LCEL concepts](https://python.langchain.com/docs/concepts/lcel/). *Why everything is a Runnable and how composition works.*
 3. **Add routing** — watch [RAG From Scratch — Routing](https://www.youtube.com/watch?v=pfpIndq7Fi8) (**Lance Martin**), then read [LangChain: How to route](https://python.langchain.com/docs/how_to/routing/). *Logical vs semantic routing to the right path — the cosine-argmax decision.*
-4. **Graduate to graphs** — read the [LangGraph overview](https://docs.langchain.com/oss/python/langgraph/) + watch [LangGraph Tutorial](https://www.youtube.com/watch?v=1w5cCXlh7JQ) (**Tech With Tim**). *Stateful branches, loops, and a step budget when a linear chain isn't enough.*
+4. **Graduate to graphs** — read the [LangGraph overview](https://docs.langchain.com/oss/python/langgraph/) and the [Workflows & Agents guide](https://docs.langchain.com/oss/python/langgraph/workflows-agents). *Stateful branches, loops, and a step budget when a linear chain isn't enough — with each orchestration pattern as runnable graph code.*
 5. **See the frontier** — skim the [DSPy paper](https://arxiv.org/abs/2310.03714) (**Khattab et al. 2023**). *Declarative modules a compiler optimizes — orchestration where the prompts tune themselves.*
 
 **Videos**:
 - [LangChain Expression Language (LCEL) Explained!](https://www.youtube.com/watch?v=O0dUOtOIrfs) — **James Briggs** — the pipe model and Runnable composition, clearly.
 - [RAG from Scratch — Routing](https://www.youtube.com/watch?v=pfpIndq7Fi8) — **LangChain (Lance Martin)** — logical vs semantic routing to the right source/prompt.
-- [LangGraph Tutorial — Build Advanced AI Agent Systems](https://www.youtube.com/watch?v=1w5cCXlh7JQ) — **Tech With Tim** — stateful graph orchestration with branches and loops.
-- [LCEL for Chaining the Components — All Runnables, Async & Streaming](https://www.youtube.com/watch?v=8aUYzb1aYDU) — **Sunny Savita** — hands-on RunnableParallel/Passthrough/Lambda and streaming.
+- [How We Build Effective Agents](https://www.youtube.com/watch?v=D7_ipDqhtwk) — **Barry Zhang (Anthropic), AI Engineer** — the orchestration decision itself: which of these patterns a problem actually needs, and the cost of reaching for the most general one first.
 
 **Interactive & visual**:
 - [LangGraph — Quickstart](https://docs.langchain.com/oss/python/langgraph/quickstart) — **LangChain** — build, compile, and invoke a `StateGraph` end to end (the stateful-graph API used on the page), runnable.

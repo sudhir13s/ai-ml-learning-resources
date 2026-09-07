@@ -3,7 +3,7 @@ id: "15-rag-and-llm-apps/hybrid-search-bm25-and-dense/references"
 topic: "Hybrid Search (BM25 + Dense) — References"
 parent: "15-rag-and-llm-apps/hybrid-search-bm25-and-dense"
 type: references
-updated: 2026-06-27
+updated: 2026-09-07
 ---
 
 # Hybrid Search (BM25 + Dense) — references and further reading
@@ -14,7 +14,7 @@ updated: 2026-06-27
 1. **Master the sparse baseline** — watch [A No-Nonsense Intro to BM25](https://www.youtube.com/watch?v=TW9vHU1GpU4) (**Abhishek Thakur**). *BM25 is the keyword half of hybrid; understand tf-saturation and length normalization first.*
 2. **See why you need both** — read [Hybrid Search Explained](https://weaviate.io/blog/hybrid-search-explained) (**Weaviate**). *Where dense fails, where sparse fails, and how fusion fixes both — with the `alpha` dial.*
 3. **Understand the fusion** — read [Getting Started with Hybrid Search](https://www.pinecone.io/learn/hybrid-search-intro/) (**Pinecone**). *Combining sparse + dense vectors and the weighting knob.*
-4. **Read the fusion source** — skim [Reciprocal Rank Fusion (Cormack et al. 2009)](https://plg.uwaterloo.ca/~gvcormack/cormacksigir09-rrf.pdf). *The one-line, rank-based fusion behind every production hybrid stack — and the $k=60$ default.*
+4. **Read the fusion source** — skim [Reciprocal Rank Fusion (Cormack et al. 2009)](https://cormack.uwaterloo.ca/cormacksigir09-rrf.pdf). *The one-line, rank-based fusion behind every production hybrid stack — and the $k=60$ default.*
 5. **Get the BM25 math right** — read [The Probabilistic Relevance Framework: BM25 and Beyond](https://www.staff.city.ac.uk/~sbrp622/papers/foundations_bm25_review.pdf) (**Robertson & Zaragoza**), §3. *The full BM25 derivation — IDF, saturation ($k_1$), length-norm ($b$).*
 
 **Videos**:
@@ -24,7 +24,7 @@ updated: 2026-06-27
 - [Exploring Pinecone's Sparse-Dense Index](https://www.youtube.com/watch?v=EZfONAne55M) — **Pinecone** — how a vector DB stores and queries sparse + dense vectors together in one index.
 
 **Interactive & visual**:
-- [BM25 interactive demo / explainer](https://www.elastic.co/search-labs/blog/practical-bm25-part-2-the-bm25-algorithm-and-its-variables) — **Elastic (Search Labs)** — the BM25 variables ($k_1$, $b$) walked through with worked examples on a real index; the clearest hands-on for the saturation/length-norm knobs.
+- [BM25 interactive demo / explainer](https://www.elastic.co/blog/practical-bm25-part-2-the-bm25-algorithm-and-its-variables) — **Elastic (Search Labs)** — the BM25 variables ($k_1$, $b$) walked through with worked examples on a real index; the clearest hands-on for the saturation/length-norm knobs.
 - [Reciprocal Rank Fusion in Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/rrf.html) — **Elastic** — the production RRF reference with the exact formula, the `rank_constant` (default 60) and `rank_window_size` parameters you'd actually set.
 
 **Courses (free)**:
@@ -36,11 +36,11 @@ updated: 2026-06-27
 - [Getting Started with Hybrid Search](https://www.pinecone.io/learn/hybrid-search-intro/) — **Pinecone** — combining sparse + dense vectors with a tunable weighting; the sparse-dense index idea.
 - [Hybrid Search with Qdrant's Query API](https://qdrant.tech/articles/hybrid-search/) — **Qdrant** — production patterns for dense+sparse fusion (RRF and DBSF) in one round trip.
 - [SPLADE for Sparse Vector Search Explained](https://www.pinecone.io/learn/splade/) — **Pinecone** — how learned sparse vectors fix the vocabulary-mismatch limitation of BM25, the frontier of the lexical lens.
-- [Practical BM25 — Part 2: The BM25 Algorithm and its Variables](https://www.elastic.co/search-labs/blog/practical-bm25-part-2-the-bm25-algorithm-and-its-variables) — **Elastic** — the most practical term-by-term tour of BM25, $k_1$, and $b$ with real numbers.
+- [Practical BM25 — Part 2: The BM25 Algorithm and its Variables](https://www.elastic.co/blog/practical-bm25-part-2-the-bm25-algorithm-and-its-variables) — **Elastic** — the most practical term-by-term tour of BM25, $k_1$, and $b$ with real numbers.
 
 **Key papers / primary sources**:
 - [The Probabilistic Relevance Framework: BM25 and Beyond](https://www.staff.city.ac.uk/~sbrp622/papers/foundations_bm25_review.pdf) — **Robertson & Zaragoza (FnTIR 2009)** — the canonical BM25 derivation; §3 gives the saturation-and-length-normalization scoring function and the probabilistic IDF the page's formula is taken from.
-- [Reciprocal Rank Fusion Outperforms Condorcet and Individual Rank Learning Methods](https://plg.uwaterloo.ca/~gvcormack/cormacksigir09-rrf.pdf) — **Cormack, Clarke & Büttcher (SIGIR 2009)** — introduces RRF (Eq. 1) and the $k=60$ constant; the source for the rank-fusion formula on the page.
+- [Reciprocal Rank Fusion Outperforms Condorcet and Individual Rank Learning Methods](https://cormack.uwaterloo.ca/cormacksigir09-rrf.pdf) — **Cormack, Clarke & Büttcher (SIGIR 2009)** — introduces RRF (Eq. 1) and the $k=60$ constant; the source for the rank-fusion formula on the page.
 - [An Analysis of Fusion Functions for Hybrid Retrieval](https://arxiv.org/abs/2210.11934) — **Bruch, Gai & Ingber (ACM TOIS 2023)** — analyzes convex-combination (weighted-sum) fusion of normalized lexical + dense scores; the source for the min-max-normalize-then-weight formula and the "tuned convex combination can beat RRF" claim.
 - [SPLADE: Sparse Lexical and Expansion Model for First-Stage Ranking](https://arxiv.org/abs/2107.05720) — **Formal et al. (2021)** — learned sparse retrieval that beats BM25 while staying interpretable; the modern evolution of the lexical lens.
 - [Dense Passage Retrieval for Open-Domain QA (DPR)](https://arxiv.org/abs/2004.04906) — **Karpukhin et al. (2020)** — the dense dual-encoder that hybrid pairs with BM25; established that learned dense retrieval beats BM25 on many tasks (but not all — motivating fusion).

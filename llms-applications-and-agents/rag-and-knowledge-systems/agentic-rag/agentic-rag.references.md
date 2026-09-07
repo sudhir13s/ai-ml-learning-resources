@@ -3,7 +3,7 @@ id: "15-rag-and-llm-apps/agentic-rag/references"
 topic: "Agentic RAG — References"
 parent: "15-rag-and-llm-apps/agentic-rag"
 type: references
-updated: 2026-07-02
+updated: 2026-09-07
 ---
 
 # Agentic RAG — references and further reading
@@ -16,15 +16,14 @@ updated: 2026-07-02
 > concept page (ReAct, Reflexion, Toolformer, routing, Adaptive-RAG) appears here as a primary source.
 
 **Start here — suggested path**:
-1. **Get the framing** — watch [What is Agentic RAG?](https://www.youtube.com/watch?v=0z9_MhcYvcY) (**IBM Technology**). *Static pipeline → an agent that decides, grades, and acts.*
-2. **See the evolution** — watch [RAG's Evolution: From Simple Retrieval to Agentic AI](https://www.youtube.com/watch?v=JB2P5Gk23VI) (**IBM Technology**). *How naive → advanced → agentic RAG progresses, and why.*
+1. **Get the framing** — read [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) (**Anthropic**). *The distinction this whole page rests on: a fixed workflow versus an agent that decides its own next step — and when the extra latency is worth it.*
+2. **See the evolution** — read [What is Agentic RAG?](https://weaviate.io/blog/what-is-agentic-rag) (**Weaviate**). *How naive → advanced → agentic RAG progresses, and where each step earns its cost.*
 3. **Read the loop's primary source** — read [ReAct](https://arxiv.org/abs/2210.03629) (**Yao et al. 2022**), §2. *Reason → Act → Observe: the control loop the whole chapter is built on.*
 4. **Read the pattern write-up** — read [Weaviate: What is Agentic RAG?](https://weaviate.io/blog/what-is-agentic-rag). *Agents, tools, routing, and validation around retrieval, clearly framed.*
 5. **Build a routing / self-correcting agent** — watch [Self-reflective RAG with LangGraph](https://www.youtube.com/watch?v=pbAd8O1Lvm4) (**LangChain**), then follow [LangGraph: build a RAG agent](https://docs.langchain.com/oss/python/langgraph/agentic-rag). *Route by complexity, grade docs, retry — in a real stateful graph.*
 
 **Videos**:
-- [What is Agentic RAG?](https://www.youtube.com/watch?v=0z9_MhcYvcY) — **IBM Technology** — a clear intro to agents-over-RAG and why adaptivity helps.
-- [RAG's Evolution: From Simple Retrieval to Agentic AI](https://www.youtube.com/watch?v=JB2P5Gk23VI) — **IBM Technology** — the naive → advanced → agentic progression, and where each earns its cost.
+- [How We Build Effective Agents](https://www.youtube.com/watch?v=D7_ipDqhtwk) — **Barry Zhang (Anthropic), AI Engineer** — the author of Anthropic's agent guidance on when a retrieval loop should be an agent at all, and the failure modes of over-agentifying.
 - [Building Adaptive RAG from scratch with Command-R](https://www.youtube.com/watch?v=04ighIjMcAI) — **LangChain (Lance Martin)** — query-complexity routing to different retrieval strategies (the Adaptive-RAG idea, hands-on).
 - [Self-reflective RAG with LangGraph: Self-RAG and CRAG](https://www.youtube.com/watch?v=pbAd8O1Lvm4) — **LangChain (Lance Martin)** — grading + correction loops implemented as a graph; the clearest walkthrough of the agentic control flow.
 
@@ -43,7 +42,7 @@ updated: 2026-07-02
 - [Agentic RAG with LangGraph](https://qdrant.tech/articles/agentic-rag/) — **Qdrant** — a build-focused walkthrough with document grading and a web-search fallback.
 - [OpenAI — Function calling guide](https://platform.openai.com/docs/guides/function-calling) — **OpenAI** — the tool-calling primitive the loop's `Action` is built on: schema-driven tool calls whose descriptions the router scores against.
 - [LlamaIndex — ReActAgent](https://docs.llamaindex.ai/en/stable/examples/agent/react_agent/) — **LlamaIndex** — the ReAct loop as a production object over your tools (`max_iterations` is the step budget).
-- [LlamaIndex — RouterQueryEngine](https://docs.llamaindex.ai/en/stable/examples/query_engine/RouterQueryEngine/) — **LlamaIndex** — routing as pick-one-engine-by-description: the argmax-cosine router, productionized.
+- [LlamaIndex — Routers](https://developers.llamaindex.ai/python/framework/module_guides/querying/router/) — **LlamaIndex** — routing as pick-one-engine-by-description: the argmax-cosine router, productionized (the docs site moved to `developers.llamaindex.ai`).
 - [LlamaIndex — SubQuestionQueryEngine](https://docs.llamaindex.ai/en/stable/examples/query_engine/sub_question_query_engine/) — **LlamaIndex** — decompose a compound query into sub-questions, answer each, combine.
 
 **Key papers**:

@@ -5,7 +5,7 @@ parent: "16-agentic-ai"
 level: advanced
 built_from: ["llm-agents-overview"]
 interview_frequency: high
-updated: 2026-06-20
+updated: 2026-09-07
 tier: core
 est_minutes: 10
 title: "Memory for Agents (short- & long-term)"
@@ -24,38 +24,40 @@ Interviews want the short-vs-long-term split, how long-term memory is *retrieval
 DB — the bridge to RAG), the types (episodic / semantic / procedural), and the hard parts: what to
 write, when to summarize/compact, and how to avoid stale or contradictory memories.
 
-**⭐ Start here — suggested path:**
+**Start here — suggested path:**
 
-1. **Frame the components** — read the **memory** section of ⭐ [Lilian Weng: LLM Powered Autonomous Agents](https://lilianweng.github.io/posts/2023-06-23-agent/). *Maps agent memory onto human memory types — the standard framing.*
+1. **Frame the components** — read the **memory** section of [Lilian Weng: LLM Powered Autonomous Agents](https://lilianweng.github.io/posts/2023-06-23-agent/). *Maps agent memory onto human memory types — the standard framing.*
 2. **Make it concrete** — read [Memory in Agents](https://www.philschmid.de/memory-in-agents). *Clear, code-level treatment of short- vs long-term memory.*
 3. **See production patterns** — read [Memory for Agents](https://www.langchain.com/blog/memory-for-agents). *Semantic/episodic/procedural memory and when to use each.*
 4. **Watch a build** — watch [LangGraph Crash Course](https://www.youtube.com/watch?v=PqS1kib7RTw). *Persistent state and memory wired into an agent.*
 5. **Study a memory-driven agent** — read [Generative Agents](https://arxiv.org/abs/2304.03442). *A memory stream + retrieval + reflection that produces believable long-horizon behavior.*
 
-## 🎓 Courses (free)
+## Courses (free)
 - [Long-Term Agentic Memory with LangGraph](https://learn.deeplearning.ai/courses/long-term-agentic-memory-with-langgraph) — **DeepLearning.AI × LangChain** — free short course on semantic/episodic/procedural memory.
 - [Hugging Face Agents Course](https://huggingface.co/learn/agents-course/unit1/introduction) — **Hugging Face** — adding memory to an agent, hands-on.
 
-## 🎥 Videos
+## Videos
 - [LangGraph Crash Course](https://www.youtube.com/watch?v=PqS1kib7RTw) — **Sam Witteveen** — persistent state and memory in an agent graph.
 - [LangGraph: Intro](https://www.youtube.com/watch?v=5h-JBkySK34) — **LangChain** — state and checkpointing as the substrate for memory.
-- [AI Agents Fundamentals in 21 Minutes](https://www.youtube.com/watch?v=qU3fmidNbJE) — **Tina Huang** — where memory sits in the agent loop.
-- [How We Build Effective Agents](https://www.youtube.com/watch?v=D7_ipDqhtwk) — **Barry Zhang (Anthropic)** — context and state management in production agents.
+- [How We Build Effective Agents](https://www.youtube.com/watch?v=D7_ipDqhtwk) — **Barry Zhang (Anthropic), AI Engineer** — context and state management in production agents.
+- [Building Agents with Model Context Protocol — full workshop](https://www.youtube.com/watch?v=kQmXtrmQ5Zg) — **Mahesh Murag (Anthropic), AI Engineer** — where retrieved memory enters the loop as a resource, rather than being pasted into the prompt by hand.
 
-## 📄 Key Papers
+## Key Papers
 - [Generative Agents: Interactive Simulacra of Human Behavior](https://arxiv.org/abs/2304.03442) — **Park et al. (2023)** — memory stream + retrieval + reflection for long-horizon behavior.
 - [Voyager: An Open-Ended Embodied Agent with LLMs](https://arxiv.org/abs/2305.16291) — **Wang et al. (2023)** — a growing *skill library* as procedural long-term memory.
 - [Reflexion: Language Agents with Verbal RL](https://arxiv.org/abs/2303.11366) — **Shinn et al. (2023)** — episodic memory of past attempts to improve next time.
 
-## 📰 Articles / Blogs (free, no paywall)
+## Articles / Blogs (free, no paywall)
 - [LLM Powered Autonomous Agents — Memory](https://lilianweng.github.io/posts/2023-06-23-agent/) — **Lilian Weng** — short- vs long-term memory mapped to human memory.
 - [Memory in Agents](https://www.philschmid.de/memory-in-agents) — **Philipp Schmid** — code-level short- and long-term memory, free.
 - [Memory for Agents](https://www.langchain.com/blog/memory-for-agents) — **LangChain** — semantic, episodic, and procedural memory in practice.
+- [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) — **Anthropic (2025)** — the 2025 reframing of this whole topic: memory is one lever inside a *context budget*, alongside compaction, note-taking to a file, and sub-agent hand-off. Read it against Weng's taxonomy — it is the engineering answer to what the taxonomy names.
 
-## 📚 Books (free, with chapters)
+## Books (free, with chapters)
 - [Artificial Intelligence: A Modern Approach — **Ch. 2 "Intelligent Agents"** (state & internal models)](https://aima.cs.berkeley.edu/) — **Russell & Norvig** — model-based agents keep internal state — the classical root of agent memory.
 
-## 🔗 In this platform
+## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 8.03 Agents & Tool Use](/ai-ml/ai-ml-intuitions/reasoning-and-agency/agents-and-tools/agent-loop-and-tool-use-intuition)
-- Prev / next: [05 Reflection & Self-Critique](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/reflection/reflection) · [07 Multi-Agent Systems](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/multi-agent-systems/multi-agent-systems)
+- Prev / next: [Reflection & Self-Critique](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/reflection/reflection) · [Multi-Agent Systems](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/multi-agent-systems/multi-agent-systems)
+- The budget memory competes for: [Context Engineering](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/context-engineering/context-engineering)
 - Related (canonical home): long-term memory is retrieval — see [RAG & LLM Applications](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/overview)

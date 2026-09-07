@@ -3,7 +3,7 @@ id: "09-llms/lora-and-peft/references"
 topic: "LoRA & PEFT — References"
 parent: "09-llms/lora-and-peft"
 type: references
-updated: 2026-06-26
+updated: 2026-09-07
 ---
 
 # LoRA & PEFT — references and further reading
@@ -21,7 +21,7 @@ updated: 2026-06-26
 - [LoRA explained (and a bit about precision & quantization)](https://www.youtube.com/watch?v=t509sv5MT0w) — **DeepFindr** — the cleanest conceptual intro to low-rank updates.
 - [Low-rank Adaptation of LLMs: the Key Concepts behind LoRA](https://www.youtube.com/watch?v=dA-NhCtrrVE) — **Chris Alexiuk** — rank, alpha, and merging, concisely.
 - [LoRA & QLoRA Fine-tuning Explained In-Depth](https://www.youtube.com/watch?v=t1caDsMzWBk) — **Mark Hennings (Entry Point AI)** — the practical, in-depth treatment including QLoRA.
-- [Fine-tuning LLMs with LoRA (hands-on, with code)](https://www.youtube.com/watch?v=eC6Hd1hFvos) — **Shaw Talebi** — a runnable end-to-end LoRA fine-tune.
+- [QLoRA: Efficient Finetuning of Quantized LLMs (author talk)](https://www.youtube.com/watch?v=y9PHWGOa8HA) — **Tim Dettmers (London Machine Learning Meetup)** — the QLoRA author on NF4, double quantization, and paged optimizers, with the reasoning that did not fit in the paper.
 
 **Interactive & hands-on**:
 - [Hugging Face PEFT — quicktour & task guides](https://huggingface.co/docs/peft/quicktour) — **Hugging Face** — `LoraConfig`, `get_peft_model`, training, and `merge_and_unload()` you can run immediately.
@@ -58,6 +58,6 @@ updated: 2026-06-26
 
 **In this platform**:
 - Concept page (full explanation): [LoRA & PEFT](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/lora-and-parameter-efficient-fine-tuning/lora-and-parameter-efficient-fine-tuning)
-- Foundations (the *why* behind the weights LoRA adapts): [Attention Mechanism](../../../../deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism.md) · [Transformer Architecture](../../../../deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture.md)
+- Foundations (the *why* behind the weights LoRA adapts): [Attention Mechanism](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism) · [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture)
 - Builds on this: [Quantization](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/quantization/quantization) (NF4 / 4-bit, the base of QLoRA) · [Pretraining at Scale](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/pretraining/pretraining) (the base LoRA adapts) · [Decoder-only Architecture](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/decoder-only-models/decoder-only-models)
 - Puts it to work: [Supervised Fine-Tuning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/supervised-fine-tuning/supervised-fine-tuning) · [Instruction Tuning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/instruction-tuning/instruction-tuning) · [RLHF and DPO](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/preference-and-alignment-training/preference-and-alignment-training)

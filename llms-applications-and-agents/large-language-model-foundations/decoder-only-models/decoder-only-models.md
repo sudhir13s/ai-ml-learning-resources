@@ -6,7 +6,7 @@ level: advanced
 built_from: ["transformer-architecture", "attention", "09-llms/language-modeling-objectives"]
 interview_frequency: very-high
 template: concept-deep
-updated: 2026-06-26
+updated: 2026-09-07
 tier: standard
 est_minutes: 45
 leads_to: ["09-llms/kv-cache", "09-llms/efficient-attention-flashattention"]
@@ -29,7 +29,7 @@ I want to explain this the way I'd actually walk a teammate through it at a whit
 - name the **modern swaps** (pre-norm, RMSNorm, RoPE, SwiGLU, GQA) and what each fixes;
 - trace **prefill vs decode** at inference and connect it to the [KV cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache).
 
-> **Note:** this page is about the *architecture* — the shape of the network and why that shape won. The *training objective* it's optimized for lives in [Language Modeling Objectives](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/language-modeling-objectives/language-modeling-objectives), the *attention math* it's built from lives in [Attention Mechanism](../../../../deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism.md) and [Transformer Architecture](../../../../deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture.md), and the *inference optimization* it enables lives in [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache). We'll point to each rather than re-derive it.
+> **Note:** this page is about the *architecture* — the shape of the network and why that shape won. The *training objective* it's optimized for lives in [Language Modeling Objectives](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/language-modeling-objectives/language-modeling-objectives), the *attention math* it's built from lives in [Attention Mechanism](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism) and [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture), and the *inference optimization* it enables lives in [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache). We'll point to each rather than re-derive it.
 
 ---
 
@@ -100,7 +100,7 @@ graph TD
 Read it top to bottom:
 
 1. **Token embedding.** Each token id indexes a row of an embedding matrix $E \in \mathbb{R}^{V \times d}$ ($V$ = vocab size). A length-$T$ sequence becomes a $(T, d)$ matrix of vectors.
-2. **Positional information.** Self-attention is **permutation-invariant** — on its own it has no idea token 3 came before token 7. So we inject position, either by *adding* a positional vector (GPT-2's learned positions, the 2017 sinusoids) or by *rotating* the query/key vectors by a position-dependent angle (**RoPE**, the modern default). See [Positional Encoding](../../../../deep-learning/attention-and-transformers/positional-encoding/positional-encoding.md) for the full derivation; here it's enough that position gets in *somehow*.
+2. **Positional information.** Self-attention is **permutation-invariant** — on its own it has no idea token 3 came before token 7. So we inject position, either by *adding* a positional vector (GPT-2's learned positions, the 2017 sinusoids) or by *rotating* the query/key vectors by a position-dependent angle (**RoPE**, the modern default). See [Positional Encoding](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/positional-encoding/positional-encoding) for the full derivation; here it's enough that position gets in *somehow*.
 3. **$L$ decoder blocks.** Each block does two things, each wrapped in a **residual connection** and a **normalization**: (a) **masked multi-head self-attention** — tokens mix information, but only from the left; (b) a **position-wise feed-forward network** — each token is independently transformed through a wider hidden layer. This is the heart of the model and we'll dwell on it.
 4. **Final norm + LM head.** A last normalization, then a linear projection $d \to V$ producing a **logit** for every vocabulary token at every position. Softmax turns logits into a probability distribution over the next token.
 
@@ -136,7 +136,7 @@ The causal mask is what makes this honest. When the model is learning to predict
 
 ## Causal masking, derived
 
-Recall ordinary **scaled dot-product attention** (full derivation in [Attention Mechanism](../../../../deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism.md)). For one head, with queries $Q$, keys $K$, values $V$ each $(T, d_k)$:
+Recall ordinary **scaled dot-product attention** (full derivation in [Attention Mechanism](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism)). For one head, with queries $Q$, keys $K$, values $V$ each $(T, d_k)$:
 
 $$\text{Attention}(Q, K, V) = \text{softmax}\!\left(\frac{QK^\top}{\sqrt{d_k}}\right) V.$$
 
@@ -191,9 +191,9 @@ scores = torch.zeros(T, T)                                        # equal scores
 w = F.softmax(scores + mask, dim=-1)
 print(w)
 # tensor([[1.0000, 0.0000, 0.0000, 0.0000],
-#         [0.5000, 0.5000, 0.0000, 0.0000],
-#         [0.3333, 0.3333, 0.3333, 0.0000],
-#         [0.2500, 0.2500, 0.2500, 0.2500]])
+# [0.5000, 0.5000, 0.0000, 0.0000],
+# [0.3333, 0.3333, 0.3333, 0.0000],
+# [0.2500, 0.2500, 0.2500, 0.2500]])
 print("row sums:", w.sum(-1).tolist())               # [1.0, 1.0, 1.0, 1.0]
 print("token3 -> token4 (future):", float(w[2, 3]))  # 0.0  <- cannot see the future
 ```
@@ -389,10 +389,10 @@ graph TD
     classDef navy fill:#2A5B80,stroke:#1A4B70,color:#fff
 ```
 
-1. **Pre-norm instead of post-norm.** The 2017 Transformer put LayerNorm *after* each sub-layer (post-norm); modern models put it *before* (pre-norm: `x + Sublayer(Norm(x))`). Pre-norm keeps a clean **residual highway** — the identity path is never normalized — so gradients flow to very deep stacks without the warmup/instability post-norm needs. Essentially every large model is pre-norm. (See [Normalization](../../../../deep-learning/stabilization-and-architectural-blocks/normalization/normalization.md).)
-2. **RMSNorm instead of LayerNorm.** **RMSNorm** drops LayerNorm's mean-centering and bias, normalizing only by the root-mean-square: $\text{RMSNorm}(x) = \frac{x}{\sqrt{\frac1d\sum x_i^2 + \epsilon}} \odot g$. It's cheaper (fewer ops, no mean/var) and works just as well — a free efficiency win at scale. (See [Normalization](../../../../deep-learning/stabilization-and-architectural-blocks/normalization/normalization.md).)
-3. **RoPE instead of learned absolute positions.** **Rotary Position Embedding** rotates the query and key vectors by an angle proportional to their position, so the *dot product* $q_i \cdot k_j$ depends only on the **relative** offset $i - j$. This generalizes to longer contexts better than learned absolute tables (which can't extrapolate past their trained length) and is the backbone of long-context extension tricks. (Full derivation in [Positional Encoding](../../../../deep-learning/attention-and-transformers/positional-encoding/positional-encoding.md); see also [Long-Context Methods](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/llm-model-architectures/long-context-architectures/long-context-architectures).)
-4. **SwiGLU instead of GELU FFN.** The FFN becomes a **gated** unit: $\text{SwiGLU}(x) = (\text{Swish}(xW_{\text{gate}}) \odot xW_{\text{up}})W_{\text{down}}$ — a learned gate that modulates the up-projection. It consistently beats a plain GELU MLP at equal compute, so it's the modern default; the hidden width is shrunk to ~$\tfrac{8}{3}d$ to offset the third matrix and keep parameters roughly constant. (See [Activation Functions](../../../../deep-learning/stabilization-and-architectural-blocks/activation-functions/activation-functions.md).)
+1. **Pre-norm instead of post-norm.** The 2017 Transformer put LayerNorm *after* each sub-layer (post-norm); modern models put it *before* (pre-norm: `x + Sublayer(Norm(x))`). Pre-norm keeps a clean **residual highway** — the identity path is never normalized — so gradients flow to very deep stacks without the warmup/instability post-norm needs. Essentially every large model is pre-norm. (See [Normalization](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/normalization/normalization).)
+2. **RMSNorm instead of LayerNorm.** **RMSNorm** drops LayerNorm's mean-centering and bias, normalizing only by the root-mean-square: $\text{RMSNorm}(x) = \frac{x}{\sqrt{\frac1d\sum x_i^2 + \epsilon}} \odot g$. It's cheaper (fewer ops, no mean/var) and works just as well — a free efficiency win at scale. (See [Normalization](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/normalization/normalization).)
+3. **RoPE instead of learned absolute positions.** **Rotary Position Embedding** rotates the query and key vectors by an angle proportional to their position, so the *dot product* $q_i \cdot k_j$ depends only on the **relative** offset $i - j$. This generalizes to longer contexts better than learned absolute tables (which can't extrapolate past their trained length) and is the backbone of long-context extension tricks. (Full derivation in [Positional Encoding](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/positional-encoding/positional-encoding); see also [Long-Context Methods](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/llm-model-architectures/long-context-architectures/long-context-architectures).)
+4. **SwiGLU instead of GELU FFN.** The FFN becomes a **gated** unit: $\text{SwiGLU}(x) = (\text{Swish}(xW_{\text{gate}}) \odot xW_{\text{up}})W_{\text{down}}$ — a learned gate that modulates the up-projection. It consistently beats a plain GELU MLP at equal compute, so it's the modern default; the hidden width is shrunk to ~$\tfrac{8}{3}d$ to offset the third matrix and keep parameters roughly constant. (See [Activation Functions](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/activation-functions/activation-functions).)
 5. **(Bonus) GQA instead of plain MHA.** **Grouped-query attention** shares each key/value head across a *group* of query heads (e.g. 8 KV heads serving 32 query heads). It barely touches quality but shrinks the **KV cache** by the group factor — a ~4-8× memory cut that's the difference between serving long context and not. (Full treatment in [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache).)
 
 > **Source / derivation:** each component above is its primary paper — **pre-norm** ($x + \text{Sublayer}(\text{Norm}(x))$, the warmup-free residual highway) is [Xiong et al., *On Layer Normalization in the Transformer Architecture* (2020)](https://arxiv.org/abs/2002.04745); **RMSNorm** is [Zhang & Sennrich (2019)](https://arxiv.org/abs/1910.07467); **RoPE** is [Su et al. (2021)](https://arxiv.org/abs/2104.09864); **SwiGLU** is [Shazeer, *GLU Variants Improve Transformer* (2020)](https://arxiv.org/abs/2002.05202); **GQA** is [Ainslie et al. (2023)](https://arxiv.org/abs/2305.13245). The combined recipe is spelled out in [Touvron et al., *LLaMA* (2023), §2.1](https://arxiv.org/abs/2302.13971).
@@ -459,8 +459,8 @@ This is precisely where the **quadratic cost** of attention bites and where the 
 If you were to *build* (or instantiate) a decoder-only model, here's the checklist, each step pointing at the concept that governs it:
 
 1. **Tokenizer + vocab.** Pick a sub-word tokenizer (BPE / SentencePiece), fix $V$. This sets the embedding/head size $Vd$.
-2. **Embedding + positions.** Token embedding $E \in \mathbb{R}^{V\times d}$; choose positions — **RoPE** (modern default, extrapolates) over learned absolute. ([Positional Encoding](../../../../deep-learning/attention-and-transformers/positional-encoding/positional-encoding.md).)
-3. **The block, ×$L$.** Pre-norm **RMSNorm** → **causal multi-head attention** (with **GQA** if you'll serve long context) → residual → RMSNorm → **SwiGLU FFN** → residual. ([Normalization](../../../../deep-learning/stabilization-and-architectural-blocks/normalization/normalization.md), [Attention](../../../../deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism.md), [Activation Functions](../../../../deep-learning/stabilization-and-architectural-blocks/activation-functions/activation-functions.md).)
+2. **Embedding + positions.** Token embedding $E \in \mathbb{R}^{V\times d}$; choose positions — **RoPE** (modern default, extrapolates) over learned absolute. ([Positional Encoding](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/positional-encoding/positional-encoding).)
+3. **The block, ×$L$.** Pre-norm **RMSNorm** → **causal multi-head attention** (with **GQA** if you'll serve long context) → residual → RMSNorm → **SwiGLU FFN** → residual. ([Normalization](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/normalization/normalization), [Attention](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism), [Activation Functions](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/activation-functions/activation-functions).)
 4. **Final norm + tied LM head.** RMSNorm, then linear $d \to V$ **tied** to $E$.
 5. **Objective.** Next-token cross-entropy with teacher forcing; labels = inputs shifted by one; one parallel masked pass. ([Language Modeling Objectives](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/language-modeling-objectives/language-modeling-objectives).)
 6. **Scale + data.** Pick $d, L$, tokens-per-parameter from **scaling laws**; pretrain at scale. ([Scaling Laws](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/scaling-laws/scaling-laws), [Pretraining at Scale](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/pretraining/pretraining).)
@@ -555,7 +555,7 @@ model = GPT2LMHeadModel.from_pretrained("gpt2").eval()
 total = sum(p.numel() for p in model.parameters())
 tied = model.lm_head.weight.data_ptr() == model.transformer.wte.weight.data_ptr()
 print(f"params: {total:,}  | LM head tied to token embedding: {tied}")
-# params: 124,439,808  | LM head tied to token embedding: True
+# params: 124,439,808 | LM head tied to token embedding: True
 
 # (b) the LM head as a next-token distribution
 prompt = "The capital of France is"

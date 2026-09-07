@@ -6,7 +6,7 @@ level: intermediate
 built_from: ["rag-fundamentals", "long-context-vs-rag", "llm-app-orchestration"]
 interview_frequency: medium
 template: concept-deep
-updated: 2026-07-02
+updated: 2026-09-07
 tier: core
 est_minutes: 20
 title: "Caching & Cost Optimization for LLM Apps (semantic cache · prompt caching · the cost model)"
@@ -337,7 +337,7 @@ from langchain.globals import set_llm_cache
 from langchain_community.cache import InMemoryCache
 set_llm_cache(InMemoryCache())                       # exact-string cache, one line
 # semantic cache (concrete class): from langchain_community.cache import RedisSemanticCache
-#   set_llm_cache(RedisSemanticCache(redis_url="redis://localhost:6379", embedding=..., score_threshold=0.2))
+# set_llm_cache(RedisSemanticCache(redis_url="redis://localhost:6379", embedding=..., score_threshold=0.2))
 ```
 
 ```python

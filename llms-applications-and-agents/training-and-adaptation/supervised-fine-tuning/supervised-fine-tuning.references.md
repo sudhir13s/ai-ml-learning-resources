@@ -3,7 +3,7 @@ id: "09-llms/supervised-fine-tuning/references"
 topic: "Supervised Fine-Tuning — References"
 parent: "09-llms/supervised-fine-tuning"
 type: references
-updated: 2026-06-27
+updated: 2026-09-07
 ---
 
 # Supervised Fine-Tuning — references and further reading
@@ -20,7 +20,7 @@ updated: 2026-06-27
 **Videos**:
 - [Deep Dive into LLMs like ChatGPT](https://www.youtube.com/watch?v=7xTGNNLPyMI) — **Andrej Karpathy** — the clearest end-to-end account of where SFT sits between pretraining and RLHF, by one of the field's best teachers.
 - [Let's build GPT: from scratch, in code](https://www.youtube.com/watch?v=kCc8FmEb1nY) — **Andrej Karpathy** — builds the exact next-token cross-entropy loop that SFT reuses; watch this if the loss in the math section still feels abstract.
-- [Fine-tuning Large Language Models (with example code)](https://www.youtube.com/watch?v=eC6Hd1hFvos) — **Shaw Talebi** — a complete, concrete SFT walkthrough from data to trained model.
+- [Build a Large Language Model (From Scratch) — video series](https://www.youtube.com/playlist?list=PLTKMiZHVd_2IIEsoJrWACkIxLRdfMlw11) — **Sebastian Raschka** — the fine-tuning chapters coded in the open: dataset formatting, prompt-loss masking, and the training loop, without a trainer class hiding the mechanics.
 - [LoRA & QLoRA Fine-tuning Explained In-Depth](https://www.youtube.com/watch?v=t1caDsMzWBk) — **Mark Hennings** — the efficient (LoRA/QLoRA) way SFT is actually run on consumer hardware.
 
 **Courses (free)**:

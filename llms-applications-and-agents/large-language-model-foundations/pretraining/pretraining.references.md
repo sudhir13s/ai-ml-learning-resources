@@ -3,7 +3,7 @@ id: "09-llms/pretraining-at-scale/references"
 topic: "Pretraining at Scale — References"
 parent: "09-llms/pretraining-at-scale"
 type: references
-updated: 2026-06-26
+updated: 2026-09-07
 ---
 
 # Pretraining at Scale — references and further reading
@@ -21,7 +21,8 @@ updated: 2026-06-26
 - [Let's reproduce GPT-2 (124M)](https://www.youtube.com/watch?v=l8pRSuU81PU) — **Andrej Karpathy** — a full from-scratch pretraining run with the real recipe (warmup+cosine, grad clip, grad accumulation, bf16) and live throughput/MFU.
 - [Deep Dive into LLMs like ChatGPT](https://www.youtube.com/watch?v=7xTGNNLPyMI) — **Andrej Karpathy** — where pretraining sits in the full pipeline (data → base model → SFT → RLHF), and why the base model is ~all the capability.
 - [Let's build the GPT Tokenizer](https://www.youtube.com/watch?v=zduSFxRajkE) — **Andrej Karpathy** — tokenization at scale, the first stage of every data pipeline.
-- [Stanford CS336 — Language Modeling from Scratch (lectures)](https://www.youtube.com/playlist?list=PLoROMvodv4rOY23Y0BoGErWPnbHsaRpO5) — **Stanford** — the systems lectures: data, parallelism, training infrastructure at scale.
+- [Stanford CS336 — Language Modeling from Scratch, Spring 2025 (lectures)](https://www.youtube.com/playlist?list=PLoROMvodv4rOY23Y0BoGoBGgQ1zmU_MT_) — **Stanford Online** — the systems lectures: data, parallelism, scaling laws, and training infrastructure at scale, taught from a real build.
+- [Build a Large Language Model (From Scratch) — video series](https://www.youtube.com/playlist?list=PLTKMiZHVd_2IIEsoJrWACkIxLRdfMlw11) — **Sebastian Raschka** — the pretraining loop implemented step by step alongside the book, from data loader to trained checkpoint.
 
 **Interactive & visual**:
 - [LLM Visualizer (3D)](https://bbycroft.net/llm) — **Brendan Bycroft** — walk a token through a small GPT's full forward pass; makes the per-token compute the 6ND rule counts concrete.
@@ -39,6 +40,8 @@ updated: 2026-06-26
 - [Methods and tools for efficient training on a single GPU — gradient accumulation](https://huggingface.co/docs/transformers/en/perf_train_gpu_one#gradient-accumulation) — **Hugging Face** — states the equal-batch equivalence: accumulating $K$ micro-batches simulates one batch of size $mK$.
 - [FineWeb: decanting the web for the finest text data at scale](https://huggingface.co/spaces/HuggingFaceFW/blogpost-fineweb-v1) — **Hugging Face** — a web-scale data pipeline in full: extraction, dedup, quality filtering, decontamination, ablations.
 - [Understanding Large Language Models](https://magazine.sebastianraschka.com/p/understanding-large-language-models) — **Sebastian Raschka** — a guided path through the foundational pretraining papers.
+- [OLMo 2: the best fully open language model to date](https://allenai.org/blog/olmo2) — **Allen Institute for AI (2025)** — a fully open 2025 pretraining report: data mix, staged curriculum, mid-training anneal, and stability fixes, with every artifact released.
+- [SmolLM3: smol, multilingual, long-context reasoner](https://huggingface.co/blog/smollm3) — **Hugging Face (2025)** — a complete 2025 small-model pretraining recipe published in full: 11T-token mixture, three-stage data schedule, long-context extension, and the ablations behind each choice.
 - [The FLOPs Calculator for Transformer models](https://kipp.ly/transformer-inference-arithmetic/) — **Kipply** — the per-token FLOP accounting behind the 6N forward+backward rule.
 
 **Key papers**:
@@ -59,6 +62,7 @@ updated: 2026-06-26
 - [Textbooks Are All You Need (phi-1)](https://arxiv.org/abs/2306.11644) — **Gunasekar et al. (2023)** — the existence proof that data *quality* can beat 10× the data *quantity*.
 - [The Pile: An 800GB Dataset of Diverse Text](https://arxiv.org/abs/2101.00027) — **Gao et al. (2020)** — a curated, well-documented open pretraining corpus and its mixture.
 - [Scaling Language Models: Methods, Analysis & Insights (Gopher)](https://arxiv.org/abs/2112.11446) — **Rae et al. (2021)** — a large run with extensive data-pipeline and training-stability detail.
+- [2 OLMo 2 Furious](https://arxiv.org/abs/2501.00656) — **OLMo team, Allen Institute for AI (2025)** — the most transparent modern pretraining paper: data curation, the Dolmino mid-training mix, loss-spike diagnosis, and the exact recipe that closed the gap to closed models.
 
 **Books (free chapters)**:
 - [Speech and Language Processing, 3rd ed. — Ch. 10 "Large Language Models"](https://web.stanford.edu/~jurafsky/slp3/10.pdf) — **Jurafsky & Martin** — pretraining corpora, tokenization, and the next-token objective at scale.
@@ -68,5 +72,5 @@ updated: 2026-06-26
 - Concept page (full explanation): [Pretraining at Scale](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/pretraining/pretraining)
 - The objective being trained (don't re-derive it): [Language Modeling Objectives](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/language-modeling-objectives/language-modeling-objectives)
 - The budget allocation (6ND derived, Chinchilla compute-optimal split): [Scaling Laws](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/scaling-laws/scaling-laws)
-- Foundations: [Transformer Architecture](../../../../deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture.md) · [Tokenization & Subword Algorithms](../../../../modalities-and-generative-models/natural-language-processing/tokenization-and-subword-algorithms/tokenization-and-subword-algorithms.md)
+- Foundations: [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture) · [Tokenization & Subword Algorithms](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/tokenization-and-subword-algorithms/tokenization-and-subword-algorithms)
 - What pretraining produces, then what's done to it: [Decoder-only Architecture](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/decoder-only-models/decoder-only-models) · [Supervised Fine-Tuning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/supervised-fine-tuning/supervised-fine-tuning) · [RLHF and DPO](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/training-and-adaptation/preference-and-alignment-training/preference-and-alignment-training)

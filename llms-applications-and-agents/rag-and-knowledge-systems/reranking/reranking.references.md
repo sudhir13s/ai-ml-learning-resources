@@ -3,7 +3,7 @@ id: "15-rag-and-llm-apps/re-ranking-cross-encoders/references"
 topic: "Re-ranking (Cross-Encoders) — References"
 parent: "15-rag-and-llm-apps/re-ranking-cross-encoders"
 type: references
-updated: 2026-07-02
+updated: 2026-09-07
 ---
 
 # Re-ranking with Cross-Encoders — references and further reading
@@ -13,13 +13,12 @@ updated: 2026-07-02
 **Start here — suggested path**:
 1. **Get the two-stage picture** — read [Rerankers and Two-Stage Retrieval](https://www.pinecone.io/learn/series/rag/rerankers/) (**Pinecone**). *Why a cheap recall stage + an accurate rerank stage beats either alone.*
 2. **See the architecture difference** — read [Retrieve & Re-Rank](https://sbert.net/examples/sentence_transformer/applications/retrieve_rerank/README.html) (**Sentence-Transformers**). *Bi-encoder (independent) vs cross-encoder (joint) encoding, with runnable code.*
-3. **Watch it in a pipeline** — watch [Reranking with Sentence Transformers and BM25](https://www.youtube.com/watch?v=V58mPkLB95o) (**Sunny Savita**). *Plugs a cross-encoder onto first-stage results end to end.*
+3. **See it in a pipeline** — read [rerankers: a lightweight unified API](https://www.answer.ai/posts/2024-09-16-rerankers.html) (**Benjamin Clavié, Answer.AI**). *Cross-encoders, late-interaction models, LLM rerankers and hosted APIs behind one interface — the honest comparison of what each costs and buys.*
 4. **Read the cross-encoder source** — skim [Passage Re-ranking with BERT](https://arxiv.org/abs/1901.04085) (**Nogueira & Cho 2019**). *The paper that established BERT cross-encoders as re-rankers — the score on the page.*
 5. **Understand why two stages** — skim [Sentence-BERT](https://arxiv.org/abs/1908.10084) (**Reimers & Gurevych 2019**), §1–2. *The cost argument (a forward pass per pair) that forces bi-encoder retrieval + cross-encoder re-ranking.*
 
 **Videos**:
-- [Advanced RAG — Reranking with Sentence Transformers and BM25](https://www.youtube.com/watch?v=V58mPkLB95o) — **Sunny Savita** — wiring a cross-encoder re-ranker onto first-stage retrieval, in code.
-- [Advanced RAG — Reranking with Cross-Encoders and the Cohere API](https://www.youtube.com/watch?v=ZFbaA9eM0uo) — **Sunny Savita** — open cross-encoder vs hosted Cohere Rerank, side by side.
+- [Sentence Transformers and Embedding Evaluation](https://www.youtube.com/watch?v=apuDeylm1uE) — **Nils Reimers (Cohere)** — the author of Sentence-Transformers on bi-encoders versus cross-encoders and how to evaluate either honestly; the argument this page's two-stage design rests on.
 - [Semantic Search and Reranking with Cohere and Pinecone](https://www.youtube.com/watch?v=e7x1wJlmDjs) — **Pinecone** — a full two-stage retrieve-then-rerank pipeline.
 - [Supercharging Semantic Search with Pinecone and Cohere](https://www.youtube.com/watch?v=e2g5ya4ZFro) — **Pinecone** — how reranking refines vector-search results in practice.
 
@@ -36,6 +35,9 @@ updated: 2026-07-02
 - [Retrieve & Re-Rank](https://sbert.net/examples/sentence_transformer/applications/retrieve_rerank/README.html) — **Sentence-Transformers** — the bi-encoder + cross-encoder pattern with code.
 - [Search Reranking with Cross-Encoders](https://developers.openai.com/cookbook/examples/search_reranking_with_cross-encoders) — **OpenAI Cookbook** — a worked example of re-ranking retrieved candidates.
 - [Introducing Rerank 3](https://cohere.com/blog/rerank-3) — **Cohere** — what a production rerank endpoint does, its inputs/outputs, and when to use it.
+- [Introducing Rerank 3.5](https://cohere.com/blog/rerank-3pt5) — **Cohere (2024–25)** — the current generation: multilingual, long-document, and structured (JSON/table) reranking, with the reasoning-focused evaluation numbers.
+- [rerankers: a lightweight unified API for reranking](https://www.answer.ai/posts/2024-09-16-rerankers.html) — **Benjamin Clavié (Answer.AI)** — one interface over cross-encoders, ColBERT-style late interaction, LLM rerankers and hosted APIs, with a candid account of when each is worth its latency.
+- [Late interaction models: what they are and why they matter](https://qdrant.tech/articles/late-interaction-models/) — **Qdrant** — ColBERT-style per-token scoring positioned against both bi-encoders and cross-encoders; the 2025-26 third option in this design space.
 - [BGE-Reranker (FlagEmbedding) — model card & usage](https://huggingface.co/BAAI/bge-reranker-large) — **BAAI** — the leading open cross-encoder re-ranker family (`bge-reranker-base/large/v2-m3`), with usage and the relevance-score semantics.
 
 **Key papers / primary sources**:
@@ -47,6 +49,8 @@ updated: 2026-07-02
 - [MS MARCO: A Human-Generated Machine Reading Comprehension Dataset](https://arxiv.org/abs/1611.09268) — **Bajaj et al. (2016)** — the passage-ranking dataset the `ms-marco-MiniLM` re-rankers (and most open cross-encoders) are trained on.
 - [BEIR: A Heterogeneous Benchmark for Zero-Shot Evaluation of IR Models](https://arxiv.org/abs/2104.08663) — **Thakur et al. (2021)** — the benchmark suite (scifact is one of its tasks) used on the page to measure the re-ranking lift against real relevance labels; shows cross-encoder re-ranking gains (and limits) across diverse retrieval tasks.
 - [Document Ranking with a Pretrained Sequence-to-Sequence Model (MonoT5)](https://arxiv.org/abs/2003.06713) — **Nogueira, Jiang, Pradeep & Lin (2020)** — re-ranking as *generation*: a T5 emits "true"/"false" for a (query, passage) pair and the softmax over those tokens is the relevance score; the seq2seq alternative to the encoder cross-encoder discussed on the page.
+- [Is ChatGPT Good at Search? Investigating LLMs as Re-Ranking Agents (RankGPT)](https://arxiv.org/abs/2304.09542) — **Sun et al. (2023, EMNLP)** — listwise reranking: hand the model a *window* of candidates and have it order them, rather than scoring each pair alone. The strongest zero-shot reranker, and the reason "just ask the LLM to rank" is now a real option with a real cost.
+- [ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction](https://arxiv.org/abs/2112.01488) — **Santhanam et al. (2022)** — the compressed, practical version of ColBERT; the basis of the late-interaction rerankers that ship in 2025-26 stacks.
 
 **Data & models used on this page (all free / open, for exact reproducibility)**:
 - [BeIR/scifact](https://huggingface.co/datasets/BeIR/scifact) + [BeIR/scifact-qrels](https://huggingface.co/datasets/BeIR/scifact-qrels) — **Wadden et al. / BeIR** — the real scientific-claim retrieval benchmark (5,183 abstracts, 300 test queries, human relevance judgments) the page's nDCG/MRR are measured on.

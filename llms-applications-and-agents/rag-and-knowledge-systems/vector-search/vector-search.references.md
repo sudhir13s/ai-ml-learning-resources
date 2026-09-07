@@ -3,7 +3,7 @@ id: "15-rag-and-llm-apps/vector-databases-ann-indexes/references"
 topic: "Vector Databases & ANN Indexes — References"
 parent: "15-rag-and-llm-apps/vector-databases-ann-indexes"
 type: references
-updated: 2026-07-02
+updated: 2026-09-07
 ---
 
 # Vector Databases & ANN Indexes — references and further reading
@@ -11,14 +11,14 @@ updated: 2026-07-02
 > Companion link library for **[Vector Databases & ANN Indexes](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is a free, no-paywall link from a primary author or a recognized deep explainer — chosen for depth on *this* topic (how vector search scales: IVF, HNSW, PQ), not popularity.
 
 **Start here — suggested path**:
-1. **Get the why** — watch [What is a Vector Database?](https://www.youtube.com/watch?v=gl1r1XV0SLw) (**IBM Technology**). *Frames why specialized ANN stores exist vs scanning every vector.*
+1. **Get the why** — watch [Retrieval-Augmented Generation Explained: Embedding, Sentence BERT, Vector Database (HNSW)](https://www.youtube.com/watch?v=rhZgXNdhWDY) (**Umar Jamil**). *Builds from "embed and compare everything" to why a specialized approximate index has to exist.*
 2. **Learn the index families** — read [Nearest Neighbor Indexes for Similarity Search](https://www.pinecone.io/learn/series/faiss/vector-indexes/) (**Pinecone**). *Flat → IVF → HNSW → PQ, with the trade-offs that matter.*
 3. **Understand HNSW deeply** — watch [HNSW Explained](https://www.youtube.com/watch?v=77QH0Y2PYKg) (**DataMListic**), then read [Pinecone: HNSW](https://www.pinecone.io/learn/series/faiss/hnsw/). *The graph-traversal intuition plus the `M`/`efSearch` knobs.*
 4. **Understand IVF** — watch [Inverted File Index (IVF) Explained](https://www.youtube.com/watch?v=-vh6huY2rgE) (**TensorTeach**). *Voronoi cells + `nprobe`; the cluster-then-probe alternative to graphs.*
 5. **Read the sources** — skim [HNSW (Malkov & Yashunin)](https://arxiv.org/abs/1603.09320) and the [FAISS GPU paper](https://arxiv.org/abs/1702.08734). *Where the algorithm and the de-facto library come from.*
 
 **Videos**:
-- [What is a Vector Database? Powering Semantic Search](https://www.youtube.com/watch?v=gl1r1XV0SLw) — **IBM Technology** — clean conceptual intro to vector DBs and ANN.
+- [Retrieval-Augmented Generation Explained: Embedding, Sentence BERT, Vector Database (HNSW)](https://www.youtube.com/watch?v=rhZgXNdhWDY) — **Umar Jamil** — derives why exact search does not scale and walks the HNSW graph itself, rather than treating the index as a black box.
 - [Vector Database Search — HNSW Explained](https://www.youtube.com/watch?v=77QH0Y2PYKg) — **DataMListic** — the layered small-world graph and greedy search, visually.
 - [AI Search with HNSW](https://www.youtube.com/watch?v=7XLRCpUmiaQ) — **ObjectBox** — HNSW construction and query, end to end.
 - [Inverted File Index (IVF) Explained](https://www.youtube.com/watch?v=-vh6huY2rgE) — **TensorTeach** — k-means partitioning, Voronoi cells, and `nprobe` for the IVF family.
@@ -39,7 +39,7 @@ updated: 2026-07-02
 - [Filtering: The Missing WHERE Clause in Vector Search](https://www.pinecone.io/learn/vector-search-filtering/) — **Pinecone** — why metadata filtering + ANN is hard (post- vs pre-filter) and how native filtered search fixes it.
 
 **Key papers**:
-- [Product Quantization for Nearest Neighbor Search (IEEE TPAMI 2011, DOI 10.1109/TPAMI.2010.57)](https://www.semanticscholar.org/paper/Product-Quantization-for-Nearest-Neighbor-Search-J%C3%A9gou-Douze/4748d22348e72e6e06c2476486afddbc76e5eca7) — **Jégou, Douze & Schmid (2011)** — defines the **inverted-file (IVF)** structure and **product quantization (PQ)** (encode/decode + asymmetric distance); the source for the IVF cost and PQ compression derivations on the page. Free PDF via the Semantic Scholar landing; authoritative DOI [10.1109/TPAMI.2010.57](https://doi.org/10.1109/TPAMI.2010.57).
+- [Product Quantization for Nearest Neighbor Search (IEEE TPAMI 2011)](https://inria.hal.science/inria-00514462/document) — **Jégou, Douze & Schmid (2011)** — defines the **inverted-file (IVF)** structure and **product quantization (PQ)** (encode/decode + asymmetric distance); the source for the IVF cost and PQ compression derivations on the page. Link is the authors' free PDF on the INRIA repository.
 - [Efficient and Robust ANN Search using HNSW Graphs (arXiv:1603.09320)](https://arxiv.org/abs/1603.09320) — **Malkov & Yashunin (2016/2018)** — the **HNSW** algorithm; the source for the $O(\log N)$ navigation and the `M`/`efConstruction`/`efSearch` parameters.
 - [Billion-scale similarity search with GPUs (arXiv:1702.08734)](https://arxiv.org/abs/1702.08734) — **Johnson, Douze & Jégou (2017/2019)** — the FAISS GPU paper; the source for the exact (flat) $O(N \cdot d)$ baseline ANN exists to beat.
 - [The FAISS Library (arXiv:2401.08281)](https://arxiv.org/abs/2401.08281) — **Douze et al. (2024)** — the design of the most-used similarity-search library (IVF, PQ, HNSW); the reference for index choice.

@@ -3,7 +3,7 @@ id: "09-llms/long-context-methods/references"
 topic: "Long-Context Methods — References"
 parent: "09-llms/long-context-methods"
 type: references
-updated: 2026-06-26
+updated: 2026-09-07
 ---
 
 # Long-Context Methods — references and further reading
@@ -12,16 +12,17 @@ updated: 2026-06-26
 
 **Start here — suggested path**:
 1. **Get RoPE first** — watch [Rotary Positional Embeddings: Combining Absolute and Relative](https://www.youtube.com/watch?v=o29P0Kpobz0) (**Efficient NLP**). *Why rotation gives relative positions and graceful extrapolation — the foundation for everything else here.*
-2. **See context extension** — watch [RoPE to 100K context length](https://www.youtube.com/watch?v=DvP8f7eWS7U) (**Discover AI**). *How RoPE scaling pushes far beyond the training length.*
+2. **See it in real code** — watch [Coding LLaMA 2 from scratch — RoPE, KV cache, GQA](https://www.youtube.com/watch?v=oM4VmoabDAI) (**Umar Jamil**). *Rotary embeddings and cache-friendly attention implemented line by line, so the scaling tricks below have something concrete to modify.*
 3. **Read the angle problem and its fix** — read [Position Interpolation, interactive](https://mbrenndoerfer.com/writing/position-interpolation-rope-context-extension) (**Michael Brenndoerfer**), then the [YaRN paper](https://arxiv.org/abs/2309.00071) (**Peng et al.**). *Why naive extrapolation breaks and how interpolation/frequency-scaling fixes it.*
 4. **Read the alternative philosophy** — [ALiBi: Train Short, Test Long](https://arxiv.org/abs/2108.12409) (**Press et al.**). *Distance-bias positions that extrapolate without rescaling the geometry.*
 5. **Bound the cache** — [StreamingLLM / Attention Sinks](https://arxiv.org/abs/2309.17453) (**Xiao et al.**). *Why a few first tokens are load-bearing, and how that enables endless streaming.*
-6. **Connect to compute & memory** — [FlashAttention](../../../../deep-learning/attention-and-transformers/efficient-attention/efficient-attention.md) + [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache). *The other two walls of long context.*
+6. **Connect to compute & memory** — [FlashAttention](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/efficient-attention/efficient-attention) + [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache). *The other two walls of long context.*
+7. **See where 2026 landed** — read the [DeepSeek-V2 paper](https://arxiv.org/abs/2405.04434) (**DeepSeek-AI**) for multi-head latent attention, then [Jamba](https://arxiv.org/abs/2403.19887) for the hybrid Mamba-plus-attention answer. *The two designs that made million-token contexts affordable rather than merely possible.*
 
 **Videos**:
 - [Rotary Positional Embeddings: Combining Absolute and Relative](https://www.youtube.com/watch?v=o29P0Kpobz0) — **Efficient NLP** — the cleanest RoPE explainer; start here if rotation-as-position still feels abstract.
-- [RoPE Rotary Position Embedding to 100K context length](https://www.youtube.com/watch?v=DvP8f7eWS7U) — **Discover AI** — RoPE scaling (PI/NTK) walked through for long-context extension.
 - [Coding LLaMA 2 from scratch — RoPE, KV cache, GQA](https://www.youtube.com/watch?v=oM4VmoabDAI) — **Umar Jamil** — builds rotary embeddings and the sliding-window-friendly attention line by line in PyTorch.
+- [Stanford CS336 — Language Modeling from Scratch, Spring 2025 (lectures)](https://www.youtube.com/playlist?list=PLoROMvodv4rOY23Y0BoGoBGgQ1zmU_MT_) — **Stanford Online** — the architecture and attention lectures place positional schemes and sparse/linear attention in the cost model of a real training run.
 - [FlashAttention — Tri Dao | Stanford MLSys #67](https://www.youtube.com/watch?v=gMOAud7hZg4) — **Stanford MLSys** — the kernel that makes the $O(N^2)$ compute wall tractable at long context.
 
 **Interactive & visual**:
@@ -50,9 +51,16 @@ updated: 2026-06-26
 - [Transformer-XL: Attentive Language Models Beyond a Fixed-Length Context](https://arxiv.org/abs/1901.02860) — **Dai et al. (2019)** — segment-level recurrence + relative positional encodings, an ancestor of RoPE.
 - [YaRN: Efficient Context Window Extension of Large Language Models](https://arxiv.org/abs/2309.00071) — **Peng et al. (2023)** — NTK-by-parts frequency-dependent interpolation + attention-temperature correction; 128K with minimal fine-tuning.
 - [FlashAttention: Fast and Memory-Efficient Exact Attention](https://arxiv.org/abs/2205.14135) — **Dao et al. (2022)** — IO-aware tiled attention; the compute-wall solution that makes long sequences trainable.
+- [DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model](https://arxiv.org/abs/2405.04434) — **DeepSeek-AI (2024)** — introduces **multi-head latent attention (MLA)**: compress K and V into a shared low-rank latent so the per-token cache falls to a few percent of multi-head attention. The single biggest change to the long-context memory wall since GQA, and now the default in the DeepSeek and Kimi lineages.
+- [Mamba: Linear-Time Sequence Modeling with Selective State Spaces](https://arxiv.org/abs/2312.00752) — **Gu & Dao (2023)** — the selective state-space model: constant-size state, linear-time scan, no KV cache at all; the credible non-attention answer to long sequences.
+- [Jamba: A Hybrid Transformer-Mamba Language Model](https://arxiv.org/abs/2403.19887) — **Lieber et al. (2024, AI21)** — the hybrid that won in practice: interleave a few full-attention layers among many state-space layers, keeping recall while collapsing the cache. The shape most 2025-26 long-context models converged on.
+- [Qwen2.5-1M Technical Report](https://arxiv.org/abs/2501.15383) — **Qwen team (2025)** — a documented million-token open model: the progressive length-extension curriculum, the chunked-attention inference stack, and honest long-context evaluation.
+- [RULER: What's the Real Context Size of Your Long-Context Language Models?](https://arxiv.org/abs/2404.06654) — **Hsieh et al. (2024, NVIDIA)** — the benchmark that replaced needle-in-a-haystack: nearly every model's *effective* context is far below its advertised one. The evaluation half of the 2025-26 long-context story.
 
 **In this platform**:
 - Concept page (full explanation): [Long-Context Methods](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/llm-model-architectures/long-context-architectures/long-context-architectures)
-- Foundations (the *why* behind RoPE and attention): [Positional Encoding](../../../../deep-learning/attention-and-transformers/positional-encoding/positional-encoding.md) · [Attention Mechanism](../../../../deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism.md)
-- The other two walls: [Efficient Attention (FlashAttention)](../../../../deep-learning/attention-and-transformers/efficient-attention/efficient-attention.md) · [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache)
+- Foundations (the *why* behind RoPE and attention): [Positional Encoding](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/positional-encoding/positional-encoding) · [Attention Mechanism](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism)
+- The other two walls: [Efficient Attention (FlashAttention)](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/efficient-attention/efficient-attention) · [KV Cache](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache)
+- The attention shapes these methods assume: [Attention Architectures (GQA, MLA, sliding, linear)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/llm-model-architectures/attention-architectures-gqa-mla-sliding-and-linear/attention-architectures-gqa-mla-sliding-and-linear)
+- The alternative to a longer window: [Long Context vs RAG](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/long-context-vs-rag/long-context-vs-rag)
 - Builds on this: [Decoder-only Architecture](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/large-language-model-foundations/decoder-only-models/decoder-only-models) (the modern RoPE recipe) · [Quantization](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/quantization/quantization) (compressing the cache) · [Inference Optimization & Serving](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/inference-optimization/inference-optimization)
