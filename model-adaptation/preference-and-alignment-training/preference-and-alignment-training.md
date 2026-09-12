@@ -34,7 +34,7 @@ By the end of this page you'll be able to:
 - explain the **reference model** and the **$\beta$ temperature**, and how alignment is **evaluated** (win-rate, reward, the Goodhart caveat);
 - run from-scratch **Bradley-Terry and DPO losses** and watch the gradients do exactly what the derivation promised.
 
-Intuition first, then the math derived from scratch, then code you can run. For the hands-on, step-by-step *project* version — collecting pairs, running `RewardTrainer` / `PPOTrainer` / `DPOTrainer`, reading the training logs, evaluating — follow the [RLHF & Alignment workflow](/ai-ml/practitioner-workflows/workflow-library/training-and-adaptation/preference-alignment). **This page is the concept depth: the derivations and the *why* behind every loss; that one is the end-to-end pipeline and ops.** We'll cross-link it rather than repeat it.
+Intuition first, then the math derived from scratch, then code you can run. For the hands-on, step-by-step *project* version — collecting pairs, running `RewardTrainer` / `PPOTrainer` / `DPOTrainer`, reading the training logs, evaluating — follow the [RLHF & Alignment workflow](/ai-ml/practitioner-workflows/training-and-adaptation/preference-alignment). **This page is the concept depth: the derivations and the *why* behind every loss; that one is the end-to-end pipeline and ops.** We'll cross-link it rather than repeat it.
 
 > **Note:** alignment is a **polish on top of SFT**, not a replacement. You [supervised-fine-tune](/ai-ml/ai-ml-learning-resources/model-adaptation/supervised-fine-tuning/supervised-fine-tuning) (and usually [instruction-tune](/ai-ml/ai-ml-learning-resources/model-adaptation/instruction-tuning/instruction-tuning)) first so the model already produces reasonable answers, *then* align so it produces the *better* ones. Aligning a raw base model rarely works — the preferences have nothing good to choose between, because alignment can only **re-rank** answers the model can already produce, never conjure ability it never had.
 
@@ -95,7 +95,7 @@ The two routes are two ways of teaching that taste:
 - **RLHF** builds a literal "taste model" — the reward model — and then lets the apprentice cook thousands of plates, scoring each, nudging them toward higher scores. But on a **leash**: if you let the apprentice optimize the *scorer* with no constraint, they discover how to plate in ways that *game the scorer* without actually tasting better (drowning everything in salt because the scorer happens to like salt). The leash keeps them cooking real food.
 - **DPO** skips building the separate taste model. It shows the apprentice the pairs and says, directly, *"make the better plate more likely and the worse plate less likely."* Remarkably, the math says this is the **same thing** as the RLHF route — the reward model was an intermediate the optimal solution doesn't actually need.
 
-> **See it illustrated:** Hugging Face's [Illustrating RLHF](https://huggingface.co/blog/rlhf) walks the 3-stage pipeline with clean diagrams of the reward model and the PPO loop; our own hands-on [RLHF & Alignment workflow](/ai-ml/practitioner-workflows/workflow-library/training-and-adaptation/preference-alignment) animates each stage end-to-end with runnable code. Watch one of those if "reward model" and "policy" still feel abstract before we go into the math.
+> **See it illustrated:** Hugging Face's [Illustrating RLHF](https://huggingface.co/blog/rlhf) walks the 3-stage pipeline with clean diagrams of the reward model and the PPO loop; our own hands-on [RLHF & Alignment workflow](/ai-ml/practitioner-workflows/training-and-adaptation/preference-alignment) animates each stage end-to-end with runnable code. Watch one of those if "reward model" and "policy" still feel abstract before we go into the math.
 
 ---
 
@@ -210,7 +210,7 @@ So a full PPO-RLHF setup juggles **four models at once** — the **policy** (tra
 
 > **Note:** the SFT model plays **two roles at once** in RLHF — it's the *starting point* of the policy **and** the *frozen reference* the KL penalty anchors to. Missing this double role is a classic interview slip. The habit that saves real runs: the moment SFT finishes, snapshot the checkpoint **twice** — one copy to keep training as the policy, one frozen forever as $\pi_{\text{ref}}$.
 
-> **Gotcha:** don't trust mean reward alone as your success metric during PPO — it *is* the proxy, and the proxy is exactly what gets hacked. Read ten real generations every few hundred steps; the surest reward-hack detector is your own eyes catching the outputs go weird (endless flattery, a repeated magic phrase, walls of hedging) while the number keeps climbing. The full PPO loop, with runnable code and the $\beta$-sweep that traces this curve, is in the [workflow](/ai-ml/practitioner-workflows/workflow-library/training-and-adaptation/preference-alignment).
+> **Gotcha:** don't trust mean reward alone as your success metric during PPO — it *is* the proxy, and the proxy is exactly what gets hacked. Read ten real generations every few hundred steps; the surest reward-hack detector is your own eyes catching the outputs go weird (endless flattery, a repeated magic phrase, walls of hedging) while the number keeps climbing. The full PPO loop, with runnable code and the $\beta$-sweep that traces this curve, is in the [workflow](/ai-ml/practitioner-workflows/training-and-adaptation/preference-alignment).
 
 ---
 
@@ -416,7 +416,7 @@ You changed the model's behavior — how do you know it got *better*, not just *
 
 ## Application: running alignment in practice
 
-This is the concept page, so here's the *decision* playbook in brief; the full hands-on build (data collection, `RewardTrainer`, `PPOTrainer`, `DPOTrainer`, training logs, the $\beta$-sweep, evaluation) lives in the [RLHF & Alignment workflow](/ai-ml/practitioner-workflows/workflow-library/training-and-adaptation/preference-alignment).
+This is the concept page, so here's the *decision* playbook in brief; the full hands-on build (data collection, `RewardTrainer`, `PPOTrainer`, `DPOTrainer`, training logs, the $\beta$-sweep, evaluation) lives in the [RLHF & Alignment workflow](/ai-ml/practitioner-workflows/training-and-adaptation/preference-alignment).
 
 **Step 1 — get an SFT checkpoint and keep two copies:** one to keep training (the policy), one frozen forever (the reference). Alignment without a decent SFT start rarely works — the preferences need something good to choose between.
 
@@ -426,7 +426,7 @@ This is the concept page, so here's the *decision* playbook in brief; the full h
 
 **Step 4 — evaluate against the baseline:** win-rate vs the SFT model (often judged by a strong model on a *held-out* set), a safety eval, and a capability-regression check so you didn't trade smarts for manners.
 
-> **Tip:** the whole playbook in one line — **SFT → (snapshot ×2) → collect/clean pairs → DPO by default (PPO/GRPO if you need online or verifiable reward) → tune $\beta$ → evaluate on a held-out judge.** The [workflow](/ai-ml/practitioner-workflows/workflow-library/training-and-adaptation/preference-alignment) walks every step with runnable code; this page is the *why* behind each loss in it.
+> **Tip:** the whole playbook in one line — **SFT → (snapshot ×2) → collect/clean pairs → DPO by default (PPO/GRPO if you need online or verifiable reward) → tune $\beta$ → evaluate on a held-out judge.** The [workflow](/ai-ml/practitioner-workflows/training-and-adaptation/preference-alignment) walks every step with runnable code; this page is the *why* behind each loss in it.
 
 ---
 
@@ -513,7 +513,7 @@ Adaptive gradient weight beta*sigma(-margin)  (big when the model is wrong):
   margin=+2.0: weight=0.0119
 ```
 
-> **Note:** the same Bradley-Terry sigmoid powers both routes — the reward model uses *learned scalar rewards*, while DPO uses the *implicit reward* $\beta\log(\pi/\pi_{\text{ref}})$. The gradient signs confirm the mechanism the derivation promised: DPO mechanically raises the chosen response's probability and lowers the rejected one's, with a step size that shrinks as the model gets the pair right (the `weight` column) — it spends its gradient exactly where the model is still wrong. For the *production* versions — `RewardTrainer`, `PPOTrainer`, and `DPOTrainer` on a real transformer — see the [workflow](/ai-ml/practitioner-workflows/workflow-library/training-and-adaptation/preference-alignment).
+> **Note:** the same Bradley-Terry sigmoid powers both routes — the reward model uses *learned scalar rewards*, while DPO uses the *implicit reward* $\beta\log(\pi/\pi_{\text{ref}})$. The gradient signs confirm the mechanism the derivation promised: DPO mechanically raises the chosen response's probability and lowers the rejected one's, with a step size that shrinks as the model gets the pair right (the `weight` column) — it spends its gradient exactly where the model is still wrong. For the *production* versions — `RewardTrainer`, `PPOTrainer`, and `DPOTrainer` on a real transformer — see the [workflow](/ai-ml/practitioner-workflows/training-and-adaptation/preference-alignment).
 
 ---
 

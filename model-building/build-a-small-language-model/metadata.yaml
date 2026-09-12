@@ -1,0 +1,16 @@
+# Ordered chapter list — the ONE ordering file for this guided build. Filenames repeat
+# the `NN-` order (2026-09-07 numbering wave); `page-order:` still decides it and the
+# slug builder strips the prefix from URLs. `page-order:` is the estate-wide ordering key —
+# relative, extension-less paths.
+title: Build a Small Language Model
+page-order:
+  - 01-why-build-a-model-from-scratch
+  - 02-choose-and-govern-a-corpus
+  - 03-clean-deduplicate-and-split
+  - 04-train-a-tokenizer
+  - 05-build-the-transformer
+  - 06-prove-the-gradient-path
+  - 07-run-the-pretraining
+  - 08-read-the-training-curves
+  - 09-evaluate-and-generate
+  - 10-capabilities-and-limitations

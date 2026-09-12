@@ -78,12 +78,15 @@ interpretability, circuits, sparse autoencoders, probing).
 | [Synthetic Data and Curation](/ai-ml/ai-ml-learning-resources/data-and-representation/synthetic-data-and-curation/synthetic-data-and-curation) | advanced |
 
 ### [Model Building](/ai-ml/ai-ml-learning-resources/model-building/readme)
-[Pretraining at Scale](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining) — corpora, compute, parallelism and the dynamics of a long run.
+[Pretraining at Scale](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining) — corpora, compute, parallelism and the dynamics of a long run ·
+[Build a Small Language Model](/ai-ml/ai-ml-learning-resources/model-building/build-a-small-language-model/why-build-a-model-from-scratch) — ten pages, from random weights to a generating 12.2M-parameter transformer.
 
 ### [Model Adaptation](/ai-ml/ai-ml-learning-resources/model-adaptation/readme)
 Supervised fine-tuning · instruction tuning · LoRA and parameter-efficient fine-tuning ·
 knowledge distillation · preference and alignment training (RLHF, DPO) · reinforcement-learning
-post-training (GRPO, verifiable rewards) · model merging.
+post-training (GRPO, verifiable rewards) · model merging · two end-to-end courses:
+[Fine-Tuning](/ai-ml/ai-ml-learning-resources/model-adaptation/fine-tuning/decide-whether-to-fine-tune) (seven pages) and
+[Build a Small Chat Model](/ai-ml/ai-ml-learning-resources/model-adaptation/build-a-small-chat-model/from-base-model-to-assistant) (eight pages).
 
 ### [Inference and Serving](/ai-ml/ai-ml-learning-resources/inference-and-serving/readme)
 KV cache (five pages) · decoding and sampling · speculative decoding · quantization · inference

@@ -81,4 +81,4 @@ Qwen3, gpt-oss) and the most-asked frontier question in interviews today.
 - Where the data for the cold start comes from: [Synthetic Data and Data Curation](/ai-ml/ai-ml-learning-resources/data-and-representation/synthetic-data-and-curation/synthetic-data-and-curation) · compressing a reasoner: [Knowledge Distillation](/ai-ml/ai-ml-learning-resources/model-adaptation/knowledge-distillation/knowledge-distillation)
 - How the result is measured: [LLM Evaluation](/ai-ml/ai-ml-learning-resources/evaluation/model-evaluation-and-benchmarks/model-evaluation-and-benchmarks)
 - Intuition track: [PPO and RL from Human Feedback](/ai-ml/ai-ml-intuitions/decision-making-and-control/stable-policy-optimization/ppo-and-rl-from-human-feedback-intuition) · [Test-Time Computation](/ai-ml/ai-ml-intuitions/reasoning-and-agency/reasoning/test-time-computation-intuition)
-- Build it as a workflow: [Preference Alignment](/ai-ml/practitioner-workflows/workflow-library/training-and-adaptation/preference-alignment)
+- Build it as a workflow: [Preference Alignment](/ai-ml/practitioner-workflows/training-and-adaptation/preference-alignment)

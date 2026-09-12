@@ -151,14 +151,17 @@ Practitioner Workflows. Sections follow the model lifecycle after the foundation
   attention variants · positional representations · long context · mixture-of-experts · diffusion
   language models · prompting · chain of thought · test-time compute) ·
   generative-model-families (nested section: generative-models · diffusion-models, 17 pages).
-- **`data-and-representation/`** — data-preparation (nested section, 13 pages) ·
+- **`data-and-representation/`** — data-preparation (13 pages, grouped by category) ·
   synthetic-data-and-curation.
-- **`model-building/`** — pretraining. (Model training and the from-scratch small-language-model
-  build arrive from Practitioner Workflows in W3.)
+- **`model-building/`** — pretraining · build-a-small-language-model (nested section, 10
+  numbered pages, arrived from Practitioner Workflows at W1). Model training harvests in at W3.
 - **`model-adaptation/`** — supervised-fine-tuning · instruction-tuning ·
   lora-and-parameter-efficient-fine-tuning · knowledge-distillation ·
-  preference-and-alignment-training · reinforcement-learning-posttraining · model-merging.
-  (Fine-tuning and the small-chat-model build arrive in W3.)
+  preference-and-alignment-training · reinforcement-learning-posttraining · model-merging ·
+  fine-tuning (nested, 7 numbered pages) · build-a-small-chat-model (nested, 8 numbered pages) —
+  the last two arrived from Practitioner Workflows at W1 and keep the workflow page shape
+  (README landing, `01-` decision page, numbered run); their ids are `lr-fine-tuning-*`,
+  `lr-scm-*` (and `lr-slm-*` for the language-model build).
 - **`inference-and-serving/`** — kv-cache (nested, 5 pages) · decoding-and-sampling ·
   speculative-decoding · quantization · inference-optimization (nested, 2) ·
   continuous-batching-and-scheduling · caching-and-cost-optimization ·

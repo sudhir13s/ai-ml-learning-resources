@@ -1,0 +1,13 @@
+# Ordered chapter list — the ONE ordering file for this workflow. Filenames repeat
+# the `NN-` order (2026-09-07 numbering wave); `page-order:` still decides it and the
+# slug builder strips the prefix from URLs. `page-order:` is the estate-wide ordering key —
+# relative, extension-less paths, exactly as System Design declares them.
+title: Fine-Tuning
+page-order:
+  - 01-decide-whether-to-fine-tune
+  - 02-prepare-instruction-data
+  - 03-build-the-supervised-fine-tuning-baseline
+  - 04-apply-lora-and-qlora
+  - 05-tune-and-debug-the-run
+  - 06-evaluate-capability-and-regression
+  - 07-production-fine-tuning-pipeline
