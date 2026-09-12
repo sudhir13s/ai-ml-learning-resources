@@ -3,6 +3,11 @@
 # and extension-less. README.md is repo-facing and deliberately absent.
 page-order:
   - pretraining/pretraining
+  - pretraining/pretraining-the-training-loop
+  - pretraining/pretraining-batching-precision-and-memory
+  - pretraining/pretraining-schedule-clipping-and-checkpoints
+  - pretraining/pretraining-scaling-out
+  - pretraining/pretraining-tinyreg-end-to-end
   - build-a-small-language-model/01-why-build-a-model-from-scratch
   - build-a-small-language-model/02-choose-and-govern-a-corpus
   - build-a-small-language-model/03-clean-deduplicate-and-split

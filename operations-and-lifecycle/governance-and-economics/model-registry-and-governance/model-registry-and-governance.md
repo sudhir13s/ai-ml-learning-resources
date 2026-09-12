@@ -5,15 +5,16 @@ parent: "18-mlops-and-deployment"
 level: advanced
 built_from: ["experiment-tracking", "ml-lifecycle"]
 interview_frequency: medium
-updated: 2026-09-07
-tier: core
-est_minutes: 10
+template: concept-deep
+updated: 2026-09-13
+tier: standard
+est_minutes: 20
 title: "Model Registry & Governance"
-minutes: 10
+minutes: 20
 category: governance-and-economics
 ---
 
-# Model Registry & Governance
+# Model Registry and Governance: a model is a name, a version and a stage
 > A central, versioned store for trained models with stage transitions (staging → production → archived),
 > lineage, approvals, and metadata. Governance adds the controls around it: who can promote a model, what
 > documentation it carries (model cards), audit trails, and compliance. The control plane between "trained"
@@ -27,40 +28,44 @@ auditability, access control). Since 2025 the compliance half is no longer optio
 (technical documentation, logging, human oversight), and the **NIST AI Risk Management Framework (AI RMF)**
 is the voluntary US counterpart most enterprises map to. Sits between experiment tracking and serving.
 
-**Start here — suggested path:**
+A [hyperparameter sweep](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/experiment-tracking/experiment-tracking#hyperparameter-sweeps-why-random-beats-grid) produces a winner. Now you have to **find it again next month** — and that's what a **model registry** is for. The registry is a versioned catalog of trained models: each entry has a name, a version number, the run that produced it, and a lifecycle **stage** (`Staging`, `Production`, `Archived`).
 
-1. **Get the registry concept** — read [MLflow Model Registry](https://mlflow.org/docs/latest/ml/model-registry/). *Registered models, versions, aliases/stages, lineage — the core data model.*
-2. **See the workflow** — watch [MLflow 3.0: AI and MLOps](https://www.youtube.com/watch?v=UezTglxJC88). *How promotion, aliases, and evaluation results hang together in the current version.*
-3. **See the other registry you already use** — read [Models on the Hub](https://huggingface.co/docs/hub/models-the-hub) and [gated models](https://huggingface.co/docs/hub/models-gated). *Revisions, access requests, and audit trails — a registry with governance built into distribution.*
-4. **Add governance** — read [Model Cards (paper)](https://arxiv.org/abs/1810.03993) and the [Hugging Face model card spec](https://huggingface.co/docs/hub/model-cards). *Documentation, intended use, and limitations — the governance layer, in the format the ecosystem actually publishes.*
-5. **Meet the rulebook** — skim the [NIST AI RMF 1.0](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf) (Govern/Map/Measure/Manage) and the [EU AI Act framework page](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai). *What an auditor will ask your registry to prove.*
+```mermaid
+graph LR
+    SWEEP(["sweep winner<br/>val_loss=0.63"]):::run --> REG[("model registry")]:::reg
+    REG --> V1(["support-bot v1<br/>Archived"]):::archived
+    REG --> V2(["support-bot v2<br/>Production"]):::prod
+    REG --> V3(["support-bot v3<br/>Staging"]):::staging
+    V2 -.->|"links back to"| RUN(["run + config + data version<br/>that produced it"]):::traceln
 
-## Courses (free)
-- [MLflow — Model Registry docs](https://mlflow.org/docs/latest/ml/model-registry/) — **MLflow** — registry concepts, stages, and APIs.
-- [Made With ML — MLOps Course](https://madewithml.com/courses/mlops/) — **Goku Mohandas** — model management within the production lifecycle.
+    classDef run fill:#7A6528,stroke:#6A5518,color:#fff
+    classDef reg fill:#3A6B96,stroke:#2A5B86,color:#fff
+    classDef archived fill:#4A5B6E,stroke:#3A4B5E,color:#fff
+    classDef prod fill:#2E7A5A,stroke:#1E6A4A,color:#fff
+    classDef staging fill:#7D5A2C,stroke:#6D4A1C,color:#fff
+    classDef traceln fill:#5D4A8A,stroke:#4D3A7A,color:#fff
+```
 
-## Videos
-- [MLflow 3.0: AI and MLOps](https://www.youtube.com/watch?v=UezTglxJC88) — **Databricks** — the current registry: versions, aliases, linked evaluation runs, and deployment gates.
-- [Evaluation-Driven Development with MLflow 3.0](https://www.youtube.com/watch?v=7Q2Z9CYvdRc) — **AAIF Live** — promotion decided by recorded evaluations rather than a human clicking "production".
+The diagram's two ideas: the same name (`support-bot`) holds many immutable versions each tagged with a stage, and the dashed arrow is the thing a folder of files can't give you — every version traces back to the exact run, config, and data that produced it.
 
-## Key Papers
-- [Model Cards for Model Reporting](https://arxiv.org/abs/1810.03993) — **Mitchell et al. (2019)** — the standard for documenting a model's intended use, performance, and limitations.
-- [The ML Test Score: A Rubric for Production Readiness](https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/) — **Breck et al. (Google, 2017)** — what to verify before promoting a model.
-- [Hidden Technical Debt in Machine Learning Systems](https://papers.nips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf) — **Sculley et al. (2015)** — undeclared consumers and versioning debt that governance addresses.
+### Why a registry, not a folder of `.pt` files
 
-## Articles / Blogs (free, no paywall)
-- [MLflow Model Registry](https://mlflow.org/docs/latest/model-registry/) — **MLflow** — the canonical reference for registry workflows.
-- [Model Cards on the Hugging Face Hub](https://huggingface.co/docs/hub/model-cards) — **Hugging Face** — the model-card spec the open ecosystem publishes against, metadata fields included.
-- [Gated models](https://huggingface.co/docs/hub/models-gated) — **Hugging Face** — access requests, licence acceptance, and audit logs as a distribution-level governance control.
-- [NIST AI Risk Management Framework 1.0](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf) — **NIST** — the Govern/Map/Measure/Manage structure most enterprise AI governance programmes are written against.
-- [EU regulatory framework for AI](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai) — **European Commission** — the primary source on risk tiers and the 2025–27 obligation timeline for the AI Act.
-- [Best Practices for ML on Google Cloud](https://cloud.google.com/architecture/ml-on-gcp-best-practices) — **Google Cloud** — model management, lineage, and governance practices.
+The registry solves three problems that `model_final_v2_REALLY_final.pt` cannot:
 
-## Books (free, with chapters)
-- [Designing Machine Learning Systems — **Ch. 6 "Model Development"** & **Ch. 11 "The Human Side of ML"** (governance/responsible AI)](https://huyenchip.com/mlops/) — **Chip Huyen** — author notes/talks free.
-- [Machine Learning Engineering — **Ch. 8–9** (deployment, versioning & maintenance)](http://www.mlebook.com/wiki/doku.php) — **Andriy Burkov** — read-first chapters free.
+- **Traceability.** Every registered version links back to the **run** that created it — its config, metrics, seed, and data version. You can answer "what produced production v2?" in one click.
+- **Lifecycle.** Promoting a model from `Staging` to `Production` is an explicit, auditable transition — not a copy-paste of a file with a new name. Rollback is "promote the previous version", not "find the right backup".
+- **A clean serving contract.** Your inference service loads `support-bot@Production` by name, not by hardcoded path. Swap the underlying version and serving picks it up — no redeploy of the path.
 
-## In this platform
-- Builds on: [03 Experiment Tracking](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/experiment-tracking/experiment-tracking) · [04 Data & Model Versioning](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/data-and-model-versioning/data-and-model-versioning)
-- The registry is what makes an undo possible: [Rollback & Recovery for ML Systems](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/release-and-deployment/rollback-and-recovery-for-ml-systems/rollback-and-recovery-for-ml-systems)
-- Next concepts: [14 A/B Testing · Shadow & Canary](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/release-and-deployment/ab-testing-shadow-and-canary-deployment/ab-testing-shadow-and-canary-deployment) · [11 Model Monitoring & Observability](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/monitoring-and-reliability/model-monitoring-and-observability/model-monitoring-and-observability)
+This is exactly where the registry hands off to **[Packaging and Serving](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/readme)**: serving pulls `@Production` from the registry. So our sweep winner stops being `support-bot.pt` on a laptop and becomes `support-bot v3 @Staging` — and the day it's promoted to `@Production`, serving picks it up by name with no redeploy. MLflow Model Registry and W&B Model Registry both implement this; the concept is the same — **a model is identified by name + version + stage, and each version is immutable and traceable.**
+
+> **Tip:** Never let a model reach production without a registry entry that links back to its run. If you can't answer "what config, seed, and data version produced `@Production`?" in one click, you can't safely roll it back or debug a regression — you're back to spelunking through `.pt` files.
+
+> **Note:** The registry is the bridge between "research" and "production". The moment a model has a name and a version, it stops being a file on someone's laptop and becomes an asset the whole team can reason about, roll back, and audit.
+
+---
+
+## References and further reading
+
+The curated link library for this topic — videos, courses, articles, papers, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
+
+**→ [Model Registry and Governance — references and further reading](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/governance-and-economics/model-registry-and-governance/model-registry-and-governance#references-further-reading)**

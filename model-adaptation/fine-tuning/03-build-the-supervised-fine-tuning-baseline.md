@@ -3,8 +3,8 @@ title: "Build the Supervised Fine-Tuning Baseline"
 id: lr-fine-tuning-build-the-supervised-fine-tuning-baseline
 minutes: 12
 core_idea: "Do the memory arithmetic for a naive full fine-tune first — it is what shows you that the change only needs to land in a small slice of the seven billion parameters."
-builds_on: [pw-model-training]
-related: [pw-experiment-tracking]
+builds_on: [09-llms/pretraining-at-scale]
+related: [18-mlops/experiment-tracking]
 section: "ai-ml-learning-resources"
 workflow: "fine-tuning"
 chapter: 2

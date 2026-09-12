@@ -428,9 +428,20 @@ spec:
     - id: model-building
       title: Model Building
       kind: lesson
-      pages:
-        - path: model-building/pretraining/pretraining.md
+      # Both topics nest: pretraining is a main page plus five depth chapters
+      # (the W3 harvest of the Practitioner Workflows model-training workflow),
+      # the build is a numbered run. A section may hold only nested sections.
       sections:
+        - id: lr-pretraining
+          title: Pretraining
+          kind: lesson
+          pages:
+            - path: model-building/pretraining/pretraining.md
+            - path: model-building/pretraining/pretraining-the-training-loop.md
+            - path: model-building/pretraining/pretraining-batching-precision-and-memory.md
+            - path: model-building/pretraining/pretraining-schedule-clipping-and-checkpoints.md
+            - path: model-building/pretraining/pretraining-scaling-out.md
+            - path: model-building/pretraining/pretraining-tinyreg-end-to-end.md
         - id: lr-build-a-small-language-model
           title: Build a Small Language Model
           kind: lesson

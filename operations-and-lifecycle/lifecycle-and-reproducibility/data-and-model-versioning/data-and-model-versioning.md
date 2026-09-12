@@ -5,15 +5,17 @@ parent: "18-mlops-and-deployment"
 level: intermediate
 built_from: ["reproducibility", "git"]
 interview_frequency: high
-updated: 2026-09-07
-tier: core
-est_minutes: 10
+template: concept-deep
+updated: 2026-09-13
+tier: standard
+est_minutes: 20
+leads_to: ["18-mlops/model-registry-and-governance"]
 title: "Data & Model Versioning (DVC · lakeFS)"
-minutes: 10
+minutes: 20
 category: lifecycle-and-reproducibility
 ---
 
-# Data & Model Versioning — DVC · lakeFS
+# Data and Model Versioning — DVC · lakeFS: the half of reproducibility Git cannot do
 > Git for data and models: track large datasets and model artifacts by content hash, store the bytes in
 > object storage, and keep only lightweight pointers in Git — so any commit reconstructs the exact
 > data + model that produced a result. Reproducibility's missing half (Git versions code, not 10 GB of data).
@@ -23,39 +25,78 @@ Expect the DVC model (pointer files + remote cache + content-addressable storage
 from versioning code, data lineage (which dataset version → which model), and the difference between
 file-level tools (DVC) and data-lake/branching tools (lakeFS). Pairs with experiment tracking for full reproducibility.
 
-**Start here — suggested path:**
+[Reproducibility](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/reproducibility/reproducibility) pinned config and seeds; [Experiment Tracking](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/experiment-tracking/experiment-tracking) recorded params, metrics and artifacts per run and registered the winner. Two inputs remain — **data** and **code** — and they are what make a result *truly* reproducible months later. Git handles code natively. Data needs a companion: **DVC (Data Version Control)**.
 
-1. **Get the idea** — read [DVC: Get Started](https://dvc.org/doc/start) and watch [Versioning Data with DVC](https://www.youtube.com/watch?v=kLKBcPonMYw) — **DVCorg**. *The pointer-file + remote-cache model is the whole concept.*
-2. **Version a real dataset** — follow [DVC: Data Management user guide](https://dvc.org/doc/user-guide/data-management). *`dvc add` / `dvc push` on a real dataset makes content-addressing concrete.*
-3. **Tie data to models** — read [DVC: Versioning Data & Models scenario](https://dvc.org/doc/use-cases/versioning-data-and-models). *Switching dataset + model versions together is the lineage payoff.*
-4. **Put it in a project** — follow [Made With ML: Versioning](https://madewithml.com/courses/mlops/versioning/). *Integrates DVC with code + experiment tracking for an end-to-end reproducible run.*
-5. **See the data-lake approach** — read [lakeFS: Data Version Control](https://lakefs.io/data-version-control/). *Branch/commit/merge over object storage — the scale-out alternative to file-level DVC.*
+## Data and code versioning: DVC + Git
 
-## Courses (free)
-- [Made With ML — Versioning](https://madewithml.com/courses/mlops/versioning/) — **Goku Mohandas** — version code, data, and models together in a project.
-- [DVC — Get Started (interactive docs)](https://dvc.org/doc/start) — **Iterative** — guided, hands-on intro to data + model versioning.
+### The problem: git can't hold your data
 
-## Videos
-- [Versioning Data with DVC (Hands-On Tutorial!)](https://www.youtube.com/watch?v=kLKBcPonMYw) — **DVCorg** — the maintainers' own walkthrough of `dvc add/push/checkout`.
-- [Machine Learning Pipelines with DVC (Hands-On Tutorial!)](https://www.youtube.com/watch?v=71IGzyH95UY) — **DVCorg** — versioned stages with caching, where data versioning turns into a reproducible pipeline.
-- [MLOps Zoomcamp 1.1 — Introduction](https://www.youtube.com/watch?v=s0uaFZSzwfI) — **DataTalksClub** — frames versioning within the MLOps foundation.
+Git is built for text. A 5 GB dataset (or a 2 GB model checkpoint) in git will bloat the repo, slow every clone to a crawl, and eventually hit hosting limits. But you still need to answer "which exact data produced this model?"
 
-## Key Papers
-- [Hidden Technical Debt in Machine Learning Systems](https://papers.nips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf) — **Sculley et al. (2015)** — "data dependencies cost more than code dependencies" — the case for data versioning.
-- [Improving Reproducibility in ML Research](https://arxiv.org/abs/2003.12206) — **Pineau et al. (2020)** — pinning data versions as a reproducibility requirement.
+**DVC's trick:** keep the *data* in cheap blob storage (S3, GCS, a shared drive) and keep a tiny **pointer file** in git. The pointer is a hash of the data's content. Git versions the pointer; DVC uses the pointer to fetch the right data from storage.
 
-## Articles / Blogs (free, no paywall)
-- [DVC — Data Management](https://dvc.org/doc/user-guide/data-management) — **Iterative** — how content-addressed storage + remotes actually work.
-- [DVC — Versioning Data & Models](https://dvc.org/doc/use-cases/versioning-data-and-models) — **Iterative** — the data-and-model lineage use case end to end.
-- [lakeFS — Data Version Control](https://lakefs.io/data-version-control/) — **lakeFS** — git-like branch/commit/merge for data lakes at scale.
-- [lakeFS Documentation](https://docs.lakefs.io/) — **lakeFS (Treeverse)** — the maintainers' reference: zero-copy branching, commits, and merges over S3-class storage.
-- [Models on the Hugging Face Hub](https://huggingface.co/docs/hub/models-the-hub) — **Hugging Face** — the de-facto 2026 model store: Git-LFS-backed repos, revisions/tags, and safetensors weights as the versioned artifact.
+```mermaid
+graph TD
+    subgraph Git["Git repo (small, fast)"]
+    CODE(["train.py, config.yaml"]):::code
+    PTR(["data.dvc<br/>md5: a1b2c3… (pointer)"]):::ptr
+    end
+    subgraph Storage["Remote blob storage (S3/GCS)"]
+    BLOB[("dataset @ a1b2c3<br/>5 GB")]:::blob
+    end
+    PTR -->|"dvc pull"| BLOB
+    COMMIT(["git commit"]):::commit --> CODE
+    COMMIT --> PTR
+    COMMIT --> RESULT(["one commit = exact<br/>code + exact data"]):::ok
 
-## Books (free, with chapters)
-- [Designing Machine Learning Systems — **Ch. 6 "Model Development & Offline Evaluation"** (versioning & lineage)](https://huyenchip.com/mlops/) — **Chip Huyen** — author notes/talks free.
-- [Machine Learning Engineering — **Ch. 3 "Data Collection & Preparation"** (data versioning)](http://www.mlebook.com/wiki/doku.php) — **Andriy Burkov** — read-first chapters free.
+    classDef code fill:#5D4A8A,stroke:#4D3A7A,color:#fff
+    classDef ptr fill:#3A6B96,stroke:#2A5B86,color:#fff
+    classDef blob fill:#7D5A2C,stroke:#6D4A1C,color:#fff
+    classDef commit fill:#7A6528,stroke:#6A5518,color:#fff
+    classDef ok fill:#2E7A5A,stroke:#1E6A4A,color:#fff
+```
 
-## In this platform
-- Builds on: [02 Reproducibility](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/reproducibility/reproducibility) · [03 Experiment Tracking](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/experiment-tracking/experiment-tracking)
-- Next concepts: [05 Feature Stores](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/data-and-training-platforms/feature-stores/feature-stores) · [13 Model Registry & Governance](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/governance-and-economics/model-registry-and-governance/model-registry-and-governance)
-- Related concept (covered elsewhere): data preprocessing & feature engineering → [02. Data_Preprocessing](/ai-ml/ai-ml-learning-resources/data-and-representation/data-preparation/readme)
+The split is the whole trick: git holds only small, fast things (code, config, a tiny hash pointer), the heavy bytes live in blob storage, and one `git commit` ties the two together — so the commit *is* the exact code-plus-data recipe, and `dvc pull` rehydrates the data the pointer names.
+
+### The payoff: one git commit pins everything
+
+With DVC + git, a single commit captures **code + config + data version** together. To reproduce the run that scored 0.94:
+
+```bash
+git checkout <commit-that-scored-0.94>   # restores code + config + the .dvc pointer
+dvc pull                                  # fetches the exact dataset that pointer references
+python train.py --config config.yaml      # same code, same data, same config
+```
+
+That's the whole `support-bot` story closing the loop: the commit restores the code and the `.dvc` pointer, `dvc pull` fetches the exact `support_tickets_v3` snapshot, and the seed in `config.yaml` fixes the randomness — so the run that scored `0.94` runs again and scores `0.94`. Combine that with a pinned environment (`requirements.txt` / a lockfile / a container image), and you have all five inputs nailed down — the run is reproducible by construction.
+
+> **Warning:** A `.dvc` pointer in git is worthless if the blob it references was deleted from remote storage. Treat your DVC remote like a backup: the data behind every commit you might want to reproduce must actually still exist. "We versioned the pointer but garbage-collected the data" is a real, painful way to lose a result.
+
+Here is how all five inputs fold into a single recoverable recipe — three sources converging on one guarantee:
+
+```mermaid
+graph LR
+    G1(["git commit<br/>code + config + data pointer"]):::git
+    G2(["seed in config"]):::seed
+    G3(["pinned env<br/>lockfile / container"]):::env
+    G1 --> ALL(["all 5 inputs pinned"]):::ok
+    G2 --> ALL
+    G3 --> ALL
+    ALL --> REPRO(["bit-for-bit recipe<br/>reproducible result"]):::done
+
+    classDef git fill:#3A6B96,stroke:#2A5B86,color:#fff
+    classDef seed fill:#4A5B6E,stroke:#3A4B5E,color:#fff
+    classDef env fill:#7D5A2C,stroke:#6D4A1C,color:#fff
+    classDef ok fill:#2A5B80,stroke:#1A4B70,color:#fff
+    classDef done fill:#2E7A5A,stroke:#1E6A4A,color:#fff
+```
+
+> **Note:** DVC also versions models and intermediate artifacts the same way — and `dvc repro` can re-run a defined pipeline (prep → train → eval) only where inputs changed. Pair it with the [Data Preparation](/ai-ml/practitioner-workflows/data-and-inputs/data-preparation) workflow so the data snapshot you train on is itself versioned and reproducible.
+
+---
+
+## References and further reading
+
+The curated link library for this topic — videos, courses, articles, papers, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
+
+**→ [Data and Model Versioning — references and further reading](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/data-and-model-versioning/data-and-model-versioning#references-further-reading)**

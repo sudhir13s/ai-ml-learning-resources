@@ -153,8 +153,11 @@ Practitioner Workflows. Sections follow the model lifecycle after the foundation
   generative-model-families (nested section: generative-models · diffusion-models, 17 pages).
 - **`data-and-representation/`** — data-preparation (13 pages, grouped by category) ·
   synthetic-data-and-curation.
-- **`model-building/`** — pretraining · build-a-small-language-model (nested section, 10
-  numbered pages, arrived from Practitioner Workflows at W1). Model training harvests in at W3.
+- **`model-building/`** — pretraining (nested section `lr-pretraining`: the main page plus
+  five depth chapters harvested from the Practitioner Workflows model-training workflow at W3 —
+  the-training-loop · batching-precision-and-memory · schedule-clipping-and-checkpoints ·
+  scaling-out · tinyreg-end-to-end) · build-a-small-language-model (nested section, 10
+  numbered pages, arrived from Practitioner Workflows at W1).
 - **`model-adaptation/`** — supervised-fine-tuning · instruction-tuning ·
   lora-and-parameter-efficient-fine-tuning · knowledge-distillation ·
   preference-and-alignment-training · reinforcement-learning-posttraining · model-merging ·
@@ -168,7 +171,10 @@ Practitioner Workflows. Sections follow the model lifecycle after the foundation
   small-and-on-device-language-models · packaging-and-serving (nested sub-area, 3).
 - **`evaluation/`** — model-evaluation-and-benchmarks · hallucination-and-grounding ·
   alignment-and-safety-evaluation.
-- **`operations-and-lifecycle/`** — lifecycle-and-reproducibility · data-and-training-platforms
+- **`operations-and-lifecycle/`** — lifecycle-and-reproducibility (reproducibility ·
+  experiment-tracking · data-and-model-versioning are two-file teaching pages since the W3
+  harvest of the experiment-tracking workflow; the registry section of that workflow went to
+  governance-and-economics/model-registry-and-governance) · data-and-training-platforms
   (feature stores · pipelines) · training-infrastructure (GPUs and accelerators · mixed
   precision · distributed training · checkpointing · cluster scheduling · training cost) ·
   release-and-deployment (incl. rollback and recovery) · monitoring-and-reliability (incl. AI

@@ -5,7 +5,7 @@ minutes: 26
 core_idea: "The training loop is five decisions — what to decay, how the learning rate moves, how big the batch really is, what bounds a bad step, and which checkpoint you keep — and the last one is the only artifact that survives."
 builds_on: [lr-slm-prove-the-gradient-path]
 leads_to: [lr-slm-read-the-training-curves]
-related: [pw-model-training]
+related: [09-llms/pretraining-at-scale]
 section: "ai-ml-learning-resources"
 workflow: "build-a-small-language-model"
 chapter: 6
@@ -257,4 +257,4 @@ through the corpus. Which is the subject of the next chapter.
 - Loshchilov and Hutter, *SGDR: Stochastic Gradient Descent with Warm Restarts* — the cosine
   schedule: <https://arxiv.org/abs/1608.03983>
 - Deeper on the reusable mechanism:
-  [Training (workflow)](/ai-ml/practitioner-workflows/training-and-adaptation/model-training/training)
+  [The Training Loop](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining-the-training-loop)
