@@ -1,0 +1,65 @@
+---
+id: "20-neuroscience/brain-computer-interfaces"
+topic: "Brain-Computer Interfaces (BCIs)"
+parent: "20-neuroscience"
+level: advanced
+built_from: ["neural-coding", "machine-learning", "signal-processing"]
+interview_frequency: low
+updated: 2026-06-20
+tier: core
+est_minutes: 10
+title: "Brain-Computer Interfaces (BCIs)"
+minutes: 10
+category: neuroscience-and-brain-inspired-ai
+---
+
+# Brain-Computer Interfaces (BCIs)
+> Systems that read neural activity (and sometimes write to it) to control external devices — a cursor,
+> a robotic arm, synthesized speech. The hard part is the **decoder**: a machine-learning model that
+> maps noisy, high-dimensional, non-stationary neural signals to intended action. BCIs are applied
+> neural coding plus real-time ML, from intracortical arrays (BrainGate, Neuralink) to non-invasive EEG.
+
+**Why it matters:** BCIs are where neural coding meets practical machine learning under brutal
+constraints — few labeled samples, drifting signals, real-time latency. The decoder is a
+classification/regression problem on population activity, so the interview-relevant skills are exactly
+ML ones (feature extraction, Kalman filters, RNN/transformer decoders) applied to a coding substrate
+covered earlier in this section.
+
+**Start here — suggested path:**
+
+1. **See what's possible** — watch [How brain-computer connections could end paralysis](https://www.youtube.com/watch?v=_GTsItgKHvA). *Stanford/BrainGate work restoring movement and communication.*
+2. **See the current state** — watch [Neuralink brain chip's first human patient](https://www.youtube.com/watch?v=DmqSYgM8QHc). *How a modern intracortical BCI works, end to end.*
+3. **Read the engineering** — [Human intracortical recording and neural decoding for BCIs](https://pmc.ncbi.nlm.nih.gov/articles/PMC5815832/). *The decoder pipeline and its ML challenges, open access.*
+4. **Ground it in coding** — review [02 Neural Coding](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/neuroscience-and-brain-inspired-ai/neural-coding/neural-coding). *Decoding is just neural coding's inverse problem.*
+5. **Connect the ML** — the decoder is a sequence model; relate to [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme) RNN/transformer decoders.
+
+## Courses (free)
+- [Neuromatch Academy — Computational Neuroscience](https://compneuro.neuromatch.io/) — **Neuromatch** — population decoding and neural-data-analysis tutorials, the core of BCI decoders.
+- [Neuronal Dynamics (EPFL)](https://neuronaldynamics.epfl.ch/online/index.html) — **Gerstner et al.** — the spike-train statistics a decoder must model.
+
+## Videos
+- [How brain-computer connections could end paralysis](https://www.youtube.com/watch?v=_GTsItgKHvA) — **Stanford School of Engineering (Krishna Shenoy)** — intracortical BCIs restoring movement & speech.
+- [Neuralink brain chip's first human patient. How does it work?](https://www.youtube.com/watch?v=DmqSYgM8QHc) — **CBC News** — a clear explainer of a modern implanted BCI.
+- [The Core Equation Of Neuroscience](https://www.youtube.com/watch?v=zOmhHE2xctw) — **Artem Kirsanov** — the spiking signals a BCI records and decodes.
+- [The Modular Architecture of Intelligence](https://www.youtube.com/watch?v=-_OgW6KSGE4) — **Artem Kirsanov** — how distributed neural activity organizes into decodable patterns.
+
+## Key Papers
+- [Human intracortical recording and neural decoding for brain computer interfaces](https://pmc.ncbi.nlm.nih.gov/articles/PMC5815832/) — **open-access review** — the recording-to-decoder pipeline and its challenges.
+- [A streaming brain-to-voice neuroprosthesis to restore naturalistic communication](https://www.nature.com/articles/s41593-025-01905-6) — **Littlejohn, Anumanchipalli et al. (UC Berkeley / UCSF, Nature Neuroscience 2025)** — a recurrent-neural-network transducer decoding speech in 80 ms increments, so the user speaks continuously instead of sentence by sentence.
+- [An instantaneous voice-synthesis neuroprosthesis](https://www.nature.com/articles/s41586-025-09127-3) — **Wairagkar, Card, Stavisky et al. (UC Davis, Nature 2025)** — 25 ms brain-to-voice with closed-loop audio feedback, and paralinguistic control (pitch, emphasis) decoded alongside phonemes.
+- [Random synaptic feedback weights support error backpropagation](https://www.nature.com/articles/ncomms13276) — **Lillicrap et al. (2016)** — biologically-plausible learning relevant to adaptive on-device decoders.
+- [Backpropagation and the brain](https://www.nature.com/articles/s41583-020-0277-3) — **Lillicrap et al. (2020)** — how the brain might learn, informing adaptive BCI decoding.
+
+## Articles / Blogs (free, no paywall)
+- [Human intracortical recording and neural decoding (PMC)](https://pmc.ncbi.nlm.nih.gov/articles/PMC5815832/) — **open access** — full review, free to read.
+- [Human Connectome Project](https://www.humanconnectome.org/) — **HCP** — open neural-data resources useful for decoder development and benchmarking.
+
+## Books (free, with chapters)
+- [Theoretical Neuroscience — **Ch. 3 (Neural Decoding)**](https://www.gatsby.ucl.ac.uk/~dayan/book/) — **Dayan & Abbott** — the decoding theory that BCI decoders implement, free online.
+- [Neuronal Dynamics — **Ch. 7 (Variability of spike trains)**](https://neuronaldynamics.epfl.ch/online/Ch7.html) — **Gerstner et al.** — the signal statistics a real-time decoder contends with.
+
+## In this platform
+- Concept depth (the *why*): [ai-ml-intuitions 5.01 Information Theory — Entropy & KL](/ai-ml/ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition) — the information limits on how much a decoder can extract.
+- Prereqs in this section: [02 Neural Coding](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/neuroscience-and-brain-inspired-ai/neural-coding/neural-coding) · [01 Biological Neurons & Synapses](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/neuroscience-and-brain-inspired-ai/biological-neurons-and-synapses/biological-neurons-and-synapses)
+- Next concepts: [13 Connectomics](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/neuroscience-and-brain-inspired-ai/connectomics/connectomics)
+- Related domain: [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

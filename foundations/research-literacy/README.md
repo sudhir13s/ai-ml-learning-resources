@@ -42,7 +42,7 @@ best **free, open** courses, videos, papers, articles, and tools for staying cur
 > The actual frontier *topics* live in their domains — this section teaches the *skill* of keeping
 > up with them. Go to the source domain for the concepts themselves.
 - **Large language models** — GPT/Llama, scaling, fine-tuning, prompting, RLHF → [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme)
-- **Generative AI** — diffusion, image/video/audio generation → [10. GenAI](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/generative-models/readme)
+- **Generative AI** — diffusion, image/video/audio generation → [10. GenAI](/ai-ml/ai-ml-learning-resources/models-and-architectures/generative-model-families/generative-models/readme)
 - **Agentic AI** — tool use, planning, multi-agent systems → [12. Agentic AI](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/overview)
 - **Retrieval-augmented generation & LLM apps** → [11. RAG & LLM Applications](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/overview)
 

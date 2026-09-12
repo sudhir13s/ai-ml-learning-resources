@@ -59,5 +59,5 @@ what separates someone who's shipped ML from someone who's only done tutorials.
 
 ## In this platform
 - Next concepts: [04 How Models Learn](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/how-models-learn/how-models-learn) · [12 Your First ML Project](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/your-first-ml-project/your-first-ml-project)
-- Go deeper — data stages: [02. Data Preprocessing](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/readme)
-- Go deeper — deployment & monitoring: [12. Deployment & MLOps](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/readme)
+- Go deeper — data stages: [02. Data Preprocessing](/ai-ml/ai-ml-learning-resources/data-and-representation/data-preparation/readme)
+- Go deeper — deployment & monitoring: [12. Deployment & MLOps](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/readme)

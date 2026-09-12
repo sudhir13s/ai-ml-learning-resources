@@ -49,9 +49,9 @@ from "what even is ML?" to shipping your first model.
 ### Related concepts (covered in another section)
 > These topics start here but live in depth elsewhere — follow the link when you're ready to go deeper.
 - **The math behind it all** — linear algebra · calculus · probability · statistics → [01. Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme)
-- **Cleaning & preparing data** — missing values · encoding · scaling · feature engineering · splitting → [02. Data Preprocessing](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/readme)
-- **The supervised algorithms** — linear/logistic regression · trees · SVMs · ensembles → [03. Supervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/readme)
-- **The unsupervised algorithms** — clustering · PCA · dimensionality reduction → [04. Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)
+- **Cleaning & preparing data** — missing values · encoding · scaling · feature engineering · splitting → [02. Data Preprocessing](/ai-ml/ai-ml-learning-resources/data-and-representation/data-preparation/readme)
+- **The supervised algorithms** — linear/logistic regression · trees · SVMs · ensembles → [03. Supervised Learning](/ai-ml/ai-ml-learning-resources/classical-machine-learning/supervised-learning/readme)
+- **The unsupervised algorithms** — clustering · PCA · dimensionality reduction → [04. Unsupervised Learning](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/readme)
 - **Neural networks & deep learning** — MLPs · backprop · CNNs · transformers → [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
 - **Frameworks in depth** — PyTorch · TensorFlow · scikit-learn pipelines → [13. Tools & Frameworks](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/readme)
 

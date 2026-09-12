@@ -54,10 +54,10 @@ updated: 2026-09-07
 
 **In this platform**:
 - Concept page (full explanation): [Perceptron and MLP](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/perceptron-and-mlp/perceptron-and-mlp)
-- The smooth cousin (single sigmoid neuron): [Logistic Regression](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/classification/logistic-regression/logistic-regression)
+- The smooth cousin (single sigmoid neuron): [Logistic Regression](/ai-ml/ai-ml-learning-resources/classical-machine-learning/supervised-learning/classification/logistic-regression/logistic-regression)
 - How an MLP actually learns: [Backpropagation & Computational Graphs](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs)
 - The nonlinearity that makes it work: [Activation Functions](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/activation-functions/activation-functions)
 - Why deep MLPs are hard to train: [Vanishing & Exploding Gradients](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients)
-- The MLP at scale (the transformer's FFN is an MLP): [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture)
+- The MLP at scale (the transformer's FFN is an MLP): [Transformer Architecture](/ai-ml/ai-ml-learning-resources/models-and-architectures/attention-and-transformers/transformer-architecture/transformer-architecture)
 - The *why* behind the math: [ai-ml-intuitions 2.01 Partial Derivatives & the Gradient](/ai-ml/ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/partial-derivatives-and-gradients-intuition) · [4.14 Activation Functions & Softmax](/ai-ml/ai-ml-intuitions/architectural-mechanisms/nonlinear-transformation/activation-functions-and-softmax-intuition)
 - Field overview: [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

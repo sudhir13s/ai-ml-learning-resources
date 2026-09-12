@@ -59,5 +59,5 @@ which is `read_csv`, `groupby`, `merge`, boolean indexing, and `apply` in practi
 
 ## In this platform
 - Prev/next: [07 NumPy Essentials](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/numpy-essentials/numpy-essentials) · [09 Data Visualization Basics](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/data-visualization-basics/data-visualization-basics)
-- Go deeper — cleaning, encoding, feature engineering: [02. Data Preprocessing](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/readme)
+- Go deeper — cleaning, encoding, feature engineering: [02. Data Preprocessing](/ai-ml/ai-ml-learning-resources/data-and-representation/data-preparation/readme)
 - Go deeper — the end-to-end project: [12 Your First ML Project](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/your-first-ml-project/your-first-ml-project)

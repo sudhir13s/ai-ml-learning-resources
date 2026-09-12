@@ -60,6 +60,6 @@ real project.
 
 ## In this platform
 - Next concepts: [03 The ML Workflow & Lifecycle](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/the-ml-workflow-and-lifecycle/the-ml-workflow-and-lifecycle) · [04 How Models Learn](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/how-models-learn/how-models-learn)
-- Go deeper — supervised: [03. Supervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/readme)
-- Go deeper — unsupervised: [04. Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)
-- Go deeper — reinforcement: [10. Reinforcement Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/reinforcement-learning/readme)
+- Go deeper — supervised: [03. Supervised Learning](/ai-ml/ai-ml-learning-resources/classical-machine-learning/supervised-learning/readme)
+- Go deeper — unsupervised: [04. Unsupervised Learning](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/readme)
+- Go deeper — reinforcement: [10. Reinforcement Learning](/ai-ml/ai-ml-learning-resources/reinforcement-learning/readme)

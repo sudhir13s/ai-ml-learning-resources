@@ -3,7 +3,7 @@ id: "deep-learning/stabilization-and-architectural-blocks/gating-mechanisms"
 topic: "Gating Mechanisms"
 level: intermediate
 built_from: ["activation-functions", "rnn-lstm-gru", "residual-skip-connections"]
-leads_to: ["deep-learning/sequence-modeling/selective-state-space-models-mamba"]
+leads_to: ["models-and-architectures/classic-architectures/selective-state-space-models-mamba"]
 interview_frequency: high
 updated: 2026-09-07
 tier: core
@@ -73,7 +73,7 @@ of two and a hidden width of about $\tfrac{8}{3}d$ rather than $4d$.
 
 ## In this platform
 
-- Prerequisites: [Activation Functions](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/activation-functions/activation-functions) · [RNN / LSTM / GRU](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/rnn-lstm-gru/rnn-lstm-gru)
+- Prerequisites: [Activation Functions](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/activation-functions/activation-functions) · [RNN / LSTM / GRU](/ai-ml/ai-ml-learning-resources/models-and-architectures/classic-architectures/rnn-lstm-gru/rnn-lstm-gru)
 - The ungated special case: [Residual / Skip Connections](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/residual-skip-connections/residual-skip-connections)
-- Gating over experts is owned by [Mixture of Experts](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/llm-model-architectures/mixture-of-experts/mixture-of-experts); gating over a linear recurrence by [Selective State-Space Models (Mamba)](/ai-ml/ai-ml-learning-resources/deep-learning/sequence-modeling/selective-state-space-models-mamba/selective-state-space-models-mamba).
+- Gating over experts is owned by [Mixture of Experts](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/mixture-of-experts/mixture-of-experts); gating over a linear recurrence by [Selective State-Space Models (Mamba)](/ai-ml/ai-ml-learning-resources/models-and-architectures/classic-architectures/selective-state-space-models-mamba/selective-state-space-models-mamba).
 - Why the gradient path matters: [Vanishing / Exploding Gradients](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients)

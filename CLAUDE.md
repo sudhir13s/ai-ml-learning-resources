@@ -35,7 +35,7 @@ Doubles as a **dataset** for the interview-prep app, so formats must stay consis
 > **GOLD STANDARD — MUST (no exceptions).** The KV-Cache pages are the ratified gold standard for
 > every concept page. **Before creating or modifying ANY `concepts/` file** — yourself or via any
 > specialist skill / subagent you invoke — **first read both gold-standard files**
-> ([05-KV-Cache.md](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache) + [05-KV-Cache.references.md](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache#references-further-reading))
+> ([05-KV-Cache.md](/ai-ml/ai-ml-learning-resources/inference-and-serving/kv-cache/kv-cache) + [05-KV-Cache.references.md](/ai-ml/ai-ml-learning-resources/inference-and-serving/kv-cache/kv-cache#references-further-reading))
 > and match them. **Before marking the work done, verify the result against them**: section flow
 > present & in order, visuals generated and rendering (PNGs viewed, mermaid validates), code runs in
 > `~/.uv/envs/ml-py312`, every reference link verified, bold-not-highlight, no emoji in headings,
@@ -56,8 +56,8 @@ Doubles as a **dataset** for the interview-prep app, so formats must stay consis
 > *expand* (add an example, a derivation, a diagram) and re-judge. (Inline by default; subagent only if asked.)
 
 Each topic's `concepts/` folder holds the **deep, blog-quality teaching pages**. As of 2026-06-21
-each concept is **two files** (canonical example: [kv-cache.md](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache)
-+ [05-KV-Cache.references.md](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache#references-further-reading)):
+each concept is **two files** (canonical example: [kv-cache.md](/ai-ml/ai-ml-learning-resources/inference-and-serving/kv-cache/kv-cache)
++ [05-KV-Cache.references.md](/ai-ml/ai-ml-learning-resources/inference-and-serving/kv-cache/kv-cache#references-further-reading)):
 
 - **`NN-Concept.md` — the content.** A progressive, intuition-first page written in the voice of a
   researcher-teacher writing a tech blog (style bar = Practitioner-Workflows `RLHF-and-Alignment.md`).
@@ -97,7 +97,7 @@ each concept is **two files** (canonical example: [kv-cache.md](/ai-ml/ai-ml-lea
   headings, lead-then-bullets, recap + next-chapter link, references pointer last). The main page
   lists chapters in a `chapters:` frontmatter array AND a `## Going deeper: the chapters` section
   (1-line-per-chapter index). The reader surfaces every chapter `.md` as an ordered lesson under
-  the topic card (main page first). Canonical example: `llms-applications-and-agents/inference-and-runtime/kv-cache/`
+  the topic card (main page first). Canonical example: `inference-and-serving/kv-cache/`
   (main page + `kv-cache-variants` · `kv-cache-optimization-stack` ·
   `kv-cache-flashattention-and-flashdecoding` · `kv-cache-in-production`).
 - **`NN-Concept.references.md` — the links.** The curated link library for that concept, kept
@@ -126,43 +126,66 @@ deep home. (Topic-level `README.md`s stay link-only as described above.)
 ## Sections (chartered, kebab-case — the ordinal `NN. Name` folders are gone)
 Ordered by learning progression, each declared as a section in `course.yaml`:
 
+The library is the **model layer** of the AI/ML hub (owner ruling 2026-09-12, layer plan
+`docs/plans/aiml-layer-restructure/`): anything that makes, changes, measures or serves a model,
+plus the foundations. Using a model (RAG, agents, application evaluation and operations) is
+Practitioner Workflows. Sections follow the model lifecycle after the foundations.
+
 - **`foundations/`** — ai-ml-orientation · programming-and-data-foundations ·
-  mathematical-foundations (+ the `maths-for-ai-ml/` deep math curriculum) · data-preparation ·
+  mathematical-foundations (+ the `maths-for-ai-ml/` deep math curriculum) ·
   ai-paradigms-and-knowledge · tools-and-frameworks · research-literacy.
-- **`core-machine-learning/`** — supervised-learning (regression · classification ·
+- **`classical-machine-learning/`** — supervised-learning (regression · classification ·
   trees-and-ensembles) · unsupervised-learning (clustering · dimensionality-reduction ·
-  density-estimation · anomaly-detection · association-rules) · reinforcement-learning
-  (foundations · value-based-learning · policy-learning · model-based · offline · multi-agent) ·
+  density-estimation · anomaly-detection · association-rules) ·
   model-selection-and-evaluation (bias-variance · cross-validation · hyperparameter-search bridge ·
   calibration · uncertainty and conformal prediction · error analysis).
-- **`deep-learning/`** — neural-network-foundations · optimization-and-training ·
-  stabilization-and-architectural-blocks · neural-architectures · attention-and-transformers ·
-  sequence-modeling (state-space models · S4 · Mamba · linear and hybrid attention) ·
-  self-supervised-learning · scientific-and-specialized-deep-learning (GNNs · PINNs · neural
-  operators · equivariance) · interpretability-and-analysis (mechanistic interpretability ·
-  circuits · superposition and sparse autoencoders · probing · vision and classic models).
-- **`modalities-and-generative-models/`** — natural-language-processing · computer-vision ·
-  generative-models · diffusion-models (17 pages, flow matching homed here) · multimodal-learning ·
-  video-understanding · audio-and-speech.
-- **`llms-applications-and-agents/`** — large-language-model-foundations ·
-  llm-model-architectures · training-and-adaptation · inference-and-runtime ·
-  reasoning-evaluation-and-alignment · rag-and-knowledge-systems · agentic-ai.
-- **`deployment-and-mlops/`** — lifecycle-and-reproducibility · data-and-training-platforms
+- **`reinforcement-learning/`** — foundations · value-based-learning · policy-learning ·
+  model-based · offline · multi-agent (its own section since W2 of the layer plan).
+- **`deep-learning/`** — how a network learns: neural-network-foundations ·
+  optimization-and-training · stabilization-and-architectural-blocks · self-supervised-learning ·
+  interpretability-and-analysis (mechanistic interpretability · circuits · superposition and
+  sparse autoencoders · probing · vision and classic models).
+- **`models-and-architectures/`** — the families: classic-architectures (CNNs · RNN/LSTM/GRU ·
+  autoencoders · state-space models · S4 · Mamba · linear and hybrid attention) ·
+  attention-and-transformers · large-language-models (objectives · decoder-only · scaling laws ·
+  attention variants · positional representations · long context · mixture-of-experts · diffusion
+  language models · prompting · chain of thought · test-time compute) ·
+  generative-model-families (nested section: generative-models · diffusion-models, 17 pages).
+- **`data-and-representation/`** — data-preparation (nested section, 13 pages) ·
+  synthetic-data-and-curation.
+- **`model-building/`** — pretraining. (Model training and the from-scratch small-language-model
+  build arrive from Practitioner Workflows in W3.)
+- **`model-adaptation/`** — supervised-fine-tuning · instruction-tuning ·
+  lora-and-parameter-efficient-fine-tuning · knowledge-distillation ·
+  preference-and-alignment-training · reinforcement-learning-posttraining · model-merging.
+  (Fine-tuning and the small-chat-model build arrive in W3.)
+- **`inference-and-serving/`** — kv-cache (nested, 5 pages) · decoding-and-sampling ·
+  speculative-decoding · quantization · inference-optimization (nested, 2) ·
+  continuous-batching-and-scheduling · caching-and-cost-optimization ·
+  small-and-on-device-language-models · packaging-and-serving (nested sub-area, 3).
+- **`evaluation/`** — model-evaluation-and-benchmarks · hallucination-and-grounding ·
+  alignment-and-safety-evaluation.
+- **`operations-and-lifecycle/`** — lifecycle-and-reproducibility · data-and-training-platforms
   (feature stores · pipelines) · training-infrastructure (GPUs and accelerators · mixed
   precision · distributed training · checkpointing · cluster scheduling · training cost) ·
-  packaging-and-serving · release-and-deployment (incl. rollback and recovery) ·
-  monitoring-and-reliability (incl. AI incident response) · governance-and-economics.
-- **`world-models-and-embodied-intelligence/`** — world-model-foundations ·
+  release-and-deployment (incl. rollback and recovery) · monitoring-and-reliability (incl. AI
+  incident response) · governance-and-economics.
+- **`multimodal-and-generative-media/`** — natural-language-processing · computer-vision ·
+  multimodal-learning · video-understanding · audio-and-speech.
+- **`llms-applications-and-agents/`** — TRANSITIONAL: rag-and-knowledge-systems · agentic-ai
+  only, until W4 harvests them into Practitioner Workflows and deletes the folder.
+- **`world-models-and-embodied-ai/`** — world-model-foundations ·
   predictive-representation-models · latent-dynamics · learning-and-planning ·
   spatial-and-physical-world-models · video-and-generative-world-models ·
   memory-and-cognitive-maps · embodied-intelligence · evaluation-and-safety (all nine
   chartered sub-areas hold pages; the section README is the one index, sub-areas carry
   `metadata.yaml` only).
-- **`specialized-studies/`** — advanced-mathematics-for-ai-research ·
+- **`frontier-and-specialized/`** — advanced-mathematics-for-ai-research ·
   neuroscience-and-brain-inspired-ai · neuro-symbolic-and-structured-intelligence (nested
   section; its six sub-folders are the categories: symbolic-reasoning-primer ·
   neural-symbolic-integration · differentiable-reasoning · structured-reasoning ·
-  modern-applications · evaluation-and-limitations — every chartered page exists).
+  modern-applications · evaluation-and-limitations — every chartered page exists) ·
+  scientific-and-specialized-deep-learning (GNNs · PINNs · neural operators · equivariance).
 
 Every section is on its chartered kebab-case name. The 2026-09 completeness pass (T-556)
 authored the previously empty chartered sub-areas and the world-models section with real

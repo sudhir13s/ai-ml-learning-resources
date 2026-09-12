@@ -59,5 +59,5 @@ of the covariance) and minimize reconstruction error — and explain the SVD rou
 - Concept depth (the *why*): [ai-ml-intuitions 1.05 Spectral Methods (PCA/SVD)](/ai-ml/ai-ml-intuitions/representation/dimensionality-and-latent-structure/pca-and-svd-intuition) · [1.11–1.12 t-SNE/UMAP](/ai-ml/ai-ml-intuitions/representation/dimensionality-and-latent-structure/tsne-and-umap-intuition)
 - Curriculum context: [Maths for AI-ML — Phase 1 (Linear Algebra, row 1.6)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
 - Prereqs: [04 Eigenvalues](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/eigenvalues-and-eigenvectors/eigenvalues-and-eigenvectors) · [06 SVD](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/singular-value-decomposition/singular-value-decomposition)
-- Applied: nonlinear dimensionality reduction (t-SNE/UMAP) → [Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)
+- Applied: nonlinear dimensionality reduction (t-SNE/UMAP) → [Unsupervised Learning](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/readme)
 </content>

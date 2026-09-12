@@ -62,4 +62,4 @@ SWE-bench scores are the field's headline metric.
 ## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 8.03 Agents & Tool Use](/ai-ml/ai-ml-intuitions/reasoning-and-agency/agents-and-tools/agent-loop-and-tool-use-intuition)
 - Prev / next: [09 Agent Frameworks](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/agent-frameworks/agent-frameworks) · [11 Computer-Use & GUI Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/coding-and-computer-use-agents/computer-use-and-gui-agents) · [12 Agent Evaluation & Benchmarks](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/agent-evaluation/agent-evaluation)
-- Related (canonical home): [Prompting & In-Context Learning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/prompting-and-in-context-learning/prompting-and-in-context-learning)
+- Related (canonical home): [Prompting & In-Context Learning](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/prompting-and-in-context-learning/prompting-and-in-context-learning)

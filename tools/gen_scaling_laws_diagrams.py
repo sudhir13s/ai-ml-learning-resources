@@ -1,6 +1,6 @@
 """Scaling-Laws concept-page diagrams (muted palette, parallel matplotlib scale).
 
-Four visuals for llms-applications-and-agents/large-language-model-foundations/scaling-laws/scaling-laws.md:
+Four visuals for models-and-architectures/large-language-models/scaling-laws/scaling-laws.md:
   1. scaling_power_law.png        -- THE POWER LAW: test loss vs compute on
      log-log axes (a straight line), MEASURED from a tiny scaling experiment
      (small models of increasing size trained on a fixed corpus) plus the
@@ -23,7 +23,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-OUT = os.path.join(os.path.dirname(__file__), "..", "llms-applications-and-agents/large-language-model-foundations/scaling-laws", "images")
+OUT = os.path.join(os.path.dirname(__file__), "..", "models-and-architectures/large-language-models/scaling-laws", "images")
 OUT = os.path.abspath(OUT)
 os.makedirs(OUT, exist_ok=True)
 

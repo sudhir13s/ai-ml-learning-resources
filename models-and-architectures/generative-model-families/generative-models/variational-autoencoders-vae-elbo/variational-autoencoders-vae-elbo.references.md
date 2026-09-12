@@ -1,0 +1,67 @@
+---
+id: "10-generative-ai/vae/references"
+topic: "Variational Autoencoders (VAE · ELBO) — References"
+parent: "10-generative-ai/vae"
+type: references
+updated: 2026-09-07
+---
+
+# Variational Autoencoders (VAE · ELBO) — references and further reading
+
+> Companion link library for **[Variational Autoencoders (VAE · ELBO)](/ai-ml/ai-ml-learning-resources/models-and-architectures/generative-model-families/generative-models/variational-autoencoders-vae-elbo/variational-autoencoders-vae-elbo)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is free / open (no paywall) and from a primary author or a recognized deep explainer — chosen for depth on *VAEs specifically* (the ELBO, the reparameterization trick, the closed-form Gaussian KL, and the β-VAE / posterior-collapse story), not popularity.
+
+**Start here — suggested path**:
+1. **Build intuition** — watch ⭐ [Variational Autoencoders](https://www.youtube.com/watch?v=9zKuYvjFFS8) by **Arxiv Insights (Xander Steenbrugge)**. *The clearest first picture: a continuous, sampleable latent space instead of a fixed code, and why that lets you generate.*
+2. **See why it works** — read [From Autoencoder to Beta-VAE](https://lilianweng.github.io/posts/2018-08-12-vae/) by **Lilian Weng (OpenAI)**. *Walks the ELBO, the reparameterization trick, the closed-form KL, and β-VAE carefully — the canonical open write-up.*
+3. **Get the math** — read [Tutorial on Variational Autoencoders](https://arxiv.org/abs/1606.05908) by **Doersch (2016)**. *The most readable end-to-end ELBO derivation and the variational-inference framing you may be asked to reproduce.*
+4. **Read the source** — [Auto-Encoding Variational Bayes](https://arxiv.org/abs/1312.6114) by **Kingma & Welling (2013)**. *The paper that introduced the VAE and the reparameterized ELBO estimator.*
+5. **Make it concrete** — run this chapter's [notebook](code/variational-autoencoders-vae-elbo.ipynb): a from-scratch VAE trained on real MNIST, with the closed-form Gaussian KL asserted equal to a Monte-Carlo estimate of KL(q‖p), the reparameterization trick's gradient flow proven, and real reconstructions, prior samples, and a 2-D latent manifold.
+
+**Videos**:
+- [Variational Autoencoders](https://www.youtube.com/watch?v=9zKuYvjFFS8) — **Arxiv Insights (Xander Steenbrugge)** — the best gentle first watch: latent space, sampling, and why a VAE is generative where an autoencoder is not.
+- [MIT 6.S191: Deep Generative Modeling](https://www.youtube.com/watch?v=3G5hWM6jqPk) — **Alexander Amini (MIT)** — the lecture treatment: ELBO, the KL term, the reparameterization trick, then GANs, from the free MIT intro-to-deep-learning course.
+- [Variational Autoencoders | Generative AI Animated](https://www.youtube.com/watch?v=qJeaCHQ1k2w) — **Deepia** — a clean animated derivation of the ELBO and the reparameterization trick, 3Blue1Brown-style.
+- [From LV-EBM to (vanilla, denoising, contractive, variational) autoencoder (NYU DL 08)](https://www.youtube.com/watch?v=PpcN-F7ovK0) — **Alfredo Canziani (NYU)** — derives the VAE as one point in a family of energy-shaping methods, which is the framing that makes the KL term feel inevitable rather than bolted on.
+- [AE, DAE and VAE with PyTorch (NYU DL 09)](https://www.youtube.com/watch?v=bZF4N8HR1cc) — **Alfredo Canziani (NYU)** — the same derivation carried straight into runnable PyTorch, the implementer's view of everything on this page.
+
+**Courses (free)**:
+- [MIT 6.S191 — Intro to Deep Learning](https://introtodeeplearning.com/) — **MIT (Alexander Amini)** — the "Deep Generative Modeling" lecture covers VAEs end to end (ELBO, reparameterization, β), slides + video free.
+- [Stanford CS231n — Generative Models](https://cs231n.github.io/) — **Stanford** — the generative-models module places VAEs alongside GANs and autoregressive models, with the latent-variable framing.
+- [Stanford CS236 — Deep Generative Models](https://deepgenerativemodels.github.io/) — **Stanford (Stefano Ermon)** — free notes; the latent-variable-models lectures derive the ELBO and amortized inference from the probabilistic-modeling side, then place the VAE among flows, autoregressive models, and diffusion.
+- [MIT 6.S184 — Flow Matching and Diffusion Models (2026)](https://www.youtube.com/playlist?list=PL57nT7tSGAAXwjhDYcxEycx5W7YoSrZyt) — **Peter Holderrieth (MIT)** — the current course; Lecture 04 covers latent spaces, which is where the VAE now earns its keep (as the encoder inside latent diffusion).
+- [Hugging Face Diffusion / Generative course material](https://huggingface.co/learn) — **Hugging Face** — hands-on units that use the VAE as the latent-space autoencoder inside latent diffusion (the VAE's role in Stable Diffusion).
+
+**Articles / blogs (free, no paywall)**:
+- [From Autoencoder to Beta-VAE](https://lilianweng.github.io/posts/2018-08-12-vae/) — **Lilian Weng (OpenAI)** — the definitive open survey: the ELBO, the reparameterization trick, the closed-form KL, β-VAE, and VQ-VAE, derived cleanly.
+- [What is a Variational Autoencoder?](https://jaan.io/what-is-variational-autoencoder-vae-tutorial/) — **Jaan Altosaar** — the deep-learning view and the probabilistic-model view placed side by side; excellent for the "why a lower bound?" question.
+- [Variational Autoencoders (with code)](https://avandekleut.github.io/vae/) — **Alexander Van de Kleut** — a minimal, runnable PyTorch VAE with the ELBO loss explained term by term.
+- [Reparameterization trick](https://gregorygundersen.com/blog/2018/04/29/reparameterization/) — **Gregory Gundersen** — a focused, careful explanation of the single idea that makes the encoder trainable.
+
+**Key papers** (the source and the extensions):
+- [Auto-Encoding Variational Bayes](https://arxiv.org/abs/1312.6114) — **Kingma & Welling (2013/2014), ICLR** — the original VAE: amortized variational inference + the reparameterized ELBO estimator. The source for everything on this page.
+- [Stochastic Backpropagation and Approximate Inference in Deep Generative Models](https://arxiv.org/abs/1401.4082) — **Rezende, Mohamed & Wierstra (2014), ICML** — the equivalent stochastic-backpropagation formulation of the reparameterized gradient, developed independently and concurrently.
+- [Tutorial on Variational Autoencoders](https://arxiv.org/abs/1606.05908) — **Doersch (2016)** — the most readable long-form VAE derivation; treat it as the extended explanation of the math here.
+- [β-VAE: Learning Basic Visual Concepts with a Constrained Variational Framework](https://openreview.net/forum?id=Sy2fzU9gl) — **Higgins et al. (2017), ICLR** — the KL-weighting knob (β) and the disentanglement it buys, the trade-off measured in this chapter.
+- [An Introduction to Variational Autoencoders](https://arxiv.org/abs/1906.02691) — **Kingma & Welling (2019)** — the authors' own book-length modern treatment (free on arXiv), covering the ELBO, reparameterization, and extensions.
+- [Neural Discrete Representation Learning (VQ-VAE)](https://arxiv.org/abs/1711.00937) — **van den Oord, Vinyals & Kavukcuoglu (2017)** — swaps the Gaussian latent for a learned codebook; the ancestor of every image and audio *tokenizer*.
+- [Taming Transformers for High-Resolution Image Synthesis (VQGAN)](https://arxiv.org/abs/2012.09841) — **Esser, Rombach & Ommer (2021)** — adds adversarial and perceptual losses to the VQ autoencoder, which is what made discrete latents look sharp.
+- [Finite Scalar Quantization: VQ-VAE Made Simple (FSQ)](https://arxiv.org/abs/2309.15505) — **Mentzer et al. (2023)** — replaces the codebook and its auxiliary losses with per-dimension rounding; the 2025–26 default when a generator needs discrete tokens.
+- [High-Resolution Image Synthesis with Latent Diffusion Models](https://arxiv.org/abs/2112.10752) — **Rombach et al. (2022)** — the paper that made the VAE's real 2026 job explicit: a frozen perceptual compressor that diffusion (and flow-matching) models run inside.
+
+**Books (free chapters)**:
+- [Deep Learning — §20.10.3 "Variational Autoencoders"](https://www.deeplearningbook.org/contents/generative_models.html) — **Goodfellow, Bengio & Courville** — VAEs within the deep generative-models chapter, free online.
+- [Probabilistic Machine Learning: Advanced Topics — VAE chapter](https://probml.github.io/pml-book/book2.html) — **Kevin Murphy** — the modern, rigorous treatment of the ELBO, amortized inference, and VAEs (free PDF).
+- [Mathematics for Machine Learning — Ch. 8–9 (latent-variable models, density estimation)](https://mml-book.github.io/) — **Deisenroth, Faisal & Ong** — the variational-inference and MLE background under the ELBO, free online.
+
+**In this platform**:
+- Concept page (full explanation): [Variational Autoencoders (VAE · ELBO)](/ai-ml/ai-ml-learning-resources/models-and-architectures/generative-model-families/generative-models/variational-autoencoders-vae-elbo/variational-autoencoders-vae-elbo)
+- Runnable code: [the module `vae.py`](code/vae.py) · [the step-by-step notebook](code/variational-autoencoders-vae-elbo.ipynb) — a from-scratch VAE trained on real MNIST, with the closed-form Gaussian KL asserted equal to a Monte-Carlo estimate of KL(q‖p), the reparameterization trick's gradient flow proven (a raw `.sample()` carries no gradient), and real reconstructions, prior samples, a 2-D latent manifold, an interpolation, and the β trade-off; every number computed, none fabricated.
+- The deterministic precursor: [05 Deep Learning · 19 Autoencoders](/ai-ml/ai-ml-learning-resources/models-and-architectures/classic-architectures/autoencoders/autoencoders) — compresses and reconstructs, but its latent space is a bag of holes; the VAE adds the probabilistic, sampleable latent.
+- The same ELBO, fit by EM: [04 Unsupervised Learning · 04 Gaussian Mixture Models & EM](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/clustering/gaussian-mixture-models-and-em/gaussian-mixture-models-and-em) — the ELBO / KL-gap identity this page reuses; EM climbs it by a per-datapoint E-step, a VAE by an *amortized* encoder network.
+- The closed-form KL: [01 Foundations · 23 Cross-Entropy and KL Divergence](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/cross-entropy-and-kl-divergence/cross-entropy-and-kl-divergence) — where the two-Gaussian KL (the VAE regulariser) is derived; the VAE specializes it to a unit-Gaussian prior.
+- The gradient engine: [05 Deep Learning · 02 Backpropagation and Computational Graphs](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs) — the reparameterization trick exists so that ordinary backprop can reach the encoder's μ and log σ².
+- The variance contrast: [08 Reinforcement Learning · 09 Policy Gradients (REINFORCE)](/ai-ml/ai-ml-learning-resources/reinforcement-learning/policy-learning/policy-gradients-reinforce/policy-gradients-reinforce) — the *score-function* estimator, the high-variance alternative you must use when you *cannot* reparameterize; the VAE's pathwise estimator is the low-variance counterpart.
+- The family contrast: [02 GANs and DCGAN](/ai-ml/ai-ml-learning-resources/models-and-architectures/generative-model-families/generative-models/gans-and-dcgan/gans-and-dcgan) — adversarial, sharp, unstable, no likelihood; the VAE is likelihood-based, stable, and blurry.
+- Where it goes next: [05 Diffusion Models (DDPM)](/ai-ml/ai-ml-learning-resources/models-and-architectures/generative-model-families/diffusion-models/diffusion-models-ddpm/diffusion-models-ddpm) — a many-step hierarchical VAE trained by a per-step ELBO; the VAE is its one-step conceptual seed.
+- Where the VAE lives in the real world: [07 Latent Diffusion / Stable Diffusion](/ai-ml/ai-ml-learning-resources/models-and-architectures/generative-model-families/diffusion-models/latent-diffusion-stable-diffusion/latent-diffusion-stable-diffusion) — diffusion runs in the compact latent space of a pretrained VAE; encode → diffuse → decode.
+- Field overview: [10 Generative AI](/ai-ml/ai-ml-learning-resources/models-and-architectures/generative-model-families/generative-models/readme)

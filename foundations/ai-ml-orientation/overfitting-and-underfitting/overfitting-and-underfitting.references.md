@@ -60,5 +60,5 @@ updated: 2026-09-07
 - The classification loss used across the repo, derived: [23 Cross-Entropy and KL Divergence](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/cross-entropy-and-kl-divergence/cross-entropy-and-kl-divergence)
 - The theory of the training loop (convergence, SGD, why the loss falls): [13 Gradient Descent Theory](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/gradient-descent-theory/gradient-descent-theory)
 - Put it all together on a real dataset with a train/validation split: [12 Your First ML Project](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/your-first-ml-project/your-first-ml-project)
-- Go deeper — ridge, lasso, and regularization in linear models: [03. Supervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/readme)
+- Go deeper — ridge, lasso, and regularization in linear models: [03. Supervised Learning](/ai-ml/ai-ml-learning-resources/classical-machine-learning/supervised-learning/readme)
 - Go deeper — dropout, weight decay, early stopping, augmentation: [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

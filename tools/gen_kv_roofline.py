@@ -1,4 +1,4 @@
-"""Roofline figure for llms-applications-and-agents/inference-and-runtime/kv-cache/kv-cache.md (muted palette).
+"""Roofline figure for inference-and-serving/kv-cache/kv-cache.md (muted palette).
 
 One visual:
   kv_roofline.png -- WHY DECODE IS MEMORY-BOUND: log-log roofline (arithmetic
@@ -12,7 +12,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-OUT = os.path.join(os.path.dirname(__file__), "..", "llms-applications-and-agents/inference-and-runtime/kv-cache", "images")
+OUT = os.path.join(os.path.dirname(__file__), "..", "inference-and-serving/kv-cache", "images")
 OUT = os.path.abspath(OUT)
 os.makedirs(OUT, exist_ok=True)
 

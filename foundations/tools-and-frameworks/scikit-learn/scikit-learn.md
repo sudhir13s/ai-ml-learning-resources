@@ -58,6 +58,6 @@ also where you internalize the *workflow* of supervised learning.
 - [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/) — **Jake VanderPlas** — entire book free; Ch. 5 is a thorough scikit-learn treatment.
 
 ## In this platform
-- Related domain: [03. Supervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/readme) · [04. Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)
+- Related domain: [03. Supervised Learning](/ai-ml/ai-ml-learning-resources/classical-machine-learning/supervised-learning/readme) · [04. Unsupervised Learning](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/readme)
 - Pairs with: [02 Pandas](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/pandas/pandas) · [12 Weights & Biases](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/weights-and-biases/weights-and-biases)
-- Deeper concept (the *why*): model selection & metrics → [Deployment & MLOps](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/readme)
+- Deeper concept (the *why*): model selection & metrics → [Deployment & MLOps](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/readme)

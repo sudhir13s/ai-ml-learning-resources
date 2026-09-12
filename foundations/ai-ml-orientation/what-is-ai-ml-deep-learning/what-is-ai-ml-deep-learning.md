@@ -59,6 +59,6 @@ knowing *why* we switched from rules to learning from data — is the foundation
 
 ## In this platform
 - Next concepts: [02 Types of Machine Learning](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/types-of-machine-learning/types-of-machine-learning) · [03 The ML Workflow & Lifecycle](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/the-ml-workflow-and-lifecycle/the-ml-workflow-and-lifecycle)
-- Go deeper on the algorithms: [03. Supervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/supervised-learning/readme) · [04. Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)
+- Go deeper on the algorithms: [03. Supervised Learning](/ai-ml/ai-ml-learning-resources/classical-machine-learning/supervised-learning/readme) · [04. Unsupervised Learning](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/readme)
 - Go deeper on deep learning: [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
 - How the field got here — the four paradigms and how they recombine: [AI Paradigms and Knowledge](/ai-ml/ai-ml-learning-resources/foundations/ai-paradigms-and-knowledge/readme)

@@ -57,5 +57,5 @@ brevity vs Plotly's interactivity — and the figure/axes mental model — is a 
 - [Scientific Visualization: Python + Matplotlib](https://github.com/rougier/scientific-visualization-book) — **Nicolas P. Rougier** — a free, open-licensed book on figure design and Matplotlib internals; the step beyond "which function draws this".
 
 ## In this platform
-- Related domain: [Data Preparation](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/readme) · [Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)
+- Related domain: [Data Preparation](/ai-ml/ai-ml-learning-resources/data-and-representation/data-preparation/readme) · [Unsupervised Learning](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/readme)
 - Pairs with: [02 Pandas](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/pandas/pandas) · [11 Jupyter & Colab](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/jupyter-and-colab/jupyter-and-colab)

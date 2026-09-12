@@ -64,5 +64,5 @@ scaling. Understanding it sharpens your grasp of autodiff and compilation in gen
 - [UvA DL Notebooks — JAX track](https://uvadlc-notebooks.readthedocs.io/en/latest/tutorial_notebooks/JAX/tutorial2/Introduction_to_JAX.html) — **University of Amsterdam** — free, chapter-like notebooks.
 
 ## In this platform
-- Related domain: [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme) · [Advanced Mathematics for AI Research](/ai-ml/ai-ml-learning-resources/specialized-studies/advanced-mathematics-for-ai-research/readme)
+- Related domain: [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme) · [Advanced Mathematics for AI Research](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/readme)
 - Compare with: [05 PyTorch](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/pytorch/pytorch) · [06 TensorFlow & Keras](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/tensorflow-and-keras/tensorflow-and-keras)

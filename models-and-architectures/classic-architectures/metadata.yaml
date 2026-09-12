@@ -1,0 +1,12 @@
+# Reading order for this category. `page-order:` is the ONE ordering key
+# estate-wide (structure-authoring-contract Rule 4); entries are relative
+# and extension-less. README.md is repo-facing and deliberately absent.
+page-order:
+  - cnns-and-convolution/cnns-and-convolution
+  - rnn-lstm-gru/rnn-lstm-gru
+  - autoencoders/autoencoders
+  - sequence-models-recurrent-convolutional-transformer/sequence-models-recurrent-convolutional-transformer
+  - state-space-models-foundations/state-space-models-foundations
+  - structured-state-space-models-s4/structured-state-space-models-s4
+  - selective-state-space-models-mamba/selective-state-space-models-mamba
+  - linear-and-hybrid-attention-architectures/linear-and-hybrid-attention-architectures

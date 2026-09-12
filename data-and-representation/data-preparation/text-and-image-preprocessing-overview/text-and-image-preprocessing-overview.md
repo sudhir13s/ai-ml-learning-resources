@@ -1,0 +1,62 @@
+---
+id: "02-data-preprocessing/text-image-overview"
+topic: "Text & Image Preprocessing (overview)"
+parent: "02-data-preprocessing"
+level: beginner
+built_from: ["python", "numpy"]
+interview_frequency: medium
+updated: 2026-09-07
+tier: core
+est_minutes: 10
+title: "Text & Image Preprocessing (overview)"
+minutes: 10
+category: data-preparation
+---
+
+# Text & Image Preprocessing — Overview
+> A map of how raw text and pixels become model-ready tensors — cleaning/tokenizing text and
+> resizing/normalizing/augmenting images — with pointers to the NLP and Computer Vision domains for depth.
+
+**Why it matters:** unstructured data needs domain-specific preprocessing before any tabular trick applies.
+For text: cleaning, tokenization, and (for classical models) stemming/lemmatization. For images: decode →
+resize → scale to [0,1] or normalize by channel mean/std → augment. Interviewers expect you to know **why
+you normalize images with dataset (or ImageNet) mean/std**, why augmentation only goes on the training set,
+and how tokenization choices (word vs subword/BPE) affect everything downstream.
+
+**Start here — suggested path:**
+
+1. **Text basics** — read [Speech and Language Processing, Ch. 2](https://web.stanford.edu/~jurafsky/slp3/2.pdf) — **Jurafsky & Martin**. *Regular expressions, normalization, stemming and edit distance: the classical cleaning pipeline, stated precisely.*
+2. **Modern tokenization** — watch [Let's build the GPT Tokenizer](https://www.youtube.com/watch?v=zduSFxRajkE) — **Andrej Karpathy**. *The subword tokenization behind today's models, built from bytes upward.*
+3. **Image basics** — read [CS231n: Setting up the data](https://cs231n.github.io/neural-networks-2/) — **Stanford**. *Mean subtraction, per-channel normalization, and why whitening is usually skipped in practice.*
+4. **Augmentation** — watch [PyTorch Data Augmentation (torchvision)](https://www.youtube.com/watch?v=Zvd276j9sZ8). *Train-only transforms that expand the dataset.*
+5. **Read the why** — read [CS231n: Data preprocessing](https://cs231n.github.io/neural-networks-2/). *Centering, normalization, and PCA/whitening for images, rigorously.*
+
+## Courses (free)
+- [Hugging Face LLM Course — Tokenizers](https://huggingface.co/learn/llm-course/chapter6/1) — **Hugging Face** — the definitive free course chapter on modern text tokenization, updated in 2025.
+- [Kaggle Learn — Computer Vision](https://www.kaggle.com/learn/computer-vision) — **Kaggle** — hands-on image data loading, augmentation, and CNN basics.
+
+## Videos
+- [Let's build the GPT Tokenizer](https://www.youtube.com/watch?v=zduSFxRajkE) — **Andrej Karpathy** — byte-pair encoding built from scratch; the definitive account of what modern text preprocessing actually is, including the Unicode and whitespace traps.
+- [Byte Pair Encoding](https://www.youtube.com/watch?v=tOMjTCO0htA) — **From Languages to Information (Dan Jurafsky, Stanford)** — the short lecture version of the same algorithm.
+- [Hugging Face Course (full playlist)](https://www.youtube.com/playlist?list=PLo2EIpI_JMQvWfQndUesu0nPBAtZ9gP1o) — **Hugging Face** — the tokenizers chapter: normalization, pre-tokenization, model and post-processing, from the maintainers.
+- [PyTorch Data Augmentation using Torchvision](https://www.youtube.com/watch?v=Zvd276j9sZ8) — **Aladdin Persson** — train-time image augmentation transforms in practice.
+
+## Key Papers
+- [ImageNet Classification with Deep CNNs (AlexNet)](https://papers.nips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf) — **Krizhevsky, Sutskever & Hinton (2012)** — §4 popularized image augmentation + per-channel normalization.
+- [Speech and Language Processing (3rd ed.) — **Ch. 2 "Regular Expressions, Text Normalization, Edit Distance"**](https://web.stanford.edu/~jurafsky/slp3/2.pdf) — **Jurafsky & Martin** — the reference treatment of text normalization (PDF chapter).
+
+## Articles / Blogs (free, no paywall)
+- [CS231n — Setting up the data (preprocessing)](https://cs231n.github.io/neural-networks-2/) — **Stanford** — image mean-subtraction, normalization, and PCA/whitening, clearly.
+- [torchvision.transforms](https://pytorch.org/vision/stable/transforms.html) — **PyTorch docs** — the standard image preprocessing/augmentation API.
+- [NLTK Book — Ch. 3 "Processing Raw Text"](https://www.nltk.org/book/ch03.html) — **Bird, Klein & Loper** — tokenization, normalization, stemming, free online.
+
+## Books (free, with chapters)
+- [Dive into Deep Learning — **Ch. 14.1 "Image Augmentation"**](https://d2l.ai/chapter_computer-vision/image-augmentation.html) — **Zhang et al.** — runnable image preprocessing/augmentation; free.
+- [Speech and Language Processing (3rd ed.) — **Ch. 2 (text normalization)**](https://web.stanford.edu/~jurafsky/slp3/2.pdf) — **Jurafsky & Martin** — the canonical text-preprocessing chapter.
+
+## In this platform
+- Full depth lives in the dedicated domains:
+  - **Text** — tokenization, normalization, subword algorithms → [06. NLP](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/readme)
+  - **Images** — augmentation and vision-specific preprocessing → [07. Computer Vision](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/readme)
+- Concept depth (the *why*): [ai-ml-intuitions 1.15 Tokenization & BPE](/ai-ml/ai-ml-intuitions/representation/discrete-representations/tokenization-and-bpe-intuition) · [1.17 BoW & TF-IDF](/ai-ml/ai-ml-intuitions/representation/discrete-representations/bag-of-words-and-tf-idf-intuition)
+- Next concepts: [06 Feature Engineering](/ai-ml/ai-ml-learning-resources/data-and-representation/data-preparation/feature-engineering/feature-engineering) · [13 Data Pipelines](/ai-ml/ai-ml-learning-resources/data-and-representation/data-preparation/data-pipelines/data-pipelines)

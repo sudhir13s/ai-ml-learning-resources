@@ -1,0 +1,74 @@
+---
+id: "10-generative-ai/normalizing-flows"
+topic: "Normalizing Flows"
+parent: "10-generative-ai"
+level: advanced
+built_from: ["change-of-variables", "jacobian", "maximum-likelihood", "neural-networks"]
+interview_frequency: medium
+updated: 2026-09-07
+tier: core
+est_minutes: 10
+title: "Normalizing Flows"
+minutes: 10
+category: generative-models
+---
+
+# Normalizing Flows — RealNVP · Glow
+> Build a flexible distribution by pushing a simple base (e.g. `N(0,I)`) through a chain of
+> **invertible, differentiable** transformations. The **change-of-variables** formula gives the exact
+> density: `log p(x) = log p(z) + log|det J|`. The trick is designing layers whose Jacobian
+> determinant is cheap — **coupling layers** (RealNVP) give a triangular Jacobian; **Glow** adds
+> invertible 1×1 convolutions. Unlike VAEs and GANs, flows give **exact likelihoods** and **exact
+> inversion**.
+
+**Why it matters:** the clean "exact-likelihood generative model" and the home of the
+change-of-variables question. Interviews probe: why invertibility + a tractable Jacobian determinant
+are *both* required, how **affine coupling** splits dimensions so half pass through unchanged (making
+the Jacobian triangular and the determinant a product of diagonal terms), why flows preserve
+dimensionality (no bottleneck), and the trade-offs vs VAEs/GANs (exact likelihood and invertibility,
+but architectural constraints and high parameter cost). Flows also reappear inside diffusion as the
+probability-flow ODE.
+
+**⭐ Start here — suggested path:**
+
+1. **Build intuition** — watch [What are Normalizing Flows?](https://www.youtube.com/watch?v=i7LjDvsLWCg) — **Ari Seff**. *The clearest first picture: warp a simple density into a complex one, invertibly.*
+2. **See why it works** — read [Flow-based Deep Generative Models (Lil'Log)](https://lilianweng.github.io/posts/2018-10-13-flow-models/) — **Lilian Weng**. *Change of variables, coupling layers, RealNVP, and Glow in one place.*
+3. **Get the math** — watch [Normalizing Flows — Motivations, The Big Idea & Essential Foundations](https://www.youtube.com/watch?v=IuXU2dBOJyw) — **Kapil Sachdeva** + read [Going with the Flow](https://gebob19.github.io/normalizing-flows/) — **Brennan Gebotys**. *The Jacobian-determinant trick worked through carefully.*
+4. **Read the sources** — [Density Estimation using Real NVP](https://arxiv.org/abs/1605.08803) — **Dinh et al. (2017)** → [Glow](https://arxiv.org/abs/1807.03039) — **Kingma & Dhariwal (2018)**. *Coupling layers, then invertible 1×1 convolutions.*
+5. **Make it concrete** — work through the [UvA DL — Normalizing Flows for image modeling](https://uvadlc-notebooks.readthedocs.io/en/latest/tutorial_notebooks/tutorial11/NF_image_modeling.html). *Coding a coupling-layer flow and computing the exact NLL cements it.*
+6. **See where this went in 2025–26** — watch [MIT 6.S184 Lecture 02 — Flow Matching](https://www.youtube.com/watch?v=PNkMKWW8Khw) — **Peter Holderrieth**, then read [Normalizing Flows are Capable Generative Models (TarFlow)](https://arxiv.org/abs/2412.06329). *Continuous-time flows trained by regression became the backbone of modern image and video generation, and discrete flows turned out to scale after all.*
+
+## Courses (free)
+- [UC Berkeley CS294-158 — Deep Unsupervised Learning (Flow Models)](https://sites.google.com/view/berkeley-cs294-158-sp20/home) — **Berkeley (Abbeel)** — free lectures + slides; the canonical flow-models lecture.
+- [Stanford CS236 — Deep Generative Models](https://deepgenerativemodels.github.io/) — **Stanford (Ermon)** — free notes; the normalizing-flows lecture with the change-of-variables derivation.
+
+## Videos
+- [What are Normalizing Flows?](https://www.youtube.com/watch?v=i7LjDvsLWCg) — **Ari Seff** — the best gentle first watch; invertible warping of a simple density.
+- [Normalizing Flows — Motivations, The Big Idea & Essential Foundations](https://www.youtube.com/watch?v=IuXU2dBOJyw) — **Kapil Sachdeva** — the change-of-variables and Jacobian-determinant math, carefully.
+- [L3 Flow Models — CS294-158 Deep Unsupervised Learning](https://www.youtube.com/watch?v=JBb5sSC0JoY) — **Pieter Abbeel (Berkeley)** — the rigorous lecture: coupling layers, RealNVP, Glow.
+- [Introduction to Normalizing Flows (ECCV 2020 Tutorial)](https://www.youtube.com/watch?v=u3vVyFVU_lI) — **Marcus Brubaker** — a thorough survey-style tutorial across flow architectures.
+- [MIT 6.S184: Flow Matching and Diffusion Models (2026)](https://www.youtube.com/playlist?list=PL57nT7tSGAAXwjhDYcxEycx5W7YoSrZyt) — **Peter Holderrieth (MIT)** — the current course that starts from continuous-time flows and derives diffusion as a special case.
+
+## Key Papers
+- [Density Estimation using Real NVP](https://arxiv.org/abs/1605.08803) — **Dinh, Sohl-Dickstein & Bengio (2017)** — affine coupling layers with a tractable triangular Jacobian.
+- [Glow: Generative Flow with Invertible 1×1 Convolutions](https://arxiv.org/abs/1807.03039) — **Kingma & Dhariwal (2018)** — invertible 1×1 convs + actnorm for high-quality image flows.
+- [Normalizing Flows for Probabilistic Modeling and Inference](https://arxiv.org/abs/1912.02762) — **Papamakarios et al. (2021)** — the definitive review unifying the flow zoo.
+- [Flow Matching for Generative Modeling](https://arxiv.org/abs/2210.02747) — **Lipman et al. (2023)** — trains a continuous flow by regressing a velocity field, removing the invertibility and Jacobian constraints entirely.
+- [Flow Matching Guide and Code](https://arxiv.org/abs/2412.06264) — **Lipman et al. (2024)** — the authors' 2024 tutorial-length treatment with reference implementations.
+- [Normalizing Flows are Capable Generative Models (TarFlow)](https://arxiv.org/abs/2412.06329) — **Zhai et al. (2024)** — transformer-based autoregressive flows reach diffusion-class sample quality; the rebuttal to "flows do not scale".
+
+## Articles / Blogs (free, no paywall)
+- [Flow-based Deep Generative Models (Lil'Log)](https://lilianweng.github.io/posts/2018-10-13-flow-models/) — **Lilian Weng** — the canonical math walkthrough: change of variables → RealNVP → Glow.
+- [Going with the Flow: An Introduction to Normalizing Flows](https://gebob19.github.io/normalizing-flows/) — **Brennan Gebotys** — derivation plus code; clear and fully open.
+- [UvA DL — Normalizing Flows for image modeling](https://uvadlc-notebooks.readthedocs.io/en/latest/tutorial_notebooks/tutorial11/NF_image_modeling.html) — **University of Amsterdam** — runnable notebook with the exact-NLL objective.
+
+## Books (free, with chapters)
+- [Probabilistic Machine Learning: Advanced Topics — **Ch. 23 "Normalizing flows"**](https://probml.github.io/pml-book/book2.html) — **Kevin Murphy** — free PDF; the rigorous, unified treatment.
+- [Understanding Deep Learning — **Ch. 16 "Normalizing flows"**](https://udlbook.github.io/udlbook/) — **Simon Prince** — free PDF; coupling layers and the Jacobian trick with clean figures.
+
+## In this platform
+- Concept depth (the *why*): [ai-ml-intuitions 5.05 Autoregressive Generation & Sampling](/ai-ml/ai-ml-intuitions/generation/autoregressive-generation/autoregressive-generation-and-sampling-controls-intuition) · [5.01 Entropy & KL Divergence](/ai-ml/ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition)
+- Compare with: [01 Variational Autoencoders](/ai-ml/ai-ml-learning-resources/models-and-architectures/generative-model-families/generative-models/variational-autoencoders-vae-elbo/variational-autoencoders-vae-elbo) (lower-bound likelihood) · [06 Score-Based & SDE Diffusion](/ai-ml/ai-ml-learning-resources/models-and-architectures/generative-model-families/diffusion-models/score-based-and-sde-diffusion/score-based-and-sde-diffusion) (the probability-flow ODE is a continuous flow)
+- Related: [10 Autoregressive Image Generation (PixelCNN)](/ai-ml/ai-ml-learning-resources/models-and-architectures/generative-model-families/generative-models/autoregressive-image-generation-pixelcnn/autoregressive-image-generation-pixelcnn) (another exact-likelihood model)
+- Where flows went next: [Flow Matching & Rectified Flow](/ai-ml/ai-ml-learning-resources/models-and-architectures/generative-model-families/diffusion-models/flow-matching-and-rectified-flow/flow-matching-and-rectified-flow) — the continuous-time flow trained by regression that powers Stable Diffusion 3 and FLUX
+- Field overview: [9. Generative AI](/ai-ml/ai-ml-learning-resources/models-and-architectures/generative-model-families/generative-models/readme)

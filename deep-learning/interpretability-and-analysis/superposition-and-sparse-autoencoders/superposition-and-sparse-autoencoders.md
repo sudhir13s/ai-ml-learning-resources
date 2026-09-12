@@ -75,6 +75,6 @@ deprioritised fundamental SAE research, and the current position is that SAEs ar
 
 ## In this platform
 
-- Prerequisites: [What Is Mechanistic Interpretability](/ai-ml/ai-ml-learning-resources/deep-learning/interpretability-and-analysis/what-is-mechanistic-interpretability/what-is-mechanistic-interpretability) · [Autoencoders](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/autoencoders/autoencoders)
+- Prerequisites: [What Is Mechanistic Interpretability](/ai-ml/ai-ml-learning-resources/deep-learning/interpretability-and-analysis/what-is-mechanistic-interpretability/what-is-mechanistic-interpretability) · [Autoencoders](/ai-ml/ai-ml-learning-resources/models-and-architectures/classic-architectures/autoencoders/autoencoders)
 - Related: [Transformer Circuits, Induction Heads and Attention Patterns](/ai-ml/ai-ml-learning-resources/deep-learning/interpretability-and-analysis/transformer-circuits-induction-heads-and-attention-patterns/transformer-circuits-induction-heads-and-attention-patterns) · [Probing, Attribution and Feature Visualization](/ai-ml/ai-ml-learning-resources/deep-learning/interpretability-and-analysis/probing-attribution-and-feature-visualization/probing-attribution-and-feature-visualization)
 - The sparsity machinery elsewhere: [Regularization](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/regularization/regularization)

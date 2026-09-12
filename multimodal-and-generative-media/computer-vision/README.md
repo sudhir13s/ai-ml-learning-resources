@@ -1,0 +1,85 @@
+---
+id: "07-computer-vision"
+topic: "Computer Vision"
+level: intermediate
+built_from: ["deep-learning", "linear-algebra"]
+updated: 2026-06-27
+---
+
+# Computer Vision
+> The mathematical and deep-learning spine of vision — images as signals, convolution and
+> frequency thinking, projective geometry and cameras, deep vision architectures (CNNs · ViTs),
+> detection & segmentation, and generative/self-supervised vision.
+
+## Concept Index
+Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its page.
+> **All pages ready.** New to vision? Start with the field overview below, then work top to bottom.
+
+### Image processing & classical features
+1. ✅ [Image Representation & Filtering (edges · HOG · SIFT)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/image-representation-and-filtering/image-representation-and-filtering)
+2. ✅ [Pooling & Receptive Fields](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/pooling-and-receptive-fields/pooling-and-receptive-fields)
+
+### Classification & backbones
+3. ✅ [Classic CNN Architectures (LeNet · AlexNet · VGG · ResNet · Inception · EfficientNet)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/classic-cnn-architectures/classic-cnn-architectures)
+4. ✅ [Image Classification](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/image-classification/image-classification)
+5. ✅ [Transfer Learning for Vision](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/transfer-learning-for-vision/transfer-learning-for-vision)
+6. ✅ [Data Augmentation](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/data-augmentation/data-augmentation)
+
+### Detection & segmentation
+7. ✅ [Object Detection (R-CNN family · YOLO · SSD)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/object-detection/object-detection)
+8. ✅ [Semantic Segmentation (FCN · U-Net · DeepLab)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/semantic-segmentation/semantic-segmentation)
+9. ✅ [Instance Segmentation (Mask R-CNN)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/instance-segmentation/instance-segmentation)
+10. ✅ [Segment Anything & Promptable Segmentation (SAM · SAM 2 · SAM 3)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/segment-anything-and-promptable-segmentation/segment-anything-and-promptable-segmentation)
+11. ✅ [Detection & Segmentation Metrics (IoU · mAP)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/detection-and-segmentation-metrics/detection-and-segmentation-metrics)
+
+### Modern & specialized vision
+12. ✅ [Vision Transformers (ViT)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/vision-transformers/vision-transformers)
+13. ✅ [Self-Supervised Vision (SimCLR · MAE · DINO)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/self-supervised-vision/self-supervised-vision)
+14. ✅ [Pose Estimation](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/pose-estimation/pose-estimation)
+15. ✅ [Optical Flow & Video Understanding](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/optical-flow-and-video/optical-flow-and-video)
+16. ✅ [Optical Character Recognition (OCR)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/ocr/ocr)
+17. ✅ [3D & Depth Estimation](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/3d-and-depth-estimation/3d-and-depth-estimation)
+
+### Related concepts (covered in another section)
+> These topics are foundational or generative and live in their canonical home to avoid repetition.
+- **CNNs & Convolution** (the operation, kernels, stride/padding math) → [Deep Learning › CNNs & Convolution](/ai-ml/ai-ml-learning-resources/models-and-architectures/classic-architectures/cnns-and-convolution/cnns-and-convolution)
+- **Residual / skip connections · Batch & Group Norm** (the motifs deep vision backbones rely on) → [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
+- **Image generation** — GANs · Diffusion · text-to-image → [GenAI](/ai-ml/ai-ml-learning-resources/models-and-architectures/generative-model-families/generative-models/readme)
+- **Contrastive / embedding math** (InfoNCE, triplet loss reused by self-supervised vision) → [NLP](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/readme) · [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
+
+## Mathematics curriculum (specialization)
+
+> Elective deep-dive track, absorbed and expanded from the retired `math-for-AIML-Q5`
+> CV specialization. Same format as the [main math curriculum](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme):
+> what to study → why → best resources → which ai-ml-intuitions pages it unlocks.
+
+**Goal:** the mathematical spine of vision — images as signals, convolution and frequency
+thinking, projective geometry and cameras, deep vision architectures, and generative vision.
+
+### Core resource backbone
+- **Stanford CS231n** — [CNNs for Visual Recognition](https://cs231n.github.io/) (the anchor course)
+- **Multiple View Geometry** (Hartley & Zisserman) — the geometric-vision bible
+- **First Principles of Computer Vision** (Shree Nayar, Columbia) — [YouTube channel](https://www.youtube.com/@firstprinciplesofcomputerv3258) — exceptional visual lectures on classical CV
+- **Szeliski** — [Computer Vision: Algorithms and Applications](https://szeliski.org/Book/) (free)
+
+### Study order & what each module unlocks
+
+| Module | Key sub-topics | Best resources | → ai-ml-intuitions |
+| :--- | :--- | :--- | :--- |
+| **V1. Images as signals** | images as functions, sampling & aliasing, noise models, color spaces | Nayar (First Principles): Image Formation playlist; Szeliski ch. 2 | [0.02 Distributions](/ai-ml/ai-ml-intuitions/foundational-mental-models/probability-and-belief/distributions-and-gaussians-intuition) (noise) |
+| **V2. Filtering & convolution** | convolution as local aggregation, edge detectors, stride/padding/pooling, **Fourier intuition**, multi-scale/wavelets | Nayar: Image Processing; 3B1B [Fourier](https://www.youtube.com/watch?v=spUNpyF58BY) + [convolution](https://www.youtube.com/watch?v=KuXjwB4LzSA) | **[4.13 Convolution](/ai-ml/ai-ml-intuitions/architectural-mechanisms/locality-and-weight-sharing/convolution-intuition)** |
+| **V3. Geometric vision** | homogeneous coordinates, projective geometry, **camera model**, homographies | Hartley & Zisserman ch. 2–4; Nayar: Imaging playlist | linear maps ([1.05](/ai-ml/ai-ml-intuitions/representation/dimensionality-and-latent-structure/pca-and-svd-intuition) intuitions) |
+| **V4. Classical features** | corners/interest points, SIFT/ORB descriptors, optical flow | Nayar: Features playlist; Szeliski ch. 7 | [1.07-1.08 distances](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/cosine-vs-euclidean-distance-intuition) (descriptor matching) |
+| **V5. Deep vision** | CNNs as feature hierarchies, classic architectures (AlexNet→ResNet), norms & residuals in vision, transfer learning | CS231n lectures 5–9 | [4.13](/ai-ml/ai-ml-intuitions/architectural-mechanisms/locality-and-weight-sharing/convolution-intuition), [4.06 Residuals](/ai-ml/ai-ml-intuitions/training-stability/gradient-health/residual-connections-intuition), [4.03 GroupNorm](/ai-ml/ai-ml-intuitions/training-stability/normalization/group-normalization-intuition), [7.03 Transfer](/ai-ml/ai-ml-intuitions/scaling-adaptation-and-efficiency/adaptation/transfer-learning-and-fine-tuning-intuition) |
+| **V6. Vision Transformers** | images as patch tokens, self-attention for vision, CNN-ViT hybrids | [ViT paper](https://arxiv.org/abs/2010.11929); CS231n ViT lecture | [4.15 Transformer Block](/ai-ml/ai-ml-intuitions/architectural-mechanisms/composition/transformer-block-intuition), [4.08 MHA](/ai-ml/ai-ml-intuitions/architectural-mechanisms/attention-and-routing/multi-head-attention-intuition) |
+| **V7. Detection & segmentation** | bounding-box geometry, IoU/mAP, semantic vs instance segmentation, structured losses | CS231n lecture 11; [Mask R-CNN](https://arxiv.org/abs/1703.06870) | [3.05/3.06 metrics](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/predictive-evaluation/roc-and-pr-curves-intuition) (mAP = AP per class) |
+| **V8. 3D & multi-view** | stereo & depth, epipolar geometry, structure-from-motion, (NeRF/Gaussian-splatting overview) | Hartley & Zisserman ch. 9–12; [NeRF](https://arxiv.org/abs/2003.08934) | — (geometry track) |
+| **V9. Generative & self-supervised vision** | autoencoders, contrastive pretraining (SimCLR/CLIP), diffusion for images | [CLIP](https://arxiv.org/abs/2103.00020); [SimCLR](https://arxiv.org/abs/2002.05709) | [1.13 Contrastive](/ai-ml/ai-ml-intuitions/representation/representation-learning/contrastive-learning-intuition), [5.02 VAEs](/ai-ml/ai-ml-intuitions/generation/latent-variable-generation/latent-variable-models-and-elbo-intuition), [5.03 Diffusion](/ai-ml/ai-ml-intuitions/generation/diffusion-and-score-models/diffusion-forward-and-reverse-process-intuition) |
+
+### Suggested first pass
+1. V2 + V5 first if you're deep-learning-bound (convolution → CNNs → ViTs is the modern spine).
+2. V1, V3, V4 for the classical foundation (essential for robotics/AR/3D roles; skippable for pure DL roles).
+3. V9 last — it reuses half of ai-ml-intuitions's Modules 1 and 5.
+
+**Completion target:** explain convolution's two priors and parameter math, walk a pinhole
+camera model, justify ViT patch tokenization, and read a diffusion-vision paper without fear.

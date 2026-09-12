@@ -60,4 +60,4 @@ pipeline, eval protocol) — and the reproducibility crisis means knowing *why* 
 ## In this platform
 - Per-concept index: [Frontier & Staying Current — concepts](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/readme)
 - Pair with: [01 How to Read ML Papers](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/how-to-read-ml-papers/how-to-read-ml-papers) · [02 arXiv and Paper Discovery](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/arxiv-and-paper-discovery/arxiv-and-paper-discovery) · [06 Benchmarks & Leaderboards](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/benchmarks-and-leaderboards-to-watch/benchmarks-and-leaderboards-to-watch)
-- Frameworks for running the code: [Tools and Frameworks](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/readme) · [Deployment and MLOps](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/readme)
+- Frameworks for running the code: [Tools and Frameworks](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/readme) · [Operations and Lifecycle](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/readme)

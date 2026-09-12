@@ -56,8 +56,8 @@ than re-deriving the math.
 > These build *on* the math above but live where they're applied, to avoid repetition.
 - **Applied optimizers** — Momentum · Adam · AdamW · learning-rate schedules → [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
 - **Regularization in practice** — L1/L2 weight decay · dropout → [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
-- **Dimensionality reduction for visualization** — t-SNE · UMAP → [Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)
-- **Clustering & EM** — k-means · Gaussian Mixture Models → [Unsupervised Learning](/ai-ml/ai-ml-learning-resources/core-machine-learning/unsupervised-learning/readme)
+- **Dimensionality reduction for visualization** — t-SNE · UMAP → [Unsupervised Learning](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/readme)
+- **Clustering & EM** — k-means · Gaussian Mixture Models → [Unsupervised Learning](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/readme)
 
 ## Courses (free)
 - [MIT 18.06 Linear Algebra](https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/) — **Gilbert Strang (MIT OCW)** — the legendary linear-algebra course.

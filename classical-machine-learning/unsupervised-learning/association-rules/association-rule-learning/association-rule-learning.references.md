@@ -1,0 +1,48 @@
+---
+id: "04-unsupervised-learning/association-rule-learning/references"
+topic: "Association Rule Learning — References"
+parent: "04-unsupervised-learning/association-rule-learning"
+type: references
+updated: 2026-09-07
+---
+
+# Association Rule Learning — references and further reading
+
+> Companion link library for **[Association Rule Learning](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/association-rules/association-rule-learning/association-rule-learning)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author (Agrawal, Han, Zaki), the canonical free textbook (MMDS, ESL), or a recognized deep maintainer (Raschka's mlxtend, Hahsler's arules) — chosen for depth on *this* topic, not popularity.
+
+**Start here — suggested path**:
+1. **Build intuition** — read [CS246 Lecture 2 slides, "Association Rules"](https://web.stanford.edu/class/cs246/slides/02-assocrules.pdf) (**Jure Leskovec, Stanford**). *Support / confidence / lift and the candidate-generation loop on a small basket example, from the course that owns this topic.*
+2. **See the pruning** — read [MMDS §6.2 "A-Priori Algorithm"](http://infolab.stanford.edu/~ullman/mmds/ch6.pdf) (**Leskovec, Rajaraman & Ullman**). *Why "every subset of a frequent set is frequent" lets you discard most candidates, worked pass by pass — including the memory argument that motivates it.*
+3. **Get the math** — read [MMDS Ch. 6 "Frequent Itemsets"](http://infolab.stanford.edu/~ullman/mmds/ch6.pdf) (**Leskovec, Rajaraman & Ullman**). *The formal support / confidence / lift definitions and the A-priori principle at scale.*
+4. **Read the sources** — [Apriori (Agrawal & Srikant, 1994)](https://www.macs.hw.ac.uk/~dwcorne/Teaching/agrawal94fast.pdf) → [FP-Growth (Han, Pei & Yin, 2000)](https://link.springer.com/article/10.1023/B:DAMI.0000005258.31418.83). *The candidate-generation algorithm, then the prefix-tree method that avoids it.*
+5. **Make it concrete** — code it with [mlxtend's Apriori & association rules](https://rasbt.github.io/mlxtend/user_guide/frequent_patterns/apriori/) (**Sebastian Raschka**). *Mining real baskets and ranking rules by lift cements it.*
+
+**Courses (free)**:
+- [Mining of Massive Datasets — Frequent Itemsets](http://www.mmds.org/) — **Leskovec, Rajaraman & Ullman (Stanford)** — free course + book; the definitive treatment of Apriori, support / confidence / lift, and scaling to huge baskets.
+- [CS246 — Association Rules (lecture slides)](https://web.stanford.edu/class/cs246/slides/02-assocrules.pdf) — **Jure Leskovec (Stanford)** — the current course slides: the market-basket model, the A-priori principle, and the PCY / multistage refinements, with the memory analysis that explains why each exists.
+- [mlxtend — Frequent patterns user guide](https://rasbt.github.io/mlxtend/user_guide/frequent_patterns/apriori/) — **Sebastian Raschka** — the practical Python reference with runnable Apriori, FP-Growth, and rule generation.
+
+**Articles / blogs (free, no paywall)**:
+- [Frequent Itemsets via Apriori (mlxtend docs)](https://rasbt.github.io/mlxtend/user_guide/frequent_patterns/apriori/) — **Sebastian Raschka** — copy-paste recipe with support / confidence / lift on real baskets.
+- [Association rules (mlxtend docs)](https://rasbt.github.io/mlxtend/user_guide/frequent_patterns/association_rules/) — **Sebastian Raschka** — generating and ranking rules, with every metric (lift, leverage, conviction) defined.
+- [FP-Growth (mlxtend docs)](https://rasbt.github.io/mlxtend/user_guide/frequent_patterns/fpgrowth/) — **Sebastian Raschka** — the drop-in faster alternative to Apriori, same API, identical itemsets.
+- [A Probabilistic Comparison of Interestingness Measures](https://mhahsler.github.io/arules/docs/measures) — **Michael Hahsler** — the canonical catalog of support, confidence, lift, leverage, conviction, and dozens more, each derived.
+- [arules: Mining Association Rules in R](https://mhahsler.github.io/arules/) — **Michael Hahsler** — the reference implementation and documentation maintained by a domain authority.
+- [Frequent Itemsets — MMDS Ch. 6 (PDF)](http://infolab.stanford.edu/~ullman/mmds/ch6.pdf) — **Leskovec, Rajaraman & Ullman** — the clearest free written treatment of the algorithms and metrics.
+
+**Papers**:
+- [Mining Association Rules between Sets of Items in Large Databases](https://courses.cs.washington.edu/courses/cse544/11wi/papers/agrawal-sigmod-1993.pdf) — **Agrawal, Imieliński & Swami (SIGMOD 1993)** — the paper that introduced association rules, support, and confidence.
+- [Fast Algorithms for Mining Association Rules (Apriori)](https://www.macs.hw.ac.uk/~dwcorne/Teaching/agrawal94fast.pdf) — **Agrawal & Srikant (VLDB 1994)** — the A-priori principle and the candidate-generation algorithm.
+- [Mining Frequent Patterns without Candidate Generation (FP-Growth)](https://link.springer.com/article/10.1023/B:DAMI.0000005258.31418.83) — **Han, Pei & Yin (DMKD 2000/2004)** — the FP-tree and pattern-growth method that avoids Apriori's expensive scans. ([SIGMOD 2000 conference PDF](https://www.cs.sfu.ca/~jpei/publications/sigmod00.pdf).)
+- [Scalable Algorithms for Association Mining (Eclat)](https://www.cs.rpi.edu/~zaki/PaperDir/TKDE00.pdf) — **Zaki (IEEE TKDE 2000)** — the vertical tid-list / tidset-intersection approach.
+
+**Books (free chapters)**:
+- [Mining of Massive Datasets — **Ch. 6 "Frequent Itemsets"**](http://infolab.stanford.edu/~ullman/mmds/ch6.pdf) — **Leskovec, Rajaraman & Ullman (Stanford)** — free PDF; Apriori, the A-priori principle, and scaling to huge baskets.
+- [The Elements of Statistical Learning — **§14.2 "Association Rules"**](https://hastie.su.domains/ElemStatLearn/) — **Hastie, Tibshirani & Friedman** — free PDF; the statistical view of support, confidence, and the Apriori algorithm.
+
+**In this platform**:
+- Concept page (full explanation): [Association Rule Learning](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/association-rules/association-rule-learning/association-rule-learning)
+- Concept depth (probability foundations): [ai-ml-intuitions 0.01 Probability & Bayes' Theorem](/ai-ml/ai-ml-intuitions/foundational-mental-models/probability-and-belief/probability-and-bayes-intuition) — confidence and lift are conditional-probability quantities.
+- Compare with: [01 K-Means Clustering](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/clustering/k-means-clustering/k-means-clustering) · [02 Hierarchical Clustering](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/clustering/hierarchical-clustering/hierarchical-clustering) — the other classic "unsupervised structure discovery" techniques.
+- Prereq math: [Vectors and Vector Spaces](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/vectors-and-vector-spaces/vectors-and-vector-spaces) and [Matrices and Matrix Operations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/matrices-and-matrix-operations/matrices-and-matrix-operations)
+- Field overview: [4. Unsupervised Learning](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/readme)
