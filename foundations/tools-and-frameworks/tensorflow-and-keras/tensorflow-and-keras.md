@@ -64,6 +64,6 @@ for the modelling API, TensorFlow for the serving and edge story you will inheri
 - [Deep Learning with Python — notebooks](https://github.com/fchollet/deep-learning-with-python-notebooks) — **François Chollet** — every code listing from the book, free and runnable; the book itself is a paid pointer, the notebooks are not.
 
 ## In this platform
-- Related domain: [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme) · [07. Computer Vision](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/readme)
+- Related domain: [05. Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme) · [07. Computer Vision](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/readme)
 - Compare with: [05 PyTorch](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/pytorch/pytorch) · [07 JAX (+ Flax)](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/jax-and-flax/jax-and-flax)
-- Deeper concept (the *why*): serving & deployment → [Deployment & MLOps](/ai-ml/ai-ml-learning-resources/deployment-and-mlops/readme)
+- Deeper concept (the *why*): serving & deployment → [Deployment & MLOps](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/readme)

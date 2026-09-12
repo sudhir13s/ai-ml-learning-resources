@@ -30,8 +30,8 @@ articles, and books on that paradigm. Read them in order — each one is a react
 ### Related concepts (canonical home is another section)
 > These pages own the *depth*; this sub-area owns the *orientation*. Follow a link when a paradigm
 > stops being background and becomes your actual problem.
-- **The symbolic machinery** — knowledge representation, logic, inference, knowledge graphs → [Neuro-Symbolic and Structured Intelligence](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/readme)
-- **Generalization theory** — probably approximately correct (PAC) learning, VC dimension, bounds → [Advanced Mathematics for AI Research](/ai-ml/ai-ml-learning-resources/specialized-studies/advanced-mathematics-for-ai-research/readme)
+- **The symbolic machinery** — knowledge representation, logic, inference, knowledge graphs → [Neuro-Symbolic and Structured Intelligence](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/neuro-symbolic-and-structured-intelligence/readme)
+- **Generalization theory** — probably approximately correct (PAC) learning, VC dimension, bounds → [Advanced Mathematics for AI Research](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/readme)
 - **The neural mechanisms** — perceptrons, backpropagation, architectures → [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
 - **Probability and statistics prerequisites** → [Mathematical Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme)
 
@@ -58,5 +58,5 @@ articles, and books on that paradigm. Read them in order — each one is a react
 
 ## In this platform
 - Orientation first: [What is AI / ML / Deep Learning](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/what-is-ai-ml-deep-learning/what-is-ai-ml-deep-learning) · [Types of Machine Learning](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/types-of-machine-learning/types-of-machine-learning)
-- Depth track: [Neuro-Symbolic and Structured Intelligence](/ai-ml/ai-ml-learning-resources/specialized-studies/neuro-symbolic-and-structured-intelligence/readme)
+- Depth track: [Neuro-Symbolic and Structured Intelligence](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/neuro-symbolic-and-structured-intelligence/readme)
 - Applied consequences: [Tool Use and Function Calling](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/tool-use/tool-use) · [Graph RAG](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/graph-rag/graph-rag)

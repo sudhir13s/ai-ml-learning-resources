@@ -1,0 +1,15 @@
+# Reading order for this category. `page-order:` is the ONE ordering key
+# estate-wide (structure-authoring-contract Rule 4); entries are relative
+# and extension-less. README.md is repo-facing and deliberately absent.
+page-order:
+  - language-modeling-objectives/language-modeling-objectives
+  - decoder-only-models/decoder-only-models
+  - scaling-laws/scaling-laws
+  - attention-architectures-gqa-mla-sliding-and-linear/attention-architectures-gqa-mla-sliding-and-linear
+  - positional-representations-in-llms/positional-representations-in-llms
+  - long-context-architectures/long-context-architectures
+  - mixture-of-experts/mixture-of-experts
+  - diffusion-language-models/diffusion-language-models
+  - prompting-and-in-context-learning/prompting-and-in-context-learning
+  - chain-of-thought-and-reasoning/chain-of-thought-and-reasoning
+  - test-time-computation-and-scaling/test-time-computation-and-scaling

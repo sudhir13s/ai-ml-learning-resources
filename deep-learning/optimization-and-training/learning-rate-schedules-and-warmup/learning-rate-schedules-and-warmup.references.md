@@ -57,7 +57,7 @@ updated: 2026-09-07
 - Concept page (full explanation): [Learning-Rate Schedules & Warmup](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/learning-rate-schedules-and-warmup/learning-rate-schedules-and-warmup)
 - Prerequisite — the update rules schedules modulate: [Optimizers (SGD · Momentum · Adam · AdamW)](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/optimizers)
 - Prerequisite — where the gradient comes from: [Backpropagation & Computational Graphs](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs)
-- Why warmup matters for transformers: [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture)
+- Why warmup matters for transformers: [Transformer Architecture](/ai-ml/ai-ml-learning-resources/models-and-architectures/attention-and-transformers/transformer-architecture/transformer-architecture)
 - Builds on this: [Hyperparameter Tuning](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/hyperparameter-tuning/hyperparameter-tuning) (the LR is the top hyperparameter to tune) · [Normalization](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/normalization/normalization) (interacts with early-training stability)
 - The *why* (concept depth): [ai-ml-intuitions 2.09 Learning Rate Schedules](/ai-ml/ai-ml-intuitions/learning-and-optimization/adaptive-optimization/learning-rate-schedules-intuition)
 - Field overview: [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

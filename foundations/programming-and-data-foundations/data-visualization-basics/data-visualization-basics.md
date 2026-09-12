@@ -58,5 +58,5 @@ judged on whether your plots show you *understood* the data, not just that you f
 
 ## In this platform
 - Prev/next: [08 Pandas Essentials](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/pandas-essentials/pandas-essentials) · [10 Jupyter & Google Colab](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/jupyter-and-google-colab/jupyter-and-google-colab)
-- Go deeper — EDA in the preprocessing pipeline: [02. Data Preprocessing](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/readme)
+- Go deeper — EDA in the preprocessing pipeline: [02. Data Preprocessing](/ai-ml/ai-ml-learning-resources/data-and-representation/data-preparation/readme)
 - Apply it: [12 Your First ML Project](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/your-first-ml-project/your-first-ml-project)

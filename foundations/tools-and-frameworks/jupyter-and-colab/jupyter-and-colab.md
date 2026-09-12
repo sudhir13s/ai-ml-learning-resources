@@ -56,5 +56,5 @@ data/ML role, and Colab's free GPUs make deep-learning tutorials runnable by any
 - [JupyterLab docs (full)](https://jupyterlab.readthedocs.io/en/latest/) — **Project Jupyter** — comprehensive, free, chapter-structured guide.
 
 ## In this platform
-- Related domain: [Mathematical Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme) · [Data Preparation](/ai-ml/ai-ml-learning-resources/foundations/data-preparation/readme)
+- Related domain: [Mathematical Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme) · [Data Preparation](/ai-ml/ai-ml-learning-resources/data-and-representation/data-preparation/readme)
 - Pairs with: [01 NumPy](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/numpy/numpy) · [02 Pandas](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/pandas/pandas) · [03 Data Visualization](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/data-visualization/data-visualization)

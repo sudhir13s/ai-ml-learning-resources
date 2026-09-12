@@ -58,4 +58,4 @@ updated: 2026-09-07
 - Prev / next in this domain: [02 ReAct](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/reason-and-act/reason-and-act) · [04 Planning & Task Decomposition](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/planning/planning)
 - Safety context (the tool-input + tool-output trust boundary): [13 Safety, Guardrails & Human-in-the-Loop](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/agent-safety/agent-safety)
 - Frameworks that implement this loop: [09 Agent Frameworks](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/agent-frameworks/agent-frameworks)
-- Related (canonical home for prompting foundations): [Prompting & In-Context Learning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/prompting-and-in-context-learning/prompting-and-in-context-learning)
+- Related (canonical home for prompting foundations): [Prompting & In-Context Learning](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/prompting-and-in-context-learning/prompting-and-in-context-learning)

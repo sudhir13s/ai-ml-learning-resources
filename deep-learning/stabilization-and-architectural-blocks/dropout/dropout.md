@@ -256,7 +256,7 @@ Plain dropout zeros independent scalar activations. Several variants change *wha
 
 > **Note — derive why per-step RNN dropout breaks recurrence:** the recurrent state $h_t = f(h_{t-1}, x_t)$ threads information through time. Independent dropout at each step perturbs $h_{t-1}$ with *fresh* noise before computing $h_t$, so the noise is re-randomized every step and accumulates over the sequence — the model can't learn to carry information forward because the channel it would carry it on is randomly re-broken each step. A *fixed* per-sequence mask perturbs the *same* coordinates throughout, which is a consistent, learnable handicap rather than a step-by-step demolition. Same mask across time = variational dropout.
 
-**Attention / embedding dropout (transformers).** Inside a transformer, dropout is applied in three standard places: on the **attention weights** (the post-softmax probabilities, so the model can't over-rely on a single key), on each **sub-layer's output** before the residual add, and on the summed **token + positional embeddings**. See the [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture) page for exactly where these sit in the block.
+**Attention / embedding dropout (transformers).** Inside a transformer, dropout is applied in three standard places: on the **attention weights** (the post-softmax probabilities, so the model can't over-rely on a single key), on each **sub-layer's output** before the residual add, and on the summed **token + positional embeddings**. See the [Transformer Architecture](/ai-ml/ai-ml-learning-resources/models-and-architectures/attention-and-transformers/transformer-architecture/transformer-architecture) page for exactly where these sit in the block.
 
 The whole family is one idea — *sample a random sub-architecture each step, average at test* — applied at different granularities:
 
@@ -438,7 +438,7 @@ When you reach for dropout in a real model, here's the order of operations that 
 ## Where dropout is used (and where it isn't)
 
 - **Fully-connected / dense layers — the original and still-strong use.** Dropout on dense hidden layers ($p\approx 0.5$) is where it shines, because those layers carry the most spare capacity to regularize.
-- **Transformers — pervasive at moderate scale.** Attention weights, residual/sub-layer outputs, embeddings, and FFN layers, at $p\approx 0.1$, with LayerNorm (which avoids the BatchNorm variance shift). See [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture).
+- **Transformers — pervasive at moderate scale.** Attention weights, residual/sub-layer outputs, embeddings, and FFN layers, at $p\approx 0.1$, with LayerNorm (which avoids the BatchNorm variance shift). See [Transformer Architecture](/ai-ml/ai-ml-learning-resources/models-and-architectures/attention-and-transformers/transformer-architecture/transformer-architecture).
 - **Fine-tuning a large model on a small dataset — very much alive.** This is the overfitting-prone regime dropout was built for.
 - **Uncertainty estimation — MC-dropout** for cheap predictive uncertainty in safety-sensitive applications.
 - **Less in modern CNNs — superseded by BatchNorm** (and the variance-shift conflict), though **spatial dropout / DropBlock** still appear, and **stochastic depth** is standard in very deep ResNets / vision transformers.

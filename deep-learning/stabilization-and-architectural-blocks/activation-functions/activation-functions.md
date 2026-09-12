@@ -553,7 +553,7 @@ Jacobian max |auto - formula| = 1.49e-08
 - **Softmax** — the output of every multi-class classifier, and the **next-token head** of every LLM (with temperature for sampling).
 - **Identity (no activation)** — regression output heads, and the value branch inside attention (no activation between the scores' softmax and the value mix).
 
-> **Gotcha:** "what activation does the transformer use?" has **two** answers and people give one. The **FFN** uses GELU/SiLU/SwiGLU; the **attention** sublayer uses **softmax** (over the scores) and has **no** pointwise activation between $QK^\top$ and the value product. Naming only one misses half the architecture. See [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture) for where each sits.
+> **Gotcha:** "what activation does the transformer use?" has **two** answers and people give one. The **FFN** uses GELU/SiLU/SwiGLU; the **attention** sublayer uses **softmax** (over the scores) and has **no** pointwise activation between $QK^\top$ and the value product. Naming only one misses half the architecture. See [Transformer Architecture](/ai-ml/ai-ml-learning-resources/models-and-architectures/attention-and-transformers/transformer-architecture/transformer-architecture) for where each sits.
 
 ---
 

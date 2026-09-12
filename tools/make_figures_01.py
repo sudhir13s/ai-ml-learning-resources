@@ -61,7 +61,7 @@ NAVY = "#2A5B80"
 INK = "#1C2530"  # near-black for axis text
 GRID = "#D4D9DF"
 
-OUT_DIR = Path(__file__).resolve().parent.parent / "llms-applications-and-agents/large-language-model-foundations/language-modeling-objectives" / "images"
+OUT_DIR = Path(__file__).resolve().parent.parent / "models-and-architectures/large-language-models/language-modeling-objectives" / "images"
 DPI = 150
 
 

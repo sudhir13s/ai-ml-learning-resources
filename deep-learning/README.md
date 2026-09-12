@@ -7,9 +7,10 @@ updated: 2026-09-07
 ---
 
 # Deep Learning
-> Neural networks that learn hierarchical representations from data — the engine behind modern
-> vision, language, and generative AI. This is the curated shortlist of the *best free* resources;
-> for the math intuition behind each idea, see the platform links at the bottom.
+> How a neural network learns: the neurons and the backward pass, the losses and optimizers,
+> the blocks that keep training stable, learning without labels, and reading what a trained
+> network computes. This is the curated shortlist of the *best free* resources; the network
+> families themselves are [Models and Architectures](/ai-ml/ai-ml-learning-resources/models-and-architectures/readme).
 
 **Start here:** [Neural Networks — 3Blue1Brown](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) for intuition, then [Neural Networks: Zero to Hero — Karpathy](https://karpathy.ai/zero-to-hero.html) to build one from scratch.
 
@@ -34,50 +35,32 @@ Every chapter is a self-contained folder (`<topic>/<topic>.md`) with its page an
 11. [Normalization (Batch · Layer · Group)](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/normalization/normalization)
 12. [Hyperparameter Tuning](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/hyperparameter-tuning/hyperparameter-tuning)
 
-### Architectures
-13. [CNNs & Convolution](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/cnns-and-convolution/cnns-and-convolution)
-14. [RNN / LSTM / GRU](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/rnn-lstm-gru/rnn-lstm-gru)
-15. [Attention Mechanism](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/attention-mechanism/attention-mechanism)
-16. [Transformer Architecture](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/transformer-architecture/transformer-architecture)
-17. [Positional Encoding](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/positional-encoding/positional-encoding)
-18. [Residual / Skip Connections](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/residual-skip-connections/residual-skip-connections)
-19. [Autoencoders](/ai-ml/ai-ml-learning-resources/deep-learning/neural-architectures/autoencoders/autoencoders)
-20. [Efficient Attention (FlashAttention)](/ai-ml/ai-ml-learning-resources/deep-learning/attention-and-transformers/efficient-attention/efficient-attention)
-21. [Gating Mechanisms](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/gating-mechanisms/gating-mechanisms)
-
-### Sequence modeling (recurrence, convolution, attention, state space)
-22. [Sequence Models — Recurrent, Convolutional, Transformer, State-Space](/ai-ml/ai-ml-learning-resources/deep-learning/sequence-modeling/sequence-models-recurrent-convolutional-transformer/sequence-models-recurrent-convolutional-transformer)
-23. [State-Space Models — Foundations](/ai-ml/ai-ml-learning-resources/deep-learning/sequence-modeling/state-space-models-foundations/state-space-models-foundations)
-24. [Structured State-Space Models — S4, S4D, Diagonal SSMs](/ai-ml/ai-ml-learning-resources/deep-learning/sequence-modeling/structured-state-space-models-s4/structured-state-space-models-s4)
-25. [Selective State-Space Models — Mamba and Mamba-2](/ai-ml/ai-ml-learning-resources/deep-learning/sequence-modeling/selective-state-space-models-mamba/selective-state-space-models-mamba)
-26. [Linear and Hybrid Attention Architectures](/ai-ml/ai-ml-learning-resources/deep-learning/sequence-modeling/linear-and-hybrid-attention-architectures/linear-and-hybrid-attention-architectures)
+### Architectural blocks
+13. [Residual / Skip Connections](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/residual-skip-connections/residual-skip-connections)
+14. [Gating Mechanisms](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/gating-mechanisms/gating-mechanisms)
 
 ### Self-supervised learning
-27. [Contrastive Self-Supervised Learning](/ai-ml/ai-ml-learning-resources/deep-learning/self-supervised-learning/contrastive-self-supervised-learning/contrastive-self-supervised-learning)
-28. [Masked Modeling — MAE and BERT-Style Pretraining](/ai-ml/ai-ml-learning-resources/deep-learning/self-supervised-learning/masked-modeling-mae-and-bert-style-pretraining/masked-modeling-mae-and-bert-style-pretraining)
-29. [Teacher-Student Self-Distillation — BYOL, DINO, DINOv3](/ai-ml/ai-ml-learning-resources/deep-learning/self-supervised-learning/teacher-student-self-distillation-dino-byol/teacher-student-self-distillation-dino-byol)
-
-### Scientific and specialized deep learning
-30. [Graph Neural Networks](/ai-ml/ai-ml-learning-resources/deep-learning/scientific-and-specialized-deep-learning/graph-neural-networks/graph-neural-networks)
-31. [Physics-Informed Neural Networks](/ai-ml/ai-ml-learning-resources/deep-learning/scientific-and-specialized-deep-learning/physics-informed-neural-networks/physics-informed-neural-networks)
-32. [Neural Operators](/ai-ml/ai-ml-learning-resources/deep-learning/scientific-and-specialized-deep-learning/neural-operators/neural-operators)
-33. [Equivariant and Geometric Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/scientific-and-specialized-deep-learning/equivariant-and-geometric-deep-learning/equivariant-and-geometric-deep-learning)
+15. [Contrastive Self-Supervised Learning](/ai-ml/ai-ml-learning-resources/deep-learning/self-supervised-learning/contrastive-self-supervised-learning/contrastive-self-supervised-learning)
+16. [Masked Modeling — MAE and BERT-Style Pretraining](/ai-ml/ai-ml-learning-resources/deep-learning/self-supervised-learning/masked-modeling-mae-and-bert-style-pretraining/masked-modeling-mae-and-bert-style-pretraining)
+17. [Teacher-Student Self-Distillation — BYOL, DINO, DINOv3](/ai-ml/ai-ml-learning-resources/deep-learning/self-supervised-learning/teacher-student-self-distillation-dino-byol/teacher-student-self-distillation-dino-byol)
 
 ### Interpretability and analysis
-34. [What Is Mechanistic Interpretability](/ai-ml/ai-ml-learning-resources/deep-learning/interpretability-and-analysis/what-is-mechanistic-interpretability/what-is-mechanistic-interpretability)
-35. [Transformer Circuits, Induction Heads and Attention Patterns](/ai-ml/ai-ml-learning-resources/deep-learning/interpretability-and-analysis/transformer-circuits-induction-heads-and-attention-patterns/transformer-circuits-induction-heads-and-attention-patterns)
-36. [Superposition and Sparse Autoencoders](/ai-ml/ai-ml-learning-resources/deep-learning/interpretability-and-analysis/superposition-and-sparse-autoencoders/superposition-and-sparse-autoencoders)
-37. [Probing, Attribution and Feature Visualization](/ai-ml/ai-ml-learning-resources/deep-learning/interpretability-and-analysis/probing-attribution-and-feature-visualization/probing-attribution-and-feature-visualization)
-38. [Interpretability for Vision and Classic Models](/ai-ml/ai-ml-learning-resources/deep-learning/interpretability-and-analysis/interpretability-for-vision-and-classic-models/interpretability-for-vision-and-classic-models)
+18. [What Is Mechanistic Interpretability](/ai-ml/ai-ml-learning-resources/deep-learning/interpretability-and-analysis/what-is-mechanistic-interpretability/what-is-mechanistic-interpretability)
+19. [Transformer Circuits, Induction Heads and Attention Patterns](/ai-ml/ai-ml-learning-resources/deep-learning/interpretability-and-analysis/transformer-circuits-induction-heads-and-attention-patterns/transformer-circuits-induction-heads-and-attention-patterns)
+20. [Superposition and Sparse Autoencoders](/ai-ml/ai-ml-learning-resources/deep-learning/interpretability-and-analysis/superposition-and-sparse-autoencoders/superposition-and-sparse-autoencoders)
+21. [Probing, Attribution and Feature Visualization](/ai-ml/ai-ml-learning-resources/deep-learning/interpretability-and-analysis/probing-attribution-and-feature-visualization/probing-attribution-and-feature-visualization)
+22. [Interpretability for Vision and Classic Models](/ai-ml/ai-ml-learning-resources/deep-learning/interpretability-and-analysis/interpretability-for-vision-and-classic-models/interpretability-for-vision-and-classic-models)
 
 ### Sub-area indexes
-- [Sequence Modeling](/ai-ml/ai-ml-learning-resources/deep-learning/sequence-modeling/readme) · [Scientific and Specialized Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/scientific-and-specialized-deep-learning/readme) · [Interpretability and Analysis](/ai-ml/ai-ml-learning-resources/deep-learning/interpretability-and-analysis/readme)
+- [Interpretability and Analysis](/ai-ml/ai-ml-learning-resources/deep-learning/interpretability-and-analysis/readme)
 
 ### Related concepts (canonical home is another section)
-> These topics are used across many areas, so they're kept in one place to avoid repetition.
-- **Word / sentence embeddings** — Word2Vec · GloVe · contextual embeddings → [NLP](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/natural-language-processing/readme)
-- **Vision architectures in depth** — ResNet/Inception, detection, segmentation → [Computer Vision](/ai-ml/ai-ml-learning-resources/modalities-and-generative-models/computer-vision/readme)
-- **Pretraining & LLM-scale models** — BERT · GPT · scaling laws · RLHF → [LLMs](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme)
+> This section teaches how a network learns; the shapes networks take are the next section.
+- **The architectures** — CNNs · RNN/LSTM/GRU · autoencoders · state-space models · attention · transformers · positional encoding · FlashAttention → [Models and Architectures](/ai-ml/ai-ml-learning-resources/models-and-architectures/readme) ([Classic Architectures](/ai-ml/ai-ml-learning-resources/models-and-architectures/classic-architectures/readme) · [Attention and Transformers](/ai-ml/ai-ml-learning-resources/models-and-architectures/attention-and-transformers/attention-mechanism/attention-mechanism))
+- **Scientific and specialized deep learning** — graph networks, physics-informed networks, neural operators, equivariance → [Frontier and Specialized](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/scientific-and-specialized-deep-learning/readme)
+- **Word / sentence embeddings** — Word2Vec · GloVe · contextual embeddings → [NLP](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/readme)
+- **Vision architectures in depth** — ResNet/Inception, detection, segmentation → [Computer Vision](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/readme)
+- **Pretraining & LLM-scale models** — objectives · scaling laws · pretraining · post-training → [Large Language Models](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/readme) · [Model Building](/ai-ml/ai-ml-learning-resources/model-building/readme) · [Model Adaptation](/ai-ml/ai-ml-learning-resources/model-adaptation/readme)
 - **Pure math** — PCA/SVD · probability · optimization theory → [Foundations · Maths for AI-ML](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme)
 
 ## Courses (free)

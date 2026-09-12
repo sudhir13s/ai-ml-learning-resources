@@ -11,7 +11,7 @@ those imports resolve from the new location:
     from _pathsetup import topic_images
 
 Since the chartered restructure every topic owns its figures, so there is no shared image dir
-any more. ``topic_images("llms-applications-and-agents/inference-and-runtime/kv-cache")`` returns
+any more. ``topic_images("inference-and-serving/kv-cache")`` returns
 the ``images`` dir of one topic package; each generator names its own.
 """
 

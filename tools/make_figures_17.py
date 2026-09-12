@@ -45,7 +45,7 @@ NAVY = "#2A5B80"
 INK = "#1C2530"  # near-black for axis text
 GRID = "#D4D9DF"
 
-OUT_DIR = Path(__file__).resolve().parent.parent / "llms-applications-and-agents/reasoning-evaluation-and-alignment/chain-of-thought-and-reasoning" / "images"
+OUT_DIR = Path(__file__).resolve().parent.parent / "models-and-architectures/large-language-models/chain-of-thought-and-reasoning" / "images"
 DPI = 150
 
 

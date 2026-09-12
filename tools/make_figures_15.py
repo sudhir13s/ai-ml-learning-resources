@@ -46,9 +46,9 @@ NAVY = "#2A5B80"
 INK = "#1C2530"  # near-black for axis text
 GRID = "#D4D9DF"
 
-# Figures live in the SHARED chapter images dir (llms-applications-and-agents/training-and-adaptation/preference-and-alignment-training/images/), matching the KV-Cache
+# Figures live in the SHARED chapter images dir (model-adaptation/preference-and-alignment-training/images/), matching the KV-Cache
 # exemplar -- so the page references them as ../images/<name>.png.
-OUT_DIR = Path(__file__).resolve().parent.parent / "llms-applications-and-agents/training-and-adaptation/preference-and-alignment-training" / "images"
+OUT_DIR = Path(__file__).resolve().parent.parent / "model-adaptation/preference-and-alignment-training" / "images"
 DPI = 150
 
 

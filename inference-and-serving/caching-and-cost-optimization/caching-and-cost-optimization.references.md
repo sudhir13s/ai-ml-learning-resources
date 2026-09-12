@@ -1,0 +1,58 @@
+---
+id: "15-rag-and-llm-apps/caching-and-cost-optimization/references"
+topic: "Caching & Cost Optimization for LLM Apps — References"
+parent: "15-rag-and-llm-apps/caching-and-cost-optimization"
+type: references
+updated: 2026-09-07
+---
+
+# Caching & Cost Optimization — references and further reading
+
+> Companion link library for **[Caching & Cost Optimization](/ai-ml/ai-ml-learning-resources/inference-and-serving/caching-and-cost-optimization/caching-and-cost-optimization)** (the
+> concept page). External sources *and* internal cross-links, kept separate so it can be reused as a
+> standalone list. Grouped by type, best-first. Every entry is free/open (no paywall) and chosen for
+> depth on *this* topic — semantic caching (embedding-similarity answer reuse), prompt/prefix caching
+> (provider KV reuse), and the cost model. Every framework/mechanism cited on the concept page
+> (GPTCache, Anthropic/OpenAI prompt caching, the false-hit tradeoff, the cost identity) appears here as
+> a primary source.
+
+**Start here — suggested path**:
+1. **Cut input cost first** — read [Prompt caching with Claude](https://www.anthropic.com/news/prompt-caching) (**Anthropic**). *What providers actually cache — the static prefix — and the discount it buys.*
+2. **Read the mechanics** — read [Anthropic: Prompt Caching](https://platform.claude.com/docs/en/docs/build-with-claude/prompt-caching) + [OpenAI: Prompt Caching](https://developers.openai.com/api/docs/guides/prompt-caching). *Cache breakpoints, automatic vs explicit, cache-write vs cache-read pricing.*
+3. **See how the engine does it** — read [Automatic prefix caching](https://docs.vllm.ai/en/latest/features/automatic_prefix_caching.html) (**vLLM**). *The same idea one level down: hashing KV blocks so a shared prefix is computed once, on by default since vLLM V1.*
+4. **Add semantic caching** — read [What is Semantic Caching?](https://redis.io/blog/what-is-semantic-caching/) (**Redis**) and the [GPTCache repo](https://github.com/zilliztech/GPTCache). *Serving cached answers for* similar *(not identical) queries via embeddings, and the false-hit risk that comes with it.*
+5. **Read the source** — skim [GPTCache (Bang 2023, NLP-OSS)](https://aclanthology.org/2023.nlposs-1.24/). *The semantic-cache design — embedding similarity + a threshold — this chapter builds from scratch.*
+
+**Interactive & visual**:
+- [GPTCache — GitHub](https://github.com/zilliztech/GPTCache) — **Zilliz** — the reference semantic-cache library to read and run: embedding + similarity evaluation + cache store, wrapping the LLM client.
+- [Anthropic Prompt Caching — docs](https://platform.claude.com/docs/en/docs/build-with-claude/prompt-caching) — **Anthropic** — the exact `cache_control` request format, TTLs, and cache-write/read pricing, runnable.
+- [OpenAI Prompt Caching — guide](https://developers.openai.com/api/docs/guides/prompt-caching) — **OpenAI** — automatic prefix caching, the 1,024-token minimum, and the cached-token discount (up to ~90% input-cost / ~80% latency reduction).
+- [vLLM — automatic prefix caching](https://docs.vllm.ai/en/latest/features/automatic_prefix_caching.html) — **vLLM project** — the open-source implementation of what providers sell as prompt caching: hash the KV blocks, reuse the shared prefix. On by default since V1, so self-hosted stacks get the same win.
+
+**Courses (free)**:
+- [LangChain for LLM Application Development](https://www.deeplearning.ai/short-courses/langchain-for-llm-application-development/) — **DeepLearning.AI × LangChain** — covers caching and efficient chains as part of building real apps.
+- [HF: LLM Inference Optimization (guide)](https://huggingface.co/docs/transformers/en/llm_optims) — **Hugging Face** — free, hands-on guide to latency/cost optimizations (caching, batching, quantization pointers).
+
+**Articles / blogs (free, no paywall)**:
+- [What is Semantic Caching?](https://redis.io/blog/what-is-semantic-caching/) — **Redis** — how similarity-based caching works, the false-hit risk, and when it pays off.
+- [zilliztech/GPTCache (GitHub README)](https://github.com/zilliztech/GPTCache) — **Zilliz** — the semantic-cache library's design (embedding, similarity eval, eviction) with runnable examples.
+- [Prompt caching with Claude](https://www.anthropic.com/news/prompt-caching) — **Anthropic** — the explicit-breakpoint model (you mark what to cache) and the cache-write vs cache-read price split, the counterpart to OpenAI's automatic scheme.
+- [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) — **Anthropic (2025)** — why a stable, append-only context prefix is now a *cost* design decision as much as a quality one: every edit above the breakpoint throws away the cache.
+- [LangChain — LLM caching (how-to)](https://python.langchain.com/docs/how_to/llm_caching/) — **LangChain** — `set_llm_cache(InMemoryCache())` and semantic-cache backends, the API used on the page.
+
+**Key papers**:
+- [GPTCache: An Open-Source Semantic Cache for LLM Applications Enabling Faster Answers and Cost Savings](https://aclanthology.org/2023.nlposs-1.24/) — **Fu Bang (2023, NLP-OSS @ EMNLP)** — the reference semantic cache: embed the query, match by similarity + threshold, serve the stored answer; 2–10× faster on a hit. The design this chapter builds from scratch.
+- [Prompt Cache: Modular Attention Reuse for Low-Latency Inference](https://arxiv.org/abs/2311.04934) — **Gim et al. (2023, MLSys 2024)** — reuse precomputed attention (KV) for recurring prompt segments (system messages, documents); the mechanism behind provider prompt/prefix caching (8–60× TTFT speedup).
+- [GPT Semantic Cache: Reducing LLM Costs and Latency via Semantic Embedding Caching](https://arxiv.org/abs/2411.05276) — **Regmi & Pun (2024)** — embedding-based query caching; up to ~68% fewer API calls, with the similarity-threshold tradeoff.
+- [MeanCache: User-Centric Semantic Caching for LLM Web Services](https://arxiv.org/abs/2403.02694) — **Gill et al. (2024)** — a privacy-aware, per-user semantic cache and the false-hit calibration problem.
+- [Efficient Memory Management for LLM Serving with PagedAttention (vLLM)](https://arxiv.org/abs/2309.06180) — **Kwon et al. (2023)** — the KV-cache/serving optimization that makes the *inference* behind each miss cheap and high-throughput.
+
+**Books (free chapters)**:
+- [Hugging Face Transformers — "LLM inference optimization" guide](https://huggingface.co/docs/transformers/en/llm_optims) — **Hugging Face** — the closest free book-length reference: caching, batching, and the latency/cost levers, fully open.
+
+**In this platform**:
+- Concept page (full explanation): [Caching & Cost Optimization](/ai-ml/ai-ml-learning-resources/inference-and-serving/caching-and-cost-optimization/caching-and-cost-optimization)
+- Concept depth (the *why*): [ai-ml-intuitions 8.02 Retrieval-Augmented Generation](/ai-ml/ai-ml-intuitions/memory-retrieval-and-context/retrieval-augmented-generation/rag-intuition) · [1.02 Dense Embeddings](/ai-ml/ai-ml-intuitions/representation/embedding-spaces/dense-embeddings-intuition) (the basis of semantic caching)
+- Reused here: [05 Hybrid Search (the DenseRetriever/encoder)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search) · [12 Long-Context vs RAG (the token cost model)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/long-context-vs-rag/long-context-vs-rag) · [14 Guardrails (the same threshold-tradeoff shape)](/ai-ml/ai-ml-learning-resources/evaluation/hallucination-and-grounding/hallucination-and-grounding)
+- Foundations: [01 RAG Fundamentals](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-foundations/rag-foundations) · [04 Vector Databases & ANN (fast cache lookup)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search) · [15 LLM App Orchestration](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/llm-app-orchestration/llm-app-orchestration)
+- Related domain: [LLMs — KV Cache](/ai-ml/ai-ml-learning-resources/inference-and-serving/kv-cache/kv-cache) · [LLMs — Inference Optimization & Serving (vLLM)](/ai-ml/ai-ml-learning-resources/inference-and-serving/inference-optimization/inference-optimization)

@@ -62,4 +62,4 @@ discovery layer*, not a replacement for the model deciding what to call), and th
 - The agent-to-agent counterpart: [Agent Interoperability Protocols (A2A)](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/agent-interoperability-protocols-a2a/agent-interoperability-protocols-a2a)
 - What to do with everything a server exposes: [Context Engineering](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/context-engineering/context-engineering)
 - The security surface this opens: [Prompt Injection and Agent Guardrails](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/prompt-injection-and-agent-guardrails/prompt-injection-and-agent-guardrails)
-- Related (canonical home): [Prompting & In-Context Learning](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/reasoning-evaluation-and-alignment/prompting-and-in-context-learning/prompting-and-in-context-learning)
+- Related (canonical home): [Prompting & In-Context Learning](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/prompting-and-in-context-learning/prompting-and-in-context-learning)
