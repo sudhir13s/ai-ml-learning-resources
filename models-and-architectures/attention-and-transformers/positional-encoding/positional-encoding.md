@@ -108,7 +108,7 @@ Read it slowly. Each *pair* of dimensions $(2i, 2i{+}1)$ shares a single **frequ
 
 A single sine wave can't give unique codes — it repeats every wavelength, so $pos$ and $pos + \text{wavelength}$ collide. But a **stack** of waves at geometrically different frequencies is exactly how a number is written in a positional number system: the fast waves are the "low-order digits" (fine position) and the slow waves are the "high-order digits" (coarse position). Together they pin down position uniquely over an enormous range — the same reason a clock's second/minute/hour hands together specify a unique time.
 
-![The sinusoidal positional-encoding matrix PE[pos, i] as a heatmap over (position × dimension), d = 128. Low-index dimensions (left) are fast stripes — short wavelength; high-index dimensions (right) are slow bands — long wavelength. Each row (position) is a unique fingerprint across the frequency spectrum.](../images/pe_sinusoidal_heatmap.png)
+![The sinusoidal positional-encoding matrix PE[pos, i] as a heatmap over (position × dimension), d = 128. Low-index dimensions (left) are fast stripes — short wavelength; high-index dimensions (right) are slow bands — long wavelength. Each row (position) is a unique fingerprint across the frequency spectrum.](images/pe_sinusoidal_heatmap.png)
 
 ![The same encoding seen as curves: a handful of dimensions plotted against position. Dimension 0 oscillates fast (short wavelength); dimensions 20 and 60 oscillate progressively slower. A position is read off jointly from where it falls on all these waves at once.](images/pe_sinusoid_curves.png)
 

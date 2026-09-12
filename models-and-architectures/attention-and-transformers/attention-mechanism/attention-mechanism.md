@@ -113,7 +113,7 @@ graph LR
     classDef out fill:#2E7A5A,stroke:#1E6A4A,color:#fff
 ```
 
-![Scaled dot-product attention as a dataflow with every shape labelled: Q, K, V feed QKᵀ (scores, [n,m]), which is scaled by 1/√dₖ, optionally masked, softmaxed row-wise, then multiplied by V to give the [n, d_v] output. The two matmuls (QKᵀ and ·V) are the entire cost.](../images/attn_dataflow.png)
+![Scaled dot-product attention as a dataflow with every shape labelled: Q, K, V feed QKᵀ (scores, [n,m]), which is scaled by 1/√dₖ, optionally masked, softmaxed row-wise, then multiplied by V to give the [n, d_v] output. The two matmuls (QKᵀ and ·V) are the entire cost.](images/attn_dataflow.png)
 
 > **Note:** keys and values are *separate* projections on purpose. The **key** decides *how well a token matches* a query; the **value** is *what that token contributes* if it matches. Decoupling them lets a token be retrieved on one basis (its key) while handing back different content (its value) — strictly more expressive than matching and returning the same vector, the way a search engine matches on a title but returns the article body.
 

@@ -157,7 +157,7 @@ graph LR
 
 As the data flows deeper, spatial size **shrinks** (pooling/stride) while channel depth **grows** (more filters) — the network trades "where" for "what":
 
-![The 4-D tensor-shape flow through a small CNN: from a [3, 32, 32] input, conv layers raise channel depth (3 to 16 to 32) while pooling halves the spatial size (32 to 16 to 8), then a flatten and fully-connected head maps 2048 features to 10 class scores. Spatial dimensions fall, channel depth rises; the conv layers are tiny to store while the single fully-connected head holds most of the parameters.](../images/dl13_tensor_flow.png)
+![The 4-D tensor-shape flow through a small CNN: from a [3, 32, 32] input, conv layers raise channel depth (3 to 16 to 32) while pooling halves the spatial size (32 to 16 to 8), then a flatten and fully-connected head maps 2048 features to 10 class scores. Spatial dimensions fall, channel depth rises; the conv layers are tiny to store while the single fully-connected head holds most of the parameters.](images/dl13_tensor_flow.png)
 
 ---
 
