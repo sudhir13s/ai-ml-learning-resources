@@ -1,0 +1,11 @@
+# Reading order for this topic package: the main page, then its five depth
+# chapters (the W3 harvest of the Practitioner Workflows model-training
+# workflow). `page-order:` is the ONE ordering key estate-wide
+# (structure-authoring-contract Rule 4); entries are relative and extension-less.
+page-order:
+  - pretraining
+  - pretraining-the-training-loop
+  - pretraining-batching-precision-and-memory
+  - pretraining-schedule-clipping-and-checkpoints
+  - pretraining-scaling-out
+  - pretraining-tinyreg-end-to-end

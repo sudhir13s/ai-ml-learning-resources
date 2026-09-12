@@ -17,8 +17,10 @@ updated: 2026-09-07
 
 ## Concept index
 
-Each page is a self-contained resource card: a plain-words definition, why it matters in 2026, a
-five-step start-here path, and verified courses, videos, papers, articles and books.
+Pages 2 to 4 are full teaching pages — the Practitioner Workflows experiment-tracking workflow
+harvested in here at W3 of the layer plan, one `support-bot` experiment carried across all three —
+each with its curated references (start-here path, courses, videos, papers, articles, books) in a
+companion file beside it. Page 1 is the resource card that maps the sub-area.
 
 ### The map
 
@@ -26,12 +28,12 @@ five-step start-here path, and verified courses, videos, papers, articles and bo
 
 ### Making a run repeatable
 
-2. [Reproducibility](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/reproducibility/reproducibility) — seeds, environments and lineage; the difference between bitwise determinism and scientific reproducibility.
+2. [Reproducibility](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/reproducibility/reproducibility) — why runs become irreproducible (the five inputs), one config file as the source of truth, seeding every PRNG and what a seed cannot fix; the difference between bitwise determinism and scientific reproducibility.
 
 ### Making a run findable
 
-3. [Experiment Tracking](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/experiment-tracking/experiment-tracking) — logging parameters, metrics, code version and artifacts to a central store with MLflow or Weights & Biases.
-4. [Data and Model Versioning](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/data-and-model-versioning/data-and-model-versioning) — content-addressed data and model artifacts with DVC or lakeFS; the half of reproducibility Git cannot do.
+3. [Experiment Tracking](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/experiment-tracking/experiment-tracking) — the anatomy of a logged run (params, metrics, artifacts), the W&B / MLflow / TensorBoard mental model, hyperparameter sweeps and why random beats grid, a runnable fifteen-line tracker, and the troubleshooting gallery.
+4. [Data and Model Versioning](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/data-and-model-versioning/data-and-model-versioning) — content-addressed data and model artifacts with DVC or lakeFS; one git commit that pins code, config and the data pointer; the half of reproducibility Git cannot do.
 
 ## Courses (free)
 
@@ -74,4 +76,5 @@ five-step start-here path, and verified courses, videos, papers, articles and bo
 - Where the lifecycle was first described: [The ML Workflow and Lifecycle](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/the-ml-workflow-and-lifecycle/the-ml-workflow-and-lifecycle)
 - The environment discipline this assumes: [Environments and Package Management](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/environments-and-package-management/environments-and-package-management)
 - What tracking is used to decide: [Cross-Validation](/ai-ml/ai-ml-learning-resources/classical-machine-learning/model-selection-and-evaluation/cross-validation/cross-validation) · [Error Analysis and Model Debugging](/ai-ml/ai-ml-learning-resources/classical-machine-learning/model-selection-and-evaluation/error-analysis-and-model-debugging/error-analysis-and-model-debugging)
-- Doing it rather than reading it: [Experiment Tracking workflow](/ai-ml/practitioner-workflows/training-and-adaptation/experiment-tracking) · [MLOps and Deployment workflow](/ai-ml/practitioner-workflows/operations-and-lifecycle/mlops-and-deployment)
+- Where the registered winner goes next: [Model Registry and Governance](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/governance-and-economics/model-registry-and-governance/model-registry-and-governance) · [MLOps and Deployment workflow](/ai-ml/practitioner-workflows/operations-and-lifecycle/mlops-and-deployment)
+- The training loop these runs record: [The Training Loop](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining-the-training-loop)

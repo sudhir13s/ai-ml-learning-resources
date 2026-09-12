@@ -6,10 +6,16 @@ level: advanced
 built_from: ["09-llms/language-modeling-objectives", "transformer-architecture", "optimization"]
 interview_frequency: high
 template: concept-deep
-updated: 2026-06-26
+updated: 2026-09-13
 tier: standard
 est_minutes: 40
-leads_to: ["09-llms/scaling-laws"]
+leads_to: ["09-llms/scaling-laws", "09-llms/pretraining-at-scale/training-loop"]
+chapters:
+  - "pretraining-the-training-loop.md"
+  - "pretraining-batching-precision-and-memory.md"
+  - "pretraining-schedule-clipping-and-checkpoints.md"
+  - "pretraining-scaling-out.md"
+  - "pretraining-tinyreg-end-to-end.md"
 title: "Pretraining at Scale"
 minutes: 40
 category: model-building
@@ -479,6 +485,18 @@ A few production realities worth carrying into an interview:
 - *Compute for GPT-3?* $6 \times 175\text{B} \times 300\text{B} \approx 3.15\times10^{23}$ FLOPs.
 - *When do you over-train a small model?* When you'll serve it heavily — inference-aware scaling (Llama-3-8B at ~1875 tokens/param).
 - *Biggest stability failure and its fix?* Loss spikes → gradient clipping (first), bf16, and roll-back-to-checkpoint.
+
+---
+
+## Going deeper: the chapters
+
+The core above is complete on its own — the systems view of a run. The five chapters below go underneath the recipe and build the training loop it runs, mechanism by mechanism, on **TinyReg**, a model small enough to trace by hand. Read them in order the first time; each builds on the last:
+
+1. **[The training loop](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining-the-training-loop)** — weight initialization, the five lines that learn, what autograd records and what AdamW stores per weight (with one step worked by hand).
+2. **[Batching, precision and memory](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining-batching-precision-and-memory)** — the batch-size trade-off, gradient accumulation, FP16 versus BF16 and loss scaling, and where the VRAM of a 7B step actually goes.
+3. **[Schedule, clipping and checkpoints](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining-schedule-clipping-and-checkpoints)** — warmup and cosine decay on real numbers, norm clipping, what a complete checkpoint holds, and reading train versus validation loss.
+4. **[Scaling out](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining-scaling-out)** — DDP when the model fits, FSDP/ZeRO when it doesn't, and the Chinchilla rule for tokens per parameter.
+5. **[TinyReg end to end](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining-tinyreg-end-to-end)** — the whole loop in eighty runnable lines, and the troubleshooting gallery for when a run breaks.
 
 ---
 

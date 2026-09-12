@@ -4,7 +4,7 @@ id: lr-fine-tuning-apply-lora-and-qlora
 minutes: 12
 core_idea: "Low-rank adaptation trains a small pair of matrices beside a frozen base, so the update is tiny, hot-swappable, and cheap enough to run on one consumer graphics card."
 builds_on: [pw-model-compression]
-related: [pw-model-training]
+related: [09-llms/pretraining-at-scale]
 section: "ai-ml-learning-resources"
 workflow: "fine-tuning"
 chapter: 3

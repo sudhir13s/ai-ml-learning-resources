@@ -3,8 +3,8 @@ title: "Tune and Debug the Run"
 id: lr-fine-tuning-tune-and-debug-the-run
 minutes: 8
 core_idea: "Every knob in a fine-tune exists to prevent a specific failure, so learn the pairing rather than the default — and know why the adapter values differ from full fine-tuning values."
-builds_on: [pw-experiment-tracking]
-related: [pw-model-training]
+builds_on: [18-mlops/experiment-tracking]
+related: [09-llms/pretraining-at-scale]
 section: "ai-ml-learning-resources"
 workflow: "fine-tuning"
 chapter: 4
