@@ -9,15 +9,17 @@ updated: 2026-09-13
 # Model Building
 
 > Training a model from nothing: the corpus, the tokenizer, the architecture, the run, and the
-> curves you read while it trains. Today the section holds the pretraining page; the Practitioner
-> Workflows model-training workflow and the from-scratch small-language-model build move in here
-> as the layer plan's next waves land, so that everything that *makes* a model has one home.
+> curves you read while it trains. The pretraining page says how it is done at scale; the
+> ten-page build does it at laptop scale, from random weights to a generating model. The
+> Practitioner Workflows model-training workflow harvests in here in the next wave, so that
+> everything that *makes* a model has one home.
 
-**Start here:** [Pretraining at Scale](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining) — corpora and deduplication, mixed precision, parallelism, model FLOPs utilization, and the failure modes of a long run.
+**Start here:** [Pretraining at Scale](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining) — corpora and deduplication, mixed precision, parallelism, model FLOPs utilization, and the failure modes of a long run — then build one: [Why Build a Model From Scratch](/ai-ml/ai-ml-learning-resources/model-building/build-a-small-language-model/why-build-a-model-from-scratch).
 
 ## Topics
 
 1. [Pretraining at Scale](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining) — the industrial process of turning a corpus and a compute budget into a base model.
+2. [Build a Small Language Model](/ai-ml/ai-ml-learning-resources/model-building/build-a-small-language-model/why-build-a-model-from-scratch) — **10 pages** — a 12.2M-parameter decoder-only transformer from random weights: corpus → clean and deduplicate → byte-level tokenizer → architecture → gradient proof → pretraining → training curves → perplexity and generation → capabilities and limits. About twelve minutes on a processor.
 
 ## Courses (free)
 
@@ -50,4 +52,4 @@ updated: 2026-09-13
 - After this section: [Model Adaptation](/ai-ml/ai-ml-learning-resources/model-adaptation/readme) · [Evaluation](/ai-ml/ai-ml-learning-resources/evaluation/readme)
 - Where the training compute comes from: [Training Infrastructure](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/training-infrastructure/readme) — [Distributed Training — Parallelism, FSDP and ZeRO](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/training-infrastructure/distributed-training-parallelism-fsdp-zero/distributed-training-parallelism-fsdp-zero) · [GPUs and Accelerators for Deep Learning](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/training-infrastructure/gpus-and-accelerators-for-deep-learning/gpus-and-accelerators-for-deep-learning)
 - The mental models: [Neural Scaling Laws and Chinchilla](/ai-ml/ai-ml-intuitions/scaling-adaptation-and-efficiency/scaling-behavior/neural-scaling-laws-and-chinchilla-intuition) · [Tokenization and BPE](/ai-ml/ai-ml-intuitions/representation/discrete-representations/tokenization-and-bpe-intuition)
-- Doing it rather than reading it: [Model Training workflow](/ai-ml/practitioner-workflows/workflow-library/training-and-adaptation/model-training) · [Build a Small Language Model](/ai-ml/practitioner-workflows/guided-builds/build-models-from-scratch/language-and-code-models/build-a-small-language-model/01-why-build-a-model-from-scratch)
+- The training loop as a workflow (harvests in here at W3): [Model Training workflow](/ai-ml/practitioner-workflows/training-and-adaptation/model-training) · The production spine the build points at: [small-language-model](/python/python-production-examples/small-language-model/readme)

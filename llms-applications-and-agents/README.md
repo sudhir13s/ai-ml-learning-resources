@@ -48,4 +48,4 @@ updated: 2026-09-13
 
 ## In this platform
 - Build one: [project_06 ChatGPT-from-scratch](../../AI-ML-problemsets/projects/project_06_chatgpt_from_scratch/) · Intuition: [Module 8 — LLMs & Agentic Systems](/ai-ml/ai-ml-intuitions/reasoning-and-agency) · Systems: [LLM Systems curriculum](/ai-ml/ai-ml-learning-resources/meta/llm-systems-curriculum)
-- Doing it rather than reading it: [RAG Pipeline workflow](/ai-ml/practitioner-workflows/workflow-library/llm-application-workflows/rag-pipeline/01-decide-whether-rag-is-needed) · [Agent Building workflow](/ai-ml/practitioner-workflows/workflow-library/agentic-systems/agent-building/01-do-you-need-an-agent)
+- Doing it rather than reading it: [RAG Pipeline workflow](/ai-ml/practitioner-workflows/llm-applications/rag-pipeline/01-decide-whether-rag-is-needed) · [Agent Building workflow](/ai-ml/practitioner-workflows/agentic-systems/agent-building/01-do-you-need-an-agent)

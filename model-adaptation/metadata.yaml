@@ -9,3 +9,18 @@ page-order:
   - preference-and-alignment-training/preference-and-alignment-training
   - reinforcement-learning-posttraining/reinforcement-learning-posttraining
   - model-merging/model-merging
+  - fine-tuning/01-decide-whether-to-fine-tune
+  - fine-tuning/02-prepare-instruction-data
+  - fine-tuning/03-build-the-supervised-fine-tuning-baseline
+  - fine-tuning/04-apply-lora-and-qlora
+  - fine-tuning/05-tune-and-debug-the-run
+  - fine-tuning/06-evaluate-capability-and-regression
+  - fine-tuning/07-production-fine-tuning-pipeline
+  - build-a-small-chat-model/01-from-base-model-to-assistant
+  - build-a-small-chat-model/02-design-the-conversation-template
+  - build-a-small-chat-model/03-mask-the-loss-across-turns
+  - build-a-small-chat-model/04-build-the-instruction-data
+  - build-a-small-chat-model/05-run-supervised-fine-tuning
+  - build-a-small-chat-model/06-align-on-preferences
+  - build-a-small-chat-model/07-evaluate-behaviour-and-regression
+  - build-a-small-chat-model/08-quantize-and-serve-the-chat-loop

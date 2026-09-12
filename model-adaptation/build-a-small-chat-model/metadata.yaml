@@ -1,0 +1,14 @@
+# Ordered chapter list — the ONE ordering file for this guided build. Filenames repeat
+# the `NN-` order (2026-09-07 numbering wave); `page-order:` still decides it and the
+# slug builder strips the prefix from URLs. `page-order:` is the estate-wide ordering key —
+# relative, extension-less paths.
+title: Build a Small Chat Model
+page-order:
+  - 01-from-base-model-to-assistant
+  - 02-design-the-conversation-template
+  - 03-mask-the-loss-across-turns
+  - 04-build-the-instruction-data
+  - 05-run-supervised-fine-tuning
+  - 06-align-on-preferences
+  - 07-evaluate-behaviour-and-regression
+  - 08-quantize-and-serve-the-chat-loop

@@ -76,4 +76,4 @@ production agent failures actually originate.
 - What a stable prefix is worth: [Caching and Cost Optimization](/ai-ml/ai-ml-learning-resources/inference-and-serving/caching-and-cost-optimization/caching-and-cost-optimization)
 - Untrusted content entering context is an attack surface: [Prompt Injection and Agent Guardrails](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/prompt-injection-and-agent-guardrails/prompt-injection-and-agent-guardrails)
 - Intuition track: [Context Engineering](/ai-ml/ai-ml-intuitions/memory-retrieval-and-context/context-engineering/context-engineering-intuition) · [Agent Memory](/ai-ml/ai-ml-intuitions/memory-retrieval-and-context/agent-memory/agent-memory-intuition)
-- Build it as a workflow: [Context Engineering](/ai-ml/practitioner-workflows/workflow-library/llm-application-workflows/context-engineering) · [Agent Building](/ai-ml/practitioner-workflows/workflow-library/agentic-systems/agent-building)
+- Build it as a workflow: [Context Engineering](/ai-ml/practitioner-workflows/llm-applications/context-engineering) · [Agent Building](/ai-ml/practitioner-workflows/agentic-systems/agent-building)

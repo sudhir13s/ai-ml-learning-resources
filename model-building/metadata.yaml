@@ -3,3 +3,13 @@
 # and extension-less. README.md is repo-facing and deliberately absent.
 page-order:
   - pretraining/pretraining
+  - build-a-small-language-model/01-why-build-a-model-from-scratch
+  - build-a-small-language-model/02-choose-and-govern-a-corpus
+  - build-a-small-language-model/03-clean-deduplicate-and-split
+  - build-a-small-language-model/04-train-a-tokenizer
+  - build-a-small-language-model/05-build-the-transformer
+  - build-a-small-language-model/06-prove-the-gradient-path
+  - build-a-small-language-model/07-run-the-pretraining
+  - build-a-small-language-model/08-read-the-training-curves
+  - build-a-small-language-model/09-evaluate-and-generate
+  - build-a-small-language-model/10-capabilities-and-limitations

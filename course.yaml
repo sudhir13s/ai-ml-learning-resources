@@ -430,6 +430,21 @@ spec:
       kind: lesson
       pages:
         - path: model-building/pretraining/pretraining.md
+      sections:
+        - id: lr-build-a-small-language-model
+          title: Build a Small Language Model
+          kind: lesson
+          pages:
+            - path: model-building/build-a-small-language-model/01-why-build-a-model-from-scratch.md
+            - path: model-building/build-a-small-language-model/02-choose-and-govern-a-corpus.md
+            - path: model-building/build-a-small-language-model/03-clean-deduplicate-and-split.md
+            - path: model-building/build-a-small-language-model/04-train-a-tokenizer.md
+            - path: model-building/build-a-small-language-model/05-build-the-transformer.md
+            - path: model-building/build-a-small-language-model/06-prove-the-gradient-path.md
+            - path: model-building/build-a-small-language-model/07-run-the-pretraining.md
+            - path: model-building/build-a-small-language-model/08-read-the-training-curves.md
+            - path: model-building/build-a-small-language-model/09-evaluate-and-generate.md
+            - path: model-building/build-a-small-language-model/10-capabilities-and-limitations.md
     - id: model-adaptation
       title: Model Adaptation
       kind: lesson
@@ -441,6 +456,30 @@ spec:
         - path: model-adaptation/preference-and-alignment-training/preference-and-alignment-training.md
         - path: model-adaptation/reinforcement-learning-posttraining/reinforcement-learning-posttraining.md
         - path: model-adaptation/model-merging/model-merging.md
+      sections:
+        - id: lr-fine-tuning
+          title: Fine-Tuning
+          kind: lesson
+          pages:
+            - path: model-adaptation/fine-tuning/01-decide-whether-to-fine-tune.md
+            - path: model-adaptation/fine-tuning/02-prepare-instruction-data.md
+            - path: model-adaptation/fine-tuning/03-build-the-supervised-fine-tuning-baseline.md
+            - path: model-adaptation/fine-tuning/04-apply-lora-and-qlora.md
+            - path: model-adaptation/fine-tuning/05-tune-and-debug-the-run.md
+            - path: model-adaptation/fine-tuning/06-evaluate-capability-and-regression.md
+            - path: model-adaptation/fine-tuning/07-production-fine-tuning-pipeline.md
+        - id: lr-build-a-small-chat-model
+          title: Build a Small Chat Model
+          kind: lesson
+          pages:
+            - path: model-adaptation/build-a-small-chat-model/01-from-base-model-to-assistant.md
+            - path: model-adaptation/build-a-small-chat-model/02-design-the-conversation-template.md
+            - path: model-adaptation/build-a-small-chat-model/03-mask-the-loss-across-turns.md
+            - path: model-adaptation/build-a-small-chat-model/04-build-the-instruction-data.md
+            - path: model-adaptation/build-a-small-chat-model/05-run-supervised-fine-tuning.md
+            - path: model-adaptation/build-a-small-chat-model/06-align-on-preferences.md
+            - path: model-adaptation/build-a-small-chat-model/07-evaluate-behaviour-and-regression.md
+            - path: model-adaptation/build-a-small-chat-model/08-quantize-and-serve-the-chat-loop.md
     - id: inference-and-serving
       title: Inference and Serving
       kind: lesson

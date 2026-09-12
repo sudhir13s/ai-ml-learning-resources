@@ -11,10 +11,10 @@ updated: 2026-09-13
 > Everything that changes a model after pretraining. Post-training is now where most of a
 > model's perceived quality comes from: demonstrations teach it to answer, instruction diversity
 > makes it generalize to unseen task types, preference data makes it pleasant, and reinforcement
-> learning against verifiable rewards makes it *reason*. The seven pages follow that pipeline in
-> order, then add the cheap tricks — adapters, distillation, merging — that make it affordable.
-> The Practitioner Workflows fine-tuning course and the small-chat-model build move in here as
-> the layer plan's next waves land, so that everything that *changes* a model has one home.
+> learning against verifiable rewards makes it *reason*. The seven resource pages follow that
+> pipeline in order, then add the cheap tricks — adapters, distillation, merging — that make
+> it affordable; the two courses at the end do it end to end — a seven-page fine-tuning run and
+> the eight-page build that turns a base checkpoint into a chat model.
 
 **Start here:** [Supervised Fine-Tuning](/ai-ml/ai-ml-learning-resources/model-adaptation/supervised-fine-tuning/supervised-fine-tuning) — the same next-token loss as pretraining, with curated demonstrations and a response-masked objective; every later page is a variation on it.
 
@@ -44,6 +44,11 @@ The data these stages consume — filtering, deduplication, quality classificati
 ### Combining what you trained
 
 7. [Model Merging](/ai-ml/ai-ml-learning-resources/model-adaptation/model-merging/model-merging) — task vectors, TIES and DARE, weight averaging; several specialisations in one deployment, with no gradients.
+
+### Doing it, end to end
+
+8. [Fine-Tuning](/ai-ml/ai-ml-learning-resources/model-adaptation/fine-tuning/decide-whether-to-fine-tune) — **7 pages** — decide whether to fine-tune at all, prepare instruction data, build the supervised baseline, apply LoRA and QLoRA, tune and debug the run, evaluate capability and regression, and ship a production fine-tuning pipeline.
+9. [Build a Small Chat Model](/ai-ml/ai-ml-learning-resources/model-adaptation/build-a-small-chat-model/from-base-model-to-assistant) — **8 pages** — the base checkpoint from [Model Building](/ai-ml/ai-ml-learning-resources/model-building/readme) turned into something you can talk to: conversation templating, multi-turn loss masking, supervised fine-tuning, preference alignment, a regression check, quantization and a chat loop.
 
 ## Courses (free)
 
@@ -90,4 +95,4 @@ The data these stages consume — filtering, deduplication, quality classificati
 - What the trained model is judged by: [Model Evaluation and Benchmarks](/ai-ml/ai-ml-learning-resources/evaluation/model-evaluation-and-benchmarks/model-evaluation-and-benchmarks) · [Alignment and Safety Evaluation](/ai-ml/ai-ml-learning-resources/evaluation/alignment-and-safety-evaluation/alignment-and-safety-evaluation)
 - Where the training compute comes from: [Distributed Training — Parallelism, FSDP and ZeRO](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/training-infrastructure/distributed-training-parallelism-fsdp-zero/distributed-training-parallelism-fsdp-zero)
 - The mental models: [LoRA](/ai-ml/ai-ml-intuitions/scaling-adaptation-and-efficiency/adaptation/lora-intuition) · [Knowledge Distillation](/ai-ml/ai-ml-intuitions/scaling-adaptation-and-efficiency/compression/knowledge-distillation-intuition) · [Transfer Learning and Fine-Tuning](/ai-ml/ai-ml-intuitions/scaling-adaptation-and-efficiency/adaptation/transfer-learning-and-fine-tuning-intuition) · [PPO and RLHF](/ai-ml/ai-ml-intuitions/decision-making-and-control/stable-policy-optimization/ppo-and-rl-from-human-feedback-intuition)
-- Doing it rather than reading it: [Fine-Tuning workflow](/ai-ml/practitioner-workflows/workflow-library/training-and-adaptation/fine-tuning) · [Preference Alignment workflow](/ai-ml/practitioner-workflows/workflow-library/training-and-adaptation/preference-alignment) · [Synthetic Data Generation workflow](/ai-ml/practitioner-workflows/workflow-library/data-and-inputs/synthetic-data-generation)
+- Workflows that harvest in here at W3: [Preference Alignment](/ai-ml/practitioner-workflows/training-and-adaptation/preference-alignment) · [Synthetic Data Generation](/ai-ml/practitioner-workflows/data-and-inputs/synthetic-data-generation) · The production spine the chat build points at: [small-chat-model](/python/python-production-examples/small-chat-model/readme)
