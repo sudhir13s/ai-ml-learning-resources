@@ -23,15 +23,17 @@
 #     folder, the page's `category` names it, and the section declares
 #     `group_by: category` so the nav shows the sub-areas as collapsible groups.
 #   - `<section>/<topic>/<topic>.md` — the section IS the sub-area (model
-#     building, model adaptation, inference and serving, evaluation, and the
-#     synthetic-data topic of data and representation). The page's `category`
-#     is the section id, the section declares NO `group_by` (one group named
-#     after its own section is noise), and a multi-page topic package nests as
-#     its own section (`lr-kv-cache`, `lr-inference-optimization`).
+#     building, model adaptation, inference and serving, evaluation). The page's
+#     `category` is the section id, the section declares NO `group_by` (one
+#     group named after its own section is noise), and a multi-page topic
+#     package nests as its own section (`lr-kv-cache`, `lr-inference-optimization`).
 #   - A sub-area whose pages should read as one course inside a flat section
-#     nests as a section too: `dr-data-preparation`, `is-packaging-and-serving`,
-#     and `ma-generative-model-families` (which keeps `generative-models` and
-#     `diffusion-models` as its two groups).
+#     nests as a section too: `is-packaging-and-serving`, and
+#     `ma-generative-model-families` (which keeps `generative-models` and
+#     `diffusion-models` as its two groups). `data-and-representation` groups by
+#     category instead — the federation gate caps a flat nested section at twelve
+#     entries and data-preparation has thirteen — so its single-page topic
+#     `synthetic-data-and-curation` carries its own folder name as `category`.
 #
 # `llms-applications-and-agents` is TRANSITIONAL. Its model-layer sub-areas left
 # in this wave (large-language-model-foundations, llm-model-architectures,
@@ -106,8 +108,8 @@ spec:
       - large-language-models
       - generative-models
       - diffusion-models
-      - data-and-representation
       - data-preparation
+      - synthetic-data-and-curation
       - model-building
       - model-adaptation
       - inference-and-serving
@@ -405,26 +407,24 @@ spec:
     - id: data-and-representation
       title: Data and Representation
       kind: lesson
+      group_by: category
       pages:
+        # data-preparation
+        - path: data-and-representation/data-preparation/exploratory-data-analysis/exploratory-data-analysis.md
+        - path: data-and-representation/data-preparation/feature-scaling-and-normalization/feature-scaling-and-normalization.md
+        - path: data-and-representation/data-preparation/encoding-categorical-variables/encoding-categorical-variables.md
+        - path: data-and-representation/data-preparation/missing-data-imputation/missing-data-imputation.md
+        - path: data-and-representation/data-preparation/outlier-detection-and-treatment/outlier-detection-and-treatment.md
+        - path: data-and-representation/data-preparation/feature-engineering/feature-engineering.md
+        - path: data-and-representation/data-preparation/feature-selection/feature-selection.md
+        - path: data-and-representation/data-preparation/date-time-and-cyclical-features/date-time-and-cyclical-features.md
+        - path: data-and-representation/data-preparation/text-and-image-preprocessing-overview/text-and-image-preprocessing-overview.md
+        - path: data-and-representation/data-preparation/train-validation-test-splits/train-validation-test-splits.md
+        - path: data-and-representation/data-preparation/data-leakage/data-leakage.md
+        - path: data-and-representation/data-preparation/imbalanced-data/imbalanced-data.md
+        - path: data-and-representation/data-preparation/data-pipelines/data-pipelines.md
+        # synthetic-data-and-curation
         - path: data-and-representation/synthetic-data-and-curation/synthetic-data-and-curation.md
-      sections:
-        - id: dr-data-preparation
-          title: Data Preparation
-          kind: lesson
-          pages:
-            - path: data-and-representation/data-preparation/exploratory-data-analysis/exploratory-data-analysis.md
-            - path: data-and-representation/data-preparation/feature-scaling-and-normalization/feature-scaling-and-normalization.md
-            - path: data-and-representation/data-preparation/encoding-categorical-variables/encoding-categorical-variables.md
-            - path: data-and-representation/data-preparation/missing-data-imputation/missing-data-imputation.md
-            - path: data-and-representation/data-preparation/outlier-detection-and-treatment/outlier-detection-and-treatment.md
-            - path: data-and-representation/data-preparation/feature-engineering/feature-engineering.md
-            - path: data-and-representation/data-preparation/feature-selection/feature-selection.md
-            - path: data-and-representation/data-preparation/date-time-and-cyclical-features/date-time-and-cyclical-features.md
-            - path: data-and-representation/data-preparation/text-and-image-preprocessing-overview/text-and-image-preprocessing-overview.md
-            - path: data-and-representation/data-preparation/train-validation-test-splits/train-validation-test-splits.md
-            - path: data-and-representation/data-preparation/data-leakage/data-leakage.md
-            - path: data-and-representation/data-preparation/imbalanced-data/imbalanced-data.md
-            - path: data-and-representation/data-preparation/data-pipelines/data-pipelines.md
     - id: model-building
       title: Model Building
       kind: lesson

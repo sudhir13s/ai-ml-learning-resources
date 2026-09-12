@@ -10,7 +10,7 @@ tier: core
 est_minutes: 16
 title: "Synthetic Data and Data Curation"
 minutes: 16
-category: data-and-representation
+category: synthetic-data-and-curation
 ---
 
 # Synthetic Data and Data Curation
