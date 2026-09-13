@@ -153,7 +153,7 @@ The cost of CT is not one training run — it's *retraining forever*, so the lev
 
 **The analogy:** covariate drift is being asked questions about a *new* neighborhood you've never visited; concept drift is being asked questions about your *own* neighborhood where, overnight, the street signs were all swapped. The first you can sometimes survive by generalization — an incremental update often suffices. The second you cannot: the mapping is wrong, so you must relearn it with a full retrain on fresh labels.
 
-> **Warning:** Don't reach for a fancier model when accuracy drops — first ask *which drift* you have. Throwing model capacity at **concept drift** is wasted effort; the labels are stale, not the architecture. Diagnose the drift before you touch the model. The deeper "why a frozen model can't generalize past its training distribution" lives in [Bias-Variance & Generalization (3.07)](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/bias-variance-tradeoff-intuition).
+> **Warning:** Don't reach for a fancier model when accuracy drops — first ask *which drift* you have. Throwing model capacity at **concept drift** is wasted effort; the labels are stale, not the architecture. Diagnose the drift before you touch the model. The deeper "why a frozen model can't generalize past its training distribution" lives in [Bias-Variance & Generalization (3.07)](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/generalization/bias-variance-tradeoff-intuition).
 
 > **Note:** Most "the model degraded" incidents are a blend, but concept drift dominates the scary ones. A retraining flywheel is the only general defense, because it doesn't try to *predict* how the world will change — it just keeps re-reading the world.
 
@@ -499,7 +499,7 @@ graph LR
 
 ### 3. The eval gate is your last line of defense
 
-Both hazards above, plus silently-broken data pipelines, are ultimately caught by one mechanism: **a candidate must beat the incumbent on a trustworthy holdout before it can ship.** This is the single most important safety device in continuous training — and the reason the pipeline rejects candidates rather than blindly promoting them. Pair it with [LLM-as-judge / evaluation](/ai-ml/ai-ml-learning-resources/evaluation/model-evaluation-and-benchmarks/model-evaluation-and-benchmarks) discipline for generative systems, and gate generative retrains with [LLM Evaluation & LLM-as-Judge (8.04)](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/llm-as-judge-intuition).
+Both hazards above, plus silently-broken data pipelines, are ultimately caught by one mechanism: **a candidate must beat the incumbent on a trustworthy holdout before it can ship.** This is the single most important safety device in continuous training — and the reason the pipeline rejects candidates rather than blindly promoting them. Pair it with [LLM-as-judge / evaluation](/ai-ml/ai-ml-learning-resources/evaluation/model-evaluation-and-benchmarks/model-evaluation-and-benchmarks) discipline for generative systems, and gate generative retrains with [LLM Evaluation & LLM-as-Judge (8.04)](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/llm-and-agent-evaluation/llm-as-judge-intuition).
 
 > **Warning:** Automation without guardrails doesn't just risk a bad day — it risks a confident, self-reinforcing slide that's hard to even notice. The flywheel must be able to say "no."
 

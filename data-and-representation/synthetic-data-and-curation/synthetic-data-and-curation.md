@@ -78,7 +78,7 @@ Before any code, the first question is whether synthetic data is even the right 
 | A clean human-labeled set is cheap to obtain | **skip it** | real data is the gold standard; synthetic is the fallback |
 | You'll train recursively on your own model's output | **dangerous** | risks **model collapse** (covered below) |
 
-> **Tip:** Reach for synthetic data when you're **data-poor but pattern-rich** — you know exactly what good looks like but don't have enough examples. If you instead need *knowledge* the model lacks, retrieval (RAG) is the right tool, not generation; see [Retrieval-Augmented Generation (8.02)](/ai-ml/ai-ml-intuitions/memory-retrieval-context/rag-intuition). Generation is for *behavior*, retrieval is for *facts*.
+> **Tip:** Reach for synthetic data when you're **data-poor but pattern-rich** — you know exactly what good looks like but don't have enough examples. If you instead need *knowledge* the model lacks, retrieval (RAG) is the right tool, not generation; see [Retrieval-Augmented Generation (8.02)](/ai-ml/ai-ml-intuitions/memory-retrieval-and-context/retrieval-augmented-generation/rag-intuition). Generation is for *behavior*, retrieval is for *facts*.
 
 The "helps vs hurts" split has a clean shape — synthetic data multiplies *patterns the teacher already has*, and amplifies *flaws it shares with you*:
 
@@ -120,7 +120,7 @@ The four methods are points on one spectrum — more cost buys more diversity an
 - **Simple prompting** — just ask the model for N examples of a task. Cheapest, but the outputs cluster tightly (low diversity) and you hit repetition fast.
 - **Self-Instruct** — start from a seed pool, ask the model to write *new* tasks similar to the seeds, filter, then *add the survivors back to the seed pool* and repeat. The dataset bootstraps itself outward. This is the path we'll walk in code.
 - **Evol-Instruct** — take existing instructions and prompt the model to *rewrite them harder* (add constraints, deepen reasoning, increase steps). Raises difficulty rather than just count.
-- **Distillation** — generate from a *stronger* model to train a *weaker/cheaper* one, transferring capability. Closely related to [Knowledge Distillation (7.04)](/ai-ml/ai-ml-intuitions/scaling-adaptation-efficiency/knowledge-distillation-intuition), but at the *data* level rather than the logit level.
+- **Distillation** — generate from a *stronger* model to train a *weaker/cheaper* one, transferring capability. Closely related to [Knowledge Distillation (7.04)](/ai-ml/ai-ml-intuitions/scaling-adaptation-and-efficiency/compression/knowledge-distillation-intuition), but at the *data* level rather than the logit level.
 
 The two workhorse methods grow the dataset along *different axes* — one adds breadth, the other adds depth:
 
@@ -143,7 +143,7 @@ graph LR
     classDef deep fill:#7A6528,stroke:#6A5518,color:#fff
 ```
 
-> **Note:** ***Self-Instruct*** (the seed→generate→filter→add-back loop) and ***Evol-Instruct*** (rewrite-to-harden) are complementary, not exclusive: a common recipe runs Self-Instruct to get *breadth* and then Evol-Instruct to add *depth* to the easy half. For a worked picture of the depth-vs-breadth evolution, see [Figure 1 of the Evol-Instruct / WizardLM paper](https://ar5iv.labs.arxiv.org/html/2304.12244#S2.F1) (Xu et al., 2023), which traces a single instruction through both in-depth and in-breadth rewrites. Both methods rest on the same prompting foundation — see [In-Context Learning & Prompting (8.01)](/ai-ml/ai-ml-intuitions/reasoning-agency/in-context-learning-and-prompting-intuition).
+> **Note:** ***Self-Instruct*** (the seed→generate→filter→add-back loop) and ***Evol-Instruct*** (rewrite-to-harden) are complementary, not exclusive: a common recipe runs Self-Instruct to get *breadth* and then Evol-Instruct to add *depth* to the easy half. For a worked picture of the depth-vs-breadth evolution, see [Figure 1 of the Evol-Instruct / WizardLM paper](https://ar5iv.labs.arxiv.org/html/2304.12244#S2.F1) (Xu et al., 2023), which traces a single instruction through both in-depth and in-breadth rewrites. Both methods rest on the same prompting foundation — see [In-Context Learning & Prompting (8.01)](/ai-ml/ai-ml-intuitions/reasoning-and-agency/in-context-behavior/in-context-learning-and-prompting-intuition).
 
 The cost/capability trade-off is direct — pick the cheapest method that reaches the diversity your task needs:
 
@@ -316,7 +316,7 @@ graph LR
 
 The **format gate** is pure mechanics and catches the obvious failures: empty or truncated instructions, answers that are one word ("ok"), missing the question mark your schema requires, leftover template placeholders. It's cheap, so it runs first to avoid spending judge calls on rows that are dead on arrival.
 
-The **quality gate** is the semantic one: *does the answer actually address the question, and is it any good?* In production this is most often an ***LLM-as-judge*** — a strong model prompted to score or yes/no each pair (see [LLM Evaluation & LLM-as-Judge (8.04)](/ai-ml/ai-ml-intuitions/objectives-evaluation/llm-as-judge-intuition)). Cheaper heuristics (length bands, perplexity, keyword/domain checks, refusal detection) catch the worst offenders for free and are worth running before you spend judge tokens.
+The **quality gate** is the semantic one: *does the answer actually address the question, and is it any good?* In production this is most often an ***LLM-as-judge*** — a strong model prompted to score or yes/no each pair (see [LLM Evaluation & LLM-as-Judge (8.04)](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/llm-and-agent-evaluation/llm-as-judge-intuition)). Cheaper heuristics (length bands, perplexity, keyword/domain checks, refusal detection) catch the worst offenders for free and are worth running before you spend judge tokens.
 
 The judge call itself is a tiny conversation — hand it the pair, get back a keep/drop verdict:
 

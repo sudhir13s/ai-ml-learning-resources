@@ -137,7 +137,7 @@ The two application-layer sub-areas, held here until they harvest into Practitio
 
 ### Specializations (deep-dive curricula)
 - [Computer Vision math](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/readme) · [Neuroscience and Brain-Inspired AI](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/neuroscience-and-brain-inspired-ai/readme) · [Advanced Research Math](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/readme) — full what/why/resources curricula
-- [LLM Systems Engineering curriculum](/ai-ml/ai-ml-learning-resources/meta/llm-systems-curriculum) — 14-chapter inference-stack syllabus (personal study notebook, held in `_meta/` until absorbed into the chartered sections)
+- [LLM Systems Engineering curriculum](/ai-ml/ai-ml-learning-resources) — 14-chapter inference-stack syllabus (personal study notebook, held in `_meta/` until absorbed into the chartered sections)
 
 ## Sibling projects
 - [ai-ml-intuitions](/ai-ml/ai-ml-intuitions) — deep concept pages (the *why*)

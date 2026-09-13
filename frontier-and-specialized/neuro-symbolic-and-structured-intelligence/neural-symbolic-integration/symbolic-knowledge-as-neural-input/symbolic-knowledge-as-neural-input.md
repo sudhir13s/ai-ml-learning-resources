@@ -4,7 +4,7 @@ topic: "Symbolic Knowledge as Neural Input"
 core_idea: "Feeding facts, rules and graphs to an unchanged network is cheap and widely deployed, but injected knowledge is never enforced, so the model can silently contradict it."
 level: advanced
 built_from: ["frontier-and-specialized/neuro-symbolic-and-structured-intelligence/symbolic-reasoning-primer/knowledge-graphs", "frontier-and-specialized/neuro-symbolic-and-structured-intelligence/neural-symbolic-integration/neuro-symbolic-ai"]
-leads_to: ["frontier-and-specialized/neuro-symbolic-and-structured-intelligence/neural-symbolic-integration/neural-models-with-symbolic-constraints", "15-rag-and-llm-apps/graphrag"]
+leads_to: ["frontier-and-specialized/neuro-symbolic-and-structured-intelligence/neural-symbolic-integration/neural-models-with-symbolic-constraints"]
 interview_frequency: medium
 updated: 2026-09-07
 tier: core
