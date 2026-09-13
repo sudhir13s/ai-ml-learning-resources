@@ -24,7 +24,7 @@ of the layer"); the Hessian governs curvature, conditioning, and second-order op
 Interviewers ask how the Jacobian relates to the chain rule, what a positive-definite Hessian
 implies, why saddle points stall training, and what Newton's step does.
 
-**Start here — suggested path:**
+## How to work through it
 
 1. **Jacobian intuition** — watch [Khan: The Jacobian matrix](https://www.youtube.com/watch?v=bohL918kXQk). *The Jacobian as the local linear approximation of a multivariable map.*
 2. **Hessian & curvature** — watch [Khan: The Hessian matrix](https://www.youtube.com/watch?v=LbBcuZukCAw). *Second derivatives, curvature, and the second-derivative test.*
@@ -32,30 +32,29 @@ implies, why saddle points stall training, and what Newton's step does.
 4. **Why it matters for optimization** — read [Boyd & Vandenberghe Ch. 9.5 (Newton's method)](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf). *Where the Hessian becomes the step direction.*
 5. **Connect to ML** — read [ai-ml-intuitions 2.03 Jacobian & Hessian](/ai-ml/ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/jacobians-and-hessians-intuition). *How both show up in training and curvature analysis.*
 
-## Courses (free)
-- [Khan Academy — Multivariable derivatives (Jacobian, Hessian)](https://www.khanacademy.org/math/multivariable-calculus/multivariable-derivatives) — **Khan Academy** — full unit covering both matrices with exercises.
-- [Stanford CS231n — Backprop / Jacobian notes](https://cs231n.github.io/optimization-2/) — **Stanford** — Jacobian-vector products as backprop primitives.
+## References
 
-## Videos
-- [The Jacobian matrix](https://www.youtube.com/watch?v=bohL918kXQk) — **Khan Academy** — the Jacobian as a local linear map.
-- [The Hessian matrix](https://www.youtube.com/watch?v=LbBcuZukCAw) — **Khan Academy** — curvature and the second-derivative test.
-- [What is the Jacobian?](https://www.youtube.com/watch?v=wCZ1VEmVjVo) — **Mathemaniac** — the right way to think about Jacobians in derivatives and integrals.
-- [Backpropagation calculus | Deep Learning Ch. 4](https://www.youtube.com/watch?v=tIeHLnjs5U8) — **3Blue1Brown** — where Jacobian-style products appear in gradient flow.
-
-## Key Papers
-- [MML book — Ch. 5.3–5.7 (Vector Calculus)](https://mml-book.github.io/book/mml-book.pdf) — **Deisenroth, Faisal & Ong** — Jacobians, Hessians, and higher-order derivatives.
-- [Matrix Calculus for Deep Learning](https://explained.ai/matrix-calculus/) — **Parr & Howard** — Jacobians of vector functions, the practical backprop view.
-
-## Articles / Blogs (free, no paywall)
-- [Identifying and attacking the saddle-point problem](https://arxiv.org/abs/1406.2572) — **Dauphin et al. (2014)** — why Hessian saddle points (not local minima) dominate deep-net loss surfaces.
-- [The Matrix Cookbook — derivatives & Hessians](https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf) — **Petersen & Pedersen** — the reference identities for Jacobians and Hessians.
-
-## Books (free, with chapters)
-- [Mathematics for Machine Learning — **Ch. 5 (Vector Calculus)**](https://mml-book.github.io/book/mml-book.pdf) — **Deisenroth et al.** — Jacobian and Hessian with ML examples.
-- [Convex Optimization — **Ch. 9.5 (Newton's method)**](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf) — **Boyd & Vandenberghe** — the Hessian in second-order optimization (free PDF).
-
-## In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 2.03 Jacobian & Hessian](/ai-ml/ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/jacobians-and-hessians-intuition)
-- Curriculum context: [Maths for AI-ML — Phase 2 (Calculus, row 2.3)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
-- Prereqs: [08 Derivatives & Gradients](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/derivatives-and-gradients/derivatives-and-gradients) · [09 The Chain Rule](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/the-chain-rule/the-chain-rule) · Related: [11 Taylor Expansion](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/taylor-expansion/taylor-expansion) · [12 Convexity](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/convexity/convexity)
+- **In this platform**:
+  - [Convexity](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/convexity/convexity) — related: a positive semidefinite Hessian is what proves a function convex.
+  - [Derivatives & Gradients](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/derivatives-and-gradients/derivatives-and-gradients) — a prerequisite this page builds on.
+  - [Jacobian & Hessian](/ai-ml/ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/jacobians-and-hessians-intuition) — the intuition, and how both show up in training and curvature analysis.
+  - [Taylor Expansion](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/taylor-expansion/taylor-expansion) — related: the Hessian is its second-order term.
+  - [The Chain Rule](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/the-chain-rule/the-chain-rule) — a prerequisite this page builds on.
+- **Videos**:
+  - [Backpropagation calculus | Deep Learning Ch. 4](https://www.youtube.com/watch?v=tIeHLnjs5U8) — **3Blue1Brown** — where Jacobian-style products appear in gradient flow.
+  - [The Hessian matrix](https://www.youtube.com/watch?v=LbBcuZukCAw) — **Khan Academy** — curvature and the second-derivative test.
+  - [The Jacobian matrix](https://www.youtube.com/watch?v=bohL918kXQk) — **Khan Academy** — the Jacobian as a local linear map.
+  - [What is the Jacobian?](https://www.youtube.com/watch?v=wCZ1VEmVjVo) — **Mathemaniac** — the right way to think about Jacobians in derivatives and integrals.
+- **Courses**:
+  - [Khan Academy — Multivariable derivatives (Jacobian, Hessian)](https://www.khanacademy.org/math/multivariable-calculus/multivariable-derivatives) — **Khan Academy** — full unit covering both matrices with exercises.
+  - [Stanford CS231n — Backprop / Jacobian notes](https://cs231n.github.io/optimization-2/) — **Stanford** — Jacobian-vector products as backprop primitives.
+- **Articles**:
+  - [Matrix Calculus for Deep Learning](https://explained.ai/matrix-calculus/) — **Parr & Howard** — Jacobians of vector functions, the practical backprop view.
+- **Papers**:
+  - [Identifying and attacking the saddle-point problem](https://arxiv.org/abs/1406.2572) — **Dauphin et al. (2014)** — why Hessian saddle points (not local minima) dominate deep-net loss surfaces.
+- **Documentation**:
+  - [The Matrix Cookbook — derivatives & Hessians](https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf) — **Petersen & Pedersen** — the reference identities for Jacobians and Hessians.
+- **Books**:
+  - [Convex Optimization — **Ch. 9.5 (Newton's method)**](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf) — **Boyd & Vandenberghe** — the Hessian in second-order optimization (free PDF).
+  - [Mathematics for Machine Learning — **Ch. 5 (Vector Calculus)**](https://mml-book.github.io/book/mml-book.pdf) — **Deisenroth, Faisal & Ong** — Jacobians, Hessians, and higher-order derivatives, with ML examples.
 </content>

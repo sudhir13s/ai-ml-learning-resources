@@ -40,7 +40,7 @@ parseable format lets the library double as a dataset for the interview-prep pro
 | :--- | :--- |
 | [AI/ML Orientation](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/readme) | beginner |
 | [Programming and Data Foundations](/ai-ml/ai-ml-learning-resources/foundations/programming-and-data-foundations/readme) | beginner |
-| [Mathematical Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme) — incl. the [full math curriculum](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme) | beginner |
+| [Mathematical Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme) — worked notebooks in the separate [Math for AI](/ai-ml/math-for-ai) course | beginner |
 | [AI Paradigms and Knowledge](/ai-ml/ai-ml-learning-resources/foundations/ai-paradigms-and-knowledge/readme) | beginner |
 | [Tools and Frameworks](/ai-ml/ai-ml-learning-resources/foundations/tools-and-frameworks/readme) | beginner |
 | [Research Literacy](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/readme) | advanced |

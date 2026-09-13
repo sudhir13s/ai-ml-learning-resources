@@ -24,7 +24,7 @@ covariance matrices have orthogonal principal axes, what the Graph Laplacian's s
 and why repeated multiplication by a matrix converges to its dominant eigenvector. Expect "derive
 PCA from the covariance eigenvectors" and "what does a negative/zero eigenvalue mean?"
 
-**Start here — suggested path:**
+## How to work through it
 
 1. **See it move** — watch [3B1B: Eigenvectors and eigenvalues](https://www.youtube.com/watch?v=PFDu9oVAE-g). *The "axes that don't get knocked off their span" picture makes the definition obvious.*
 2. **Compute a few** — watch [StatQuest / Professor Dave: finding eigenvalues & eigenvectors](https://www.youtube.com/watch?v=TQvxWaQnrqI), then do [Khan: eigen-everything](https://www.khanacademy.org/math/linear-algebra/alternate-bases/eigen-everything/v/linear-algebra-introduction-to-eigenvalues-and-eigenvectors). *The characteristic polynomial `det(A − λI) = 0` by hand.*
@@ -32,31 +32,30 @@ PCA from the covariance eigenvectors" and "what does a negative/zero eigenvalue 
 4. **The full lecture** — watch [MIT 18.06: Eigenvalues & Eigenvectors (Lec 21)](https://www.youtube.com/watch?v=lXNXrLcoerU). *Strang ties eigenvalues to stability, powers of a matrix, and diagonalization.*
 5. **Connect to ML** — read [ai-ml-intuitions 1.05 Spectral Methods (PCA/SVD)](/ai-ml/ai-ml-intuitions/representation/dimensionality-and-latent-structure/pca-and-svd-intuition). *Where eigen-thinking becomes dimensionality reduction.*
 
-## Courses (free)
-- [MIT 18.06 — Eigenvalues & Eigenvectors (Lec 21–22)](https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/) — **Gilbert Strang (MIT OCW)** — diagonalization, powers, and the spectral theorem.
-- [Khan Academy — Eigen-everything](https://www.khanacademy.org/math/linear-algebra/alternate-bases/eigen-everything/v/linear-algebra-introduction-to-eigenvalues-and-eigenvectors) — **Khan Academy** — definitions and computation with exercises.
+## References
 
-## Videos
-- [Eigenvectors and eigenvalues | Ch. 14](https://www.youtube.com/watch?v=PFDu9oVAE-g) — **3Blue1Brown** — the definitive visual intuition.
-- [Eigenvalues & Eigenvectors (18.06 Lec 21)](https://www.youtube.com/watch?v=lXNXrLcoerU) — **Gilbert Strang (MIT OCW)** — full lecture: diagonalization and stability.
-- [Finding Eigenvalues and Eigenvectors](https://www.youtube.com/watch?v=TQvxWaQnrqI) — **Professor Dave Explains** — clean worked example of the characteristic equation.
-- [Abstract vector spaces | Ch. 16](https://www.youtube.com/watch?v=TgKwz5Ikpc8) — **3Blue1Brown** — why eigenvectors are basis-independent (a recurring interview subtlety).
-
-## Key Papers
-- [MML book — Ch. 4 "Matrix Decompositions"](https://mml-book.github.io/book/mml-book.pdf) — **Deisenroth, Faisal & Ong** — eigendecomposition, the spectral theorem, and diagonalization.
-- [CS229 Linear Algebra Review — eigenvalues/eigenvectors](https://cs229.stanford.edu/section/cs229-linalg.pdf) — **Stanford** — the ML-oriented summary, including symmetric/PSD matrices.
-
-## Articles / Blogs (free, no paywall)
-- [Immersive Linear Algebra — Ch. 10 "Eigenvalues and Eigenvectors"](https://immersivemath.com/ila/ch10_eigen/ch10.html) — **Ström, Åström & Akenine-Möller** — interactive eigenvectors with worked examples.
-- [Mathematics for ML (course notes) — eigenstuff & spectral theorem](https://gwthomas.github.io/docs/math4ml.pdf) — **Garrett Thomas (Stanford)** — concise ML-focused treatment.
-- [Explained Visually — Eigenvectors and Eigenvalues](https://setosa.io/ev/eigenvectors-and-eigenvalues/) — **Victor Powell & Lewis Lehe** — drag a vector and watch which directions survive the transformation unrotated; the shortest route to the definition.
-
-## Books (free, with chapters)
-- [Mathematics for Machine Learning — **Ch. 4.1–4.4 (Matrix Decompositions)**](https://mml-book.github.io/book/mml-book.pdf) — **Deisenroth et al.** — determinant, eigenvalues, eigendecomposition.
-- [Introduction to Applied Linear Algebra (VMLS) — **eigenvalues & dynamics**](https://web.stanford.edu/~boyd/vmls/vmls.pdf) — **Boyd & Vandenberghe** — applied eigen-analysis.
-
-## In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 1.05 Spectral Methods (PCA/SVD)](/ai-ml/ai-ml-intuitions/representation/dimensionality-and-latent-structure/pca-and-svd-intuition) · [1.04 Graph Representations (Laplacian spectrum)](/ai-ml/ai-ml-intuitions/representation/embedding-spaces/graph-representations-intuition)
-- Curriculum context: [Maths for AI-ML — Phase 1 (Linear Algebra)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
-- Prereq: [02 Matrices & Matrix Operations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/matrices-and-matrix-operations/matrices-and-matrix-operations) · Next: [05 Matrix Decompositions](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/matrix-decompositions/matrix-decompositions) · [06 SVD](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/singular-value-decomposition/singular-value-decomposition) · [07 PCA (math)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/principal-component-analysis-math/principal-component-analysis-math)
+- **In this platform**:
+  - [Graph Representations](/ai-ml/ai-ml-intuitions/representation/embedding-spaces/graph-representations-intuition) — what the spectrum of a graph's Laplacian encodes.
+  - [Matrices & Matrix Operations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/matrices-and-matrix-operations/matrices-and-matrix-operations) — the prerequisite this page builds on.
+  - [Matrix Decompositions](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/matrix-decompositions/matrix-decompositions) — builds directly on this page: factorizations beyond the eigendecomposition.
+  - [Principal Component Analysis — the math](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/principal-component-analysis-math/principal-component-analysis-math) — builds directly on this page: covariance eigenvectors as principal axes.
+  - [Singular Value Decomposition](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/singular-value-decomposition/singular-value-decomposition) — builds directly on this page: the decomposition for any matrix.
+  - [Spectral Methods (PCA/SVD)](/ai-ml/ai-ml-intuitions/representation/dimensionality-and-latent-structure/pca-and-svd-intuition) — the intuition, where eigen-thinking becomes dimensionality reduction.
+- **Videos**:
+  - [Abstract vector spaces | Ch. 16](https://www.youtube.com/watch?v=TgKwz5Ikpc8) — **3Blue1Brown** — why eigenvectors are basis-independent (a recurring interview subtlety).
+  - [Eigenvalues & Eigenvectors (18.06 Lec 21)](https://www.youtube.com/watch?v=lXNXrLcoerU) — **Gilbert Strang (MIT OCW)** — full lecture: diagonalization and stability.
+  - [Eigenvectors and eigenvalues | Ch. 14](https://www.youtube.com/watch?v=PFDu9oVAE-g) — **3Blue1Brown** — the definitive visual intuition.
+  - [Finding Eigenvalues and Eigenvectors](https://www.youtube.com/watch?v=TQvxWaQnrqI) — **Professor Dave Explains** — clean worked example of the characteristic equation.
+- **Courses**:
+  - [Khan Academy — Eigen-everything](https://www.khanacademy.org/math/linear-algebra/alternate-bases/eigen-everything/v/linear-algebra-introduction-to-eigenvalues-and-eigenvectors) — **Khan Academy** — definitions and computation with exercises.
+  - [MIT 18.06 — Eigenvalues & Eigenvectors (Lec 21–22)](https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/) — **Gilbert Strang (MIT OCW)** — diagonalization, powers, and the spectral theorem.
+- **Interactive**:
+  - [Explained Visually — Eigenvectors and Eigenvalues](https://setosa.io/ev/eigenvectors-and-eigenvalues/) — **Victor Powell & Lewis Lehe** — drag a vector and watch which directions survive the transformation unrotated; the shortest route to the definition.
+  - [Immersive Linear Algebra — Ch. 10 "Eigenvalues and Eigenvectors"](https://immersivemath.com/ila/ch10_eigen/ch10.html) — **Ström, Åström & Akenine-Möller** — interactive eigenvectors with worked examples.
+- **Articles**:
+  - [CS229 Linear Algebra Review — eigenvalues/eigenvectors](https://cs229.stanford.edu/section/cs229-linalg.pdf) — **Stanford** — the ML-oriented summary, including symmetric and positive semidefinite matrices.
+  - [Mathematics for ML (course notes) — eigenstuff & spectral theorem](https://gwthomas.github.io/docs/math4ml.pdf) — **Garrett Thomas (Stanford)** — concise ML-focused treatment.
+- **Books**:
+  - [Introduction to Applied Linear Algebra (VMLS) — **eigenvalues & dynamics**](https://web.stanford.edu/~boyd/vmls/vmls.pdf) — **Boyd & Vandenberghe** — applied eigen-analysis.
+  - [Mathematics for Machine Learning — **Ch. 4.1–4.4 (Matrix Decompositions)**](https://mml-book.github.io/book/mml-book.pdf) — **Deisenroth, Faisal & Ong** — eigendecomposition, the spectral theorem, and diagonalization.
 </content>

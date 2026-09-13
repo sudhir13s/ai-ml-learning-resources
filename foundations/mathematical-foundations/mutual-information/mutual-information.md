@@ -24,7 +24,7 @@ appears in feature selection, the information-bottleneck view of deep nets, and 
 objectives (InfoNCE lower-bounds MI). Interviewers ask how MI relates to entropy and KL, why it's
 zero under independence, and where it shows up in modern representation learning.
 
-**Start here — suggested path:**
+## How to work through it
 
 1. **Definition & intuition** — watch [Ben Lambert: An introduction to mutual information](https://www.youtube.com/watch?v=U9h1xkNELvY). *MI as the reduction in uncertainty, with the entropy diagram.*
 2. **From entropy/KL** — watch [Aurélien Géron: Entropy, Cross-Entropy and KL](https://www.youtube.com/watch?v=ErfnhcEV1O8) and note `I(X;Y) = D(p(x,y)‖p(x)p(y))`. *MI is the KL between joint and product-of-marginals.*
@@ -32,31 +32,27 @@ zero under independence, and where it shows up in modern representation learning
 4. **Modern ML use** — read [Representation Learning with Contrastive Predictive Coding (InfoNCE)](https://arxiv.org/abs/1807.03748). *How MI maximization drives self-supervised representations.*
 5. **Connect to ML** — read [ai-ml-intuitions 5.01 Information Theory: Entropy & KL](/ai-ml/ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition) and [1.13 Contrastive Learning (SimCLR/InfoNCE)](/ai-ml/ai-ml-intuitions/representation/representation-learning/contrastive-learning-intuition). *Where MI becomes a training objective.*
 
-## Courses (free)
-- [Stanford EE376A — Information Theory](https://web.stanford.edu/class/ee376a/) — **Stanford** — mutual information, channel capacity, and the data-processing inequality; free notes.
-- [Khan Academy — Journey into Information Theory](https://www.khanacademy.org/computing/computer-science/informationtheory) — **Khan Academy** — the entropy groundwork MI builds on.
+## References
 
-## Videos
-- [An introduction to mutual information](https://www.youtube.com/watch?v=U9h1xkNELvY) — **Ben Lambert** — the clearest short MI explainer.
-- [A Short Introduction to Entropy, Cross-Entropy and KL-Divergence](https://www.youtube.com/watch?v=ErfnhcEV1O8) — **Aurélien Géron** — the entropy/KL pieces MI is assembled from.
-- [Entropy (for data science) Clearly Explained](https://www.youtube.com/watch?v=YtebGVx-Fxw) — **StatQuest (Josh Starmer)** — entropy and conditional entropy, the ingredients of MI.
-- [Measuring information | Journey into information theory](https://www.youtube.com/watch?v=PtmzfpV6CDE) — **Khan Academy** — information content underlying MI.
-- [Mutual Information, Clearly Explained](https://www.youtube.com/watch?v=eJIp_mgVLwE) — **StatQuest with Josh Starmer** — MI computed on a small contingency table by hand, which is the fastest way to see what the formula is counting.
-
-## Key Papers
-- [Cover & Thomas — Ch. 2 (Entropy, Relative Entropy & Mutual Information)](http://www.cs.columbia.edu/~vh/courses/LexicalSemantics/Association/Cover&Thomas-Ch2.pdf) — **Cover & Thomas** — the canonical definition and properties of MI (free chapter PDF).
-- [Representation Learning with Contrastive Predictive Coding (InfoNCE)](https://arxiv.org/abs/1807.03748) — **van den Oord, Li & Vinyals (2018)** — MI maximization as a self-supervised objective.
-
-## Articles / Blogs (free, no paywall)
-- [Visual Information Theory](https://colah.github.io/posts/2015-09-Visual-Information/) — **Christopher Olah** — entropy, KL, and the joint/marginal picture MI rests on.
-- [Information Theory, Inference, and Learning Algorithms — Ch. 8, "Dependent Random Variables"](https://www.inference.org.uk/itprnn/book.pdf) — **David MacKay** — the rigorous free treatment: joint and conditional entropy, mutual information as their overlap, and the diagram everyone redraws.
-
-## Books (free, with chapters)
-- [Information Theory, Inference, and Learning Algorithms — **Ch. 8 (Dependent Random Variables / MI)**](https://www.inference.org.uk/itprnn/book.pdf) — **David MacKay** — mutual information in the free classic.
-- [Elements of Information Theory — **Ch. 2 (Mutual Information)**](http://www.cs.columbia.edu/~vh/courses/LexicalSemantics/Association/Cover&Thomas-Ch2.pdf) — **Cover & Thomas** — the standard reference (free chapter PDF).
-
-## In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 5.01 Information Theory: Entropy & KL](/ai-ml/ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition) · [1.13 Contrastive Learning (SimCLR/InfoNCE)](/ai-ml/ai-ml-intuitions/representation/representation-learning/contrastive-learning-intuition)
-- Curriculum context: [Maths for AI-ML — Phase 3 (Information Theory, row 3.5)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
-- Prereqs: [22 Entropy](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/entropy/entropy) · [23 Cross-Entropy & KL Divergence](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/cross-entropy-and-kl-divergence/cross-entropy-and-kl-divergence)
+- **In this platform**:
+  - [Contrastive Learning (SimCLR/InfoNCE)](/ai-ml/ai-ml-intuitions/representation/representation-learning/contrastive-learning-intuition) — where maximising mutual information becomes a training objective.
+  - [Cross-Entropy & KL Divergence](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/cross-entropy-and-kl-divergence/cross-entropy-and-kl-divergence) — a prerequisite: mutual information is a KL divergence.
+  - [Entropy](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/entropy/entropy) — a prerequisite this page builds on.
+  - [Information Theory: Entropy & KL](/ai-ml/ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition) — the intuition for the pieces mutual information is built from.
+- **Videos**:
+  - [A Short Introduction to Entropy, Cross-Entropy and KL-Divergence](https://www.youtube.com/watch?v=ErfnhcEV1O8) — **Aurélien Géron** — the entropy/KL pieces MI is assembled from.
+  - [An introduction to mutual information](https://www.youtube.com/watch?v=U9h1xkNELvY) — **Ben Lambert** — the clearest short MI explainer.
+  - [Entropy (for data science) Clearly Explained](https://www.youtube.com/watch?v=YtebGVx-Fxw) — **StatQuest (Josh Starmer)** — entropy and conditional entropy, the ingredients of MI.
+  - [Measuring information | Journey into information theory](https://www.youtube.com/watch?v=PtmzfpV6CDE) — **Khan Academy** — information content underlying MI.
+  - [Mutual Information, Clearly Explained](https://www.youtube.com/watch?v=eJIp_mgVLwE) — **StatQuest with Josh Starmer** — MI computed on a small contingency table by hand, which is the fastest way to see what the formula is counting.
+- **Courses**:
+  - [Khan Academy — Journey into Information Theory](https://www.khanacademy.org/computing/computer-science/informationtheory) — **Khan Academy** — the entropy groundwork MI builds on.
+  - [Stanford EE376A — Information Theory](https://web.stanford.edu/class/ee376a/) — **Stanford** — mutual information, channel capacity, and the data-processing inequality; free notes.
+- **Articles**:
+  - [Visual Information Theory](https://colah.github.io/posts/2015-09-Visual-Information/) — **Christopher Olah** — entropy, KL, and the joint/marginal picture MI rests on.
+- **Papers**:
+  - [Representation Learning with Contrastive Predictive Coding (InfoNCE)](https://arxiv.org/abs/1807.03748) — **van den Oord, Li & Vinyals (2018)** — MI maximization as a self-supervised objective.
+- **Books**:
+  - [Elements of Information Theory — **Ch. 2 (Mutual Information)**](http://www.cs.columbia.edu/~vh/courses/LexicalSemantics/Association/Cover&Thomas-Ch2.pdf) — **Cover & Thomas** — the canonical definition and properties of mutual information (free chapter PDF).
+  - [Information Theory, Inference, and Learning Algorithms — **Ch. 8 (Dependent Random Variables / MI)**](https://www.inference.org.uk/itprnn/book.pdf) — **David MacKay** — the rigorous free treatment: joint and conditional entropy, mutual information as their overlap, and the diagram everyone redraws.
 </content>

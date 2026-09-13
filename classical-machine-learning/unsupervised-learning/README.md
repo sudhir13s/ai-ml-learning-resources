@@ -16,46 +16,47 @@ Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its p
 > **All pages ready.** New to the area? Start with the field overview below, then work top to bottom.
 
 ### Clustering
-1. ✅ [K-Means Clustering](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/clustering/k-means-clustering/k-means-clustering)
-2. ✅ [Hierarchical Clustering (agglomerative & divisive)](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/clustering/hierarchical-clustering/hierarchical-clustering)
-3. ✅ [DBSCAN (density-based clustering)](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/clustering/dbscan/dbscan)
-4. ✅ [Gaussian Mixture Models & EM](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/clustering/gaussian-mixture-models-and-em/gaussian-mixture-models-and-em)
-5. ✅ [Spectral Clustering](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/clustering/spectral-clustering/spectral-clustering)
+1. [K-Means Clustering](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/clustering/k-means-clustering/k-means-clustering)
+2. [Hierarchical Clustering (agglomerative & divisive)](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/clustering/hierarchical-clustering/hierarchical-clustering)
+3. [DBSCAN (density-based clustering)](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/clustering/dbscan/dbscan)
+4. [Gaussian Mixture Models & EM](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/clustering/gaussian-mixture-models-and-em/gaussian-mixture-models-and-em)
+5. [Spectral Clustering](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/clustering/spectral-clustering/spectral-clustering)
 
 ### Dimensionality reduction & manifold learning
-6. ✅ [Dimensionality Reduction — overview (PCA · SVD framing, cross-link to math)](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/dimensionality-reduction/dimensionality-reduction-overview/dimensionality-reduction-overview)
-7. ✅ [t-SNE](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/dimensionality-reduction/t-sne/t-sne)
-8. ✅ [UMAP](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/dimensionality-reduction/umap/umap)
+6. [Dimensionality Reduction — overview (PCA · SVD framing, cross-link to math)](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/dimensionality-reduction/dimensionality-reduction-overview/dimensionality-reduction-overview)
+7. [t-SNE](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/dimensionality-reduction/t-sne/t-sne)
+8. [UMAP](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/dimensionality-reduction/umap/umap)
 
 ### Density & anomaly
-9. ✅ [Anomaly / Outlier Detection (Isolation Forest · LOF · One-Class SVM)](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/anomaly-detection/anomaly-outlier-detection/anomaly-outlier-detection)
-10. ✅ [Kernel Density Estimation](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/density-estimation/kernel-density-estimation/kernel-density-estimation)
+9. [Anomaly / Outlier Detection (Isolation Forest · LOF · One-Class SVM)](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/anomaly-detection/anomaly-outlier-detection/anomaly-outlier-detection)
+10. [Kernel Density Estimation](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/density-estimation/kernel-density-estimation/kernel-density-estimation)
 
 ### Patterns & structure
-11. ✅ [Association Rule Learning (Apriori · FP-Growth)](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/association-rules/association-rule-learning/association-rule-learning)
+11. [Association Rule Learning (Apriori · FP-Growth)](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/association-rules/association-rule-learning/association-rule-learning)
 
 ### Representation (self-supervised)
-12. ✅ [Contrastive / Self-Supervised Learning](/ai-ml/ai-ml-learning-resources/deep-learning/self-supervised-learning/contrastive-self-supervised-learning/contrastive-self-supervised-learning)
+12. [Contrastive / Self-Supervised Learning](/ai-ml/ai-ml-learning-resources/deep-learning/self-supervised-learning/contrastive-self-supervised-learning/contrastive-self-supervised-learning)
 
 ### Related concepts (canonical home is another section)
 > These topics are used across many areas, so they're kept in one place to avoid repetition.
-- **PCA / SVD (the math)** — eigendecomposition, variance maximization, the SVD view → [Foundations — Maths for AI-ML](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
+- **PCA / SVD (the math)** — eigendecomposition, variance maximization, the SVD view → [Foundations — PCA, the math](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/principal-component-analysis-math/principal-component-analysis-math)
 - **Autoencoders** — non-linear, learned dimensionality reduction → [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
 - **Word / sentence embeddings** — representation learning over text → [NLP](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/readme)
 
-## Courses (free)
-- [Machine Learning Specialization (Course 3)](https://www.coursera.org/specializations/machine-learning-introduction) — **Andrew Ng** — clustering & anomaly detection.
-- [Kaggle Learn: Clustering & PCA notebooks](https://www.kaggle.com/learn) — **Kaggle** — applied, runnable.
+## References
 
-## Videos
-- [StatQuest: PCA, t-SNE, k-means, Hierarchical clustering](https://www.youtube.com/playlist?list=PLblh5JKOoLUICTaGLRoHQDuF_7q2GfuJF) — **Josh Starmer** — the canonical visual explanations.
-
-## Key Papers / Articles
-- [How to Use t-SNE Effectively](https://distill.pub/2016/misread-tsne/) — **Distill** — interactive; the pitfalls everyone hits.
-- [UMAP](https://arxiv.org/abs/1802.03426) — **McInnes et al. (2018)** — the modern manifold method + [great docs](https://umap-learn.readthedocs.io/).
-
-## Books (free)
-- [An Introduction to Statistical Learning (ISLP), Ch. 12](https://www.statlearning.com/) — **James et al.** — free; clustering & PCA, applied.
-
-## In this platform
-- The geometry behind it: [ai-ml-intuitions 1.05 PCA/SVD, 1.11–1.12 t-SNE/UMAP, 1.18 k-Means](/ai-ml/ai-ml-intuitions/representation)
+- **In this platform**:
+  - [AI/ML Intuitions — Representation](/ai-ml/ai-ml-intuitions/representation) — the geometry behind these methods: PCA and SVD, t-SNE and UMAP, and k-means, as intuitions.
+- **Videos**:
+  - [StatQuest: PCA, t-SNE, k-means, Hierarchical clustering](https://www.youtube.com/playlist?list=PLblh5JKOoLUICTaGLRoHQDuF_7q2GfuJF) — **Josh Starmer** — the canonical visual explanations.
+- **Courses**:
+  - [Kaggle Learn: Clustering & PCA notebooks](https://www.kaggle.com/learn) — **Kaggle** — applied, runnable.
+  - [Machine Learning Specialization (Course 3)](https://www.coursera.org/specializations/machine-learning-introduction) — **Andrew Ng** — clustering & anomaly detection.
+- **Interactive**:
+  - [How to Use t-SNE Effectively](https://distill.pub/2016/misread-tsne/) — **Distill** — the pitfalls everyone hits, explored interactively.
+- **Papers**:
+  - [UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction](https://arxiv.org/abs/1802.03426) — **McInnes et al. (2018)** — the modern manifold method.
+- **Documentation**:
+  - [UMAP documentation](https://umap-learn.readthedocs.io/) — **UMAP developers** — the library's own guide, with worked examples.
+- **Books**:
+  - [An Introduction to Statistical Learning (ISLP), Ch. 12](https://www.statlearning.com/) — **James et al.** — free; clustering & PCA, applied.

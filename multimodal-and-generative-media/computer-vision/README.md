@@ -16,29 +16,29 @@ Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its p
 > **All pages ready.** New to vision? Start with the field overview below, then work top to bottom.
 
 ### Image processing & classical features
-1. ✅ [Image Representation & Filtering (edges · HOG · SIFT)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/image-representation-and-filtering/image-representation-and-filtering)
-2. ✅ [Pooling & Receptive Fields](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/pooling-and-receptive-fields/pooling-and-receptive-fields)
+1. [Image Representation & Filtering (edges · HOG · SIFT)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/image-representation-and-filtering/image-representation-and-filtering)
+2. [Pooling & Receptive Fields](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/pooling-and-receptive-fields/pooling-and-receptive-fields)
 
 ### Classification & backbones
-3. ✅ [Classic CNN Architectures (LeNet · AlexNet · VGG · ResNet · Inception · EfficientNet)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/classic-cnn-architectures/classic-cnn-architectures)
-4. ✅ [Image Classification](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/image-classification/image-classification)
-5. ✅ [Transfer Learning for Vision](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/transfer-learning-for-vision/transfer-learning-for-vision)
-6. ✅ [Data Augmentation](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/data-augmentation/data-augmentation)
+3. [Classic CNN Architectures (LeNet · AlexNet · VGG · ResNet · Inception · EfficientNet)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/classic-cnn-architectures/classic-cnn-architectures)
+4. [Image Classification](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/image-classification/image-classification)
+5. [Transfer Learning for Vision](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/transfer-learning-for-vision/transfer-learning-for-vision)
+6. [Data Augmentation](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/data-augmentation/data-augmentation)
 
 ### Detection & segmentation
-7. ✅ [Object Detection (R-CNN family · YOLO · SSD)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/object-detection/object-detection)
-8. ✅ [Semantic Segmentation (FCN · U-Net · DeepLab)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/semantic-segmentation/semantic-segmentation)
-9. ✅ [Instance Segmentation (Mask R-CNN)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/instance-segmentation/instance-segmentation)
-10. ✅ [Segment Anything & Promptable Segmentation (SAM · SAM 2 · SAM 3)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/segment-anything-and-promptable-segmentation/segment-anything-and-promptable-segmentation)
-11. ✅ [Detection & Segmentation Metrics (IoU · mAP)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/detection-and-segmentation-metrics/detection-and-segmentation-metrics)
+7. [Object Detection (R-CNN family · YOLO · SSD)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/object-detection/object-detection)
+8. [Semantic Segmentation (FCN · U-Net · DeepLab)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/semantic-segmentation/semantic-segmentation)
+9. [Instance Segmentation (Mask R-CNN)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/instance-segmentation/instance-segmentation)
+10. [Segment Anything & Promptable Segmentation (SAM · SAM 2 · SAM 3)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/segment-anything-and-promptable-segmentation/segment-anything-and-promptable-segmentation)
+11. [Detection & Segmentation Metrics (IoU · mAP)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/detection-and-segmentation-metrics/detection-and-segmentation-metrics)
 
 ### Modern & specialized vision
-12. ✅ [Vision Transformers (ViT)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/vision-transformers/vision-transformers)
-13. ✅ [Self-Supervised Vision (SimCLR · MAE · DINO)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/self-supervised-vision/self-supervised-vision)
-14. ✅ [Pose Estimation](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/pose-estimation/pose-estimation)
-15. ✅ [Optical Flow & Video Understanding](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/optical-flow-and-video/optical-flow-and-video)
-16. ✅ [Optical Character Recognition (OCR)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/ocr/ocr)
-17. ✅ [3D & Depth Estimation](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/3d-and-depth-estimation/3d-and-depth-estimation)
+12. [Vision Transformers (ViT)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/vision-transformers/vision-transformers)
+13. [Self-Supervised Vision (SimCLR · MAE · DINO)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/self-supervised-vision/self-supervised-vision)
+14. [Pose Estimation](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/pose-estimation/pose-estimation)
+15. [Optical Flow & Video Understanding](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/optical-flow-and-video/optical-flow-and-video)
+16. [Optical Character Recognition (OCR)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/ocr/ocr)
+17. [3D & Depth Estimation](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/3d-and-depth-estimation/3d-and-depth-estimation)
 
 ### Related concepts (covered in another section)
 > These topics are foundational or generative and live in their canonical home to avoid repetition.
@@ -50,7 +50,7 @@ Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its p
 ## Mathematics curriculum (specialization)
 
 > Elective deep-dive track, absorbed and expanded from the retired `math-for-AIML-Q5`
-> CV specialization. Same format as the [main math curriculum](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme):
+> CV specialization. Each row gives:
 > what to study → why → best resources → which ai-ml-intuitions pages it unlocks.
 
 **Goal:** the mathematical spine of vision — images as signals, convolution and frequency

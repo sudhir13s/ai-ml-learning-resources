@@ -25,9 +25,11 @@ Doubles as a **dataset** for the interview-prep app, so formats must stay consis
 - **One `README.md` per sub-area** — the curated resource index. No `Links.md` / `Notes.md` /
   `Resources/` (deleted). It is repo-facing and is deliberately never a declared chapter.
 - Each sub-area README = **YAML frontmatter** (`id`, `topic`, `level`, `prereqs`, `updated`) +
-  curated sections in this order: **⭐ Start here · 🎓 Courses · 🎥 Videos · 📄 Papers ·
-  📰 Articles · 📚 Books · 🔗 In this platform**. ~2 entries per section, format
-  `[Title](url) — **Author/Institution** — why it's the best.`
+  a concept index, then ONE `## References` section in the estate's grouped form: `- **Label**:`
+  groups in the order **In this platform · Videos · Courses · Interactive · Articles · Papers ·
+  Documentation · Books**, qualifier-free labels, entries alphabetical within each group, format
+  `[Title](url) — **Author/Institution** — why it's the best.` The binding standard is
+  `docs/plans/structure-rework/commons/page-standards-checklist.md` in the parent monorepo.
 - Canonical example: [deep-learning/README.md](/ai-ml/ai-ml-learning-resources/deep-learning/readme).
 
 ## Concept pages (deep teaching content) — the two-file standard
@@ -102,9 +104,10 @@ each concept is **two files** (canonical example: [kv-cache.md](/ai-ml/ai-ml-lea
   `kv-cache-flashattention-and-flashdecoding` · `kv-cache-in-production`).
 - **`NN-Concept.references.md` — the links.** The curated link library for that concept, kept
   **separate on purpose**: later it doubles as a standalone references list, and it holds **internal**
-  links (to our own pages, incl. the content page itself) alongside **external** ones. Flat (one
-  level), best-first, in order: **Start-here path · Videos · Courses · Articles · Papers · Books · In
-  this platform**. Bar: **15+ entries, authority sources only** (primary authors / recognized deep
+  links (to our own pages, incl. the content page itself) alongside **external** ones. Grouped with
+  `- **Label**:` headers in the order **In this platform · Videos · Courses · Interactive · Articles ·
+  Papers · Documentation · Books**, entries alphabetical within each group, and no start-here block —
+  the paired concept page carries the teaching order. Bar: **15+ entries, authority sources only** (primary authors / recognized deep
   explainers — Raschka, Olah/Distill, 3Blue1Brown, Karpathy, Lilian Weng, the paper's authors — not
   generic popular tutorials); every link verified. The content page ends with a one-line pointer to
   this companion.
@@ -132,7 +135,7 @@ plus the foundations. Using a model (RAG, agents, application evaluation and ope
 Practitioner Workflows. Sections follow the model lifecycle after the foundations.
 
 - **`foundations/`** — ai-ml-orientation · programming-and-data-foundations ·
-  mathematical-foundations (+ the `maths-for-ai-ml/` deep math curriculum) ·
+  mathematical-foundations ·
   ai-paradigms-and-knowledge · tools-and-frameworks · research-literacy.
 - **`classical-machine-learning/`** — supervised-learning (regression · classification ·
   trees-and-ensembles) · unsupervised-learning (clustering · dimensionality-reduction ·

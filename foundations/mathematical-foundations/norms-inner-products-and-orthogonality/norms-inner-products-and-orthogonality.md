@@ -24,7 +24,7 @@ similarity divides out magnitude, the difference between L1 and L2 norms (and wh
 sparsity), what an orthogonal matrix preserves, and why attention scales `QKᵀ` by `1/√d`. All of it
 is inner-products and norms.
 
-**Start here — suggested path:**
+## How to work through it
 
 1. **Dot product, geometrically** — watch [3B1B: Dot products and duality](https://www.youtube.com/watch?v=LyGKycYT2v0). *Why `a·b` relates to projection and angle, not just a sum of products.*
 2. **Norms & distances in ML** — read [ai-ml-intuitions 1.07–1.08 Euclidean vs Cosine](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/cosine-vs-euclidean-distance-intuition) and [1.09 Manhattan/L1](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/manhattan-distance-intuition). *The exact place these definitions get used.*
@@ -32,32 +32,30 @@ is inner-products and norms.
 4. **Orthogonality & projection** — watch [MIT 18.06: Orthogonal Vectors & Subspaces](https://www.youtube.com/watch?v=YzZUIYRCE38). *Sets up least squares = projection onto a subspace.*
 5. **Practice** — do [Khan: Projections](https://www.youtube.com/watch?v=27vT-NWuw0M) and norm exercises. *Cement projection formulas and L1/L2 mechanics.*
 
-## Courses (free)
-- [MIT 18.06 — Orthogonality & Projections (Lec 14–16)](https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/) — **Gilbert Strang (MIT OCW)** — orthogonal subspaces, projections, least squares.
-- [Khan Academy — Alternate coordinate systems (bases, orthogonality)](https://www.khanacademy.org/math/linear-algebra/alternate-bases) — **Khan Academy** — orthonormal bases, projections, Gram–Schmidt with exercises.
+## References
 
-## Videos
-- [Dot products and duality | Ch. 9](https://www.youtube.com/watch?v=LyGKycYT2v0) — **3Blue1Brown** — the geometry behind the dot product.
-- [Orthogonal Vectors and Subspaces (18.06 Lec 14)](https://www.youtube.com/watch?v=YzZUIYRCE38) — **Gilbert Strang (MIT OCW)** — orthogonality and the four-subspaces picture.
-- [Projection Matrices and Least Squares (18.06 Lec 16)](https://www.youtube.com/watch?v=osh80YCg_GM) — **Gilbert Strang (MIT OCW)** — projection = best approximation in a subspace.
-- [Introduction to projections](https://www.youtube.com/watch?v=27vT-NWuw0M) — **Khan Academy** — the projection formula, worked step by step.
-- [Understanding Vector Norms in Machine Learning (L1, L2, unit balls, NumPy)](https://www.youtube.com/watch?v=It2g7sDxdqI) — **Dr. Data Science** — the unit balls of each norm drawn, then computed with `numpy.linalg.norm`; the picture behind L1 sparsity.
-- [Array, Norm and Dot Product with NumPy](https://www.youtube.com/watch?v=xSO0qOyvevc) — **Dr. Data Science** — the same three objects in code, with the axis and shape conventions that decide what you actually computed.
-
-## Key Papers
-- [MML book — Ch. 3 "Analytic Geometry"](https://mml-book.github.io/book/mml-book.pdf) — **Deisenroth, Faisal & Ong** — inner products, norms, orthogonality, projections, Cauchy–Schwarz.
-- [CS229 Linear Algebra Review](https://cs229.stanford.edu/section/cs229-linalg.pdf) — **Stanford** — norms, inner products, and orthogonal matrices in ML notation.
-
-## Articles / Blogs (free, no paywall)
-- [Immersive Linear Algebra — Ch. 3 "The Dot Product"](https://immersivemath.com/ila/ch03_dotproduct/ch03.html) — **Ström, Åström & Akenine-Möller** — interactive dot product, length, and angle.
-- [A visual explanation of L1 vs L2 regularization](https://explained.ai/regularization/) — **Terence Parr & Jeremy Howard** — why the L1 norm produces sparse solutions, geometrically.
-
-## Books (free, with chapters)
-- [Mathematics for Machine Learning — **Ch. 3 (Analytic Geometry)**](https://mml-book.github.io/book/mml-book.pdf) — **Deisenroth et al.** — norms, inner products, orthonormal bases, projections.
-- [Introduction to Applied Linear Algebra (VMLS) — **Ch. 3 (Norm & Distance), Ch. 5 (Orthogonality)**](https://web.stanford.edu/~boyd/vmls/vmls.pdf) — **Boyd & Vandenberghe** — norms, distance, angle, Gram–Schmidt.
-
-## In this platform
-- Concept depth (the *why*): [ai-ml-intuitions 1.06 Scaled Dot-Product](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/scaled-dot-product-intuition) · [1.07–1.08 Euclidean vs Cosine](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/cosine-vs-euclidean-distance-intuition) · [1.09 Manhattan/L1](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/manhattan-distance-intuition)
-- Curriculum context: [Maths for AI-ML — Phase 1 (Linear Algebra)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
-- Prereq: [01 Vectors & Vector Spaces](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/vectors-and-vector-spaces/vectors-and-vector-spaces) · Related: [12 Convexity](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/convexity/convexity) (norm balls)
+- **In this platform**:
+  - [Convexity](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/convexity/convexity) — related: norm balls are convex sets, which is the geometry behind L1 and L2 regularization.
+  - [Euclidean vs Cosine](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/cosine-vs-euclidean-distance-intuition) — where these norms and inner products become similarity measures.
+  - [Manhattan/L1](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/manhattan-distance-intuition) — the L1 norm as a distance, and why it favours sparsity.
+  - [Scaled Dot-Product](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/scaled-dot-product-intuition) — the intuition for why attention scales the dot product by `1/√d`.
+  - [Vectors & Vector Spaces](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/vectors-and-vector-spaces/vectors-and-vector-spaces) — the prerequisite this page builds on.
+- **Videos**:
+  - [Array, Norm and Dot Product with NumPy](https://www.youtube.com/watch?v=xSO0qOyvevc) — **Dr. Data Science** — the same three objects in code, with the axis and shape conventions that decide what you actually computed.
+  - [Dot products and duality | Ch. 9](https://www.youtube.com/watch?v=LyGKycYT2v0) — **3Blue1Brown** — the geometry behind the dot product.
+  - [Introduction to projections](https://www.youtube.com/watch?v=27vT-NWuw0M) — **Khan Academy** — the projection formula, worked step by step.
+  - [Orthogonal Vectors and Subspaces (18.06 Lec 14)](https://www.youtube.com/watch?v=YzZUIYRCE38) — **Gilbert Strang (MIT OCW)** — orthogonality and the four-subspaces picture.
+  - [Projection Matrices and Least Squares (18.06 Lec 16)](https://www.youtube.com/watch?v=osh80YCg_GM) — **Gilbert Strang (MIT OCW)** — projection = best approximation in a subspace.
+  - [Understanding Vector Norms in Machine Learning (L1, L2, unit balls, NumPy)](https://www.youtube.com/watch?v=It2g7sDxdqI) — **Dr. Data Science** — the unit balls of each norm drawn, then computed with `numpy.linalg.norm`; the picture behind L1 sparsity.
+- **Courses**:
+  - [Khan Academy — Alternate coordinate systems (bases, orthogonality)](https://www.khanacademy.org/math/linear-algebra/alternate-bases) — **Khan Academy** — orthonormal bases, projections, Gram–Schmidt with exercises.
+  - [MIT 18.06 — Orthogonality & Projections (Lec 14–16)](https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/) — **Gilbert Strang (MIT OCW)** — orthogonal subspaces, projections, least squares.
+- **Interactive**:
+  - [Immersive Linear Algebra — Ch. 3 "The Dot Product"](https://immersivemath.com/ila/ch03_dotproduct/ch03.html) — **Ström, Åström & Akenine-Möller** — interactive dot product, length, and angle.
+- **Articles**:
+  - [A visual explanation of L1 vs L2 regularization](https://explained.ai/regularization/) — **Terence Parr & Jeremy Howard** — why the L1 norm produces sparse solutions, geometrically.
+  - [CS229 Linear Algebra Review](https://cs229.stanford.edu/section/cs229-linalg.pdf) — **Stanford** — norms, inner products, and orthogonal matrices in ML notation.
+- **Books**:
+  - [Introduction to Applied Linear Algebra (VMLS) — **Ch. 3 (Norm & Distance), Ch. 5 (Orthogonality)**](https://web.stanford.edu/~boyd/vmls/vmls.pdf) — **Boyd & Vandenberghe** — norms, distance, angle, Gram–Schmidt.
+  - [Mathematics for Machine Learning — **Ch. 3 (Analytic Geometry)**](https://mml-book.github.io/book/mml-book.pdf) — **Deisenroth, Faisal & Ong** — inner products, norms, orthogonality, projections, and Cauchy–Schwarz.
 </content>
