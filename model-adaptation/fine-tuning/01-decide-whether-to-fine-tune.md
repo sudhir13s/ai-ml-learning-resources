@@ -139,9 +139,9 @@ Runnable services in this estate that implement what this page teaches:
 
 ## References
 
-- [Transfer Learning & Fine-Tuning (7.03)](/ai-ml/ai-ml-intuitions/scaling-adaptation-efficiency/transfer-learning-and-fine-tuning-intuition) — the freeze/unfreeze spectrum.
-  - [Context Engineering (8.11)](/ai-ml/ai-ml-intuitions/memory-retrieval-context/context-engineering-intuition) — getting the most from the fine-tuned model at inference.
-  - [Pruning & Sparsity (7.10)](/ai-ml/ai-ml-intuitions/scaling-adaptation-efficiency/pruning-and-sparsity-intuition) — complementary compression.
+- [Transfer Learning & Fine-Tuning (7.03)](/ai-ml/ai-ml-intuitions/scaling-adaptation-and-efficiency/adaptation/transfer-learning-and-fine-tuning-intuition) — the freeze/unfreeze spectrum.
+  - [Context Engineering (8.11)](/ai-ml/ai-ml-intuitions/memory-retrieval-and-context/context-engineering/context-engineering-intuition) — getting the most from the fine-tuned model at inference.
+  - [Pruning & Sparsity (7.10)](/ai-ml/ai-ml-intuitions/scaling-adaptation-and-efficiency/compression/pruning-and-sparsity-intuition) — complementary compression.
   - [LoRA & QLoRA Fine-tuning Explained In-Depth (Mark Hennings)](https://www.youtube.com/watch?v=t1caDsMzWBk)
   - [QLoRA — How to Fine-tune an LLM on a Single GPU, with code (Shaw Talebi)](https://www.youtube.com/watch?v=XpoKB3usmKc)
   - [Fine-tuning LLMs with PEFT and LoRA (Sam Witteveen)](https://www.youtube.com/watch?v=Us5ZFp16PaU)

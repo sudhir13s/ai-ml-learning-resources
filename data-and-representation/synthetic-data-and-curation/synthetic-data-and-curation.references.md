@@ -23,7 +23,7 @@ updated: 2026-09-13
 - Generating data from a stronger model: [Knowledge Distillation](/ai-ml/ai-ml-learning-resources/model-adaptation/knowledge-distillation/knowledge-distillation)
 - Group and temporal splits, and the rest of the leakage taxonomy: [Data Leakage](/ai-ml/ai-ml-learning-resources/data-and-representation/data-preparation/data-leakage/data-leakage)
 - Small models are the main beneficiary: [Small and On-Device Language Models](/ai-ml/ai-ml-learning-resources/inference-and-serving/small-and-on-device-language-models/small-and-on-device-language-models)
-- The judge that gates generated rows: [LLM-as-Judge](/ai-ml/ai-ml-intuitions/objectives-evaluation/llm-as-judge-intuition)
+- The judge that gates generated rows: [LLM-as-Judge](/ai-ml/ai-ml-intuitions/objectives-and-evaluation/llm-and-agent-evaluation/llm-as-judge-intuition)
 - The reasoning traces that become cold-start data: [Reinforcement Learning Post-training](/ai-ml/ai-ml-learning-resources/model-adaptation/reinforcement-learning-posttraining/reinforcement-learning-posttraining)
 - The runnable service: [synthetic-data-generator](/python/python-production-examples/synthetic-data-generator/readme)
 - The same curation steps run inside a model build: [Clean, Deduplicate and Split](/ai-ml/ai-ml-learning-resources/model-building/build-a-small-language-model/clean-deduplicate-and-split)

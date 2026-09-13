@@ -83,7 +83,7 @@ Runnable services in this estate that implement what this page teaches:
 ## References
 
 **In this platform**:
-- [Knowledge Distillation (7.04)](/ai-ml/ai-ml-intuitions/scaling-adaptation-efficiency/knowledge-distillation-intuition) — the other way to specialize a model.
+- [Knowledge Distillation (7.04)](/ai-ml/ai-ml-intuitions/scaling-adaptation-and-efficiency/compression/knowledge-distillation-intuition) — the other way to specialize a model.
 - [LLM Serving Engines](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/model-serving/model-serving) — loading one base and hot-swapping many adapters in production.
 - [Preference and Alignment Training](/ai-ml/ai-ml-learning-resources/model-adaptation/preference-and-alignment-training/preference-and-alignment-training) — the preference-tuning step that usually follows SFT.
 

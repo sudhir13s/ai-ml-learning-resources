@@ -105,7 +105,7 @@ LoRA total (A + B)                                  =    131,072  trainable
 fraction trained  =  131,072 / 16,777,216           =       0.78%   ← under 1%
 ```
 
-So on this one matrix we replace a 16.7M-parameter update with a **131,072**-parameter one — exactly **0.78%** of the original — and freeze the rest. Mistral-7B has 32 layers, each with `q/k/v/o` projections, so the *whole-model* trainable share lands in the same sub-1% ballpark; that is the entire reason a 7B fine-tune fits the optimizer state of a small GPU. **We train under 1% of each matrix** and freeze everything else. (The runnable demo at the end reports **3.40%** rather than 0.78% only because it adapts a *toy* 64-dim GPT-2 where the frozen base is tiny — the *mechanic* is identical; the percentage just scales with how big the frozen base is.) The full math behind why this works is in [LoRA — Low-Rank Adaptation (7.02)](/ai-ml/ai-ml-intuitions/scaling-adaptation-efficiency/lora-intuition).
+So on this one matrix we replace a 16.7M-parameter update with a **131,072**-parameter one — exactly **0.78%** of the original — and freeze the rest. Mistral-7B has 32 layers, each with `q/k/v/o` projections, so the *whole-model* trainable share lands in the same sub-1% ballpark; that is the entire reason a 7B fine-tune fits the optimizer state of a small GPU. **We train under 1% of each matrix** and freeze everything else. (The runnable demo at the end reports **3.40%** rather than 0.78% only because it adapts a *toy* 64-dim GPT-2 where the frozen base is tiny — the *mechanic* is identical; the percentage just scales with how big the frozen base is.) The full math behind why this works is in [LoRA — Low-Rank Adaptation (7.02)](/ai-ml/ai-ml-intuitions/scaling-adaptation-and-efficiency/adaptation/lora-intuition).
 
 How do you pick `r`? The trade-off is direct: trainable params grow *linearly* with `r`, but the quality you recover *saturates* early — most tasks are fully served by `r` somewhere in 8-16, and pushing higher mostly buys you parameters, not skill.
 
@@ -235,7 +235,7 @@ Runnable services in this estate that implement what this page teaches:
 ## References
 
 **In this platform**:
-- [LoRA — Low-Rank Adaptation (7.02)](/ai-ml/ai-ml-intuitions/scaling-adaptation-efficiency/lora-intuition) — the math behind the adapters.
+- [LoRA — Low-Rank Adaptation (7.02)](/ai-ml/ai-ml-intuitions/scaling-adaptation-and-efficiency/adaptation/lora-intuition) — the math behind the adapters.
 
 **Papers**:
 - [LoRA: Low-Rank Adaptation of Large Language Models (Hu et al., 2021)](https://arxiv.org/abs/2106.09685) — the original adapter method.

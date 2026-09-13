@@ -121,7 +121,7 @@ Let's trace the actual numbers for **full** fine-tuning of Mistral-7B in mixed p
 - **AdamW optimizer states** (fp32 master copy + two moments, ~8 bytes/param when the master weights are counted): 7B × 8 bytes = **~56 GB**
 - **Activations** (forward-pass intermediates, batch/sequence-dependent): **~8 GB**
 
-That's **14 + 14 + 56 + 8 ≈ 92 GB** — and the single biggest chunk is the **optimizer**, not the model. This is exactly the leverage LoRA exploits: freeze the weights and there are no gradients or optimizer states *for them at all*. The deep dive on the data types themselves is in [Quantization (7.05)](/ai-ml/ai-ml-intuitions/scaling-adaptation-efficiency/quantization-intuition).
+That's **14 + 14 + 56 + 8 ≈ 92 GB** — and the single biggest chunk is the **optimizer**, not the model. This is exactly the leverage LoRA exploits: freeze the weights and there are no gradients or optimizer states *for them at all*. The deep dive on the data types themselves is in [Quantization (7.05)](/ai-ml/ai-ml-intuitions/scaling-adaptation-and-efficiency/compression/quantization-intuition).
 
 **The Reality**: Training Mistral-7B in FP16 the naive (full) way requires nearly **90 GB of VRAM**. On platforms like **Google Colab (T4 GPU)** or **Hugging Face Spaces**, we only have **16 GB**.
 
@@ -230,7 +230,7 @@ graph TD
 
 ## Where Fine-Tuning Acts: Attention (Q·K·V)
 
-Memory: solved. The next question is *where* in those 7 billion parameters our fine-tuning actually lands — because we won't touch most of them. The answer is the **self-attention** layers, where the model decides which words matter to each other. Attention runs on three projection matrices — **Query (`q_proj`)**, **Key (`k_proj`)**, and **Value (`v_proj`)** — and these are exactly the matrices LoRA will adapt in the next section. **Adapting the attention projections is enough** to teach most task behaviors; the deep dive on how these matrices route information is in [Multi-Head Attention (4.08)](/ai-ml/ai-ml-intuitions/architectural-mechanisms/multi-head-attention-intuition).
+Memory: solved. The next question is *where* in those 7 billion parameters our fine-tuning actually lands — because we won't touch most of them. The answer is the **self-attention** layers, where the model decides which words matter to each other. Attention runs on three projection matrices — **Query (`q_proj`)**, **Key (`k_proj`)**, and **Value (`v_proj`)** — and these are exactly the matrices LoRA will adapt in the next section. **Adapting the attention projections is enough** to teach most task behaviors; the deep dive on how these matrices route information is in [Multi-Head Attention (4.08)](/ai-ml/ai-ml-intuitions/architectural-mechanisms/attention-and-routing/multi-head-attention-intuition).
 
 ### The Math of Context
 When a word enters the model, it is multiplied by these matrices:
@@ -276,6 +276,6 @@ Runnable services in this estate that implement what this page teaches:
 
 ## References
 
-  - [Multi-Head Attention (4.08)](/ai-ml/ai-ml-intuitions/architectural-mechanisms/multi-head-attention-intuition) — the q/k/v projections LoRA adapts.
-  - [Quantization (7.05)](/ai-ml/ai-ml-intuitions/scaling-adaptation-efficiency/quantization-intuition) — NF4, INT4/INT8, double-quant in depth.
+  - [Multi-Head Attention (4.08)](/ai-ml/ai-ml-intuitions/architectural-mechanisms/attention-and-routing/multi-head-attention-intuition) — the q/k/v projections LoRA adapts.
+  - [Quantization (7.05)](/ai-ml/ai-ml-intuitions/scaling-adaptation-and-efficiency/compression/quantization-intuition) — NF4, INT4/INT8, double-quant in depth.
   - [Attention Is All You Need (Vaswani et al., 2017)](https://arxiv.org/abs/1706.03762) — scaled dot-product attention (the Q·K·V math LoRA adapts).
