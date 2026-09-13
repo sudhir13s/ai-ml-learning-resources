@@ -8,7 +8,7 @@ updated: 2026-06-27
 
 # Math & Programming Foundations
 > The linear algebra, calculus, probability, and Python that everything else stands on.
-> The deep, phase-by-phase math syllabus lives in **[Maths for AI-ML](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)**.
+> Worked math notebooks, a symbol glossary and cheatsheets live in **[Math for AI](/ai-ml/math-for-ai)**.
 
 **⭐ Start here:** [3Blue1Brown — Essence of Linear Algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab) + [Essence of Calculus](https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr).
 
@@ -76,5 +76,5 @@ than re-deriving the math.
 - [Think Stats](https://greenteapress.com/wp/think-stats-2e/) — **Allen B. Downey** — free, computational statistics in Python.
 
 ## In this platform
-- The full math curriculum (phases + specializations): [Maths for AI-ML](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
+- Worked math notebooks, symbol glossary and cheatsheets: [Math for AI](/ai-ml/math-for-ai)
 - Math-as-ML-concepts deep dives: [ai-ml-intuitions Module 0–2](/ai-ml/ai-ml-intuitions)

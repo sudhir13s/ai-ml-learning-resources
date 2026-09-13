@@ -55,6 +55,5 @@ degrees-of-freedom arguments fall straight out of it.
 
 ## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 1.01 One-Hot Encoding](/ai-ml/ai-ml-intuitions/representation/discrete-representations/one-hot-encoding-intuition) · [1.02 Dense Embeddings](/ai-ml/ai-ml-intuitions/representation/embedding-spaces/dense-embeddings-intuition)
-- Curriculum context: [Maths for AI-ML — Phase 1 (Linear Algebra)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
 - Next concepts: [02 Matrices & Matrix Operations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/matrices-and-matrix-operations/matrices-and-matrix-operations) · [03 Norms, Inner Products & Orthogonality](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/norms-inner-products-and-orthogonality/norms-inner-products-and-orthogonality)
 </content>

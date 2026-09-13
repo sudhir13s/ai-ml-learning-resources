@@ -93,4 +93,4 @@ Every chapter is a self-contained folder (`<topic>/<topic>.md`) with its page an
 ## In this platform
 - **Understand the math:** [ai-ml-intuitions — Learning & Optimization](/ai-ml/ai-ml-intuitions/learning-and-optimization) · [Training Stability](/ai-ml/ai-ml-intuitions/training-stability)
 - **Build it:** [AI-ML problemsets](/ai-ml/ai-ml-problemsets)
-- **Prereq math:** [Maths for AI-ML curriculum](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
+- **Prereq math:** [Mathematical Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme) · [Math for AI](/ai-ml/math-for-ai)

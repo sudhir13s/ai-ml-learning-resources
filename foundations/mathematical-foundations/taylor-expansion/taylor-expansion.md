@@ -55,6 +55,5 @@ optimal step — pure Taylor.
 
 ## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 2.03 Jacobian & Hessian](/ai-ml/ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/jacobians-and-hessians-intuition) · [2.05 Gradient Descent & SGD](/ai-ml/ai-ml-intuitions/learning-and-optimization/first-order-optimization/gradient-descent-and-stochastic-gradient-descent-intuition)
-- Curriculum context: [Maths for AI-ML — Phase 2 (Calculus)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
 - Prereqs: [08 Derivatives & Gradients](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/derivatives-and-gradients/derivatives-and-gradients) · [10 Jacobian & Hessian](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/jacobian-and-hessian/jacobian-and-hessian) · Next: [12 Convexity](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/convexity/convexity) · [13 Gradient Descent — theory](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/gradient-descent-theory/gradient-descent-theory)
 </content>

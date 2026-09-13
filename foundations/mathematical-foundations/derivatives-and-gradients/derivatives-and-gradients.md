@@ -58,6 +58,5 @@ optimization.
 
 ## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 2.01 Partial Derivatives & the Gradient](/ai-ml/ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/partial-derivatives-and-gradients-intuition)
-- Curriculum context: [Maths for AI-ML — Phase 2 (Calculus, row 2.1)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
 - Prereq: [01 Vectors & Vector Spaces](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/vectors-and-vector-spaces/vectors-and-vector-spaces) · Next: [09 The Chain Rule](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/the-chain-rule/the-chain-rule) · [10 Jacobian & Hessian](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/jacobian-and-hessian/jacobian-and-hessian) · [13 Gradient Descent — theory](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/gradient-descent-theory/gradient-descent-theory)
 </content>

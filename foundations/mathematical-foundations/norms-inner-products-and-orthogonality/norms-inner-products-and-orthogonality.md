@@ -58,6 +58,5 @@ is inner-products and norms.
 
 ## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 1.06 Scaled Dot-Product](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/scaled-dot-product-intuition) · [1.07–1.08 Euclidean vs Cosine](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/cosine-vs-euclidean-distance-intuition) · [1.09 Manhattan/L1](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/manhattan-distance-intuition)
-- Curriculum context: [Maths for AI-ML — Phase 1 (Linear Algebra)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
 - Prereq: [01 Vectors & Vector Spaces](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/vectors-and-vector-spaces/vectors-and-vector-spaces) · Related: [12 Convexity](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/convexity/convexity) (norm balls)
 </content>

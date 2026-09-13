@@ -56,6 +56,5 @@ functions you train with.
 
 ## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 5.01 Information Theory: Entropy & KL](/ai-ml/ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition)
-- Curriculum context: [Maths for AI-ML — Phase 3 (Information Theory, row 3.5)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
 - Prereq: [16 Random Variables & Distributions](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/random-variables-and-distributions/random-variables-and-distributions) · Next: [23 Cross-Entropy & KL Divergence](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/cross-entropy-and-kl-divergence/cross-entropy-and-kl-divergence) · [24 Mutual Information](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/mutual-information/mutual-information)
 </content>

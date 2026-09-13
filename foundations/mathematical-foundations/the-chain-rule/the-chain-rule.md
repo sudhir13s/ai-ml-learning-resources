@@ -56,6 +56,5 @@ chain rule.
 
 ## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 2.02 Backpropagation (The Chain Rule)](/ai-ml/ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/chain-rule-and-backpropagation-intuition) · [2.04 Computational Graphs / Autograd](/ai-ml/ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/computational-graphs-and-autograd-intuition)
-- Curriculum context: [Maths for AI-ML — Phase 2 (Calculus, row 2.2)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
 - Prereq: [08 Derivatives & Gradients](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/derivatives-and-gradients/derivatives-and-gradients) · Next: [10 Jacobian & Hessian](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/jacobian-and-hessian/jacobian-and-hessian)
 </content>

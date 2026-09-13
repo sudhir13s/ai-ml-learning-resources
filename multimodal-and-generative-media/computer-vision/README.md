@@ -50,7 +50,7 @@ Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its p
 ## Mathematics curriculum (specialization)
 
 > Elective deep-dive track, absorbed and expanded from the retired `math-for-AIML-Q5`
-> CV specialization. Same format as the [main math curriculum](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme):
+> CV specialization. Each row gives:
 > what to study → why → best resources → which ai-ml-intuitions pages it unlocks.
 
 **Goal:** the mathematical spine of vision — images as signals, convolution and frequency

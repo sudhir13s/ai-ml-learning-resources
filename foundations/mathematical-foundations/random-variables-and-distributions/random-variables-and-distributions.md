@@ -56,6 +56,5 @@ when to reach for which distribution.
 
 ## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 0.02 Distributions & the Gaussian](/ai-ml/ai-ml-intuitions/foundational-mental-models/probability-and-belief/distributions-and-gaussians-intuition) · [1.10 Mahalanobis Distance (multivariate Gaussian)](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/mahalanobis-distance-intuition)
-- Curriculum context: [Maths for AI-ML — Phase 3 (Probability, row 3.2)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
 - Prereq: [15 Probability & Bayes' Theorem](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/probability-and-bayes-theorem/probability-and-bayes-theorem) · Next: [17 Expectation, Variance & Covariance](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/expectation-variance-covariance/expectation-variance-covariance) · [18 LLN & CLT](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/lln-and-clt/lln-and-clt)
 </content>

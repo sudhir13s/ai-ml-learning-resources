@@ -55,6 +55,5 @@ factor of the covariance.
 
 ## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 1.05 Spectral Methods (PCA/SVD)](/ai-ml/ai-ml-intuitions/representation/dimensionality-and-latent-structure/pca-and-svd-intuition) · [1.10 Mahalanobis Distance (covariance/Cholesky)](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/mahalanobis-distance-intuition)
-- Curriculum context: [Maths for AI-ML — Phase 1 (Linear Algebra, row 1.5)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
 - Prereq: [04 Eigenvalues & Eigenvectors](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/eigenvalues-and-eigenvectors/eigenvalues-and-eigenvectors) · Next: [06 Singular Value Decomposition](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/singular-value-decomposition/singular-value-decomposition)
 </content>

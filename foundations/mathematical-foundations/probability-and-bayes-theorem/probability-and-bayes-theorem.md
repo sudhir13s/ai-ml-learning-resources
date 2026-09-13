@@ -56,6 +56,5 @@ be fluent with conditional probability, independence, and decomposing joint dist
 
 ## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 0.01 Probability & Bayes' Theorem](/ai-ml/ai-ml-intuitions/foundational-mental-models/probability-and-belief/probability-and-bayes-intuition)
-- Curriculum context: [Maths for AI-ML — Phase 3 (Probability, row 3.1)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
 - Next: [16 Random Variables & Distributions](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/random-variables-and-distributions/random-variables-and-distributions) · [20 Bayesian Inference](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/bayesian-inference/bayesian-inference)
 </content>

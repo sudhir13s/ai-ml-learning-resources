@@ -56,6 +56,5 @@ many quantities end up Gaussian, and the difference between the LLN (the mean) a
 
 ## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 0.04 Law of Large Numbers & CLT](/ai-ml/ai-ml-intuitions/foundational-mental-models/probability-and-belief/law-of-large-numbers-and-central-limit-theorem-intuition) · [2.05 Gradient Descent & SGD (why mini-batches work)](/ai-ml/ai-ml-intuitions/learning-and-optimization/first-order-optimization/gradient-descent-and-stochastic-gradient-descent-intuition)
-- Curriculum context: [Maths for AI-ML — Phase 3 (Probability, row 3.4)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
 - Prereq: [17 Expectation, Variance & Covariance](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/expectation-variance-covariance/expectation-variance-covariance) · Next: [21 Hypothesis Testing & Confidence Intervals](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/hypothesis-testing-and-confidence-intervals/hypothesis-testing-and-confidence-intervals)
 </content>

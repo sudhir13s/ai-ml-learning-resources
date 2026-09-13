@@ -56,6 +56,5 @@ convexity guarantees a unique global optimum.
 
 ## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 2.05 Gradient Descent & SGD](/ai-ml/ai-ml-intuitions/learning-and-optimization/first-order-optimization/gradient-descent-and-stochastic-gradient-descent-intuition)
-- Curriculum context: [Maths for AI-ML — Phase 5 (Optimization for ML/DL)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
 - Prereqs: [10 Jacobian & Hessian](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/jacobian-and-hessian/jacobian-and-hessian) (PSD Hessian ⇒ convex) · Next: [13 Gradient Descent — theory](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/gradient-descent-theory/gradient-descent-theory) · [14 Lagrange Multipliers](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/lagrange-multipliers-constrained-optimization/lagrange-multipliers-constrained-optimization)
 </content>

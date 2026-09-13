@@ -132,7 +132,7 @@ plus the foundations. Using a model (RAG, agents, application evaluation and ope
 Practitioner Workflows. Sections follow the model lifecycle after the foundations.
 
 - **`foundations/`** — ai-ml-orientation · programming-and-data-foundations ·
-  mathematical-foundations (+ the `maths-for-ai-ml/` deep math curriculum) ·
+  mathematical-foundations ·
   ai-paradigms-and-knowledge · tools-and-frameworks · research-literacy.
 - **`classical-machine-learning/`** — supervised-learning (regression · classification ·
   trees-and-ensembles) · unsupervised-learning (clustering · dimensionality-reduction ·

@@ -56,6 +56,5 @@ comparisons inflate false positives.
 
 ## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 0.05 Hypothesis Testing & Confidence Intervals](/ai-ml/ai-ml-intuitions/foundational-mental-models/probability-and-belief/hypothesis-testing-and-confidence-intuition)
-- Curriculum context: [Maths for AI-ML — Phase 4 (Statistics, row 4.2)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
 - Prereq: [18 Law of Large Numbers & the CLT](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/lln-and-clt/lln-and-clt)
 </content>

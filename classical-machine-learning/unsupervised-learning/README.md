@@ -39,7 +39,7 @@ Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its p
 
 ### Related concepts (canonical home is another section)
 > These topics are used across many areas, so they're kept in one place to avoid repetition.
-- **PCA / SVD (the math)** — eigendecomposition, variance maximization, the SVD view → [Foundations — Maths for AI-ML](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
+- **PCA / SVD (the math)** — eigendecomposition, variance maximization, the SVD view → [Foundations — PCA, the math](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/principal-component-analysis-math/principal-component-analysis-math)
 - **Autoencoders** — non-linear, learned dimensionality reduction → [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)
 - **Word / sentence embeddings** — representation learning over text → [NLP](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/readme)
 

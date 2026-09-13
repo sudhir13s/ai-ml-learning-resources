@@ -9,7 +9,7 @@ updated: 2026-06-27
 # Advanced Research Mathematics — Curriculum (Specialization)
 > Elective deep-dive track for research-grade ML math, absorbed and expanded from the retired
 > `math-for-AIML-Q5` research specialization. This is the *third tier*: study after the
-> [main curriculum's](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme) phases and the corresponding
+> [Mathematical Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme) concept pages and the corresponding
 > [ai-ml-intuitions](/ai-ml/ai-ml-intuitions) modules. Each row names the payoff that justifies it.
 
 ## Concept Index

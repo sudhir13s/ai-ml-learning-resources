@@ -57,6 +57,5 @@ zero under independence, and where it shows up in modern representation learning
 
 ## In this platform
 - Concept depth (the *why*): [ai-ml-intuitions 5.01 Information Theory: Entropy & KL](/ai-ml/ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition) · [1.13 Contrastive Learning (SimCLR/InfoNCE)](/ai-ml/ai-ml-intuitions/representation/representation-learning/contrastive-learning-intuition)
-- Curriculum context: [Maths for AI-ML — Phase 3 (Information Theory, row 3.5)](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maths-for-ai-ml/readme)
 - Prereqs: [22 Entropy](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/entropy/entropy) · [23 Cross-Entropy & KL Divergence](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/cross-entropy-and-kl-divergence/cross-entropy-and-kl-divergence)
 </content>
