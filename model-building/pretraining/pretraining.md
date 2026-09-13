@@ -16,6 +16,7 @@ chapters:
   - "pretraining-schedule-clipping-and-checkpoints.md"
   - "pretraining-scaling-out.md"
   - "pretraining-tinyreg-end-to-end.md"
+core_idea: "At scale the training objective is the easy part: pretraining is a data pipeline, a parallelism plan and a stability recipe, all sized by one compute budget."
 title: "Pretraining at Scale"
 minutes: 40
 category: model-building
@@ -405,7 +406,14 @@ training FLOPs/token = 6N = 12,576
 toy MFU = (6N x 5e+04 tok/s) / 1e+12 peak = 0.0629%
 ```
 
-> **Note:** read the four blocks. **(1) LR schedule:** it's 0 at step 0, ramps *linearly* to exactly `3.000e-04` at step 10 (end of warmup), then **cosine-decays** to exactly `3.000e-05` at step 100 — the two `assert`s confirm the endpoints, proving the off-by-one is handled. The midpoint (step 55) sits at the cosine's halfway value, `1.650e-04`. **(2) Grad-accum:** the max difference between one big batch and 8 accumulated micro-batches is `5.96e-08` — *float noise* (one big matmul vs eight small ones round differently in the last digits), not a real difference. The big batch and the accumulated micro-batches compute the **same update**; that's the whole "fake a big batch" trick, verified. **(3) Training:** with the *real* recipe (AdamW + warmup→cosine + grad clip) on a *learnable* (periodic) toy corpus, loss drops cleanly `2.84 → 0.75` as the LR follows the schedule — the recipe working, made visible. The floor at ~0.75 (not ~0) is expected: windows are sampled randomly, so at a window's wrap point the next token is only learnable up to the period — a perfectly-trained model still pays a little cross-entropy there. The signal is the clean monotone descent as the LR follows the schedule, not reaching zero. **(4) MFU:** with a 2,096-param toy model, 6N = 12,576 FLOPs/token, and pretend measurements, MFU is ~0.06% — *tiny because the toy model barely uses the pretend hardware*; in a real run this lands at 30–50%.
+> **Note:** what each of the four blocks proves.
+>
+> - **LR schedule.** It is 0 at step 0, ramps *linearly* to exactly `3.000e-04` at step 10 (end of warmup), then **cosine-decays** to exactly `3.000e-05` at step 100. The two `assert`s confirm those endpoints, so the off-by-one is handled; the midpoint (step 55) sits at the cosine's halfway value, `1.650e-04`.
+> - **Grad-accum.** The largest gap between one big batch and 8 accumulated micro-batches is `5.96e-08` — *float noise*, not a real difference: one big matmul and eight small ones round differently in the last digits. The big batch and the accumulated micro-batches compute the **same update**, which is the whole "fake a big batch" trick, verified.
+> - **Training.** With the *real* recipe (AdamW + warmup→cosine + grad clip) on a *learnable* (periodic) toy corpus, loss falls cleanly `2.84 → 0.75` as the LR follows the schedule.
+>   - The floor at ~0.75 rather than ~0 is expected: windows are sampled randomly, so at a window's wrap point the next token is only learnable up to the period, and even a perfectly-trained model pays a little cross-entropy there.
+>   - The signal to read is the clean monotone descent, not the distance from zero.
+> - **MFU.** With a 2,096-param toy model, 6N = 12,576 FLOPs/token and pretend measurements, MFU is ~0.06% — *tiny because the toy model barely uses the pretend hardware*. A real run lands at 30–50%.
 
 > **Try it:** before you change anything, **predict**: in the grad-accum block, what happens to `max|big - accumulated|` if you **delete the `/ K`** (so each micro-batch contributes its *full* mean gradient instead of $1/K$ of it)? Does the difference stay ~`1e-8`, grow to roughly `7×` the big-batch gradient's magnitude, or go to exactly 0? Now run it and check. (Hint: without the `/K`, you're summing $K$ micro-batch means instead of averaging them, so the accumulated gradient is **$K=8\times$ too large** (its norm is $8\times$ the true one); the difference $\max|\text{big} - \text{buggy}|$ is itself $\approx 7\times$ the true gradient's magnitude — the `assert` fails. That single missing division is one of the most common real-world large-batch bugs.)
 
@@ -413,7 +421,7 @@ toy MFU = (6N x 5e+04 tok/s) / 1e+12 peak = 0.0629%
 
 ---
 
-## Pitfalls: the failures that actually take down a run
+## Pitfalls
 
 These are the named failure modes an interviewer expects you to know — each shown and fixed.
 
@@ -500,8 +508,8 @@ The core above is complete on its own — the systems view of a run. The five ch
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, articles, papers, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Pretraining at Scale — references and further reading](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining#references-further-reading)**
+**→ [Pretraining at Scale — references](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining#references)**

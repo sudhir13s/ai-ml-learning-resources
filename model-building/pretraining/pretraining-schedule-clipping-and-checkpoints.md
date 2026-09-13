@@ -12,6 +12,7 @@ updated: 2026-09-13
 tier: standard
 est_minutes: 15
 leads_to: ["09-llms/pretraining-at-scale/scaling-out"]
+core_idea: "A run that lasts days survives on three habits: warm the learning rate up then decay it, clip the gradient norm, and checkpoint enough state to resume exactly where it stopped."
 title: "Pretraining: Schedule, Clipping and Checkpoints"
 minutes: 15
 category: model-building
@@ -167,11 +168,8 @@ The classic picture: both curves dive together, then the validation loss **botto
 
 > **Important:** Always keep a validation split the model never trains on. Train loss going down feels great but is a vanity metric — a model with enough capacity can drive train loss to zero by pure memorization. The validation curve is your only honest signal, and its minimum is your stop sign.
 
-
-Next: [Scaling out](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining-scaling-out).
-
 ---
 
-## References and further reading
+## References
 
-Shared with the topic's companion file — see [Pretraining at Scale — references and further reading](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining#references-further-reading) (the training-loop, optimizer, mixed-precision, scheduling and sharding entries harvested with these chapters).
+Shared with the topic's companion file — see [Pretraining at Scale — references](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining#references) (the training-loop, optimizer, mixed-precision, scheduling and sharding entries harvested with these chapters).

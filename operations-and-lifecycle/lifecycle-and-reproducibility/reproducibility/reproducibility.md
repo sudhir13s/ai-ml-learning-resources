@@ -10,6 +10,7 @@ updated: 2026-09-13
 tier: standard
 est_minutes: 25
 leads_to: ["18-mlops/experiment-tracking"]
+core_idea: "A result is reproducible only when the run is a deterministic function of versioned inputs — code, data, config, environment and randomness each pinned, and lineage recorded."
 title: "Reproducibility (seeds, environments, lineage)"
 minutes: 25
 category: lifecycle-and-reproducibility
@@ -280,8 +281,8 @@ Put the config in one file, seed every PRNG, log params + metrics + artifacts to
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, articles, papers, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Reproducibility — references and further reading](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/reproducibility/reproducibility#references-further-reading)**
+**→ [Reproducibility — references](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/reproducibility/reproducibility#references)**

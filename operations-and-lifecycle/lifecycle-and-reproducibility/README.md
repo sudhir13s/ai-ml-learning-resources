@@ -19,7 +19,7 @@ updated: 2026-09-07
 
 Pages 2 to 4 are full teaching pages — the Practitioner Workflows experiment-tracking workflow
 harvested in here at W3 of the layer plan, one `support-bot` experiment carried across all three —
-each with its curated references (start-here path, courses, videos, papers, articles, books) in a
+each with its curated references (videos, courses, articles, papers, books) in a
 companion file beside it. Page 1 is the resource card that maps the sub-area.
 
 ### The map
@@ -35,7 +35,7 @@ companion file beside it. Page 1 is the resource card that maps the sub-area.
 3. [Experiment Tracking](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/experiment-tracking/experiment-tracking) — the anatomy of a logged run (params, metrics, artifacts), the W&B / MLflow / TensorBoard mental model, hyperparameter sweeps and why random beats grid, a runnable fifteen-line tracker, and the troubleshooting gallery.
 4. [Data and Model Versioning](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/data-and-model-versioning/data-and-model-versioning) — content-addressed data and model artifacts with DVC or lakeFS; one git commit that pins code, config and the data pointer; the half of reproducibility Git cannot do.
 
-## Courses (free)
+## Courses
 
 - [Made With ML — MLOps Course](https://madewithml.com/courses/mlops/) — **Goku Mohandas** — the best free end-to-end MLOps course; the versioning and experiment-tracking lessons map one-to-one onto pages 2 to 4.
 - [Machine Learning in Production (MLOps Specialization)](https://www.deeplearning.ai/courses/machine-learning-engineering-for-production-mlops/) — **Andrew Ng, Robert Crowe and Laurence Moroney (DeepLearning.AI)** — free to audit; Course 1 is the canonical lifecycle treatment.
@@ -49,21 +49,21 @@ companion file beside it. Page 1 is the resource card that maps the sub-area.
 - [Track Your PyTorch Experiments with Weights & Biases](https://www.youtube.com/watch?v=KESSYZExK44) — **Weights & Biases** — instrumenting a training loop in minutes, from the tool's own team.
 - [MLOps Zoomcamp — Experiment Tracking with Weights & Biases](https://www.youtube.com/watch?v=yNyqFMwEyL4) — **DataTalks.Club** — tracking, sweeps and artifacts inside a real project.
 
-## Key Papers
+## Papers
 
 - [Hidden Technical Debt in Machine Learning Systems](https://papers.nips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf) — **Sculley et al. (Google, 2015)** — "data dependencies cost more than code dependencies"; the argument for everything on these four pages.
 - [MLOps: Continuous delivery and automation pipelines in machine learning](https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning) — **Google Cloud** — the whitepaper that defined the maturity levels this sub-area teaches.
 - [Improving Reproducibility in Machine Learning Research](https://arxiv.org/abs/2003.12206) — **Pineau et al. (2020)** — the reproducibility checklist and what it found; why pinning is a scientific requirement, not hygiene.
 - [Challenges in Deploying Machine Learning: A Survey of Case Studies](https://arxiv.org/abs/2011.09926) — **Paleyes, Urma and Lawrence (2020)** — real deployment failures organized by lifecycle stage.
 
-## Articles / Blogs (free, no paywall)
+## Articles
 
 - [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) — **Martin Zinkevich (Google)** — 43 practices structured by lifecycle phase; the most quoted document in production ML.
 - [MLOps Principles](https://ml-ops.org/content/mlops-principles) — **INNOQ (ml-ops.org)** — a vendor-neutral definition of the lifecycle, automation levels and maturity.
 - [MLflow Tracking](https://mlflow.org/docs/latest/tracking/) — **MLflow maintainers** — runs, experiments, autologging and backends, from the canonical reference.
 - [DVC — Data Management](https://dvc.org/doc/user-guide/data-management) — **Iterative** — how content-addressed storage and remotes actually work under the pointer files.
 
-## Books (free, with chapters)
+## Books
 
 - [*Designing Machine Learning Systems* — Ch. 6 "Model Development and Offline Evaluation"](https://huyenchip.com/mlops/) — **Chip Huyen** — versioning and lineage in the definitive modern text; the book is paid, the author's notes and companion code are free.
 - [*Machine Learning Engineering* — Ch. 3 "Data Collection and Preparation"](http://www.mlebook.com/wiki/doku.php) — **Andriy Burkov** — data versioning treated as engineering; read-first chapters free.

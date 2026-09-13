@@ -12,6 +12,7 @@ updated: 2026-09-13
 tier: standard
 est_minutes: 15
 leads_to: ["09-llms/scaling-laws"]
+core_idea: "Every mechanism of the previous chapters fits in one runnable script, and the ways such a run breaks form a short, recognizable gallery with a one-line fix each."
 title: "Pretraining: TinyReg End to End"
 minutes: 15
 category: model-building
@@ -164,6 +165,6 @@ Runnable services in this estate that implement what this page teaches:
 
 ---
 
-## References and further reading
+## References
 
-Shared with the topic's companion file — see [Pretraining at Scale — references and further reading](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining#references-further-reading) (the training-loop, optimizer, mixed-precision, scheduling and sharding entries harvested with these chapters).
+Shared with the topic's companion file — see [Pretraining at Scale — references](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining#references) (the training-loop, optimizer, mixed-precision, scheduling and sharding entries harvested with these chapters).
