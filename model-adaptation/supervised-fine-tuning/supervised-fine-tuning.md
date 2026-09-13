@@ -1,6 +1,7 @@
 ---
 id: "09-llms/supervised-fine-tuning"
 topic: "Supervised Fine-Tuning (SFT)"
+core_idea: "SFT reuses the next-token loss on curated prompt-response demonstrations, masked so only response tokens are graded; it teaches a base model the format and behaviour of answering, not new facts."
 parent: "09-llms"
 level: advanced
 built_from: ["09-llms/language-modeling-objectives", "09-llms/decoder-only-architecture", "09-llms/lora-and-peft"]
@@ -64,7 +65,7 @@ Here is the analogy I'd lead with, because it survives the obvious follow-up que
 
 Now the follow-up that tests the analogy — *"so could you skip medical school and just teach bedside manner?"* No, and that's exactly the point: bedside manner with no medical knowledge is an empty performance — fluent, confident, and wrong. **SFT on a weak base model gives you a confident model that's still wrong**; it cannot teach facts the base never learned. That's why the pipeline is *pretrain first (get the knowledge), then SFT (get the format)* — and why LIMA's 1,000 examples work *only because* they sit on top of a 65B-parameter base that already knew the material. The analogy holds: you can't fine-tune your way to knowledge that isn't there.
 
-> **Note:** this also tells you *when SFT will disappoint you*. If the task needs **knowledge** the base model lacks (a private codebase, post-cutoff facts, a niche domain), SFT on a handful of examples won't conjure it — you need either **continued pretraining** on that domain, **retrieval** ([RAG Fundamentals](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-foundations/rag-foundations)) to supply the facts at inference, or far more data. SFT reshapes behavior; it is a poor tool for installing missing knowledge.
+> **Note:** this also tells you *when SFT will disappoint you*. If the task needs **knowledge** the base model lacks (a private codebase, post-cutoff facts, a niche domain), SFT on a handful of examples won't conjure it — you need either **continued pretraining** on that domain, **retrieval** ([RAG Fundamentals](/ai-ml/practitioner-workflows/llm-applications/rag-foundations/rag-foundations)) to supply the facts at inference, or far more data. SFT reshapes behavior; it is a poor tool for installing missing knowledge.
 
 ---
 
@@ -331,8 +332,7 @@ Tying SFT to systems you've heard of:
 
 ---
 
-## References and further reading
-
+## References
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Supervised Fine-Tuning — references and further reading](/ai-ml/ai-ml-learning-resources/model-adaptation/supervised-fine-tuning/supervised-fine-tuning#references-further-reading)**
+**→ [Supervised Fine-Tuning — references](/ai-ml/ai-ml-learning-resources/model-adaptation/supervised-fine-tuning/supervised-fine-tuning#references-further-reading)**

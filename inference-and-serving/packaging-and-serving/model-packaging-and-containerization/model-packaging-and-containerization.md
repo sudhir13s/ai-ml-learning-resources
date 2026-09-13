@@ -569,7 +569,7 @@ Lighter packaging is fine when:
 
 - **A notebook experiment never leaves your machine** — a checkpoint and a seed are enough.
 - **A managed platform owns the format** — hosted endpoints and model registries often define the manifest for you; learn theirs rather than inventing a second one.
-- **The model is an LLM served by an engine** — the engine loads a Hugging Face directory (safetensors plus config), and your job shifts to pinning the engine image; see [LLM Serving Engines](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/llm-serving-engines/llm-serving-engines).
+- **The model is an LLM served by an engine** — the engine loads a Hugging Face directory (safetensors plus config), and your job shifts to pinning the engine image; see [LLM Serving Engines](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/model-serving/model-serving).
 
 ---
 

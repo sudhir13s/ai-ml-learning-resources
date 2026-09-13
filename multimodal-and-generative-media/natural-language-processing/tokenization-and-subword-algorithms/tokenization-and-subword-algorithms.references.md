@@ -8,7 +8,7 @@ updated: 2026-09-13
 
 # Tokenization & Subword Algorithms — references
 
-> Companion link library for **[Tokenization & Subword Algorithms](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/tokenization-and-subword-algorithms/tokenization-and-subword-algorithms)** (the concept page). It holds external sources and links to related pages on this platform, grouped by type and alphabetical within each group. Every entry is from a primary author or a recognized deep explainer, chosen for depth on this topic.
+> Companion link library for **[Tokenization & Subword Algorithms](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/tokenization-and-subword-algorithms/tokenization-and-subword-algorithms)** (the teaching page). External sources and internal links, grouped by type, alphabetical within each group.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Let's build the GPT Tokenizer](https://www.youtube.com/watch?v=zduSFxRajkE) (**Andrej Karpathy**). *Implements byte-level BPE from scratch; the single best resource for making tokenization stick.*
@@ -20,7 +20,7 @@ updated: 2026-09-13
 **In this platform**:
 - [Contextual Embeddings (ELMo / BERT)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert) — builds on this: what the model does with token ids in context.
 - [KV Cache](/ai-ml/ai-ml-learning-resources/inference-and-serving/kv-cache/kv-cache) — puts it to work: tokens are what fills the cache at inference.
-- [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme) — puts it to work in applications built on tokenized text.
+- [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/readme) — puts it to work in applications built on tokenized text.
 - [Supervised Fine-Tuning](/ai-ml/ai-ml-learning-resources/model-adaptation/supervised-fine-tuning/supervised-fine-tuning) — chat templates and loss masking around the token sequences this page builds.
 - [Text Preprocessing & Normalization](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/text-preprocessing-and-normalization/text-preprocessing-and-normalization) — comes before this: cleaning text before it is tokenized.
 - [Tokenization & BPE (intuition)](/ai-ml/ai-ml-intuitions/representation/discrete-representations/tokenization-and-bpe-intuition) — the *why* behind subword units.

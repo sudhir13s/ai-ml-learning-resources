@@ -8,7 +8,7 @@ updated: 2026-09-13
 
 # Multimodal RAG — references
 
-> Companion link library for **[Multimodal RAG](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/multimodal-learning/multimodal-rag/multimodal-rag)** (the teaching page). Internal links and external sources, grouped by type and alphabetical within each group.
+> Companion link library for **[Multimodal RAG](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/multimodal-learning/multimodal-rag/multimodal-rag)** (the teaching page). External sources and internal links, grouped by type, alphabetical within each group.
 
 **Start here — suggested path**:
 
@@ -19,9 +19,9 @@ updated: 2026-09-13
 5. **Build one end to end** — follow [Multimodal RAG using document retrieval and VLMs](https://huggingface.co/learn/cookbook/multimodal_rag_using_document_retrieval_and_vlms) — **Hugging Face Cookbook**. *A complete notebook: index page images, retrieve, answer with a VLM.*
 
 **In this platform**:
-- Measuring it: [RAG Evaluation](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-evaluation/rag-evaluation) · [Multimodal Benchmarks and Evaluation](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/multimodal-learning/multimodal-benchmarks-and-evaluation/multimodal-benchmarks-and-evaluation)
-- Prerequisites: [RAG Foundations](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-foundations/rag-foundations) · [Embedding Models](/ai-ml/ai-ml-learning-resources/data-and-representation/embedding-models/embedding-models) · [Document and Chart Understanding](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/multimodal-learning/document-and-chart-understanding/document-and-chart-understanding)
-- Retrieval machinery: [Vector Search](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search) · [Hybrid Search](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search) · [Reranking](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking) · [Chunking](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/chunking/chunking)
+- Measuring it: [RAG Evaluation](/ai-ml/practitioner-workflows/llm-applications/rag-evaluation/rag-evaluation) · [Multimodal Benchmarks and Evaluation](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/multimodal-learning/multimodal-benchmarks-and-evaluation/multimodal-benchmarks-and-evaluation)
+- Prerequisites: [RAG Foundations](/ai-ml/practitioner-workflows/llm-applications/rag-foundations/rag-foundations) · [Embedding Models](/ai-ml/ai-ml-learning-resources/data-and-representation/embedding-models/embedding-models) · [Document and Chart Understanding](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/multimodal-learning/document-and-chart-understanding/document-and-chart-understanding)
+- Retrieval machinery: [Vector Search](/ai-ml/ai-ml-learning-resources/data-and-representation/vector-search/vector-search) · [Hybrid Search](/ai-ml/practitioner-workflows/llm-applications/hybrid-search/hybrid-search) · [Reranking](/ai-ml/practitioner-workflows/llm-applications/reranking/reranking) · [Chunking](/ai-ml/practitioner-workflows/llm-applications/chunking/chunking)
 
 **Videos**:
 - [ColPali: Document Retrieval with Vision-Language Models only (with Manuel Faysse)](https://www.youtube.com/watch?v=5zbwT4j_9KY) — **Zeta Alpha (Neural Search Talks)** — the author on design, benchmarks and the storage cost of multi-vector indexes.

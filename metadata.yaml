@@ -1,8 +1,10 @@
 title: AI/ML Learning Resources
 type: lesson
 section: ai-ml-learning-resources
-# The fifteen sections in the order course.yaml declares them — the model
-# lifecycle after the foundations, which is deliberately not alphabetical.
+# The fourteen sections in the order course.yaml declares them — the model
+# lifecycle after the foundations, which is deliberately not alphabetical. The
+# transitional llms-applications-and-agents section was deleted at W4, when its RAG
+# and agentic-AI sub-areas moved to Practitioner Workflows.
 # Reading order lives in the folder that owns it (structure-authoring-contract
 # Rule 4, widened 2026-09-13); course.yaml says which sections exist.
 #
@@ -23,4 +25,3 @@ page-order:
   - multimodal-and-generative-media
   - world-models-and-embodied-ai
   - frontier-and-specialized
-  - llms-applications-and-agents

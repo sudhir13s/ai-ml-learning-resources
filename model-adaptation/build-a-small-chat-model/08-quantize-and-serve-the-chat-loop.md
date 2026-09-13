@@ -4,7 +4,7 @@ id: lr-scm-quantize-and-serve-the-chat-loop
 minutes: 20
 core_idea: "The chat loop closes the circle between training and serving: it renders history in exactly the trained format, stops on the marker the loss graded, and drops whole turns rather than half of one."
 builds_on: [lr-scm-evaluate-behaviour-and-regression]
-related: [09-llms/quantization, inference-and-serving/packaging-and-serving/llm-serving-engines]
+related: [09-llms/quantization, 18-mlops/model-serving]
 section: "ai-ml-learning-resources"
 workflow: "build-a-small-chat-model"
 chapter: 7
@@ -187,7 +187,7 @@ parameters and the amount of text, and neither is a design decision.
 - **Input and output filtering**, which this build has none of.
 
 [inference-orchestrator](/python/python-production-examples/inference-orchestrator/readme) and
-[LLM Serving Engines](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/llm-serving-engines/llm-serving-engines)
+[LLM Serving Engines](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/model-serving/model-serving)
 are where those live.
 
 ## Pitfalls
@@ -215,11 +215,8 @@ are where those live.
 
 ## References
 
-- The implementation: `chatkit/chat.py` and `chatkit/stages/compress.py` in
-  [small-chat-model](/python/python-production-examples/small-chat-model/readme)
-- The quantizer it calls:
-  [model-compression](/python/python-production-examples/model-compression/readme)
-- Deeper on the reusable mechanisms:
-  [Quantization](/ai-ml/ai-ml-learning-resources/inference-and-serving/quantization/quantization)
-  and
-  [LLM Serving Engines](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/llm-serving-engines/llm-serving-engines)
+**In this platform**:
+- [LLM Serving Engines](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/model-serving/model-serving) — deeper on the reusable mechanisms.
+- [model-compression](/python/python-production-examples/model-compression/readme) — the quantizer it calls.
+- [Quantization](/ai-ml/ai-ml-learning-resources/inference-and-serving/quantization/quantization) — deeper on the reusable mechanisms.
+- [small-chat-model](/python/python-production-examples/small-chat-model/readme) — the implementation: `chatkit/chat.py` and `chatkit/stages/compress.py`.

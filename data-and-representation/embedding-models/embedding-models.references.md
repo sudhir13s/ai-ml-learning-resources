@@ -8,7 +8,7 @@ updated: 2026-09-13
 
 # Embedding Models for Retrieval — references
 
-> Companion link library for **[Embedding Models for Retrieval](/ai-ml/ai-ml-learning-resources/data-and-representation/embedding-models/embedding-models)**. External sources and internal links, grouped by type, alphabetical within each group — chosen for depth on the model that defines retrieval geometry, not for popularity.
+> Companion link library for **[Embedding Models for Retrieval](/ai-ml/ai-ml-learning-resources/data-and-representation/embedding-models/embedding-models)** (the teaching page). External sources and internal links, grouped by type, alphabetical within each group.
 
 **Start here — suggested path**:
 1. **See what an embedding is for search** — watch [Intro to Sentence Embeddings with Transformers](https://www.youtube.com/watch?v=WS1uVMGhlWQ) (**James Briggs**). *Grounds the sentence → vector → cosine pipeline that retrieval runs on.*
@@ -18,10 +18,10 @@ updated: 2026-09-13
 5. **Read the source** — skim [Dense Passage Retrieval](https://arxiv.org/abs/2004.04906) (**Karpukhin et al. 2020**). *The dual encoder and in-batch negatives that proved dense retrievers beat BM25.*
 
 **In this platform**:
-- Applied inside an application: [RAG Pipeline](/ai-ml/practitioner-workflows/llm-applications/rag-pipeline)
-- Interview framing of the same material: [Embeddings and Similarity Search](/ai-ml/ai-ml-learning-resources/data-and-representation/embedding-models/embeddings-and-similarity-search)
 - Intuition behind vectors and similarity: [Dense Embeddings](/ai-ml/ai-ml-intuitions/representation/embedding-spaces/dense-embeddings-intuition) · [Scaled Dot-Product](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/scaled-dot-product-intuition)
-- Searching the geometry this model builds: [Hybrid Search](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search) · [Re-ranking](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking) · [Vector Search](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search)
+- Interview framing of the same material: [Embeddings and Similarity Search](/ai-ml/ai-ml-learning-resources/data-and-representation/embedding-models/embeddings-and-similarity-search)
+- Searching the geometry this model builds: [Hybrid Search](/ai-ml/practitioner-workflows/llm-applications/hybrid-search/hybrid-search) · [Re-ranking](/ai-ml/practitioner-workflows/llm-applications/reranking/reranking) · [Vector Search](/ai-ml/ai-ml-learning-resources/data-and-representation/vector-search/vector-search)
+- Applied inside an application: [RAG Pipeline](/ai-ml/practitioner-workflows/llm-applications/rag-pipeline)
 - Sentence and document embeddings in language processing: [Sentence and Document Embeddings](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/sentence-and-document-embeddings/sentence-and-document-embeddings)
 
 **Videos**:

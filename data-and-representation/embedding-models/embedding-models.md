@@ -24,7 +24,7 @@ Here's the whole thing in one sentence: **retrieval can only find what the embed
 The answer is yes, and the mechanism is **contrastive learning**: train an encoder so that paraphrases are pulled together and unrelated text is pushed apart. I'll build this the way I'd actually demonstrate it — start from the felt failure (a lexical embedder missing a paraphrase), then the "meaning → coordinates" intuition, then the bi-encoder mechanism and the InfoNCE loss that trains it, a from-scratch dense embedder you watch *learn* to cluster paraphrases (plus a real pretrained model confirming it), the production pitfalls that silently wreck retrieval, and how to pick a model. By the end you'll be able to:
 
 - explain why a **lexical** embedder fails paraphrases and a **dense** one succeeds — and prove the gap in code;
-- describe the **bi-encoder** (encode independently, compare by cosine) and contrast it with the cross-encoder used for [re-ranking](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking);
+- describe the **bi-encoder** (encode independently, compare by cosine) and contrast it with the cross-encoder used for [re-ranking](/ai-ml/practitioner-workflows/llm-applications/reranking/reranking);
 - write the **InfoNCE** contrastive loss with in-batch negatives, define $\tau$, and say why we normalize;
 - avoid the silent killers — **asymmetric-prefix** mistakes, forgotten **L2-normalization**, **domain mismatch**, **truncation**;
 - pick an embedding model with the **MTEB** leaderboard and the dimension/cost tradeoff in mind.
@@ -70,7 +70,7 @@ Push on the analogy — it survives, and where it bends, it teaches:
 
 - **"How can it place two texts together if they share no words?"** Because it doesn't read words in isolation — it was *trained* on millions of examples of which texts mean the same thing, and it learned features that fire for "vehicle-ness" or "authentication-ness" regardless of the exact word. "Reset password" and "forgot login credentials" both light up the *account-access* region. (This is what we'll train from scratch below.)
 - **"What about antonyms — 'hot' vs 'cold'?"** This is where the analogy bends instructively. Antonyms are *about the same topic*, so embedders often place them **close** (both are temperature words) — embedding similarity measures **relatedness/topicality, not truth or polarity**. A retriever asked "is the server up?" may happily retrieve a passage saying "the server is down" because they're topically adjacent. Negation is a known weak spot of dense retrieval; don't assume cosine similarity respects logical opposites.
-- **"So nearby always means 'good answer'?"** No — nearby means *semantically related*, which is necessary but not sufficient. That's why retrieval is a *first stage*: get the topically-near candidates fast, then use a slower, more precise [reranker](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking) to sort relevance among them.
+- **"So nearby always means 'good answer'?"** No — nearby means *semantically related*, which is necessary but not sufficient. That's why retrieval is a *first stage*: get the topically-near candidates fast, then use a slower, more precise [reranker](/ai-ml/practitioner-workflows/llm-applications/reranking/reranking) to sort relevance among them.
 
 The mapping to the mechanism is exact: **the map-maker is the embedding model, the coordinates are the embedding vector, "similar meaning → similar coordinates" is what contrastive training enforces, and "grab the nearest" is cosine top-k retrieval.** Everything below is how we build and train that map-maker.
 
@@ -175,7 +175,7 @@ What each box does, with all-MiniLM-L6-v2 shapes ($d = 384$):
 
 > **Gotcha:** the query must go through the *identical* pipeline — same model, same prefix, same pooling, same normalization. Vectors from two different pipelines live in incompatible spaces, so their cosine is noise.
 
-**Contrast with the cross-encoder.** A *cross-encoder* feeds the query and passage **together** through the transformer (`[CLS] query [SEP] passage`), letting them attend to each other, and outputs a single relevance score. It's far more accurate — but it must run the model *once per (query, passage) pair* at query time, so it **cannot** precompute passage vectors and is far too slow for first-stage retrieval over a large corpus. The standard architecture uses **both**: a bi-encoder to retrieve top-k candidates fast, then a cross-encoder to **rerank** those few — the subject of [Re-ranking](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking).
+**Contrast with the cross-encoder.** A *cross-encoder* feeds the query and passage **together** through the transformer (`[CLS] query [SEP] passage`), letting them attend to each other, and outputs a single relevance score. It's far more accurate — but it must run the model *once per (query, passage) pair* at query time, so it **cannot** precompute passage vectors and is far too slow for first-stage retrieval over a large corpus. The standard architecture uses **both**: a bi-encoder to retrieve top-k candidates fast, then a cross-encoder to **rerank** those few — the subject of [Re-ranking](/ai-ml/practitioner-workflows/llm-applications/reranking/reranking).
 
 ---
 
@@ -298,7 +298,7 @@ The embedding dimension $d$ is a capacity/cost knob: more dimensions can encode 
 
 - **Worked row:** 10M vectors at 768 dims is $768 \times 10^7 \times 4 = 3.07 \times 10^{10}$ bytes $\approx 30.7$ GB.
 - **The Matryoshka payoff:** truncating 3072 → 256 dims cuts storage **12×** (1.23 TB → 102 GB at 100M vectors), and every distance computation gets 12× cheaper too.
-- **Precision is a second lever:** float16 halves every cell; product quantization compresses much further — the index side of this is in [Vector Search](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search).
+- **Precision is a second lever:** float16 halves every cell; product quantization compresses much further — the index side of this is in [Vector Search](/ai-ml/ai-ml-learning-resources/data-and-representation/vector-search/vector-search).
 
 > **Source / derivation:** [Kusupati et al. (2022), *Matryoshka Representation Learning* (arXiv:2205.13147)](https://arxiv.org/abs/2205.13147) — trains nested representations so a single embedding can be truncated to many shorter lengths; this is what powers the `dimensions` parameter in OpenAI's `text-embedding-3` models.
 
@@ -407,12 +407,12 @@ These are the silent killers — they don't error, they just quietly tank retrie
 **4. Silent truncation past max sequence length.** Every embedder has a **maximum input length** (often 256–512 tokens). Text past that is **silently dropped** — the model embeds only the prefix, so a chunk's tail (which may hold the answer) is invisible.
 
 - *Failing:* you embed 2,000-token chunks with a 512-token model; everything after token 512 is ignored, and a fact in the second half is unretrievable — even though the chunker kept it whole.
-- *Fix:* keep chunks **within the embedder's max length** (a constraint that should drive your [chunk size](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/chunking/chunking)), and verify the model's actual limit.
+- *Fix:* keep chunks **within the embedder's max length** (a constraint that should drive your [chunk size](/ai-ml/practitioner-workflows/llm-applications/chunking/chunking)), and verify the model's actual limit.
 
 **5. Using a cross-encoder for first-stage retrieval.** Tempting, because cross-encoders are more accurate — but a cross-encoder must score *every* (query, passage) pair at query time, so over a million-document corpus it's catastrophically slow.
 
 - *Failing:* you "improve" retrieval by replacing the bi-encoder with a cross-encoder over the whole corpus; query latency explodes from milliseconds to minutes.
-- *Fix:* **bi-encoder retrieves, cross-encoder reranks** the top-k only ([Re-ranking](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking)). Never run a cross-encoder over the full corpus.
+- *Fix:* **bi-encoder retrieves, cross-encoder reranks** the top-k only ([Re-ranking](/ai-ml/practitioner-workflows/llm-applications/reranking/reranking)). Never run a cross-encoder over the full corpus.
 
 > **Gotcha:** pitfalls 1, 2, and 4 are *silent* — no exception, just degraded recall you might not notice for weeks. The discipline that catches them: **measure retrieval on a held-out set of (query, known-answer) pairs** whenever you change the embedder or the encoding. A 10-line eval harness saves you from shipping a quietly-broken index.
 
@@ -452,9 +452,9 @@ Real systems, with **verified** specs:
 
 > **Note:** the embedder sets the geometry; everything downstream only searches it. Where that search goes next:
 >
-> - Making nearest-neighbour lookup fast at scale: [Vector Search](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search).
-> - Combining dense matching with lexical matching: [Hybrid Search](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search).
-> - Re-sorting the shortlist with a cross-encoder: [Re-ranking](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking).
+> - Making nearest-neighbour lookup fast at scale: [Vector Search](/ai-ml/ai-ml-learning-resources/data-and-representation/vector-search/vector-search).
+> - Combining dense matching with lexical matching: [Hybrid Search](/ai-ml/practitioner-workflows/llm-applications/hybrid-search/hybrid-search).
+> - Re-sorting the shortlist with a cross-encoder: [Re-ranking](/ai-ml/practitioner-workflows/llm-applications/reranking/reranking).
 
 ---
 
@@ -480,4 +480,4 @@ Real systems, with **verified** specs:
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Embedding Models for Retrieval — references and further reading](/ai-ml/ai-ml-learning-resources/data-and-representation/embedding-models/embedding-models#references-further-reading)**
+**→ [Embedding Models for Retrieval — references](/ai-ml/ai-ml-learning-resources/data-and-representation/embedding-models/embedding-models#references-further-reading)**

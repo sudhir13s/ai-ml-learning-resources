@@ -44,30 +44,32 @@ Every chapter is a self-contained folder (`<topic>/<topic>.md`) with its page.
 - **Diffusion mechanics for audio** → [Diffusion](/ai-ml/ai-ml-learning-resources/models-and-architectures/generative-model-families/diffusion-models/readme)
 - **Audio in multimodal LLMs** → [Multimodal](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/multimodal-learning/readme)
 - **Fourier analysis & signal processing math** → [Fourier Analysis & Signal Processing](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/fourier-analysis-and-signal-processing/fourier-analysis-and-signal-processing)
-- **The agent loop under a voice agent** → [Agent Foundations](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/agent-foundations/agent-foundations)
+- **The agent loop under a voice agent** → [Agent Foundations](/ai-ml/practitioner-workflows/agentic-systems/agent-foundations/agent-foundations)
 
-## Courses (free)
-- [Hugging Face Audio Course](https://huggingface.co/learn/audio-course/chapter1/introduction) — **Hugging Face** — the practical spine for this topic, unit by unit.
+## References
+
+**In this platform**:
+- Language side: [NLP](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/readme) · [LLMs](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/readme) · Fusion: [Multimodal](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/multimodal-learning/readme)
+
+**Videos**:
+- [Deep Learning for Speech Processing (MLSS 2021 Taipei)](https://www.youtube.com/watch?v=kGVAU6ldLvg) — **Hung-yi Lee**, via **AINTU** — a speech researcher's map of representation learning.
+- [ML for Audio Study Group — Intro to Audio and ASR Deep Dive](https://www.youtube.com/watch?v=D-MH6YjuIlE) — **Hugging Face** — audio data, features and ASR in one engineering-first session.
+
+**Courses**:
 - [Audio Signal Processing for Machine Learning](https://www.youtube.com/playlist?list=PL-wATfeyAMNqIee7cH3q1bh4QJFAaeNv0) — **Valerio Velardo - The Sound of AI** — the best free ground-up course on audio features.
 - [CS224S — Spoken Language Processing](https://web.stanford.edu/class/cs224s/) — **Stanford** — the university course, with public slides and assignments.
+- [Hugging Face Audio Course](https://huggingface.co/learn/audio-course/chapter1/introduction) — **Hugging Face** — the practical spine for this topic, unit by unit.
 
-## Videos
-- [ML for Audio Study Group — Intro to Audio and ASR Deep Dive](https://www.youtube.com/watch?v=D-MH6YjuIlE) — **Hugging Face** — audio data, features and ASR in one engineering-first session.
-- [Deep Learning for Speech Processing (MLSS 2021 Taipei)](https://www.youtube.com/watch?v=kGVAU6ldLvg) — **Hung-yi Lee**, via **AINTU** — a speech researcher's map of representation learning.
+**Articles**:
+- [Generating music in the waveform domain](https://sander.ai/2020/03/24/audio-generation.html) — **Sander Dieleman** — why audio generation is designed the way it is.
+- [Sequence Modeling with CTC](https://distill.pub/2017/ctc/) — **Awni Hannun (Distill)** — the visual explanation of the loss that made end-to-end ASR possible.
 
-## Key Papers
-- [Robust Speech Recognition via Large-Scale Weak Supervision (Whisper)](https://arxiv.org/abs/2212.04356) — **Radford et al. (2022)** — the ASR baseline everyone deploys.
-- [wav2vec 2.0](https://arxiv.org/abs/2006.11477) — **Baevski et al. (2020)** — self-supervised speech representations.
+**Papers**:
 - [High Fidelity Neural Audio Compression (EnCodec)](https://arxiv.org/abs/2210.13438) — **Défossez et al. (2022)** — the codec behind audio-token language models.
 - [Moshi: A Speech-Text Foundation Model for Real-Time Dialogue](https://arxiv.org/abs/2410.00037) — **Défossez et al., Kyutai (2024)** — full-duplex speech-to-speech and the streaming Mimi codec.
+- [Robust Speech Recognition via Large-Scale Weak Supervision (Whisper)](https://arxiv.org/abs/2212.04356) — **Radford et al. (2022)** — the ASR baseline everyone deploys.
+- [wav2vec 2.0](https://arxiv.org/abs/2006.11477) — **Baevski et al. (2020)** — self-supervised speech representations.
 
-## Articles / Blogs (free, no paywall)
-- [Sequence Modeling with CTC](https://distill.pub/2017/ctc/) — **Awni Hannun (Distill)** — the visual explanation of the loss that made end-to-end ASR possible.
-- [Generating music in the waveform domain](https://sander.ai/2020/03/24/audio-generation.html) — **Sander Dieleman** — why audio generation is designed the way it is.
-
-## Books (free, with chapters)
-- [*Speech and Language Processing* — Ch. 16 "Automatic Speech Recognition and Text-to-Speech"](https://web.stanford.edu/~jurafsky/slp3/16.pdf) — **Jurafsky & Martin** — free draft, the standard reference.
+**Books**:
 - [*Fundamentals of Music Processing* — FMP notebooks](https://www.audiolabs-erlangen.de/resources/MIR/FMP/C0/C0.html) — **Meinard Müller** — a free executable book on audio and music representations.
-
-## In this platform
-- Language side: [NLP](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/readme) · [LLMs](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme) · Fusion: [Multimodal](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/multimodal-learning/readme)
+- [*Speech and Language Processing* — Ch. 16 "Automatic Speech Recognition and Text-to-Speech"](https://web.stanford.edu/~jurafsky/slp3/16.pdf) — **Jurafsky & Martin** — free draft, the standard reference.

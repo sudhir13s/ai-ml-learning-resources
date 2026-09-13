@@ -21,7 +21,7 @@ updated: 2026-09-13
 **In this platform**:
 - [A/B testing, shadow and canary deployment](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/release-and-deployment/ab-testing-shadow-and-canary-deployment/ab-testing-shadow-and-canary-deployment) — releasing the packaged image gradually.
 - [Data and Model Versioning](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/data-and-model-versioning/data-and-model-versioning) — the data snapshot and weights version an artifact points at.
-- [LLM Serving Engines](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/llm-serving-engines/llm-serving-engines) — how an LLM's weights directory is loaded and served.
+- [LLM Serving Engines](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/model-serving/model-serving) — how an LLM's weights directory is loaded and served.
 - [Model Registry and Governance](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/governance-and-economics/model-registry-and-governance/model-registry-and-governance) — versions, stages and the promotion gate that reads the manifest's metrics.
 - [Model Serving](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/model-serving/model-serving) — exposing the artifact behind an API.
 - [Quantization](/ai-ml/ai-ml-learning-resources/inference-and-serving/quantization/quantization) — weight formats and their size/accuracy trade-off.

@@ -3,12 +3,12 @@ id: "05-deep-learning/backpropagation/references"
 topic: "Backpropagation & Computational Graphs — References"
 parent: "05-deep-learning/backpropagation"
 type: references
-updated: 2026-09-07
+updated: 2026-09-14
 ---
 
-# Backpropagation & Computational Graphs — references and further reading
+# Backpropagation & Computational Graphs — references
 
-> Companion link library for **[Backpropagation & Computational Graphs](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs)** (the concept page). External sources *and* internal links to related pages on this platform, kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic, not popularity.
+> Companion link library for **[Backpropagation & Computational Graphs](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs)** (the teaching page). External sources and internal links, grouped by type, alphabetical within each group.
 
 **Start here — suggested path**:
 1. **Build intuition** — watch [Backpropagation, intuitively](https://www.youtube.com/watch?v=Ilg3gGewQ5U) (**3Blue1Brown**). *Gradients as "nudges" to weights, before any symbols.*
@@ -17,50 +17,57 @@ updated: 2026-09-07
 4. **Read the source** — [Learning representations by back-propagating errors](https://www.nature.com/articles/323533a0) (**Rumelhart, Hinton & Williams, 1986**). *The paper that popularized backprop.*
 5. **Make it concrete** — build it from scratch with [Karpathy's micrograd](https://www.youtube.com/watch?v=VMj-3S1tku0), then map it to [PyTorch autograd](https://pytorch.org/tutorials/beginner/blitz/autograd_tutorial.html). *Implementing a tiny autograd engine makes the graph + chain rule click permanently.*
 
+**In this platform**:
+- [01 Perceptron & MLP](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/perceptron-and-mlp/perceptron-and-mlp) — the network being differentiated.
+- [03 Activation Functions](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/activation-functions/activation-functions) — the activations whose derivatives gate the flow.
+- [06 Vanishing & Exploding Gradients](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients) — the consequence of the backward product.
+- [07 Optimizers](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/optimizers) — what uses the gradient (turns the gradient into a weight update).
+- [09 LLMs](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/readme) — where it's applied, looking forward: the same backward pass trains every transformer.
+- [13 CNNs & Convolution](/ai-ml/ai-ml-learning-resources/models-and-architectures/classic-architectures/cnns-and-convolution/cnns-and-convolution) — where it's applied.
+- [14 RNN / LSTM / GRU](/ai-ml/ai-ml-learning-resources/models-and-architectures/classic-architectures/rnn-lstm-gru/rnn-lstm-gru) — where it's applied (backprop through time).
+- [2.04 Computational Graphs & Autograd](/ai-ml/ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/computational-graphs-and-autograd-intuition) — concept depth (the *why*).
+- [ai-ml-intuitions 2.02 Backpropagation / Chain Rule](/ai-ml/ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/chain-rule-and-backpropagation-intuition) — concept depth (the *why*).
+- [Backpropagation & Computational Graphs](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs) — concept page (full explanation).
+- [Basics 04 How Models Learn](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/how-models-learn/how-models-learn) — what the gradient is *for* — gradient descent, first principles.
+- [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme) — field overview.
+- [Foundations 08 Derivatives & Gradients](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/derivatives-and-gradients/derivatives-and-gradients) — the calculus this rests on.
+- [Foundations 09 The Chain Rule](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/the-chain-rule/the-chain-rule) — the calculus this rests on (backprop *is* the chain rule, run backward).
+- [the from-scratch backprop module](code/backpropagation.py) — runnable code.
+- [the step-by-step notebook](code/backpropagation-and-computational-graphs.ipynb) — runnable code: the module builds the backward pass, gradient-checks it, cross-checks it against PyTorch, and trains a net on scikit-learn digits; the notebook runs it one measurement at a time.
+
 **Videos**:
-- [Backpropagation, intuitively](https://www.youtube.com/watch?v=Ilg3gGewQ5U) — **3Blue1Brown** — visual intuition for how gradients adjust weights, before any calculus.
 - [Backpropagation calculus](https://www.youtube.com/watch?v=tIeHLnjs5U8) — **3Blue1Brown** — the chain-rule derivation, layer by layer.
-- [The spelled-out intro to backpropagation: building micrograd](https://www.youtube.com/watch?v=VMj-3S1tku0) — **Andrej Karpathy** — builds a working autograd engine from scratch, node by node.
+- [Backpropagation, intuitively](https://www.youtube.com/watch?v=Ilg3gGewQ5U) — **3Blue1Brown** — visual intuition for how gradients adjust weights, before any calculus.
 - [Neural Networks Pt. 2: Backpropagation Main Ideas](https://www.youtube.com/watch?v=IN2XmBhILt4) — **StatQuest (Josh Starmer)** — gentle, gated walk through the backprop computation.
+- [The spelled-out intro to backpropagation: building micrograd](https://www.youtube.com/watch?v=VMj-3S1tku0) — **Andrej Karpathy** — builds a working autograd engine from scratch, node by node.
 
-**Interactive & visual**:
-- [TensorFlow Playground](https://playground.tensorflow.org/) — **Google** — build a small net in the browser and watch backprop train it (weights + boundary updating live).
-
-**Courses (free)**:
+**Courses**:
+- [Deep Learning Fundamentals](https://lightning.ai/courses/deep-learning-fundamentals/) — **Sebastian Raschka (Lightning AI)** — free video course; Unit 3 derives the gradients by hand before Unit 4 hands the same computation to `autograd`, so you see the graph both ways.
 - [Neural Networks: Zero to Hero](https://karpathy.ai/zero-to-hero.html) — **Andrej Karpathy** — opens by building a full autograd engine (micrograd) by hand; the best way to *internalize* backprop.
 - [Stanford CS231n — Backpropagation, Neural Networks](https://cs231n.github.io/) — **Stanford (Karpathy / Li / Johnson)** — the definitive lecture notes with worked gradient examples and circuit intuition.
-- [Deep Learning Fundamentals](https://lightning.ai/courses/deep-learning-fundamentals/) — **Sebastian Raschka (Lightning AI)** — free video course; Unit 3 derives the gradients by hand before Unit 4 hands the same computation to `autograd`, so you see the graph both ways.
 
-**Articles / blogs (free, no paywall)**:
+**Interactive**:
+- [TensorFlow Playground](https://playground.tensorflow.org/) — **Google** — build a small net in the browser and watch backprop train it (weights + boundary updating live).
+
+**Articles**:
 - [Calculus on Computational Graphs: Backpropagation](https://colah.github.io/posts/2015-08-Backprop/) — **Chris Olah** — the gold-standard explanation of forward- vs reverse-mode differentiation on a graph.
-- [Hacker's guide to Neural Networks](http://karpathy.github.io/neuralnets/) — **Andrej Karpathy** — backprop taught with *no* matrices and *no* calculus notation: single scalar gates, real numbers, and a numerical gradient check at every step. The essay micrograd grew out of, and the fastest way to make "local gradient × upstream gradient" stop being a formula.
 - [CS231n — Backpropagation, Intuitions](https://cs231n.github.io/optimization-2/) — **Stanford CS231n** — staged worked examples (the "circuit" view of local gradients).
+- [Hacker's guide to Neural Networks](http://karpathy.github.io/neuralnets/) — **Andrej Karpathy** — backprop taught with *no* matrices and *no* calculus notation: single scalar gates, real numbers, and a numerical gradient check at every step. The essay micrograd grew out of, and the fastest way to make "local gradient × upstream gradient" stop being a formula.
+
+**Papers**:
+- [Applications of advances in nonlinear sensitivity analysis (backprop's origin)](https://link.springer.com/chapter/10.1007/BFb0006203) — **Paul Werbos (1982; thesis 1974)** — the early derivation of reverse-mode gradients for ordered systems, predating the 1986 NN paper.
+- [Automatic Differentiation in Machine Learning: a Survey](https://arxiv.org/abs/1502.05767) — **Baydin et al. (2015)** — forward vs reverse mode and how autograd engines work, rigorously (the VJP/JVP formalism).
+- [Deep Learning (Nature review)](https://www.nature.com/articles/nature14539) — **LeCun, Bengio & Hinton (2015)** — situates backprop within the broader deep-learning story.
+- [Estimating or Propagating Gradients Through Stochastic Neurons](https://arxiv.org/abs/1308.3432) — **Bengio, Léonard & Courville (2013)** — the straight-through estimator for non-differentiable ops.
+- [Learning representations by back-propagating errors](https://www.nature.com/articles/323533a0) — **Rumelhart, Hinton & Williams (1986)** — the paper that brought backprop to neural networks (hidden layers learn representations; backprop is how).
+- [Training Deep Nets with Sublinear Memory Cost](https://arxiv.org/abs/1604.06174) — **Chen et al. (2016)** — gradient checkpointing: trade compute for activation memory.
+
+**Documentation**:
 - [A Gentle Introduction to torch.autograd](https://pytorch.org/tutorials/beginner/blitz/autograd_tutorial.html) — **PyTorch** — how a real framework records the graph and runs the backward pass.
 - [Autodiff Cookbook (JAX)](https://docs.jax.dev/en/latest/notebooks/autodiff_cookbook.html) — **JAX team (Google)** — VJPs (`vjp`), JVPs (`jvp`), and forward- vs reverse-mode composition, with code; the cleanest modern treatment of the VJP view.
 
-**Key papers**:
-- [Learning representations by back-propagating errors](https://www.nature.com/articles/323533a0) — **Rumelhart, Hinton & Williams (1986)** — the paper that brought backprop to neural networks (hidden layers learn representations; backprop is how).
-- [Automatic Differentiation in Machine Learning: a Survey](https://arxiv.org/abs/1502.05767) — **Baydin et al. (2015)** — forward vs reverse mode and how autograd engines work, rigorously (the VJP/JVP formalism).
-- [Applications of advances in nonlinear sensitivity analysis (backprop's origin)](https://link.springer.com/chapter/10.1007/BFb0006203) — **Paul Werbos (1982; thesis 1974)** — the early derivation of reverse-mode gradients for ordered systems, predating the 1986 NN paper.
-- [Deep Learning (Nature review)](https://www.nature.com/articles/nature14539) — **LeCun, Bengio & Hinton (2015)** — situates backprop within the broader deep-learning story.
-- [Estimating or Propagating Gradients Through Stochastic Neurons](https://arxiv.org/abs/1308.3432) — **Bengio, Léonard & Courville (2013)** — the straight-through estimator for non-differentiable ops.
-- [Training Deep Nets with Sublinear Memory Cost](https://arxiv.org/abs/1604.06174) — **Chen et al. (2016)** — gradient checkpointing: trade compute for activation memory.
-
-**Books (free chapters)**:
-- [Neural Networks and Deep Learning — Ch. 2 "How the backpropagation algorithm works"](http://neuralnetworksanddeeplearning.com/chap2.html) — **Michael Nielsen** — the clearest from-first-principles derivation of the four backprop equations.
-- [Dive into Deep Learning — §5.3 "Forward Propagation, Backward Propagation, and Computational Graphs"](https://d2l.ai/chapter_multilayer-perceptrons/backprop.html) — **Zhang et al.** — backprop on an explicit computational graph, with code.
+**Books**:
 - [Deep Learning — Ch. 6.5 "Back-Propagation and Other Differentiation Algorithms"](https://www.deeplearningbook.org/contents/mlp.html) — **Goodfellow, Bengio & Courville** — the rigorous treatment (general computational graphs, reverse-mode autodiff).
+- [Dive into Deep Learning — §5.3 "Forward Propagation, Backward Propagation, and Computational Graphs"](https://d2l.ai/chapter_multilayer-perceptrons/backprop.html) — **Zhang et al.** — backprop on an explicit computational graph, with code.
+- [Neural Networks and Deep Learning — Ch. 2 "How the backpropagation algorithm works"](http://neuralnetworksanddeeplearning.com/chap2.html) — **Michael Nielsen** — the clearest from-first-principles derivation of the four backprop equations.
 - [*Understanding Deep Learning* — Ch. 7 "Gradients and initialization"](https://udlbook.github.io/udlbook/) — **Simon J.D. Prince** — free PDF; derives the backward pass on a concrete network with every index written out, then connects it to the initialization that keeps those gradients alive.
-
-**In this platform**:
-- Concept page (full explanation): [Backpropagation & Computational Graphs](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/backpropagation-and-computational-graphs/backpropagation-and-computational-graphs)
-- Runnable code: [the from-scratch backprop module](code/backpropagation.py) · [the step-by-step notebook](code/backpropagation-and-computational-graphs.ipynb) — the module builds the backward pass, gradient-checks it, cross-checks it against PyTorch, and trains a net on scikit-learn digits; the notebook runs it one measurement at a time.
-- Concept depth (the *why*): [ai-ml-intuitions 2.02 Backpropagation / Chain Rule](/ai-ml/ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/chain-rule-and-backpropagation-intuition) · [2.04 Computational Graphs & Autograd](/ai-ml/ai-ml-intuitions/learning-and-optimization/gradients-and-credit-assignment/computational-graphs-and-autograd-intuition)
-- The calculus this rests on: [Foundations 08 Derivatives & Gradients](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/derivatives-and-gradients/derivatives-and-gradients) · [Foundations 09 The Chain Rule](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/the-chain-rule/the-chain-rule) (backprop *is* the chain rule, run backward)
-- What the gradient is *for* — gradient descent, first principles: [Basics 04 How Models Learn](/ai-ml/ai-ml-learning-resources/foundations/ai-ml-orientation/how-models-learn/how-models-learn)
-- The network being differentiated: [01 Perceptron & MLP](/ai-ml/ai-ml-learning-resources/deep-learning/neural-network-foundations/perceptron-and-mlp/perceptron-and-mlp)
-- The activations whose derivatives gate the flow: [03 Activation Functions](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/activation-functions/activation-functions)
-- The consequence of the backward product: [06 Vanishing & Exploding Gradients](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients)
-- What uses the gradient: [07 Optimizers](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/optimizers) (turns the gradient into a weight update)
-- Where it's applied: [13 CNNs & Convolution](/ai-ml/ai-ml-learning-resources/models-and-architectures/classic-architectures/cnns-and-convolution/cnns-and-convolution) · [14 RNN / LSTM / GRU](/ai-ml/ai-ml-learning-resources/models-and-architectures/classic-architectures/rnn-lstm-gru/rnn-lstm-gru) (backprop through time) · forward to [09 LLMs](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme) (the same backward pass trains every transformer)
-- Field overview: [Deep Learning](/ai-ml/ai-ml-learning-resources/deep-learning/readme)

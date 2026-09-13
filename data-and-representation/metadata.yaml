@@ -3,8 +3,11 @@
 # and extension-less. README.md is repo-facing and deliberately absent.
 # `data-preparation` was missing from this list while course.yaml declares its
 # thirteen pages, so the sub-area rendered unordered. It reads first: prepare the
-# data you have before manufacturing more.
+# data you have before manufacturing more. Vector search follows embedding models:
+# first how the model places text in a space, then how to search that space fast
+# (it moved here from the RAG sub-area at W4 as a model-side concept).
 page-order:
   - data-preparation
   - synthetic-data-and-curation
   - embedding-models
+  - vector-search

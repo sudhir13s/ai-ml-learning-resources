@@ -23,10 +23,13 @@ from pathlib import Path
 _ROOT = Path(__file__).resolve().parent.parent  # AI-ML-learning-resources/
 
 #: Sections that hold LLM topic packages. Their ``<sub-area>/<topic>/code`` dirs carry the
-#: demo modules the generators import.
+#: demo modules the generators import. The RAG and agent topics left for Practitioner
+#: Workflows at W4 and carry their generators in their own ``tools/`` folders.
 _TOPIC_ROOTS = (
-    _ROOT / "llms-applications-and-agents",
-    _ROOT / "deep-learning" / "attention-and-transformers",
+    _ROOT / "models-and-architectures" / "large-language-models",
+    _ROOT / "models-and-architectures" / "attention-and-transformers",
+    _ROOT / "inference-and-serving",
+    _ROOT / "model-adaptation",
 )
 
 # Put every topic code/ dir (for demo-module imports) and tools/ (for sibling-generator

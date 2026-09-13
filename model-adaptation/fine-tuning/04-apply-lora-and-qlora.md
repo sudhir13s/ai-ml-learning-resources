@@ -220,7 +220,7 @@ print(f"saved adapter only ({mb:.3f} MB) -> hot-swappable on top of the base mod
 # saved adapter only (0.017 MB) -> hot-swappable on top of the base model
 ```
 
-Read the output top to bottom and you can see the entire idea working: step **(1)** builds a tiny GPT-2 from config so nothing downloads; **(2)** wraps it with real `peft` LoRA and prints that only **4,096 of 120,576** params (3.40%) are trainable — the sub-1% story, at toy scale; **(3)–(4)** trains *only* those adapter weights and the loss falls each checkpoint; **(5)** saves just the adapter — a **0.017 MB** file, the toy analogue of the real `~150 MB` you'd ship for Mistral. That last line is the whole serving payoff: you distribute the tiny adapter, and one shared base model can hot-swap many of them. How that hot-swap works at scale — loading one base and serving many adapters — is the [LLM Serving Engines](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/llm-serving-engines/llm-serving-engines).
+Read the output top to bottom and you can see the entire idea working: step **(1)** builds a tiny GPT-2 from config so nothing downloads; **(2)** wraps it with real `peft` LoRA and prints that only **4,096 of 120,576** params (3.40%) are trainable — the sub-1% story, at toy scale; **(3)–(4)** trains *only* those adapter weights and the loss falls each checkpoint; **(5)** saves just the adapter — a **0.017 MB** file, the toy analogue of the real `~150 MB` you'd ship for Mistral. That last line is the whole serving payoff: you distribute the tiny adapter, and one shared base model can hot-swap many of them. How that hot-swap works at scale — loading one base and serving many adapters — is the [LLM Serving Engines](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/model-serving/model-serving).
 
 > **Note:** The runnable demo trains a *randomly initialized* tiny model, so its loss falls slowly and the absolute numbers don't matter — the point is to watch the **mechanics**: real `peft` reporting <4% trainable params, only the adapters updating, and a kilobyte-scale adapter file dropping out at the end. Swap in `Mistral-7B` and the production recipe above and the exact same five steps run on a GPU.
 
@@ -234,7 +234,12 @@ Runnable services in this estate that implement what this page teaches:
 
 ## References
 
-  - [LoRA — Low-Rank Adaptation (7.02)](/ai-ml/ai-ml-intuitions/scaling-adaptation-efficiency/lora-intuition) — the math behind the adapters.
-  - [PEFT documentation (Hugging Face)](https://huggingface.co/docs/peft/index) — the library used above.
-  - [LoRA: Low-Rank Adaptation of Large Language Models (Hu et al., 2021)](https://arxiv.org/abs/2106.09685) — the original adapter method.
-  - [QLoRA: Efficient Finetuning of Quantized LLMs (Dettmers et al., 2023)](https://arxiv.org/abs/2305.14314) — NF4 + double-quant + paged optimizers.
+**In this platform**:
+- [LoRA — Low-Rank Adaptation (7.02)](/ai-ml/ai-ml-intuitions/scaling-adaptation-efficiency/lora-intuition) — the math behind the adapters.
+
+**Papers**:
+- [LoRA: Low-Rank Adaptation of Large Language Models (Hu et al., 2021)](https://arxiv.org/abs/2106.09685) — the original adapter method.
+- [QLoRA: Efficient Finetuning of Quantized LLMs (Dettmers et al., 2023)](https://arxiv.org/abs/2305.14314) — NF4 + double-quant + paged optimizers.
+
+**Documentation**:
+- [PEFT documentation (Hugging Face)](https://huggingface.co/docs/peft/index) — the library used above.

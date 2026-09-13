@@ -27,7 +27,7 @@ Three of the four pages are full teaching pages with runnable code and a compani
 ### Exposing predictions
 
 2. [Model Serving](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/model-serving/model-serving) — REST versus gRPC, online versus batch, and what BentoML, Triton and TF-Serving each give you.
-3. [LLM Serving Engines](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/llm-serving-engines/llm-serving-engines) — choosing vLLM, SGLang or TensorRT-LLM, one request traced block by block through the KV cache, many LoRA adapters on one base, and the OpenAI-compatible streaming API.
+3. [LLM Serving Engines](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/model-serving/model-serving) — choosing vLLM, SGLang or TensorRT-LLM, one request traced block by block through the KV cache, many LoRA adapters on one base, and the OpenAI-compatible streaming API.
 
 ### Surviving traffic
 
@@ -36,10 +36,18 @@ Three of the four pages are full teaching pages with runnable code and a compani
 ## References
 
 **In this platform**:
-- Section index: [Inference and Serving](/ai-ml/ai-ml-learning-resources/inference-and-serving/readme)
-- Serving an LLM specifically, in depth: [Inference Optimization and Serving](/ai-ml/ai-ml-learning-resources/inference-and-serving/inference-optimization/inference-optimization) · [Continuous Batching and Scheduling](/ai-ml/ai-ml-learning-resources/inference-and-serving/continuous-batching-and-scheduling/continuous-batching-and-scheduling) · [Quantization](/ai-ml/ai-ml-learning-resources/inference-and-serving/quantization/quantization)
-- The operations side this hands off to: [Operations and Lifecycle](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/readme) — [Lifecycle and Reproducibility](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/readme) · [Data and Training Platforms](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/data-and-training-platforms/readme) · [Release and Deployment](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/release-and-deployment/readme) · [Monitoring and Reliability](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/monitoring-and-reliability/readme) · [Governance and Economics](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/governance-and-economics/readme)
-- What happens right after this: [A/B Testing, Shadow and Canary Deployment](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/release-and-deployment/ab-testing-shadow-and-canary-deployment/ab-testing-shadow-and-canary-deployment) · [Model Monitoring and Observability](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/monitoring-and-reliability/model-monitoring-and-observability/model-monitoring-and-observability)
+- [A/B Testing, Shadow and Canary Deployment](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/release-and-deployment/ab-testing-shadow-and-canary-deployment/ab-testing-shadow-and-canary-deployment) — what happens right after this.
+- [Continuous Batching and Scheduling](/ai-ml/ai-ml-learning-resources/inference-and-serving/continuous-batching-and-scheduling/continuous-batching-and-scheduling) — serving an LLM specifically, in depth.
+- [Data and Training Platforms](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/data-and-training-platforms/readme) — the operations side this hands off to.
+- [Governance and Economics](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/governance-and-economics/readme) — the operations side this hands off to.
+- [Inference and Serving](/ai-ml/ai-ml-learning-resources/inference-and-serving/readme) — section index.
+- [Inference Optimization and Serving](/ai-ml/ai-ml-learning-resources/inference-and-serving/inference-optimization/inference-optimization) — serving an LLM specifically, in depth.
+- [Lifecycle and Reproducibility](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/readme) — the operations side this hands off to.
+- [Model Monitoring and Observability](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/monitoring-and-reliability/model-monitoring-and-observability/model-monitoring-and-observability) — what happens right after this.
+- [Monitoring and Reliability](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/monitoring-and-reliability/readme) — the operations side this hands off to.
+- [Operations and Lifecycle](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/readme) — the operations side this hands off to.
+- [Quantization](/ai-ml/ai-ml-learning-resources/inference-and-serving/quantization/quantization) — serving an LLM specifically, in depth.
+- [Release and Deployment](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/release-and-deployment/readme) — the operations side this hands off to.
 
 **Videos**:
 - [Introducing Ray Serve: Scalable and Programmable ML Serving](https://www.youtube.com/watch?v=gV4YS4e1CXg) — **Simon Mo (Anyscale)** — the scaling model in detail: replicas, autoscaling, batching.
@@ -64,8 +72,8 @@ Three of the four pages are full teaching pages with runnable code and a compani
 - [Cog — Containers for ML](https://cog.run/) — **Replicate** — opinionated ML-specific packaging on top of Docker: GPU base images, weights and a predict interface.
 - [Docker — Get Started Guide](https://docs.docker.com/get-started/) — **Docker** — the official hands-on introduction to images and containers.
 - [Dockerfile best practices](https://docs.docker.com/build/building/best-practices/) — **Docker** — layers, cache ordering, multi-stage builds and slim images; the difference between a 300 MB and a 6 GB model image.
-- [Ray Serve documentation](https://docs.ray.io/en/latest/serve/index.html) — **Anyscale** — scalable serving with built-in autoscaling, batching and model composition.
 - [Ray Serve — Autoscaling Guide](https://docs.ray.io/en/latest/serve/autoscaling-guide.html) — **Anyscale** — which signal to autoscale inference on, and why CPU utilization is the wrong one.
+- [Ray Serve documentation](https://docs.ray.io/en/latest/serve/index.html) — **Anyscale** — scalable serving with built-in autoscaling, batching and model composition.
 
 **Books**:
 - [*Designing Machine Learning Systems* — Ch. 7 "Model Deployment and Prediction Service"](https://huyenchip.com/mlops/) — **Chip Huyen** — the reference chapter on packaging and serving.

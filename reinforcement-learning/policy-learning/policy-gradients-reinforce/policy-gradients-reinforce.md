@@ -1,6 +1,7 @@
 ---
 id: "08-rl/policy-gradients-reinforce"
 topic: "Policy Gradients (REINFORCE)"
+core_idea: "Parameterize the policy directly and ascend expected return by weighting each action's log-probability gradient by the return that followed; a baseline cuts that estimator's high variance without adding bias."
 parent: "08-reinforcement-learning"
 level: advanced
 built_from: ["markov-decision-processes", "bellman-equations", "q-learning", "backpropagation", "gradient-ascent"]
@@ -294,7 +295,7 @@ REINFORCE has a sharp set of traps, and every one shows up in interviews and in 
 ## Where it is used and why it matters
 
 - **REINFORCE is the root of the entire policy-based family.** Every modern policy-optimization algorithm is REINFORCE plus a variance-reduction or stability idea. Add a **learned value baseline** and bootstrap it and you get [**actor-critic / A2C / A3C**](/ai-ml/ai-ml-learning-resources/reinforcement-learning/policy-learning/actor-critic-a2c-a3c/actor-critic-a2c-a3c). Constrain the step so the policy cannot move too far in one update and you get [**TRPO**](/ai-ml/ai-ml-learning-resources/reinforcement-learning/policy-learning/trust-region-policy-optimization-trpo/trust-region-policy-optimization-trpo); replace the hard constraint with a clipped surrogate and let it reuse data for several epochs and you get [**PPO**](/ai-ml/ai-ml-learning-resources/reinforcement-learning/policy-learning/proximal-policy-optimization-ppo/proximal-policy-optimization-ppo), the workhorse of applied deep RL. If you understand the estimator on this page, you understand the beating heart of all of them.
-- **Policy gradients are how we align large language models.** **RLHF** — the technique behind ChatGPT-style assistants — treats the language model as a policy $\pi_\theta(\text{token}\mid \text{context})$ and runs a policy-gradient method (PPO) to push up the log-probability of responses a reward model scores highly. It is the log-derivative trick of this page, applied to a policy with a vocabulary-sized action space; the KL-to-reference term is a trust region. The forward link is [RLHF in the LLMs track](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme).
+- **Policy gradients are how we align large language models.** **RLHF** — the technique behind ChatGPT-style assistants — treats the language model as a policy $\pi_\theta(\text{token}\mid \text{context})$ and runs a policy-gradient method (PPO) to push up the log-probability of responses a reward model scores highly. It is the log-derivative trick of this page, applied to a policy with a vocabulary-sized action space; the KL-to-reference term is a trust region. The forward link is [RLHF in the LLMs track](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/readme).
 - **They are the natural fit for continuous control and stochastic optimal policies.** Robotics (torques), locomotion, and any continuous-action problem use policy gradients (via [DDPG/TD3/SAC](/ai-ml/ai-ml-learning-resources/reinforcement-learning/policy-learning/continuous-control-ddpg-td3-sac/continuous-control-ddpg-td3-sac) and PPO) precisely because there is no argmax to take. And where the optimal policy is genuinely random (partial observability, games), only a policy-based method can represent it.
 - **When *not* to reach for plain REINFORCE.** If your actions are few and discrete and you can afford off-policy data reuse, value-based [Q-learning / DQN](/ai-ml/ai-ml-learning-resources/reinforcement-learning/value-based-learning/q-learning/q-learning) is far more **sample-efficient** (it reuses every transition via replay; REINFORCE throws each episode away). If you need stable, data-efficient policy learning at scale, use **PPO**, not vanilla REINFORCE — REINFORCE is the right tool for *understanding* the gradient and for small problems, and the wrong tool when sample budget or stability matters.
 
@@ -324,8 +325,7 @@ REINFORCE has a sharp set of traps, and every one shows up in interviews and in 
 
 ---
 
-## References and further reading
-
+## References
 The curated link library for this topic — the start-here path, videos, courses, articles, papers, and books, plus internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Policy Gradients (REINFORCE) — references and further reading](/ai-ml/ai-ml-learning-resources/reinforcement-learning/policy-learning/policy-gradients-reinforce/policy-gradients-reinforce#references-further-reading)**
+**→ [Policy Gradients (REINFORCE) — references](/ai-ml/ai-ml-learning-resources/reinforcement-learning/policy-learning/policy-gradients-reinforce/policy-gradients-reinforce#references-further-reading)**

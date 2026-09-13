@@ -43,27 +43,29 @@ Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its p
 > These topics are foundational or live in another domain, so they're kept in one place to avoid repetition.
 - **Flow matching & rectified flow** — the continuous-normalizing-flow formulation that current image and video models train with → [Diffusion Models · Flow Matching & Rectified Flow](/ai-ml/ai-ml-learning-resources/models-and-architectures/generative-model-families/diffusion-models/flow-matching-and-rectified-flow/flow-matching-and-rectified-flow)
 - **Autoencoders (plain / denoising / sparse)** — the deterministic precursor to the VAE → [Deep Learning · Autoencoders](/ai-ml/ai-ml-learning-resources/models-and-architectures/classic-architectures/autoencoders/autoencoders)
-- **LLM text generation & autoregressive language models** — GPT-style next-token generation → [LLMs](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme)
+- **LLM text generation & autoregressive language models** — GPT-style next-token generation → [LLMs](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/readme)
 - **Decoding strategies for text** (greedy · beam · top-k · top-p) → [NLP · Decoding Strategies](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/decoding-strategies/decoding-strategies)
 - **Gaussian Mixture Models & the EM algorithm** — the classic latent-variable model → [Unsupervised Learning · GMM & EM](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/clustering/gaussian-mixture-models-and-em/gaussian-mixture-models-and-em)
 - **Information theory** (entropy · cross-entropy · KL divergence) — the objective under every likelihood model → [Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme)
 
-## Courses (free)
-- [How Diffusion Models Work](https://www.deeplearning.ai/short-courses/how-diffusion-models-work/) — **DeepLearning.AI** — free short course, build one.
-- [Hugging Face Diffusion Models Course](https://huggingface.co/learn/diffusion-course) — **Hugging Face** — free, code-first.
+## References
 
-## Videos
+**In this platform**:
+- Math: [ai-ml-intuitions Module 5 (Generation)](/ai-ml/ai-ml-intuitions/generation)
+
+**Videos**:
 - [Diffusion models from scratch in PyTorch](https://www.youtube.com/watch?v=a4Yfz2FxXiY) — **DeepFindr** — implement DDPM end to end.
 - [Variational Autoencoders](https://www.youtube.com/watch?v=9zKuYvjFFS8) — **Arxiv Insights** — the best VAE intro.
 
-## Key Papers
-- [DDPM (Denoising Diffusion Probabilistic Models)](https://arxiv.org/abs/2006.11239) — **Ho et al. (2020)** — the modern diffusion formulation.
-- [High-Resolution Image Synthesis with Latent Diffusion](https://arxiv.org/abs/2112.10752) — **Rombach et al. (2022)** — Stable Diffusion.
-- [Generative Adversarial Networks](https://arxiv.org/abs/1406.2661) — **Goodfellow et al. (2014)** — the GAN that started it.
+**Courses**:
+- [How Diffusion Models Work](https://www.deeplearning.ai/short-courses/how-diffusion-models-work/) — **DeepLearning.AI** — free short course, build one.
+- [Hugging Face Diffusion Models Course](https://huggingface.co/learn/diffusion-course) — **Hugging Face** — free, code-first.
 
-## Articles
-- [What are Diffusion Models? (Lil'Log)](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/) — **Lilian Weng** — the canonical math walkthrough.
+**Articles**:
 - [The Annotated Diffusion Model](https://huggingface.co/blog/annotated-diffusion) — **Hugging Face** — runnable code + math.
+- [What are Diffusion Models? (Lil'Log)](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/) — **Lilian Weng** — the canonical math walkthrough.
 
-## In this platform
-- Math: [ai-ml-intuitions Module 5 (Generation)](/ai-ml/ai-ml-intuitions/generation)
+**Papers**:
+- [DDPM (Denoising Diffusion Probabilistic Models)](https://arxiv.org/abs/2006.11239) — **Ho et al. (2020)** — the modern diffusion formulation.
+- [Generative Adversarial Networks](https://arxiv.org/abs/1406.2661) — **Goodfellow et al. (2014)** — the GAN that started it.
+- [High-Resolution Image Synthesis with Latent Diffusion](https://arxiv.org/abs/2112.10752) — **Rombach et al. (2022)** — Stable Diffusion.

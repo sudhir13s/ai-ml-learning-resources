@@ -3,7 +3,7 @@ id: "18-mlops/scaling-inference"
 topic: "Scaling Inference (autoscaling · GPU · Ray Serve)"
 parent: "18-mlops-and-deployment"
 level: advanced
-built_from: ["model-serving", "distributed-systems", "inference-and-serving/packaging-and-serving/llm-serving-engines"]
+built_from: ["model-serving", "distributed-systems", "18-mlops/model-serving"]
 leads_to: ["18-mlops/cost-optimization"]
 interview_frequency: high
 template: concept-deep
@@ -28,7 +28,7 @@ This page is the systems layer around the engine:
 - **Kubernetes mechanics** — Deployment, Horizontal Pod Autoscaler (HPA), readiness, and GPU scheduling with Multi-Instance GPU (MIG).
 - **Fleet monitoring** — the latency percentiles, throughput and cost per token that say whether scaling worked.
 
-The running example is **Atlas**, the `Mistral-7B-Instruct` chat endpoint from [LLM Serving Engines](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/llm-serving-engines/llm-serving-engines): one vLLM replica per GPU, batching up to 32 sequences.
+The running example is **Atlas**, the `Mistral-7B-Instruct` chat endpoint from [LLM Serving Engines](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/model-serving/model-serving): one vLLM replica per GPU, batching up to 32 sequences.
 
 ---
 
@@ -506,7 +506,7 @@ Model quality, drift and guardrail signals sit beside these in [Model Monitoring
 
 > **Tip:** When a fleet misbehaves, ask two questions first:
 > - **Did the replica count move when traffic moved?** If not, the signal is wrong.
-> - **Did latency recover once replicas were ready?** If not, the problem is inside the replica, not the autoscaler — see [LLM Serving Engines](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/llm-serving-engines/llm-serving-engines).
+> - **Did latency recover once replicas were ready?** If not, the problem is inside the replica, not the autoscaler — see [LLM Serving Engines](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/model-serving/model-serving).
 
 ---
 

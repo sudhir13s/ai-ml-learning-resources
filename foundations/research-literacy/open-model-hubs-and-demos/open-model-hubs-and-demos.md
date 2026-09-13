@@ -1,6 +1,7 @@
 ---
 id: "21-frontier/model-hubs-and-demos"
 topic: "Open Model Hubs & Demos (Hugging Face / Spaces)"
+core_idea: "The fastest way to understand a new model is to run it — a Space in the browser, a pipeline in code, or a quantized build locally — then read its model card before trusting any claim."
 parent: "21-frontier"
 level: beginner
 built_from: []
@@ -23,43 +24,8 @@ model from the Hub, run a Space demo, or load it locally turns the frontier from
 hands-on experience — and "have you actually used X?" is a question that separates readers from
 practitioners in interviews.
 
-**Start here — suggested path:**
+## References
 
-1. **Tour the Hub** — browse [Hugging Face Models](https://huggingface.co/models) and [Datasets](https://huggingface.co/datasets); sort by trending/downloads. *The Hub is the field's app store for open models; trending tells you what people actually use.*
-2. **Try a demo with zero setup** — open a few [Spaces](https://huggingface.co/spaces) and interact with live models in the browser. *Spaces let you experience a model's behavior before writing a line of code.*
-3. **Run a model in code** — follow the [Transformers quickstart](https://huggingface.co/docs/transformers/index) to load a model in a few lines. *Loading a pipeline is the "hello world" of using the frontier hands-on.*
-4. **Run one locally** — use [Ollama](https://ollama.com/) (or [GGUF via the Hub](https://huggingface.co/docs/hub/ollama)) to run an open model on your machine. *Local inference removes API/cost friction and deepens your intuition for size/latency trade-offs.*
-5. **Read model cards critically** — check the model card for training data, license, eval, and limitations before trusting it. *The model card is where capability claims meet caveats — a direct tie-in to "hype vs substance."*
+The curated link library for this topic — in this platform, videos, courses, articles, papers, documentation, books — lives in a companion file so it can be reused as a standalone reference list:
 
-## Courses (free)
-- [Hugging Face — LLM Course](https://huggingface.co/learn/llm-course/chapter1/1) — **Hugging Face** — the 2025 rewrite of the official free course: Hub, Transformers, fine-tuning, and inference end to end.
-- [Hugging Face Hub docs](https://huggingface.co/docs/hub/index) — **Hugging Face** — the reference for models, datasets, Spaces, and model cards.
-
-## Videos
-- [What is Hugging Face? — Models, Datasets & Spaces](https://www.youtube.com/watch?v=qP9mbY3wuWk) — **Hugging Face** — the official orientation to the Hub's three pillars.
-- [How to Create a Hugging Face Space: A Beginner's Guide](https://www.youtube.com/watch?v=xqdTFyRdtjQ) — **Marqo** — build and share a runnable model demo.
-- [PyTorch Paper Replicating (Vision Transformer)](https://www.youtube.com/watch?v=tjpW_BY8y3g) — **Daniel Bourke** — once you can pull models, replicating one cements understanding.
-- [PyTorch Transformers from Scratch](https://www.youtube.com/watch?v=U0s0f995w14) — **Aladdin Persson** — the architecture behind most Hub models, implemented from the paper.
-
-## Key Papers
-- [Transformers: State-of-the-Art Natural Language Processing](https://arxiv.org/abs/1910.03771) — **Wolf et al. (2020)** — the paper behind the 🤗 Transformers library that the Hub is built around.
-- [Datasets: A Community Library for NLP](https://arxiv.org/abs/2109.02846) — **Lhoest et al. (2021)** — the design of the Hub's datasets library.
-- [Model Cards for Model Reporting](https://arxiv.org/abs/1810.03993) — **Mitchell et al. (2019)** — why every Hub model ships a card, and what to read in it.
-
-## Articles / Blogs (free, no paywall)
-- [Hugging Face Spaces overview](https://huggingface.co/docs/hub/en/spaces-overview) — **Hugging Face** — how browser-based model demos work (Gradio/Streamlit/Docker).
-- [Use Ollama with any GGUF model on the Hub](https://huggingface.co/docs/hub/ollama) — **Hugging Face** — run open Hub models locally in one command.
-- [Hugging Face blog](https://huggingface.co/blog) — **Hugging Face** — release notes and walkthroughs for new open models as they land.
-- [Hugging Face Papers](https://huggingface.co/papers) — **Hugging Face** — many top papers ship with a model or demo you can try the same day.
-- [Ollama model library](https://ollama.com/library) — **Ollama** — the curated set of open models packaged for one-command local runs, with quantized sizes listed.
-- [ModelScope models](https://modelscope.cn/models) — **Alibaba / ModelScope** — the main non-Western hub; where several strong open Chinese models (Qwen, GLM lineages) land first.
-- [GGUF on the Hub](https://huggingface.co/docs/hub/gguf) — **Hugging Face** — the quantized single-file format local runners consume; the counterpart to `safetensors` for served weights.
-
-## Books (free, with chapters)
-- [Natural Language Processing with Transformers — free notebooks](https://github.com/nlp-with-transformers/notebooks) — **Tunstall, von Werra & Wolf** — the Hugging Face team's book companion code (runnable on free Colab) for using the Hub and Transformers.
-- [Dive into Deep Learning](https://d2l.ai/) — **Zhang et al.** — runnable code that pairs with models you pull from the Hub.
-
-## In this platform
-- Per-concept index: [Frontier & Staying Current — concepts](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/readme)
-- Pair with: [02 arXiv and Paper Discovery](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/arxiv-and-paper-discovery/arxiv-and-paper-discovery) · [07 Reproducing Papers (code)](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/reproducing-papers-code/reproducing-papers-code) · [11 Evaluating Hype vs Substance](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/evaluating-hype-vs-substance/evaluating-hype-vs-substance)
-- Build on these models: [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme) · [10. GenAI](/ai-ml/ai-ml-learning-resources/models-and-architectures/generative-model-families/generative-models/readme) · [16. RAG & LLM Applications](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/overview)
+**→ [Open Model Hubs & Demos (Hugging Face / Spaces) — references](/ai-ml/ai-ml-learning-resources/foundations/research-literacy/open-model-hubs-and-demos/open-model-hubs-and-demos#references-further-reading)**

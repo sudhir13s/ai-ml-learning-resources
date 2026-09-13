@@ -4,7 +4,7 @@ id: lr-fine-tuning-production-fine-tuning-pipeline
 minutes: 3
 core_idea: "A production fine-tune is a pipeline, not a notebook — data in, adapter out, evaluation gate, registry entry, and a rollback that does not need a rebuild."
 builds_on: [18-mlops/cicd-for-ml-and-continuous-training]
-related: [18-mlops/continuous-training, inference-and-serving/packaging-and-serving/llm-serving-engines]
+related: [18-mlops/continuous-training, 18-mlops/model-serving]
 section: "ai-ml-learning-resources"
 workflow: "fine-tuning"
 chapter: 6
@@ -82,8 +82,11 @@ Runnable services in this estate that implement what this page teaches:
 
 ## References
 
-  - [Knowledge Distillation (7.04)](/ai-ml/ai-ml-intuitions/scaling-adaptation-efficiency/knowledge-distillation-intuition) — the other way to specialize a model.
-  - [LLM Serving Engines](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/llm-serving-engines/llm-serving-engines) — loading one base and hot-swapping many adapters in production.
-  - [Preference and Alignment Training](/ai-ml/ai-ml-learning-resources/model-adaptation/preference-and-alignment-training/preference-and-alignment-training) — the preference-tuning step that usually follows SFT.
-  - [TRL / SFTTrainer documentation (Hugging Face)](https://huggingface.co/docs/trl/index) — supervised fine-tuning API.
-  - [bitsandbytes 4-bit quantization (Hugging Face)](https://huggingface.co/docs/transformers/main/en/quantization/bitsandbytes) — the QLoRA backend.
+**In this platform**:
+- [Knowledge Distillation (7.04)](/ai-ml/ai-ml-intuitions/scaling-adaptation-efficiency/knowledge-distillation-intuition) — the other way to specialize a model.
+- [LLM Serving Engines](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/model-serving/model-serving) — loading one base and hot-swapping many adapters in production.
+- [Preference and Alignment Training](/ai-ml/ai-ml-learning-resources/model-adaptation/preference-and-alignment-training/preference-and-alignment-training) — the preference-tuning step that usually follows SFT.
+
+**Documentation**:
+- [bitsandbytes 4-bit quantization (Hugging Face)](https://huggingface.co/docs/transformers/main/en/quantization/bitsandbytes) — the QLoRA backend.
+- [TRL / SFTTrainer documentation (Hugging Face)](https://huggingface.co/docs/trl/index) — supervised fine-tuning API.

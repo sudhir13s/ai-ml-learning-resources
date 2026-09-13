@@ -36,7 +36,7 @@ This page is the **model layer** of monitoring. Two neighbours own the rest:
   [Data and Concept Drift Detection](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/monitoring-and-reliability/data-and-concept-drift-detection/data-and-concept-drift-detection).
 - **Application monitoring** — tracing large-language-model (LLM) calls, token dashboards,
   service-level objectives for an app — lives in the
-  [Monitoring and Observability workflow](/ai-ml/practitioner-workflows/evaluation-and-safety/monitoring-and-observability).
+  [Monitoring and Observability workflow](/ai-ml/practitioner-workflows/operations-and-lifecycle/monitoring-and-observability).
 
 > **Note:** One model carries the whole page: **ShopSense**, the checkout-fraud classifier that
 > [Continuous Training](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/continuous-training/continuous-training)
@@ -147,7 +147,7 @@ Cost and delay grow as you climb; truth grows with them.
   - It is instant and cheap, but says nothing about whether predictions are right.
   - Its depth — percentiles, service-level objectives, error budgets — belongs to
     [Model Serving](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/model-serving/model-serving)
-    and the [Monitoring and Observability workflow](/ai-ml/practitioner-workflows/evaluation-and-safety/monitoring-and-observability).
+    and the [Monitoring and Observability workflow](/ai-ml/practitioner-workflows/operations-and-lifecycle/monitoring-and-observability).
 - **Data and drift (middle):** does today's traffic resemble what the model was validated on.
   - Schema checks first: missing columns, nulls, out-of-range values, a unit change from cents to dollars.
   - Then distribution tests on inputs, embeddings and the model's own score distribution.
