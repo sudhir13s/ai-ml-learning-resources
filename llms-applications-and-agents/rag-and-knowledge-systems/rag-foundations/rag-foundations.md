@@ -10,6 +10,7 @@ updated: 2026-09-07
 tier: core
 est_minutes: 25
 title: "RAG Fundamentals (retrieve-then-generate)"
+core_idea: "A model answering from memory bluffs at the edge of what it knows; fetching relevant passages at question time turns that into an open-book answer, and most failures turn out to be retrieval failures."
 minutes: 25
 category: rag-and-knowledge-systems
 ---
@@ -340,7 +341,7 @@ retriever   = vectorstore.as_retriever(search_kwargs={"k": 3})       # retrieve 
 
 ---
 
-## Pitfalls and failure modes
+## Pitfalls
 
 RAG fails in characteristic ways, and *every one of them is a retrieval problem dressed up as a generation problem.* Name them so you recognize them in the wild — and note that we hit two of them *live* on the real data above.
 
@@ -352,7 +353,7 @@ RAG fails in characteristic ways, and *every one of them is a retrieval problem 
 **2. Retrieval misses / low recall.** The answering passage exists in the corpus but isn't in the top-k — so the model has the wrong evidence and either says "I don't know" or grounds on a distractor.
 
 - *Failing (measured):* on our real corpus, **dense recall@1 is only 0.42** — the top hit supports the answer barely half the time. And we saw the *mechanism* of the miss directly: for the Lincoln query the bi-encoder ranked the empty "Young Abraham Lincoln" chunk #1 over the actual inauguration passage.
-- *Fix (measured):* better (learned, semantic) **embeddings** so paraphrases match ([Embedding Models](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/embedding-models/embedding-models)); **hybrid search** combining dense + keyword/BM25 ([Hybrid Search](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search)); raise **k**; add a **re-ranker** — which lifted our real **recall@1 from 0.42 to 0.65** ([Reranking](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking)).
+- *Fix (measured):* better (learned, semantic) **embeddings** so paraphrases match ([Embedding Models](/ai-ml/ai-ml-learning-resources/data-and-representation/embedding-models/embedding-models)); **hybrid search** combining dense + keyword/BM25 ([Hybrid Search](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search)); raise **k**; add a **re-ranker** — which lifted our real **recall@1 from 0.42 to 0.65** ([Reranking](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking)).
 
 **3. Lost in the middle.** Even when the right passage *is* retrieved, LLMs use evidence best when it sits at the **start or end** of a long context and *worst when buried in the middle* — a documented U-shaped accuracy curve.
 
@@ -420,7 +421,7 @@ This page owns the **mechanism** — what RAG is, the math the retriever runs, a
 - **Design one as a system** — [Document Q&A and RAG: the shared architecture](/ai-system-design/case-studies/document-qa-rag) covers the serving topology, the ingestion path, capacity and the failure domains an interviewer will push on.
 - **Read a production service** — [RAG document search](/python/python-production-examples/rag-document-search/readme) is a running Python service with the same stages wired end to end, laid out the way real code is.
 
-Inside this tab, the ordering knob you just measured is the subject of the next pages: [Chunking](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/chunking/chunking), [Embedding Models](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/embedding-models/embedding-models), [Vector Search](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search), [Hybrid Search](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search), [Reranking](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking) and [RAG Evaluation](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-evaluation/rag-evaluation).
+Inside this tab, the ordering knob you just measured is the subject of the next pages: [Chunking](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/chunking/chunking), [Embedding Models](/ai-ml/ai-ml-learning-resources/data-and-representation/embedding-models/embedding-models), [Vector Search](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search), [Hybrid Search](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search), [Reranking](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking) and [RAG Evaluation](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-evaluation/rag-evaluation).
 
 ---
 
@@ -442,7 +443,7 @@ Inside this tab, the ordering knob you just measured is the subject of the next 
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

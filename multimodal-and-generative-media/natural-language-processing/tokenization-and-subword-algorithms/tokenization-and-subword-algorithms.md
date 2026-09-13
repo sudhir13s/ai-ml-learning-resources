@@ -6,11 +6,12 @@ level: intermediate
 built_from: ["text-preprocessing", "language-modeling"]
 interview_frequency: very-high
 template: concept-deep
-updated: 2026-06-27
+updated: 2026-09-13
 tier: core
-est_minutes: 45
+est_minutes: 55
+core_idea: "A tokenizer is a frozen, frequency-learned compression of text into a fixed vocabulary, and that single upstream choice decides sequence length, cost, coverage, and what the model can never see inside a token."
 title: "Tokenization & Subword Algorithms (BPE · WordPiece · SentencePiece · Unigram)"
-minutes: 45
+minutes: 55
 category: natural-language-processing
 ---
 
@@ -25,6 +26,7 @@ I'm going to teach this the way I'd actually walk a colleague through it from sc
 - explain **byte-level BPE** (GPT) and why it can *never* hit an out-of-vocabulary token;
 - derive **WordPiece's** likelihood-based merge score and show it picks *different* merges than BPE on identical data;
 - explain the **Unigram LM** model (SentencePiece/T5/Llama) — start big, prune by corpus likelihood, decode with Viterbi;
+- turn token ids into **training sequences** — estimate token budgets, measure a corpus, handle long documents, and pack short ones with end-of-sequence separators;
 - reason about the **downstream costs** — context length and dollars, broken arithmetic, the 2-4× multilingual tax, and glitch tokens — and choose a vocabulary size deliberately.
 
 > **Note:** keep one thing straight from the start. The tokenizer is a **separate, pre-trained artifact** that is frozen before the language model's training begins. It is *not* learned jointly with the network weights — it's trained once on a corpus (BPE merges, a WordPiece vocab, a Unigram model), saved, and then used as a fixed lookup for the model's entire life. Change the tokenizer and you must retrain the model; that's why it's such a consequential, locked-in decision.
@@ -403,6 +405,135 @@ Tokenizers are trained on corpora that are overwhelmingly English, so they learn
 
 ---
 
+## From text to training sequences
+
+The algorithms stop at a list of ids. Training needs more than that: **fixed-length rows** that waste no positions and cut no document carelessly.
+
+This section follows text from string to training row. Every number comes from [`text_to_training_sequences.py`](code/text_to_training_sequences.py) (`uv run --python 3.12 --with tiktoken python text_to_training_sequences.py`), using GPT-4's `cl100k_base`.
+
+```mermaid
+graph LR
+    TXT(["Raw text"]):::data --> ENC["Encode<br/>text to ids"]:::process
+    ENC --> MEAS["Measure<br/>token lengths"]:::process
+    MEAS --> FIT{"Longer than the<br/>sequence length?"}:::amber
+    FIT -->|"yes"| LONG["Truncate, chunk,<br/>or drop"]:::frozen
+    FIT -->|"no"| PACK["Pack, with an EOS<br/>after each document"]:::out
+    LONG --> PACK
+    PACK --> ROWS(["Fixed-length<br/>training rows"]):::navy
+
+    classDef data fill:#3A6B96,stroke:#2A5B86,color:#fff
+    classDef process fill:#5D4A8A,stroke:#4D3A7A,color:#fff
+    classDef out fill:#2E7A5A,stroke:#1E6A4A,color:#fff
+    classDef amber fill:#7A6528,stroke:#6A5518,color:#fff
+    classDef navy fill:#2A5B80,stroke:#1A4B70,color:#fff
+    classDef frozen fill:#4A5B6E,stroke:#3A4B5E,color:#fff
+```
+
+### Text to ids, concretely
+
+Encode a string, then decode **each id on its own**. It is the only way to see the pieces the model actually receives:
+
+```python
+ids = encoding.encode("Cats are wonderful pets")
+pieces = [encoding.decode([token_id]) for token_id in ids]
+```
+
+```
+pieces : ['C', 'ats', ' are', ' wonderful', ' pets']
+ids    : [34, 1900, 527, 11364, 26159]
+```
+
+What the trace shows:
+
+- **`Cats` splits into `C` + `ats`.** A capitalized word at the very start of a text, with no space before it, is a rarer string than ` cats`, so it earned no token of its own.
+- **` are`, ` wonderful`, ` pets` are one token each**, and each carries its leading space inside it.
+
+> **Gotcha:** the space inside the token creates an off-by-one trap. The same word has two ids, and encoding pieces separately does not reproduce the whole string:
+>
+> - `'cats'` → `[38552]`, but `' cats'` → `[19987]`.
+> - `encode('Hello world')` → `[9906, 1917]`.
+> - `encode('Hello') + encode('world')` → `[9906, 14957]` — the second id is the space-less `world`, so the ids no longer match.
+> - `encode('Hello') + encode(' world')` → `[9906, 1917]` — matches, because the space travels with the second piece.
+>
+> The bug bites wherever text is joined after encoding: a prompt and a response encoded apart, or a word dropped into a template. Encode the full string, or keep the space on the piece that follows it.
+
+### Token economics: the unit you pay for
+
+APIs bill per token, and the **context window** (the most tokens a model can attend to at once) is counted in tokens too. You need a quick way from words, which you can count, to tokens, which you cannot.
+
+- **Rule of thumb for English: 1 token ≈ 4 characters ≈ 0.75 words**, so 1,000 words is about 1,330 tokens.
+- **The relationship is linear** in document length, so a word count times ~1.33 gives a usable budget.
+- **The rate depends on the text.** The script's 52-word technical paragraph came to 59 tokens: 4.80 characters and 0.88 words per token. Common vocabulary compresses better; code, digits, and non-English scripts compress worse (the multilingual tax above).
+
+![Illustrative scatter of BPE token count against word count for English prose documents of 50 to 1,000 words. The points hug a fitted line with slope about 1.33 tokens per word, and 1,000 words lands near 1,330 tokens. Take-away: token budgets scale linearly with word count, so a word count is a reliable first estimate.](images/token_economics.png)
+
+> **Note:** turn the window around to see what it holds. At 0.75 words per token, a 128k-token window carries roughly 96,000 English words, and far fewer in a script the tokenizer compresses badly.
+
+### Measure the corpus before choosing a sequence length
+
+An average token count hides the documents that decide your sequence length. **Plot the distribution** before you pick one.
+
+![Illustrative histogram of document lengths in tokens for a simulated raw corpus. Most documents are short, clustered around a median of 189 tokens, while a thin tail runs past 4,000 tokens. A red dashed line marks a 2,048-token context window, and 1.1 percent of documents lie beyond it. Take-away: the median says nothing about the tail you must handle.](images/token_length_hist.png)
+
+What to read off the histogram:
+
+- **Real corpora are right-skewed.** In this simulated corpus the median document is 189 tokens, yet the tail runs past 4,000.
+- **The share past your window.** Here 1.1% of documents exceed 2,048 tokens: a small share, but each one needs a policy.
+- **The percentile a candidate length covers.** Longer sequences cover more documents whole, and attention cost grows quadratically with length.
+
+### Truncate, chunk, or drop a long document
+
+Every document longer than the sequence length gets one of three policies. **Decide it before training**, not when a run crashes or silently throws text away.
+
+| Policy | What happens | What it costs | Choose it when |
+|---|---|---|---|
+| **Truncate** | keep the first N tokens | the tail is gone for good | the tail is disposable, or the start carries what matters |
+| **Chunk** | split into overlapping windows of N tokens | more sequences; a window's first tokens lack earlier context | the tail matters: books, transcripts, long code files |
+| **Drop** | discard the document | the whole document | outliers are rare and suspect: minified files, logs, dumps |
+
+The script runs the first two on a 59-token paragraph with a 16-token sequence length:
+
+```
+truncate -> keeps 16 tokens, drops 43
+chunk    -> 5 windows, lengths [16, 16, 16, 16, 11], overlap 4
+```
+
+> **Note:** the overlap is a deliberate trade:
+>
+> - The window advances by a **stride** of length minus overlap (16 − 4 = 12), so 4 tokens repeat between neighbours.
+> - Those repeats cost compute, but each window opens with a little context from the one before.
+
+### Packing instead of padding
+
+Most training examples are shorter than the sequence length. **Padding** gives each one its own row and fills the rest with filler; **packing** joins documents into one stream and cuts it every N tokens.
+
+![Illustrative comparison of six 512-token rows. Left, padding: each row holds one short green document and a long grey stretch of padding, about 15 percent real tokens. Right, packing: documents sit end to end, the first rows are almost entirely green, and the same documents need fewer rows. Take-away: packing spends compute on real tokens, padding spends most of it on filler.](images/packing_utilization.png)
+
+How the two differ:
+
+- **Padding wastes compute.** Padded positions are masked out of the loss, yet the batch still pays for every one of them.
+- **Packing fills the row.** Concatenate documents, put an **end-of-sequence (EOS)** token after each, and slice the stream.
+- **The EOS separator is load-bearing.** It is the only signal that one document ended and an unrelated one began, and the token that teaches a model to stop.
+
+Four short documents (7, 7, 12 and 15 tokens) at a 16-token sequence length:
+
+```
+pad  -> 4 rows x 16 = 64 positions, 41 real (64%)
+pack -> 3 rows x 16 = 48 positions, 45 real (94%)
+packed row 0 decoded: 'Cats nap in the sun.<|endoftext|>Dogs enjoy long walks outdoors.<|endoftext|>'
+```
+
+> **Note:** details that matter once you pack:
+>
+> - In `cl100k_base` the separator is `<|endoftext|>`, id 100257 (`encoding.eot_token`). The 45 real tokens include the four separators.
+> - `cl100k_base` has no dedicated pad token, so the script pads the final row with the EOS id.
+> - Without a document-aware attention mask, attention in a packed row can reach back across an EOS into the previous document. Many pipelines accept this; others mask it.
+> - A document cut across two rows continues without its earlier context, the same trade as chunking.
+
+For instruction data, the chat template and the loss masking wrapped around each example are taught in [Supervised Fine-Tuning](/ai-ml/ai-ml-learning-resources/model-adaptation/supervised-fine-tuning/supervised-fine-tuning).
+
+---
+
 ## Downstream consequences: where tokenization bites
 
 Pulling the threads together, here are the practical failure modes — the things interviewers probe and the things that page you in production:
@@ -428,15 +559,18 @@ You almost never *invent* a tokenizer — you inherit the one that ships with yo
 
 > **Tip:** the single most important practical rule — **never mix tokenizers between training and inference.** The exact tokenizer (vocabulary, merges, special tokens, chat template) that the model was trained with must be the one you encode with at inference. A subtly different tokenizer (even the "same" BPE with a different special-token id or a missing `▁`/`##` convention) silently shifts every token id and degrades or breaks the model. This is the #1 tokenization bug in practice.
 
-### Interview pitfalls to avoid
+### Pitfalls: interview traps and pipeline bugs
 
-A few traps that separate a confident answer from a shaky one:
+The traps that separate a confident answer from a shaky one, and the bugs that quietly break a training pipeline:
 
 - **"BPE and WordPiece are the same."** They differ in the *merge criterion* — BPE by raw frequency, WordPiece by the normalized likelihood score — and Worked Example 3 shows they pick *different* first merges on identical data. Saying they're identical is the most common miss.
 - **"Byte-level BPE has an `[UNK]`."** It doesn't, and that's the whole point — its 256-byte base covers every string. Classic (character) WordPiece *can* emit `[UNK]`; byte-level BPE cannot.
 - **"SentencePiece is an algorithm."** It's a *framework* that trains BPE or Unigram. Conflating the framework with the model underneath is a giveaway.
 - **"The tokenizer is trained with the model."** It's trained *first*, separately, then frozen. The model's gradients never touch it.
 - **"Longer vocab is just better."** It shortens sequences but bloats the embedding/softmax and starves rare tokens of training signal — a genuine trade-off, not a free win.
+- **"A word has one id."** The leading space is part of the token (`cats` is 38552, ` cats` is 19987), so pieces encoded separately shift the ids at the seam. Compare `encode(" word")` with `encode("word")`, and encode whole strings.
+- **Padding instead of packing.** One document per padded row spends most of the batch on filler (64% real tokens against 94% packed, in the 16-token demo). Pack to the sequence length with an EOS after every document.
+- **An EOS that exists only as text.** Typing `</s>` into a string encodes it as ordinary text tokens, not the separator id. Decode a packed row and confirm the real EOS id (100257 in `cl100k_base`) sits between documents.
 
 ---
 
@@ -590,11 +724,11 @@ HI: 27 GPT-4 tokens
 - *Why is non-English text expensive?* English-trained tokenizers fall back near byte-level for other scripts — 2-4× the tokens for the same meaning.
 - *Why can't an LLM count letters in a word?* It sees tokens, not characters; the letters are hidden inside the token.
 - *What's a glitch token?* A token BPE learned but the model barely trained on — its embedding is near-random, so it triggers bizarre behavior.
+- *How many tokens is 1,000 English words?* About 1,330 — roughly 4 characters or 0.75 words per token.
+- *Why pack instead of pad?* Padding spends compute on filler; packing fills each row with real tokens, an EOS marking every document boundary.
 
 ---
 
-## References and further reading
+## References
 
-The curated link library for this topic — videos, courses, articles, the original papers, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
-
-**→ [Tokenization & Subword Algorithms — references and further reading](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/tokenization-and-subword-algorithms/tokenization-and-subword-algorithms#references-further-reading)**
+**→ [Tokenization & Subword Algorithms — references](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/tokenization-and-subword-algorithms/tokenization-and-subword-algorithms#references-further-reading)**

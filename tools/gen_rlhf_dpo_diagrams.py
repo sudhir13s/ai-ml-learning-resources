@@ -171,9 +171,74 @@ def dpo_update():
     plt.close(fig); print("wrote dpo_update.png")
 
 
+def ppo_clip():
+    """PPO's clipped surrogate objective as a function of the probability ratio (A > 0 case).
+
+    The ratio r = pi_new(a|s) / pi_old(a|s) says how much more likely the new policy makes an
+    action. PPO multiplies it by the advantage A but clips it to [1-eps, 1+eps] and takes the
+    pessimistic min, so past 1+eps the objective is flat and there is no gradient to over-shoot.
+    """
+    eps = 0.2
+    ratio = np.linspace(0.0, 2.0, 400)
+    advantage = 1.0
+    unclipped = ratio * advantage
+    surrogate = np.minimum(unclipped, np.clip(ratio, 1 - eps, 1 + eps) * advantage)
+    fig, ax = plt.subplots(figsize=(8.6, 5.0))
+    ax.plot(ratio, unclipped, color=SLATE, lw=1.8, ls=":", label="unclipped  ratio · A")
+    ax.plot(ratio, surrogate, color=GREEN, lw=3, label="PPO objective  min(ratio·A, clip(ratio, 1±ε)·A)")
+    ax.axvline(1.0, color=SLATE, ls="--", lw=1.0, alpha=0.7)
+    ax.axvspan(1 - eps, 1 + eps, color=GREEN, alpha=0.07)
+    ax.text(1.0, 0.18, "trust region\n[1−ε, 1+ε]", color=GREEN, fontsize=9.5, ha="center")
+    ax.scatter([1 + eps], [(1 + eps) * advantage], color=RED, zorder=5, s=60, edgecolor="white")
+    ax.annotate("past 1+ε: objective is flat,\nno reward for over-shooting",
+                xy=(1 + eps, (1 + eps) * advantage), xytext=(1.32, 0.62), color=RED, fontsize=9.5,
+                arrowprops=dict(arrowstyle="->", color=RED, lw=1.3))
+    ax.set_xlabel("probability ratio  π_new(a|s) / π_old(a|s)")
+    ax.set_ylabel("surrogate objective  (advantage A > 0)")
+    ax.set_title("PPO clipping: a per-step trust region on the policy update",
+                 fontsize=13.5, fontweight="bold")
+    ax.legend(loc="upper left", frameon=False, fontsize=9.5)
+    ax.set_ylim(-0.05, 2.05); _despine(ax)
+    fig.tight_layout(); fig.savefig(f"{OUT}/rlhf_ppo_clip.png", dpi=150, bbox_inches="tight")
+    plt.close(fig); print("wrote rlhf_ppo_clip.png")
+
+
+def beta_sweep():
+    """Illustrative: where a sweep of KL strengths beta lands on a schematic true-quality frontier.
+
+    Larger beta -> tighter leash -> smaller equilibrium KL drift. The frontier rises and then
+    falls (over-optimization); the curve is hand-chosen for shape, not measured.
+    """
+    betas = np.array([0.5, 0.2, 0.12, 0.08, 0.067])
+    kl_at = 1.2 / betas                                            # small beta -> large drift
+    frontier_fn = lambda kl: 7.5 * np.tanh(kl / 6.0) - 0.018 * kl ** 2
+    kl = np.linspace(0, 30, 400)
+    fig, ax = plt.subplots(figsize=(8.6, 5.0))
+    ax.plot(kl, frontier_fn(kl), color=SLATE, lw=1.6, ls=":", alpha=0.8, label="true-quality frontier (schematic)")
+    ax.plot(kl_at, frontier_fn(kl_at), color=PURPLE, lw=2.4, marker="o", ms=7, label="where each β lands")
+    for b, x, y in zip(betas, kl_at, frontier_fn(kl_at)):
+        ax.annotate(f"β={b}", xy=(x, y), xytext=(x + 0.5, y - 1.1), color=PURPLE, fontsize=9)
+    ax.annotate("large β:\ntight leash,\nbarely aligned", xy=(kl_at[0], frontier_fn(kl_at[0])),
+                xytext=(0.5, 5.2), color=BLUE, fontsize=9.5,
+                arrowprops=dict(arrowstyle="->", color=BLUE, lw=1.2))
+    ax.annotate("small β:\nlong leash,\nover-optimizing", xy=(kl_at[-1], frontier_fn(kl_at[-1])),
+                xytext=(kl_at[-1] + 1.2, frontier_fn(kl_at[-1]) + 2.6), color=RED, fontsize=9.5,
+                ha="center", arrowprops=dict(arrowstyle="->", color=RED, lw=1.2))
+    ax.set_xlabel("resulting KL drift  KL(π_θ ‖ π_ref)")
+    ax.set_ylabel("true quality reached")
+    ax.set_title("Tuning β: the knob that sets how far the policy may drift",
+                 fontsize=13.5, fontweight="bold")
+    ax.legend(loc="upper right", frameon=False, fontsize=9.5)
+    ax.set_xlim(-1, 26); ax.set_ylim(-1, 9); _despine(ax)
+    fig.tight_layout(); fig.savefig(f"{OUT}/rlhf_beta_sweep.png", dpi=150, bbox_inches="tight")
+    plt.close(fig); print("wrote rlhf_beta_sweep.png")
+
+
 if __name__ == "__main__":
     bradley_terry()
     overoptimization()
     dpo_margin()
     dpo_update()
+    ppo_clip()
+    beta_sweep()
     print("OUT:", OUT)

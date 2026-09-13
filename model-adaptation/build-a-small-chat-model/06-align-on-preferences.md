@@ -5,7 +5,7 @@ minutes: 20
 core_idea: "Direct preference optimization cancels the reward model by substituting the policy's own implicit reward into the preference loss, leaving one supervised-style objective and a frozen reference that acts as the leash."
 builds_on: [lr-scm-run-supervised-fine-tuning]
 leads_to: [lr-scm-evaluate-behaviour-and-regression]
-related: [pw-preference-alignment]
+related: [09-llms/rlhf-and-dpo]
 section: "ai-ml-learning-resources"
 workflow: "build-a-small-chat-model"
 chapter: 5
@@ -214,4 +214,4 @@ comparison belongs.
 - Rafailov et al., *Direct Preference Optimization: Your Language Model is Secretly a Reward Model*:
   <https://arxiv.org/abs/2305.18290>
 - Deeper on the reusable mechanism:
-  [RLHF and Alignment (workflow)](/ai-ml/practitioner-workflows/training-and-adaptation/preference-alignment/rlhf-and-alignment)
+  [Preference and Alignment Training](/ai-ml/ai-ml-learning-resources/model-adaptation/preference-and-alignment-training/preference-and-alignment-training)

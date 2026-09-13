@@ -16,7 +16,7 @@ template: workflow
 category: model-adaptation
 ---
 
-# Chapter 0 — Decide Whether to Fine-Tune
+# Decide Whether to Fine-Tune
 
 Fine-tuning is the expensive answer, so this chapter tries to talk you out of
 it first — and then, if you genuinely need it, picks the cheapest method that does the job.
@@ -103,7 +103,7 @@ graph TD
 
 And a second axis — *what* you're teaching:
 - **SFT (Supervised Fine-Tuning / instruction tuning)** — teach a *behavior or format* from example `(prompt → ideal answer)` pairs. This is what this guide walks through.
-- **Preference tuning (DPO/RLHF)** — teach a *preference* ("answer A is better than B") to align tone and helpfulness. A later step, usually *after* SFT — see the [RLHF & Alignment (workflow)](/ai-ml/practitioner-workflows/training-and-adaptation/preference-alignment) for the full preference-tuning pipeline.
+- **Preference tuning (DPO/RLHF)** — teach a *preference* ("answer A is better than B") to align tone and helpfulness. A later step, usually *after* SFT — see [Preference and Alignment Training](/ai-ml/ai-ml-learning-resources/model-adaptation/preference-and-alignment-training/preference-and-alignment-training) for the full preference-tuning pipeline.
 
 The rest of this guide takes the **QLoRA + SFT** path — the one that fits on a single GPU and covers 90% of real fine-tuning.
 

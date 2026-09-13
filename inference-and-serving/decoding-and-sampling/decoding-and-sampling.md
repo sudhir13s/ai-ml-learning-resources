@@ -6,12 +6,13 @@ level: intermediate
 built_from: ["09-llms/language-modeling-objectives", "softmax", "09-llms/decoder-only-architecture"]
 interview_frequency: very-high
 template: concept-deep
-updated: 2026-06-27
+updated: 2026-09-13
 tier: flagship
-est_minutes: 25
+est_minutes: 35
 leads_to: ["09-llms/llm-evaluation-and-benchmarks"]
+core_idea: "Same weights, different text: coherence, diversity and repetition are set by how each next-token distribution is turned into a choice, and the robust choice cuts the unreliable tail adaptively before it samples."
 title: "Decoding & Sampling (greedy · beam · temperature · top-k · top-p)"
-minutes: 25
+minutes: 35
 category: inference-and-serving
 ---
 
@@ -30,7 +31,19 @@ By the end of this page you'll be able to:
 - pick the right decoder for a task — **closed-ended** (translation, extraction) vs **open-ended** (chat, story);
 - prove every one of these claims in runnable from-scratch code.
 
-> **Note — this is about *which* token, not *how fast*.** A neighbouring page, [Inference Optimization & Serving](/ai-ml/ai-ml-learning-resources/inference-and-serving/inference-optimization/inference-optimization), covers **speculative decoding** — but that is a pure *speed* trick whose output is provably **distributionally identical** to plain sampling. This page is about decoding *strategy* — the choice that **changes what text you get**. Speculative decoding makes a given strategy faster; it never changes which strategy you chose. Keep the two ideas in separate drawers.
+> **Note:** this page is about *which* token, not *how fast*.
+> - [Speculative decoding](/ai-ml/ai-ml-learning-resources/inference-and-serving/speculative-decoding/speculative-decoding) is a pure speed trick: its output is provably **distributionally identical** to plain sampling.
+> - Decoding *strategy*, the subject here, is the choice that **changes what text you get**. Speculation makes a strategy faster; it never changes which one you chose.
+
+**The strategies at a glance.** Every decoder below reads the same logits; they differ in what they keep and how they pick. The axis that decides between them is **closed-ended vs open-ended**:
+
+| Strategy | What it does | Output feel | Task shape it fits |
+|---|---|---|---|
+| **Greedy** (argmax) | always the single most likely token | deterministic; loops on long text | closed-ended and short: extraction, arithmetic, a label |
+| **Beam search** | keeps the $b$ most probable *sequences* | high-likelihood, low-diversity, slower | closed-ended with one best sequence: translation, summarization |
+| **Temperature** | rescales the logits before the softmax | the dial from focused to adventurous | both; it is combined with every sampling decoder |
+| **Top-k** | keeps a fixed $k$ best tokens, then samples | bounded randomness, blind to confidence | open-ended, when a hard cap on candidates is enough |
+| **Top-p (nucleus)** | keeps the smallest set covering mass $p$ | adaptive: tight when sure, wide when unsure | the open-ended default: chat, dialogue, stories |
 
 ---
 
@@ -88,6 +101,30 @@ Hold a follow-up question to this analogy — *"what if two dishes tie at the 90
 ## The strategies, derived
 
 There are two families. **Search** decoders (greedy, beam) try to find the *most probable sequence*. **Sampling** decoders (temperature / top-k / top-p) *draw* from the distribution with controlled randomness. We take them in turn, deriving the transform each one applies.
+
+First, where the sampling transforms sit. A production sampler chains them on every decode step, each box reshaping the logits before the next:
+
+```mermaid
+graph LR
+    L(["logits z<br/>one score per token"]):::data --> PEN["penalties<br/>repetition / presence"]:::process
+    PEN --> T["temperature<br/>z ÷ T"]:::amber
+    T --> K["top-k<br/>keep k best"]:::process
+    K --> P["top-p<br/>keep the nucleus"]:::process
+    P --> S(["renormalize<br/>and sample 1 token"]):::out
+    S -.->|"append, next step"| L
+
+    classDef data fill:#3A6B96,stroke:#2A5B86,color:#fff
+    classDef process fill:#5D4A8A,stroke:#4D3A7A,color:#fff
+    classDef amber fill:#7A6528,stroke:#6A5518,color:#fff
+    classDef out fill:#2E7A5A,stroke:#1E6A4A,color:#fff
+```
+
+*The order most libraries implement: Hugging Face `transformers` and vLLM apply penalties first, then temperature, then the top-k and top-p filters, then draw. Because temperature runs before top-p there, a higher $T$ widens the nucleus as well as flattening it.*
+
+> **Note:** the Temperature section below recommends the other order for the middle boxes — truncate with top-p first, then temperature-scale what survives. The two orders behave differently:
+> - **Temperature first (the library order):** a hot $T$ flattens the distribution, so more tail tokens fit inside mass $p$. Creativity and tail risk rise together.
+> - **Top-p first (the recommended order):** the nucleus is fixed by the model's own confidence, and temperature only reshuffles mass among tokens the model found plausible.
+> - **In a library you cannot reorder the boxes**, so get the same protection by tightening `top_p` whenever you raise `temperature`.
 
 ### Greedy: argmax, and why it's myopic
 
@@ -153,6 +190,16 @@ Read off the two limits:
 - **$T < 1$ (e.g. 0.5):** dividing by a number $<1$ **magnifies** $\Delta/T$, so the ratio $\exp(\Delta/T)$ *grows* — the gap between the best token and the rest widens, the distribution **sharpens**. As $T \to 0$, the ratio $\to \infty$ for any positive gap, so all mass collapses onto the argmax: **temperature 0 *is* greedy.**
 - **$T > 1$ (e.g. 2.0):** dividing by a number $>1$ **shrinks** $\Delta/T$, so the ratio shrinks toward 1 — all tokens become more equal, the distribution **flattens** toward uniform. As $T \to \infty$, every token's probability $\to 1/|V|$: pure uniform randomness.
 
+**The same effect, by hand, on this page's peaked toy distribution.** In `PEAKED` (full logits in the worked example below), `cat` has logit 8.0 and `the` has 5.0, a gap $\Delta = 3$:
+
+- **At $T=1$:** exponentiate every logit. `cat` gives $e^{8.0}\approx 2981$, `the` gives $e^{5.0}\approx 148.4$, and the other eight sum to about 136.
+  - The total is $\approx 3266$, so $p(\text{cat}) = 2981/3266 \approx 0.913$ and $p(\text{the}) \approx 0.045$.
+- **At $T=2$:** halve every logit first, so `cat` becomes 4.0 and `the` 2.5.
+  - Now $e^{4.0}\approx 54.6$ and $e^{2.5}\approx 12.18$ out of a total $\approx 95.7$: $p(\text{cat})\approx 0.571$, $p(\text{the})\approx 0.127$.
+- **The ratio shortcut:** $p_{\text{cat}}/p_{\text{the}} = e^{\Delta/T}$ is $e^{6}\approx 403$ at $T=0.5$, $e^{3}\approx 20.1$ at $T=1$, and $e^{1.5}\approx 4.48$ at $T=2$.
+
+`cat` wins at every temperature. **Temperature changed how confidently it wins, never which token wins** — and these are the probabilities the demo prints beside each entropy.
+
 The clean way to measure "sharp vs flat" is **Shannon entropy** $H = -\sum_i p_i \log_2 p_i$ — low when peaked, high when spread. The demo computes it directly on our toy distribution:
 
 | Temperature $T$ | Entropy (bits) | Top token's prob | Character |
@@ -214,9 +261,26 @@ A handful of refinements you'll meet in practice, each a small twist on the abov
 - **Min-p sampling** — keep tokens whose probability is at least $p_{\min} \times p_{\max}$ (a fraction of the *top* token's probability). Like top-p it's adaptive, but it's anchored to the peak rather than to cumulative mass, which keeps it stable at high temperature.
 - **Typical sampling** ([Meister et al. 2022](https://arxiv.org/abs/2202.00666)) — keep tokens whose information content $-\log p_i$ is *close to the distribution's expected* information content (its entropy), rather than simply the most probable. Grounded in information theory: human text tends to be "typically" surprising, not maximally probable.
 - **Contrastive search** ([Su et al. 2022](https://arxiv.org/abs/2202.06417)) — pick the token that is both high-probability *and* dissimilar (in hidden-state space) to tokens already generated, explicitly penalizing the representation-space repetition that causes degeneration.
-- **Repetition penalty** — directly divide the logits of already-generated tokens by a factor $> 1$ before softmax, making repeats less likely. Effective but blunt (see Pitfalls — it can suppress legitimately-repeated tokens like "the").
+- **Repetition penalty** — push down the logits of tokens already generated, before the softmax. It is the one knob here aimed at a symptom rather than the distribution, so it gets its own subsection next.
 
 > **Source / derivation:** typical sampling is from [Meister, Pimentel, Wiher & Cotterell, *Locally Typical Sampling* (2022)](https://arxiv.org/abs/2202.00666); contrastive search and the degeneration-as-anisotropy analysis are from [Su, Lan, Wang, Yogatama, Kong & Collier, *A Contrastive Framework for Neural Text Generation* (2022)](https://arxiv.org/abs/2202.06417).
+
+### Repetition penalty: a loop breaker, not a cure
+
+Greedy and low-temperature decoding loop because a phrase already in the context makes itself likelier. The **repetition penalty** $\rho \ge 1$ pushes back on exactly the tokens already emitted:
+
+$$z'_i = \begin{cases} z_i / \rho & \text{if } i \text{ was generated and } z_i > 0 \\ z_i \cdot \rho & \text{if } i \text{ was generated and } z_i \le 0 \\ z_i & \text{otherwise} \end{cases}$$
+
+> **Source / derivation:** the penalized sampling rule is introduced in [Keskar et al., *CTRL: A Conditional Transformer Language Model for Controllable Generation* (2019)](https://arxiv.org/abs/1909.05858); the sign branch for negative logits is how [Hugging Face `transformers`](https://huggingface.co/docs/transformers/en/generation_strategies) implements `repetition_penalty`.
+
+What each part of the rule does, and where it stops helping:
+
+- **Two branches, one direction.** Dividing a negative logit by $\rho$ would move it *toward zero* and make the token likelier; multiplying it pushes it further down instead.
+- **A presence test, not a count.** A token said once and a token said ten times get the same penalty. OpenAI-style `presence_penalty` and `frequency_penalty` are the subtractive cousins, and the frequency form does scale with the count.
+- **The safe band is $\rho \approx 1.1$–$1.2$.** On the flat toy distribution, $\rho = 1.2$ after emitting `the`, `the`, `on` drops both tokens out of the top four and greedy switches to `cat` — the demo prints it below.
+- **Past about 1.3 it garbles text.** A sentence genuinely needs "the" and "a"; code needs `}` and `;` again and again.
+
+> **Note:** the penalty treats the symptom. If output still loops at $\rho = 1.2$, the cause is almost always greedy decoding or a temperature set too low — switch on sampling before raising the penalty.
 
 ---
 
@@ -319,20 +383,67 @@ top-p p=0.9: peaked nucleus 1  flat nucleus 9
 
 Read the last two lines carefully — they *are* the lesson. **Top-k keeps 3 tokens on both distributions**, blind to their shape. **Top-p keeps 1 token when the distribution is peaked and 9 when it's flat** — it widened by 9× purely because the model was less certain. The `assert nucleus_size(PEAKED) < nucleus_size(FLAT)` makes that adaptivity a *contract*: if a future refactor ever broke it, the script would fail loudly rather than print a wrong number. (The full script adds the empirical-frequency check — that sampling *recovers* the filtered distribution, max error 0.024 over 2000 draws — and the diversity check: distinct tokens over 2000 draws rise 3 → 9 → 10 as $T$ goes 0.5 → 1.0 → 2.0.)
 
-> **Note — the off-by-one that bites everyone (`top_p_filter`):** the two lines that shift the removal mask right and force-keep the top-1 token are not decoration. Without the shift, the token that *crosses* the threshold $p$ is itself removed, so the kept mass ends up *just under* $p$ — and on a sharply peaked distribution where the top token already exceeds $p$, you can remove **everything**, leaving an empty nucleus and a divide-by-zero on renormalization. The shift keeps the crossing token (so mass is always $\ge p$) and the `remove_sorted[..., 0] = False` guarantees at least one token always survives. This is the single most common bug in hand-rolled nucleus implementations.
+### Loops broken, and greedy set against sampling
+
+The same script adds the two knobs harvested above: the repetition penalty, and five draws from one distribution, greedy against sampled. Both run on the **flat** toy distribution, where no token dominates:
+
+```python
+def repetition_penalty(logits, generated_ids, penalty):
+    penalized = logits.clone()                                   # never mutate the caller's logits
+    seen = torch.tensor(sorted(set(generated_ids)), dtype=torch.long)
+    seen_logits = penalized[seen]
+    penalized[seen] = torch.where(seen_logits > 0, seen_logits / penalty, seen_logits * penalty)
+    return penalized
+
+already = [VOCAB.index("the"), VOCAB.index("the"), VOCAB.index("on")]
+after = F.softmax(repetition_penalty(FLAT, already, 1.2), dim=-1)
+
+gen = torch.Generator(device="cpu").manual_seed(0)
+shaped = top_p_filter(FLAT, 0.9) / 0.8                           # truncate first, then temperature
+greedy  = [VOCAB[int(torch.argmax(FLAT))] for _ in range(5)]
+sampled = [VOCAB[int(torch.multinomial(F.softmax(shaped, -1), 1, generator=gen))] for _ in range(5)]
+```
+
+Output (CPU, from the full script, top four tokens shown):
+
+```
+[repetition] penalty=1.2 after emitting 'the','the','on' (FLAT dist):
+   before  the:0.129  on:0.117  cat:0.111  dog:0.106
+   after   cat:0.120  dog:0.115  sat:0.109  fast:0.104
+
+[greedy vs sampled] FLAT dist, 5 draws (top-p=0.9, then T=0.8):
+   greedy   ['the', 'the', 'the', 'the', 'the']
+   sampled  ['sky', 'cat', 'sat', 'on', 'cat']
+```
+
+What the two blocks show:
+
+- **The penalty re-ranks plausible tokens; it does not judge them.** `the` and `on` leave the top four and `cat` leads at 0.120 — useful against a loop, blind to whether `the` was needed.
+- **Greedy says the same thing every time the step looks the same.** Five identical `the`s is the repetition trap in miniature.
+- **Sampling from the same distribution gives four different tokens in five draws.** `sky` is a legitimate pick: the flat nucleus keeps 9 of the 10 tokens, dropping only `ran`.
+
+> **Note:** the off-by-one that bites everyone (`top_p_filter`): the two lines that shift the removal mask right and force-keep the top-1 token are not decoration. Without the shift, the token that *crosses* the threshold $p$ is itself removed, so the kept mass ends up *just under* $p$ — and on a sharply peaked distribution where the top token already exceeds $p$, you can remove **everything**, leaving an empty nucleus and a divide-by-zero on renormalization. The shift keeps the crossing token (so mass is always $\ge p$) and the `remove_sorted[..., 0] = False` guarantees at least one token always survives. This is the single most common bug in hand-rolled nucleus implementations.
 
 ---
 
-## Pitfalls & failure modes
+## Pitfalls: symptoms, causes and fixes
 
-The things that actually bite, each with the mechanism and the fix:
+Start from what you see in the generated text. Three symptoms cover most decoding complaints:
+
+| Symptom in the text | Likely cause | First fix |
+|---|---|---|
+| **Loops** — "the the the", repeated phrases | greedy decoding, or temperature too low | turn on sampling ($T\approx0.7$, top-p 0.9); only then add a repetition penalty of 1.1–1.2 |
+| **Gibberish** — off-topic or invented words | temperature too high with no tail cut | lower $T$, and add top-p 0.9 to truncate the tail |
+| **Bland** — the same safe answer every time | greedy, or $T$ near 0 | raise $T$ toward 0.8 and set top-p to 0.95 |
+
+The mechanisms behind those symptoms, and the bugs that bite implementers:
 
 - **Greedy / beam repetition on open-ended text.** Mechanism: locally-optimal tokens reinforce themselves into a loop; maximizing likelihood maximizes the wrong thing (Holtzman 2019). Fix: switch to nucleus sampling for open-ended generation; reserve greedy/beam for closed-ended tasks (translation, extraction, math).
 - **Temperature too high → gibberish.** At $T=2$+ the distribution flattens so far that nonsense tokens become probable (entropy 2.2 of a max 3.32 bits, in our demo). Fix: keep $T \le 1$ for factual work; if you want creativity, raise $T$ *and* tighten top-p so the flattened tail is still truncated.
 - **Temperature too low → repetition.** As $T \to 0$ you converge to greedy and inherit its loops. Fix: don't set $T$ below ~0.3 for open-ended text; if you need determinism use greedy *and* a repetition penalty.
 - **Top-k's fixed size is wrong on both ends.** Too small when the model is uncertain (chops good tokens), too large when it's confident (admits junk). Fix: prefer top-p, which adapts; or combine `top_k` and `top_p` (most libraries apply both — top-k as a hard cap, top-p as the adaptive cutoff).
 - **The nucleus off-by-one / empty-nucleus crash.** Covered above — shift the mask, always keep the top-1 token, and check kept mass $\ge p$, not $> p$.
-- **Repetition penalty side effects.** Penalizing *all* previously-seen tokens suppresses legitimately-frequent words ("the", "is", "a") and can degrade fluency or, in code generation, break syntax (you *need* to repeat `}` and `;`). Fix: scope the penalty to a recent window, exempt high-frequency function tokens, or prefer presence/frequency penalties tuned conservatively.
+- **Repetition penalty side effects.** Penalizing *all* previously-seen tokens suppresses legitimately-frequent words ("the", "is", "a") and can degrade fluency or, in code generation, break syntax (you *need* to repeat `}` and `;`). Fix: stay in the 1.1–1.2 band, scope the penalty to a recent window, exempt high-frequency function tokens, or prefer presence/frequency penalties tuned conservatively. And treat it as a band-aid: if loops persist at 1.2, fix the decoder (sampling on, temperature up) before pushing the penalty past ~1.3.
 - **Forgetting the seed → irreproducible bugs.** Sampling is stochastic; without a fixed RNG seed the same prompt yields different outputs, and a bug you saw once won't reproduce. Fix: seed the generator (the demo passes an explicit `torch.Generator`), and log it. Greedy and beam are deterministic and need no seed.
 - **`float16` softmax overflow at extreme logits.** Very large logits (or very low temperature, which *multiplies* them) can overflow in half precision before the softmax's max-subtraction kicks in. Fix: compute the softmax in `float32`, or rely on a numerically-stable `log_softmax` — the same max-subtraction trick covered in [Loss Functions (softmax & cross-entropy stability)](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/loss-functions/loss-functions).
 
@@ -348,6 +459,7 @@ The crux for practitioners: **the decoder is a product decision, not just a hype
 | **Factual / reliable open-ended** | RAG answers, assistants, tool use | nucleus $p\approx0.9$ + $T\approx0.7$ | truncate the tail tightly, low temperature for focus |
 | **Creative open-ended** | story, brainstorming, dialogue | nucleus $p\approx0.95$ + $T\approx1.0$ | wider nucleus, full temperature for diversity |
 | **Deterministic / testable** | unit-tested pipelines, evals | greedy ($T=0$) | reproducible, no seed dependence |
+| **Open-ended output that loops** | long answers repeating a phrase | keep nucleus sampling; add a repetition penalty of 1.1–1.2 | treats the symptom once the decoder itself is right |
 
 This is why API providers expose `temperature`, `top_p`, `top_k`, `frequency_penalty`, and `presence_penalty` as first-class parameters — they *are* the behaviour controls. A coding assistant runs near-greedy ($T\approx0.2$) for correctness; a brainstorming tool runs $T\approx1.0$ with $p\approx0.95$ for range. **Same model, different decoder, completely different product.**
 
@@ -358,10 +470,44 @@ This is why API providers expose `temperature`, `top_p`, `top_k`, `frequency_pen
 A few realities of how this is deployed:
 
 - **Defaults that ship.** Most chat APIs default to **nucleus sampling around $p=0.9$–$1.0$ with $T=0.7$–$1.0$**. OpenAI, Anthropic, and open-source serving stacks (vLLM, TGI) all expose `temperature` + `top_p` (+ often `top_k`, `min_p`, and frequency/presence penalties) as request parameters.
-- **Decoders compose with serving optimizations.** [Speculative decoding](/ai-ml/ai-ml-learning-resources/inference-and-serving/inference-optimization/inference-optimization) accelerates *whatever* decoder you chose — its rejection-sampling correction makes the sped-up output **distributionally identical** to plain sampling from your chosen strategy. The two are orthogonal: 18 picks the strategy, 09 makes it fast.
+- **Decoders compose with serving optimizations.** [Speculative decoding](/ai-ml/ai-ml-learning-resources/inference-and-serving/inference-optimization/inference-optimization) accelerates *whatever* decoder you chose — its rejection-sampling correction makes the sped-up output **distributionally identical** to plain sampling from your chosen strategy. The two are orthogonal: this page picks the strategy, the serving stack makes it fast.
 - **Beam search is fading for chat, alive for MT.** As models got better at open-ended generation, beam search's blandness made it a poor fit for assistants; it remains standard in **machine-translation and speech** systems where a single best sequence is the goal.
 - **Structured / constrained decoding** layers a *grammar* on top of sampling — at each step, mask out tokens that would violate a JSON schema or regex before sampling. It's the same truncation idea (zero out disallowed tokens, renormalize) applied to *syntactic validity* rather than probability, and it's how reliable "respond in JSON" modes work.
 - **Reproducibility in evals.** Benchmarks usually decode **greedily** (or at $T=0$) precisely so results are deterministic and comparable; sampling-based metrics report a seed.
+
+**The same knobs in code.** In Hugging Face `transformers` they are arguments to `.generate(...)`, with the key-value cache on by default. This snippet downloads a 7B model and wants a GPU, so it is shown for its shape and was not run for this page:
+
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+MODEL_ID = "mistralai/Mistral-7B-Instruct-v0.3"
+tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
+model = AutoModelForCausalLM.from_pretrained(MODEL_ID, device_map="auto")
+messages = [{"role": "user", "content": "Explain nucleus sampling in one sentence."}]
+inputs = tokenizer.apply_chat_template(messages, return_tensors="pt", add_generation_prompt=True).to(model.device)
+
+output_ids = model.generate(
+    inputs,
+    max_new_tokens=128,
+    do_sample=True,          # False -> greedy
+    temperature=0.7,         # reshape the distribution
+    top_k=50,                # hard cap on candidates
+    top_p=0.9,               # adaptive nucleus inside that cap
+    repetition_penalty=1.1,  # loop breaker, inside the safe band
+)
+print(tokenizer.decode(output_ids[0], skip_special_tokens=True))
+```
+
+When one `.generate()` loop is not enough, the same knobs become vLLM `SamplingParams`, and the engine adds PagedAttention and continuous batching ([Inference Optimization & Serving](/ai-ml/ai-ml-learning-resources/inference-and-serving/inference-optimization/inference-optimization)). Also shown, not run — it needs a GPU:
+
+```python
+from vllm import LLM, SamplingParams
+
+llm = LLM(model="mistralai/Mistral-7B-Instruct-v0.3")
+params = SamplingParams(temperature=0.7, top_p=0.9, repetition_penalty=1.1, max_tokens=128)
+for request_output in llm.generate(["Summarize: ...", "Translate: ...", "Q: ..."], params):
+    print(request_output.outputs[0].text)
+```
 
 ---
 
@@ -383,8 +529,15 @@ A few realities of how this is deployed:
 
 ---
 
-## References and further reading
+## Production implementation
+
+Runnable services in this estate that put these decoding knobs behind a real serving path:
+
+- **[inference-orchestrator](/python/python-production-examples/inference-orchestrator/readme)** — a continuous-batching scheduler with key-value and prefix-cache-aware routing behind an OpenAI-compatible API, where sampling parameters arrive per request.
+- **[llm-serving-bench](/python/cross-service-workflows/llm-serving-bench)** — throughput and tail-latency measurement, so a decoder change shows up as a number.
+
+## References
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Decoding & Sampling — references and further reading](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/decoding-and-sampling#references-further-reading)**
+**→ [Decoding & Sampling — references](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/decoding-and-sampling#references-further-reading)**

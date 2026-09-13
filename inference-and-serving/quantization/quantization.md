@@ -6,13 +6,16 @@ level: advanced
 built_from: ["09-llms/decoder-only-architecture", "09-llms/kv-cache", "numerical-precision"]
 interview_frequency: high
 template: concept-deep
-updated: 2026-09-07
+updated: 2026-09-13
 tier: flagship
 est_minutes: 30
 leads_to: ["09-llms/knowledge-distillation"]
 title: "Quantization (GPTQ · AWQ · GGUF · LLM.int8 · NF4)"
 minutes: 30
 category: inference-and-serving
+chapters:
+  - "quantization-in-serving.md"
+core_idea: "Quantization stores each weight as the nearest tick on a coarse integer ruler, so the error is at most half a tick; the hard part is a few outlier channels that stretch the ruler for everyone, and every production method is a different way around them."
 ---
 
 # Quantization: run a 140 GB model on a single GPU
@@ -30,7 +33,10 @@ I'm going to build this the way I'd actually teach it at a whiteboard: start wit
 - say in one sentence each *what* LLM.int8(), GPTQ, AWQ, SmoothQuant, NF4, and GGUF actually contribute;
 - recompute the **memory math** for any model at int8 / int4 on the spot.
 
-> **Note:** "quantization" here means **post-hoc numeric compression of an existing model** — taking trained FP16 weights and storing them in fewer bits. It is *not* a modeling change like distillation (train a smaller model) or pruning (delete weights). The weights are the same weights, just stored coarsely.
+> **Note:** "quantization" here means **post-hoc numeric compression of an existing model** — the same trained weights, stored in fewer bits. The other two compression levers change the model itself:
+> - **[Knowledge distillation](/ai-ml/ai-ml-learning-resources/model-adaptation/knowledge-distillation/knowledge-distillation)** trains a smaller model to imitate this one.
+> - **[Pruning and sparsity](/ai-ml/ai-ml-learning-resources/inference-and-serving/pruning-and-sparsity/pruning-and-sparsity)** deletes weights outright.
+> - For the one-page intuition, see [Quantization (7.05)](/ai-ml/ai-ml-intuitions/scaling-adaptation-and-efficiency/compression/quantization-intuition).
 
 ---
 
@@ -74,6 +80,15 @@ Two numbers fully describe the ruler:
 
 ![Animated — the affine map made literal, one value at a time. Each real value x (blue circle) drops and snaps to its nearest tick on the int8 ruler, stored as the integer q (here s = 0.01654, z = 0); dequantizing gives x̂ = s·q (red square), and the short arrow is the quantization error — never more than half a tick. The loudest value (2.10) pins the scale at exactly q = 127. Hand-authored animated SVG (loops).](images/affine_number_line.svg)
 
+The ruler is not new to machine learning — it is the oldest move in signal processing:
+
+- A smooth quantity (the gray curve) is snapped to the nearest of a finite set of levels (the dashed lines), giving the red staircase.
+- Read "signal amplitude over time" as "weight value across a tensor" and it is exactly what INT8 quantization does.
+
+![Quantization of a continuous signal: a smooth gray curve f(t) is approximated by a red staircase that snaps each value to the nearest of a finite set of evenly spaced dashed amplitude levels.](https://upload.wikimedia.org/wikipedia/commons/7/70/Quantized.signal.svg)
+
+*Snapping a continuous quantity to a finite set of levels — the same operation INT8 quantization applies to every weight. Source: [Quantized.signal.svg, Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Quantized.signal.svg) — public domain.*
+
 This analogy holds up under the follow-up question that matters: *"what if one weight is enormous?"* Then the ruler has to stretch to reach it — same number of ticks spread across a much wider range — so **every other weight's ticks get coarser**. One outlier ruins the resolution for everyone. Hold onto that; it *is* the outlier problem, and it's the crux of the whole chapter.
 
 ---
@@ -112,6 +127,28 @@ $$\hat{x} = s\,(q - z).$$
 $$|x - \hat{x}| \le \tfrac{s}{2}.$$
 
 This single inequality drives everything: error $\propto s$, and $s = \text{range}/(2^b-1)$, so **adding one bit halves the step and halves the error**, while **widening the range (an outlier) raises the step and raises the error for every value**. Memorize this — it is the lever behind every method below.
+
+Seen on a waveform, the original values (green) and their quantized versions (yellow) track each other, and the gap between them (red) is small and noise-like when the levels are dense enough:
+
+![Quantization error illustrated on a waveform: a green original signal, a yellow quantized version that closely follows it, and a small red quantization-noise trace showing the difference between the two.](https://upload.wikimedia.org/wikipedia/commons/b/b8/Quantization_error.png)
+
+*Original (green) vs quantized (yellow); the red trace is the quantization error w − ŵ — the quantity quantization works to keep small. Source: [Quantization error.png, Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Quantization_error.png) by Gregory Maxwell — [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).*
+
+### One weight, byte by byte
+
+Trace a single weight through the symmetric case ($z = 0$, detailed next). Take $w = 0.7234$ in a layer whose largest absolute weight is $1.0$:
+
+```text
+FP32 weight  w   = 0.7234        stored in 4 bytes  (32 bits)
+scale        s   = 1.0 / 127     = 0.007874
+INT8 code    q   = round(0.7234 / 0.007874) = round(91.87) = 92   <- 1 byte
+dequantized  ŵ   = 92 × 0.007874 = 0.7244
+error        w−ŵ = 0.7234 − 0.7244 = −0.0010
+```
+
+- **Stored:** the single byte `92`, plus one scale shared by the whole tensor.
+- **Recovered:** `0.7244`, an error of `0.0010` — well inside the $s/2 = 0.0039$ bound.
+- **Across the model:** 4 bytes become 1, so the weights are **4× smaller** for rounding this small.
 
 ### Symmetric vs asymmetric
 
@@ -332,6 +369,12 @@ The $|x-\hat x|\le s/2$ bound says error scales with the step, and the step halv
 
 This is the empirical face of the whole field's bias toward **4 bits**: it's the sweet spot where weight-only quantization is *nearly lossless* yet 4× smaller than FP16. Going to 3 or 2 bits is where the error curve turns sharply upward and you need the most sophisticated methods to hold quality.
 
+The payoff side of the same trade: memory falls in lockstep with bit-width, and throughput rises because there are fewer bytes to fetch per token.
+
+<img src="images/compress_size_latency.png" alt="Grouped bar chart by weight precision FP32, FP16, INT8, INT4. Blue bars show memory footprint for a 7B model falling from 28 GB to 14, 7, and 3.5 GB. Green bars show relative inference throughput rising from 1.0x at FP32 to 1.8x, 3.0x, and 3.8x at INT4." width="720">
+
+*Illustrative ballparks for a 7B model, not measurements from this page. The memory bars are pure arithmetic (4, 2, 1 and 0.5 bytes per parameter, scale overhead ignored). The throughput bars assume the bandwidth-bound decode regime **and** kernels that exploit the format; the [serving chapter](/ai-ml/ai-ml-learning-resources/inference-and-serving/quantization/quantization-in-serving) measures a case where that assumption fails.*
+
 ---
 
 ## The memory math (recompute it on demand)
@@ -414,7 +457,7 @@ The full script then runs the **outlier column** experiment (per-tensor blows up
 
 ---
 
-## Pitfalls and failure modes
+## Pitfalls: the failure modes that bite
 
 The things that actually bite:
 
@@ -425,6 +468,14 @@ The things that actually bite:
 - **Clamp/overflow at very low bits.** At 3–2 bits the grid is tiny; an underestimated range clips real values, an overestimated one wastes codes. This is why low-bit methods lean on per-group scales and careful range search.
 - **FP16 vs BF16 confusion.** Both are "2 bytes," but BF16 has FP32's exponent range with fewer mantissa bits — it almost never overflows but is *coarser*. Quantization calibration assumes a precision; mixing them silently changes your effective ranges.
 - **Double-counting the savings.** "int4 makes my model 4× smaller" ignores the KV cache and activations (FP16) and the group-scale overhead. The model *weights* shrink ~3.76× (0.53 vs 2 bytes); total memory shrinks less. Size from the full budget (weights + cache + activations), not the weights alone.
+- **Quoting a speedup you did not measure.** Treat these 7B ballparks as expectations to verify, not results:
+  - **INT8 dynamic PTQ:** ~4× smaller than FP32, 1–3× faster *on integer kernels*, under 1% quality loss.
+  - **INT4 (GPTQ/AWQ):** ~8× smaller, up to ~4× faster on large language model kernels, 1–2% loss.
+  - On a tiny model or the wrong kernel INT8 can be *slower* — [measured here](/ai-ml/ai-ml-learning-resources/inference-and-serving/quantization/quantization-in-serving).
+- **Accuracy collapsed right after quantizing.** A few outlier values stretched the scale. Use per-channel or per-group scales, protect salient channels (AWQ), and try INT8 before INT4.
+- **INT4 output degraded or repetitive.** Naive round-to-nearest at 4 bits is the usual cause. Switch to NF4 with double quantization, or to GPTQ/AWQ, and recover with QLoRA if needed.
+- **`NoQEngine` or a missing quantized operator on CPU.** The INT8 backend is not set for your processor. `torch.backends.quantized.engine = "qnnpack"` works on ARM and x86.
+- **Shipping on the cheaper number alone.** A quantized model passes two gates, not one: it is cheaper **and** still good enough on your own evaluation set, compared against the unquantized baseline.
 
 ---
 
@@ -455,6 +506,31 @@ Concrete, verified anchors:
 - **FP8** is the emerging production default on Hopper/Blackwell GPUs: hardware-native 8-bit floating point, often essentially lossless, increasingly used for *both* weights and the **KV cache** (tying back to the [KV Cache](/ai-ml/ai-ml-learning-resources/inference-and-serving/kv-cache/kv-cache) quantization lever).
 - **The recurring stack:** a "70B served cheaply" deployment is usually **int4 (AWQ/GPTQ) weights + FP8 KV cache + PagedAttention + FlashAttention** — quantization shrinks the weights *and* the cache, and the [serving](/ai-ml/ai-ml-learning-resources/inference-and-serving/inference-optimization/inference-optimization) stack handles the rest.
 
+**The canonical 4-bit load.** In Hugging Face Transformers, NF4 serving is one config object. It needs a CUDA GPU, because the bitsandbytes 4-bit kernels are GPU-only:
+
+```python
+# GPU-only: 4-bit NF4 load via bitsandbytes.
+import torch
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
+
+MODEL_ID = "mistralai/Mistral-7B-Instruct-v0.3"
+
+nf4_config = BitsAndBytesConfig(
+    load_in_4bit=True,
+    bnb_4bit_quant_type="nf4",              # quantile-spaced levels for Gaussian-shaped weights
+    bnb_4bit_use_double_quant=True,         # quantize the per-group scales too
+    bnb_4bit_compute_dtype=torch.bfloat16,  # store in 4 bits, compute in BF16
+)
+model = AutoModelForCausalLM.from_pretrained(
+    MODEL_ID, quantization_config=nf4_config, device_map="auto"
+)
+tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
+```
+
+- **What each option does:** `nf4` picks the level placement from the NF4 section above; `use_double_quant` shrinks the $2/g$ scale term from the memory math; `compute_dtype` means weights are dequantized per layer for the multiply.
+- **What it buys:** the ~14.5 GB of BF16 weights drop to roughly 4 GB, so a 7B model plus its KV cache fits on a single 16 GB GPU.
+- **What it costs:** you pay those per-layer dequantizations on every forward pass. The [serving chapter](/ai-ml/ai-ml-learning-resources/inference-and-serving/quantization/quantization-in-serving) follows the freed memory into concurrency and cost per token.
+
 **What changed by 2026** — the centre of gravity moved from integer formats to low-precision *floating-point* ones:
 
 - **FP8 is no longer emerging, it is the baseline.** The E4M3 / E5M2 formats were standardized in 2022 ([Micikevicius et al.](https://arxiv.org/abs/2209.05433)) and Hopper-class hardware executes them natively, so FP8 weights + FP8 KV cache is the ordinary starting point rather than an optimization.
@@ -484,8 +560,14 @@ Concrete, verified anchors:
 
 ---
 
-## References and further reading
+## Going deeper: the chapters
 
-The curated link library for this topic — papers (with the formula sources cited above), videos, courses, articles, and interactive explainers — lives in a companion file so it can be reused as a standalone reference list:
+- **[Quantization in serving: measure it, then spend the memory](/ai-ml/ai-ml-learning-resources/inference-and-serving/quantization/quantization-in-serving)** — dynamic INT8 measured on a CPU (4× smaller and slower), KV-cache headroom as concurrency, and dollars per million tokens by precision.
 
-**→ [Quantization — references and further reading](/ai-ml/ai-ml-learning-resources/inference-and-serving/quantization/quantization#references-further-reading)**
+---
+
+## References
+
+The curated link library for this topic — papers (with the formula sources cited above), videos, courses, articles, and documentation — lives in a companion file so it can be reused as a standalone reference list:
+
+**→ [Quantization — references](/ai-ml/ai-ml-learning-resources/inference-and-serving/quantization/quantization#references-further-reading)**

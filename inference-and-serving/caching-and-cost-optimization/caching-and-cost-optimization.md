@@ -6,11 +6,12 @@ level: intermediate
 built_from: ["rag-fundamentals", "long-context-vs-rag", "llm-app-orchestration"]
 interview_frequency: medium
 template: concept-deep
-updated: 2026-09-07
+updated: 2026-09-13
 tier: core
-est_minutes: 20
+est_minutes: 24
+core_idea: "A cache is a bet that an answer will not change before its question returns: the saving tracks the hit rate, while the threshold and the key decide whether a hit is the right answer."
 title: "Caching & Cost Optimization for LLM Apps (semantic cache · prompt caching · the cost model)"
-minutes: 20
+minutes: 24
 category: inference-and-serving
 ---
 
@@ -41,14 +42,10 @@ be able to:
 - reach for the right tool (GPTCache, LangChain semantic cache, Anthropic/OpenAI prompt caching) and
   know when caching pays off (high-repeat traffic) versus not (all-unique queries).
 
-> **Honesty up front.** The **semantic cache** (embed → nearest cached query by cosine → HIT/MISS at a
-> threshold), the **hit rate** over a real query stream, and the **cost/latency** arithmetic (ch12's
-> token cost model + a modelled per-call latency) are **real and measured** — every number is printed
-> by an executed notebook cell and asserted, by value. The only **illustrative** pieces are the answer
-> *text* a MISS "computes" (no LLM in this env) and the exact **latency constants** (a real call is
-> ~hundreds of ms, a cache hit ~a few ms). Carried caveat from [ch11](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-evaluation/rag-evaluation)/[ch13](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/citations-and-attribution/citations-and-attribution)/[ch14](/ai-ml/ai-ml-learning-resources/evaluation/hallucination-and-grounding/hallucination-and-grounding):
-> the cache matches by cosine — *topic*, not exact intent — so a too-low threshold serves a **false
-> hit** (the wrong cached answer). We show it explicitly.
+> **Note:** what on this page is measured, and what is illustrative.
+> - **Measured:** the semantic cache itself, its hit rate over a real query stream, and the cost and latency arithmetic. Every number is printed by an executed notebook cell and asserted by value.
+> - **Illustrative:** the answer *text* a miss "computes" (no LLM runs here) and the latency constants — a real call takes hundreds of milliseconds, a hit a few.
+> - **The standing caveat:** the cache matches by cosine, which measures *topic* rather than exact intent, so a too-low threshold serves a **false hit**. The page shows one explicitly, the same gap [RAG Evaluation](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-evaluation/rag-evaluation) and [Hallucination & Grounding](/ai-ml/ai-ml-learning-resources/evaluation/hallucination-and-grounding/hallucination-and-grounding) carry.
 
 ---
 
@@ -234,7 +231,7 @@ $$
 
 **Break-even (analytic, not a measured value):** with Anthropic's $p_{\text{write}}=1.25\times$ and $p_{\text{read}}=0.1\times$ base, prefix caching beats re-paying full price ($p_{\text{base}}\cdot n_{\text{prefix}}\cdot m$) once $1.25 + 0.1(m-1) < m$, i.e. $m > 1.28$ — so it pays off from the **2nd call ($m \ge 2$)**: a single cache read already earns back the 1.25× write premium.
 
-> **Source / derivation:** [Anthropic prompt caching](https://platform.claude.com/docs/en/docs/build-with-claude/prompt-caching)
+> **Source / derivation:** [Anthropic prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)
 > prices a cache **write** at **1.25×** base input and a cache **read** at **0.1×** base (5-minute
 > TTL, min 1,024 tokens); [OpenAI automatic prompt caching](https://developers.openai.com/api/docs/guides/prompt-caching)
 > caches prefixes **≥1,024 tokens** (exact-prefix match) — cached input tokens are discounted steeply
@@ -366,7 +363,19 @@ client.messages.create(
 
 ---
 
-## Pitfalls & failure modes
+## Reading a misbehaving cache from its symptoms
+
+A cache usually fails in one of three visible ways. Start from the symptom, then open the matching pitfall below:
+
+| Symptom you see | Likely cause | Fix | Pitfall |
+|---|---|---|---|
+| **Hit rate near zero** | keys too specific (timestamps, request IDs or names inside the prompt make every request unique), or an exact-match cache facing paraphrases | normalize the prompt before keying, scope the key on purpose, add a semantic layer behind the exact-match path | 5, then measure the repeat rate |
+| **Cached answers wrong or stale** | TTL too long; key not scoped to user, tenant or document version; threshold too low | shorten the TTL, invalidate on document change, put scope and version in the key, raise τ | 1, 2, 3 |
+| **Input cost high despite caching** | a long system prompt or document block re-sent and re-billed on every call, or variable text placed ahead of the static prefix | turn on provider prompt caching, order static content first and the query last, shrink the prefix | the prompt-cache section above |
+
+> **Note:** a hit is cheap, not free. On this page's stream every hit still paid the lookup embedding, which is why a 62.5% hit rate saved 61.5% of the cost rather than 62.5%. Use the measured hit cost, not a rounded-to-zero one, when you project savings.
+
+## Pitfalls: five ways a cache goes wrong
 
 Each pitfall below is named, shown failing, then fixed.
 
@@ -394,6 +403,23 @@ Cache keyed on the query alone will serve one user's answer to another when the 
 *who's asking* (their permissions, their tenant, their locale). **The fix:** include the relevant
 context in the cache key — cache on `(query, user_scope)` not just `query` — or **don't cache
 personalized content at all** (see Pitfall 4).
+
+```mermaid
+graph LR
+    Q(["normalized query text"]):::data --> KEY(["cache key"]):::process
+    U(["+ user or tenant scope<br/>(permissions, locale)"]):::data --> KEY
+    V(["+ document or index version<br/>(the 4 m → 3 m spec change)"]):::data --> KEY
+    M(["+ model and prompt-template version"]):::data --> KEY
+    KEY --> TTL(["entry stored with a TTL"]):::amber
+    TTL --> SAFE(["hit only when every part matches:<br/>right answer, right context"]):::out
+
+    classDef data fill:#3A6B96,stroke:#2A5B86,color:#fff
+    classDef process fill:#5D4A8A,stroke:#4D3A7A,color:#fff
+    classDef amber fill:#7A6528,stroke:#6A5518,color:#fff
+    classDef out fill:#2E7A5A,stroke:#1E6A4A,color:#fff
+```
+
+*What a safe key is made of. The query text alone lets one user's answer, or last week's spec, leak into another context; each added part narrows a hit to the context the answer was computed for. In a semantic cache the text is matched by cosine, while scope and versions are exact-match filters.*
 
 ### Pitfall 4 — over-caching dynamic / personalized content
 
@@ -511,9 +537,15 @@ decision trades against. Master those trades, and you can build a retrieval syst
 
 ---
 
-## References and further reading
+## Production implementation
+
+A runnable service in this estate that puts these caches in front of real model calls:
+
+- **[cost-router](/python/python-production-examples/cost-router/readme)** — exact and semantic response caching ahead of the model call, measured over a replayed request trace; it also carries the routing and budget layers an application stacks on top of the cache.
+
+## References
 
 The curated link library for this topic — videos, courses, articles, papers, and internal
 cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Caching & Cost Optimization — references and further reading](/ai-ml/ai-ml-learning-resources/inference-and-serving/caching-and-cost-optimization/caching-and-cost-optimization#references-further-reading)**
+**→ [Caching & Cost Optimization — references](/ai-ml/ai-ml-learning-resources/inference-and-serving/caching-and-cost-optimization/caching-and-cost-optimization#references-further-reading)**

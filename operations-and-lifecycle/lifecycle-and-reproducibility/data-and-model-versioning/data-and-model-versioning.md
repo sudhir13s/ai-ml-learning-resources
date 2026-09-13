@@ -92,7 +92,7 @@ graph LR
     classDef done fill:#2E7A5A,stroke:#1E6A4A,color:#fff
 ```
 
-> **Note:** DVC also versions models and intermediate artifacts the same way — and `dvc repro` can re-run a defined pipeline (prep → train → eval) only where inputs changed. Pair it with the [Data Preparation](/ai-ml/practitioner-workflows/data-and-inputs/data-preparation) workflow so the data snapshot you train on is itself versioned and reproducible.
+> **Note:** DVC also versions models and intermediate artifacts the same way — and `dvc repro` can re-run a defined pipeline (prep → train → eval) only where inputs changed. Pair it with the [Curating a Web Corpus](/ai-ml/ai-ml-learning-resources/data-and-representation/synthetic-data-and-curation/synthetic-data-and-curation-curating-a-web-corpus) chapter so the data snapshot you train on is itself versioned and reproducible.
 
 ---
 
@@ -100,4 +100,4 @@ graph LR
 
 The curated link library for this topic — videos, courses, articles, papers, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Data and Model Versioning — references](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/data-and-model-versioning/data-and-model-versioning#references)**
+**→ [Data and Model Versioning — references](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/data-and-model-versioning/data-and-model-versioning#references-further-reading)**

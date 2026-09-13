@@ -4,6 +4,8 @@ topic: "Synthetic Data and Data Curation"
 level: intermediate
 built_from: ["pretraining", "instruction-tuning"]
 leads_to: ["model-adaptation/reinforcement-learning-posttraining", "09-llms/llm-evaluation-and-benchmarks"]
+chapters:
+  - "synthetic-data-and-curation-curating-a-web-corpus.md"
 interview_frequency: high
 updated: 2026-09-13
 tier: standard
@@ -213,7 +215,7 @@ A few rules decide whether your seeds are any good:
 | **~10-25 is plenty** | Self-Instruct grows the pool; you need *quality* seeds, not many. |
 | **One clear task per seed** | Multi-part seeds produce confused, multi-topic generations. |
 
-> **Note:** The seed set is your dataset's *DNA*. Spend real effort here: 15 carefully chosen, diverse, perfectly-formatted seeds will out-bootstrap 100 careless ones, because every generation is an extrapolation *from* them. The upstream curation that produces clean seeds (and later cleans the generated set) is the same machinery covered in [Data Preparation (workflow)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/tokenization-and-subword-algorithms/tokenization-and-subword-algorithms).
+> **Note:** The seed set is your dataset's *DNA*. Spend real effort here: 15 carefully chosen, diverse, perfectly-formatted seeds will out-bootstrap 100 careless ones, because every generation is an extrapolation *from* them. The upstream curation that produces clean seeds (and later cleans the generated set) is the same machinery covered in [Curating a web corpus](/ai-ml/ai-ml-learning-resources/data-and-representation/synthetic-data-and-curation/synthetic-data-and-curation-curating-a-web-corpus).
 
 ## Generation: Expanding the Seeds
 
@@ -668,7 +670,7 @@ graph LR
 
 > **Warning:** Model collapse is sneaky because it doesn't show up in your loss curve — the model trains fine and the loss looks healthy. It shows up only when you *measure diversity* on the outputs or read a sample and notice everything sounds the same. Always track a diversity metric (distinct-n, embedding spread, or unique-n-gram count) across training rounds, not just loss.
 
-## Troubleshooting Gallery
+## Pitfalls: the troubleshooting gallery
 
 When a synthetic dataset comes back disappointing, the failure almost always has a recognizable *signature*. Run down this list before regenerating from scratch:
 
@@ -688,6 +690,12 @@ When a synthetic dataset comes back disappointing, the failure almost always has
 ## Final Conclusion
 
 You now have the whole picture. Synthetic data generation is where three disciplines meet: **prompting** (the generator turns a dozen seeds into thousands of candidates), **filtering** (format and quality gates throw most of it away), and **diversity control** (dedup and metrics make sure what survives is varied, and a real-data floor keeps it from collapsing). String them together — write great seeds, generate hot, filter hard, dedup, measure distinct-n, train on the survivors — and you can manufacture a clean, diverse training set from almost nothing. The discipline that makes it work is counting the *right* thing: not how much you generated, but how much *clean, diverse* data survived. None of it requires a research budget — the whole funnel is something **you can run yourself, today, on a laptop.**
+
+## Going deeper: the chapters
+
+This page curates a generated set. Curating raw web text for pretraining has its own depth chapter:
+
+1. **[Curating a web corpus](/ai-ml/ai-ml-learning-resources/data-and-representation/synthetic-data-and-curation/synthetic-data-and-curation-curating-a-web-corpus)** — cleaning and PII gates, exact hashing, MinHash derived with its variance and LSH banding, n-gram decontamination, and why all of it runs before the split.
 
 ## Production implementation
 

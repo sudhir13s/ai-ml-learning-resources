@@ -5,7 +5,7 @@ minutes: 16
 core_idea: "The corpus is the one input a model carries forever, so its licence and its provenance are engineering decisions rather than paperwork — and its size, not the architecture, is what usually caps the result."
 builds_on: [lr-slm-why-build-a-model-from-scratch]
 leads_to: [lr-slm-clean-deduplicate-and-split]
-related: [pw-data-preparation]
+related: [data-and-representation/synthetic-data-and-curation/synthetic-data-and-curation-curating-a-web-corpus]
 section: "ai-ml-learning-resources"
 workflow: "build-a-small-language-model"
 chapter: 1
@@ -199,4 +199,4 @@ answers down beside the text.
 - Hoffmann et al., *Training Compute-Optimal Large Language Models* — where the twenty-tokens-per-parameter
   figure comes from: <https://arxiv.org/abs/2203.15556>
 - Deeper on the reusable mechanism:
-  [Data Preparation (workflow)](/ai-ml/practitioner-workflows/data-and-inputs/data-preparation)
+  [Curating a Web Corpus](/ai-ml/ai-ml-learning-resources/data-and-representation/synthetic-data-and-curation/synthetic-data-and-curation-curating-a-web-corpus)

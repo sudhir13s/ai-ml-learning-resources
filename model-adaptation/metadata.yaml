@@ -7,6 +7,8 @@ page-order:
   - lora-and-parameter-efficient-fine-tuning/lora-and-parameter-efficient-fine-tuning
   - knowledge-distillation/knowledge-distillation
   - preference-and-alignment-training/preference-and-alignment-training
+  - preference-and-alignment-training/preference-and-alignment-training-preference-data-and-reward-models
+  - preference-and-alignment-training/preference-and-alignment-training-running-and-evaluating-alignment
   - reinforcement-learning-posttraining/reinforcement-learning-posttraining
   - model-merging/model-merging
   - fine-tuning/01-decide-whether-to-fine-tune

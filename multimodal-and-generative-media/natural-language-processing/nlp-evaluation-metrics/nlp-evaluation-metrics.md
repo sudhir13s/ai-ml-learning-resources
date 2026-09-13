@@ -10,6 +10,7 @@ updated: 2026-06-27
 tier: core
 est_minutes: 35
 title: "NLP Evaluation Metrics (BLEU · ROUGE · METEOR · chrF · perplexity · BERTScore · F1/EM · LLM-as-judge)"
+core_idea: "Every automatic text metric stands in for a human judge at some cost and fidelity, so trust a metric only as far as it agrees with people, and a score gap only when a confidence interval backs it."
 minutes: 35
 category: natural-language-processing
 ---
@@ -397,7 +398,7 @@ our BLEU 67.318 == sacreBLEU 67.318   |   our ROUGE-L 0.769 == rouge-score 0.769
 
 ---
 
-## Pitfalls & failure modes
+## Pitfalls
 
 The errors that actually bite practitioners — name them, recognize them, fix them:
 
@@ -461,7 +462,7 @@ graph TD
 - **HELM** (Stanford) — many scenarios × many metrics at once (accuracy, calibration, robustness, fairness, toxicity, efficiency), arguing no single number suffices.
 - **MT-Bench / Chatbot Arena** — the LLM-judge and human-preference leaderboards for chat assistants (Elo from pairwise battles).
 
-**In a real evaluation pipeline**, the ladder is layered by frequency and cost: **surface metrics** (BLEU/ROUGE) every run for speed and reproducibility, with a **bootstrap CI** on every reported difference; **semantic metrics** (BERTScore/COMET) to catch paraphrase; **LLM-as-judge** (pairwise, swap-order, validated) for open-ended quality more often than humans allow; and **periodic human evaluation with reported inter-annotator agreement (Cohen's/Fleiss' κ)** as the anchor that keeps the cheaper proxies honest. Human A/B preference data is also what trains the reward model in [RLHF and Alignment](/ai-ml/practitioner-workflows/training-and-adaptation/preference-alignment) — the same pairwise-preference idea that powers LLM-as-judge.
+**In a real evaluation pipeline**, the ladder is layered by frequency and cost: **surface metrics** (BLEU/ROUGE) every run for speed and reproducibility, with a **bootstrap CI** on every reported difference; **semantic metrics** (BERTScore/COMET) to catch paraphrase; **LLM-as-judge** (pairwise, swap-order, validated) for open-ended quality more often than humans allow; and **periodic human evaluation with reported inter-annotator agreement (Cohen's/Fleiss' κ)** as the anchor that keeps the cheaper proxies honest. Human A/B preference data is also what trains the reward model in [Preference and Alignment Training](/ai-ml/ai-ml-learning-resources/model-adaptation/preference-and-alignment-training/preference-and-alignment-training) — the same pairwise-preference idea that powers LLM-as-judge.
 
 > **Note:** the trajectory of benchmarks mirrors the metric ladder: **single-metric single-task** (SQuAD F1) → **multi-task averages** (GLUE) → **holistic multi-metric** (HELM) → **preference-based** (Arena). As models got more general, evaluation had to get more multi-dimensional — one accuracy number stopped telling the whole story.
 
@@ -484,7 +485,7 @@ graph TD
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — start-here path, videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

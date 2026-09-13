@@ -3,7 +3,7 @@ title: "Apply LoRA and QLoRA"
 id: lr-fine-tuning-apply-lora-and-qlora
 minutes: 12
 core_idea: "Low-rank adaptation trains a small pair of matrices beside a frozen base, so the update is tiny, hot-swappable, and cheap enough to run on one consumer graphics card."
-builds_on: [pw-model-compression]
+builds_on: [09-llms/quantization]
 related: [09-llms/pretraining-at-scale]
 section: "ai-ml-learning-resources"
 workflow: "fine-tuning"
@@ -16,7 +16,7 @@ template: workflow
 category: model-adaptation
 ---
 
-# Chapter 3 — Apply LoRA and QLoRA
+# Apply LoRA and QLoRA
 
 This is the chapter where the 7-billion-parameter problem becomes a
 131,072-parameter one.
@@ -220,7 +220,7 @@ print(f"saved adapter only ({mb:.3f} MB) -> hot-swappable on top of the base mod
 # saved adapter only (0.017 MB) -> hot-swappable on top of the base model
 ```
 
-Read the output top to bottom and you can see the entire idea working: step **(1)** builds a tiny GPT-2 from config so nothing downloads; **(2)** wraps it with real `peft` LoRA and prints that only **4,096 of 120,576** params (3.40%) are trainable — the sub-1% story, at toy scale; **(3)–(4)** trains *only* those adapter weights and the loss falls each checkpoint; **(5)** saves just the adapter — a **0.017 MB** file, the toy analogue of the real `~150 MB` you'd ship for Mistral. That last line is the whole serving payoff: you distribute the tiny adapter, and one shared base model can hot-swap many of them. How that hot-swap works at scale — loading one base and serving many adapters — is the [Model Serving (workflow)](/ai-ml/practitioner-workflows/inference-and-serving/model-serving).
+Read the output top to bottom and you can see the entire idea working: step **(1)** builds a tiny GPT-2 from config so nothing downloads; **(2)** wraps it with real `peft` LoRA and prints that only **4,096 of 120,576** params (3.40%) are trainable — the sub-1% story, at toy scale; **(3)–(4)** trains *only* those adapter weights and the loss falls each checkpoint; **(5)** saves just the adapter — a **0.017 MB** file, the toy analogue of the real `~150 MB` you'd ship for Mistral. That last line is the whole serving payoff: you distribute the tiny adapter, and one shared base model can hot-swap many of them. How that hot-swap works at scale — loading one base and serving many adapters — is the [LLM Serving Engines](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/llm-serving-engines/llm-serving-engines).
 
 > **Note:** The runnable demo trains a *randomly initialized* tiny model, so its loss falls slowly and the absolute numbers don't matter — the point is to watch the **mechanics**: real `peft` reporting <4% trainable params, only the adapters updating, and a kilobyte-scale adapter file dropping out at the end. Swap in `Mistral-7B` and the production recipe above and the exact same five steps run on a GPU.
 

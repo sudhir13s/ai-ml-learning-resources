@@ -10,6 +10,7 @@ updated: 2026-07-01
 tier: core
 est_minutes: 30
 title: "Query Transformation (HyDE & Multi-Query)"
+core_idea: "A question embeds far from the passage that answers it, so rewrite it into answer-shaped text before retrieving, and spend that extra model call only on vague, paraphrase-prone queries."
 minutes: 30
 category: rag-and-knowledge-systems
 ---
@@ -18,7 +19,7 @@ category: rag-and-knowledge-systems
 
 Ask your RAG system *"How long does Helios-7 take to circle the Earth once?"* The answer is sitting right there in the corpus — *"Helios-7 completes one orbit of Earth every 97 minutes in a sun-synchronous orbit."* — and yet the two share almost no words. Now ask *"What telemetry error did Helios-7 report?"* and watch the dense retriever hand back a chatty passage that is *about* errors and shove the line that literally says **"Error E-4011"** down to second place. Both times the retriever did its honest best, and both times the **raw query was a bad probe**. It was short, it was phrased as a *question*, and questions live in a different neighbourhood of the embedding space than the *answer passages* that hold their answers.
 
-That last sentence is the whole chapter. A bi-encoder ([chapter 3](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/embedding-models/embedding-models)) ranks passages by **overall similarity to whatever you embed** — and what you embed, the bare question, is systematically *unlike* its own answer. This is the **question ↔ document asymmetry**, and it is the reason a perfectly good corpus can still return the wrong passage. **Query transformation** is the fix the retrieval world converged on: don't retrieve with the raw question — first **rewrite it into something shaped like the answer**, then retrieve with *that*.
+That last sentence is the whole chapter. A bi-encoder ([chapter 3](/ai-ml/ai-ml-learning-resources/data-and-representation/embedding-models/embedding-models)) ranks passages by **overall similarity to whatever you embed** — and what you embed, the bare question, is systematically *unlike* its own answer. This is the **question ↔ document asymmetry**, and it is the reason a perfectly good corpus can still return the wrong passage. **Query transformation** is the fix the retrieval world converged on: don't retrieve with the raw question — first **rewrite it into something shaped like the answer**, then retrieve with *that*.
 
 I'm going to build this the way I'd explain it to a teammate whose vector search keeps missing the obvious passage. We'll *feel* the asymmetry on real embeddings first (measure how far a question sits from its own answer), then the two transforms that fix it — **HyDE** (write a hypothetical answer, retrieve with *its* embedding) and **Multi-Query** (fan the query into N reformulations, retrieve each, fuse the union) — then the math each rests on (derived, not dropped), a from-scratch demo where **every number is measured on a real encoder**, the traps that bite in production (starting with HyDE hallucination), and exactly when transforming *hurts*. By the end you'll be able to:
 
@@ -74,7 +75,7 @@ Now push on the analogy where it bends — that's where it teaches:
 
 - **"What if my guessed answer is *wrong*?"** This is *the* HyDE question, and the answer is beautiful: **it usually still works.** You retrieve with the hypothetical's embedding, and the dense encoder is a **lossy bottleneck** — it keeps the *topical relevance pattern* ("this is about Helios-7's orbital period") and discards the fabricated *specifics* ("every 250 minutes"). So a wrong-but-on-topic hypothetical still lands in the right neighbourhood. We *measure* exactly this below — including the honest case where a wrong hypothetical's raw cosine dips slightly, yet the gold still ranks #1. HyDE's own paper puts it precisely: the encoder's "dense bottleneck filters out the incorrect details."
 - **"What if the rephrasings all say the same thing?"** Then Multi-Query buys you nothing — the union of identical lists is one list. The value comes from **diversity**: the reformulations must genuinely cover different words/facets. Over-expand into near-duplicates and you pay N× the retrieval cost for ≈1× the recall. This is why the recall math below is *optimistic* and the pitfalls section flags **over-expansion drift**.
-- **"Why not just embed the question better?"** You can (that's what a stronger encoder or asymmetric prefixes do — [chapter 3](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/embedding-models/embedding-models)), and it helps. But no encoder can guarantee a *question* out-similars its *answer* against every distractor, because it ranks by overall similarity, not by "is this the answer to this question?" Transformation sidesteps the asymmetry by making the probe *be* answer-shaped in the first place.
+- **"Why not just embed the question better?"** You can (that's what a stronger encoder or asymmetric prefixes do — [chapter 3](/ai-ml/ai-ml-learning-resources/data-and-representation/embedding-models/embedding-models)), and it helps. But no encoder can guarantee a *question* out-similars its *answer* against every distractor, because it ranks by overall similarity, not by "is this the answer to this question?" Transformation sidesteps the asymmetry by making the probe *be* answer-shaped in the first place.
 
 The mapping to the mechanism is exact: **the slip is the retrieval probe; HyDE rewrites the slip as a hypothetical answer; Multi-Query writes several slips and merges what each fetches; the librarian is the unchanged bi-encoder + index.** Hold that picture — the rest is the engineering.
 
@@ -126,7 +127,7 @@ $$
 s_{\text{raw}}(d) \;=\; \cos\!\big(E(q),\, E(d)\big) \;=\; E(q)\cdot E(d),
 $$
 
-(the dot product because the vectors are unit-norm — [chapter 3's](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/embedding-models/embedding-models) geometry), and returns the top-k. **HyDE changes exactly one thing:** it first has an LLM $G$ generate a hypothetical answer $h = G(q)$, then scores with $E(h)$ in place of $E(q)$:
+(the dot product because the vectors are unit-norm — [chapter 3's](/ai-ml/ai-ml-learning-resources/data-and-representation/embedding-models/embedding-models) geometry), and returns the top-k. **HyDE changes exactly one thing:** it first has an LLM $G$ generate a hypothetical answer $h = G(q)$, then scores with $E(h)$ in place of $E(q)$:
 
 $$
 s_{\text{HyDE}}(d) \;=\; \cos\!\big(E(h),\, E(d)\big), \qquad h = G(q).
@@ -317,7 +318,7 @@ Both hide exactly the transform-then-retrieve(-then-fuse) pipeline we built by h
 
 ---
 
-## Pitfalls and failure modes
+## Pitfalls
 
 Every one of these bites a real production system. Each is named, shown failing, then fixed.
 
@@ -403,7 +404,7 @@ The one production number to carry: **transformation trades an extra LLM call fo
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, articles, papers, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

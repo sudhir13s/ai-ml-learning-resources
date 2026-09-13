@@ -4,7 +4,7 @@ id: lr-fine-tuning-evaluate-capability-and-regression
 minutes: 7
 core_idea: "Chatting with the model is not evaluation — measure whether the fine-tune gained the capability you wanted and whether it broke something that already worked."
 builds_on: [pw-evaluation-and-benchmarking]
-related: [pw-preference-alignment]
+related: [09-llms/rlhf-and-dpo]
 section: "ai-ml-learning-resources"
 workflow: "fine-tuning"
 chapter: 5
@@ -16,7 +16,7 @@ template: workflow
 category: model-adaptation
 ---
 
-# Chapter 5 — Evaluate Capability and Regression
+# Evaluate Capability and Regression
 
 Chatting with the model is not evaluation. This chapter measures whether the
 fine-tune worked, and — just as important — whether it broke anything that used to work.

@@ -11,7 +11,9 @@ What it demonstrates, all from a tiny hand-built next-token distribution:
   * top-k keeps a FIXED number of tokens (k), renormalises, samples;
   * top-p (nucleus) keeps the smallest set whose cumulative prob >= p -- an ADAPTIVE cutoff;
   * the key result: on a PEAKED distribution nucleus is small, on a FLAT distribution it is
-    large -- the adaptivity that fixed-size top-k cannot match (asserted, not asserted-by-faith).
+    large -- the adaptivity that fixed-size top-k cannot match (asserted, not asserted-by-faith);
+  * a repetition penalty demotes already-emitted tokens (with the sign branch for negative logits);
+  * greedy returns the same token on every draw, sampling from the same distribution does not.
 
 Device-agnostic (CUDA / MPS / CPU) to match the chapter's kv_cache.py exemplar. The logic is
 device-independent; the reproducible trace in main() is pinned to CPU and prints the device
@@ -49,6 +51,9 @@ TOP_P = 0.9                     # nucleus mass threshold for the top-p demo
 SAMPLE_SEED = 0                 # one seed -> reproducible sampled tokens everywhere
 N_SAMPLES = 2000                # draws for the empirical-frequency demo
 EPS = 1e-12                     # guards log(0) in the entropy sum
+REPETITION_PENALTY = 1.2        # top of the 1.1-1.2 band that suppresses loops without garbling
+DRAW_TEMPERATURE = 0.8          # temperature for the greedy-vs-sampled draws
+N_DRAWS = 5                     # a handful of draws: enough to see sampling vary, greedy not
 
 # Run on the best available accelerator; CPU is the universal fallback (matches kv_cache.py).
 DEVICE = (
@@ -142,6 +147,35 @@ def empirical_frequencies(
     probs = F.softmax(logits, dim=-1)
     draws = torch.multinomial(probs, num_samples=n_samples, replacement=True, generator=generator)
     return torch.bincount(draws, minlength=logits.shape[-1]).float() / n_samples
+
+
+def repetition_penalty(
+    logits: torch.Tensor, generated_ids: list[int], penalty: float
+) -> torch.Tensor:
+    """CTRL-style repetition penalty: make every already-generated token less likely.
+
+    A positive logit is DIVIDED by the penalty and a negative logit is MULTIPLIED by it, so
+    both move toward "less likely". Dividing a negative logit would raise it -- the sign bug
+    this branch exists to avoid. Each distinct token is penalized once, however often it
+    appeared. Returns new logits; the input tensor is never mutated.
+    """
+    assert penalty >= 1.0, "penalty must be >= 1 (1.0 disables it)"
+    penalized = logits.clone()
+    seen = torch.tensor(sorted(set(generated_ids)), dtype=torch.long, device=logits.device)
+    if seen.numel() == 0:
+        return penalized
+    seen_logits = penalized[seen]
+    penalized[seen] = torch.where(seen_logits > 0, seen_logits / penalty, seen_logits * penalty)
+    return penalized
+
+
+def truncate_then_scale(logits: torch.Tensor, p: float, temperature: float) -> torch.Tensor:
+    """The page's recommended order: fix the nucleus at T=1, then temperature-scale inside it.
+
+    Masked tokens stay at -inf after division, so temperature only redistributes mass among
+    the tokens the model itself considered plausible.
+    """
+    return top_p_filter(logits, p) / temperature
 
 
 def _fmt_probs(probs: torch.Tensor, top: int = 4) -> str:
@@ -238,8 +272,33 @@ def main() -> None:
     )
     print(
         f"   => diversity rises {distinct_counts[0.5]} -> {distinct_counts[1.0]} -> "
-        f"{distinct_counts[2.0]} distinct tokens as T goes 0.5 -> 1.0 -> 2.0"
+        f"{distinct_counts[2.0]} distinct tokens as T goes 0.5 -> 1.0 -> 2.0\n"
     )
+
+    # --- 6. Repetition penalty demotes tokens already emitted -----------------------------
+    # On the FLAT distribution "the" leads narrowly. Pretend we already emitted "the", "the",
+    # "on": the penalty pushes both below tokens that were never used.
+    already = [VOCAB.index("the"), VOCAB.index("the"), VOCAB.index("on")]
+    before = F.softmax(flat, dim=-1)
+    after = F.softmax(repetition_penalty(flat, already, REPETITION_PENALTY), dim=-1)
+    print(f"[repetition] penalty={REPETITION_PENALTY} after emitting 'the','the','on' (FLAT dist):")
+    print(f"   before  {_fmt_probs(before)}")
+    print(f"   after   {_fmt_probs(after)}")
+    assert after[VOCAB.index("the")] < before[VOCAB.index("the")], "penalty must demote a seen token"
+    assert greedy_token(repetition_penalty(flat, already, REPETITION_PENALTY)) != VOCAB.index("the")
+    negative = torch.tensor([-1.0, 0.5])
+    assert repetition_penalty(negative, [0], 1.2)[0] < negative[0], "negative logits must go DOWN"
+    print()
+
+    # --- 7. Greedy vs sampled: five draws, same distribution ------------------------------
+    gen_draws = torch.Generator(device=trace_device).manual_seed(SAMPLE_SEED)
+    shaped = truncate_then_scale(flat, TOP_P, DRAW_TEMPERATURE)
+    greedy_draws = [VOCAB[greedy_token(flat)] for _ in range(N_DRAWS)]
+    sampled_draws = [VOCAB[sample_from_logits(shaped, gen_draws)] for _ in range(N_DRAWS)]
+    print(f"[greedy vs sampled] FLAT dist, {N_DRAWS} draws (top-p={TOP_P}, then T={DRAW_TEMPERATURE}):")
+    print(f"   greedy   {greedy_draws}")
+    print(f"   sampled  {sampled_draws}")
+    assert len(set(greedy_draws)) == 1, "greedy must return the same token every time"
 
 
 if __name__ == "__main__":

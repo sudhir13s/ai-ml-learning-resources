@@ -2,7 +2,8 @@
 id: embeddings-and-similarity-search
 title: Embeddings and Similarity Search
 minutes: 15
-category: rag-and-knowledge-systems
+core_idea: "Semantic search is settled by two early choices — the encoder that places every item in one space, and the distance used to compare them — after which approximate indexes only decide how much recall to spend for speed."
+category: embedding-models
 ---
 # Embeddings and similarity search
 
@@ -56,7 +57,7 @@ ANN is *approximate*: it may miss some true neighbors, which is why recall is a 
 
 **Recall@k** is the fraction of the true top-k nearest neighbors that the ANN search actually returns, measured against a brute-force ground truth on a benchmark query set. It is the SLO that tells you whether your index is healthy: tuning `ef_search` (HNSW) or `nprobe` (IVF) trades recall against latency, and recall can **silently decay** as deletes leave tombstones in the graph. Treat recall@10 as a monitored metric (alert below ~0.95), not a one-time benchmark.
 
-## Common pitfalls
+## Pitfalls
 
 - **Mismatched query/document encoders** — embedding the corpus with one model and queries with another (or an upgraded version) puts them in different spaces; scores become meaningless with no error. The embedding model is part of the index contract; changing it is a migration (blue-green re-embed), not a config tweak.
 - **Unnormalized dot product** — using inner product on non-unit vectors lets magnitude masquerade as relevance. Normalize, or use cosine.

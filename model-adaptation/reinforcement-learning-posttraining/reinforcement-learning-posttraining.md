@@ -5,80 +5,116 @@ level: advanced
 built_from: ["preference-and-alignment-training", "supervised-fine-tuning", "chain-of-thought-and-reasoning"]
 leads_to: ["models-and-architectures/large-language-models/test-time-computation-and-scaling", "09-llms/llm-evaluation-and-benchmarks"]
 interview_frequency: very-high
-updated: 2026-09-07
+updated: 2026-09-13
 tier: core
-est_minutes: 18
+est_minutes: 25
+core_idea: "Swap the learned preference model for a checker that says whether an answer is right, then score each sampled answer against its siblings for the same prompt; that group average replaces PPO's value network, and long reasoning is what the policy discovers earns reward."
 title: "Reinforcement Learning for Reasoning — GRPO and Verifiable Rewards"
-minutes: 18
+minutes: 25
 category: model-adaptation
 ---
 
 # Reinforcement Learning for Reasoning — GRPO and Verifiable Rewards
 
-> Reasoning models are trained, not prompted. Instead of a learned reward model scoring how *nice*
-> an answer sounds, **reinforcement learning with verifiable rewards (RLVR)** scores whether the
-> answer is *checkably correct* — a math grader, a unit test, a compiler — and optimises the policy
-> against that ground truth. The model discovers long chains of thought on its own because longer
-> thinking earns more reward.
+Reasoning models are trained, not prompted. The reward no longer comes from a model of human taste; it comes from a **checker** that can tell whether the answer is right.
 
-**Why it matters:** this is the single biggest capability shift of 2024–2026 (o1 → DeepSeek-R1 → o3,
-Qwen3, gpt-oss) and the most-asked frontier question in interviews today.
+- **The method:** reinforcement learning with verifiable rewards (**RLVR**) scores an answer with a math grader, a unit test or a compiler, and optimizes the policy against that ground truth.
+- **What emerges:** long chains of thought. Nobody writes them as targets; the policy finds that thinking longer earns more reward.
+- **Why it matters:** it's the largest capability shift of 2024–2026 (o1, DeepSeek-R1, o3, Qwen3, gpt-oss) and the most-asked frontier topic in interviews.
 
-- **What is probed:** why a *verifiable* reward dodges reward hacking that a learned reward model cannot; how **group relative policy optimization (GRPO)** removes proximal policy optimization's (PPO) value network by using a group mean as the baseline; outcome reward models (ORM) versus process reward models (PRM).
-- **The trap:** calling this "RLHF for math." RLHF optimises a *learned* human-preference proxy; RLVR optimises a *checker*. Different reward source, different failure modes, different data pipeline.
-- **The other trap:** assuming R1-Zero (pure RL, no supervised fine-tuning (SFT)) is the recipe. The shipped DeepSeek-R1 adds an SFT cold start precisely because pure RL produced unreadable, language-mixed chains.
+This page builds on [RLHF & DPO](/ai-ml/ai-ml-learning-resources/model-adaptation/preference-and-alignment-training/preference-and-alignment-training), which derives the PPO objective, the KL leash, the value model and the advantage that GRPO modifies.
 
-**Start here — suggested path:**
+---
 
-1. **Get the landscape in one read** — read [Understanding Reasoning LLMs](https://magazine.sebastianraschka.com/p/understanding-reasoning-llms) — **Sebastian Raschka**. *The four ways reasoning is built (inference-time scaling, pure RL, SFT+RL, distillation), with the R1 variants mapped onto them.*
-2. **Read the recipe from the people who reverse-engineered it** — read [DeepSeek R1's recipe to replicate o1](https://www.interconnects.ai/p/deepseek-r1-recipe-for-o1) — **Nathan Lambert (Interconnects)**. *R1-Zero → cold-start SFT → reasoning RL → rejection sampling → general RL, stage by stage.*
-3. **Read the primary source** — read [DeepSeek-R1](https://arxiv.org/abs/2501.12948) — **DeepSeek-AI (2025)**. *The paper that made the recipe public: the emergent "aha moment," the length-grows-with-training curve, the distilled dense models.*
-4. **Get the algorithm exactly right** — read the [RLHF Book — "Policy Gradient Algorithms"](https://rlhfbook.com/c/11-policy-gradients.html) — **Nathan Lambert**. *PPO and GRPO derived side by side; where the value network goes and what replaces it.*
-5. **Build one** — watch [Build a Reasoning Model From Scratch, part 1](https://www.youtube.com/watch?v=Kh9mqTzjuEQ) — **Sebastian Raschka**, then work through the free companion repo [reasoning-from-scratch](https://github.com/rasbt/reasoning-from-scratch). *Reasoning methods coded on top of a small open base model — the abstraction becomes concrete.*
+## Why a verifiable reward changes the problem
 
-## Courses (free)
+RLHF optimizes a **learned** reward model, a proxy for human preference, and a proxy can be gamed. RLVR removes the proxy.
 
-- [Stanford CS336 — Language Modeling from Scratch (Spring 2025)](https://stanford-cs336.github.io/spring2025/) — **Percy Liang & Tatsunori Hashimoto (Stanford)** — the post-training and alignment lectures place reasoning RL inside the full model-building stack; slides, assignments and lecture list are free on the course site.
-- [Open-R1](https://github.com/huggingface/open-r1) — **Hugging Face** — the fully open reproduction of the R1 pipeline: GRPO training code, datasets, evaluation. The closest thing to a lab you can actually run.
-- [Reasoning with o1](https://www.deeplearning.ai/short-courses/reasoning-with-o1/) — **DeepLearning.AI × OpenAI** — free short course on what a reasoning model changes for the person *using* it (prompting, planning, cost).
+- **RLHF's reward:** a network's guess at which answer a person would prefer. Push hard and the policy finds text the network over-scores (reward hacking).
+- **RLVR's reward:** whether the final answer matches, or the tests pass. There's no learned gap between measure and target to exploit, as long as the checker is sound.
+- **The price:** it only applies where a checker exists: math, code, formal proofs, structured extraction with a known answer.
 
-## Videos
+What interviewers probe, and the traps:
 
-- [Deep Dive into LLMs like ChatGPT](https://www.youtube.com/watch?v=7xTGNNLPyMI) — **Andrej Karpathy** — the reinforcement-learning section is the clearest existing explanation of why RL on verifiable answers produces reasoning, and how it differs from SFT.
-- [Build a Reasoning Model From Scratch — Motivation and Code Setup](https://www.youtube.com/watch?v=Kh9mqTzjuEQ) — **Sebastian Raschka** — opens the from-scratch series that codes reasoning methods on a small open base model.
-- [Stanford CS336 — Lecture 1: Overview and Tokenization](https://www.youtube.com/watch?v=SQ3fZ1sAqXI) — **Stanford Online** — the entry point to the lecture series whose later post-training lectures cover SFT and RL.
+- **Outcome versus process rewards:** an outcome reward model (ORM) scores only the final answer; a process reward model (PRM) scores each reasoning step. PRMs give denser credit but need step-level labels.
+- **The trap:** calling this "RLHF for math." Different reward source, different failure modes, different data pipeline.
+- **The other trap:** assuming R1-Zero (pure RL, no supervised fine-tuning) is the shipped recipe. DeepSeek-R1 adds a supervised cold start because pure RL produced unreadable, language-mixed chains.
 
-## Key Papers
+> **Warning:** a verifier removes reward-model hacking, not reward hacking.
+> - A grader that only checks the final number rewards a right answer reached by wrong reasoning.
+> - Unit tests that don't cover edge cases reward code that special-cases the tests.
+> - Audit the checker as seriously as you would a reward model.
 
-- [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning](https://arxiv.org/abs/2501.12948) — **DeepSeek-AI (2025)** — the open recipe: R1-Zero's pure RL, the cold-start SFT fix, and distillation into dense models.
-- [DeepSeekMath: Pushing the Limits of Mathematical Reasoning](https://arxiv.org/abs/2402.03300) — **Shao et al. (2024)** — introduces **GRPO**; read §4 for the critic-free objective everyone now cites.
-- [Let's Verify Step by Step](https://arxiv.org/abs/2305.20050) — **Lightman et al. (2023)** — process supervision beats outcome supervision; the origin of the PRM-versus-ORM debate.
-- [STaR: Bootstrapping Reasoning With Reasoning](https://arxiv.org/abs/2203.14465) — **Zelikman et al. (2022)** — the pre-RL ancestor: keep the chains that reach the right answer, fine-tune on them, repeat.
-- [Tülu 3: Pushing Frontiers in Open Language Model Post-Training](https://arxiv.org/abs/2411.15124) — **Lambert et al. (2024)** — the paper that named **RLVR** and published a full, reproducible post-training stack.
-- [Qwen3 Technical Report](https://arxiv.org/abs/2505.09388) — **Qwen Team (2025)** — thinking/non-thinking modes in one model plus a thinking budget; the 2025 open-weight reasoning reference.
-- [gpt-oss-120b and gpt-oss-20b Model Card](https://arxiv.org/abs/2508.10925) — **OpenAI (2025)** — OpenAI's open-weight reasoning models: reasoning-effort levels and the chain-of-thought monitoring argument.
+---
 
-## Articles / Blogs (free, no paywall)
+## GRPO: PPO without the value network
 
-- [Why We Think](https://lilianweng.github.io/posts/2025-05-01-thinking/) — **Lilian Weng (2025)** — the deepest free survey of test-time thinking: latent versus verbalised reasoning, RL for reasoning, faithfulness of chains.
-- [Reward Hacking in Reinforcement Learning](https://lilianweng.github.io/posts/2024-11-28-reward-hacking/) — **Lilian Weng** — why a learned reward gets gamed, and why a verifiable one is the structural fix (and where even that leaks).
-- [Learning to Reason with LLMs](https://openai.com/index/learning-to-reason-with-llms/) — **OpenAI (2024)** — the o1 announcement: accuracy rising with both train-time RL and test-time thinking.
-- [Open-R1: a fully open reproduction of DeepSeek-R1](https://huggingface.co/blog/open-r1) — **Hugging Face** — what actually had to be rebuilt to reproduce R1, including the parts the paper leaves out.
-- [Tülu 3: The next era in open post-training](https://allenai.org/blog/tulu-3) — **Allen Institute for AI** — the open post-training recipe end to end, with the RLVR stage explained in plain terms.
+**GRPO** (group relative policy optimization), introduced in DeepSeekMath, is a PPO descendant with one structural change: **it deletes the value model**.
 
-## Books (free, with chapters)
+- **What PPO needed the critic for:** a baseline, so the advantage is "reward minus what was expected." Without a baseline the gradient's variance swamps the signal.
+- **What it cost:** a fourth model the size of the policy, trained alongside it.
+- **GRPO's replacement:** sample a **group** of answers to the *same* prompt, score them all, and use the group's own statistics as the baseline.
 
-- [*Reinforcement Learning from Human Feedback* — "Reasoning and Inference-Time Scaling"](https://rlhfbook.com/c/14-reasoning.html) — **Nathan Lambert** — free online book; the definitive written treatment of RLVR, GRPO variants and reasoning-training practice.
-- [*Reinforcement Learning from Human Feedback* — "Reward Models"](https://rlhfbook.com/c/07-reward-models.html) — **Nathan Lambert** — outcome versus process reward models, and when a verifier replaces both.
-- [*Build a Reasoning Model (From Scratch)*](https://www.manning.com/books/build-a-reasoning-model-from-scratch) — **Sebastian Raschka** — paid book, free companion code and chapter hub at [sebastianraschka.com/reasoning-from-scratch](https://sebastianraschka.com/reasoning-from-scratch/); pointer only.
+```mermaid
+graph TD
+    P(["Prompt"]):::prompt --> G(["Sample a GROUP<br/>of G answers (e.g. 8)"]):::group
+    G --> S(["Score each answer<br/>(verifier or reward model)"]):::score
+    S --> M(("group mean and std<br/>= the baseline")):::base
+    S --> ADV(["advantage =<br/>(reward − mean) / std"]):::adv
+    M --> ADV
+    ADV -->|"push above-average up,<br/>below-average down"| POL(["Clipped policy update<br/>+ KL to reference<br/>(no value model)"]):::policy
 
-## In this platform
+    classDef prompt fill:#3A6B96,stroke:#2A5B86,color:#fff
+    classDef group fill:#5D4A8A,stroke:#4D3A7A,color:#fff
+    classDef score fill:#2E7A5A,stroke:#1E6A4A,color:#fff
+    classDef base fill:#7A6528,stroke:#6A5518,color:#fff
+    classDef adv fill:#7D5A2C,stroke:#6D4A1C,color:#fff
+    classDef policy fill:#2A5B80,stroke:#1A4B70,color:#fff
+```
 
-- Prerequisite (canonical home of RLHF, PPO and DPO): [Preference and Alignment Training](/ai-ml/ai-ml-learning-resources/model-adaptation/preference-and-alignment-training/preference-and-alignment-training) · [Supervised Fine-Tuning](/ai-ml/ai-ml-learning-resources/model-adaptation/supervised-fine-tuning/supervised-fine-tuning)
-- The reasoning behaviour being trained: [Chain-of-Thought and Reasoning](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/chain-of-thought-and-reasoning/chain-of-thought-and-reasoning)
-- What you spend the trained ability on at inference: [Test-Time Computation and Scaling](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/test-time-computation-and-scaling/test-time-computation-and-scaling)
-- The RL machinery underneath: [Proximal Policy Optimization](/ai-ml/ai-ml-learning-resources/reinforcement-learning/policy-learning/proximal-policy-optimization-ppo/proximal-policy-optimization-ppo) · [Policy Gradients and REINFORCE](/ai-ml/ai-ml-learning-resources/reinforcement-learning/policy-learning/policy-gradients-reinforce/policy-gradients-reinforce) · [Reward Shaping](/ai-ml/ai-ml-learning-resources/reinforcement-learning/foundations/reward-shaping/reward-shaping)
-- Where the data for the cold start comes from: [Synthetic Data and Data Curation](/ai-ml/ai-ml-learning-resources/data-and-representation/synthetic-data-and-curation/synthetic-data-and-curation) · compressing a reasoner: [Knowledge Distillation](/ai-ml/ai-ml-learning-resources/model-adaptation/knowledge-distillation/knowledge-distillation)
-- How the result is measured: [LLM Evaluation](/ai-ml/ai-ml-learning-resources/evaluation/model-evaluation-and-benchmarks/model-evaluation-and-benchmarks)
-- Intuition track: [PPO and RL from Human Feedback](/ai-ml/ai-ml-intuitions/decision-making-and-control/stable-policy-optimization/ppo-and-rl-from-human-feedback-intuition) · [Test-Time Computation](/ai-ml/ai-ml-intuitions/reasoning-and-agency/reasoning/test-time-computation-intuition)
-- Build it as a workflow: [Preference Alignment](/ai-ml/practitioner-workflows/training-and-adaptation/preference-alignment)
+*The GRPO loop for one prompt: the group scores itself, the group statistics form the baseline, and the rest is PPO's clipped update with a KL penalty.*
+
+### The group-relative advantage
+
+For one prompt $q$, sample $G$ answers $o_1, \dots, o_G$ from the current policy and score them, $r_1, \dots, r_G$. With outcome rewards, every token of answer $i$ gets the same advantage:
+
+$$\hat A_i = \frac{r_i - \operatorname{mean}(r_1,\dots,r_G)}{\operatorname{std}(r_1,\dots,r_G)}$$
+
+- **The numerator is the baseline subtraction** PPO's critic used to provide, now read off the group for free.
+- **The denominator normalizes the scale,** so an easy prompt (almost all correct) and a hard prompt (almost all wrong) contribute comparable gradient sizes.
+- **If every answer scores the same,** the numerator is zero for all of them: the prompt teaches nothing, and practical recipes filter such prompts out.
+
+### Worked example: four answers to one math problem
+
+One prompt, a group of four sampled answers, a verifier reward of 1 for a correct final answer:
+
+| Answer | Reward $r_i$ | Group mean | $r_i - \text{mean}$ | $\hat A_i$ (÷ std 0.5) | Update |
+|---|---|---|---|---|---|
+| A1 | 1.0 | 0.5 | **+0.5** | **+1.0** | push up |
+| A2 | 1.0 | 0.5 | **+0.5** | **+1.0** | push up |
+| A3 | 0.0 | 0.5 | **−0.5** | **−1.0** | push down |
+| A4 | 0.0 | 0.5 | **−0.5** | **−1.0** | push down |
+
+- **The baseline:** the group mean 0.5 is what a value network would otherwise have had to learn for this prompt.
+- **The scale:** the population standard deviation of $\{1, 1, 0, 0\}$ is 0.5, so dividing turns ±0.5 into ±1.0.
+- **A harder prompt,** say rewards $\{1, 0, 0, 0\}$: mean 0.25, std ≈ 0.433, so the one correct answer gets $\hat A \approx +1.73$ and each wrong one ≈ −0.58. A rare success is pushed up hard.
+
+### What else changes relative to PPO
+
+- **The update is PPO's clipped surrogate,** with $\hat A_i$ in place of the critic-based advantage.
+- **The KL penalty moves into the loss.** GRPO adds $\beta\,\mathrm{KL}(\pi_\theta \Vert \pi_{\text{ref}})$ directly to the objective instead of subtracting it from the reward before computing advantages.
+- **Models in memory:** the policy and the reference, plus a reward model only if the reward is learned. With a programmatic verifier it's two networks, against PPO's four.
+- **Rollout cost goes up:** $G$ samples per prompt instead of one, so generation, not the backward pass, tends to dominate wall-clock time.
+
+> **Note:** sources for this section.
+> - GRPO's objective and group-relative advantage: [Shao et al., *DeepSeekMath* (2024)](https://arxiv.org/abs/2402.03300), §4.
+> - GRPO with verifiable rewards at scale, and the cold-start fix: [DeepSeek-AI, *DeepSeek-R1* (2025)](https://arxiv.org/abs/2501.12948).
+> - The PPO objective and value model being modified: [RLHF & DPO](/ai-ml/ai-ml-learning-resources/model-adaptation/preference-and-alignment-training/preference-and-alignment-training).
+
+---
+
+## References
+
+The curated link library for this topic (videos, courses, articles, papers, books, resources, and internal cross-links) lives in a companion file so it can be reused as a standalone reference list:
+
+**→ [Reinforcement Learning Post-training — references](/ai-ml/ai-ml-learning-resources/model-adaptation/reinforcement-learning-posttraining/reinforcement-learning-posttraining#references-further-reading)**

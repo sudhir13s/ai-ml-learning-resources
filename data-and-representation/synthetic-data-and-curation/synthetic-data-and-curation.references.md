@@ -8,7 +8,27 @@ updated: 2026-09-13
 
 # Synthetic Data and Data Curation — references
 
-> Companion link library for **[Synthetic Data and Data Curation](/ai-ml/ai-ml-learning-resources/data-and-representation/synthetic-data-and-curation/synthetic-data-and-curation)**. External sources and internal links, grouped by type, alphabetical within each group; everything here is free or open-access.
+> Companion link library for **[Synthetic Data and Data Curation](/ai-ml/ai-ml-learning-resources/data-and-representation/synthetic-data-and-curation/synthetic-data-and-curation)**. External sources and internal links, grouped by type, alphabetical within each group.
+
+**Start here — suggested path**:
+1. **See where training data comes from** — watch the pretraining-data section of [Deep Dive into LLMs like ChatGPT](https://www.youtube.com/watch?v=7xTGNNLPyMI) (**Andrej Karpathy**). *What a token in a training set is, and the crawl it started as.*
+2. **Watch a real pipeline decide** — read [FineWeb: decanting the web for the finest text data at scale](https://huggingface.co/spaces/HuggingFaceFW/blogpost-fineweb-v1) (**Hugging Face**). *Extraction, filtering and deduplication, each justified by an ablation.*
+3. **Learn the generation loop** — read [Self-Instruct](https://arxiv.org/abs/2212.10560) (**Wang et al. 2022**). *Bootstrapping instruction data from a handful of seeds.*
+4. **Learn why a real-data floor matters** — read [The Curse of Recursion](https://arxiv.org/abs/2305.17493) (**Shumailov et al. 2023**). *Training on generated data makes models forget the tails.*
+5. **Run it yourself** — work through [Synthetic dataset generation techniques](https://huggingface.co/learn/cookbook/synthetic_data_generation) (**Hugging Face Cookbook**). *Prompts, filters and dedup as runnable code.*
+
+**In this platform**:
+- Contamination is an evaluation problem too: [Model Evaluation and Benchmarks](/ai-ml/ai-ml-learning-resources/evaluation/model-evaluation-and-benchmarks/model-evaluation-and-benchmarks)
+- Curation of a web corpus, gate by gate: [Curating a web corpus](/ai-ml/ai-ml-learning-resources/data-and-representation/synthetic-data-and-curation/synthetic-data-and-curation-curating-a-web-corpus)
+- Generating data from a stronger model: [Knowledge Distillation](/ai-ml/ai-ml-learning-resources/model-adaptation/knowledge-distillation/knowledge-distillation)
+- Group and temporal splits, and the rest of the leakage taxonomy: [Data Leakage](/ai-ml/ai-ml-learning-resources/data-and-representation/data-preparation/data-leakage/data-leakage)
+- Small models are the main beneficiary: [Small and On-Device Language Models](/ai-ml/ai-ml-learning-resources/inference-and-serving/small-and-on-device-language-models/small-and-on-device-language-models)
+- The judge that gates generated rows: [LLM-as-Judge](/ai-ml/ai-ml-intuitions/objectives-evaluation/llm-as-judge-intuition)
+- The reasoning traces that become cold-start data: [Reinforcement Learning Post-training](/ai-ml/ai-ml-learning-resources/model-adaptation/reinforcement-learning-posttraining/reinforcement-learning-posttraining)
+- The runnable service: [synthetic-data-generator](/python/python-production-examples/synthetic-data-generator/readme)
+- The same curation steps run inside a model build: [Clean, Deduplicate and Split](/ai-ml/ai-ml-learning-resources/model-building/build-a-small-language-model/clean-deduplicate-and-split)
+- Where the curated data is consumed: [Pretraining](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining) · [Supervised Fine-Tuning](/ai-ml/ai-ml-learning-resources/model-adaptation/supervised-fine-tuning/supervised-fine-tuning) · [Instruction Tuning](/ai-ml/ai-ml-learning-resources/model-adaptation/instruction-tuning/instruction-tuning)
+- Why data budget beats parameter budget: [Scaling Laws](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/scaling-laws/scaling-laws)
 
 **Videos**:
 - [Deep Dive into LLMs like ChatGPT](https://www.youtube.com/watch?v=7xTGNNLPyMI) — **Andrej Karpathy** — the pretraining-data and post-training-data sections show concretely what a token in a training set is and where it came from.
@@ -19,7 +39,6 @@ updated: 2026-09-13
 - [Synthetic Data for LLMs, why and how](https://www.youtube.com/watch?v=gg_GZuKQ4Wo) — **Sebastian Raschka** — when synthesis is the right answer, and when it quietly is not.
 
 **Courses**:
-- [Cosmopedia](https://huggingface.co/blog/cosmopedia) — **Hugging Face** — a fully documented 25-billion-token synthetic corpus: prompt design, topic clustering, dedup, and the failure cases they hit.
 - [Hugging Face LLM Course](https://huggingface.co/learn/llm-course/chapter1/1) — **Hugging Face** — free and code-first; the dataset chapters give you `datasets` fluency before you attempt a pipeline.
 - [Stanford CS336 — Language Modeling from Scratch (Spring 2025)](https://stanford-cs336.github.io/spring2025/) — **Stanford** — the two Data lectures are the most rigorous free treatment of filtering, deduplication and mixture design.
 
@@ -32,6 +51,8 @@ updated: 2026-09-13
 
 **Papers**:
 - [A Careful Examination of Large Language Model Performance on Grade School Arithmetic](https://arxiv.org/abs/2405.00332) — **Zhang et al. (2024)** — a fresh GSM1k reveals which models were memorising; the contamination check to copy.
+- [Deduplicating Training Data Makes Language Models Better](https://arxiv.org/abs/2107.06499) — **Lee et al. (2021)** — exact-substring and MinHash deduplication of C4 and friends: ten times less memorised output and fewer steps to the same accuracy.
+- [Extracting Training Data from Large Language Models](https://arxiv.org/abs/2012.07805) — **Carlini et al. (2020)** — verbatim training sequences, personal data included, recovered from GPT-2 by querying it; why PII scrubbing and deduplication are privacy controls.
 - [FineWeb2: One Pipeline to Scale Them All](https://arxiv.org/abs/2506.20920) — **Penedo et al. (2025)** — the same pipeline adapted automatically to every language; the multilingual reference.
 - [Nemotron-4 340B Technical Report](https://arxiv.org/abs/2406.11704) — **NVIDIA (2024)** — a model family released explicitly as a synthetic-data generator, with the alignment data pipeline documented.
 - [Rephrasing the Web](https://arxiv.org/abs/2401.16380) — **Maini et al. (2024)** — rewriting existing web text in a cleaner style is cheaper than generating from scratch and trains faster.
@@ -51,13 +72,3 @@ updated: 2026-09-13
 - [*AI Engineering*](https://huyenchip.com/books/) — **Chip Huyen (2025)** — the dataset-engineering chapters, from the author's free companion page.
 - [*Hands-On Large Language Models*](https://github.com/HandsOnLLM/Hands-On-Large-Language-Models) — **Alammar & Grootendorst (2024)** — free notebooks; the data chapters run the loops this page describes.
 - [*Speech and Language Processing* (3rd ed.) — Ch. 10 "Large Language Models"](https://web.stanford.edu/~jurafsky/slp3/) — **Jurafsky & Martin** — free PDF; the pretraining-data section: sources, filtering, and what the corpus decides.
-
-**In this platform**:
-- Where the curated data is consumed: [Pretraining](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining) · [Supervised Fine-Tuning](/ai-ml/ai-ml-learning-resources/model-adaptation/supervised-fine-tuning/supervised-fine-tuning) · [Instruction Tuning](/ai-ml/ai-ml-learning-resources/model-adaptation/instruction-tuning/instruction-tuning)
-- Generating data *from* a stronger model: [Knowledge Distillation](/ai-ml/ai-ml-learning-resources/model-adaptation/knowledge-distillation/knowledge-distillation)
-- The reasoning traces that become cold-start data: [Reinforcement Learning Post-training](/ai-ml/ai-ml-learning-resources/model-adaptation/reinforcement-learning-posttraining/reinforcement-learning-posttraining)
-- Why data budget beats parameter budget: [Scaling Laws](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/scaling-laws/scaling-laws)
-- Contamination is an evaluation problem too: [Model Evaluation and Benchmarks](/ai-ml/ai-ml-learning-resources/evaluation/model-evaluation-and-benchmarks/model-evaluation-and-benchmarks)
-- Small models are the main beneficiary: [Small and On-Device Language Models](/ai-ml/ai-ml-learning-resources/inference-and-serving/small-and-on-device-language-models/small-and-on-device-language-models)
-- The judge that gates generated rows: [LLM-as-Judge](/ai-ml/ai-ml-intuitions/objectives-evaluation/llm-as-judge-intuition)
-- The runnable service: [synthetic-data-generator](/python/python-production-examples/synthetic-data-generator/readme)
