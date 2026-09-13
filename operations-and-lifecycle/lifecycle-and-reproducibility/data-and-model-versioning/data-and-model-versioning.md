@@ -10,6 +10,7 @@ updated: 2026-09-13
 tier: standard
 est_minutes: 20
 leads_to: ["18-mlops/model-registry-and-governance"]
+core_idea: "Git versions code, not ten gigabytes of data: keep the bytes in object storage and a content hash in the commit, so any commit still reconstructs the exact dataset and model."
 title: "Data & Model Versioning (DVC · lakeFS)"
 minutes: 20
 category: lifecycle-and-reproducibility
@@ -95,8 +96,8 @@ graph LR
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, articles, papers, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Data and Model Versioning — references and further reading](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/data-and-model-versioning/data-and-model-versioning#references-further-reading)**
+**→ [Data and Model Versioning — references](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/data-and-model-versioning/data-and-model-versioning#references)**

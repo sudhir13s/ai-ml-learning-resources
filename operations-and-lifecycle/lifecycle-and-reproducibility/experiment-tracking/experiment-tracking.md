@@ -10,6 +10,7 @@ updated: 2026-09-13
 tier: standard
 est_minutes: 35
 leads_to: ["18-mlops/data-and-model-versioning", "18-mlops/model-registry-and-governance"]
+core_idea: "Log every run's params, metrics, code version and artifacts to one store, and \"which config produced that score\" becomes a query rather than an act of memory."
 title: "Experiment Tracking (MLflow · Weights & Biases)"
 minutes: 35
 category: lifecycle-and-reproducibility
@@ -454,8 +455,8 @@ Runnable services in this estate that implement what this page teaches:
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, articles, papers, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Experiment Tracking — references and further reading](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/experiment-tracking/experiment-tracking#references-further-reading)**
+**→ [Experiment Tracking — references](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/experiment-tracking/experiment-tracking#references)**

@@ -6,17 +6,9 @@ type: references
 updated: 2026-09-13
 ---
 
-# Experiment Tracking (MLflow · Weights & Biases) — references and further reading
+# Experiment Tracking (MLflow · Weights & Biases) — references
 
-> Companion link library for **[Experiment Tracking (MLflow · Weights & Biases)](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/experiment-tracking/experiment-tracking)** (the teaching page). External sources and internal links, grouped by type, best-first; every entry is from a primary author or a recognized deep explainer, and everything here is free or open-access.
-
-**Start here — suggested path:**
-
-1. **Get the mental model** — read [MLflow Tracking docs](https://mlflow.org/docs/latest/tracking/). *Runs / experiments / params / metrics / artifacts — the vocabulary everything else uses.*
-2. **Do it end-to-end** — follow [Made With ML: Experiment Tracking](https://madewithml.com/courses/mlops/experiment-tracking/). *Logs a real training loop and compares runs — the fastest path to fluency.*
-3. **See a second tool** — watch [MLOps Zoomcamp: W&B Experiment Tracking](https://www.youtube.com/watch?v=yNyqFMwEyL4). *W&B shows the hosted/collaborative flavor; comparing tools sharpens the "why."*
-4. **Wire into your workflow** — add tracking to a PyTorch loop with [W&B + PyTorch](https://www.youtube.com/watch?v=KESSYZExK44). *Making logging a one-liner is what makes the habit stick.*
-5. **See the 2026 shape** — watch [MLflow 3.0: AI and MLOps](https://www.youtube.com/watch?v=UezTglxJC88) and skim [MLflow GenAI docs](https://mlflow.org/docs/latest/genai/). *Tracking extended to prompts, traces, and LLM-as-judge evaluation runs.*
+> Companion link library for **[Experiment Tracking (MLflow · Weights & Biases)](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/experiment-tracking/experiment-tracking)** (the teaching page). External sources and internal links, grouped by type, alphabetical within each group; every entry is from a primary author or a recognized deep explainer, and everything here is free or open-access.
 
 **Videos**:
 - [MLOps Zoomcamp — Experiment Tracking with Weights & Biases](https://www.youtube.com/watch?v=yNyqFMwEyL4) — **DataTalksClub** — hands-on tracking, sweeps, and artifacts with W&B.
@@ -25,12 +17,12 @@ updated: 2026-09-13
 - [MLflow 3.0: AI and MLOps](https://www.youtube.com/watch?v=UezTglxJC88) — **Databricks** — what MLflow 3 changed: unified tracking for classic runs, prompts, traces, and evaluations.
 - [Versioning Data with DVC — Hands-On Tutorial](https://www.youtube.com/watch?v=kLKBcPonMYw) — **DVC (Iterative)** — the data-pointer half of a reproducible run, from the maintainers.
 
-**Courses (free)**:
+**Courses**:
 - [Made With ML — Experiment Tracking](https://madewithml.com/courses/mlops/experiment-tracking/) — **Goku Mohandas** — log, organize, and compare runs in a real project.
 - [Made With ML — MLOps Course](https://madewithml.com/courses/mlops/) — **Goku Mohandas** — situates tracking inside the full develop→deploy loop.
 - [MLOps Zoomcamp (module 2: experiment tracking)](https://github.com/DataTalksClub/mlops-zoomcamp) — **DataTalksClub** — free cohort course; module 2 builds an MLflow tracking server end to end.
 
-**Articles / blogs (free, no paywall)**:
+**Articles**:
 - [MLflow Tracking](https://mlflow.org/docs/latest/tracking/) — **MLflow** — the canonical reference: runs, experiments, autologging, backends.
 - [W&B Experiment Tracking](https://wandb.ai/site/experiment-tracking/) — **Weights & Biases** — the hosted-tracking model with collaboration and sweeps.
 - [MLflow Quickstart / Getting Started](https://mlflow.org/docs/latest/index.html) — **MLflow** — the four components (Tracking, Projects, Models, Registry) in one page.
@@ -40,13 +32,13 @@ updated: 2026-09-13
 - [Weights & Biases — Experiment Tracking docs](https://docs.wandb.ai/guides/track) — **Weights & Biases** — the hosted tracker's API: init, config, log, artifacts.
 - [PyTorch — Reproducibility notes](https://pytorch.org/docs/stable/notes/randomness.html) — **PyTorch maintainers** — what a seed does and does not fix.
 
-**Key papers**:
+**Papers**:
 - [Hidden Technical Debt in Machine Learning Systems](https://papers.nips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf) — **Sculley et al. (2015)** — why ad-hoc experimentation accrues debt; motivates systematic tracking.
 - [Improving Reproducibility in ML Research](https://arxiv.org/abs/2003.12206) — **Pineau et al. (2020)** — what to log so a result is reproducible (params, seeds, env).
 - [Random Search for Hyper-Parameter Optimization](https://www.jmlr.org/papers/v13/bergstra12a.html) — **Bergstra & Bengio (2012)** — why random beats grid: only a few hyperparameters matter, and random covers them densely.
 - [Algorithms for Hyper-Parameter Optimization](https://papers.nips.cc/paper/2011/hash/86e8f7ab32cfd12577bc2619bc635690-Abstract.html) — **Bergstra et al. (2011)** — the Tree-structured Parzen Estimator behind Optuna's Bayesian search.
 
-**Books (free chapters)**:
+**Books**:
 - [Designing Machine Learning Systems — **Ch. 6 "Model Development & Offline Evaluation"**](https://huyenchip.com/mlops/) — **Chip Huyen** — experiment tracking and versioning in context (author notes free).
 - [Machine Learning Engineering — **Ch. 5 "Supervised Model Training"** (experiment management)](http://www.mlebook.com/wiki/doku.php) — **Andriy Burkov** — read-first chapters free.
 

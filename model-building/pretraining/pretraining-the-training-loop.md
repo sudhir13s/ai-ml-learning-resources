@@ -12,6 +12,7 @@ updated: 2026-09-13
 tier: standard
 est_minutes: 20
 leads_to: ["09-llms/pretraining-at-scale/batching-precision-and-memory"]
+core_idea: "Learning is five lines — forward, loss, backward, step, zero-grad — run thousands of times; every other part of training exists to keep that loop stable."
 title: "Pretraining: The Training Loop"
 minutes: 20
 category: model-building
@@ -288,11 +289,8 @@ The punchline is in that `1.000`: on the **first** step, bias correction makes `
 
 > **Important:** When you "resume training" from a checkpoint, restoring `model.state_dict()` is not enough — you must also restore `optimizer.state_dict()`, because that's where `m` and `v` live. Drop them and every weight's momentum and adaptive scale reset to zero, producing a visible loss spike on the first step after resume. (TinyReg's resume code below saves *both*, which is why its post-resume loss matches bit-for-bit.)
 
-
-Next: [Batching, precision and memory](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining-batching-precision-and-memory).
-
 ---
 
-## References and further reading
+## References
 
-Shared with the topic's companion file — see [Pretraining at Scale — references and further reading](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining#references-further-reading) (the training-loop, optimizer, mixed-precision, scheduling and sharding entries harvested with these chapters).
+Shared with the topic's companion file — see [Pretraining at Scale — references](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining#references) (the training-loop, optimizer, mixed-precision, scheduling and sharding entries harvested with these chapters).

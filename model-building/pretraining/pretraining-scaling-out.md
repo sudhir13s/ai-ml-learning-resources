@@ -12,6 +12,7 @@ updated: 2026-09-13
 tier: standard
 est_minutes: 10
 leads_to: ["09-llms/pretraining-at-scale/tinyreg-end-to-end"]
+core_idea: "Adding GPUs changes the wrapper around the model, never the loop body: replicate with DDP, shard with FSDP, and let the compute-optimal rule decide how many tokens the bigger run should see."
 title: "Pretraining: Scaling Out"
 minutes: 10
 category: model-building
@@ -110,11 +111,8 @@ Plotted, the compute-optimal frontier is a clean line on log-log axes — and fa
 
 > **Note:** Chinchilla reframed training economics: a smaller model trained on more data often **beats** a bigger model trained on less, at the same compute cost — and it's cheaper to serve afterward. "Compute-optimal" means balancing parameters and tokens, not maxing out either one.
 
-
-Next: [TinyReg end to end](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining-tinyreg-end-to-end).
-
 ---
 
-## References and further reading
+## References
 
-Shared with the topic's companion file — see [Pretraining at Scale — references and further reading](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining#references-further-reading) (the training-loop, optimizer, mixed-precision, scheduling and sharding entries harvested with these chapters).
+Shared with the topic's companion file — see [Pretraining at Scale — references](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining#references) (the training-loop, optimizer, mixed-precision, scheduling and sharding entries harvested with these chapters).

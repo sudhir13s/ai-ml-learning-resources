@@ -6,16 +6,9 @@ type: references
 updated: 2026-09-07
 ---
 
-# Pretraining at Scale — references and further reading
+# Pretraining at Scale — references
 
-> Companion link library for **[Pretraining at Scale](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, best-first. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic (the systems of pretraining), not popularity. Everything here is free / open-access.
-
-**Start here — suggested path**:
-1. **See a real run end to end** — watch [Let's reproduce GPT-2 (124M)](https://www.youtube.com/watch?v=l8pRSuU81PU) (**Andrej Karpathy**). *An actual pretraining run: data, init, warmup+cosine, grad clip, throughput — the whole stack in motion.*
-2. **Do the cost math** — read [Transformer Math 101](https://blog.eleuther.ai/transformer-math/) (**EleutherAI**). *Memory, the 6ND compute rule, and the optimizer-state tax you budget every run from.*
-3. **Understand the parallelism** — read [How to Train Really Large Models on Many GPUs](https://lilianweng.github.io/posts/2021-09-25-train-large/) (**Lilian Weng**). *Data / tensor / pipeline parallelism and ZeRO, explained cleanly.*
-4. **Read a full open recipe** — skim the [Llama 2 paper](https://arxiv.org/abs/2307.09288) (**Touvron et al.**). *A concretely documented pretraining recipe: data, hyperparameters, tokens-per-parameter.*
-5. **See the data pipeline in detail** — read the [FineWeb blog](https://huggingface.co/spaces/HuggingFaceFW/blogpost-fineweb-v1) (**Hugging Face**). *How 15T clean tokens are actually produced from Common Crawl — dedup, filtering, decontamination.*
+> Companion link library for **[Pretraining at Scale](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, alphabetical within each group. Every entry is from a primary author or a recognized deep explainer — chosen for depth on *this* topic (the systems of pretraining), not popularity. Everything here is free / open-access.
 
 **Videos**:
 - [Let's reproduce GPT-2 (124M)](https://www.youtube.com/watch?v=l8pRSuU81PU) — **Andrej Karpathy** — a full from-scratch pretraining run with the real recipe (warmup+cosine, grad clip, grad accumulation, bf16) and live throughput/MFU.
@@ -28,16 +21,16 @@ updated: 2026-09-07
 - [Gradient descent, how neural networks learn](https://www.youtube.com/watch?v=IHZwWFHWa-w) — **3Blue1Brown** — the optimizer step, visualized.
 - [Backpropagation, intuitively](https://www.youtube.com/watch?v=Ilg3gGewQ5U) — **3Blue1Brown** — what the backward pass is really doing.
 
-**Interactive & visual**:
+**Interactive**:
 - [LLM Visualizer (3D)](https://bbycroft.net/llm) — **Brendan Bycroft** — walk a token through a small GPT's full forward pass; makes the per-token compute the 6ND rule counts concrete.
 - [The Annotated FineWeb](https://huggingface.co/spaces/HuggingFaceFW/blogpost-fineweb-v1) — **Hugging Face** — an interactive walkthrough of a real web-scale data pipeline, with ablations on each filtering stage.
 
-**Courses (free)**:
+**Courses**:
 - [Stanford CS336 — Language Modeling from Scratch](https://stanford-cs336.github.io/spring2025/) — **Stanford** — the definitive build-an-LLM course: data, tokenization, parallelism, and training systems.
 - [Stanford CS224n — NLP with Deep Learning](https://web.stanford.edu/class/cs224n/) — **Stanford** — pretraining and transformers within the broader NLP curriculum.
 - [Practical Deep Learning for Coders](https://www.fast.ai/) — **fast.ai (Jeremy Howard)** — top-down, training-first deep learning; the loop before the theory.
 
-**Articles / blogs (free, no paywall)**:
+**Articles**:
 - [Transformer Math 101](https://blog.eleuther.ai/transformer-math/) — **EleutherAI** — the full memory/compute/parallelism arithmetic for real runs, including 6ND and optimizer-state memory.
 - [How to Train Really Large Models on Many GPUs](https://lilianweng.github.io/posts/2021-09-25-train-large/) — **Lilian Weng (OpenAI)** — data, tensor, and pipeline parallelism plus ZeRO, in one clear survey.
 - [The Technology Behind BLOOM Training](https://huggingface.co/blog/bloom-megatron-deepspeed) — **Hugging Face** — a real 176B run: 3D parallelism (Megatron + DeepSpeed ZeRO), the exact engineering this page describes.
@@ -54,7 +47,7 @@ updated: 2026-09-07
 - [Getting started with Fully Sharded Data Parallel (FSDP)](https://pytorch.org/tutorials/intermediate/FSDP_tutorial.html) — **PyTorch maintainers** — sharding weights, gradients and optimizer state across GPUs; the launch recipe the scaling chapter points at.
 - [ZeRO tutorial](https://www.deepspeed.ai/tutorials/zero/) — **DeepSpeed (Microsoft)** — the three ZeRO stages from the team that built them.
 
-**Key papers**:
+**Papers**:
 - [Language Models are Few-Shot Learners (GPT-3)](https://arxiv.org/abs/2005.14165) — **Brown et al. (2020)** — the 175B/300B-token run that defined "scale," and (in hindsight) the canonical under-trained model.
 - [Scaling Laws for Neural Language Models](https://arxiv.org/abs/2001.08361) — **Kaplan et al. (2020)** — the source of the $C \approx 6ND$ training-compute estimate and the original scaling-law curves.
 - [Training Compute-Optimal Large Language Models (Chinchilla)](https://arxiv.org/abs/2203.15556) — **Hoffmann et al. (2022)** — the ~20-tokens-per-parameter compute-optimal result; full derivation lives on the Scaling Laws page.
@@ -80,7 +73,7 @@ updated: 2026-09-07
 - [Understanding the difficulty of training deep feedforward neural networks](http://proceedings.mlr.press/v9/glorot10a.html) — **Glorot & Bengio (2010)** — variance-preserving (Xavier) initialization.
 - [On the difficulty of training Recurrent Neural Networks](https://arxiv.org/abs/1211.5063) — **Pascanu et al. (2013)** — norm-based gradient clipping against exploding gradients.
 
-**Books (free chapters)**:
+**Books**:
 - [Speech and Language Processing, 3rd ed. — Ch. 10 "Large Language Models"](https://web.stanford.edu/~jurafsky/slp3/10.pdf) — **Jurafsky & Martin** — pretraining corpora, tokenization, and the next-token objective at scale.
 - [Dive into Deep Learning — Optimization chapter](https://d2l.ai/chapter_optimization/index.html) — **Zhang et al.** — Adam, learning-rate schedules, and the optimization machinery large runs rely on.
 - [*Deep Learning* — Ch. 8 "Optimization for Training Deep Models"](https://www.deeplearningbook.org/) — **Goodfellow, Bengio & Courville (2016)** — free online; initialization, momentum, adaptive methods and the theory under the chapters.

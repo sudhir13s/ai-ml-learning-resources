@@ -12,6 +12,7 @@ updated: 2026-09-13
 tier: standard
 est_minutes: 15
 leads_to: ["09-llms/pretraining-at-scale/schedule-clipping-and-checkpoints"]
+core_idea: "Batch size, numeric precision and memory are one budget: accumulation buys a bigger effective batch, bf16 halves the bytes, and optimizer state — not the weights — decides what fits."
 title: "Pretraining: Batching, Precision and Memory"
 minutes: 15
 category: model-building
@@ -163,11 +164,8 @@ The lesson the chart makes obvious: **the optimizer state is the single biggest 
 
 > **Note:** Activation memory scales with batch size × sequence length, not parameter count — which is why long-context training is so memory-hungry and why gradient checkpointing targets exactly that band. The weight and optimizer bands, by contrast, are fixed once you choose the model.
 
-
-Next: [Schedule, clipping and checkpoints](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining-schedule-clipping-and-checkpoints).
-
 ---
 
-## References and further reading
+## References
 
-Shared with the topic's companion file — see [Pretraining at Scale — references and further reading](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining#references-further-reading) (the training-loop, optimizer, mixed-precision, scheduling and sharding entries harvested with these chapters).
+Shared with the topic's companion file — see [Pretraining at Scale — references](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining#references) (the training-loop, optimizer, mixed-precision, scheduling and sharding entries harvested with these chapters).

@@ -9,6 +9,7 @@ template: concept-deep
 updated: 2026-09-13
 tier: standard
 est_minutes: 20
+core_idea: "In production a model is a name, a version and a stage — with lineage back to the run that produced it and an approval gate in front of every promotion."
 title: "Model Registry & Governance"
 minutes: 20
 category: governance-and-economics
@@ -64,8 +65,8 @@ This is exactly where the registry hands off to **[Packaging and Serving](/ai-ml
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, articles, papers, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Model Registry and Governance — references and further reading](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/governance-and-economics/model-registry-and-governance/model-registry-and-governance#references-further-reading)**
+**→ [Model Registry and Governance — references](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/governance-and-economics/model-registry-and-governance/model-registry-and-governance#references)**
