@@ -61,36 +61,36 @@ Every chapter is a self-contained folder (`<topic>/<topic>.md`) with its page an
 - **Word / sentence embeddings** — Word2Vec · GloVe · contextual embeddings → [NLP](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/readme)
 - **Vision architectures in depth** — ResNet/Inception, detection, segmentation → [Computer Vision](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/readme)
 - **Pretraining & LLM-scale models** — objectives · scaling laws · pretraining · post-training → [Large Language Models](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/readme) · [Model Building](/ai-ml/ai-ml-learning-resources/model-building/readme) · [Model Adaptation](/ai-ml/ai-ml-learning-resources/model-adaptation/readme)
-- **Pure math** — PCA/SVD · probability · optimization theory → [Foundations · Maths for AI-ML](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme)
+- **Pure math** — PCA/SVD · probability · optimization theory → [Mathematical Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme)
 
-## Courses (free)
-- [Neural Networks: Zero to Hero](https://karpathy.ai/zero-to-hero.html) — **Andrej Karpathy** — builds backprop → GPT from scratch in plain Python; the best hands-on course in existence.
-- [Practical Deep Learning for Coders](https://course.fast.ai/) — **fast.ai (Jeremy Howard)** — top-down, code-first, get models working fast; the best "learn by doing" path.
-- [MIT 6.S191: Intro to Deep Learning](https://introtodeeplearning.com/) — **MIT (Amini et al.)** — concise, current, free lectures + labs (refreshed yearly).
-- [Stanford CS25: Transformers United](https://web.stanford.edu/class/cs25/) — **Stanford** — the seminar where sequence-model and interpretability authors present their own work.
+## References
 
-## Videos / Lectures
-- [Neural Networks series](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) — **3Blue1Brown** — the definitive visual intuition for what a network *is* and how backprop works.
-- [Transformers, the tech behind LLMs](https://www.youtube.com/watch?v=wjZofJX0v4M) — **3Blue1Brown** — the attention chapter of the same series.
-- [The Dark Matter of AI (Mechanistic Interpretability)](https://www.youtube.com/watch?v=UGO_Ehywuxc) — **Welch Labs** — the best visual introduction to what is actually inside a trained network.
-
-## Key Papers
-- [Deep Learning](https://www.nature.com/articles/nature14539) — **LeCun, Bengio & Hinton (Nature, 2015)** — the field's authoritative review by its founders.
-- [Deep Residual Learning (ResNet)](https://arxiv.org/abs/1512.03385) — **He et al. (2015)** — the idea that made networks *deep*; one of the most-cited papers in ML.
-- [Attention Is All You Need](https://arxiv.org/abs/1706.03762) — **Vaswani et al. (2017)** — the architecture the last two sections of this index revolve around.
-- [Mamba: Linear-Time Sequence Modeling with Selective State Spaces](https://arxiv.org/abs/2312.00752) — **Gu & Dao (2023)** — the non-attention alternative that became competitive at scale.
-
-## Articles / Blogs
-- [colah.github.io](https://colah.github.io/) — **Chris Olah** — the gold standard for explaining backprop, LSTMs, and representations visually.
-- [Distill.pub](https://distill.pub/) — **Distill** — interactive, peer-reviewed deep-learning explainers (archival but timeless).
-- [Transformer Circuits Thread](https://transformer-circuits.pub/) — **Anthropic interpretability team** — where the modern mechanistic results are published first.
-
-## Books (free)
-- [Dive into Deep Learning (d2l.ai)](https://d2l.ai/) — **Zhang, Lipton, Li & Smola** — free, interactive, runnable code in PyTorch/JAX; the best modern textbook.
-- [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/) — **Michael Nielsen** — free, the clearest from-first-principles introduction.
-- [Deep Learning](https://www.deeplearningbook.org/) — **Goodfellow, Bengio & Courville** — free online; the rigorous reference text.
-
-## In this platform
-- **Understand the math:** [ai-ml-intuitions — Learning & Optimization](/ai-ml/ai-ml-intuitions/learning-and-optimization) · [Training Stability](/ai-ml/ai-ml-intuitions/training-stability)
-- **Build it:** [AI-ML problemsets](/ai-ml/ai-ml-problemsets)
-- **Prereq math:** [Mathematical Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme) · [Math for AI](/ai-ml/math-for-ai)
+- **In this platform**:
+  - [AI-ML problem sets](/ai-ml/ai-ml-problemsets) — build it: exercises that implement these ideas.
+  - [Learning & Optimization](/ai-ml/ai-ml-intuitions/learning-and-optimization) — the math behind how a network learns.
+  - [Math for AI](/ai-ml/math-for-ai) — worked math notebooks for the prerequisites.
+  - [Mathematical Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme) — the prerequisite math, as concept pages.
+  - [Training Stability](/ai-ml/ai-ml-intuitions/training-stability) — why training diverges, and what keeps it stable.
+- **Videos**:
+  - [Neural Networks series](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) — **3Blue1Brown** — the definitive visual intuition for what a network *is* and how backprop works.
+  - [The Dark Matter of AI (Mechanistic Interpretability)](https://www.youtube.com/watch?v=UGO_Ehywuxc) — **Welch Labs** — the best visual introduction to what is actually inside a trained network.
+  - [Transformers, the tech behind LLMs](https://www.youtube.com/watch?v=wjZofJX0v4M) — **3Blue1Brown** — the attention chapter of the same series.
+- **Courses**:
+  - [MIT 6.S191: Intro to Deep Learning](https://introtodeeplearning.com/) — **MIT (Amini et al.)** — concise, current, free lectures + labs (refreshed yearly).
+  - [Neural Networks: Zero to Hero](https://karpathy.ai/zero-to-hero.html) — **Andrej Karpathy** — builds backprop → GPT from scratch in plain Python; the best hands-on course in existence.
+  - [Practical Deep Learning for Coders](https://course.fast.ai/) — **fast.ai (Jeremy Howard)** — top-down, code-first, get models working fast; the best "learn by doing" path.
+  - [Stanford CS25: Transformers United](https://web.stanford.edu/class/cs25/) — **Stanford** — the seminar where sequence-model and interpretability authors present their own work.
+- **Interactive**:
+  - [Distill.pub](https://distill.pub/) — **Distill** — interactive, peer-reviewed deep-learning explainers (archival but timeless).
+- **Articles**:
+  - [colah.github.io](https://colah.github.io/) — **Chris Olah** — the gold standard for explaining backprop, LSTMs, and representations visually.
+  - [Transformer Circuits Thread](https://transformer-circuits.pub/) — **Anthropic interpretability team** — where the modern mechanistic results are published first.
+- **Papers**:
+  - [Attention Is All You Need](https://arxiv.org/abs/1706.03762) — **Vaswani et al. (2017)** — the architecture the last two sections of this index revolve around.
+  - [Deep Learning](https://www.nature.com/articles/nature14539) — **LeCun, Bengio & Hinton (Nature, 2015)** — the field's authoritative review by its founders.
+  - [Deep Residual Learning (ResNet)](https://arxiv.org/abs/1512.03385) — **He et al. (2015)** — the idea that made networks *deep*; one of the most-cited papers in ML.
+  - [Mamba: Linear-Time Sequence Modeling with Selective State Spaces](https://arxiv.org/abs/2312.00752) — **Gu & Dao (2023)** — the non-attention alternative that became competitive at scale.
+- **Books**:
+  - [Deep Learning](https://www.deeplearningbook.org/) — **Goodfellow, Bengio & Courville** — free online; the rigorous reference text.
+  - [Dive into Deep Learning (d2l.ai)](https://d2l.ai/) — **Zhang, Lipton, Li & Smola** — free, interactive, runnable code in PyTorch/JAX; the best modern textbook.
+  - [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/) — **Michael Nielsen** — free, the clearest from-first-principles introduction.

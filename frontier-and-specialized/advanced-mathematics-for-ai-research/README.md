@@ -19,30 +19,30 @@ lectures, key papers, articles, and book chapters for that topic. This domain ow
 *graduate / research-level* treatment; the *basics* (linear algebra, calculus, core probability,
 entropy/KL) live in [Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme). Treat each card like a semester,
 not an afternoon.
-> **✅ ready.** New here? Start with the field overview & track map below.
+> New here? Start with the field overview & track map below.
 
 ### Foundations of rigor
-1. ✅ [Measure Theory & Probability Foundations](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/measure-theory-and-probability-foundations/measure-theory-and-probability-foundations)
-2. ✅ [Functional Analysis (Banach & operator theory)](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/functional-analysis/functional-analysis)
-3. ✅ [Hilbert Spaces & RKHS (the math of kernels)](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/hilbert-spaces-and-rkhs/hilbert-spaces-and-rkhs)
-4. ✅ [Convex Analysis & Duality](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/convex-analysis-and-duality/convex-analysis-and-duality)
+1. [Measure Theory & Probability Foundations](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/measure-theory-and-probability-foundations/measure-theory-and-probability-foundations)
+2. [Functional Analysis (Banach & operator theory)](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/functional-analysis/functional-analysis)
+3. [Hilbert Spaces & RKHS (the math of kernels)](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/hilbert-spaces-and-rkhs/hilbert-spaces-and-rkhs)
+4. [Convex Analysis & Duality](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/convex-analysis-and-duality/convex-analysis-and-duality)
 
 ### Statistical learning theory
-5. ✅ [Statistical Learning Theory (PAC learning)](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/statistical-learning-theory-pac/statistical-learning-theory-pac)
-6. ✅ [VC Dimension](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/vc-dimension/vc-dimension)
-7. ✅ [Rademacher Complexity & Generalization Bounds](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/rademacher-complexity-and-generalization-bounds/rademacher-complexity-and-generalization-bounds)
+5. [Statistical Learning Theory (PAC learning)](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/statistical-learning-theory-pac/statistical-learning-theory-pac)
+6. [VC Dimension](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/vc-dimension/vc-dimension)
+7. [Rademacher Complexity & Generalization Bounds](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/rademacher-complexity-and-generalization-bounds/rademacher-complexity-and-generalization-bounds)
 
 ### Geometry, transport & spectra
-8. ✅ [Information Geometry (Fisher–Rao, natural gradient)](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/information-geometry/information-geometry)
-9. ✅ [Optimal Transport (Wasserstein distances)](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/optimal-transport-wasserstein/optimal-transport-wasserstein)
-10. ✅ [Differential Geometry & Manifolds](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/differential-geometry-and-manifolds/differential-geometry-and-manifolds)
-11. ✅ [Spectral Graph Theory](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/spectral-graph-theory/spectral-graph-theory)
+8. [Information Geometry (Fisher–Rao, natural gradient)](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/information-geometry/information-geometry)
+9. [Optimal Transport (Wasserstein distances)](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/optimal-transport-wasserstein/optimal-transport-wasserstein)
+10. [Differential Geometry & Manifolds](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/differential-geometry-and-manifolds/differential-geometry-and-manifolds)
+11. [Spectral Graph Theory](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/spectral-graph-theory/spectral-graph-theory)
 
 ### Signals, matrices & decisions
-12. ✅ [Fourier Analysis & Signal Processing](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/fourier-analysis-and-signal-processing/fourier-analysis-and-signal-processing)
-13. ✅ [Random Matrix Theory](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/random-matrix-theory/random-matrix-theory)
-14. ✅ [Causal Inference](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/causal-inference/causal-inference)
-15. ✅ [Game Theory & Multi-Agent Math](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/game-theory-and-multi-agent-math/game-theory-and-multi-agent-math)
+12. [Fourier Analysis & Signal Processing](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/fourier-analysis-and-signal-processing/fourier-analysis-and-signal-processing)
+13. [Random Matrix Theory](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/random-matrix-theory/random-matrix-theory)
+14. [Causal Inference](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/causal-inference/causal-inference)
+15. [Game Theory & Multi-Agent Math](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/game-theory-and-multi-agent-math/game-theory-and-multi-agent-math)
 
 ### Related concepts (covered in another section)
 > These are the *basics* this domain builds on, or applications of it. They live where they're first
