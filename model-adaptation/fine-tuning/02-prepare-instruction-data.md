@@ -4,7 +4,7 @@ id: lr-fine-tuning-prepare-instruction-data
 minutes: 8
 core_idea: "Instruction data is a format contract before it is a dataset — the template, the loss mask and the end-of-sequence token decide what the model is actually being taught."
 builds_on: [pw-data-preparation]
-related: [pw-synthetic-data-generation]
+related: [data-and-representation/synthetic-data-and-curation]
 section: "ai-ml-learning-resources"
 workflow: "fine-tuning"
 chapter: 1
