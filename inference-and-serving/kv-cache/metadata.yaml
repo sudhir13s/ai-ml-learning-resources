@@ -1,0 +1,12 @@
+title: KV Cache
+type: lesson
+section: inference-and-serving/kv-cache
+# The main page then its four depth chapters, in course.yaml's declared order
+# (section `lr-kv-cache`). The `.references.md` companion is not listed: the app
+# appends it to its primary page, so it is never an orderable peer.
+page-order:
+  - kv-cache
+  - kv-cache-variants
+  - kv-cache-optimization-stack
+  - kv-cache-flashattention-and-flashdecoding
+  - kv-cache-in-production

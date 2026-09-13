@@ -1,0 +1,26 @@
+title: AI/ML Learning Resources
+type: lesson
+section: ai-ml-learning-resources
+# The fifteen sections in the order course.yaml declares them — the model
+# lifecycle after the foundations, which is deliberately not alphabetical.
+# Reading order lives in the folder that owns it (structure-authoring-contract
+# Rule 4, widened 2026-09-13); course.yaml says which sections exist.
+#
+# `tools/` exists on disk and is declared nowhere, so it is not listed here.
+# Undeclared content is a charter question, not an ordering one.
+page-order:
+  - foundations
+  - classical-machine-learning
+  - reinforcement-learning
+  - deep-learning
+  - models-and-architectures
+  - data-and-representation
+  - model-building
+  - model-adaptation
+  - inference-and-serving
+  - evaluation
+  - operations-and-lifecycle
+  - multimodal-and-generative-media
+  - world-models-and-embodied-ai
+  - frontier-and-specialized
+  - llms-applications-and-agents

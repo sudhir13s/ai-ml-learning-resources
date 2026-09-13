@@ -1,0 +1,11 @@
+title: Coding and Computer-Use Agents
+type: lesson
+section: llms-applications-and-agents/agentic-ai/coding-and-computer-use-agents
+# Two pages: agents that write code, then agents that drive a graphical
+# interface — the narrower capability before the more general one. Neither is
+# declared in course.yaml today; the order is recorded here so the folder does
+# not render alphabetically by accident, and the undeclared-page question rides
+# with this section's W4 harvest.
+page-order:
+  - code-agents
+  - computer-use-and-gui-agents

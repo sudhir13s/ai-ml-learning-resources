@@ -1,0 +1,12 @@
+title: Unsupervised Learning
+type: lesson
+section: classical-machine-learning/unsupervised-learning
+# The five families in course.yaml's declared order: group the data, reduce its
+# dimensions, estimate its density, find what does not belong, then mine the
+# rules between items.
+page-order:
+  - clustering
+  - dimensionality-reduction
+  - density-estimation
+  - anomaly-detection
+  - association-rules

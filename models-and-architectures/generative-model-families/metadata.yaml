@@ -1,0 +1,9 @@
+title: Generative Model Families
+type: lesson
+section: models-and-architectures/generative-model-families
+# course.yaml declares the generative-models pages first, then the diffusion
+# pages — latent-variable and adversarial families before the diffusion stack
+# that now dominates image and video generation.
+page-order:
+  - generative-models
+  - diffusion-models

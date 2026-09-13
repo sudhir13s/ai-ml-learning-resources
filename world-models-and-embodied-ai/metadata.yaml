@@ -1,0 +1,16 @@
+title: World Models and Embodied AI
+type: lesson
+section: world-models-and-embodied-ai
+# The nine sub-areas in course.yaml's declared order: what a world model is, how
+# it represents and predicts, how it is learned and planned with, then space and
+# physics, generative simulators, memory, embodiment, and finally evaluation.
+page-order:
+  - world-model-foundations
+  - predictive-representation-models
+  - latent-dynamics
+  - learning-and-planning
+  - spatial-and-physical-world-models
+  - video-and-generative-world-models
+  - memory-and-cognitive-maps
+  - embodied-intelligence
+  - evaluation-and-safety

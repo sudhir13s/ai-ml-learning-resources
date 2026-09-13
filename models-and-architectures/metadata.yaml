@@ -1,0 +1,11 @@
+title: Models and Architectures
+type: lesson
+section: models-and-architectures
+# The four sub-areas in course.yaml's declared order: the classic families,
+# attention and the transformer, the large language models built on it, then the
+# generative families as a nested section.
+page-order:
+  - classic-architectures
+  - attention-and-transformers
+  - large-language-models
+  - generative-model-families

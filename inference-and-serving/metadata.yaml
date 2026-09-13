@@ -15,3 +15,8 @@ page-order:
   - continuous-batching-and-scheduling/continuous-batching-and-scheduling
   - caching-and-cost-optimization/caching-and-cost-optimization
   - small-and-on-device-language-models/small-and-on-device-language-models
+  # `packaging-and-serving` carries its own declaration and is declared in
+  # course.yaml as the nested section `is-packaging-and-serving`, reading last.
+  # It was missing here, so the sub-area rendered unordered. Named as a child
+  # rather than by its pages, because it orders its own contents.
+  - packaging-and-serving

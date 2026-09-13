@@ -1,0 +1,11 @@
+title: Multimodal and Generative Media
+type: lesson
+section: multimodal-and-generative-media
+# The five sub-areas in course.yaml's declared order: text, then images, then the
+# vision-language models that join them, then video, then audio and speech.
+page-order:
+  - natural-language-processing
+  - computer-vision
+  - multimodal-learning
+  - video-understanding
+  - audio-and-speech

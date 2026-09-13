@@ -1,0 +1,13 @@
+title: Neuro-Symbolic and Structured Intelligence
+type: lesson
+section: frontier-and-specialized/neuro-symbolic-and-structured-intelligence
+# The six categories in course.yaml's declared order: the symbolic primer, how
+# symbols and networks are integrated, making reasoning differentiable, the
+# structured forms it takes, where it is applied, and what it cannot yet do.
+page-order:
+  - symbolic-reasoning-primer
+  - neural-symbolic-integration
+  - differentiable-reasoning
+  - structured-reasoning
+  - modern-applications
+  - evaluation-and-limitations

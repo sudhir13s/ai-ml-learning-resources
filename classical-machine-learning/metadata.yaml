@@ -1,0 +1,16 @@
+title: Classical Machine Learning
+type: lesson
+section: classical-machine-learning
+# course.yaml declares model-selection-and-evaluation as this section's own
+# pages, then supervised-learning and unsupervised-learning as nested sections —
+# so that is the order the nav renders and the order transcribed here.
+#
+# NOTE a divergence worth an owner ruling rather than a silent choice: the
+# module's CLAUDE.md describes this section as supervised → unsupervised →
+# model-selection. The declaration and the prose disagree; the declaration is
+# what the build reads, so it wins here, and the prose is the thing to correct
+# if the intent is the other order.
+page-order:
+  - model-selection-and-evaluation
+  - supervised-learning
+  - unsupervised-learning
