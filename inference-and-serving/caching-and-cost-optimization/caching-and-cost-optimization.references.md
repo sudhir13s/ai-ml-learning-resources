@@ -20,14 +20,14 @@ updated: 2026-09-13
 **In this platform**:
 - [Dense Embeddings (intuition)](/ai-ml/ai-ml-intuitions/representation/embedding-spaces/dense-embeddings-intuition) — the embedding geometry a semantic cache matches on.
 - [Hallucination & Grounding](/ai-ml/ai-ml-learning-resources/evaluation/hallucination-and-grounding/hallucination-and-grounding) — the same reject-threshold tradeoff, applied to grounding instead of cache admission.
-- [Hybrid Search](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search) — the dense encoder the cache reuses.
+- [Hybrid Search](/ai-ml/practitioner-workflows/llm-applications/hybrid-search/hybrid-search) — the dense encoder the cache reuses.
 - [Inference Optimization & Serving](/ai-ml/ai-ml-learning-resources/inference-and-serving/inference-optimization/inference-optimization) — what a cache miss costs on self-hosted hardware, down to dollars per million tokens.
 - [KV Cache](/ai-ml/ai-ml-learning-resources/inference-and-serving/kv-cache/kv-cache) — the model-internal cache that prompt and prefix caching reuse across requests.
-- [LLM App Orchestration](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/llm-app-orchestration/llm-app-orchestration) — the pipeline the cache sits in front of.
-- [Long-Context vs RAG](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/long-context-vs-rag/long-context-vs-rag) — the token cost model the savings arithmetic reuses.
-- [RAG Fundamentals](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-foundations/rag-foundations) — the retrieve-then-generate call a semantic hit skips.
+- [LLM App Orchestration](/ai-ml/practitioner-workflows/agentic-systems/llm-app-orchestration/llm-app-orchestration) — the pipeline the cache sits in front of.
+- [Long-Context vs RAG](/ai-ml/practitioner-workflows/llm-applications/long-context-vs-rag/long-context-vs-rag) — the token cost model the savings arithmetic reuses.
+- [RAG Fundamentals](/ai-ml/practitioner-workflows/llm-applications/rag-foundations/rag-foundations) — the retrieve-then-generate call a semantic hit skips.
 - [Retrieval-Augmented Generation (intuition)](/ai-ml/ai-ml-intuitions/memory-retrieval-and-context/retrieval-augmented-generation/rag-intuition) — the *why* behind the pipeline being cached.
-- [Vector Databases & ANN](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search) — fast nearest-neighbour lookup for a large cache.
+- [Vector Databases & ANN](/ai-ml/ai-ml-learning-resources/data-and-representation/vector-search/vector-search) — fast nearest-neighbour lookup for a large cache.
 
 **Videos**:
 - [What is a semantic cache?](https://www.youtube.com/watch?v=AtVTT_s8AGc) — **Redis** — a short breakdown of how a semantic cache skips redundant LLM calls by matching similar queries.

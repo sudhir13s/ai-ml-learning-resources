@@ -184,8 +184,6 @@ Practitioner Workflows. Sections follow the model lifecycle after the foundation
   incident response) · governance-and-economics.
 - **`multimodal-and-generative-media/`** — natural-language-processing · computer-vision ·
   multimodal-learning · video-understanding · audio-and-speech.
-- **`llms-applications-and-agents/`** — TRANSITIONAL: rag-and-knowledge-systems · agentic-ai
-  only, until W4 harvests them into Practitioner Workflows and deletes the folder.
 - **`world-models-and-embodied-ai/`** — world-model-foundations ·
   predictive-representation-models · latent-dynamics · learning-and-planning ·
   spatial-and-physical-world-models · video-and-generative-world-models ·
@@ -205,8 +203,9 @@ curated pages, and added `deep-learning/interpretability-and-analysis` (recorded
 charter); the gap closure that followed (T-557) authored every remaining chartered page,
 added `computer-vision/segment-anything-and-promptable-segmentation`, and renamed
 `research-literacy/arxiv-and-papers-with-code` to `arxiv-and-paper-discovery`. Every
-sub-area and section now has a `README.md` index; `agentic-ai/` and
-`rag-and-knowledge-systems/` keep their `overview.md` in that role.
+sub-area and section now has a `README.md` index. The transitional
+`llms-applications-and-agents/` section is gone since W4: its RAG and agentic-AI topics moved
+to Practitioner Workflows, and vector search moved to `data-and-representation/`.
 
 **Quality bar for every link (owner ruling, 2026-09-07):** primary authors and recognised deep
 explainers only — never tutorial-tier or clickbait channels; every URL fetched before it is

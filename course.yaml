@@ -35,19 +35,18 @@
 #     entries and data-preparation has thirteen — so its single-page topic
 #     `synthetic-data-and-curation` carries its own folder name as `category`.
 #
-# `llms-applications-and-agents` is TRANSITIONAL. Its model-layer sub-areas left
-# in this wave (large-language-model-foundations, llm-model-architectures,
-# training-and-adaptation, inference-and-runtime, reasoning-evaluation-and-
-# alignment); the two application-layer sub-areas that remain, RAG and agentic
-# AI, harvest into Practitioner Workflows in wave W4 (rows B1-B10), after which
-# the section and its folder are deleted.
+# The application layer left in wave W4 of the layer plan. The RAG and agentic-AI
+# sub-areas of the transitional `llms-applications-and-agents` section moved to
+# Practitioner Workflows `llm-applications/` and `agentic-systems/` with their
+# folder names kept, and the section was deleted. Vector search is a model-side
+# concept, so it stayed: `data-and-representation/vector-search`, beside
+# embedding-models.
 #
 # ROOT-FOLDER NAME — owner ruling 2026-08-19 (T-307.1): folder, GitHub repo,
 # module id and route unify on `ai-ml-learning-resources`.
 #
 # NOT DECLARED, deliberately: every README.md, metadata.yaml, images/, code/,
-# notebooks/ and tools/ folder, every *.references.md companion, `_meta/`, and
-# the two `overview.md` catalogues under llms-applications-and-agents (T-203.5).
+# notebooks/ and tools/ folder, every *.references.md companion, and `_meta/`.
 apiVersion: estate/v2
 kind: Course
 
@@ -111,6 +110,7 @@ spec:
       - data-preparation
       - synthetic-data-and-curation
       - embedding-models
+      - vector-search
       - model-building
       - model-adaptation
       - inference-and-serving
@@ -145,8 +145,6 @@ spec:
       - structured-reasoning
       - modern-applications
       - evaluation-and-limitations
-      - rag-and-knowledge-systems
-      - agentic-ai
 
   sections:
     - id: foundations
@@ -430,6 +428,9 @@ spec:
         # embedding-models
         - path: data-and-representation/embedding-models/embedding-models.md
         - path: data-and-representation/embedding-models/embeddings-and-similarity-search.md
+        # vector-search
+        - path: data-and-representation/vector-search/vector-search.md
+        - path: data-and-representation/vector-search/vector-indexing-with-hnsw-and-ivf.md
     - id: model-building
       title: Model Building
       kind: lesson
@@ -532,7 +533,6 @@ spec:
           pages:
             - path: inference-and-serving/packaging-and-serving/model-packaging-and-containerization/model-packaging-and-containerization.md
             - path: inference-and-serving/packaging-and-serving/model-serving/model-serving.md
-            - path: inference-and-serving/packaging-and-serving/llm-serving-engines/llm-serving-engines.md
             - path: inference-and-serving/packaging-and-serving/scaling-inference/scaling-inference.md
     - id: evaluation
       title: Evaluation
@@ -760,64 +760,3 @@ spec:
             - path: frontier-and-specialized/neuro-symbolic-and-structured-intelligence/evaluation-and-limitations/interpretability-and-verifiability/interpretability-and-verifiability.md
             - path: frontier-and-specialized/neuro-symbolic-and-structured-intelligence/evaluation-and-limitations/scalability-limitations/scalability-limitations.md
             - path: frontier-and-specialized/neuro-symbolic-and-structured-intelligence/evaluation-and-limitations/open-problems/open-problems.md
-    - id: llms-applications-and-agents
-      title: LLMs, Applications and Agents
-      kind: lesson
-      group_by: category
-      pages:
-        # rag-and-knowledge-systems
-        - path: llms-applications-and-agents/rag-and-knowledge-systems/agentic-rag/agentic-rag.md
-        - path: llms-applications-and-agents/rag-and-knowledge-systems/citations-and-attribution/citations-and-attribution.md
-        - path: llms-applications-and-agents/rag-and-knowledge-systems/graph-rag/graph-rag.md
-        - path: llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search.md
-        - path: llms-applications-and-agents/rag-and-knowledge-systems/long-context-vs-rag/long-context-vs-rag.md
-        - path: llms-applications-and-agents/rag-and-knowledge-systems/query-transformation/query-transformation.md
-        - path: llms-applications-and-agents/rag-and-knowledge-systems/rag-evaluation/rag-evaluation.md
-        - path: llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking.md
-        # agentic-ai
-        - path: llms-applications-and-agents/agentic-ai/agent-evaluation/agent-evaluation.md
-        - path: llms-applications-and-agents/agentic-ai/agent-foundations/agent-foundations.md
-        - path: llms-applications-and-agents/agentic-ai/agent-frameworks/agent-frameworks.md
-        - path: llms-applications-and-agents/agentic-ai/agent-safety/agent-safety.md
-        - path: llms-applications-and-agents/agentic-ai/prompt-injection-and-agent-guardrails/prompt-injection-and-agent-guardrails.md
-        - path: llms-applications-and-agents/agentic-ai/llm-app-orchestration/llm-app-orchestration.md
-        - path: llms-applications-and-agents/agentic-ai/memory/memory.md
-        - path: llms-applications-and-agents/agentic-ai/context-engineering/context-engineering.md
-        - path: llms-applications-and-agents/agentic-ai/model-context-protocol/model-context-protocol.md
-        - path: llms-applications-and-agents/agentic-ai/agent-interoperability-protocols-a2a/agent-interoperability-protocols-a2a.md
-        - path: llms-applications-and-agents/agentic-ai/multi-agent-systems/multi-agent-systems.md
-        - path: llms-applications-and-agents/agentic-ai/planning/planning.md
-        - path: llms-applications-and-agents/agentic-ai/reason-and-act/reason-and-act.md
-        - path: llms-applications-and-agents/agentic-ai/reflection/reflection.md
-        - path: llms-applications-and-agents/agentic-ai/tool-use/tool-use.md
-      sections:
-        - id: lr-advanced-rag
-          title: Advanced RAG
-          kind: lesson
-          pages:
-            - path: llms-applications-and-agents/rag-and-knowledge-systems/advanced-rag/advanced-rag.md
-            - path: llms-applications-and-agents/rag-and-knowledge-systems/advanced-rag/production-rag-at-scale.md
-        - id: lr-chunking
-          title: Chunking
-          kind: lesson
-          pages:
-            - path: llms-applications-and-agents/rag-and-knowledge-systems/chunking/chunking.md
-            - path: llms-applications-and-agents/rag-and-knowledge-systems/chunking/rag-chunking-strategies.md
-        - id: lr-rag-foundations
-          title: RAG Foundations
-          kind: lesson
-          pages:
-            - path: llms-applications-and-agents/rag-and-knowledge-systems/rag-foundations/rag-foundations.md
-            - path: llms-applications-and-agents/rag-and-knowledge-systems/rag-foundations/rag-pipeline-under-a-latency-budget.md
-        - id: lr-vector-search
-          title: Vector Search
-          kind: lesson
-          pages:
-            - path: llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search.md
-            - path: llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-indexing-with-hnsw-and-ivf.md
-        - id: lr-coding-and-computer-use-agents
-          title: Coding and Computer-Use Agents
-          kind: lesson
-          pages:
-            - path: llms-applications-and-agents/agentic-ai/coding-and-computer-use-agents/code-agents.md
-            - path: llms-applications-and-agents/agentic-ai/coding-and-computer-use-agents/computer-use-and-gui-agents.md

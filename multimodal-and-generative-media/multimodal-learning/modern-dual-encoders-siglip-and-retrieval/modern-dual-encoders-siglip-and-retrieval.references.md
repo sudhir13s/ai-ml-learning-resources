@@ -8,7 +8,7 @@ updated: 2026-09-13
 
 # Modern Dual Encoders — SigLIP and Retrieval — references
 
-> Companion link library for **[Modern Dual Encoders — SigLIP and Retrieval](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/multimodal-learning/modern-dual-encoders-siglip-and-retrieval/modern-dual-encoders-siglip-and-retrieval)** (the teaching page). Internal links and external sources, grouped by type and alphabetical within each group.
+> Companion link library for **[Modern Dual Encoders — SigLIP and Retrieval](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/multimodal-learning/modern-dual-encoders-siglip-and-retrieval/modern-dual-encoders-siglip-and-retrieval)** (the teaching page). External sources and internal links, grouped by type, alphabetical within each group.
 
 **Start here — suggested path**:
 
@@ -19,9 +19,9 @@ updated: 2026-09-13
 5. **Build a search index** — follow the [Sentence Transformers image-search documentation](https://sbert.net/) — **UKP Lab / Hugging Face**. *Encode a folder of images, encode queries, and feel where a single-vector index stops working.*
 
 **In this platform**:
-- Next: [Visual Instruction Tuning (LLaVA)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/multimodal-learning/visual-instruction-tuning-llava/visual-instruction-tuning-llava) · [Modern Open VLM Architectures](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/multimodal-learning/modern-open-vlm-architectures/modern-open-vlm-architectures) · [Multimodal RAG](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/multimodal-learning/multimodal-rag/multimodal-rag)
 - Prerequisite: [CLIP and Contrastive Vision-Language Pretraining](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/multimodal-learning/clip-and-contrastive-vision-language-pretraining/clip-and-contrastive-vision-language-pretraining)
-- The retrieval side: [Embedding Models](/ai-ml/ai-ml-learning-resources/data-and-representation/embedding-models/embedding-models) · [Vector Search](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search) · [Reranking](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking)
+- The retrieval side: [Embedding Models](/ai-ml/ai-ml-learning-resources/data-and-representation/embedding-models/embedding-models) · [Vector Search](/ai-ml/ai-ml-learning-resources/data-and-representation/vector-search/vector-search) · [Reranking](/ai-ml/practitioner-workflows/llm-applications/reranking/reranking)
+- Next: [Visual Instruction Tuning (LLaVA)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/multimodal-learning/visual-instruction-tuning-llava/visual-instruction-tuning-llava) · [Modern Open VLM Architectures](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/multimodal-learning/modern-open-vlm-architectures/modern-open-vlm-architectures) · [Multimodal RAG](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/multimodal-learning/multimodal-rag/multimodal-rag)
 
 **Videos**:
 - [Vision in the Age of LLMs (ETH Zurich Robot Learning, 2026)](https://www.youtube.com/watch?v=0XB7fNS_ONg) — **Lucas Beyer (guest lecture, Oier Mees' course)** — the researcher behind SigLIP and PaliGemma on what vision encoders are still for.

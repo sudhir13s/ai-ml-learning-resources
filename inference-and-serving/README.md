@@ -57,12 +57,21 @@ verified courses, videos, papers, articles and books.
 ## References
 
 **In this platform**:
-- Before this section: [Large Language Models](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/readme) · [Model Adaptation](/ai-ml/ai-ml-learning-resources/model-adaptation/readme) · After it: [Evaluation](/ai-ml/ai-ml-learning-resources/evaluation/readme) · [Operations and Lifecycle](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/readme)
-- Doing it rather than reading it: [Inference Cost Optimization workflow](/ai-ml/practitioner-workflows/inference-and-serving/inference-cost-optimization) · [Running Local Models workflow](/ai-ml/practitioner-workflows/model-landscape/running-local-models)
-- The kernel and hardware layer: [Efficient Attention (FlashAttention)](/ai-ml/ai-ml-learning-resources/models-and-architectures/attention-and-transformers/efficient-attention/efficient-attention) · [GPUs and Accelerators for Deep Learning](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/training-infrastructure/gpus-and-accelerators-for-deep-learning/gpus-and-accelerators-for-deep-learning)
-- The mental models: [Speculative Decoding](/ai-ml/ai-ml-intuitions/scaling-adaptation-and-efficiency/inference-efficiency/speculative-decoding-intuition) · [Quantization](/ai-ml/ai-ml-intuitions/scaling-adaptation-and-efficiency/compression/quantization-intuition) · [Autoregressive Generation and Sampling Controls](/ai-ml/ai-ml-intuitions/generation/autoregressive-generation/autoregressive-generation-and-sampling-controls-intuition)
-- The operations view of the same problem: [Cost Optimization for ML Systems](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/governance-and-economics/cost-optimization/cost-optimization) · [Model Monitoring and Observability](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/monitoring-and-reliability/model-monitoring-and-observability/model-monitoring-and-observability)
-- Why the cache has the shape it has: [Attention Architectures — GQA, MLA, Sliding-Window and Linear](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/attention-architectures-gqa-mla-sliding-and-linear/attention-architectures-gqa-mla-sliding-and-linear) · [Long-Context Methods](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/long-context-architectures/long-context-architectures)
+- [Attention Architectures — GQA, MLA, Sliding-Window and Linear](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/attention-architectures-gqa-mla-sliding-and-linear/attention-architectures-gqa-mla-sliding-and-linear) — why the cache has the shape it has.
+- [Autoregressive Generation and Sampling Controls](/ai-ml/ai-ml-intuitions/generation/autoregressive-generation/autoregressive-generation-and-sampling-controls-intuition) — the mental models.
+- [Cost Optimization for ML Systems](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/governance-and-economics/cost-optimization/cost-optimization) — the operations view of the same problem.
+- [Efficient Attention (FlashAttention)](/ai-ml/ai-ml-learning-resources/models-and-architectures/attention-and-transformers/efficient-attention/efficient-attention) — the kernel and hardware layer.
+- [Evaluation](/ai-ml/ai-ml-learning-resources/evaluation/readme) — before this section: After it.
+- [GPUs and Accelerators for Deep Learning](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/training-infrastructure/gpus-and-accelerators-for-deep-learning/gpus-and-accelerators-for-deep-learning) — the kernel and hardware layer.
+- [Inference Cost Optimization workflow](/ai-ml/practitioner-workflows/operations-and-lifecycle/inference-cost-optimization) — doing it rather than reading it.
+- [Large Language Models](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/readme) — before this section.
+- [Long-Context Methods](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/long-context-architectures/long-context-architectures) — why the cache has the shape it has.
+- [Model Adaptation](/ai-ml/ai-ml-learning-resources/model-adaptation/readme) — before this section.
+- [Model Monitoring and Observability](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/monitoring-and-reliability/model-monitoring-and-observability/model-monitoring-and-observability) — the operations view of the same problem.
+- [Operations and Lifecycle](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/readme) — before this section.
+- [Quantization](/ai-ml/ai-ml-intuitions/scaling-adaptation-and-efficiency/compression/quantization-intuition) — the mental models.
+- [Running Local Models workflow](/ai-ml/practitioner-workflows/model-landscape/running-local-models) — doing it rather than reading it.
+- [Speculative Decoding](/ai-ml/ai-ml-intuitions/scaling-adaptation-and-efficiency/inference-efficiency/speculative-decoding-intuition) — the mental models.
 
 **Videos**:
 - [FlashAttention — Tri Dao, Stanford MLSys #67](https://www.youtube.com/watch?v=gMOAud7hZg4) — **Stanford MLSys Seminars** — the kernel underneath modern attention serving, from its author.
@@ -71,10 +80,8 @@ verified courses, videos, papers, articles and books.
 - [vLLM Office Hours — Intro to vLLM V1](https://www.youtube.com/watch?v=jmzIvQZCLZM) — **vLLM maintainers** — the V1 rewrite explained by the people who wrote it: scheduler, memory manager and why the loop looks like that.
 
 **Courses**:
-- [LLM inference optimization](https://huggingface.co/docs/transformers/en/llm_optims) — **Hugging Face** — free, hands-on guide to the latency and cost levers, with working code for each.
 - [nanochat](https://github.com/karpathy/nanochat) — **Andrej Karpathy** — a full from-scratch pipeline including the inference engine; the shortest path to reading a real decode loop.
 - [Stanford CS336 — Language Modeling from Scratch (Spring 2025)](https://stanford-cs336.github.io/spring2025/) — **Stanford** — the inference lecture builds the prefill/decode roofline that every scheduling decision on these pages follows from.
-- [vLLM automatic prefix caching](https://docs.vllm.ai/en/latest/design/prefix_caching.html) — **vLLM maintainers** — the design note for cache-aware scheduling, from the team that wrote the scheduler.
 
 **Articles**:
 - [Flash-Decoding for long-context inference](https://pytorch.org/blog/flash-decoding/) — **Tri Dao, Daniel Haziza, Francisco Massa and Grigory Sizov (PyTorch)** — parallelizing a single decode query across the sequence.
@@ -90,6 +97,10 @@ verified courses, videos, papers, articles and books.
 - [FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness](https://arxiv.org/abs/2205.14135) — **Dao et al. (2022)** — the tiled kernel serving engines build on, and the argument that round trips beat FLOPs.
 - [Mooncake: A KVCache-centric Disaggregated Architecture for LLM Serving](https://arxiv.org/abs/2407.00079) — **Qin et al. (Moonshot AI, 2024)** — disaggregated prefill and decode over a shared cache pool; the current frontier design.
 - [Orca: A Distributed Serving System for Transformer-Based Generative Models](https://www.usenix.org/conference/osdi22/presentation/yu) — **Yu et al. (OSDI 2022)** — iteration-level scheduling and selective batching; the origin of continuous batching.
+
+**Documentation**:
+- [LLM inference optimization](https://huggingface.co/docs/transformers/en/llm_optims) — **Hugging Face** — free, hands-on guide to the latency and cost levers, with working code for each.
+- [vLLM automatic prefix caching](https://docs.vllm.ai/en/latest/design/prefix_caching.html) — **vLLM maintainers** — the design note for cache-aware scheduling, from the team that wrote the scheduler.
 
 **Books**:
 - [*Dive into Deep Learning* — Ch. 10 "Beam Search"](https://d2l.ai/chapter_recurrent-modern/beam-search.html) — **Zhang, Lipton, Li and Smola** — greedy as the width-1 special case, and length-normalized scoring.

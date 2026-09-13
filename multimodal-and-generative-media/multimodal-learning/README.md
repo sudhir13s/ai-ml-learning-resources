@@ -53,40 +53,36 @@ then applications and evaluation.
 - **Text-to-image generation** → [Diffusion](/ai-ml/ai-ml-learning-resources/models-and-architectures/generative-model-families/diffusion-models/readme) · [Generative Models](/ai-ml/ai-ml-learning-resources/models-and-architectures/generative-model-families/generative-models/readme)
 - **Speech understanding and audio tokens** → [Audio and Speech](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/audio-and-speech/readme)
 - **Video-language models** → [Video Understanding](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/video-understanding/readme)
-- **LLM decoder architecture, instruction tuning** → [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme)
+- **LLM decoder architecture, instruction tuning** → [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/readme)
 
-## Courses (free)
+## References
 
+**In this platform**:
+- Backbones: [Computer Vision](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/readme) · Language side: [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/readme)
+- Concept depth (the *why*): [Multimodal LLMs (intuition)](/ai-ml/ai-ml-intuitions/multimodal-integration/modality-fusion/multimodal-llms-intuition)
+
+**Videos**:
+- [Coding a Multimodal (Vision) Language Model from scratch in PyTorch](https://www.youtube.com/watch?v=vAmKB7iPkWw) — **Umar Jamil** — PaliGemma implemented line by line.
+- [OpenAI CLIP: Connecting Text and Images (Paper Explained)](https://www.youtube.com/watch?v=T9XSU0pKX2E) — **Yannic Kilcher** — the clearest CLIP walkthrough.
+- [Vision in the Age of LLMs (ETH Zurich Robot Learning, 2026)](https://www.youtube.com/watch?v=0XB7fNS_ONg) — **Lucas Beyer (guest lecture, Oier Mees' course)** — SigLIP's and PaliGemma's co-author on the 2026 state of vision encoders.
+
+**Courses**:
 - [Hugging Face Community Computer Vision Course — multimodal unit](https://huggingface.co/learn/computer-vision-course/en/unit4/multimodal-models/pre-intro) — **Hugging Face** — free, code-first VLM material from contrastive encoders to full models.
 - [Stanford CME296: Diffusion and Large Vision Models](https://www.youtube.com/playlist?list=PLoROMvodv4rNdy8rt2rZ4T2xM0OjADnfu) — **Stanford Online** — full lecture series on large vision models and diffusion; the university companion to this sub-area.
 - [Stanford CS231n — Lecture 16, "Vision and Language" (slides)](https://cs231n.stanford.edu/slides/2025/lecture_16.pdf) — **Stanford (Spring 2025)** — the current academic overview in one deck.
 
-## Videos
-
-- [OpenAI CLIP: Connecting Text and Images (Paper Explained)](https://www.youtube.com/watch?v=T9XSU0pKX2E) — **Yannic Kilcher** — the clearest CLIP walkthrough.
-- [Coding a Multimodal (Vision) Language Model from scratch in PyTorch](https://www.youtube.com/watch?v=vAmKB7iPkWw) — **Umar Jamil** — PaliGemma implemented line by line.
-- [Vision in the Age of LLMs (ETH Zurich Robot Learning, 2026)](https://www.youtube.com/watch?v=0XB7fNS_ONg) — **Lucas Beyer (guest lecture, Oier Mees' course)** — SigLIP's and PaliGemma's co-author on the 2026 state of vision encoders.
-
-## Key Papers
-
-- [Learning Transferable Visual Models From Natural Language Supervision (CLIP)](https://arxiv.org/abs/2103.00020) — **Radford et al. (2021)** — the alignment paper everything builds on.
-- [Flamingo: a Visual Language Model for Few-Shot Learning](https://arxiv.org/abs/2204.14198) — **Alayrac et al. (2022)** — the interleaved, few-shot VLM blueprint.
-- [Visual Instruction Tuning (LLaVA)](https://arxiv.org/abs/2304.08485) — **Liu et al. (2023)** — the open-VLM recipe.
-- [Sigmoid Loss for Language Image Pre-Training (SigLIP)](https://arxiv.org/abs/2303.15343) — **Zhai et al. (2023)** — the loss behind today's default vision towers.
-- [Qwen3-VL Technical Report](https://arxiv.org/abs/2511.21631) — **Bai et al. (2025)** — the 2026 open frontier: native 256K interleaved context, grounding, video.
-
-## Articles
-
+**Articles**:
 - [Multimodality and Large Multimodal Models](https://huyenchip.com/2023/10/10/multimodal.html) — **Chip Huyen** — systems-level survey of multimodal model design.
 - [Understanding Multimodal LLMs](https://magazine.sebastianraschka.com/p/understanding-multimodal-llms) — **Sebastian Raschka** — the two dominant fusion designs, drawn and compared.
-- [Vision Language Models Explained](https://huggingface.co/blog/vlms) — **Hugging Face** — practical tour of open VLMs, with fine-tuning code.
 - [Vision Language Models (Better, Faster, Stronger)](https://huggingface.co/blog/vlms-2025) — **Hugging Face** — the 2025–26 update: reasoning, agents, omni models, multimodal retrieval.
+- [Vision Language Models Explained](https://huggingface.co/blog/vlms) — **Hugging Face** — practical tour of open VLMs, with fine-tuning code.
 
-## Books (free, with chapters)
+**Papers**:
+- [Flamingo: a Visual Language Model for Few-Shot Learning](https://arxiv.org/abs/2204.14198) — **Alayrac et al. (2022)** — the interleaved, few-shot VLM blueprint.
+- [Learning Transferable Visual Models From Natural Language Supervision (CLIP)](https://arxiv.org/abs/2103.00020) — **Radford et al. (2021)** — the alignment paper everything builds on.
+- [Qwen3-VL Technical Report](https://arxiv.org/abs/2511.21631) — **Bai et al. (2025)** — the 2026 open frontier: native 256K interleaved context, grounding, video.
+- [Sigmoid Loss for Language Image Pre-Training (SigLIP)](https://arxiv.org/abs/2303.15343) — **Zhai et al. (2023)** — the loss behind today's default vision towers.
+- [Visual Instruction Tuning (LLaVA)](https://arxiv.org/abs/2304.08485) — **Liu et al. (2023)** — the open-VLM recipe.
 
+**Books**:
 - [*Understanding Deep Learning* — Ch. 12 "Transformers"](https://udlbook.github.io/udlbook/) — **Simon Prince** — free PDF; the backbone both towers of a VLM assume.
-
-## In this platform
-
-- Backbones: [Computer Vision](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/readme) · Language side: [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme)
-- Concept depth (the *why*): [Multimodal LLMs (intuition)](/ai-ml/ai-ml-intuitions/multimodal-integration/modality-fusion/multimodal-llms-intuition)

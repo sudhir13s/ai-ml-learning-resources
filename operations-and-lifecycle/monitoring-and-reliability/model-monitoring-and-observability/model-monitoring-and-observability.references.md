@@ -29,7 +29,7 @@ updated: 2026-09-13
   - [ml-platform](/python/python-production-examples/ml-platform/readme) — the runnable monitoring service.
   - [Model Monitoring and Observability](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/monitoring-and-reliability/model-monitoring-and-observability/model-monitoring-and-observability) — the teaching page this list supports.
   - [Model Serving](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/model-serving/model-serving) — where the operational layer's signals originate.
-  - [Monitoring and Observability workflow](/ai-ml/practitioner-workflows/evaluation-and-safety/monitoring-and-observability) — the application layer: tracing, token dashboards, service-level objectives.
+  - [Monitoring and Observability workflow](/ai-ml/practitioner-workflows/operations-and-lifecycle/monitoring-and-observability) — the application layer: tracing, token dashboards, service-level objectives.
   - [Rollback and Recovery for ML Systems](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/release-and-deployment/rollback-and-recovery-for-ml-systems/rollback-and-recovery-for-ml-systems) — the response when a release caused the regression.
 - **Videos**:
   - [Data Drift & Early Monitoring for ML Models](https://www.youtube.com/watch?v=N12uMO-fj40) — **Datafold (Emeli Dral, Evidently AI)** — meetup talk on what to monitor and why.

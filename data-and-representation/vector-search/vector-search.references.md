@@ -1,0 +1,64 @@
+---
+id: "15-rag-and-llm-apps/vector-databases-ann-indexes/references"
+topic: "Vector Databases & ANN Indexes — References"
+parent: "15-rag-and-llm-apps/vector-databases-ann-indexes"
+type: references
+updated: 2026-09-07
+---
+
+# Vector Databases & ANN Indexes — references and further reading
+
+> Companion link library for **[Vector Databases & ANN Indexes](/ai-ml/ai-ml-learning-resources/data-and-representation/vector-search/vector-search)** (the concept page). This file holds the curated links — external sources *and* internal links to related pages on this platform — kept separate so it can be reused as a standalone reference list. Grouped by type, alphabetical within each group. Every entry is a free, no-paywall link from a primary author or a recognized deep explainer — chosen for depth on *this* topic (how vector search scales: IVF, HNSW, PQ), not popularity.
+
+**Start here — suggested path**:
+1. **Get the why** — watch [Retrieval-Augmented Generation Explained: Embedding, Sentence BERT, Vector Database (HNSW)](https://www.youtube.com/watch?v=rhZgXNdhWDY) (**Umar Jamil**). *Builds from "embed and compare everything" to why a specialized approximate index has to exist.*
+2. **Learn the index families** — read [Nearest Neighbor Indexes for Similarity Search](https://www.pinecone.io/learn/series/faiss/vector-indexes/) (**Pinecone**). *Flat → IVF → HNSW → PQ, with the trade-offs that matter.*
+3. **Understand HNSW deeply** — watch [HNSW Explained](https://www.youtube.com/watch?v=77QH0Y2PYKg) (**DataMListic**), then read [Pinecone: HNSW](https://www.pinecone.io/learn/series/faiss/hnsw/). *The graph-traversal intuition plus the `M`/`efSearch` knobs.*
+4. **Understand IVF** — watch [Inverted File Index (IVF) Explained](https://www.youtube.com/watch?v=-vh6huY2rgE) (**TensorTeach**). *Voronoi cells + `nprobe`; the cluster-then-probe alternative to graphs.*
+5. **Read the sources** — skim [HNSW (Malkov & Yashunin)](https://arxiv.org/abs/1603.09320) and the [FAISS GPU paper](https://arxiv.org/abs/1702.08734). *Where the algorithm and the de-facto library come from.*
+
+**In this platform**:
+- [01 RAG Fundamentals](/ai-ml/practitioner-workflows/llm-applications/rag-foundations/rag-foundations) — prerequisite: what gets indexed.
+- [03 Embedding Models for Retrieval](/ai-ml/ai-ml-learning-resources/data-and-representation/embedding-models/embedding-models) — prerequisite: what gets indexed.
+- [04. Unsupervised Learning — K-Means Clustering](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/clustering/k-means-clustering/k-means-clustering) — the math under IVF: the partitioning.
+- [05 Hybrid Search (BM25 + Dense)](/ai-ml/practitioner-workflows/llm-applications/hybrid-search/hybrid-search) — the next step in this domain: sharpen what the index returns.
+- [06 Re-ranking with Cross-Encoders](/ai-ml/practitioner-workflows/llm-applications/reranking/reranking) — the next step in this domain: sharpen what the index returns.
+- [1.06 Vector Similarities](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/scaled-dot-product-intuition) — a foundation: the geometry of "near".
+- [ai-ml-intuitions 1.07–1.08 Euclidean vs Cosine](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/cosine-vs-euclidean-distance-intuition) — a foundation: the geometry of "near".
+- [Vector Databases & ANN Indexes](/ai-ml/ai-ml-learning-resources/data-and-representation/vector-search/vector-search) — the concept page (full explanation).
+
+**Videos**:
+- [AI Search with HNSW](https://www.youtube.com/watch?v=7XLRCpUmiaQ) — **ObjectBox** — HNSW construction and query, end to end.
+- [Inverted File Index (IVF) Explained](https://www.youtube.com/watch?v=-vh6huY2rgE) — **TensorTeach** — k-means partitioning, Voronoi cells, and `nprobe` for the IVF family.
+- [Retrieval-Augmented Generation Explained: Embedding, Sentence BERT, Vector Database (HNSW)](https://www.youtube.com/watch?v=rhZgXNdhWDY) — **Umar Jamil** — derives why exact search does not scale and walks the HNSW graph itself, rather than treating the index as a black box.
+- [Vector Database Search — HNSW Explained](https://www.youtube.com/watch?v=77QH0Y2PYKg) — **DataMListic** — the layered small-world graph and greedy search, visually.
+
+**Courses**:
+- [Faiss: The Missing Manual](https://www.pinecone.io/learn/series/faiss/) — **Pinecone (James Briggs)** — a full free course on vector indexes (Flat, IVF, HNSW, PQ) with runnable Python.
+- [Vector Search lessons (LangChain: Chat with Your Data)](https://www.deeplearning.ai/short-courses/langchain-chat-with-your-data/) — **DeepLearning.AI** — the VectorStores lesson connects embeddings to a working retriever.
+
+**Interactive**:
+- [ANN-Benchmarks](https://ann-benchmarks.com/) — **Aumüller, Bernhardsson & Faithfull** — the standard recall-vs-queries-per-second leaderboard across ANN libraries; *see* the recall/latency Pareto frontier you tune against.
+- [Faiss indexes (wiki)](https://github.com/facebookresearch/faiss/wiki) — **Meta FAISS** — the authoritative, browsable reference for choosing and configuring indexes (Flat, IVF, HNSW, PQ).
+
+**Articles**:
+- [Filtering: The Missing WHERE Clause in Vector Search](https://www.pinecone.io/learn/vector-search-filtering/) — **Pinecone** — why metadata filtering + ANN is hard (post- vs pre-filter) and how native filtered search fixes it.
+- [Hierarchical Navigable Small Worlds (HNSW)](https://www.pinecone.io/learn/series/faiss/hnsw/) — **Pinecone** — the deep dive on HNSW parameters (`M`, `efConstruction`, `efSearch`) and behavior.
+- [Nearest Neighbor Indexes for Similarity Search](https://www.pinecone.io/learn/series/faiss/vector-indexes/) — **Pinecone** — the canonical Flat→IVF→HNSW→PQ rundown with trade-offs.
+- [pgvector — README (HNSW / IVFFlat indexes and parameters)](https://github.com/pgvector/pgvector) — **pgvector** — the source for the verified defaults on the page (HNSW `m = 16`, `ef_construction = 64`, `ef_search = 40`; IVFFlat `lists` guidance).
+- [Vector Search Explained](https://weaviate.io/blog/vector-search-explained) — **Weaviate** — how a vector DB combines ANN with filtering and updates in production (the filtering pitfall).
+
+**Papers**:
+- [Billion-scale similarity search with GPUs (arXiv:1702.08734)](https://arxiv.org/abs/1702.08734) — **Johnson, Douze & Jégou (2017/2019)** — the FAISS GPU paper; the source for the exact (flat) $O(N \cdot d)$ baseline ANN exists to beat.
+- [DiskANN: Fast Accurate Billion-point NN Search on a Single Node](https://proceedings.neurips.cc/paper_files/paper/2019/file/09853c7fb1d3f8ee67a61b6bf4a7f8e6-Paper.pdf) — **Subramanya et al. (2019, NeurIPS)** — graph ANN that spills to SSD for billion-scale search beyond RAM; the frontier past in-memory HNSW.
+- [Efficient and Robust ANN Search using HNSW Graphs (arXiv:1603.09320)](https://arxiv.org/abs/1603.09320) — **Malkov & Yashunin (2016/2018)** — the **HNSW** algorithm; the source for the $O(\log N)$ navigation and the `M`/`efConstruction`/`efSearch` parameters.
+- [Product Quantization for Nearest Neighbor Search (IEEE TPAMI 2011)](https://inria.hal.science/inria-00514462/document) — **Jégou, Douze & Schmid (2011)** — defines the **inverted-file (IVF)** structure and **product quantization (PQ)** (encode/decode + asymmetric distance); the source for the IVF cost and PQ compression derivations on the page. Link is the authors' free PDF on the INRIA repository.
+- [The FAISS Library (arXiv:2401.08281)](https://arxiv.org/abs/2401.08281) — **Douze et al. (2024)** — the design of the most-used similarity-search library (IVF, PQ, HNSW); the reference for index choice.
+
+**Books**:
+- [Introduction to Information Retrieval — Ch. 6–7 (scoring, the vector space model, efficient ranking)](https://nlp.stanford.edu/IR-book/html/htmledition/scoring-term-weighting-and-the-vector-space-model-1.html) — **Manning, Raghavan & Schütze** — the IR foundations of similarity scoring and index efficiency, free online.
+
+**Resources**:
+- [BAAI/bge-small-en-v1.5](https://huggingface.co/BAAI/bge-small-en-v1.5) — **BAAI** — the real 384-dim retrieval embedder used to vectorise the corpus and queries; L2-normalised so cosine similarity is a dot product.
+- [FAISS](https://github.com/facebookresearch/faiss) / [`faiss-cpu` on PyPI](https://pypi.org/project/faiss-cpu/) — **Meta** — the real ANN library the page measures (`IndexFlatIP`, `IndexIVFFlat`, `IndexHNSWFlat`, `IndexIVFPQ`).
+- [wikimedia/wikipedia — Simple English (20231101.simple)](https://huggingface.co/datasets/wikimedia/wikipedia) — **Wikimedia Foundation** (CC-BY-SA) — the real corpus: 30,000 passages are chunked from these articles by `code/embed_corpus.py`.

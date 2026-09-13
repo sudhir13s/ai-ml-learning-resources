@@ -1,8 +1,9 @@
 # Reading order for this category. `page-order:` is the ONE ordering key
 # estate-wide (structure-authoring-contract Rule 4); entries are relative
 # and extension-less. README.md is repo-facing and deliberately absent.
+# model-serving absorbed the llm-serving-engines teaching page at W4 (owner ruling:
+# the topic keeps the model-serving name).
 page-order:
   - model-packaging-and-containerization/model-packaging-and-containerization
   - model-serving/model-serving
-  - llm-serving-engines/llm-serving-engines
   - scaling-inference/scaling-inference

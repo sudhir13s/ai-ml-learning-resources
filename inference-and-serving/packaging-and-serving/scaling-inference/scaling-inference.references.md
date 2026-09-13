@@ -23,7 +23,7 @@ updated: 2026-09-13
 - [Cost Optimization](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/governance-and-economics/cost-optimization/cost-optimization) — autoscaling, batching and GPU sharing as levers on the inference bill.
 - [Inference Optimization](/ai-ml/ai-ml-learning-resources/inference-and-serving/inference-optimization/inference-optimization) — quantization, paged attention and batching inside a replica.
 - [KV Cache in Production](/ai-ml/ai-ml-learning-resources/inference-and-serving/kv-cache/kv-cache-in-production) — the memory that constrains each replica, and disaggregated prefill/decode.
-- [LLM Serving Engines](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/llm-serving-engines/llm-serving-engines) — the engine each replica runs, and what fits on one GPU.
+- [LLM Serving Engines](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/model-serving/model-serving) — the engine each replica runs, and what fits on one GPU.
 - [ML Pipelines and Orchestration](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/data-and-training-platforms/ml-pipelines-and-orchestration/ml-pipelines-and-orchestration) — the orchestration layer beneath training and serving jobs.
 - [Model Monitoring and Observability](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/monitoring-and-reliability/model-monitoring-and-observability/model-monitoring-and-observability) — quality and drift signals beside the fleet metrics.
 - [Model Serving](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/model-serving/model-serving) — online versus batch serving, the step before scaling.

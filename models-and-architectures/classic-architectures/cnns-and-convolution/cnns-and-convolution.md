@@ -1,6 +1,7 @@
 ---
 id: "05-deep-learning/cnns"
 topic: "CNNs & Convolution"
+core_idea: "Convolution slides small shared-weight filters across an image, building in locality, translation equivariance and hierarchy, which cuts parameters by orders of magnitude compared with a fully-connected layer."
 parent: "05-deep-learning"
 level: intermediate
 built_from: ["feedforward-networks", "backpropagation", "linear-algebra"]
@@ -461,7 +462,7 @@ Step back and name what a CNN *assumes*: **locality** (useful patterns are local
 - **Small/medium data:** the CNN's locality bias wins — it generalizes better because the bias is *correct* and free. ViTs trained on ImageNet-scale data alone *underperform* CNNs.
 - **Massive data (and scale):** the ViT's *lack* of bias becomes an advantage — given enough images (JFT-300M-scale pretraining) it *learns* the right structure, including longer-range relationships a fixed-size kernel can't reach, and matches or beats CNNs.
 
-> **Note:** the slogan to remember — **"CNNs bring the prior; Transformers bring the data."** A CNN's locality + equivariance bias is a *strong, correct* assumption that pays off in the low-data regime; a ViT trades that bias for flexibility and global reach that only pay off at scale. Hybrids (convolutional stems, ConvNeXt, Swin's local windows) deliberately re-inject locality into Transformers — strong evidence the convolutional prior is genuinely useful, not obsolete. The vision architectures on both sides of this trade are covered in [Computer Vision](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/readme); ViT itself feeds into [LLMs / multimodal](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme).
+> **Note:** the slogan to remember — **"CNNs bring the prior; Transformers bring the data."** A CNN's locality + equivariance bias is a *strong, correct* assumption that pays off in the low-data regime; a ViT trades that bias for flexibility and global reach that only pay off at scale. Hybrids (convolutional stems, ConvNeXt, Swin's local windows) deliberately re-inject locality into Transformers — strong evidence the convolutional prior is genuinely useful, not obsolete. The vision architectures on both sides of this trade are covered in [Computer Vision](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/readme); ViT itself feeds into [LLMs / multimodal](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/readme).
 
 ---
 
@@ -662,8 +663,7 @@ The mechanics are clean, but a predictable set of mistakes bites practitioners a
 
 ---
 
-## References and further reading
-
+## References
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [CNNs & Convolution — references and further reading](/ai-ml/ai-ml-learning-resources/models-and-architectures/classic-architectures/cnns-and-convolution/cnns-and-convolution#references-further-reading)**
+**→ [CNNs & Convolution — references](/ai-ml/ai-ml-learning-resources/models-and-architectures/classic-architectures/cnns-and-convolution/cnns-and-convolution#references-further-reading)**

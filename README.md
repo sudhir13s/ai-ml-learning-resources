@@ -130,10 +130,10 @@ generative world models · memory and cognitive maps · embodied intelligence
 | [Neuro-Symbolic and Structured Intelligence](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/neuro-symbolic-and-structured-intelligence/readme) | advanced |
 | [Scientific and Specialized Deep Learning](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/scientific-and-specialized-deep-learning/readme) — graph networks, physics-informed networks, neural operators, equivariance | advanced |
 
-### [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme) — transitional
+### [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/readme) — transitional
 The two application-layer sub-areas, held here until they harvest into Practitioner Workflows:
-[RAG and Knowledge Systems](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/overview) ·
-[Agentic AI](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/overview).
+[RAG and Knowledge Systems](/ai-ml/practitioner-workflows/llm-applications/rag-foundations/rag-foundations) ·
+[Agentic AI](/ai-ml/practitioner-workflows/agentic-systems/agent-foundations/agent-foundations).
 
 ### Specializations (deep-dive curricula)
 - [Computer Vision math](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/computer-vision/readme) · [Neuroscience and Brain-Inspired AI](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/neuroscience-and-brain-inspired-ai/readme) · [Advanced Research Math](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/readme) — full what/why/resources curricula

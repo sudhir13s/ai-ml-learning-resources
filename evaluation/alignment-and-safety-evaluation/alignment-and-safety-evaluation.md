@@ -1,6 +1,7 @@
 ---
 id: "09-llms/hallucination-and-alignment-basics"
 topic: "Hallucination & Alignment Basics"
+core_idea: "Hallucination is the default output of a sampler that spreads probability over wrong answers and is rewarded for guessing; defences either shift that mass toward supported answers or abstain when confidence is low."
 parent: "09-llms"
 level: advanced
 built_from: ["09-llms/decoding-and-sampling", "09-llms/rlhf-and-dpo", "09-llms/llm-evaluation-and-benchmarks", "09-llms/chain-of-thought-reasoning"]
@@ -19,7 +20,7 @@ category: evaluation
 
 Ask a frontier LLM "Who wrote *The Mysteries of Udolpho*?" and it answers instantly, fluently, in perfect prose: *"That novel was written by Jane Austen in 1794."* Confident. Grammatical. Authoritative. And **wrong** — it was Ann Radcliffe. The model didn't *look up* the answer and make a mistake; it never looked anything up. It sampled the next token from a probability distribution, and the distribution put more mass on a plausible-sounding wrong name than on the right one. That is a **hallucination**, and the unsettling part is this: *the model that hallucinated is doing exactly what it was trained to do.* Fluency is not knowledge. A language model is a next-token sampler over a distribution, not a knowledge oracle — and once you internalize that one sentence, every cause and every fix in this chapter follows.
 
-This is the **capstone** of the 20-chapter LLM arc. Everything before it built the machine: [language-modeling objectives](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/language-modeling-objectives/language-modeling-objectives) defined the next-token loss, [decoding & sampling](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/decoding-and-sampling) turned that distribution into text, [RLHF & DPO](/ai-ml/ai-ml-learning-resources/model-adaptation/preference-and-alignment-training/preference-and-alignment-training) reshaped its preferences, [RAG](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/overview) gave it documents to stand on, and [evaluation](/ai-ml/ai-ml-learning-resources/evaluation/model-evaluation-and-benchmarks/model-evaluation-and-benchmarks) measured whether any of it worked. This chapter asks the question that ties them together: **when and why does the machine produce confident falsehoods, and what is the full stack of defenses?** By the end you'll be able to:
+This is the **capstone** of the 20-chapter LLM arc. Everything before it built the machine: [language-modeling objectives](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/language-modeling-objectives/language-modeling-objectives) defined the next-token loss, [decoding & sampling](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/decoding-and-sampling) turned that distribution into text, [RLHF & DPO](/ai-ml/ai-ml-learning-resources/model-adaptation/preference-and-alignment-training/preference-and-alignment-training) reshaped its preferences, [RAG](/ai-ml/practitioner-workflows/llm-applications/rag-foundations/rag-foundations) gave it documents to stand on, and [evaluation](/ai-ml/ai-ml-learning-resources/evaluation/model-evaluation-and-benchmarks/model-evaluation-and-benchmarks) measured whether any of it worked. This chapter asks the question that ties them together: **when and why does the machine produce confident falsehoods, and what is the full stack of defenses?** By the end you'll be able to:
 
 - give a **precise taxonomy** of hallucination (factuality vs faithfulness; intrinsic vs extrinsic; closed-book vs grounded) and place any failure in it;
 - explain the **root causes** from first principles — why a softmax *always* assigns mass to wrong tokens, why temperature trades coverage for truth, why an early wrong token **snowballs**, and why training/eval *reward* guessing over abstaining;
@@ -198,7 +199,7 @@ We measure all three on the toy data below; the curves cross exactly as the math
 
 ## Mitigation 1 — grounding (RAG): convert factuality into faithfulness
 
-The most effective single lever against **factuality** hallucination is to stop asking the model to recall and start asking it to **read**. [Retrieval-Augmented Generation](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/overview) (chapter 11) fetches relevant documents and puts them in the context, so the prompt becomes *"using this passage, who wrote Udolpho?"* instead of *"who wrote Udolpho?"* Mechanically, the retrieved passage **adds evidence that raises the supported token's logit** — it moves mass onto truth.
+The most effective single lever against **factuality** hallucination is to stop asking the model to recall and start asking it to **read**. [Retrieval-Augmented Generation](/ai-ml/practitioner-workflows/llm-applications/rag-foundations/rag-foundations) (chapter 11) fetches relevant documents and puts them in the context, so the prompt becomes *"using this passage, who wrote Udolpho?"* instead of *"who wrote Udolpho?"* Mechanically, the retrieved passage **adds evidence that raises the supported token's logit** — it moves mass onto truth.
 
 We model this at the logit level: grounding adds a boost to the supported token's logit. The effect on the distribution is decisive — the supported answer goes from 0.63 of the mass (ungrounded) to **0.99** (grounded) at $T=1.0$:
 
@@ -481,7 +482,7 @@ torch: 2.12.0  | numpy: 2.4.6
 Hallucination is where most LLM **product incidents** live — the demo works, then a user gets confidently lied to. The failures, with the fix each one points at:
 
 - **The plausible-but-wrong citation.** A RAG system invents a reference, a case-law citation, a paper that doesn't exist — confidently formatted. (Real lawyers have been sanctioned for filing LLM-fabricated cases.) *Fix:* require citations to **resolve to retrieved spans**; reject any claim whose cited source isn't in the context.
-- **The agent that fabricates a tool result.** An [agentic](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/overview) loop hallucinates an API response or a file's contents and acts on it — the snowball, now with side effects. *Fix:* never let the model *narrate* a tool result; feed the **actual** tool output back, and verify before acting.
+- **The agent that fabricates a tool result.** An [agentic](/ai-ml/practitioner-workflows/agentic-systems/agent-foundations/agent-foundations) loop hallucinates an API response or a file's contents and acts on it — the snowball, now with side effects. *Fix:* never let the model *narrate* a tool result; feed the **actual** tool output back, and verify before acting.
 - **The confident closed-book answer.** A chatbot answers a niche factual question (a person, a date, a dosage) with no source and no hedge. *Fix:* grounding + abstention; for high-stakes domains, **refuse to answer closed-book** and require retrieval.
 - **Over-refusal in production.** After a safety-tuning pass, the model starts refusing benign developer questions, tanking helpfulness metrics. *Fix:* measure over-refusal (XSTest-style) as a **first-class metric**, not just harmlessness — the frontier, not the threshold.
 - **RLHF that amplified confidence.** Post-alignment, the model is *more* fluent and *more* over-confident, and its calibration (ECE) got **worse**. *Fix:* check calibration after every alignment pass; collect explicit honest-uncertainty preference data.
@@ -539,8 +540,7 @@ The capstone insight: **there is no single place to "fix hallucination."** It is
 
 ---
 
-## References and further reading
-
+## References
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Hallucination & Alignment Basics — references and further reading](/ai-ml/ai-ml-learning-resources/evaluation/alignment-and-safety-evaluation/alignment-and-safety-evaluation#references-further-reading)**
+**→ [Hallucination & Alignment Basics — references](/ai-ml/ai-ml-learning-resources/evaluation/alignment-and-safety-evaluation/alignment-and-safety-evaluation#references-further-reading)**

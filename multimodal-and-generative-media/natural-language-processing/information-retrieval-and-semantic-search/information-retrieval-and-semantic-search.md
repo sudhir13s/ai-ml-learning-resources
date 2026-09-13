@@ -1,6 +1,7 @@
 ---
 id: "06-nlp/information-retrieval-semantic-search"
 topic: "Information Retrieval & Semantic Search"
+core_idea: "Modern retrieval is a two-stage funnel: cheap sparse and dense recall over approximate indexes, fused and then re-ranked for precision, and measured with ranking metrics before it grounds an LLM."
 parent: "06-nlp"
 level: advanced
 built_from: ["bow-tfidf", "sentence-document-embeddings", "k-nearest-neighbors", "vector-similarity"]
@@ -465,7 +466,7 @@ A score of 0.961 means our ranking is 96.1% of the way to perfect for this query
 
 Everything above is the **retriever** half of retrieval-augmented generation. In RAG, a user question is answered not from the LLM's parametric memory alone but by **first retrieving relevant passages** from a corpus and **feeding them into the prompt** as grounding context. The pattern: embed the question → ANN-search a vector index of document chunks → (optionally re-rank) → stuff the top-$n$ passages into the prompt → the LLM answers *from those passages*, ideally with citations.
 
-Retrieval quality **is** RAG quality. If the retriever doesn't surface the passage containing the answer, no amount of LLM capability recovers it — the model either hallucinates or says it doesn't know. This is why a RAG project's effort goes overwhelmingly into the retrieval stack you just built: chunking, embeddings, hybrid search, re-ranking, and evaluation. The generator is the easy part; the **retriever is where RAG is won or lost**. (Deep dive: the canonical RAG home is [11. RAG & LLM Applications](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/overview); the *why* is in [ai-ml-intuitions 8.02 Retrieval-Augmented Generation](/ai-ml/ai-ml-intuitions/memory-retrieval-and-context/retrieval-augmented-generation/rag-intuition).)
+Retrieval quality **is** RAG quality. If the retriever doesn't surface the passage containing the answer, no amount of LLM capability recovers it — the model either hallucinates or says it doesn't know. This is why a RAG project's effort goes overwhelmingly into the retrieval stack you just built: chunking, embeddings, hybrid search, re-ranking, and evaluation. The generator is the easy part; the **retriever is where RAG is won or lost**. (Deep dive: the canonical RAG home is [11. RAG & LLM Applications](/ai-ml/practitioner-workflows/llm-applications/rag-foundations/rag-foundations); the *why* is in [ai-ml-intuitions 8.02 Retrieval-Augmented Generation](/ai-ml/ai-ml-intuitions/memory-retrieval-and-context/retrieval-augmented-generation/rag-intuition).)
 
 > **Note:** the same retrieve-then-rerank funnel powers RAG, web search, recommendation, code assistants, and agent memory. Master IR and you've mastered the substrate under a huge swath of applied AI — which is exactly why it's a *very-high-frequency* interview topic.
 
@@ -610,8 +611,7 @@ Probing more cells **monotonically raises recall** — the latency–recall dial
 
 ---
 
-## References and further reading
-
+## References
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Information Retrieval & Semantic Search — references and further reading](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/information-retrieval-and-semantic-search/information-retrieval-and-semantic-search#references-further-reading)**
+**→ [Information Retrieval & Semantic Search — references](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/information-retrieval-and-semantic-search/information-retrieval-and-semantic-search#references-further-reading)**

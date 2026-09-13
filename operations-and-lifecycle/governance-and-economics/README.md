@@ -35,12 +35,22 @@ Model Registry and Governance is a full teaching page with a companion reference
 ## References
 
 **In this platform**:
-- Doing it rather than reading it: [Inference Cost Optimization workflow](/ai-ml/practitioner-workflows/inference-and-serving/inference-cost-optimization) · [Evaluation and Benchmarking workflow](/ai-ml/practitioner-workflows/evaluation-and-safety/evaluation-and-benchmarking)
-- Section index: [Operations and Lifecycle](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/readme)
-- Sibling sub-areas: [Lifecycle and Reproducibility](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/readme) · [Data and Training Platforms](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/data-and-training-platforms/readme) · [Packaging and Serving](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/readme) · [Release and Deployment](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/release-and-deployment/readme) · [Monitoring and Reliability](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/monitoring-and-reliability/readme)
-- The technical levers behind the cost page: [Caching and Cost Optimization for LLM Apps](/ai-ml/ai-ml-learning-resources/inference-and-serving/caching-and-cost-optimization/caching-and-cost-optimization) · [Quantization](/ai-ml/ai-ml-learning-resources/inference-and-serving/quantization/quantization) · [Small and On-Device Language Models](/ai-ml/ai-ml-learning-resources/inference-and-serving/small-and-on-device-language-models/small-and-on-device-language-models)
-- What LLMOps evaluates and guards: [LLM Evaluation and Benchmarks](/ai-ml/ai-ml-learning-resources/evaluation/model-evaluation-and-benchmarks/model-evaluation-and-benchmarks) · [Agent Evaluation](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/agent-evaluation/agent-evaluation) · [Prompt Injection and Agent Guardrails](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/prompt-injection-and-agent-guardrails/prompt-injection-and-agent-guardrails)
-- What the registry stores: [Data and Model Versioning](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/data-and-model-versioning/data-and-model-versioning) · [Experiment Tracking](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/experiment-tracking/experiment-tracking)
+- [Agent Evaluation](/ai-ml/practitioner-workflows/agentic-systems/agent-evaluation/agent-evaluation) — what LLMOps evaluates and guards.
+- [Caching and Cost Optimization for LLM Apps](/ai-ml/ai-ml-learning-resources/inference-and-serving/caching-and-cost-optimization/caching-and-cost-optimization) — the technical levers behind the cost page.
+- [Data and Model Versioning](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/data-and-model-versioning/data-and-model-versioning) — what the registry stores.
+- [Data and Training Platforms](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/data-and-training-platforms/readme) — sibling sub-areas.
+- [Evaluation and Benchmarking workflow](/ai-ml/practitioner-workflows/evaluation-and-safety/evaluation-and-benchmarking) — doing it rather than reading it.
+- [Experiment Tracking](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/experiment-tracking/experiment-tracking) — what the registry stores.
+- [Inference Cost Optimization workflow](/ai-ml/practitioner-workflows/operations-and-lifecycle/inference-cost-optimization) — doing it rather than reading it.
+- [Lifecycle and Reproducibility](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/readme) — sibling sub-areas.
+- [LLM Evaluation and Benchmarks](/ai-ml/ai-ml-learning-resources/evaluation/model-evaluation-and-benchmarks/model-evaluation-and-benchmarks) — what LLMOps evaluates and guards.
+- [Monitoring and Reliability](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/monitoring-and-reliability/readme) — sibling sub-areas.
+- [Operations and Lifecycle](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/readme) — section index.
+- [Packaging and Serving](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/readme) — sibling sub-areas.
+- [Prompt Injection and Agent Guardrails](/ai-ml/practitioner-workflows/agentic-systems/prompt-injection-and-agent-guardrails/prompt-injection-and-agent-guardrails) — what LLMOps evaluates and guards.
+- [Quantization](/ai-ml/ai-ml-learning-resources/inference-and-serving/quantization/quantization) — the technical levers behind the cost page.
+- [Release and Deployment](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/release-and-deployment/readme) — sibling sub-areas.
+- [Small and On-Device Language Models](/ai-ml/ai-ml-learning-resources/inference-and-serving/small-and-on-device-language-models/small-and-on-device-language-models) — the technical levers behind the cost page.
 
 **Videos**:
 - [Accelerated LLM Inference with Anyscale](https://www.youtube.com/watch?v=_sDMsg0STqs) — **Anyscale (Ray Summit 2024)** — throughput-per-dollar improvements traced to specific changes.

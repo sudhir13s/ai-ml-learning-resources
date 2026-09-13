@@ -1,6 +1,7 @@
 ---
 id: "09-llms/prompting-and-in-context-learning"
 topic: "Prompting & In-Context Learning"
+core_idea: "In-context learning adapts a frozen model to a task purely through examples in the prompt, powered by attention circuits such as induction heads, and is sensitive to example order, format and label bias."
 parent: "09-llms"
 level: intermediate
 built_from: ["09-llms/language-modeling-objectives", "09-llms/decoder-only-architecture", "attention", "softmax-attention"]
@@ -326,7 +327,7 @@ The things that actually bite when you ship a prompt:
 **Why this is a crux capability.** In-context learning is *the* reason a single frozen model is a general-purpose tool rather than a fixed-function appliance. It's the foundation under nearly everything you build on top of an LLM:
 
 - **The default first move for any new task** — cheaper and faster than fine-tuning, and often enough.
-- **RAG** ([retrieval-augmented generation](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/overview)) is ICL with *retrieved* context: the retrieved documents are in-context information the model conditions on at inference time, no weights touched.
+- **RAG** ([retrieval-augmented generation](/ai-ml/practitioner-workflows/llm-applications/rag-foundations/rag-foundations)) is ICL with *retrieved* context: the retrieved documents are in-context information the model conditions on at inference time, no weights touched.
 - **Agents and tool use** prompt the model with tool descriptions and examples; the model learns *which tool to call when* in-context.
 - **Chain-of-thought** ([next chapter](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/chain-of-thought-and-reasoning/chain-of-thought-and-reasoning)) is a *specific prompting technique* — prompt the model to emit reasoning steps before the answer. It's an ICL pattern, which is why it belongs adjacent to this page, not inside it.
 
@@ -377,8 +378,7 @@ How ICL shows up in real systems, concretely:
 
 ---
 
-## References and further reading
-
+## References
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Prompting & In-Context Learning — references and further reading](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/prompting-and-in-context-learning/prompting-and-in-context-learning#references-further-reading)**
+**→ [Prompting & In-Context Learning — references](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/prompting-and-in-context-learning/prompting-and-in-context-learning#references-further-reading)**

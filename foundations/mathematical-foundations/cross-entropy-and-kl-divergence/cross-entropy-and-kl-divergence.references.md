@@ -19,7 +19,7 @@ updated: 2026-09-07
   - [Cross-Entropy & KL Divergence](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/cross-entropy-and-kl-divergence/cross-entropy-and-kl-divergence) — the concept page this list accompanies.
   - [Entropy](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/entropy/entropy) — the prerequisite: the why behind bits and surprise.
   - [Entropy & KL](/ai-ml/ai-ml-intuitions/foundational-mental-models/information-and-dependence/entropy-and-kl-divergence-intuition) — the intuition, applied downstream.
-  - [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/readme) — where the KL penalty in reinforcement learning from human feedback is used.
+  - [LLMs, Applications and Agents](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/readme) — where the KL penalty in reinforcement learning from human feedback is used.
   - [Maximum Likelihood Estimation](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/maximum-likelihood-estimation/maximum-likelihood-estimation) — the unifying theorem it rests on: minimising cross-entropy is maximum likelihood.
   - [Mutual Information](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/mutual-information/mutual-information) — where it goes next: $I(X;Y) = D_{KL}(\text{joint}\,\|\,\text{product of marginals})$, KL applied to dependence.
 - **Videos**:

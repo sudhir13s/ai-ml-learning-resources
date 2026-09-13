@@ -1,0 +1,4 @@
+# Regenerable caches written by this topic's code — large and reproducible, so not committed.
+code/data/
+code/.ipynb_checkpoints/
+code/__pycache__/

@@ -8,7 +8,7 @@ updated: 2026-09-13
 
 # Knowledge Graphs — references
 
-> Companion link library for **[Knowledge Graphs](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/neuro-symbolic-and-structured-intelligence/symbolic-reasoning-primer/knowledge-graphs/knowledge-graphs)** (the teaching page). Internal links and external sources, grouped by type and alphabetical within each group.
+> Companion link library for **[Knowledge Graphs](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/neuro-symbolic-and-structured-intelligence/symbolic-reasoning-primer/knowledge-graphs/knowledge-graphs)** (the teaching page). External sources and internal links, grouped by type, alphabetical within each group.
 
 **Start here — suggested path**:
 
@@ -19,9 +19,9 @@ updated: 2026-09-13
 5. **See the 2025 pairing with language models** — read [Unifying Large Language Models and Knowledge Graphs: A Roadmap](https://arxiv.org/abs/2306.08302) — **Pan, Luo, Wang, Chen, Wang & Wu (2023)**, then [GraphRAG](https://microsoft.github.io/graphrag/) — **Microsoft Research**. *The two directions: graphs grounding models, models building graphs.*
 
 **In this platform**:
+- The retrieval side (canonical home): [Graph RAG](/ai-ml/practitioner-workflows/llm-applications/graph-rag/graph-rag) · [Embedding Models](/ai-ml/ai-ml-learning-resources/data-and-representation/embedding-models/embedding-models) · [Vector Search](/ai-ml/ai-ml-learning-resources/data-and-representation/vector-search/vector-search)
 - Before this: [Knowledge Representation](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/neuro-symbolic-and-structured-intelligence/symbolic-reasoning-primer/knowledge-representation/knowledge-representation) · [Logic and Inference](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/neuro-symbolic-and-structured-intelligence/symbolic-reasoning-primer/logic-and-inference/logic-and-inference)
 - Next: [Neuro-Symbolic AI](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/neuro-symbolic-and-structured-intelligence/neural-symbolic-integration/neuro-symbolic-ai/neuro-symbolic-ai) · [Causal and Relational Reasoning](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/neuro-symbolic-and-structured-intelligence/structured-reasoning/causal-and-relational-reasoning/causal-and-relational-reasoning)
-- The retrieval side (canonical home): [Graph RAG](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/graph-rag/graph-rag) · [Embedding Models](/ai-ml/ai-ml-learning-resources/data-and-representation/embedding-models/embedding-models) · [Vector Search](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search)
 
 **Videos**:
 - [KGC23 Keynote: The Future of Knowledge Graphs in a World of LLMs](https://www.youtube.com/watch?v=ww99npDh4cg) — **Denny Vrandečić (Wikimedia), The Knowledge Graph Conference** — the creator of Wikidata on what graphs still do that language models cannot.

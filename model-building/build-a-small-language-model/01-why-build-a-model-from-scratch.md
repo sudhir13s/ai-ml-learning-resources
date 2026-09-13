@@ -118,7 +118,7 @@ mechanism per workflow and is the right place to go deeper on any single stage:
 - The stage after this one, once you have a base model —
   [Build a Small Chat Model](/ai-ml/ai-ml-learning-resources/model-adaptation/build-a-small-chat-model/from-base-model-to-assistant)
 - Serving a trained model —
-  [LLM Serving Engines](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/llm-serving-engines/llm-serving-engines)
+  [LLM Serving Engines](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/model-serving/model-serving)
 
 Nothing in this course re-teaches those. What it adds is the connective tissue: the order the stages
 go in, what each hands the next, and what goes wrong at each seam.
@@ -149,9 +149,11 @@ If that passes, everything in this course will run on your machine.
 
 ## References
 
-- The runnable project:
-  [small-language-model](/python/python-production-examples/small-language-model/readme)
-- Andrej Karpathy, *nanoGPT* — the canonical minimal implementation of this shape, MIT licensed:
-  <https://github.com/karpathy/nanoGPT>
-- Hugging Face, *LLM Course*, the chapter on training a language model from scratch — free and open:
-  <https://huggingface.co/learn/llm-course>
+**In this platform**:
+- [small-language-model](/python/python-production-examples/small-language-model/readme) — the runnable project.
+
+**Courses**:
+- [LLM Course](https://huggingface.co/learn/llm-course) — **Hugging Face** — the chapter on training a language model from scratch; free and open.
+
+**Resources**:
+- [nanoGPT](https://github.com/karpathy/nanoGPT) — **Andrej Karpathy** — the canonical minimal implementation of this shape, MIT licensed.

@@ -2,7 +2,7 @@
 id: "frontier-and-specialized/neuro-symbolic-and-structured-intelligence"
 topic: "Neuro-Symbolic and Structured Intelligence"
 level: advanced
-built_from: ["foundations", "deep-learning", "llms-applications-and-agents"]
+built_from: ["foundations", "deep-learning", "models-and-architectures"]
 updated: 2026-09-07
 ---
 
@@ -69,33 +69,35 @@ How to judge the claims, and the honest reasons to read the field sceptically.
 ### Related concepts (canonical home is another section)
 - **The paradigm orientation** — symbolic, statistical, neural, probabilistic → [AI Paradigms and Knowledge](/ai-ml/ai-ml-learning-resources/foundations/ai-paradigms-and-knowledge/readme)
 - **Causal inference at research depth** → [Causal Inference](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/causal-inference/causal-inference)
-- **Graph-structured retrieval in production** → [Graph RAG](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/graph-rag/graph-rag)
-- **Agents that call solvers and interpreters** → [Tool Use and Function Calling](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/tool-use/tool-use) · [Code Agents](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/coding-and-computer-use-agents/code-agents)
+- **Graph-structured retrieval in production** → [Graph RAG](/ai-ml/practitioner-workflows/llm-applications/graph-rag/graph-rag)
+- **Agents that call solvers and interpreters** → [Tool Use and Function Calling](/ai-ml/practitioner-workflows/agentic-systems/tool-use/tool-use) · [Code Agents](/ai-ml/practitioner-workflows/agentic-systems/coding-and-computer-use-agents/code-agents)
 
-## Courses (free)
-- [Neuro-Symbolic AI Summer School 2025 — Day 1](https://www.youtube.com/live/zVJ59vIden0) — **Centaur AI Institute and the Neuro-Symbolic AI Community** — the field's own school, free and recent.
-- [Introduction to Program Synthesis](https://people.csail.mit.edu/asolar/SynthesisCourse/) — **Armando Solar-Lezama (MIT)** — the canonical free course on searching program spaces.
-- [Mathematics in Lean](https://leanprover-community.github.io/mathematics_in_lean/) — **Lean community** — the proof assistant behind current formal-reasoning results, taught hands-on.
+## References
 
-## Videos
+**In this platform**:
+- Sibling specialization: [Advanced Mathematics for AI Research](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/readme) · [Neuroscience and Brain-Inspired AI](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/neuroscience-and-brain-inspired-ai/readme)
+- Applied surfaces: [Agentic AI](/ai-ml/practitioner-workflows/agentic-systems/agent-foundations/agent-foundations) · [Graph RAG](/ai-ml/practitioner-workflows/llm-applications/graph-rag/graph-rag)
+- Orientation before this track: [AI Paradigms and Knowledge](/ai-ml/ai-ml-learning-resources/foundations/ai-paradigms-and-knowledge/readme)
+
+**Videos**:
 - [AI Spotlight Seminar: Symbolic Reasoning for Large Language Models](https://www.youtube.com/watch?v=wApPzSqLVhY) — **Guy Van den Broeck (UCLA)** — what symbolic structure guarantees that a language model cannot.
 - [Terence Tao at IMO 2024: AI and Mathematics](https://www.youtube.com/watch?v=e049IoFBnLA) — **Terence Tao (AIMO Prize)** — machine assistance in mathematics, assessed by someone who uses it.
 
-## Key Papers
-- [Neurosymbolic AI: The 3rd Wave](https://arxiv.org/abs/2012.05876) — **Garcez & Lamb (2020)** — the survey that framed the modern field.
+**Courses**:
+- [Introduction to Program Synthesis](https://people.csail.mit.edu/asolar/SynthesisCourse/) — **Armando Solar-Lezama (MIT)** — the canonical free course on searching program spaces.
+- [Mathematics in Lean](https://leanprover-community.github.io/mathematics_in_lean/) — **Lean community** — the proof assistant behind current formal-reasoning results, taught hands-on.
+- [Neuro-Symbolic AI Summer School 2025 — Day 1](https://www.youtube.com/live/zVJ59vIden0) — **Centaur AI Institute and the Neuro-Symbolic AI Community** — the field's own school, free and recent.
+
+**Articles**:
+- [ARC Prize 2025: results and analysis](https://arcprize.org/blog/arc-prize-2025-results-analysis) — **ARC Prize Foundation** — where program search stands against frontier models.
+- [Scallop: a language for neurosymbolic programming](https://www.scallop-lang.org/) — **University of Pennsylvania** — the ideas as installable code.
+- [The 6 Types of Neuro-Symbolic Systems](https://harshakokel.com/posts/neurosymbolic-systems/) — **Harsha Kokel** — the taxonomy, with an example per category.
+
+**Papers**:
 - [Defining neurosymbolic AI](https://arxiv.org/abs/2507.11127) — **De Smet & De Raedt (2025)** — the current precise definition.
+- [Neurosymbolic AI: The 3rd Wave](https://arxiv.org/abs/2012.05876) — **Garcez & Lamb (2020)** — the survey that framed the modern field.
 - [Olympiad-level formal mathematical reasoning with reinforcement learning](https://www.nature.com/articles/s41586-025-09833-y) — **AlphaProof team, Google DeepMind (2025)** — the strongest published demonstration of the pattern.
 
-## Articles / Blogs (free, no paywall)
-- [The 6 Types of Neuro-Symbolic Systems](https://harshakokel.com/posts/neurosymbolic-systems/) — **Harsha Kokel** — the taxonomy, with an example per category.
-- [Scallop: a language for neurosymbolic programming](https://www.scallop-lang.org/) — **University of Pennsylvania** — the ideas as installable code.
-- [ARC Prize 2025: results and analysis](https://arcprize.org/blog/arc-prize-2025-results-analysis) — **ARC Prize Foundation** — where program search stands against frontier models.
-
-## Books (free, with chapters)
+**Books**:
 - [*Knowledge Graphs*](https://kgbook.org/) — **Hogan, Blomqvist, Cochez et al.** — the free standard reference for the graph half of this track.
 - [*The Elements of Differentiable Programming*](https://diffprog.github.io/) — **Blondel & Roulet (Google DeepMind)** — the free reference for the differentiable half.
-
-## In this platform
-- Orientation before this track: [AI Paradigms and Knowledge](/ai-ml/ai-ml-learning-resources/foundations/ai-paradigms-and-knowledge/readme)
-- Sibling specialization: [Advanced Mathematics for AI Research](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/advanced-mathematics-for-ai-research/readme) · [Neuroscience and Brain-Inspired AI](/ai-ml/ai-ml-learning-resources/frontier-and-specialized/neuroscience-and-brain-inspired-ai/readme)
-- Applied surfaces: [Agentic AI](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/agentic-ai/agent-foundations/agent-foundations) · [Graph RAG](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/graph-rag/graph-rag)

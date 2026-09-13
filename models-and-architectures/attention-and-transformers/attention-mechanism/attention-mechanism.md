@@ -1,6 +1,7 @@
 ---
 id: "05-deep-learning/attention-mechanism"
 topic: "Attention Mechanism"
+core_idea: "Attention replaces a fixed summary vector with a learned, per-query weighted lookup over every input, scaled by the square root of the key dimension to keep softmax from saturating, at quadratic cost in sequence length."
 parent: "05-deep-learning"
 level: intermediate
 built_from: ["rnn-lstm-gru", "linear-algebra", "softmax", "loss-functions"]
@@ -564,7 +565,7 @@ This is the table from §6 of *Attention Is All You Need*, and it's the one-slid
 
 - **Every transformer.** Encoder self-attention (BERT), decoder causal self-attention (GPT), and encoder–decoder cross-attention (T5, the original NMT model) are all this one mechanism, differing only in the source of Q/K/V and the mask.
 - **Beyond text.** Vision Transformers (ViT) attend over image patches; attention drives speech models (Whisper), protein structure (AlphaFold's Evoformer), diffusion-model backbones, graph networks, and recommender systems.
-- **Cross-attention as the universal "read" primitive.** Anywhere one stream pulls relevant information from another — multimodal models grounding text on images, [retrieval-augmented generation](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/rag-foundations/rag-foundations) attending over fetched documents — cross-attention is the glue.
+- **Cross-attention as the universal "read" primitive.** Anywhere one stream pulls relevant information from another — multimodal models grounding text on images, [retrieval-augmented generation](/ai-ml/practitioner-workflows/llm-applications/rag-foundations/rag-foundations) attending over fetched documents — cross-attention is the glue.
 
 > **Tip:** the heuristic for *when* to reach for attention: if a model needs to relate *every* element to *every* other and you can afford $O(n^2)$ (or its efficient approximations), attention is almost always the right primitive. When $n$ is huge, that "can you afford it" is precisely when you reach for the efficiency variants above.
 
@@ -741,8 +742,7 @@ score std | softmax max w | grad-norm at scores
 
 ---
 
-## References and further reading
-
+## References
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Attention Mechanism — references and further reading](/ai-ml/ai-ml-learning-resources/models-and-architectures/attention-and-transformers/attention-mechanism/attention-mechanism#references-further-reading)**
+**→ [Attention Mechanism — references](/ai-ml/ai-ml-learning-resources/models-and-architectures/attention-and-transformers/attention-mechanism/attention-mechanism#references-further-reading)**
