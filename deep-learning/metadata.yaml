@@ -1,0 +1,12 @@
+title: Deep Learning
+type: lesson
+section: deep-learning
+# The five sub-areas in course.yaml's declared order: what a network is, how it
+# is trained, the blocks that keep training stable, learning without labels, and
+# finally reading what the trained network actually does.
+page-order:
+  - neural-network-foundations
+  - optimization-and-training
+  - stabilization-and-architectural-blocks
+  - self-supervised-learning
+  - interpretability-and-analysis

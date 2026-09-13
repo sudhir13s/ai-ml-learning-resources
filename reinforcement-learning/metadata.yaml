@@ -1,0 +1,12 @@
+title: Reinforcement Learning
+type: lesson
+section: reinforcement-learning
+# The six sub-areas in course.yaml's declared order: the formalism first, then
+# value-based methods, then policy methods, then the three specialisations.
+page-order:
+  - foundations
+  - value-based-learning
+  - policy-learning
+  - model-based-reinforcement-learning
+  - offline-reinforcement-learning
+  - multi-agent-reinforcement-learning

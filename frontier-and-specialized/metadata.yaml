@@ -1,0 +1,16 @@
+title: Frontier and Specialized
+type: lesson
+section: frontier-and-specialized
+# course.yaml declares three sub-areas as this section's own pages — advanced
+# mathematics, neuroscience, and scientific deep learning — then neuro-symbolic
+# as a nested section, so that is the order the nav renders.
+#
+# NOTE the same divergence recorded in classical-machine-learning: the module's
+# CLAUDE.md lists neuro-symbolic third rather than last. The declaration is what
+# the build reads and wins here; the prose is the thing to correct if the intent
+# differs.
+page-order:
+  - advanced-mathematics-for-ai-research
+  - neuroscience-and-brain-inspired-ai
+  - scientific-and-specialized-deep-learning
+  - neuro-symbolic-and-structured-intelligence

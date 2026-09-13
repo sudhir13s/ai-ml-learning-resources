@@ -1,5 +1,9 @@
 # Reading order for this category. `page-order:` is the ONE ordering key
 # estate-wide (structure-authoring-contract Rule 4); entries are relative
 # and extension-less. README.md is repo-facing and deliberately absent.
+# `data-preparation` was missing from this list while course.yaml declares its
+# thirteen pages, so the sub-area rendered unordered. It reads first: prepare the
+# data you have before manufacturing more.
 page-order:
+  - data-preparation
   - synthetic-data-and-curation/synthetic-data-and-curation

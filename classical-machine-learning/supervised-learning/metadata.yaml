@@ -1,0 +1,9 @@
+title: Supervised Learning
+type: lesson
+section: classical-machine-learning/supervised-learning
+# The three families in course.yaml's declared order: predict a number, then
+# predict a class, then the tree and ensemble methods that do both.
+page-order:
+  - regression
+  - classification
+  - trees-and-ensembles

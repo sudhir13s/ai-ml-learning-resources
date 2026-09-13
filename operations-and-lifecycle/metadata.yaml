@@ -1,0 +1,14 @@
+title: Operations and Lifecycle
+type: lesson
+section: operations-and-lifecycle
+# The six sub-areas in course.yaml's declared order, which follows the lifecycle
+# itself: make the work reproducible, build the data and training platforms,
+# provision the training infrastructure, release it, watch it, then govern its
+# cost and risk.
+page-order:
+  - lifecycle-and-reproducibility
+  - data-and-training-platforms
+  - training-infrastructure
+  - release-and-deployment
+  - monitoring-and-reliability
+  - governance-and-economics

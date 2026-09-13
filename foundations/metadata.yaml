@@ -1,0 +1,13 @@
+title: Foundations
+type: lesson
+section: foundations
+# The six sub-areas in course.yaml's declared order: orient yourself, learn the
+# programming and data tooling, then the mathematics, then the paradigms, the
+# frameworks, and finally how to read the literature.
+page-order:
+  - ai-ml-orientation
+  - programming-and-data-foundations
+  - mathematical-foundations
+  - ai-paradigms-and-knowledge
+  - tools-and-frameworks
+  - research-literacy
