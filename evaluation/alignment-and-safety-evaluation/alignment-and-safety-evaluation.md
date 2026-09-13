@@ -264,6 +264,26 @@ Everything so far reduces hallucination *mechanically*. But there's a deeper que
 
 Honesty is where alignment and hallucination meet: *a model that confidently fabricates is dishonest*, and the fix (reward calibrated uncertainty, penalize confident fabrication) is an **alignment** intervention, not a capability one. This is exactly the incentive Kalai et al. identified — and changing an incentive is what [RLHF and DPO](/ai-ml/ai-ml-learning-resources/model-adaptation/preference-and-alignment-training/preference-and-alignment-training) (chapter 15) do.
 
+### What alignment does and does not defend against
+
+Alignment is one of two very different defences, and confusing them is how teams end up surprised. A **prompt injection** overrides *your* instructions — the system prompt you wrote. A ***jailbreak*** socially engineers the model past *its own* safety training: role-play ("pretend you are an AI with no rules"), hypotheticals, obfuscation. Alignment is the defence against the second; it does nothing about the first.
+
+```mermaid
+graph TD
+    INJ(["Prompt injection<br/>'ignore previous instructions'"]):::inj -->|"targets"| YOURS(["YOUR instructions<br/>(system prompt)"]):::yours
+    JB(["Jailbreak<br/>'pretend you have no rules'"]):::jb -->|"targets"| TRAIN(["the MODEL's training<br/>(its safety alignment)"]):::train
+    YOURS --> DEF1(["Caught by: input guard<br/>+ a robust system prompt"]):::def
+    TRAIN --> DEF2(["Caught by: alignment<br/>+ output guard backstop"]):::def
+
+    classDef inj fill:#8B3B4A,stroke:#7B2B3A,color:#fff
+    classDef jb fill:#8B3B4A,stroke:#7B2B3A,color:#fff
+    classDef yours fill:#3A6B96,stroke:#2A5B86,color:#fff
+    classDef train fill:#5D4A8A,stroke:#4D3A7A,color:#fff
+    classDef def fill:#2E7A5A,stroke:#1E6A4A,color:#fff
+```
+
+> **Warning:** Alignment is a black box you cannot audit, and any model can be jailbroken with enough effort — new jailbreaks appear faster than models are retrained. Treat it as the *strongest* layer of a defence, never the only one.
+
 ### What RLHF and DPO actually optimize
 
 Recall from chapter 15 the precise objectives — not "RLHF makes the model nicer" but what it mathematically maximizes.
@@ -293,6 +313,24 @@ Here is the trap. The easiest way to be **harmless** is to **refuse more** — a
 ![The helpful-vs-harmless Pareto frontier traced by a single permissiveness threshold r. Each point is one policy; color is r. At r→0 the model refuses everything (harmless but useless); at r→1 it answers everything (helpful but unsafe). The frontier has an elbow but never reaches the top-right corner — one scalar knob cannot maximize both.](images/hall_helpful_harmless.png)
 
 The frontier never reaches the top-right corner (helpful=1, harmless=1) with a single threshold. *Better* models push the whole frontier outward (more helpful at the same harmlessness) — but that requires a **better harm classifier** (distinguishing genuinely harmful from benign-but-scary requests), not a different threshold. This is precisely why alignment is hard: it is a **multi-objective** problem, and the objectives genuinely conflict.
+
+Both directions are failures, and they need opposite fixes:
+
+```mermaid
+graph TD
+    AL(["Model alignment"]):::model --> UNDER(["Under-refusal<br/>(jailbroken: helps with harm)"]):::under
+    AL --> OVER(["Over-refusal<br/>(refuses harmless asks)"]):::over
+    UNDER --> J(["Fix: stronger safety<br/>training + output guard"]):::fix
+    OVER --> H(["Fix: helpful-compliance<br/>data; don't over-train refusals"]):::fix2
+
+    classDef model fill:#5D4A8A,stroke:#4D3A7A,color:#fff
+    classDef under fill:#8B3B4A,stroke:#7B2B3A,color:#fff
+    classDef over fill:#7D5A2C,stroke:#6D4A1C,color:#fff
+    classDef fix fill:#2E7A5A,stroke:#1E6A4A,color:#fff
+    classDef fix2 fill:#2A5B80,stroke:#1A4B70,color:#fff
+```
+
+***Under-refusal*** is the jailbreak case: a clever prompt talks the model past its training and it helps with something harmful. ***Over-refusal*** is the opposite, and more insidious in production, because it does not show up in safety metrics — the nurse asking about a drug dosage, the security engineer asking how an exploit works so they can patch it. **An over-refusing model fails its users just as surely as an under-refusing one fails on safety.**
 
 > **Note (where over-refusal lives in the metrics):** benchmarks now measure both sides — [XSTest](https://arxiv.org/abs/2308.01263) probes over-refusal on *safe* prompts that *look* unsafe, while harmlessness benchmarks probe genuine refusals. A well-aligned model scores high on **both**, which only a model with a good harm boundary can do — exactly the "push the frontier out" move, not the "slide along it" move.
 
@@ -325,6 +363,37 @@ graph TD
 > **Gotcha (the metric that lies to you):** a high **faithfulness** score does **not** imply a high **factuality** score. A model can faithfully summarize a document that is *itself wrong*, scoring perfectly on faithfulness while propagating a falsehood into the world. Always know **which** your metric measures. Faithfulness is the right target for RAG/summarization (you control the source); factuality is the right target for closed-book QA (the world is the source). Reporting one as if it were the other is the single most common evaluation mistake in this area.
 
 > **Tip:** also measure **abstention quality** and **over-refusal**, not just accuracy. A model that scores 70% factual accuracy by *answering everything* may be worse in production than one that scores 65% by answering 80% of questions and abstaining on the rest — the second one isn't confidently wrong on the 20% it can't do. Report **accuracy at a fixed coverage** (the risk–coverage curve), not accuracy alone.
+
+---
+
+## Red-teaming: measuring alignment adversarially
+
+The metrics above score a model on prompts it was meant to answer. Alignment also has to be measured on prompts designed to defeat it, and that is a different exercise: ***red-teaming*** is deliberately probing a model with adversarial inputs to find what gets through, before someone else does.
+
+```mermaid
+graph TD
+    RT(["Red-team suite<br/>held-out attack prompts"]):::suite --> RUN(["Run against<br/>the model"]):::run
+    RUN --> M1(["Measure: attack-success rate<br/>per threat class"]):::measure
+    M1 --> CMP{{"vs. target<br/>(e.g. under 15%)?"}}:::cmp
+    CMP -->|"above"| FIX(["Patch: safety training,<br/>refusal data, thresholds"]):::fix
+    CMP -->|"below"| SHIP(["Ship + keep the suite<br/>as a regression test"]):::ship
+    FIX --> RUN
+
+    classDef suite fill:#8B3B4A,stroke:#7B2B3A,color:#fff
+    classDef run fill:#5D4A8A,stroke:#4D3A7A,color:#fff
+    classDef measure fill:#3A6B96,stroke:#2A5B86,color:#fff
+    classDef cmp fill:#7A6528,stroke:#6A5518,color:#fff
+    classDef fix fill:#7D5A2C,stroke:#6D4A1C,color:#fff
+    classDef ship fill:#2E7A5A,stroke:#1E6A4A,color:#fff
+```
+
+The number it produces is the ***attack-success rate*** — the fraction of adversarial prompts in a class that reach a harmful result. Measure it **per threat class** (jailbreak, harmful-instruction, exfiltration, toxic completion), because the model fails differently on each, and measure it **before and after** a safety intervention so the intervention has to prove itself.
+
+**Jailbreaks are the stubborn residual.** Every other class tends to drop sharply under safety training; jailbreaks target the alignment itself, which is the hardest surface to close, and new ones appear continuously. That residual is why red-teaming is a schedule, not a milestone.
+
+> **Important:** A red-team suite is a **regression test, not a one-time audit**. The moment a model version or decoding setting changes, yesterday's blocked attack may succeed. Keep the suite in CI and treat a rising attack-success rate exactly like a failing test.
+
+> **Tip:** Do not write the suite by hand. Seed it from public adversarial collections — Microsoft's PyRIT, garak, and published jailbreak sets — then add every real attack you observe, because attacks aimed at your own deployment are the most valuable cases you will get.
 
 ---
 

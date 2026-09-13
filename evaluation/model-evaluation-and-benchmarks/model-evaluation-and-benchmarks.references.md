@@ -38,6 +38,7 @@ updated: 2026-09-07
 
 **Articles / blogs (free, no paywall)**:
 - [Chatbot Arena: Benchmarking LLMs in the Wild](https://lmsys.org/blog/2023-05-03-arena/) — **LMSYS** — crowdsourced Elo from pairwise votes, the most-watched preference leaderboard.
+- [Cohen's kappa](https://en.wikipedia.org/wiki/Cohen%27s_kappa) — **Wikipedia** — the chance-corrected agreement statistic the page uses to decide whether a judge is trustworthy, with the contingency-table derivation.
 - [LLM-as-a-judge: a complete guide](https://www.evidentlyai.com/llm-guide/llm-as-a-judge) — **Evidently AI** — judge methodology and the position/verbosity/self-enhancement biases, with mitigations.
 - [HELM: Holistic Evaluation of Language Models](https://crfm.stanford.edu/helm/) — **Stanford CRFM** — the multi-metric, multi-scenario philosophy in prose.
 - [Perplexity of fixed-length models](https://huggingface.co/docs/transformers/en/perplexity) — **Hugging Face** — how perplexity is actually computed (sliding window, tokenizer caveats) with runnable code.

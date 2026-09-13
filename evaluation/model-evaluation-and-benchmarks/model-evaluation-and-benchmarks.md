@@ -254,6 +254,16 @@ The shape of pass@k itself is worth internalizing: more attempts *always* help (
 
 > **Gotcha:** pass@k with large $k$ flatters weak models — given enough samples, *anything* eventually passes one unit test. Always report the $k$ that matches deployment (usually pass@1 for "one shot," and a larger $k$ only if you actually sample-and-filter in production). Quoting pass@100 as if it were the user experience is a classic benchmark sleight of hand.
 
+### Detecting contamination: the gap test
+
+Saturation is one way a benchmark stops measuring capability; **contamination** is the other, and it is the trap that invalidates more leaderboard numbers than anything else. Public benchmarks live on the internet, so they end up in the web scrape a model is pretrained on. When a model has seen the test questions during training, a high score measures **memorization, not capability**.
+
+The cleanest tell is a **gap**: a model that scores far higher on a public benchmark than on a *fresh held-out variant of the same task* — new questions in the same style, which it could not have memorized — is very likely contaminated.
+
+![Grouped bars comparing four models on a public benchmark versus a fresh held-out set. Three models score within a few points on both; one scores 88% public against 58% fresh, a thirty-point drop flagged as a contamination signal.](images/eval_contamination_gap.png)
+
+Defences, strongest first: **(1)** prefer benchmarks with private or rotating test sets; **(2)** build your own fresh eval from data postdating the model; **(3)** run canary-string and n-gram contamination checks; **(4)** treat any single public number with suspicion and triangulate against your own set.
+
 ---
 
 ## Lens 3 — LLM-as-judge: scaling the oral exam (and its three biases)
@@ -274,11 +284,61 @@ graph LR
     classDef danger fill:#8B3B4A,stroke:#7B2B3A,color:#fff
 ```
 
+### Writing the rubric: make the criteria explicit
+
+The single biggest quality lever is the **rubric**. Never ask "is this answer good?" — that invites the judge's vibes. Spell out the dimensions and the scale, define every score, and ask for a short justification *before* the number, so the reasoning conditions the score instead of rationalising it.
+
+```text
+You are grading a customer-support answer. Score 1-5 on FAITHFULNESS:
+  5 = every claim is supported by the provided context
+  3 = mostly supported, one minor unsupported claim
+  1 = contains a fabricated claim
+First write one sentence of reasoning, then output: SCORE: <n>
+[CONTEXT] ...
+[ANSWER] ...
+```
+
+**What the judge actually sees, and says.** Fill the slots and the exchange is literal — this is the prompt that goes to the judge and the text that comes back:
+
+```text
+You are grading a customer-support answer. Score 1-5 on FAITHFULNESS:
+  5 = every claim is supported by the provided context
+  3 = mostly supported, one minor unsupported claim
+  1 = contains a fabricated claim
+First write one sentence of reasoning, then output: SCORE: <n>
+[CONTEXT] Help-center policy: agents must never request or use a customer's SSN;
+          lost/stolen cards are handled by opening a replacement request, which
+          triggers an automated confirmation email.
+[ANSWER]  I can't verify accounts using an SSN, and please avoid sharing it here.
+          I've opened a card-replacement request and emailed you a confirmation.
+
+--- judge response ---
+The answer correctly refuses the SSN and opens a replacement with an email
+confirmation, all supported by the policy; nothing is fabricated.
+SCORE: 5
+```
+
+That `SCORE: 5` is what your code parses out (regex the digit after `SCORE:`) and stores. Notice what the judge catches that overlap metrics miss: the wording differs from the reference answer, so token-F1 docks it — but every *claim* traces to the context, so the rubric judge correctly awards a 5. That gap is the entire reason a judge exists.
+
+> **Note:** The judge model is part of the measurement. A weak judge produces noisy, biased scores, and an unpinned one silently changes the ruler — fix the exact model version and decoding settings, or scores drift between runs for reasons that have nothing to do with the model you are grading.
+
 The three biases, catalogued by [Zheng et al. 2023 (MT-Bench / Chatbot Arena)](https://arxiv.org/abs/2306.05685):
 
 - **Position bias** — the judge favors whichever answer it sees *first* (or sometimes *last*). The same pair of answers can swap winners purely by swapping their order.
 - **Verbosity bias** — the judge favors *longer*, more detailed answers even when length adds nothing, so a model can win by padding.
 - **Self-enhancement bias** — a judge tends to prefer answers in the style of its *own* model family (e.g. a GPT-4 judge slightly favoring GPT-4-style answers).
+
+Naming them is half the battle; each has a specific control:
+
+| Bias | What happens | The control |
+|---|---|---|
+| **Position bias** | Prefers whichever answer is shown *first* in a pairwise prompt | **Swap and average**: judge (A,B) and (B,A), count a win only if both agree |
+| **Verbosity bias** | Prefers the *longer* answer, mistaking length for quality | Normalize or cap length; instruct "ignore length"; track length as a covariate |
+| **Self-enhancement bias** | Prefers text written by the *same model family* as the judge | Use a judge from a *different* family than the model being graded |
+
+The measured effect is large enough to change a release decision, and the controls drag it back toward fair:
+
+![Grouped bars of judge win-rate for the favoured answer under three biases — position, verbosity and self-preference. The naive judge sits at 64-71%, well above the fair 50% line; with the controls applied the bars fall to 51-55%.](images/eval_judge_bias_controls.png)
 
 ### Measuring position bias from scratch
 
@@ -310,9 +370,54 @@ Real output: the unbiased judge **never flips** and wins first-position exactly 
 
 ![Sweeping the judge's position-bias strength from 0 to 0.4: the verdict flip-rate (red) climbs from 0 as more near-ties become order-dependent, and the first-position win-rate (blue) rises above the fair 0.5 line. A perfectly fair judge sits at flip-rate 0 and win-rate 0.5; any deviation is measurable bias. The standard fix — rate every pair in both orders and average — collapses the flip-rate's effect on the final score.](images/eval_judge_position_bias.png)
 
+The fix is the measurement run twice and reconciled:
+
+```mermaid
+graph LR
+    A(["Answer A"]):::in --> R1(["Judge (A,B)"]):::judge
+    B(["Answer B"]):::in --> R1
+    A --> R2(["Judge (B,A)<br/>order swapped"]):::judge
+    B --> R2
+    R1 --> AGG(["Win only if BOTH agree<br/>else call it a tie"]):::out
+    R2 --> AGG
+
+    classDef in fill:#3A6B96,stroke:#2A5B86,color:#fff
+    classDef judge fill:#5D4A8A,stroke:#4D3A7A,color:#fff
+    classDef out fill:#2E7A5A,stroke:#1E6A4A,color:#fff
+```
+
 ### Does the judge agree with humans?
 
 The reason LLM-as-judge is trusted at all: on MT-Bench and Chatbot Arena data, [Zheng et al. 2023](https://arxiv.org/abs/2306.05685) found that **GPT-4's judgments agree with human preferences ~80% of the time — about the same rate two *humans* agree with each other (~81%).** So a strong judge is roughly as reliable as a second human annotator, which is good enough to use it as a *scalable proxy* — provided you control its biases (swap orders, control for length, avoid same-family self-judging) and *spot-check against humans*. It does **not** replace human evaluation for high-stakes decisions; it scales the cheap 80% so humans can focus on the hard 20%.
+
+#### Prove it on your own data: Cohen's κ
+
+That ~80% is *their* number on *their* data. The rule that separates a trustworthy judge pipeline from a cargo-cult one is that **a judge is only a valid metric if it agrees with your humans, on your task.** Have humans grade a sample of the same outputs and measure agreement **corrected for chance** with Cohen's kappa:
+
+$$\kappa = \frac{p_o - p_e}{1 - p_e}$$
+
+*Source: Cohen, 1960 — A Coefficient of Agreement for Nominal Scales; open summary at [Cohen's kappa](https://en.wikipedia.org/wiki/Cohen%27s_kappa).*
+
+where $p_o$ is observed agreement and $p_e$ the agreement expected by chance. κ = 1 is perfect, 0 is no better than chance. The usual reading: **above 0.8** almost perfect, **0.6–0.8** substantial (the bar to trust a judge), **0.4–0.6** moderate, below that do not rely on it.
+
+**Why subtract chance — a κ by hand.** Say a judge and a human both grade 100 answers pass/fail and agree on 90: $p_o = 0.90$, which sounds excellent. But the judge passes 90% of answers and the human passes 90% too, so by chance alone they would agree $p_e = 0.90 \cdot 0.90 + 0.10 \cdot 0.10 = 0.82$ of the time *purely from both being lenient*. The chance-corrected figure is $\kappa = (0.90 - 0.82)/(1 - 0.82) = 0.44$ — only moderate, behind a flattering 90%. **That gap is why you never report raw agreement on a skewed label distribution:** a judge that rubber-stamps everything looks agreeable and tells you nothing.
+
+```mermaid
+graph LR
+    OUT(["Sample of model outputs"]):::data --> JG(["LLM judge scores"]):::judge
+    OUT --> HM(["Humans score same sample"]):::human
+    JG --> K(["Cohen's κ"]):::calc
+    HM --> K
+    K -->|"κ ≥ 0.6"| OK(["Trust judge as a metric"]):::ok
+    K -->|"κ < 0.6"| NO(["Fix rubric / judge,<br/>re-measure"]):::no
+
+    classDef data fill:#3A6B96,stroke:#2A5B86,color:#fff
+    classDef judge fill:#5D4A8A,stroke:#4D3A7A,color:#fff
+    classDef human fill:#2A5B80,stroke:#1A4B70,color:#fff
+    classDef calc fill:#7D5A2C,stroke:#6D4A1C,color:#fff
+    classDef ok fill:#2E7A5A,stroke:#1E6A4A,color:#fff
+    classDef no fill:#8B3B4A,stroke:#7B2B3A,color:#fff
+```
 
 > **Gotcha:** never let a model judge *itself* or its own family for a release decision — self-enhancement bias makes the score optimistic. And never report an LLM-judge win-rate without stating the judge model, the rubric, and whether you averaged over answer order. An unstated judge is an unreproducible number.
 

@@ -460,5 +460,23 @@ def main() -> None:
           f"first-position win-rate to {biased.first_pos_winrate:.1%}.")
 
 
+def cohens_kappa(rater_a: list[str], rater_b: list[str]) -> float:
+    """Chance-corrected agreement between two raters over categorical labels.
+
+    Raw agreement flatters a judge whenever the label distribution is skewed:
+    two raters who both pass 90% of answers agree 82% of the time by luck alone.
+    Kappa subtracts that expected agreement, which is why it — and not raw
+    percentage agreement — is the number that decides whether a judge is a
+    trustworthy metric (the usual bar is 0.6).
+    """
+    categories = sorted(set(rater_a) | set(rater_b))
+    n = len(rater_a)
+    observed = sum(a == b for a, b in zip(rater_a, rater_b)) / n
+    expected = sum(
+        (rater_a.count(c) / n) * (rater_b.count(c) / n) for c in categories
+    )
+    return 1.0 if expected >= 1.0 else (observed - expected) / (1 - expected)
+
+
 if __name__ == "__main__":
     main()
