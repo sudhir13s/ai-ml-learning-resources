@@ -6,3 +6,4 @@ page-order:
   - reproducibility/reproducibility
   - experiment-tracking/experiment-tracking
   - data-and-model-versioning/data-and-model-versioning
+  - continuous-training/continuous-training

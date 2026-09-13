@@ -58,4 +58,5 @@ levels — so you can place any tool or practice on the map.
 
 ## In this platform
 - Next concepts: [02 Reproducibility](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/reproducibility/reproducibility) · [03 Experiment Tracking](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/experiment-tracking/experiment-tracking) · [07 CI/CD for ML & CT](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/release-and-deployment/cicd-for-ml-and-continuous-training/cicd-for-ml-and-continuous-training)
+- The top of the maturity ladder, taught in full: [Continuous Training](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/continuous-training/continuous-training)
 - Related concept (covered elsewhere): data preprocessing & feature engineering → [02. Data_Preprocessing](/ai-ml/ai-ml-learning-resources/data-and-representation/data-preparation/readme)

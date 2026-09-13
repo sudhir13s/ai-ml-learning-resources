@@ -541,6 +541,7 @@ spec:
         - path: operations-and-lifecycle/lifecycle-and-reproducibility/reproducibility/reproducibility.md
         - path: operations-and-lifecycle/lifecycle-and-reproducibility/experiment-tracking/experiment-tracking.md
         - path: operations-and-lifecycle/lifecycle-and-reproducibility/data-and-model-versioning/data-and-model-versioning.md
+        - path: operations-and-lifecycle/lifecycle-and-reproducibility/continuous-training/continuous-training.md
         # data-and-training-platforms
         - path: operations-and-lifecycle/data-and-training-platforms/feature-stores/feature-stores.md
         - path: operations-and-lifecycle/data-and-training-platforms/ml-pipelines-and-orchestration/ml-pipelines-and-orchestration.md

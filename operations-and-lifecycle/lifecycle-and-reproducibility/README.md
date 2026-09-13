@@ -17,10 +17,10 @@ updated: 2026-09-07
 
 ## Concept index
 
-Pages 2 to 4 are full teaching pages — the Practitioner Workflows experiment-tracking workflow
-harvested in here at W3 of the layer plan, one `support-bot` experiment carried across all three —
-each with its curated references (videos, courses, articles, papers, books) in a
-companion file beside it. Page 1 is the resource card that maps the sub-area.
+Pages 2 to 5 are full teaching pages harvested from Practitioner Workflows at W3 of the layer
+plan — experiment tracking across pages 2 to 4, carrying one `support-bot` experiment, and the
+retraining flywheel on page 5 — each with its curated references (videos, courses, articles,
+papers, books) in a companion file beside it. Page 1 is the resource card that maps the sub-area.
 
 ### The map
 
@@ -34,6 +34,10 @@ companion file beside it. Page 1 is the resource card that maps the sub-area.
 
 3. [Experiment Tracking](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/experiment-tracking/experiment-tracking) — the anatomy of a logged run (params, metrics, artifacts), the W&B / MLflow / TensorBoard mental model, hyperparameter sweeps and why random beats grid, a runnable fifteen-line tracker, and the troubleshooting gallery.
 4. [Data and Model Versioning](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/data-and-model-versioning/data-and-model-versioning) — content-addressed data and model artifacts with DVC or lakeFS; one git commit that pins code, config and the data pointer; the half of reproducibility Git cannot do.
+
+### Keeping a shipped model true over time
+
+5. [Continuous Training](/ai-ml/ai-ml-learning-resources/operations-and-lifecycle/lifecycle-and-reproducibility/continuous-training/continuous-training) — the retraining flywheel: which trigger fires a retrain (schedule, drift, performance) and why you want more than one, the population-stability index worked by hand, full versus incremental retraining, and the three ways an automated loop poisons itself — feedback-loop bias, catastrophic forgetting, and a missing evaluation gate.
 
 ## Courses
 

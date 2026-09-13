@@ -4,7 +4,7 @@ id: lr-fine-tuning-production-fine-tuning-pipeline
 minutes: 3
 core_idea: "A production fine-tune is a pipeline, not a notebook — data in, adapter out, evaluation gate, registry entry, and a rollback that does not need a rebuild."
 builds_on: [pw-mlops-and-deployment]
-related: [pw-continuous-training, pw-model-serving]
+related: [18-mlops/continuous-training, pw-model-serving]
 section: "ai-ml-learning-resources"
 workflow: "fine-tuning"
 chapter: 6
