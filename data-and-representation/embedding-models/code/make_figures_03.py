@@ -2,7 +2,7 @@
 
 Imports the SAME canonical functions the page and notebook use (embedding_models.py) so every
 plotted number from our own embedders is the chapter's own — no hand-typed values. Writes
-muted-palette PNGs to the shared chapter image dir (../../images/) with the per-chapter prefix
+muted-palette PNGs to the topic's own image dir (../images/) with the per-chapter prefix
 `rag03_`.
 
     python make_figures_03.py
@@ -20,6 +20,9 @@ Figures produced:
                                   diminishing) and memory cost (linear) -- the dimension tradeoff.
   rag03_asymmetric_prefix.png   -- SCHEMATIC: asymmetric search -- query and passage get different
                                   instruction prefixes (E5 'query:'/'passage:') before encoding.
+  emb_2d_scatter.png            -- ILLUSTRATIVE: a synthetic 2D map of three topic clusters (refunds,
+                                  shipping, accounts) with a query star inside the refunds cluster;
+                                  nearest-neighbour search = "grab the closest dots".
 
 Verified on Python 3.12 / matplotlib 3.x / numpy 2.x / torch 2.x. Headless (Agg); no display needed.
 """
@@ -56,7 +59,7 @@ AMBER = "#7A6528"  # highlight
 INK = "#1C2530"  # labels
 GRID = "#D4D9DF"  # gridlines
 
-OUT_DIR = Path(__file__).resolve().parent.parent.parent / "images"
+OUT_DIR = Path(__file__).resolve().parent.parent / "images"
 DPI = 110
 
 
@@ -327,7 +330,46 @@ def fig_asymmetric_prefix() -> None:
     _save(fig, "rag03_asymmetric_prefix.png")
 
 
+def fig_meaning_map() -> None:
+    """ILLUSTRATIVE: meaning as geography — three synthetic topic clusters and one query point.
+
+    The points are drawn from seeded Gaussians around three hand-placed centres, standing in for
+    what a projection of real 384-d sentence embeddings looks like. No embedder produced them; the
+    figure teaches the geometry of retrieval (the query lands inside the cluster that answers it),
+    and the page caption labels it illustrative.
+    """
+    rng = np.random.default_rng(0)
+    centres = {
+        "refunds": (np.array([-2.4, 1.8]), BLUE),
+        "shipping": (np.array([2.6, 2.0]), GREEN),
+        "accounts": (np.array([0.2, -2.4]), PURPLE),
+    }
+    fig, ax = plt.subplots(figsize=(7.4, 5.2))
+    _style_axis(ax)
+    for topic, (centre, colour) in centres.items():
+        points = centre + rng.normal(scale=0.7, size=(7, 2))
+        ax.scatter(points[:, 0], points[:, 1], color=colour, s=70, alpha=0.85,
+                   edgecolor="white", linewidth=0.6, label=f"{topic} docs")
+    query = np.array([-2.0, 1.5])
+    ax.scatter([query[0]], [query[1]], color=RED, s=180, marker="*", zorder=6,
+               edgecolor="white", linewidth=0.8, label="query")
+    ax.annotate('query: "how long\ndo refunds take?"', xy=(query[0], query[1]),
+                xytext=(query[0] - 1.0, query[1] + 1.6), color=RED, fontsize=10,
+                arrowprops=dict(arrowstyle="->", color=RED, lw=1.3))
+    theta = np.linspace(0, 2 * np.pi, 200)
+    ax.plot(query[0] + 1.7 * np.cos(theta), query[1] + 1.7 * np.sin(theta),
+            color=RED, ls="--", lw=1.2, alpha=0.6)
+    ax.text(query[0] + 1.2, query[1] - 1.9, "top-k = nearest dots", color=RED, fontsize=9.5)
+    ax.set_xlabel("embedding dimension 1 (projected)")
+    ax.set_ylabel("embedding dimension 2 (projected)")
+    ax.set_title("Embeddings as a map of meaning: similar text lands near the query", fontsize=12)
+    ax.legend(loc="lower left", framealpha=0.95, fontsize=9.5)
+    ax.set_aspect("equal", adjustable="datalim")
+    _save(fig, "emb_2d_scatter.png")
+
+
 def main() -> None:
+    fig_meaning_map()
     fig_paraphrase_clusters()
     fig_cosine_heatmap()
     fig_contrastive_training()

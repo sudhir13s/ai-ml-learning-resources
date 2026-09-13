@@ -6,13 +6,14 @@ level: intermediate
 built_from: ["softmax", "cross-entropy", "09-llms/language-modeling-objectives"]
 interview_frequency: high
 template: concept-deep
-updated: 2026-06-26
+updated: 2026-09-13
 tier: standard
 est_minutes: 30
 leads_to: ["09-llms/lora-and-peft"]
 title: "Knowledge Distillation"
 minutes: 30
 category: model-adaptation
+core_idea: "A teacher's softened output ranks the wrong answers by how plausible they are; training a small student to match that ranking, with a T-squared factor keeping the soft gradient alive, transfers far more than the hard labels ever could."
 ---
 
 # Knowledge Distillation: teach a small model to think like a big one
@@ -32,7 +33,7 @@ By the end of this page you'll be able to:
 - explain how distillation actually works for **LLMs** (DistilBERT, TinyBERT, sequence-level KD, reasoning distillation);
 - name the **limits** — the capacity gap, teacher errors, and tuning — before they bite you.
 
-> **Note:** distillation is one of the **three compression levers**, alongside [quantization](/ai-ml/ai-ml-learning-resources/inference-and-serving/quantization/quantization) (fewer *bits* per weight) and pruning (fewer *weights*). Distillation is the one that changes the model's *size and shape* — you get a genuinely smaller architecture, not the same one stored more cheaply. The three compose.
+> **Note:** distillation is one of the **three compression levers**, alongside [quantization](/ai-ml/ai-ml-learning-resources/inference-and-serving/quantization/quantization) (fewer *bits* per weight) and [pruning](/ai-ml/ai-ml-learning-resources/inference-and-serving/pruning-and-sparsity/pruning-and-sparsity) (fewer *weights*). Distillation is the one that changes the model's *size and shape* — you get a genuinely smaller architecture, not the same one stored more cheaply. The three compose.
 
 ---
 
@@ -359,9 +360,14 @@ graph TD
 
 ---
 
-## Pitfalls and limits
+## Pitfalls: the limits of distillation
 
 Distillation is not magic; it has well-understood failure modes. Know them before you ship.
+
+- **The distilled student barely beats the hard-label student.** Check three causes, in order:
+  - **Temperature too low** — the soft targets are nearly one-hot, so there is little dark knowledge to transfer. Try $T = 4$.
+  - **Little class structure** — on a task whose wrong answers are all equally wrong, soft targets add almost nothing.
+  - **A weak teacher** — confirm the teacher is actually better than the student before blaming the loss.
 
 - **The capacity gap.** A student that is *too* small simply cannot represent the teacher's function, and pushing it to match a much stronger teacher can *hurt* — the soft targets become a moving target it can't fit, and quality can drop *below* training it on hard labels alone. There's a sweet spot in teacher-to-student size ratio; an enormous teacher is sometimes a *worse* distillation source than a moderate one. If distillation underperforms, your teacher may be too strong for your student, not too weak.
 
@@ -388,7 +394,7 @@ Distillation is everywhere small-but-capable models come from:
 
 **When *not* to reach for it:** if your student has plenty of capacity and you have abundant labelled data, plain training may match distillation with less machinery. And if you need the *teacher's* top-end accuracy (not 97% of it), distillation is the wrong tool — you can't compress away a capability the student is too small to hold. Distillation trades a little quality for a lot of efficiency; make sure that's the trade you want.
 
-> **Tip:** the three compression levers compose and are usually applied in order — **distill** (smaller architecture) → **prune** (drop dead weights) → **quantize** (fewer bits). Each attacks a different axis of cost, and a production small model often has all three applied.
+> **Tip:** the three compression levers compose and are usually applied in order — **distill** (smaller architecture) → **[prune](/ai-ml/ai-ml-learning-resources/inference-and-serving/pruning-and-sparsity/pruning-and-sparsity)** (drop dead weights) → **[quantize](/ai-ml/ai-ml-learning-resources/inference-and-serving/quantization/quantization)** (fewer bits). Each attacks a different axis of cost, and a production small model often has all three applied.
 
 ---
 
@@ -411,8 +417,8 @@ Distillation is everywhere small-but-capable models come from:
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, articles, papers, and interactive demos — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Knowledge Distillation — references and further reading](/ai-ml/ai-ml-learning-resources/model-adaptation/knowledge-distillation/knowledge-distillation#references-further-reading)**
+**→ [Knowledge Distillation — references](/ai-ml/ai-ml-learning-resources/model-adaptation/knowledge-distillation/knowledge-distillation#references-further-reading)**

@@ -6,12 +6,13 @@ level: advanced
 built_from: ["09-llms/kv-cache", "09-llms/decoder-only-architecture", "09-llms/efficient-attention-flashattention"]
 interview_frequency: high
 template: concept-deep
-updated: 2026-09-07
+updated: 2026-09-13
 tier: standard
-est_minutes: 30
+est_minutes: 35
 leads_to: ["09-llms/quantization"]
+core_idea: "Decode spends its time streaming weights rather than computing, so every serving lever makes one expensive memory read yield more tokens, and the same throughput curve sets what a token costs."
 title: "Inference Optimization & Serving (vLLM · PagedAttention · continuous batching)"
-minutes: 30
+minutes: 35
 category: inference-and-serving
 ---
 
@@ -178,6 +179,52 @@ compute-roofline crossover: B* = 232
 Read it top to bottom. From batch 1 to 128, latency/token barely moves (8.0 → 10.2 ms) while throughput climbs **100×** (125 → 12,614 tok/s) — that's the weight read being amortized, nearly free tokens. Then near the **crossover batch $B^\star \approx 232$** the compute term overtakes memory, the `bound` column flips to `compute`, and throughput **saturates at the compute roofline** (~19,500 tok/s) — adding more batch now only adds latency. This curve *is* the latency↔throughput tradeoff, made of arithmetic.
 
 > **Note (the long-context twist):** at 256-token context there's a crossover; at **2048**-token context there is **none** — decode stays memory-bound at *every* batch. Why? The KV term $B\cdot\text{ctx}\cdot\text{kv}_{\text{tok}}$ grows with $B$ faster than the compute headroom does, so you never reach the ridge. This is the systems-level reason **shrinking the KV cache (GQA, FP8) directly buys throughput at long context** — you're cutting the bytes that are the bottleneck. It connects this page straight back to the four levers in the **[KV-cache chapter](/ai-ml/ai-ml-learning-resources/inference-and-serving/kv-cache/kv-cache)**.
+
+### From tokens per second to dollars per million tokens
+
+A rented GPU is billed by the hour whether it emits 125 tokens a second or 19,500. So the throughput curve above is also a **cost curve**:
+
+$$\text{cost per 1M tokens} \;=\; \frac{\text{GPU price per hour}}{\text{throughput}(B) \times 3600\ \text{s}} \times 10^{6}.$$
+
+The companion [cost script](code/cost_per_token.py) prices the same modeled A100 / Llama-3-8B sweep at an illustrative **\$2 per GPU-hour**. That rate is a modeled round number, not a quote; change one constant and every row re-prices:
+
+```
+All values MODELED: A100 / Llama-3-8B constants, GPU at $2.00/hour.
+
+ batch |  tok/s @256 |  $/1M @256 |  tok/s @2048 |  $/1M @2048
+----------------------------------------------------------------
+     1 |         125 |     4.4538 |          123 |      4.5190
+     8 |         983 |     0.5649 |          882 |      0.6301
+    32 |        3748 |     0.1482 |         2603 |      0.2135
+    64 |        7053 |     0.0788 |         3858 |      0.1440
+   128 |       12614 |     0.0440 |         5083 |      0.1093
+   156 |       14693 |     0.0378 |         5391 |      0.1031
+   256 |       19500 |     0.0285 |         6043 |      0.0919
+   512 |       19500 |     0.0285 |         6674 |      0.0832
+
+cost floor at the compute roofline (B* = 232): $0.0285 per 1M tokens
+batch 1 costs 156x the floor
+
+Idle hours are still billed -- batch 128 at 256-token context:
+  utilization 100%: $0.0440 per 1M tokens
+  utilization  50%: $0.0881 per 1M tokens
+  utilization  25%: $0.1762 per 1M tokens
+```
+
+![Modeled cost of self-hosted decode, in dollars per million output tokens, against batch size for Llama-3-8B on one A100 at $2 per GPU-hour. At 256-token context (blue) cost falls from $4.45 at batch 1 until the compute roofline at B*≈232, then flattens at a floor of $0.0285. At 2,048-token context (red) the KV bytes keep decode memory-bound, so cost keeps falling slowly but sits well above the short-context curve at every batch past 1.](images/serving_cost_per_million_tokens.png)
+
+What the table says, read in the roofline's terms:
+
+- **Batch 1 costs 156× the floor** — the same 156 as the ridge point, and not by coincidence.
+  - Batch-1 throughput is capped by bandwidth; floor throughput is capped by compute.
+  - Their ratio is FLOP/s over bytes/s, because a weight costs 2 bytes and 2 FLOPs per token.
+- **Cost keeps falling until $B^\star \approx 232$, then flattens.** A rule of thumb that savings stop near batch 32 undersells this model: at batch 32 decode is still deeply memory-bound, and cost has another **5.2×** to fall.
+- **Long context raises the floor.** At 2,048 tokens every sequence adds KV bytes to each step, so batch 64 costs **\$0.144** per million instead of **\$0.079** — 1.8× more for the same batch.
+- **Idle hours are billed too.** Batch 128 costs \$0.044 per million at full utilization and **\$0.176 at 25%**. A self-hosted GPU only undercuts a per-token API while traffic keeps its batch full.
+
+> **Note:** every dollar figure in this subsection is **modeled**.
+> - The inputs are named hardware constants, an illustrative rental rate, and full utilization unless stated.
+> - Real bills add prefill, the idle headroom a latency target forces, and engine overhead. Trust the shape of the curve, not the cents.
 
 ---
 
@@ -371,11 +418,14 @@ This prints the throughput-vs-batch table reproduced above. The notebook then mo
 
 ---
 
-## Pitfalls and failure modes
+## Pitfalls: what bites in production
 
 These are the ones that bite in production — worth knowing before they page you:
 
 - **Sizing capacity from the weights, not the cache.** The single most common planning error: budget GPUs from parameter count and forget the KV cache. The cache, not the weights, usually caps your batch size and therefore your throughput. Size from the decode-bytes formula, not from `model.num_parameters()`.
+- **Pricing a self-hosted token at full utilization.** The cost-per-token table assumes the batch stays full every paid hour.
+  - At 25% utilization the same GPU's token costs 4× as much, because idle hours are still billed.
+  - Price from measured traffic and the batch your latency target actually allows, not from the roofline floor.
 - **Optimizing throughput and shipping bad latency (goodput trap).** Cranking the batch size to maximize tokens/s can blow past your TPOT SLO, so *measured goodput drops while reported throughput rises*. Always benchmark against the latency target, not in a vacuum.
 - **Confusing the two phases.** Tuning a decode-side lever (paging, FP8 cache) and expecting it to fix a TTFT problem (which is prefill/compute-bound) — or vice versa. Diagnose *which phase* is your bottleneck first; they respond to different levers.
 - **Static batching in disguise.** Some "batching" implementations still lock the batch until the longest request finishes. If your GPU utilization is low under bursty traffic, check that you have *true* iteration-level continuous batching, not request-level batching with a fancy name.
@@ -438,8 +488,8 @@ Tying the levers to systems you can run today:
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, articles, papers, and interactive tools, including every cited formula source — lives in a companion file so it can be reused as a standalone reference list:
 
-**→ [Inference Optimization & Serving — references and further reading](/ai-ml/ai-ml-learning-resources/inference-and-serving/inference-optimization/inference-optimization#references-further-reading)**
+**→ [Inference Optimization & Serving — references](/ai-ml/ai-ml-learning-resources/inference-and-serving/inference-optimization/inference-optimization#references-further-reading)**

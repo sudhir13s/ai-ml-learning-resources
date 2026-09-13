@@ -4,4 +4,5 @@
 page-order:
   - model-packaging-and-containerization/model-packaging-and-containerization
   - model-serving/model-serving
+  - llm-serving-engines/llm-serving-engines
   - scaling-inference/scaling-inference

@@ -1,0 +1,8 @@
+# Reading order for this topic: the main page, then its depth chapter on
+# curating a web corpus (the W3 harvest of the curation half of the Practitioner
+# Workflows data-preparation workflow). `page-order:` is the ONE ordering key
+# estate-wide (structure-authoring-contract Rule 4); entries are relative and
+# extension-less.
+page-order:
+  - synthetic-data-and-curation
+  - synthetic-data-and-curation-curating-a-web-corpus

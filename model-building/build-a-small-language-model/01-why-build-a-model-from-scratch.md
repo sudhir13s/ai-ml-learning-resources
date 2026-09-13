@@ -118,7 +118,7 @@ mechanism per workflow and is the right place to go deeper on any single stage:
 - The stage after this one, once you have a base model —
   [Build a Small Chat Model](/ai-ml/ai-ml-learning-resources/model-adaptation/build-a-small-chat-model/from-base-model-to-assistant)
 - Serving a trained model —
-  [Model Serving](/ai-ml/practitioner-workflows/inference-and-serving/model-serving)
+  [LLM Serving Engines](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/llm-serving-engines/llm-serving-engines)
 
 Nothing in this course re-teaches those. What it adds is the connective tissue: the order the stages
 go in, what each hands the next, and what goes wrong at each seam.

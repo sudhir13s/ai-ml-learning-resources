@@ -1,6 +1,6 @@
 """Generate every PNG used by Training.md.
 
-Run:  python practitioner-workflows/training-and-adaptation/model-training/images/generate_figures.py
+Run:  python model-building/pretraining/images/generate_figures.py
 Writes (alongside this script):
   - loss_curve.png        train vs val loss + overfitting region
   - lr_schedule.png       linear warmup + cosine decay

@@ -3,8 +3,8 @@ title: "The Production Fine-Tuning Pipeline"
 id: lr-fine-tuning-production-fine-tuning-pipeline
 minutes: 3
 core_idea: "A production fine-tune is a pipeline, not a notebook — data in, adapter out, evaluation gate, registry entry, and a rollback that does not need a rebuild."
-builds_on: [pw-mlops-and-deployment]
-related: [pw-continuous-training, pw-model-serving]
+builds_on: [18-mlops/cicd-for-ml-and-continuous-training]
+related: [18-mlops/continuous-training, inference-and-serving/packaging-and-serving/llm-serving-engines]
 section: "ai-ml-learning-resources"
 workflow: "fine-tuning"
 chapter: 6
@@ -16,7 +16,7 @@ template: workflow
 category: model-adaptation
 ---
 
-# Chapter 6 — The Production Fine-Tuning Pipeline
+# The Production Fine-Tuning Pipeline
 
 Everything the course built, assembled into the recipe you would actually
 run on a GPU — and then shipped.
@@ -83,7 +83,7 @@ Runnable services in this estate that implement what this page teaches:
 ## References
 
   - [Knowledge Distillation (7.04)](/ai-ml/ai-ml-intuitions/scaling-adaptation-efficiency/knowledge-distillation-intuition) — the other way to specialize a model.
-  - [Model Serving (workflow)](/ai-ml/practitioner-workflows/inference-and-serving/model-serving) — loading one base and hot-swapping many adapters in production.
-  - [RLHF & Alignment (workflow)](/ai-ml/practitioner-workflows/training-and-adaptation/preference-alignment) — the preference-tuning step that usually follows SFT.
+  - [LLM Serving Engines](/ai-ml/ai-ml-learning-resources/inference-and-serving/packaging-and-serving/llm-serving-engines/llm-serving-engines) — loading one base and hot-swapping many adapters in production.
+  - [Preference and Alignment Training](/ai-ml/ai-ml-learning-resources/model-adaptation/preference-and-alignment-training/preference-and-alignment-training) — the preference-tuning step that usually follows SFT.
   - [TRL / SFTTrainer documentation (Hugging Face)](https://huggingface.co/docs/trl/index) — supervised fine-tuning API.
   - [bitsandbytes 4-bit quantization (Hugging Face)](https://huggingface.co/docs/transformers/main/en/quantization/bitsandbytes) — the QLoRA backend.

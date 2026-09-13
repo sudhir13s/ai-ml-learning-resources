@@ -6,4 +6,5 @@
 # data you have before manufacturing more.
 page-order:
   - data-preparation
-  - synthetic-data-and-curation/synthetic-data-and-curation
+  - synthetic-data-and-curation
+  - embedding-models

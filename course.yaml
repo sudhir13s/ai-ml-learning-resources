@@ -110,6 +110,7 @@ spec:
       - diffusion-models
       - data-preparation
       - synthetic-data-and-curation
+      - embedding-models
       - model-building
       - model-adaptation
       - inference-and-serving
@@ -425,6 +426,10 @@ spec:
         - path: data-and-representation/data-preparation/data-pipelines/data-pipelines.md
         # synthetic-data-and-curation
         - path: data-and-representation/synthetic-data-and-curation/synthetic-data-and-curation.md
+        - path: data-and-representation/synthetic-data-and-curation/synthetic-data-and-curation-curating-a-web-corpus.md
+        # embedding-models
+        - path: data-and-representation/embedding-models/embedding-models.md
+        - path: data-and-representation/embedding-models/embeddings-and-similarity-search.md
     - id: model-building
       title: Model Building
       kind: lesson
@@ -465,6 +470,8 @@ spec:
         - path: model-adaptation/lora-and-parameter-efficient-fine-tuning/lora-and-parameter-efficient-fine-tuning.md
         - path: model-adaptation/knowledge-distillation/knowledge-distillation.md
         - path: model-adaptation/preference-and-alignment-training/preference-and-alignment-training.md
+        - path: model-adaptation/preference-and-alignment-training/preference-and-alignment-training-preference-data-and-reward-models.md
+        - path: model-adaptation/preference-and-alignment-training/preference-and-alignment-training-running-and-evaluating-alignment.md
         - path: model-adaptation/reinforcement-learning-posttraining/reinforcement-learning-posttraining.md
         - path: model-adaptation/model-merging/model-merging.md
       sections:
@@ -498,6 +505,8 @@ spec:
         - path: inference-and-serving/decoding-and-sampling/decoding-and-sampling.md
         - path: inference-and-serving/speculative-decoding/speculative-decoding.md
         - path: inference-and-serving/quantization/quantization.md
+        - path: inference-and-serving/quantization/quantization-in-serving.md
+        - path: inference-and-serving/pruning-and-sparsity/pruning-and-sparsity.md
         - path: inference-and-serving/continuous-batching-and-scheduling/continuous-batching-and-scheduling.md
         - path: inference-and-serving/caching-and-cost-optimization/caching-and-cost-optimization.md
         - path: inference-and-serving/small-and-on-device-language-models/small-and-on-device-language-models.md
@@ -523,6 +532,7 @@ spec:
           pages:
             - path: inference-and-serving/packaging-and-serving/model-packaging-and-containerization/model-packaging-and-containerization.md
             - path: inference-and-serving/packaging-and-serving/model-serving/model-serving.md
+            - path: inference-and-serving/packaging-and-serving/llm-serving-engines/llm-serving-engines.md
             - path: inference-and-serving/packaging-and-serving/scaling-inference/scaling-inference.md
     - id: evaluation
       title: Evaluation
@@ -541,6 +551,7 @@ spec:
         - path: operations-and-lifecycle/lifecycle-and-reproducibility/reproducibility/reproducibility.md
         - path: operations-and-lifecycle/lifecycle-and-reproducibility/experiment-tracking/experiment-tracking.md
         - path: operations-and-lifecycle/lifecycle-and-reproducibility/data-and-model-versioning/data-and-model-versioning.md
+        - path: operations-and-lifecycle/lifecycle-and-reproducibility/continuous-training/continuous-training.md
         # data-and-training-platforms
         - path: operations-and-lifecycle/data-and-training-platforms/feature-stores/feature-stores.md
         - path: operations-and-lifecycle/data-and-training-platforms/ml-pipelines-and-orchestration/ml-pipelines-and-orchestration.md
@@ -792,12 +803,6 @@ spec:
           pages:
             - path: llms-applications-and-agents/rag-and-knowledge-systems/chunking/chunking.md
             - path: llms-applications-and-agents/rag-and-knowledge-systems/chunking/rag-chunking-strategies.md
-        - id: lr-embedding-models
-          title: Embedding Models
-          kind: lesson
-          pages:
-            - path: llms-applications-and-agents/rag-and-knowledge-systems/embedding-models/embedding-models.md
-            - path: llms-applications-and-agents/rag-and-knowledge-systems/embedding-models/embeddings-and-similarity-search.md
         - id: lr-rag-foundations
           title: RAG Foundations
           kind: lesson

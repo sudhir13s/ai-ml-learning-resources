@@ -10,6 +10,7 @@ updated: 2026-06-27
 tier: core
 est_minutes: 25
 title: "Document Chunking Strategies"
+core_idea: "Retrieval can only return what the splitter kept whole, so cut documents at idea boundaries, add overlap for facts that straddle a seam, and read your chunks before blaming the embedder."
 minutes: 25
 category: rag-and-knowledge-systems
 ---
@@ -270,7 +271,7 @@ A heads-up on the numbers: `chunk_size=1000, chunk_overlap=200` (≈20% overlap)
 
 ---
 
-## Pitfalls and failure modes
+## Pitfalls
 
 Every one of these is a **cut in the wrong place**. Name them to spot them.
 
@@ -312,7 +313,7 @@ Every one of these is a **cut in the wrong place**. Name them to spot them.
 | Precision matters but context needed | **Sentence-window / parent-document** | Retrieve small + precise, generate with the larger parent |
 | Throwaway prototype / uniform short text | **Fixed-size (+overlap)** | Fastest to ship; overlap limits the damage |
 
-**When chunking is NOT the lever:** if your documents are already short, self-contained units (FAQ entries, product cards, tweets), one document = one chunk and there's nothing to tune. And if retrieval is failing because of **paraphrase mismatch** (query words don't match passage words), that's an **embedding** problem ([chapter 3](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/embedding-models/embedding-models)), not a chunking one — fixing your splitter won't help.
+**When chunking is NOT the lever:** if your documents are already short, self-contained units (FAQ entries, product cards, tweets), one document = one chunk and there's nothing to tune. And if retrieval is failing because of **paraphrase mismatch** (query words don't match passage words), that's an **embedding** problem ([chapter 3](/ai-ml/ai-ml-learning-resources/data-and-representation/embedding-models/embedding-models)), not a chunking one — fixing your splitter won't help.
 
 ---
 
@@ -327,7 +328,7 @@ Real systems treat chunking as a first-class, measured decision:
 
 **When to reach for it:** *first*, before any other RAG optimization. Chunking is offline, free at query time, and caps everything downstream — so the moment retrieval quality matters, audit your chunks before you touch the embedder or the LLM.
 
-> **Note:** the through-line from chapter 1 continues — retrieval is where RAG is won or lost, and **chunking is the first place you win it.** The next chapters climb the rest of the retrieval stack: better [embeddings](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/embedding-models/embedding-models) so paraphrases match, [vector indexes](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search) for scale, [hybrid search](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search), and [re-ranking](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking). But none of them can recover a fact your chunker already destroyed.
+> **Note:** the through-line from chapter 1 continues — retrieval is where RAG is won or lost, and **chunking is the first place you win it.** The next chapters climb the rest of the retrieval stack: better [embeddings](/ai-ml/ai-ml-learning-resources/data-and-representation/embedding-models/embedding-models) so paraphrases match, [vector indexes](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search) for scale, [hybrid search](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search), and [re-ranking](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking). But none of them can recover a fact your chunker already destroyed.
 
 ---
 
@@ -348,7 +349,7 @@ Real systems treat chunking as a first-class, measured decision:
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

@@ -10,6 +10,7 @@ updated: 2026-09-07
 tier: core
 est_minutes: 30
 title: "Hybrid Search (BM25 + Dense)"
+core_idea: "Keyword search and embedding search miss different queries, so run both and fuse their rankings by rank position rather than adding raw scores that live on incomparable scales."
 minutes: 30
 category: rag-and-knowledge-systems
 ---
@@ -41,7 +42,7 @@ To see why hybrid exists, you have to feel **both** failures — on the same cor
 - `doc[9]` — a **paraphrase** line: *"Climbing steadily, Helios-7 rose skyward moments past liftoff."*
 - `doc[10]` — a chatty **same-topic distractor**: *"The Helios-7 ground team spent the afternoon investigating several telemetry errors and console warnings."*
 
-**Failure 1 — the dense lens blurs an exact token.** Query: *"What telemetry error did Helios-7 report?"* A dense bi-encoder ([chapter 3](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/embedding-models/embedding-models), here `all-MiniLM-L6-v2`) embeds query and passages by *meaning*. The chatty distractor `doc[10]` is more "about errors" overall than the terse `doc[8]`, so dense ranks it **#1** and the passage that literally contains the answer code **#2**:
+**Failure 1 — the dense lens blurs an exact token.** Query: *"What telemetry error did Helios-7 report?"* A dense bi-encoder ([chapter 3](/ai-ml/ai-ml-learning-resources/data-and-representation/embedding-models/embedding-models), here `all-MiniLM-L6-v2`) embeds query and passages by *meaning*. The chatty distractor `doc[10]` is more "about errors" overall than the terse `doc[8]`, so dense ranks it **#1** and the passage that literally contains the answer code **#2**:
 
 ```
 DENSE  top-3: [10, 8, 0]   gold rank #2
@@ -325,7 +326,7 @@ The one-liner hides exactly the mechanics we built by hand — which is why buil
 
 ---
 
-## Pitfalls and failure modes
+## Pitfalls
 
 Hybrid search fails in characteristic ways. Name them so you catch them in the wild.
 
@@ -395,7 +396,7 @@ Hybrid search is a first-class feature in essentially every modern retrieval eng
 
 **When to reach for it:** the moment your corpus contains identifiers, codes, or rare keywords that users will quote *and* paraphrase — which is most enterprise search. It's cheap to add (a second index + a fusion step), model-agnostic (wrap any embedder + any BM25), and the lift is measurable on a labeled query set. The frontier — covered in the next chapters — sharpens *which* of the fused candidates wins: [re-ranking with cross-encoders](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking) reorders the fused top-$k$ with a far more expensive but more accurate scorer, and [query transformation](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/query-transformation/query-transformation) rewrites the query so *both* lenses retrieve better in the first place.
 
-> **Note:** the through-line continues. [Chapter 3](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/embedding-models/embedding-models) chose the dense lens; [chapter 4](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search) made dense search fast at scale; **this chapter added the lexical lens back and fused the two**, recovering the exact-match strength that pure-vector RAG threw away. Next, [chapter 6](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking) reranks whatever this hybrid retriever returns. Retrieve broadly with two lenses, then sharpen — that's the shape of a strong RAG stack.
+> **Note:** the through-line continues. [Chapter 3](/ai-ml/ai-ml-learning-resources/data-and-representation/embedding-models/embedding-models) chose the dense lens; [chapter 4](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search) made dense search fast at scale; **this chapter added the lexical lens back and fused the two**, recovering the exact-match strength that pure-vector RAG threw away. Next, [chapter 6](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/reranking/reranking) reranks whatever this hybrid retriever returns. Retrieve broadly with two lenses, then sharpen — that's the shape of a strong RAG stack.
 
 ---
 
@@ -416,7 +417,7 @@ Hybrid search is a first-class feature in essentially every modern retrieval eng
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

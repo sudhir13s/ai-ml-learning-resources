@@ -5,7 +5,7 @@ minutes: 20
 core_idea: "Perplexity is the exponential of the mean next-token cross-entropy, it is only comparable within one tokenizer, and it says nothing about whether the model is useful — which is why the samples are printed beside it."
 builds_on: [lr-slm-read-the-training-curves]
 leads_to: [lr-slm-capabilities-and-limitations]
-related: [pw-inference-and-decoding]
+related: [09-llms/decoding-and-sampling]
 section: "ai-ml-learning-resources"
 workflow: "build-a-small-language-model"
 chapter: 8
@@ -235,4 +235,4 @@ been taught a task. That is the next course.
 - Holtzman et al., *The Curious Case of Neural Text Degeneration* — where nucleus sampling comes
   from: <https://arxiv.org/abs/1904.09751>
 - Deeper on the reusable mechanism:
-  [Inference and Decoding (workflow)](/ai-ml/practitioner-workflows/inference-and-serving/inference-and-decoding/inference-and-decoding)
+  [Decoding and Sampling](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/decoding-and-sampling)

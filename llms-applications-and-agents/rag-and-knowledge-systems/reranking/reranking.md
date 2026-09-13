@@ -10,6 +10,7 @@ updated: 2026-07-02
 tier: core
 est_minutes: 35
 title: "Re-ranking (Cross-Encoders)"
+core_idea: "Retrieve broadly with a fast encoder that scores query and passage apart, then reorder only that short list with a slow model that reads them together; it sharpens the order but cannot recover a passage the first stage missed."
 minutes: 35
 category: rag-and-knowledge-systems
 ---
@@ -39,7 +40,7 @@ I'll build this the way I'd explain it to a teammate whose vector search keeps r
 
 To see why re-ranking exists, you have to feel what the first stage *structurally* cannot do.
 
-A [bi-encoder](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/embedding-models/embedding-models) — the dense retriever from chapter 3 — embeds the query and every passage **independently** into vectors, then ranks by cosine similarity. That independence is exactly what makes it fast: the passage vectors are precomputed once, offline, and at query time you embed only the query and take dot products. But it is also exactly why it's coarse: **the query never sees the passage.** Each is crushed to a single vector in isolation, so the model can never ask "does *this passage* answer *this specific query*?" — only "are these two summaries pointing the same general direction?"
+A [bi-encoder](/ai-ml/ai-ml-learning-resources/data-and-representation/embedding-models/embedding-models) — the dense retriever from chapter 3 — embeds the query and every passage **independently** into vectors, then ranks by cosine similarity. That independence is exactly what makes it fast: the passage vectors are precomputed once, offline, and at query time you embed only the query and take dot products. But it is also exactly why it's coarse: **the query never sees the passage.** Each is crushed to a single vector in isolation, so the model can never ask "does *this passage* answer *this specific query*?" — only "are these two summaries pointing the same general direction?"
 
 We can *measure* the coarseness on the real benchmark. Over 300 scifact queries, the bi-encoder's **Recall@100 is 0.925** — the relevant abstract is in its top-100 pool 92.5% of the time. It finds the evidence. But its **nDCG@10 is only 0.648** and **MRR@10 is 0.607** — the evidence is often present yet ranked below look-alike abstracts. That gap between "found it" (high recall) and "ranked it first" (weaker nDCG/MRR) is the entire opening for re-ranking.
 
@@ -278,7 +279,7 @@ Where they sit on the interaction/cost spectrum: **bi-encoder** (no interaction,
 
 ---
 
-## Pitfalls and failure modes
+## Pitfalls
 
 Re-ranking fails in characteristic ways. Name them so you catch them in the wild.
 
@@ -344,7 +345,7 @@ Re-ranking is a standard final stage in real-world retrieval, with a few well-tr
 
 **When to reach for it:** the moment you measure high **Recall@K** but weak **nDCG@10** — your retriever finds the answer but ranks it poorly (scifact: 0.925 vs 0.648). Re-ranking is cheap to add (no index change), model-agnostic, and the lift is measurable on a labeled query set. The frontier — covered next — attacks the *other* end: [query transformation](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/query-transformation/query-transformation) rewrites the query so the first stage retrieves a better pool in the first place (which raises the ceiling re-ranking is bounded by).
 
-> **Note:** the through-line of this domain completes its first arc here. [Chapter 3](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/embedding-models/embedding-models) built the dense lens; [chapter 4](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search) made it fast; [chapter 5](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search) fused it with lexical search; **this chapter added the precise second stage that re-orders whatever they retrieved.** Retrieve broadly and cheaply, then re-rank narrowly and precisely — that two-stage funnel is the backbone of every strong RAG retrieval pipeline.
+> **Note:** the through-line of this domain completes its first arc here. [Chapter 3](/ai-ml/ai-ml-learning-resources/data-and-representation/embedding-models/embedding-models) built the dense lens; [chapter 4](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/vector-search/vector-search) made it fast; [chapter 5](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/hybrid-search/hybrid-search) fused it with lexical search; **this chapter added the precise second stage that re-orders whatever they retrieved.** Retrieve broadly and cheaply, then re-rank narrowly and precisely — that two-stage funnel is the backbone of every strong RAG retrieval pipeline.
 
 ---
 
@@ -367,7 +368,7 @@ Re-ranking is a standard final stage in real-world retrieval, with a few well-tr
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

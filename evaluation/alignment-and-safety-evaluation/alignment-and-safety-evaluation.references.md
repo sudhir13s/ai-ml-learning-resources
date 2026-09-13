@@ -32,6 +32,7 @@ updated: 2026-09-07
 - [Stanford CS324 — Large Language Models: Harms, safety & alignment](https://stanford-cs324.github.io/winter2022/) — **Stanford** — capabilities vs harms, alignment, and evaluation, in lecture form.
 - [Stanford CS336 — Language Modeling from Scratch (alignment & safety)](https://stanford-cs336.github.io/spring2025/) — **Stanford** — alignment and post-training within the full LLM build.
 - [Hugging Face — RLHF and alignment](https://huggingface.co/learn/nlp-course/chapter12/1) — **Hugging Face** — preference tuning, RLHF, and DPO with runnable examples.
+- [Red Teaming LLM Applications](https://www.deeplearning.ai/short-courses/red-teaming-llm-applications/) — **DeepLearning.AI** — building an adversarial suite and reading attack-success rate, the practice behind this page's red-teaming section.
 
 **Articles / blogs (free, no paywall)**:
 - [Extrinsic Hallucinations in LLMs](https://lilianweng.github.io/posts/2024-07-07-hallucination/) — **Lilian Weng (OpenAI)** — the definitive free survey: taxonomy (intrinsic/extrinsic, factuality/faithfulness), detection, and mitigation in one place.
@@ -53,6 +54,7 @@ updated: 2026-09-07
 - [On Calibration of Modern Neural Networks](https://arxiv.org/abs/1706.04599) — **Guo et al. (2017)** — defines Expected Calibration Error (ECE) and documents systematic over-confidence (bars below the diagonal) — the reliability-diagram source.
 - [Selective Classification for Deep Neural Networks](https://arxiv.org/abs/1705.08500) — **Geifman & El-Yaniv (2017)** — the risk–coverage framework behind abstention: trade coverage for accuracy by thresholding confidence.
 - [How Language Model Hallucinations Can Snowball](https://arxiv.org/abs/2305.13534) — **Zhang et al. (2023)** — an early wrong token forces consistent (wrong) continuations; models assert claims they can separately flag as false.
+- [Universal and Transferable Adversarial Attacks on Aligned Language Models](https://arxiv.org/abs/2307.15043) — **Zou et al. (2023)** — automatically generated suffixes that transfer across models; the evidence that alignment is a fallible layer and jailbreak robustness must be measured, not assumed.
 - [TruthfulQA: Measuring How Models Mimic Human Falsehoods](https://arxiv.org/abs/2109.07958) — **Lin et al. (2021)** — the factuality benchmark probing resistance to common human misconceptions.
 - [FActScore: Fine-grained Atomic Evaluation of Factual Precision](https://arxiv.org/abs/2305.14251) — **Min et al. (2023)** — decompose long-form output into atomic facts, score % supported by a knowledge source.
 - [Training language models to follow instructions with human feedback (InstructGPT)](https://arxiv.org/abs/2203.02155) — **Ouyang et al. (2022)** — §3 gives the KL-regularized RLHF reward objective on the page.

@@ -5,7 +5,7 @@ minutes: 22
 core_idea: "Deduplication decides what the model memorises and splitting decides whether the held-out number is a measurement or a comfort — and both are silent when they go wrong."
 builds_on: [lr-slm-choose-and-govern-a-corpus]
 leads_to: [lr-slm-train-a-tokenizer]
-related: [pw-data-preparation]
+related: [data-and-representation/synthetic-data-and-curation/synthetic-data-and-curation-curating-a-web-corpus]
 section: "ai-ml-learning-resources"
 workflow: "build-a-small-language-model"
 chapter: 2

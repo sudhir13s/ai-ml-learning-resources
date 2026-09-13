@@ -3,8 +3,8 @@ title: "Prepare the Instruction Data"
 id: lr-fine-tuning-prepare-instruction-data
 minutes: 8
 core_idea: "Instruction data is a format contract before it is a dataset — the template, the loss mask and the end-of-sequence token decide what the model is actually being taught."
-builds_on: [pw-data-preparation]
-related: [pw-synthetic-data-generation]
+builds_on: [data-and-representation/synthetic-data-and-curation/synthetic-data-and-curation-curating-a-web-corpus]
+related: [data-and-representation/synthetic-data-and-curation]
 section: "ai-ml-learning-resources"
 workflow: "fine-tuning"
 chapter: 1
@@ -16,7 +16,7 @@ template: workflow
 category: model-adaptation
 ---
 
-# Chapter 1 — Prepare the Instruction Data
+# Prepare the Instruction Data
 
 A fine-tune is only as good as the pairs you feed it, and most failed
 fine-tunes are **data bugs, not training bugs**. This chapter builds one training record
@@ -101,7 +101,7 @@ The trainer renders this into the model's exact chat format, then tokenizes it i
 | **Template** | `<s>[INST]…[/INST]…</s>` | Must match the base model's *exact* format |
 | **EOS** | `</s>` | Teaches the model to **stop** (omit it → rambling) |
 
-Two rules make or break SFT data: **(1) mask the prompt** — set the prompt tokens' labels to `-100` so the model learns to *answer*, not to re-predict the question; **(2) always include the EOS** so it learns to stop. And a counterintuitive truth: **a few hundred clean examples beat tens of thousands of noisy ones** — format consistency and quality dominate sheer volume. For our **Support Specialist**, that means a few hundred real, well-formatted ticket→reply pairs in *your* support voice, not a scraped pile of generic Q&A. The upstream curation, dedup, and decontamination that produce a clean set live in [Data Preparation (workflow)](/ai-ml/practitioner-workflows/data-and-inputs/data-preparation).
+Two rules make or break SFT data: **(1) mask the prompt** — set the prompt tokens' labels to `-100` so the model learns to *answer*, not to re-predict the question; **(2) always include the EOS** so it learns to stop. And a counterintuitive truth: **a few hundred clean examples beat tens of thousands of noisy ones** — format consistency and quality dominate sheer volume. For our **Support Specialist**, that means a few hundred real, well-formatted ticket→reply pairs in *your* support voice, not a scraped pile of generic Q&A. The upstream curation, dedup, and decontamination that produce a clean set live in [Curating a Web Corpus](/ai-ml/ai-ml-learning-resources/data-and-representation/synthetic-data-and-curation/synthetic-data-and-curation-curating-a-web-corpus).
 
 > **Warning:** The prompt mask is the silent killer. If you forget to set prompt-token labels to `-100`, the model is trained to *re-predict the user's question* as well as the answer — it learns to parrot prompts back and its replies degrade. Always inspect that the loss is computed on the response tokens only before you trust a run.
 
@@ -187,4 +187,4 @@ Runnable services in this estate that implement what this page teaches:
 
 ## References
 
-  - [Data Preparation (workflow)](/ai-ml/practitioner-workflows/data-and-inputs/data-preparation) — curating, deduping, and decontaminating the instruction data this guide trains on.
+  - [Curating a Web Corpus](/ai-ml/ai-ml-learning-resources/data-and-representation/synthetic-data-and-curation/synthetic-data-and-curation-curating-a-web-corpus) — curating, deduping, and decontaminating the instruction data this guide trains on.

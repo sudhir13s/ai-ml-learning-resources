@@ -10,13 +10,14 @@ updated: 2026-09-07
 tier: core
 est_minutes: 35
 title: "Vector Databases & ANN Indexes (HNSW · IVF)"
+core_idea: "Exact nearest-neighbour search touches every vector, so approximate indexes group vectors into neighbourhoods and search only a few, trading a tunable slice of recall for orders-of-magnitude speed."
 minutes: 35
 category: rag-and-knowledge-systems
 ---
 
 # Vector Databases & ANN Indexes: searching millions of vectors in milliseconds
 
-[Chapter 3](/ai-ml/ai-ml-learning-resources/llms-applications-and-agents/rag-and-knowledge-systems/embedding-models/embedding-models) ended with retrieval reframed as pure geometry: embed the query, find the nearest passage vectors. It even promised this chapter — "makes 'find the nearest vectors' *fast* at scale." That promise hides a brutal cost problem, and this chapter is how real-world systems beat it.
+[Chapter 3](/ai-ml/ai-ml-learning-resources/data-and-representation/embedding-models/embedding-models) ended with retrieval reframed as pure geometry: embed the query, find the nearest passage vectors. It even promised this chapter — "makes 'find the nearest vectors' *fast* at scale." That promise hides a brutal cost problem, and this chapter is how real-world systems beat it.
 
 Everything below is **real and measured**. We embed **30,000 real Wikipedia passages** with a real sentence-transformer (`BAAI/bge-small-en-v1.5`, 384-dim), build **real [FAISS](https://github.com/facebookresearch/faiss) indexes** (exact `IndexFlatIP`, `IndexIVFFlat`, `IndexHNSWFlat`, `IndexIVFPQ`), run real semantic queries, and *measure* what every ANN engineer measures: **recall@10 against exact search** and **real query latency** as we turn the recall/speed knob. There are no hand-made toy vectors and no faked library calls — every number on this page comes from the [executed teaching notebook](code/04-Vector-Databases-and-ANN-Indexes.ipynb) over that real corpus, and the notebook mirrors the [runnable module `code/vector_indexes.py`](code/vector_indexes.py) step by step. (Because it's real, wall-clock latency varies run-to-run; we report the shipped run's medians and flag what's inherently variable.)
 
@@ -310,7 +311,7 @@ The real code for passage 0 is 48 small integers (`[181, 47, 187, 218, 42, 58, �
 
 ---
 
-## Pitfalls and failure modes
+## Pitfalls
 
 These are where vector search quietly breaks in the real world.
 
@@ -390,7 +391,7 @@ Real systems, with **verified** specifics:
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
