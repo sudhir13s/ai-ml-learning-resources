@@ -1,6 +1,7 @@
 ---
 id: "04-unsupervised-learning/contrastive-self-supervised"
 topic: "Contrastive / Self-Supervised Learning"
+core_idea: "Learn representations without labels by pulling two augmented views of the same example together and pushing other examples apart with the InfoNCE loss, where the choice of augmentations and the temperature decide what the embedding learns to keep."
 parent: "04-unsupervised-learning"
 level: advanced
 built_from: ["neural-networks", "embeddings", "cross-entropy", "data-augmentation", "softmax"]
@@ -143,7 +144,10 @@ Let's read the formula piece by piece, because every symbol earns its place:
 - The $\mathbb{1}_{[k\ne i]}$ excludes the anchor's similarity with **itself** (which would be $1/\tau$ and swamp everything). You compare against everyone *but yourself*.
 - $-\log$ turns "make the positive's softmax probability → 1" into a minimization. $\ell = -\log p_{\text{positive}}$; if the positive already wins the softmax, $p\!\to\!1$ and $\ell\!\to\!0$.
 
-> *Where this comes from: the InfoNCE form is **Representation Learning with Contrastive Predictive Coding** (Oord, Li & Vinyals 2018); the cosine-similarity, temperature-scaled, two-views-per-image instantiation named **NT-Xent** is **SimCLR** (Chen, Kornblith, Norouzi & Hinton 2020, Eq. 1). Both are in the references.*
+> **Reference:**
+> - The InfoNCE form is **Representation Learning with Contrastive Predictive Coding** (Oord, Li & Vinyals 2018).
+> - The cosine-similarity, temperature-scaled, two-views-per-image instantiation named **NT-Xent** is **SimCLR** (Chen, Kornblith, Norouzi & Hinton 2020, Eq. 1).
+> - Both are in the references.
 
 ### Why it is a lower bound on mutual information
 
@@ -212,7 +216,7 @@ This is **minimized when points are spread uniformly** over the sphere (the kern
 
 The key insight: contrastive learning is the **balance** of these two. A collapsed representation has *perfect* alignment (everything's at one point) but *terrible* uniformity (no spread at all) — so the combined objective rejects it. A random representation has great uniformity but terrible alignment. **Only a representation that is both aligned AND uniform** — views agree, instances spread — minimizes both, and that is precisely a good representation. You can even train directly on $\mathcal{L}_{\text{align}} + \lambda\,\mathcal{L}_{\text{uniform}}$ and recover contrastive-quality features, which is strong evidence the decomposition captures the essence.
 
-> *Where this comes from: **Understanding Contrastive Representation Learning through Alignment and Uniformity on the Hypersphere** (Wang & Isola 2020). The two limiting losses above are their Eq. 3 and Eq. 4.*
+> **Reference:** **Understanding Contrastive Representation Learning through Alignment and Uniformity on the Hypersphere** (Wang & Isola 2020). The two limiting losses above are their Eq. 3 and Eq. 4.
 
 > **Tip:** these two metrics are diagnostic gold in practice. If your contrastive model is underperforming, **measure alignment and uniformity separately.** Low alignment + low uniformity = healthy. Low alignment + high uniformity (points bunched) = **collapse**, check your negatives/stop-gradient. High alignment = your positives aren't actually agreeing, check your augmentations or encoder.
 
@@ -471,7 +475,7 @@ The two sibling objectives have their own pages: [Masked Modeling — MAE and BE
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, articles, the primary papers (Oord, Chen, He, Grill, Chen & He, Zbontar, Wang & Isola, Radford), books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

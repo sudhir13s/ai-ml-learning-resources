@@ -1,6 +1,7 @@
 ---
 id: "05-deep-learning/loss-functions"
 topic: "Loss Functions (MSE · cross-entropy · and friends)"
+core_idea: "A loss must both score a prediction and supply a useful gradient; maximum likelihood generates most losses, giving mean squared error from Gaussian noise and cross-entropy from categorical labels, whose gradient through softmax reduces to prediction minus target."
 parent: "05-deep-learning"
 level: beginner
 built_from: ["feedforward-networks", "probability", "softmax", "maximum-likelihood"]
@@ -141,7 +142,10 @@ $$
 
 The second term doesn't depend on $\theta$, so it drops out of the $\arg\min$; the first is $\frac{1}{2\sigma^2}\sum (\hat y_i - y_i)^2$, and the constant $\frac{1}{2\sigma^2}$ doesn't change the minimizer. **Minimizing MSE is exactly Gaussian maximum likelihood.** That is *why* MSE is the default for clean regression — and also *why* it's wrong for heavy-tailed data: it implicitly assumes your errors are Gaussian, and Gaussians have thin tails, so a genuine outlier (which a Gaussian deems nearly impossible) gets a huge squared penalty and warps the fit.
 
-> *Where this comes from: the Gaussian-MLE derivation of MSE is in **Pattern Recognition and Machine Learning** (Bishop) §1.2.5 and §3.1.1, and **Deep Learning** (Goodfellow et al.) §5.5.1. Huber is Huber (1964). All in the references.*
+> **Reference:**
+> - The Gaussian-MLE derivation of MSE is in **Pattern Recognition and Machine Learning** (Bishop) §1.2.5 and §3.1.1, and **Deep Learning** (Goodfellow et al.) §5.5.1.
+> - Huber is Huber (1964).
+> - All in the references.
 
 **The MSE gradient.** Differentiate $L = \frac1N\sum(\hat y_i - y_i)^2$ with respect to one prediction: $\partial L/\partial \hat y_i = \frac{2}{N}(\hat y_i - y_i) = \frac{2}{N}e_i$. The gradient is **proportional to the error**, so the worst-fit points are pushed hardest — elegant, but it's also exactly why one big outlier (large $e_i$) hijacks the update.
 
@@ -194,7 +198,10 @@ $$
 
 which is precisely **cross-entropy summed over the data**. So minimizing cross-entropy = maximizing the likelihood of the labels. **Binary** classification is the two-class special case with a single sigmoid output $p$ and a Bernoulli label: $L_{\text{BCE}} = -[\,y\log p + (1-y)\log(1-p)\,]$ — the NLL of a coin flip. Same principle, same origin; categorical for $K$ classes, Bernoulli for two.
 
-> *Where it comes from: cross-entropy as the NLL of a categorical/Bernoulli label is derived in **Deep Learning** (Goodfellow et al.) §6.2.1.1 and **d2l.ai** §4.1 (softmax regression). The binary case as a likelihood is Andrew Ng's logistic-regression cost (references).*
+> **Reference:**
+> - Cross-entropy as the NLL of a categorical/Bernoulli label is derived in **Deep Learning** (Goodfellow et al.) §6.2.1.1 and **d2l.ai** §4.1 (softmax regression).
+> - The binary case as a likelihood is Andrew Ng's logistic-regression cost.
+> - All in the references.
 
 ### The information-theory view: CE = entropy + KL
 
@@ -520,7 +527,7 @@ BCE naive 0.225212 == stable 0.225212  |  naive@logit50 = 100.0 (garbage) vs sta
 
 ---
 
-## Common pitfalls (where loss bugs actually live)
+## Pitfalls: where loss bugs actually live
 
 Loss bugs are insidious because the loss still *looks* like it's training — it goes down, just to the wrong place, or stalls while the curve looks plausible. The ones that bite in practice:
 
@@ -559,7 +566,7 @@ Loss bugs are insidious because the loss still *looks* like it's training — it
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

@@ -89,7 +89,11 @@ A query is compared against **every** key to get a relevance score; the scores a
 
 $$\text{Attention}(Q,K,V) = \text{softmax}\!\left(\frac{QK^\top}{\sqrt{d_k}}\right)V$$
 
-> *Where this comes from: scaled dot-product attention is **Attention Is All You Need** (Vaswani et al. 2017, §3.2.1); its additive precursor is **Neural Machine Translation by Jointly Learning to Align and Translate** (Bahdanau et al. 2014); the dot-product family was studied by **Luong et al. 2015**. All three are in the references, with a runnable build in d2l.ai Ch. 11.*
+> **Reference:**
+> - Scaled dot-product attention is **Attention Is All You Need** (Vaswani et al. 2017, §3.2.1).
+> - Its additive precursor is **Neural Machine Translation by Jointly Learning to Align and Translate** (Bahdanau et al. 2014).
+> - The dot-product family was studied by **Luong et al. 2015**.
+> - All three are in the references, with a runnable build in d2l.ai Ch. 11.
 
 With $Q \in \mathbb{R}^{n \times d_k}$, $K \in \mathbb{R}^{m \times d_k}$, $V \in \mathbb{R}^{m \times d_v}$: $QK^\top$ is $n\times m$ (every query against every key), the softmax normalizes each **row**, and multiplying by $V$ gives an $n \times d_v$ output — one blended vector per query. Everything else in this page — the scaling, multi-head, masks, the KV cache — is machinery wrapped around this single core.
 
@@ -240,7 +244,7 @@ $$\boxed{\;\text{Var}(q\cdot k) = \sum_{i=1}^{d_k}\text{Var}(q_i k_i) = d_k.\;}$
 
 **The fix.** Divide the scores by $\sqrt{d_k}$ *before* the softmax. This rescales the variance back to 1 (dividing a variable by $c$ divides its variance by $c^2$, and $(\sqrt{d_k})^2 = d_k$), keeping the softmax in its responsive, high-gradient regime regardless of head size. That single constant is what lets you make heads as wide as you like without the softmax going dead.
 
-> *Where this comes from: the $1/\sqrt{d_k}$ scaling and exactly this variance argument are stated in **Attention Is All You Need** (Vaswani et al. 2017, §3.2.1, footnote 4): "We suspect that for large values of $d_k$, the dot products grow large in magnitude, pushing the softmax into regions where it has extremely small gradients."*
+> **Reference:** the $1/\sqrt{d_k}$ scaling and exactly this variance argument are stated in **Attention Is All You Need** (Vaswani et al. 2017, §3.2.1, footnote 4): "We suspect that for large values of $d_k$, the dot products grow large in magnitude, pushing the softmax into regions where it has extremely small gradients."
 
 ![Left: empirical variance of q·k grows linearly with d_k, exactly matching the theory Var = d_k (dashed line). Right: softmax over the same scores — unscaled collapses to one dominant key (saturated, tiny gradients), while dividing by √dₖ keeps a smooth, trainable distribution.](images/attn_softmax_scaling.png)
 
@@ -711,7 +715,7 @@ score std | softmax max w | grad-norm at scores
 
 ---
 
-## Common pitfalls (a checklist)
+## Pitfalls: a checklist
 
 - **Softmax over the wrong axis.** Must be over keys (`dim=-1`); over queries it silently learns nothing. The #1 bug.
 - **Masking after softmax.** Zeroing weights post-softmax breaks the "rows sum to 1" invariant; mask with $-\infty$ *before*.

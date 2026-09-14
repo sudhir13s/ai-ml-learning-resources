@@ -1,6 +1,7 @@
 ---
 id: "03-supervised-learning/random-forests"
 topic: "Random Forests"
+core_idea: "Bagged trees stay correlated because they all split on the same dominant features, so a random forest also samples a random subset of features at every split, lowering that correlation and with it the variance floor plain averaging cannot get below."
 parent: "03-supervised-learning"
 level: intermediate
 built_from: ["decision-trees", "bagging", "bias-variance"]
@@ -113,7 +114,10 @@ The three curves tell the entire story. At $\rho = 0$ (perfectly independent tre
 
 > **Gotcha:** a common interview slip is "more trees reduce variance, so just add trees." Half-true. More trees drive the *second* term to zero but are **powerless against the $\rho\sigma^2$ floor.** Once you've added enough trees to kill the second term, the *only* remaining knob is $\rho$. State both halves and you've shown you actually understand the formula.
 
-> *Where this comes from: bagging is **Bagging Predictors** (Breiman 1996); the correlated-average variance formula and the decorrelation argument are **The Elements of Statistical Learning** (Hastie, Tibshirani & Friedman) Ch. 15 §15.2 — both in the references.*
+> **Reference:**
+> - Bagging is **Bagging Predictors** (Breiman 1996).
+> - The correlated-average variance formula and the decorrelation argument are **The Elements of Statistical Learning** (Hastie, Tibshirani & Friedman) Ch. 15 §15.2.
+> - Both in the references.
 
 ---
 
@@ -157,7 +161,9 @@ The single tree's boundary is jagged with little islands — it carved out indiv
 
 > **Gotcha:** decorrelation isn't free. Forcing each split to ignore some features means any *individual* tree is a bit **weaker** (slightly higher bias / variance on its own) than a fully-greedy bagged tree. The forest wins anyway because the *correlation reduction* shrinks the floor more than the individual-tree degradation costs you. Smaller $m$ → more decorrelation but weaker trees; that's the trade-off the `max_features` knob controls, and it's why the right $m$ is a sweet spot, not zero.
 
-> *Where this comes from: the random-feature-subsampling algorithm, OOB error, and the importances are all introduced in **Random Forests** (Breiman 2001) — references. **Extremely Randomized Trees** (Geurts et al. 2006) push the idea further by randomizing the split *thresholds* too.*
+> **Reference:**
+> - The random-feature-subsampling algorithm, OOB error, and the importances are all introduced in **Random Forests** (Breiman 2001) — references.
+> - **Extremely Randomized Trees** (Geurts et al. 2006) push the idea further by randomizing the split *thresholds* too.
 
 ---
 
@@ -428,7 +434,7 @@ max_features=20  mean tree-corr rho=0.60  test acc=0.898
 
 ---
 
-## Pitfalls that actually bite
+## Pitfalls: the ones that actually bite
 
 - **Trusting impurity importance.** It over-credits high-cardinality / ID-like features. Use **permutation importance on held-out data** for any decision that matters.
 - **Tuning `n_estimators` for accuracy.** Pointless — more trees never overfit; set it high and stop when OOB/test plateaus. Spend your tuning budget on `max_features`.
@@ -459,7 +465,7 @@ max_features=20  mean tree-corr rho=0.60  test acc=0.898
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

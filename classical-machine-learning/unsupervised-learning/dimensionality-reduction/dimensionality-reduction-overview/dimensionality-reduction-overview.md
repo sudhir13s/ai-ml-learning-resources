@@ -1,6 +1,7 @@
 ---
 id: "04-unsupervised-learning/dimensionality-reduction-overview"
 topic: "Dimensionality Reduction — overview (PCA-centric)"
+core_idea: "High-dimensional data usually lies near a much lower-dimensional structure; PCA finds the best linear version by projecting onto the top eigenvectors of the covariance, which at once keeps the most variance and loses the least reconstruction error, while non-linear methods follow curved manifolds."
 parent: "04-unsupervised-learning"
 level: intermediate
 built_from: ["linear-algebra", "eigendecomposition", "variance-covariance", "svd"]
@@ -121,7 +122,9 @@ That is **exactly the eigenvalue equation.** The stationary points of "projected
 
 > **Note:** because $\Sigma$ is symmetric and positive-semidefinite, the **spectral theorem** guarantees its eigenvectors are real, mutually **orthogonal**, and its eigenvalues are real and $\geq 0$. That orthogonality is why the principal components form a clean new coordinate system — the PCs are *uncorrelated* by construction.
 
-> *Where this comes from: PCA as variance maximization is **Hotelling (1933)**; the original "lines and planes of closest fit" view is **Pearson (1901)**. The clean modern derivation is **Mathematics for ML**, Ch. 10, and **Shlens' "A Tutorial on PCA"** — both in the references.*
+> **Reference:**
+> - PCA as variance maximization is **Hotelling (1933)**; the original "lines and planes of closest fit" view is **Pearson (1901)**.
+> - The clean modern derivation is **Mathematics for ML**, Ch. 10, and **Shlens' "A Tutorial on PCA"** — both in the references.
 
 ### View B — minimize reconstruction error
 
@@ -240,7 +243,7 @@ The textbook picture is **two concentric circles** — an inner ring of one clas
 
 > **Gotcha:** kernel PCA's cost scales with the **number of samples** ($n \times n$ kernel matrix, $O(n^3)$ eigendecomposition), not the feature count — the opposite of ordinary PCA. It also introduces a kernel hyperparameter (the bandwidth $\gamma$) you must tune, and the components are no longer cheap to interpret. It's powerful but not a free upgrade.
 
-> *Where this comes from: **Schölkopf, Smola & Müller (1998)**, "Nonlinear Component Analysis as a Kernel Eigenvalue Problem" — the original kernel-PCA paper, in the references.*
+> **Reference:** **Schölkopf, Smola & Müller (1998)**, "Nonlinear Component Analysis as a Kernel Eigenvalue Problem" — the original kernel-PCA paper, in the references.
 
 ### Practical variants of PCA you should know
 
@@ -546,7 +549,7 @@ raw 64-D : 5-fold accuracy = 0.9204
 
 ---
 
-## Common pitfalls
+## Pitfalls
 
 The mistakes that turn PCA from a help into a quiet liability — worth a checklist before you ship it:
 
@@ -578,7 +581,7 @@ The mistakes that turn PCA from a help into a quiet liability — worth a checkl
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links (including the non-linear siblings **t-SNE** and **UMAP**) — lives in a companion file so it can be reused as a standalone reference list:
 

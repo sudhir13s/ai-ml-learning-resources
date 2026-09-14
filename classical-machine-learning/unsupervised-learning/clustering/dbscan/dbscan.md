@@ -1,6 +1,7 @@
 ---
 id: "04-unsupervised-learning/dbscan"
 topic: "DBSCAN (Density-Based Clustering)"
+core_idea: "A cluster is a region of dense points chained together through neighborhoods of radius eps holding at least minPts points, so DBSCAN finds arbitrarily shaped clusters, labels sparse points as noise, and needs no cluster count, but struggles when densities differ."
 parent: "04-unsupervised-learning"
 level: intermediate
 built_from: ["euclidean-distance", "k-means", "nearest-neighbors"]
@@ -122,7 +123,7 @@ flowchart TD
     classDef danger fill:#8B3B4A,stroke:#7B2B3A,color:#fff
 ```
 
-> *Where this comes from: directly-density-reachable, density-reachable, density-connected, and the maximal-density-connected-set definition of a cluster are Definitions 1–5 of **Ester, Kriegel, Sander & Xu, "A Density-Based Algorithm for Discovering Clusters" (KDD 1996)** — the paper that won the SIGKDD Test-of-Time Award. See references.*
+> **Reference:** directly-density-reachable, density-reachable, density-connected, and the maximal-density-connected-set definition of a cluster are Definitions 1–5 of **Ester, Kriegel, Sander & Xu, "A Density-Based Algorithm for Discovering Clusters" (KDD 1996)** — the paper that won the SIGKDD Test-of-Time Award. See references.
 
 > **Note:** why three relations instead of one? Because density-reachability is **asymmetric** (only cores reach), it can't directly serve as "are these in the same cluster?" — you'd get contradictions at the borders. Density-*connectedness* (reachable from a common core) restores the **symmetry** you need for a well-defined cluster. The whole formal apparatus exists to make borders behave.
 
@@ -552,7 +553,7 @@ varying eps=1.1: clusters=2 noise=1
 
 ---
 
-## Practical pitfalls (and how to avoid them)
+## Pitfalls: how to avoid them
 
 The same handful of mistakes account for almost every "DBSCAN gave me garbage" report:
 
@@ -593,7 +594,7 @@ The same handful of mistakes account for almost every "DBSCAN gave me garbage" r
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, interactive explainers, articles, the founding papers (Ester 1996, OPTICS 1999, HDBSCAN 2013), and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

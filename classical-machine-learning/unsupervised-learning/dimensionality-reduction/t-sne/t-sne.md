@@ -1,6 +1,7 @@
 ---
 id: "04-unsupervised-learning/t-sne"
 topic: "t-SNE (t-Distributed Stochastic Neighbor Embedding)"
+core_idea: "t-SNE turns high-dimensional distances into neighbor probabilities and arranges points in 2-D so that heavy-tailed Student-t similarities match them under KL divergence, preserving local neighborhoods while leaving cluster sizes and gaps between clusters unreliable."
 parent: "04-unsupervised-learning"
 level: intermediate
 built_from: ["dimensionality-reduction", "probability", "kl-divergence", "gradient-descent"]
@@ -83,7 +84,7 @@ Every formula below is just a precise statement of one piece of this story: the 
 
 ---
 
-## Step 1 — High-dimensional affinities: distances become probabilities
+## High-dimensional affinities: distances become probabilities
 
 The first move is to stop thinking about raw distances and start thinking about **the probability that point $j$ is a neighbor of point $i$**. Center a Gaussian (a bell curve) on each point $x_i$. A nearby point gets high density, a far point gets low density. Normalize over all other points and you get a conditional probability — *"if I'm standing at $x_i$ and I pick a neighbor with probability proportional to a Gaussian bump, how likely is it to be $x_j$?"*:
 
@@ -93,9 +94,11 @@ p_{j|i} \;=\; \frac{\exp\!\left(-\,\lVert x_i - x_j\rVert^2 \,/\, 2\sigma_i^2\ri
 \qquad p_{i|i} = 0.
 $$
 
-Every symbol: $\lVert x_i - x_j\rVert^2$ is the squared Euclidean distance between the two points; $\sigma_i$ is the **width of the Gaussian centered on $x_i$** (it gets its own subscript — more on that in Step 2); the denominator just renormalizes so $\sum_{j} p_{j|i} = 1$. We set $p_{i|i}=0$ because a point is not its own neighbor.
+Every symbol: $\lVert x_i - x_j\rVert^2$ is the squared Euclidean distance between the two points; $\sigma_i$ is the **width of the Gaussian centered on $x_i$** (it gets its own subscript — more on that under perplexity); the denominator just renormalizes so $\sum_{j} p_{j|i} = 1$. We set $p_{i|i}=0$ because a point is not its own neighbor.
 
-> *Where this comes from: the conditional-probability formulation of neighbor affinities is **Stochastic Neighbor Embedding** (Hinton & Roweis 2002, §2). t-SNE inherits the high-D side unchanged from SNE; what it changes is the low-D side (Step 3) and the symmetrization below.*
+> **Reference:**
+> - The conditional-probability formulation of neighbor affinities is **Stochastic Neighbor Embedding** (Hinton & Roweis 2002, §2).
+> - t-SNE inherits the high-D side unchanged from SNE; what it changes is the low-D side (see the low-dimensional affinities section) and the symmetrization below.
 
 ![The high-D affinity kernel. p_{j|i} as a function of distance from the center point x_i, for three Gaussian widths σ. A small σ (green) only counts very close points as neighbors; a large σ (red) reaches far. Perplexity is the knob that picks σ for each point so the effective neighborhood has a target size.](images/tsne_neighbor_kernel.png)
 
@@ -117,13 +120,13 @@ $$
 p_{ij} \;=\; \frac{p_{j|i} + p_{i|j}}{2n},
 $$
 
-where $n$ is the number of points. The $2n$ makes the whole matrix sum to one ($\sum_{i,j} p_{ij}=1$). This symmetrization buys two things: a cleaner gradient (Step 4), and a guarantee that **every point contributes meaningfully to the cost** — even an outlier $x_i$ whose $p_{j|i}$ are all tiny gets a fair share through the $p_{i|j}$ terms of its would-be neighbors, so it isn't simply ignored and dumped at the origin.
+where $n$ is the number of points. The $2n$ makes the whole matrix sum to one ($\sum_{i,j} p_{ij}=1$). This symmetrization buys two things: a cleaner gradient (see the objective and its gradient), and a guarantee that **every point contributes meaningfully to the cost** — even an outlier $x_i$ whose $p_{j|i}$ are all tiny gets a fair share through the $p_{i|j}$ terms of its would-be neighbors, so it isn't simply ignored and dumped at the origin.
 
 > **Gotcha:** the $\sigma_i$ are *not* a single global bandwidth — each point gets its own, chosen so that dense and sparse regions are treated **fairly**. A point in a crowded region gets a small $\sigma_i$ (its neighbors are close), a point in a sparse region gets a large $\sigma_i$. This per-point adaptivity is precisely what lets t-SNE handle clusters of very different densities, and it's set by *perplexity*, which we turn to now.
 
 ---
 
-## Step 2 — Perplexity: a smooth count of effective neighbors
+## Perplexity: a smooth count of effective neighbors
 
 How do you choose each $\sigma_i$? You don't, directly. You choose a single number — the **perplexity** — and let a search find the $\sigma_i$ that achieves it at every point. Perplexity is best read as **"how many effective neighbors each point should have."** Typical values are 5–50.
 
@@ -178,7 +181,7 @@ The dense point gets a **tight** Gaussian ($\sigma=0.214$) because its three eff
 
 ---
 
-## Step 3 — Low-dimensional affinities and the crowding problem
+## Low-dimensional affinities and the crowding problem
 
 Now build the *same kind* of neighbor-probability in the 2-D map, where the points $y_i$ live. We want a low-D joint $q_{ij}$ that we'll push to match $p_{ij}$. The naive choice is another Gaussian. **That is exactly what fails**, and understanding *why* is the heart of t-SNE.
 
@@ -214,7 +217,11 @@ $$
 
 The numerator $(1+d^2)^{-1}$ is the t-kernel; the denominator normalizes over all pairs so $\sum q_{ij}=1$.
 
-> *Where this comes from: the Student-t (1 dof) low-D kernel, the symmetrized $p_{ij}$, the $\mathrm{KL}(P\|Q)$ objective, and the gradient are all from **Visualizing Data using t-SNE** (van der Maaten & Hinton 2008, §3). The crowding argument that motivates the heavy tail is §3.2; the $O(n\log n)$ Barnes–Hut acceleration is van der Maaten (2014); the plot-reading lessons are Wattenberg, Viégas & Johnson, Distill (2016).*
+> **Reference:**
+> - The Student-t (1 dof) low-D kernel, the symmetrized $p_{ij}$, the $\mathrm{KL}(P\|Q)$ objective, and the gradient are all from **Visualizing Data using t-SNE** (van der Maaten & Hinton 2008, §3).
+> - The crowding argument that motivates the heavy tail is §3.2.
+> - The $O(n\log n)$ Barnes–Hut acceleration is van der Maaten (2014).
+> - The plot-reading lessons are Wattenberg, Viégas & Johnson, Distill (2016).
 
 The magic is in the **tail**. A Gaussian's tail decays like $e^{-d^2/2}$ — it dies *extremely* fast. The t-kernel's tail decays only like $1/d^2$ — a **power law**, far heavier. Compare them at the same distances:
 
@@ -237,7 +244,7 @@ At $d=3$ the t-distribution assigns **9× more affinity** than the Gaussian; at 
 
 ---
 
-## Step 4 — The objective and its gradient
+## The objective and its gradient
 
 We now have two probability distributions over pairs: $P=\{p_{ij}\}$ fixed by the data, and $Q=\{q_{ij}\}$ controlled by the 2-D positions $y_i$ we're free to move. We want $Q$ to *look like* $P$. The natural measure of "one distribution matching another" is the **Kullback–Leibler divergence**, and that is the t-SNE cost:
 
@@ -325,7 +332,7 @@ graph TD
 
 ---
 
-## Step 5 — The optimization: tricks that make it actually work
+## The optimization: tricks that make it actually work
 
 KL on point positions is **non-convex**, so plain gradient descent gets stuck. t-SNE leans on a few well-chosen tricks:
 
@@ -626,7 +633,7 @@ A few that come up constantly, answered tightly:
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

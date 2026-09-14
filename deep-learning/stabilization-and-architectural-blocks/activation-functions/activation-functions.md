@@ -1,6 +1,7 @@
 ---
 id: "05-deep-learning/activation-functions"
 topic: "Activation Functions (ReLU · GELU · sigmoid · tanh · softmax)"
+core_idea: "Without a nonlinearity, stacked layers collapse into one linear map; activations are chosen for healthy gradient flow, which is why saturating sigmoid and tanh gave way to ReLU and then to smooth GELU and gated SwiGLU in transformers, while softmax turns final scores into probabilities."
 parent: "05-deep-learning"
 level: beginner
 built_from: ["feedforward-networks", "calculus"]
@@ -113,7 +114,10 @@ That shared shape is the whole problem: **saturation → vanishing gradients.** 
 
 Sigmoid carries a **second**, subtler flaw: it is **not zero-centered** — its output is always positive. Why does that hurt? Consider a neuron $z = \sum_i w_i a_i + b$ where every input $a_i$ comes from a previous sigmoid, so every $a_i > 0$. During backprop, $\partial L/\partial w_i = (\partial L/\partial z)\cdot a_i$. Since all $a_i$ share the same (positive) sign, the gradients of **all** the incoming weights share the sign of the single scalar $\partial L/\partial z$ — they must **all** increase together or **all** decrease together. The optimizer can't move them in mixed directions in one step, so it has to take a **zig-zag** staircase toward the optimum instead of a straight line. Tanh, being centered on $0$, lets activations be positive *or* negative and fixes exactly this. Both flaws — saturation and the positivity bias — are why these two squashing functions were eventually retired from hidden layers.
 
-> *Where this comes from: the saturation / vanishing-gradient analysis of sigmoid/tanh — and why it cripples deep nets — is **Understanding the difficulty of training deep feedforward neural networks** (Glorot & Bengio 2010), which also gave us Xavier/Glorot initialization. The zig-zag argument for zero-centering appears in **CS231n**. Both are in the references; see also our [Vanishing / Exploding Gradients](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients) page for the layer-by-layer product in full.*
+> **Reference:**
+> - The saturation / vanishing-gradient analysis of sigmoid/tanh — and why it cripples deep nets — is **Understanding the difficulty of training deep feedforward neural networks** (Glorot & Bengio 2010), which also gave us Xavier/Glorot initialization.
+> - The zig-zag argument for zero-centering appears in **CS231n**.
+> - Both are in the references; see also our [Vanishing / Exploding Gradients](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients) page for the layer-by-layer product in full.
 
 ---
 
@@ -135,7 +139,10 @@ But there is no free lunch. ReLU's flat-zero negative half hides a real failure 
 
 > **Gotcha — the dying-ReLU problem (derived).** ReLU's derivative is **0** for $x<0$. Now suppose a unit's pre-activation is pushed negative for *every* training example — say a large gradient step drives its bias very negative. Then for **all** inputs it outputs $0$, so its gradient $\partial L/\partial z = (\partial L/\partial a)\cdot\text{ReLU}'(z) = (\partial L/\partial a)\cdot 0 = 0$. With zero gradient, the optimizer **never updates that unit's weights**, so its pre-activation stays negative, so it stays at $0$ — **forever**. The neuron is permanently dead; the network silently loses a chunk of its capacity, and you'll see it as a layer where a suspicious fraction of units are always-zero. (Worked example 3 shows this gradient hitting exactly $0$ in code.) The cure: give the negative side a **nonzero slope** so a dead unit still receives a trickle of gradient and can climb back — which is exactly what Leaky ReLU and friends do.
 
-> *Where this comes from: ReLU for deep nets is **Rectified Linear Units Improve Restricted Boltzmann Machines** (Nair & Hinton 2010) and **Deep Sparse Rectifier Neural Networks** (Glorot, Bordes & Bengio 2011); the initialization tuned for ReLU's halved variance is **Delving Deep into Rectifiers** (He et al. 2015) — all in the references.*
+> **Reference:**
+> - ReLU for deep nets is **Rectified Linear Units Improve Restricted Boltzmann Machines** (Nair & Hinton 2010) and **Deep Sparse Rectifier Neural Networks** (Glorot, Bordes & Bengio 2011).
+> - The initialization tuned for ReLU's halved variance is **Delving Deep into Rectifiers** (He et al. 2015).
+> - All in the references.
 
 ---
 
@@ -165,7 +172,12 @@ Those constants aren't arbitrary — they're the solution to a **fixed-point** c
 
 > **Tip:** SELU's self-normalizing guarantee only holds under its **own** assumptions — inputs standardized to $(0,1)$, a specific **LeCun-normal** weight init, the matching **AlphaDropout**, and feed-forward (not conv/residual) topology. Break any of those and the fixed point no longer holds. That fragility, more than the math, is why SELU never displaced ReLU/GELU as a default.
 
-> *Where this comes from: Leaky ReLU is **Rectifier Nonlinearities Improve Neural Network Acoustic Models** (Maas, Hannun & Ng 2013); PReLU + He-init is **Delving Deep into Rectifiers** (He et al. 2015); ELU is **Fast and Accurate Deep Network Learning by Exponential Linear Units** (Clevert, Unterthiner & Hochreiter 2015); SELU/SNNs is **Self-Normalizing Neural Networks** (Klambauer et al. 2017) — references.*
+> **Reference:**
+> - Leaky ReLU is **Rectifier Nonlinearities Improve Neural Network Acoustic Models** (Maas, Hannun & Ng 2013).
+> - PReLU + He-init is **Delving Deep into Rectifiers** (He et al. 2015).
+> - ELU is **Fast and Accurate Deep Network Learning by Exponential Linear Units** (Clevert, Unterthiner & Hochreiter 2015).
+> - SELU/SNNs is **Self-Normalizing Neural Networks** (Klambauer et al. 2017).
+> - All in the references.
 
 ---
 
@@ -195,7 +207,10 @@ Same shape of idea as GELU — multiply $x$ by a smooth $(0,1)$ gate — but the
 
 Two properties pay off in practice. **Smoothness**: $\phi'$ exists and is continuous everywhere, with no hard dead zone, so there's always *some* gradient — no permanent death. **Non-monotonicity**: both functions dip slightly below zero for small negatives (the dips in the figure), which gives the network a gentle way to represent "small negative" features distinctly from "zero," and empirically trains transformers a touch better. Notice in the derivative figure that $\text{GELU}'$ and $\text{SiLU}'$ even **overshoot above 1** near $x\approx1.5$ — a mild gradient amplification in the active region that ReLU's flat 1 doesn't provide.
 
-> *Where this comes from: **GELU** is **Gaussian Error Linear Units** (Hendrycks & Gimpel 2016); **Swish** is **Searching for Activation Functions** (Ramachandran, Zoph & Le 2017), with the **SiLU** name and reinforcement-learning origin in Elfwing, Uchibe & Doya (2017) — references.*
+> **Reference:**
+> - **GELU** is **Gaussian Error Linear Units** (Hendrycks & Gimpel 2016).
+> - **Swish** is **Searching for Activation Functions** (Ramachandran, Zoph & Le 2017), with the **SiLU** name and reinforcement-learning origin in Elfwing, Uchibe & Doya (2017).
+> - All in the references.
 
 ---
 
@@ -221,7 +236,10 @@ This is the FFN used in **LLaMA, PaLM, Mistral, and most modern LLMs**. Two prac
 
 > **Note:** gating outgrew this page. The same multiplicative, input-dependent gate now appears in the selection mechanism of state-space models and in the gated attention of 2025 architectures — see [Gating Mechanisms](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/gating-mechanisms/gating-mechanisms) for gating treated as a mechanism in its own right, rather than as one more entry in the activation zoo.
 
-> *Where this comes from: GLU is **Language Modeling with Gated Convolutional Networks** (Dauphin et al. 2017); the SwiGLU and GeGLU results are both in **GLU Variants Improve Transformer** (Shazeer 2020) — references.*
+> **Reference:**
+> - GLU is **Language Modeling with Gated Convolutional Networks** (Dauphin et al. 2017).
+> - The SwiGLU and GeGLU results are both in **GLU Variants Improve Transformer** (Shazeer 2020).
+> - Both in the references.
 
 ---
 
@@ -253,7 +271,10 @@ This is why frameworks expose `log_softmax` and `cross_entropy` as **fused** ops
 
 **For binary or multi-label outputs**, use **sigmoid per class** instead of softmax. Softmax forces the classes to **compete** (they must sum to 1 — more "cat" means less "dog"); a multi-label image that is *both* "beach" and "sunset" needs **independent** probabilities, which is exactly $K$ independent sigmoids.
 
-> *Where this comes from: softmax, its Jacobian, and the cross-entropy pairing are derived in **d2l.ai** Ch. 4 and Brandon Rohrer's "Softmax from scratch" (references); the max-subtraction is the standard **log-sum-exp** trick. The clean softmax+cross-entropy gradient $(\hat y - y)$ is derived on our [Loss Functions](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/loss-functions/loss-functions) page.*
+> **Reference:**
+> - Softmax, its Jacobian, and the cross-entropy pairing are derived in **d2l.ai** Ch. 4 and Brandon Rohrer's "Softmax from scratch" (references).
+> - The max-subtraction is the standard **log-sum-exp** trick.
+> - The clean softmax+cross-entropy gradient $(\hat y - y)$ is derived on our [Loss Functions](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/loss-functions/loss-functions) page.
 
 ### The Jacobian of softmax (derived)
 
@@ -557,7 +578,7 @@ Jacobian max |auto - formula| = 1.49e-08
 
 ---
 
-## Practical pitfalls (the bugs that actually bite)
+## Pitfalls: the bugs that actually bite
 
 The theory is clean; the bugs are sneaky. These are the activation-related mistakes that cost real debugging hours:
 
@@ -602,7 +623,7 @@ The theory is clean; the bugs are sneaky. These are the activation-related mista
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

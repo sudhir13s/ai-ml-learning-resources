@@ -1,6 +1,7 @@
 ---
 id: "03-supervised-learning/bagging"
 topic: "Bagging (Bootstrap Aggregating)"
+core_idea: "Train a high-variance learner on many bootstrap resamples and average the results: bias is unchanged while variance falls toward a floor set by how correlated the models are, so bagging rescues unstable learners such as deep trees and does little for stable ones."
 parent: "03-supervised-learning"
 level: intermediate
 built_from: ["decision-trees", "bias-variance", "bootstrap"]
@@ -121,7 +122,11 @@ The right panel confirms the algebra empirically: the OOB fraction is a bit abov
 
 > **Gotcha:** ~37% is the fraction of *rows left out*, **not** the fraction of the data a model never sees in some weaker sense, and **not** 50%. A common interview slip is "half the data is held out." It's $1/e$, ~37%, and you should be able to derive it on the spot from $(1-1/n)^n$.
 
-> *Where this comes from: resampling with replacement to estimate sampling distributions is **Efron (1979)**, "Bootstrap Methods"; its use to build ensembles is **Bagging Predictors** (Breiman, 1996); the applied treatment is **ISLR** Ch. 5 (the bootstrap) & 8.2 (bagging) — references.*
+> **Reference:**
+> - Resampling with replacement to estimate sampling distributions is **Efron (1979)**, "Bootstrap Methods".
+> - Its use to build ensembles is **Bagging Predictors** (Breiman, 1996).
+> - The applied treatment is **ISLR** Ch. 5 (the bootstrap) & 8.2 (bagging).
+> - All in the references.
 
 ---
 
@@ -198,7 +203,7 @@ Three design choices inside this skeleton matter:
 
 This is the mathematical heart of the page, and it's worth grinding through every step because the *conclusion you read off the algebra* is precisely "bag unstable learners, not stable ones."
 
-### Step 1 — the independent case: sigma-squared over B
+### The independent case: sigma-squared over B
 
 Model the $B$ bagged predictions at a fixed input $x$ as random variables $\hat f_1, \dots, \hat f_B$ (random because each depends on a random bootstrap sample). Suppose for now they are **independent and identically distributed (i.i.d.)**, each with mean $\mu$ and variance $\sigma^2$. The bagged prediction is their average $\bar f = \frac1B \sum_b \hat f_b$. Two facts:
 
@@ -214,7 +219,7 @@ $$\operatorname{Var}(\bar f) = \operatorname{Var}\!\left(\frac{1}{B}\sum_{b=1}^{
 
 So $B$ independent models cut the variance by a factor of $B$ while holding bias fixed. That is the entire promise of bagging in one line: **variance $\to \sigma^2/B$, bias unchanged.** Add models, drive variance toward zero, keep accuracy.
 
-### Step 2 — the realistic case: the correlated floor
+### The realistic case: the correlated floor
 
 Here's the catch the dashed line in the figure exposes. Bootstrap samples *overlap* — two of them share ~63% of the original rows on average — so the models trained on them are **not independent**; they're **positively correlated**. We need the variance of an average of *correlated* identically-distributed variables. Let every pair have correlation $\rho$ (so $\operatorname{Cov}(\hat f_i, \hat f_j) = \rho\sigma^2$ for $i\neq j$). Expand the variance of the average:
 
@@ -232,7 +237,7 @@ Read this carefully — it's the single most important equation about ensembles 
 
 $$\lim_{B\to\infty}\operatorname{Var}(\bar f) = \rho\sigma^2.$$
 
-So adding trees pays off only down to $\rho\sigma^2$. Two sanity checks confirm the formula: set $\rho = 0$ (independent) and you recover Step 1's $\sigma^2/B$; set $\rho = 1$ (identical models) and you get $\sigma^2$ — averaging identical things changes nothing, exactly right.
+So adding trees pays off only down to $\rho\sigma^2$. Two sanity checks confirm the formula: set $\rho = 0$ (independent) and you recover the independent case's $\sigma^2/B$; set $\rho = 1$ (identical models) and you get $\sigma^2$ — averaging identical things changes nothing, exactly right.
 
 ![Measured prediction variance versus the number of bagged deep trees B. The variance drops from about 0.093 at B=1 toward a floor near 0.044 by B=80 (the dotted red line marks the correlated floor ρσ²). A dashed reference line shows the ideal 1/B decay for fully independent models, which falls far faster — the gap is because bootstrapped trees are correlated.](images/bag_variance.png)
 
@@ -240,7 +245,10 @@ The measured blue curve drops steeply, then flattens onto the red floor **far ab
 
 > **Note:** notice the two levers in $\rho\sigma^2 + \frac{1-\rho}{B}\sigma^2$. Adding models ($B\uparrow$) only kills the *second* term. Lowering correlation ($\rho\downarrow$) lowers the *floor* itself. Plain bagging only turns the first knob; random forests turn the second. That single observation is the entire reason random forests exist — and a complete answer to "why isn't bagging enough?"
 
-> *Where this comes from: the $\sigma^2/B$ argument and bagging's variance analysis are **The Elements of Statistical Learning** (Hastie–Tibshirani–Friedman) Ch. 8.7 and Breiman (1996); the correlated-average form $\rho\sigma^2 + \frac{1-\rho}{B}\sigma^2$ is **ESL** Ch. 15.2 — references.*
+> **Reference:**
+> - The $\sigma^2/B$ argument and bagging's variance analysis are **The Elements of Statistical Learning** (Hastie–Tibshirani–Friedman) Ch. 8.7 and Breiman (1996).
+> - The correlated-average form $\rho\sigma^2 + \frac{1-\rho}{B}\sigma^2$ is **ESL** Ch. 15.2.
+> - Both in the references.
 
 ---
 
@@ -527,7 +535,7 @@ Concretely, that plays out across domains wherever variance is the enemy and the
 
 ---
 
-## Pitfalls and how they bite
+## Pitfalls: how they bite
 
 The theory is clean; the misuses are predictable. The ones that actually cost people accuracy or time:
 
@@ -562,7 +570,7 @@ The theory is clean; the misuses are predictable. The ones that actually cost pe
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

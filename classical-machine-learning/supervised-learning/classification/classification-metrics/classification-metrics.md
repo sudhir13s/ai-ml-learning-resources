@@ -1,6 +1,7 @@
 ---
 id: "03-supervised-learning/classification-metrics"
 topic: "Classification Metrics (precision · recall · F1 · ROC-AUC · PR-AUC · calibration)"
+core_idea: "Accuracy hides failure on imbalanced data, so evaluate from the confusion matrix: choose precision, recall, or F-beta by the cost of each error type, prefer precision-recall curves over ROC when positives are rare, and check calibration when probabilities drive decisions."
 parent: "03-supervised-learning"
 level: beginner
 built_from: ["logistic-regression", "confusion-matrix", "probability"]
@@ -80,7 +81,10 @@ $$\text{Specificity (TNR)} = \frac{TN}{TN + FP} \qquad\qquad \text{FPR} = \frac{
 
 > **Gotcha:** "sensitivity = recall = TPR" and "1 − specificity = FPR" trip people up constantly because the same quantity wears three names depending on the field (medicine says sensitivity/specificity; ML says recall/FPR; signal detection says TPR/FPR). They're the same numbers. Learn the synonyms once so a question phrased in any vocabulary is the same question.
 
-> *Where this comes from: precision/recall/F1 are derived cleanly from a text-classification angle in **Speech and Language Processing** (Jurafsky & Martin) Ch. 4, and tabulated in the scikit-learn user guide — references.*
+> **Reference:**
+> - Precision/recall/F1 are derived cleanly from a text-classification angle in **Speech and Language Processing** (Jurafsky & Martin) Ch. 4.
+> - They are tabulated in the scikit-learn user guide.
+> - Both in the references.
 
 ---
 
@@ -204,7 +208,11 @@ The mechanism in one line: **ROC's x-axis (FPR) is diluted by the easy negatives
 
 > **Gotcha:** **ROC-AUC is prevalence-invariant; PR-AUC is not.** That cuts both ways. ROC-AUC's stability across base rates is genuinely useful when you want to compare a model's *intrinsic ranking ability* independent of the deployment class balance. But it's a liability when you need to know how the model will behave *at your actual prevalence* — there, PR-AUC (which shifts its baseline with the positive rate) is the honest summary. Know which question you're answering.
 
-> *Where this comes from: the ROC/AUC tutorial is **An Introduction to ROC Analysis** (Fawcett 2006); the equivalence of AUC and the Mann–Whitney U / Wilcoxon statistic is classical (Hanley & McNeil 1982); the result that **PR curves are more informative than ROC under class imbalance** is **The Relationship Between Precision-Recall and ROC Curves** (Davis & Goadrich 2006) — references.*
+> **Reference:**
+> - The ROC/AUC tutorial is **An Introduction to ROC Analysis** (Fawcett 2006).
+> - The equivalence of AUC and the Mann–Whitney U / Wilcoxon statistic is classical (Hanley & McNeil 1982).
+> - The result that **PR curves are more informative than ROC under class imbalance** is **The Relationship Between Precision-Recall and ROC Curves** (Davis & Goadrich 2006).
+> - All in the references.
 
 ---
 
@@ -599,7 +607,7 @@ Every step is one idea from this page — base rate → curves → cost-driven t
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

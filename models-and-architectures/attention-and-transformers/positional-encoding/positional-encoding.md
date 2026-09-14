@@ -1,6 +1,7 @@
 ---
 id: "05-deep-learning/positional-encoding"
 topic: "Positional Encoding"
+core_idea: "Self-attention ignores token order, so position must be injected, either as absolute signals added to the embeddings or as relative terms inside attention such as RoPE and ALiBi, and that choice largely decides how well a model handles sequences longer than it was trained on."
 parent: "05-deep-learning"
 level: intermediate
 built_from: ["attention", "transformer", "linear-algebra", "softmax"]
@@ -102,7 +103,10 @@ $$PE_{(pos,\,2i)} = \sin\!\left(\frac{pos}{10000^{2i/d}}\right), \qquad PE_{(pos
 
 Read it slowly. Each *pair* of dimensions $(2i, 2i{+}1)$ shares a single **frequency** $\omega_i = 1/10000^{2i/d}$ and gets the $(\sin, \cos)$ of $\omega_i \cdot pos$. As $i$ climbs from $0$ to $d/2$, the exponent $2i/d$ goes from $0$ to $1$, so the wavelength $2\pi/\omega_i = 2\pi\cdot 10000^{2i/d}$ sweeps **geometrically from $2\pi$ (very fast) up to $2\pi\cdot 10000$ (very slow)**.
 
-> *Where this comes from: the sinusoidal positional encoding is **Attention Is All You Need** (Vaswani et al. 2017, §3.5). The base constant $10000$ and the geometric-frequency design are stated there; the rotation property below is the paper's stated motivation ("we hypothesized it would allow the model to easily learn to attend by relative positions").*
+> **Reference:**
+> - The sinusoidal positional encoding is **Attention Is All You Need** (Vaswani et al. 2017, §3.5).
+> - The base constant $10000$ and the geometric-frequency design are stated there.
+> - The rotation property below is the paper's stated motivation ("we hypothesized it would allow the model to easily learn to attend by relative positions").
 
 ### Why a *spectrum* of frequencies
 
@@ -222,7 +226,10 @@ $$e_{ij} = \frac{(x_i W_q)(x_j W_k)^\top}{\sqrt{d_k}} + b_{\text{bucket}(i-j)}.$
 
 That's it — a per-head, per-relative-bucket scalar nudged onto the logits. Cheap, parameter-light, and because the buckets are defined for *any* distance, it extrapolates respectably. T5's design is the conceptual parent of **ALiBi**, which replaces the *learned* bucketed bias with a *fixed linear* one.
 
-> *Where this comes from: relative position representations are **Self-Attention with Relative Position Representations** (Shaw, Uszkoreit & Vaswani 2018); the bucketed scalar bias is **Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer** (Raffel et al. 2020, the "T5" paper, §2.1). Both in the references.*
+> **Reference:**
+> - Relative position representations are **Self-Attention with Relative Position Representations** (Shaw, Uszkoreit & Vaswani 2018).
+> - The bucketed scalar bias is **Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer** (Raffel et al. 2020, the "T5" paper, §2.1).
+> - Both in the references.
 
 > **Note:** the architectural shift here is the whole story of modern positional encoding: **stop adding position to the input embedding; start injecting relative position into the attention computation.** Sinusoidal/learned are *input-side and absolute*; Shaw, T5, RoPE, and ALiBi are *attention-side and relative*. That move is what unlocked long context.
 
@@ -284,7 +291,10 @@ $$\theta_j = 10000^{-2j/d}, \qquad j = 0, 1, \dots, \tfrac{d}{2}-1.$$
 
 Low-index pairs rotate fast (short wavelength, fine position), high-index pairs rotate slowly (coarse position) — the identical multi-frequency idea, but now it *rotates the data* instead of *being added to it*. The full $R_{m}$ is block-diagonal with these $2\times2$ rotation blocks, and the relative-offset property holds for the whole vector because each block contributes a $R_{(n-m)\theta_j}$ term.
 
-> *Where this comes from: RoPE is **RoFormer: Enhanced Transformer with Rotary Position Embedding** (Su et al. 2021). The derivation above is their §3.2 (2D case) and §3.4.2 (general $d$); the frequency schedule reuses Vaswani's $10000^{-2j/d}$.*
+> **Reference:**
+> - RoPE is **RoFormer: Enhanced Transformer with Rotary Position Embedding** (Su et al. 2021).
+> - The derivation above is their §3.2 (2D case) and §3.4.2 (general $d$).
+> - The frequency schedule reuses Vaswani's $10000^{-2j/d}$.
 
 ### Worked example 3 — apply RoPE and watch the offset emerge
 
@@ -337,7 +347,9 @@ Take a query at position $i=4$ attending over keys $j = 0,1,2,3,4$ (causal). To 
 
 Even though the *content* scores were identical, ALiBi has tilted the attention toward **nearby** keys: the adjacent token ($j=4$) now gets $0.31$ of the weight versus $0.11$ for the farthest. Swap in a steeper head, $m=0.5$, and the same setup yields weights $[0.43, 0.26, 0.16, 0.10, 0.06]$ — a much sharper recency bias. So the **slope is a per-head dial on "how local"** that head's attention is, and the geometric slope schedule gives the model a *spectrum* of locality — some heads myopic, some far-sighted — for free, with zero parameters. (These exact numbers are reproducible with the formula above.)
 
-> *Where this comes from: ALiBi is **Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation** (Press, Smith & Lewis 2021). The geometric slope schedule is their §3.*
+> **Reference:**
+> - ALiBi is **Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation** (Press, Smith & Lewis 2021).
+> - The geometric slope schedule is their §3.
 
 > **Tip:** the clean mental model — **sinusoidal/learned change the *inputs*; RoPE rotates the *queries and keys*; ALiBi nudges the *scores*.** Three different stages of the same attention computation. ALiBi is the cheapest (one subtraction), RoPE the most expressive relative scheme, sinusoidal the historical original. An interviewer who hears you place each at its *stage* knows you understand the mechanism, not just the names.
 
@@ -351,7 +363,7 @@ A surprising 2023 result: a **causal decoder** with **no positional encoding at 
 
 This is a research curiosity more than a default — most production decoders still use RoPE because it gives stronger, more reliable relative structure — but it's a sharp interview point: it shows positional encoding is *helpful*, not strictly *necessary*, for a masked decoder, and it underscores that the causal mask is itself a (weak) position signal.
 
-> *Where this comes from: **The Impact of Positional Encoding on Length Generalization in Transformers** (Kazemnejad et al. 2023) — the NoPE result. In the references.*
+> **Reference:** **The Impact of Positional Encoding on Length Generalization in Transformers** (Kazemnejad et al. 2023) — the NoPE result. In the references.
 
 ---
 
@@ -379,7 +391,10 @@ graph TD
     classDef out fill:#2E7A5A,stroke:#1E6A4A,color:#fff
 ```
 
-> *Where these come from: **Extending Context Window of Large Language Models via Position Interpolation** (Chen et al. 2023); the NTK-aware idea originated in a community post by *bloc97* and is folded into **YaRN: Efficient Context Window Extension of Large Language Models** (Peng et al. 2023). In the references.*
+> **Reference:**
+> - **Extending Context Window of Large Language Models via Position Interpolation** (Chen et al. 2023).
+> - The NTK-aware idea originated in a community post by *bloc97* and is folded into **YaRN: Efficient Context Window Extension of Large Language Models** (Peng et al. 2023).
+> - In the references.
 
 > **Note:** all three only exist *because* RoPE encodes position as **frequencies you can rescale**. You cannot "interpolate" a learned absolute table the same way — there's nothing continuous to stretch. This rescalability is a quiet but decisive advantage of RoPE, and a big part of why nearly every long-context open model is RoPE-based.
 
@@ -544,7 +559,7 @@ reference <R_(m-n) q, k> = 1.178293  (matches → relative-only)
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

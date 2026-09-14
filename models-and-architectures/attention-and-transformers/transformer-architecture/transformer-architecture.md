@@ -1,6 +1,7 @@
 ---
 id: "05-deep-learning/transformer"
 topic: "Transformer Architecture"
+core_idea: "A transformer stacks identical blocks of multi-head self-attention and a position-wise feed-forward network, each wrapped in a residual connection and layer normalization, arranged as encoder-only, decoder-only, or encoder-decoder, at roughly twelve d-squared parameters per layer."
 parent: "05-deep-learning"
 level: intermediate
 built_from: ["attention", "backpropagation", "layer-normalization", "rnn-lstm-gru"]
@@ -453,7 +454,11 @@ $$P_{\text{model}} \;\approx\; 12\,L\,d^2 \;+\; V d.$$
 
 Two regimes fall out immediately. For **small models / large vocabularies**, the $Vd$ embedding term dominates — a tiny model can be mostly embedding table. For **large models**, the $12Ld^2$ block term dominates and the embedding becomes a rounding error. The crossover is exactly when $12Ld^2 \approx Vd$, i.e. $L d \approx V/12$.
 
-> *Where these come from: the **block**, **FFN** (§3.3), **sinusoidal positional encoding** (§3.5), and **multi-head attention** (§3.2) are all from **Attention Is All You Need** (Vaswani et al. 2017). The **pre-LN** placement is from **On Layer Normalization in the Transformer Architecture** (Xiong et al. 2020). The $\approx 12d^2$/layer accounting is worked through in **Transformer Math 101** (EleutherAI). All in the references.*
+> **Reference:**
+> - The **block**, **FFN** (§3.3), **sinusoidal positional encoding** (§3.5), and **multi-head attention** (§3.2) are all from **Attention Is All You Need** (Vaswani et al. 2017).
+> - The **pre-LN** placement is from **On Layer Normalization in the Transformer Architecture** (Xiong et al. 2020).
+> - The $\approx 12d^2$/layer accounting is worked through in **Transformer Math 101** (EleutherAI).
+> - All in the references.
 
 > **Tip:** the $12Ld^2 + Vd$ formula reproduces real models. GPT-2-small ($V{=}50257, d{=}768, L{=}12$): blocks $\approx 12\cdot12\cdot768^2 \approx 85$M, embedding $50257\cdot768 \approx 39$M, **total ≈ 124M** — exactly GPT-2-small's published size. We verify this in code below. This back-of-envelope is a frequent interview ask; practice it.
 
@@ -603,7 +608,7 @@ The cleanest proof of universality is the **Vision Transformer (ViT)**. To apply
 
 ---
 
-## Common pitfalls and how to diagnose them
+## Pitfalls: how to diagnose them
 
 A transformer fails in characteristic ways, and each failure has a signature symptom. Knowing the symptom → cause map is what separates "I read the paper" from "I've trained these."
 
@@ -854,7 +859,7 @@ Read the table top-to-bottom and you've traced a token from id to logit; read th
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

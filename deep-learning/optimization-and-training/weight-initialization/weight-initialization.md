@@ -1,6 +1,7 @@
 ---
 id: "05-deep-learning/weight-initialization"
 topic: "Weight Initialization (Xavier/Glorot · He/Kaiming)"
+core_idea: "Initial weights must break symmetry and keep the variance of signals and gradients constant through depth; scaling weight variance by fan-in and fan-out gives Xavier initialization for symmetric activations and He initialization, twice as large, for ReLU."
 parent: "05-deep-learning"
 level: intermediate
 built_from: ["feedforward-networks", "backpropagation", "linear-algebra", "variance-and-expectation"]
@@ -193,7 +194,12 @@ The collapse and the cure are both visible directly in the activations of a deep
 
 ![Activation histograms at layer 15 under three regimes. Saturated: tanh with too-large init piles all mass at ±1 (the gradient there is ~0, so learning stalls). Dead: ReLU with too-small init crams every activation near 0 (x-axis only reaches ~0.008 — a dead network). Healthy: He-initialized ReLU spreads as a half-normal with std ≈ 1 — the signal magnitude is preserved.](images/init_hist.png)
 
-> *Where these come from: the variance-preserving derivation and Xavier init are **Understanding the difficulty of training deep feedforward networks** (Glorot & Bengio 2010); the ReLU factor-of-2 correction is **Delving Deep into Rectifiers** (He et al. 2015); the original fan-in scaling and the practical advice to normalize inputs are **Efficient BackProp** (LeCun et al. 1998); the symmetry argument is **Deep Learning** (Goodfellow et al.) §8.4. All in the references.*
+> **Reference:**
+> - The variance-preserving derivation and Xavier init are **Understanding the difficulty of training deep feedforward networks** (Glorot & Bengio 2010).
+> - The ReLU factor-of-2 correction is **Delving Deep into Rectifiers** (He et al. 2015).
+> - The original fan-in scaling and the practical advice to normalize inputs are **Efficient BackProp** (LeCun et al. 1998).
+> - The symmetry argument is **Deep Learning** (Goodfellow et al.) §8.4.
+> - All in the references.
 
 > **Gotcha (the hidden assumption):** the clean variance algebra assumed inputs are **zero-mean** — but ReLU outputs are **non-negative**, so the input to the *next* layer has a positive mean, and our $\mathbb{E}[x]=0$ assumption is technically violated downstream. He et al. handle this carefully in the paper; the upshot is that the leading-order factor-of-2 correction is what dominates, and the small mean-shift is a second-order effect that the network's biases absorb during training. (Sigmoid is worse on this front: it's *not even centred at zero*, outputting in $(0,1)$ with mean $\approx0.5$, which is one more reason `tanh` — centred at 0 — is preferred over `sigmoid` for hidden layers, and why both are now largely displaced by ReLU/GELU.) The practical takeaway: the formulas are derived under idealized assumptions but are robust enough in practice that they're the universal default — just don't be surprised that real activation means drift slightly from zero.
 
@@ -607,7 +613,7 @@ Hold that one sentence — *unit variance at every layer, in both directions* �
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
