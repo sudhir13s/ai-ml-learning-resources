@@ -778,4 +778,4 @@ Curation bugs do not crash. They surface weeks later as a model that behaves odd
 
 ## References
 
-Shared with the topic's companion file: [Synthetic Data and Data Curation — references](/ai-ml/ai-ml-learning-resources/data-and-representation/synthetic-data-and-curation/synthetic-data-and-curation-references).
+Shared with the topic's companion file: [Synthetic Data and Data Curation — references](/ai-ml/ai-ml-learning-resources/data-and-representation/synthetic-data-and-curation/synthetic-data-and-curation#references-further-reading).
