@@ -1,6 +1,7 @@
 ---
 id: "03-supervised-learning/bias-variance-tradeoff"
 topic: "Bias–Variance Tradeoff"
+core_idea: "Expected test error splits into squared bias, variance, and irreducible noise, so model complexity trades one reducible term against the other, and the classical U-curve can give way to double descent in heavily over-parameterized models."
 parent: "03-supervised-learning"
 level: intermediate
 built_from: ["supervised-learning-basics", "expectation", "generalization"]
@@ -129,7 +130,10 @@ Three terms, two of which you can trade against each other and one you cannot to
 
 > **Gotcha:** this clean three-way split is special to **squared-error** loss. For 0–1 classification loss the analogue is messier — bias and variance interact *multiplicatively* in places, and a high-variance vote can sometimes *correct* a biased base learner (Domingos 2000 has the general treatment). The intuition (simple→bias, complex→variance) carries over; the exact additive algebra does not. Say "for squared loss" when you write the formula in an interview.
 
-> *Where this comes from: the decomposition entered ML through **Neural Networks and the Bias/Variance Dilemma** (Geman, Bienenstock & Doursat 1992); the textbook derivations are **The Elements of Statistical Learning** §2.9 and §7.3, and **An Introduction to Statistical Learning** §2.2 — all in the references.*
+> **Reference:**
+> - The decomposition entered ML through **Neural Networks and the Bias/Variance Dilemma** (Geman, Bienenstock & Doursat 1992).
+> - The textbook derivations are **The Elements of Statistical Learning** §2.9 and §7.3, and **An Introduction to Statistical Learning** §2.2.
+> - All in the references.
 
 ---
 
@@ -305,7 +309,10 @@ The figure is a **real measurement** (random-feature ridgeless regression, in th
 
 > **Gotcha:** don't over-generalize "bigger is always better." Double descent appears under specific conditions (near-interpolation, least-norm/implicitly-regularized solutions, often label noise). In the *under*-parameterized regime you can still badly overfit, and even in the modern regime explicit regularization and early stopping usually still help. The lesson is "the U isn't the whole story for huge models," not "throw out regularization."
 
-> *Where this comes from: **Reconciling Modern Machine-Learning Practice and the Bias–Variance Trade-off** (Belkin et al. 2019) named and demonstrated double descent; **Deep Double Descent** (Nakkiran et al. 2019) showed it for real deep networks and added *epoch-wise* double descent — references.*
+> **Reference:**
+> - **Reconciling Modern Machine-Learning Practice and the Bias–Variance Trade-off** (Belkin et al. 2019) named and demonstrated double descent.
+> - **Deep Double Descent** (Nakkiran et al. 2019) showed it for real deep networks and added *epoch-wise* double descent.
+> - Both in the references.
 
 ---
 
@@ -533,7 +540,7 @@ Putting it together, here's the loop a practitioner actually runs when a model u
 
 ---
 
-## Common pitfalls and misconceptions
+## Pitfalls: common misconceptions
 
 A short list of the traps that catch people — each is a frequent interview "gotcha."
 
@@ -570,7 +577,7 @@ A short list of the traps that catch people — each is a frequent interview "go
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

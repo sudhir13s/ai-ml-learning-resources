@@ -1,6 +1,7 @@
 ---
 id: "03-supervised-learning/stacking-blending"
 topic: "Stacking & Blending"
+core_idea: "Train a meta-learner to combine diverse base models on their out-of-fold predictions: diversity lowers the correlation of their errors, and the out-of-fold discipline stops the combiner from learning the base models' leaked in-sample fit."
 parent: "03-supervised-learning"
 level: advanced
 built_from: ["bagging", "random-forests", "gradient-boosting", "cross-validation"]
@@ -211,7 +212,10 @@ The second term shrinks as you add models, but the **first term, $\rho\sigma^2$,
 
 The lesson is stark: **diversity ($\rho$), not the number of models ($M$), sets the achievable floor.** Five diverse models (floor 0.30) beat a thousand near-clones (floor 0.90) — and this is *before* the meta-learner's learned weighting improves on the flat average further.
 
-> *Where this comes from: this is the same variance-of-a-correlated-average identity that drives [random forests](/ai-ml/ai-ml-learning-resources/classical-machine-learning/supervised-learning/trees-and-ensembles/random-forests/random-forests) (decorrelating trees lowers $\rho$); see **The Elements of Statistical Learning** Ch. 15. Bagging lowers $\rho$ by resampling **data**; random forests also subsample **features**; stacking lowers it by using **entirely different algorithms** — the most aggressive decorrelation of all. References.*
+> **Reference:**
+> - This is the same variance-of-a-correlated-average identity that drives [random forests](/ai-ml/ai-ml-learning-resources/classical-machine-learning/supervised-learning/trees-and-ensembles/random-forests/random-forests) (decorrelating trees lowers $\rho$); see **The Elements of Statistical Learning** Ch. 15.
+> - Bagging lowers $\rho$ by resampling **data**; random forests also subsample **features**; stacking lowers it by using **entirely different algorithms** — the most aggressive decorrelation of all.
+> - In the references.
 
 Stacking goes one step further than this averaging bound: the meta-learner *learns* weights instead of fixing them at $1/M$, so it can actively **up-weight the accurate, decorrelated models and down-weight the redundant ones.** Diversity gives it the raw material; the learned combination exploits it.
 
@@ -308,7 +312,9 @@ Stacking has an unusually clean lineage worth knowing, because interviewers like
 - **2007–2009 — the Netflix Prize.** The \$1M competition was won by a colossal *blend* of hundreds of models; "stacking" and "blending" entered the practitioner vocabulary at scale, and the winning team's writeups made the techniques famous.
 - **2010s–today — Kaggle and scikit-learn.** Stacking became the default endgame of competitive ML, and `StackingClassifier` / `StackingRegressor` (with built-in OOF and refit) shipped in scikit-learn, making the correct, leak-free procedure a one-liner.
 
-> *Where this comes from: the four papers (Wolpert 1992, Breiman 1996, Ting & Witten 1999) and the scikit-learn user guide are all in the references; the Netflix Prize story is summarized in the linked Wikipedia article.*
+> **Reference:**
+> - The four papers (Wolpert 1992, Breiman 1996, Ting & Witten 1999) and the scikit-learn user guide are all in the references.
+> - The Netflix Prize story is summarized in the linked Wikipedia article.
 
 ---
 
@@ -592,7 +598,7 @@ Once you've answered "why OOF?", interviewers probe the edges. The crisp answers
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

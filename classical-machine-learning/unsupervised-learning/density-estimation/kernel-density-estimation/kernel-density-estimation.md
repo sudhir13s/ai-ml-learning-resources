@@ -1,6 +1,7 @@
 ---
 id: "04-unsupervised-learning/kernel-density-estimation"
 topic: "Kernel Density Estimation"
+core_idea: "Estimate a density by placing a smooth bump on every data point and averaging them; the bandwidth, far more than the kernel shape, decides the result by trading oversmoothing bias against spiky variance, and it can be set by a rule of thumb or selected from the data."
 parent: "04-unsupervised-learning"
 level: intermediate
 built_from: ["probability", "histograms", "bias-variance", "gaussian-mixture-models"]
@@ -83,7 +84,13 @@ $$\hat f_h(x) \;=\; \frac{1}{n h} \sum_{i=1}^{n} K\!\left(\frac{x - x_i}{h}\righ
 
 Read it left to right and the whole method is in the formula. For each data point $x_i$, the term $K\!\big((x - x_i)/h\big)$ is a **bump centered at $x_i$**: it's large when $x$ is near $x_i$ and decays as $x$ moves away, at a rate set by $h$. The $1/h$ stretches or squeezes the bump's width; the $1/n$ averages over all $n$ points so the total integrates to 1. **That's it: place a scaled copy of $K$ at every sample and average them.**
 
-> *Where this comes from: **Rosenblatt (1956)** wrote down the first non-parametric density estimator (a moving-window count — effectively a tophat kernel); **Parzen (1962)** generalized it to smooth kernels and proved its consistency, which is why KDE is also called the **Parzen-window** estimator. The bias/variance/AMISE analysis and the bandwidth rule below are from **Silverman's 1986 monograph** "Density Estimation"; data-driven selection from **Sheather & Jones (1991)**; the multivariate treatment from **Scott (1992)** — all in the references.*
+> **Reference:**
+> - **Rosenblatt (1956)** wrote down the first non-parametric density estimator (a moving-window count — effectively a tophat kernel).
+> - **Parzen (1962)** generalized it to smooth kernels and proved its consistency, which is why KDE is also called the **Parzen-window** estimator.
+> - The bias/variance/AMISE analysis and the bandwidth rule below are from **Silverman's 1986 monograph** "Density Estimation".
+> - Data-driven selection is from **Sheather & Jones (1991)**.
+> - The multivariate treatment is from **Scott (1992)**.
+> - All in the references.
 
 ![The construction, measured on n=5 points. Each purple curve is one scaled kernel (1/nh)·K((x−xᵢ)/h) sitting on a data point (blue dot); the green curve is their sum — the KDE. Where points cluster (left and center-right) the bumps reinforce into peaks; the lone gaps sag toward zero. The estimate is smooth even though it's built from five identical bumps.](images/kde_construction.png)
 
@@ -518,7 +525,7 @@ It helps to place KDE between its crude ancestor and its parametric cousin.
 
 ---
 
-## Common pitfalls
+## Pitfalls
 
 A short field guide to the mistakes that actually bite, most of which are restatements of points above — collected here because they're the difference between a KDE you can trust and one you can't:
 
@@ -623,7 +630,7 @@ Output:
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

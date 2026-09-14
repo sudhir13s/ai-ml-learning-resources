@@ -1,6 +1,7 @@
 ---
 id: "05-deep-learning/regularization"
 topic: "Regularization (weight decay · early stopping · augmentation · mixup · label smoothing · dropout · implicit)"
+core_idea: "Over-parameterized networks can memorize their training set, so regularization gives up a little training fit for better generalization through penalties such as weight decay, procedures such as early stopping, data methods such as augmentation and mixup, label smoothing, dropout, and the implicit bias of the optimizer itself."
 parent: "05-deep-learning"
 level: intermediate
 built_from: ["loss-functions", "optimizers", "bias-variance"]
@@ -149,7 +150,10 @@ $$-\log p(\theta\mid \text{data}) = \underbrace{-\log p(\text{data}\mid\theta)}_
 
 because $-\log \mathcal{N}(\theta_i;0,\tau^2) = \frac{\theta_i^2}{2\tau^2} + \text{const}$. Identifying $\lambda = 1/\tau^2$, the second term is *exactly* the L2 penalty. So **L2 regularization is MAP estimation under a Gaussian weight prior**, and $\lambda$ is the prior's inverse variance: large $\lambda$ ⇔ tight prior (strong belief weights are near zero) ⇔ heavy shrinkage. (The parallel result is that **L1 is MAP under a Laplace prior**, whose sharp peak at zero is what produces sparsity — derived on the linear page.)
 
-> *Where this comes from: weight decay / L2 as a gradient shrink and the MAP-prior view are **Deep Learning** (Goodfellow, Bengio & Courville) §7.1.1 & §5.6.1; the classic generalization analysis is **A Simple Weight Decay Can Improve Generalization** (Krogh & Hertz 1992) — both in the references.*
+> **Reference:**
+> - Weight decay / L2 as a gradient shrink and the MAP-prior view are **Deep Learning** (Goodfellow, Bengio & Courville) §7.1.1 & §5.6.1.
+> - The classic generalization analysis is **A Simple Weight Decay Can Improve Generalization** (Krogh & Hertz 1992).
+> - Both in the references.
 
 ### What L2 does to the solution: directional shrinkage
 
@@ -175,7 +179,7 @@ $$\theta \leftarrow (1-\eta\lambda)\,\theta \;-\; \eta\,\frac{\nabla L_{\text{da
 
 Now every weight decays by the same factor regardless of its gradient scale — the behavior you actually wanted. This single fix measurably improves generalization and decouples the optimal $\lambda$ from the optimal learning rate, which is why **AdamW is the standard optimizer for transformers**. See [Optimizers](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/optimizers) for the full Adam/AdamW derivation.
 
-> *Where this comes from: **Decoupled Weight Decay Regularization** (Loshchilov & Hutter 2019, ICLR) — the AdamW paper; in the references.*
+> **Reference:** **Decoupled Weight Decay Regularization** (Loshchilov & Hutter 2019, ICLR) — the AdamW paper; in the references.
 
 > **Gotcha:** if you ever see someone "add weight decay" to Adam by writing an L2 term in the loss, that's the *buggy* version — it's the thing AdamW was invented to fix. In PyTorch, `torch.optim.Adam(weight_decay=...)` does the coupled (L2-in-gradient) thing; `torch.optim.AdamW(weight_decay=...)` does the decoupled thing. For transformers, you want **AdamW**.
 
@@ -296,7 +300,10 @@ The crucial consequence: the gradient on the correct logit is now **zero when $p
 
 ![Left: the one-hot target (correct class 1.0) vs the label-smoothed target (correct class 0.90, each of the other 5 classes 0.0167). Right: the model's actual softmax — under label smoothing the correct-class probability is capped at the 0.90 ceiling instead of being driven toward 1.0, keeping logits finite and the output calibrated.](images/reg_label_smoothing.png)
 
-> *Where this comes from: label smoothing is **Rethinking the Inception Architecture** (Szegedy et al. 2016, §7); the calibration analysis is **When Does Label Smoothing Help?** (Müller, Kornblith & Hinton 2019) — references.*
+> **Reference:**
+> - Label smoothing is **Rethinking the Inception Architecture** (Szegedy et al. 2016, §7).
+> - The calibration analysis is **When Does Label Smoothing Help?** (Müller, Kornblith & Hinton 2019).
+> - Both in the references.
 
 > **Tip:** label smoothing is nearly standard in modern classification and is even used in LLM pretraining. Typical $\varepsilon=0.1$. It improves accuracy *and* calibration — but **distillation caveat** (Müller et al.): a label-smoothed *teacher* transfers worse to a student, because smoothing collapses the inter-class similarity structure the student would otherwise learn from. If you're going to distill from a model, consider training the teacher *without* smoothing.
 
@@ -306,7 +313,7 @@ The crucial consequence: the gradient on the correct logit is now **zero when $p
 
 **[Dropout](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/dropout/dropout)** randomly zeros a fraction $p$ of activations on each forward pass (and rescales the survivors by $1/(1-p)$ so the expected sum is preserved — *inverted dropout*). Because any unit might vanish on any step, no unit can rely on a specific other unit being present, so the network can't build fragile **co-adaptations** — chains of neurons that only work in concert. It's also read as training an **exponential ensemble** of sub-networks that share weights, then averaging them at test time (where dropout is off). Dropout is covered in full on its own page; the one-line summary is: *inject multiplicative noise into the activations so the network learns redundant, robust features.* It's most useful in large fully-connected layers; in convolutional and transformer stacks it's used more sparingly (often only on the final classifier, or as attention/residual dropout).
 
-> *Where this comes from: **Dropout: A Simple Way to Prevent Neural Networks from Overfitting** (Srivastava, Hinton, Krizhevsky, Sutskever & Salakhutdinov 2014, JMLR) — references; full treatment on the [Dropout](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/dropout/dropout) page.*
+> **Reference:** **Dropout: A Simple Way to Prevent Neural Networks from Overfitting** (Srivastava, Hinton, Krizhevsky, Sutskever & Salakhutdinov 2014, JMLR) — references; full treatment on the [Dropout](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/dropout/dropout) page.
 
 The **ensemble reading**, in one line of math: with $n$ droppable units there are $2^n$ possible sub-networks (each unit on/off), and dropout trains a random one of them per step, all sharing the same underlying weights. At test time you want the *ensemble average* over all $2^n$ — intractable to compute exactly — but the **weight-scaling inference rule** (multiply each unit's outgoing weight by its keep probability $1-p$, equivalently divide activations by $1-p$ during training) makes a single forward pass with all units present a fast, accurate **approximation of the geometric-mean prediction** of that exponential ensemble. So dropout is "train $2^n$ networks for the price of one, then average them" — and ensembling is the most reliable variance reducer there is, which is the deeper reason it regularizes.
 
@@ -676,7 +683,7 @@ Output:
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

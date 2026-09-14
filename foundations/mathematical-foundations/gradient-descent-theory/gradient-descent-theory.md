@@ -1,6 +1,7 @@
 ---
 id: "01-foundations/gradient-descent-theory"
 topic: "Gradient Descent — theory & convergence"
+core_idea: "Step repeatedly against the gradient, the direction of steepest descent, with a step size below two over the smoothness constant; convex problems then converge sublinearly, strongly convex ones linearly, and stochastic gradients trade exactness for scale."
 parent: "01-foundations"
 level: intermediate
 built_from: ["01-foundations/derivatives-and-gradients", "01-foundations/convexity"]
@@ -47,7 +48,7 @@ $$\theta \leftarrow \theta - \eta\,\nabla L(\theta)$$
 
 where $\eta$ is the **learning rate** (step size). Why is $-\nabla L$ the *steepest* descent direction? The change in loss for a small step $v$ is, to first order, the directional derivative $\nabla L \cdot v$. Among all unit directions $v$, the dot product $\nabla L \cdot v$ is *most negative* when $v$ points exactly opposite to $\nabla L$ (that's when $\cos$ of the angle between them is $-1$). So the negative gradient is, by definition, the locally fastest way down. Take that step, recompute the gradient at the new point, and repeat.
 
-> *Where this comes from: gradient/steepest descent and its step-size rules are **Convex Optimization** (Boyd & Vandenberghe) §9.3, and **Mathematics for Machine Learning** (Deisenroth et al.) §7.1 — in the references.*
+> **Reference:** gradient/steepest descent and its step-size rules are **Convex Optimization** (Boyd & Vandenberghe) §9.3, and **Mathematics for Machine Learning** (Deisenroth et al.) §7.1 — in the references.
 
 ---
 
@@ -63,7 +64,7 @@ The step size $\eta$ is the single most important hyperparameter, and the pictur
 
 There's a precise threshold. If the loss is **$L$-smooth** (its gradient doesn't change faster than a constant $L$ — the largest curvature), gradient descent is stable only when $\eta < 2/L$, and the safe choice is $\eta \le 1/L$. For $f(x) = x^2$, $L = 2$, so the threshold is $\eta < 1$ — which is *exactly* where the code flips from converging to diverging. Curvature sets the speed limit.
 
-> *Where this comes from: the $\eta < 2/L$ stability condition and the role of the smoothness constant $L$ are standard results in **Convex Optimization** (Boyd & Vandenberghe) §9.3 and the SGD survey (Bottou, Curtis & Nocedal 2018) — references.*
+> **Reference:** the $\eta < 2/L$ stability condition and the role of the smoothness constant $L$ are standard results in **Convex Optimization** (Boyd & Vandenberghe) §9.3 and the SGD survey (Bottou, Curtis & Nocedal 2018) — references.
 
 ---
 
@@ -103,7 +104,10 @@ How quickly gradient descent reaches the minimum depends on the loss's shape:
 
 The headline is that **conditioning**, captured by the **condition number** $\kappa = L/\mu$ (ratio of largest to smallest curvature), governs the rate.
 
-> *Where this comes from: the $O(1/k)$ convex and linear strongly-convex rates are **Convex Optimization** (Boyd & Vandenberghe) §9.3 and Nesterov's lectures; the large-scale/stochastic treatment is **Optimization Methods for Large-Scale Machine Learning** (Bottou, Curtis & Nocedal 2018) — references.*
+> **Reference:**
+> - The $O(1/k)$ convex and linear strongly-convex rates are **Convex Optimization** (Boyd & Vandenberghe) §9.3 and Nesterov's lectures.
+> - The large-scale/stochastic treatment is **Optimization Methods for Large-Scale Machine Learning** (Bottou, Curtis & Nocedal 2018).
+> - Both in the references.
 
 ---
 
@@ -226,7 +230,7 @@ SGD: ||w - true_mean|| = 0.061  (-> 0)
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

@@ -1,6 +1,7 @@
 ---
 id: "03-supervised-learning/support-vector-machines"
 topic: "Support Vector Machines (SVM)"
+core_idea: "Pick the separating boundary with the widest margin; the dual shows that only support vectors matter and that data enters only through dot products, which a kernel replaces to draw nonlinear boundaries without ever computing the mapped features."
 parent: "03-supervised-learning"
 level: intermediate
 built_from: ["linear-algebra", "convex-optimization", "kernel-trick"]
@@ -63,7 +64,10 @@ The crucial fact, the source of the name, and the most-asked SVM interview point
 
 > **Note:** "support vector" is literal — those points *support* (hold up) the separating street. They are the only training points with nonzero weight in the final model. This is why an SVM, after training, can throw away the vast majority of the data and reproduce its boundary exactly from the support vectors alone — it is a genuinely **sparse** model in the data.
 
-> *Where this comes from: the maximum-margin classifier and support vectors are formalized in **Support-Vector Networks** (Cortes & Vapnik 1995); the applied build-up (maximal-margin classifier → support-vector classifier → SVM with kernels) is **ISLR** Ch. 9 — references.*
+> **Reference:**
+> - The maximum-margin classifier and support vectors are formalized in **Support-Vector Networks** (Cortes & Vapnik 1995).
+> - The applied build-up (maximal-margin classifier → support-vector classifier → SVM with kernels) is **ISLR** Ch. 9.
+> - Both in the references.
 
 > **Note:** *why* a wide margin generalizes, in one sentence of theory: the set of hyperplanes that achieve margin $\rho$ on data of radius $R$ has **VC dimension bounded by $\min(d, \lceil R^2/\rho^2\rceil) + 1$** — so a *larger* margin $\rho$ caps the effective capacity *regardless of the ambient dimension $d$*. That is the formal reason kernel SVMs don't overfit even in infinite-dimensional feature spaces: it's the **margin**, not the dimension, that controls capacity. (Vapnik's margin bound — references.)
 
@@ -93,7 +97,7 @@ This is a **convex quadratic program** (QP): a convex quadratic objective with l
 
 > **Gotcha:** the constraint is $y_i(w\cdot x_i + b) \ge 1$, **not** $\ge 0$. The "$\ge 1$" is what enforces the *margin* (the empty street), not merely correct classification. A perceptron is happy with $\ge 0$ (just be on the right side); the SVM demands a full unit of clearance in the canonical scaling, and *that* extra demand is the entire difference.
 
-> *Where this comes from: the margin objective, its dual, and the KKT conditions below are derived in **CS229** lecture notes (SVMs, Ng) and **The Elements of Statistical Learning** Ch. 12 — references.*
+> **Reference:** the margin objective, its dual, and the KKT conditions below are derived in **CS229** lecture notes (SVMs, Ng) and **The Elements of Statistical Learning** Ch. 12 — references.
 
 ---
 
@@ -119,7 +123,10 @@ $$\min_{w,\,b}\ \underbrace{\sum_i \max\bigl(0,\,1 - y_i(w\cdot x_i + b)\bigr)}_
 
 > **Gotcha:** "hard margin" is just "soft margin with $C \to \infty$" — an infinite penalty forbids any slack, recovering the original constraint $y_i(w\cdot x_i+b)\ge 1$. So in practice you **always** fit a soft-margin SVM and tune C; the hard margin is the limiting special case, and it is unusable on any real (non-separable) data because it has no feasible solution.
 
-> *Where this comes from: soft-margin SVMs with slack variables are the core contribution of **Support-Vector Networks** (Cortes & Vapnik 1995); the loss-plus-penalty (hinge + L2) reformulation is **ESL** §12.3.2 — references.*
+> **Reference:**
+> - Soft-margin SVMs with slack variables are the core contribution of **Support-Vector Networks** (Cortes & Vapnik 1995).
+> - The loss-plus-penalty (hinge + L2) reformulation is **ESL** §12.3.2.
+> - Both in the references.
 
 ---
 
@@ -161,7 +168,7 @@ graph TD
 
 > **Note:** the dual is also *why* SVMs train well in **high dimensions but limited samples** (text, genomics). The dual has one variable $\alpha_i$ **per data point**, not per feature — so a problem with 20,000 features and 500 samples is a 500-variable QP, indifferent to the feature count. Combined with the kernel trick (which never materializes the high-dimensional features), this is what lets SVMs operate in infinite-dimensional spaces on a laptop.
 
-> *Where this comes from: the dual derivation, the KKT conditions, and the dot-product observation are worked through in full in **CS229** SVM notes (Ng) and **ESL** §12.2 — references.*
+> **Reference:** the dual derivation, the KKT conditions, and the dot-product observation are worked through in full in **CS229** SVM notes (Ng) and **ESL** §12.2 — references.
 
 ---
 
@@ -200,7 +207,10 @@ The code makes the point quantitatively: a **linear** SVM on concentric circles 
 
 > **Gotcha:** the kernel trick is **not** "add polynomial features then fit a linear SVM." That would explicitly materialize the high-dimensional vectors (impossible for the infinite-dimensional RBF) and pay the full dimensional cost. The trick's whole point is to get the inner products $\phi(x_i)\cdot\phi(x_j)$ *without* ever forming $\phi(x)$ — which is why it scales to infinite-dimensional feature spaces that explicit expansion never could.
 
-> *Where this comes from: the kernel trick, Mercer's condition, and the common kernels are covered in **ISLR** Ch. 9 and **ESL** §12.3; the original kernel-SVM construction is Cortes & Vapnik (1995) — references.*
+> **Reference:**
+> - The kernel trick, Mercer's condition, and the common kernels are covered in **ISLR** Ch. 9 and **ESL** §12.3.
+> - The original kernel-SVM construction is Cortes & Vapnik (1995).
+> - All in the references.
 
 **Seeing the implicit feature map.** The phrase "computes a dot product in a higher-dimensional space without going there" sounds like magic until you write out one example. Take the degree-2 polynomial kernel with $c = 0$ on 2D inputs, $K(x, x') = (x\cdot x')^2$, and expand it with $x = (x_1, x_2)$, $x' = (x_1', x_2')$:
 
@@ -412,7 +422,7 @@ Ex4 solve: w = [1. 0.]  b = -2.00  margin = 2.00  scores = [ 1.  1. -1. -2.]
 
 ---
 
-## Pitfalls that actually bite
+## Pitfalls: the ones that actually bite
 
 - **Forgetting to scale features** → the single most common SVM bug. Distances (the margin, the RBF kernel) are dominated by the largest-range feature, so the model silently ignores the rest. Always wrap the SVM in a `Pipeline` with `StandardScaler` — and fit the scaler on **train only** to avoid leakage.
 - **High C *and* high gamma together** → memorized, wiggly boundary (the bottom-right panel of the grid: 100% train accuracy, terrible test accuracy). Tune the two **jointly** by cross-validation, on a log scale; never push both high.
@@ -448,7 +458,7 @@ Ex4 solve: w = [1. 0.]  b = -2.00  margin = 2.00  scores = [ 1.  1. -1. -2.]
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

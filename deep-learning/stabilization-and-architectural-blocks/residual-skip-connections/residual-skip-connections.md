@@ -1,6 +1,7 @@
 ---
 id: "05-deep-learning/residual-skip-connections"
 topic: "Residual / Skip Connections"
+core_idea: "Learning a residual and adding the input back lets extra layers default to the identity and gives gradients an additive path that does not shrink with depth, which is what made networks hundreds of layers deep trainable."
 parent: "05-deep-learning"
 level: intermediate
 built_from: ["backpropagation", "cnns", "vanishing-exploding-gradients"]
@@ -126,7 +127,9 @@ Why is this a better parameterization than learning $H$ directly? Two reasons, a
 
 **Reason 2 — the gradient highway (better backprop).** We derive this fully in the next section, but the headline is: differentiating $y = F(x) + x$ with respect to $x$ produces an additive $+1$ term that gives the gradient a route back through every block undiminished. Reason 1 makes the *forward* problem easier; Reason 2 makes the *backward* problem easier. Together they dissolve both halves of the degradation problem.
 
-> *Where this comes from: the residual reformulation and the degradation problem are **Deep Residual Learning for Image Recognition** (He et al. 2015) — the ResNet paper, in the references. The identity construction ("a deeper model should produce no higher training error") is their motivating argument in §1.*
+> **Reference:**
+> - The residual reformulation and the degradation problem are **Deep Residual Learning for Image Recognition** (He et al. 2015) — the ResNet paper, in the references.
+> - The identity construction ("a deeper model should produce no higher training error") is their motivating argument in §1.
 
 ---
 
@@ -160,7 +163,9 @@ $$\boxed{\;\frac{\partial \mathcal{L}}{\partial x_l} \;=\; \frac{\partial \mathc
 
 The gradient at an early layer $x_l$ equals the gradient at the deep layer $x_L$, multiplied by **(1 + a correction)**. The $1$ comes straight from the identity shortcuts and is **additive, not multiplicative** — so the deep-layer gradient $\partial\mathcal{L}/\partial x_L$ is delivered to the early layer essentially **intact**, no matter how many blocks sit between them. The only way that whole factor could vanish is if the *sum-of-residuals* term equalled exactly $-1$ across an entire mini-batch — which, as He et al. note, is vanishingly unlikely. There is now **always** a clean path for the gradient to reach the earliest layers.
 
-> *Where this comes from: this exact derivation — the residual sum $x_L = x_l + \sum F$ and the resulting additive-$1$ gradient — is the central result of **Identity Mappings in Deep Residual Networks** (He et al. 2016), Eqs. (1)–(5). That paper's whole thesis is that keeping the shortcut a **clean, unmodified identity** is what makes this property hold exactly — see pre-activation below.*
+> **Reference:**
+> - This exact derivation — the residual sum $x_L = x_l + \sum F$ and the resulting additive-$1$ gradient — is the central result of **Identity Mappings in Deep Residual Networks** (He et al. 2016), Eqs. (1)–(5).
+> - That paper's whole thesis is that keeping the shortcut a **clean, unmodified identity** is what makes this property hold exactly — see pre-activation below.
 
 Contrast the plain stack one more time, side by side, because the difference is *additive vs multiplicative*:
 
@@ -226,7 +231,10 @@ graph LR
     classDef out fill:#2E7A5A,stroke:#1E6A4A,color:#fff
 ```
 
-> *Where this comes from: pre-activation and the "clean identity path is optimal" result are **Identity Mappings in Deep Residual Networks** (He et al. 2016). The very-deep transformer analogue (pre-norm stabilizes training) is **On Layer Normalization in the Transformer Architecture** (Xiong et al. 2020) — references.*
+> **Reference:**
+> - Pre-activation and the "clean identity path is optimal" result are **Identity Mappings in Deep Residual Networks** (He et al. 2016).
+> - The very-deep transformer analogue (pre-norm stabilizes training) is **On Layer Normalization in the Transformer Architecture** (Xiong et al. 2020).
+> - Both in the references.
 
 ---
 
@@ -261,7 +269,7 @@ Two findings make this more than a cute combinatorial fact:
 
 > **Note:** the unraveled view reconciles two facts that otherwise seem in tension: ResNets are nominally *very deep*, yet they don't suffer the optimization pathologies of *very deep* plain nets. Resolution: a ResNet is "deep" in **capacity** (it *can* use long paths) but "shallow" in **effective optimization depth** (it's trained mostly through short paths). You get the representational reach of depth without paying its trainability tax.
 
-> *Where this comes from: **Residual Networks Behave Like Ensembles of Relatively Shallow Networks** (Veit, Wilber & Belongie 2016) — the unraveled $2^n$-path view and the lesion/reorder experiments. In the references.*
+> **Reference:** **Residual Networks Behave Like Ensembles of Relatively Shallow Networks** (Veit, Wilber & Belongie 2016) — the unraveled $2^n$-path view and the lesion/reorder experiments. In the references.
 
 ### A consequence: stochastic depth
 
@@ -372,7 +380,11 @@ graph TD
     classDef navy fill:#2A5B80,stroke:#1A4B70,color:#fff
 ```
 
-> *Where these come from: Highway = **Srivastava, Greff & Schmidhuber 2015**; DenseNet = **Huang et al. 2017** (CVPR best paper); U-Net = **Ronneberger, Fischer & Brox 2015**. All in the references.*
+> **Reference:**
+> - Highway = **Srivastava, Greff & Schmidhuber 2015**.
+> - DenseNet = **Huang et al. 2017** (CVPR best paper).
+> - U-Net = **Ronneberger, Fischer & Brox 2015**.
+> - All in the references.
 
 ---
 
@@ -386,7 +398,7 @@ This is a **complementary** explanation, not a competing one. Gradient flow is a
 
 > **Note:** there's a satisfying unity here. **Easy identity** (Reason 1) says the *solution* is near where you start; **gradient highway** (Reason 2) says the *signal* reaches every layer; **landscape smoothing** (this section) says the *path* between start and solution is gentle. Three angles, one cause — the additive identity shortcut.
 
-> *Where this comes from: **Visualizing the Loss Landscape of Neural Nets** (Li, Xu, Taylor, Studer & Goldstein 2018) — the skip-connection landscape comparison. In the references.*
+> **Reference:** **Visualizing the Loss Landscape of Neural Nets** (Li, Xu, Taylor, Studer & Goldstein 2018) — the skip-connection landscape comparison. In the references.
 
 ---
 
@@ -630,7 +642,7 @@ The identity block keeps $[2,64,32,32]$ and uses a parameter-free `Identity` ski
 
 ---
 
-## Common pitfalls and gotchas
+## Pitfalls: common gotchas
 
 A grab-bag of the mistakes that actually come up — in interviews and in code review.
 
@@ -697,7 +709,7 @@ The deeper reason the idea endures is that it solved the right problem at the ri
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

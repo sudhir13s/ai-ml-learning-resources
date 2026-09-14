@@ -1,6 +1,7 @@
 ---
 id: "03-supervised-learning/cross-validation"
 topic: "Cross-Validation"
+core_idea: "Rotating which fold is held out validates every example exactly once, giving a steadier generalization estimate than a single split, but only when every data-dependent step, feature selection included, is refit inside each fold."
 parent: "03-supervised-learning"
 level: beginner
 built_from: ["supervised-learning-basics", "bias-variance", "overfitting"]
@@ -97,7 +98,11 @@ The figure is a real measurement (the code is below). Across 300 random single s
 
 > **Note:** why does averaging help, and by how much? If the $k$ fold scores each estimate $\mu$ with variance $\sigma^2$, their average has variance $\sigma^2/k$ *only if the folds were independent*. They aren't — the training sets overlap heavily (any two of them share $k-2$ folds), so the fold scores are **positively correlated**. With pairwise correlation $\rho$, the variance of the average is $\operatorname{Var}(\bar s) = \frac{\sigma^2}{k} + \frac{k-1}{k}\rho\sigma^2 = \rho\sigma^2 + \frac{1-\rho}{k}\sigma^2$ — the same correlated-average formula that governs [random forests](/ai-ml/ai-ml-learning-resources/classical-machine-learning/supervised-learning/trees-and-ensembles/random-forests/random-forests). The $\rho\sigma^2$ floor is the part averaging *cannot* remove, and as $k\to n$ the training sets become near-identical so $\rho\to 1$ and the floor dominates — which is exactly why LOOCV's variance can be high. This correlation is what makes the *choice of $k$* a bias–variance trade-off in its own right — the subject of the next section.
 
-> *Where this comes from: the empirical case for **10-fold** CV as the default is **A Study of Cross-Validation and Bootstrap** (Kohavi 1995); the estimators and their bias–variance are **ISLR** Ch. 5 and **ESL** Ch. 7.10; the definitive modern survey is **Arlot & Celisse (2010)** — all in the references.*
+> **Reference:**
+> - The empirical case for **10-fold** CV as the default is **A Study of Cross-Validation and Bootstrap** (Kohavi 1995).
+> - The estimators and their bias–variance are **ISLR** Ch. 5 and **ESL** Ch. 7.10.
+> - The definitive modern survey is **Arlot & Celisse (2010)**.
+> - All in the references.
 
 ---
 
@@ -217,7 +222,10 @@ The fix is mechanical and total: **wrap every data-dependent step in a scikit-le
 
 > **Gotcha:** the leaking step is often invisible because it ran in an earlier cell or an earlier script. A scaler `.fit` on the full frame, a `SelectKBest` on all the data, a `SMOTE` oversample before the split, a target-encoding computed globally — all of them leak, and all of them are "innocent" lines that ran before the CV call. The audit question for any pipeline: **"did anything see the validation rows before they were validated?"** If yes, the number is suspect.
 
-> *Where this comes from: the "right way to cross-validate" with feature selection inside the loop is **ESL §7.10.2** (the noise example reproduced below); scikit-learn's **"Common pitfalls"** guide covers the practical Pipeline fix — both in the references.*
+> **Reference:**
+> - The "right way to cross-validate" with feature selection inside the loop is **ESL §7.10.2** (the noise example reproduced below).
+> - scikit-learn's **"Common pitfalls"** guide covers the practical Pipeline fix.
+> - Both in the references.
 
 ---
 
@@ -549,7 +557,7 @@ A few beliefs that sound right and trip up even experienced practitioners:
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

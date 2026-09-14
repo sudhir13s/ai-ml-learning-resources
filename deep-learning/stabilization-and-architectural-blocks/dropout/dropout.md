@@ -1,6 +1,7 @@
 ---
 id: "05-deep-learning/dropout"
 topic: "Dropout"
+core_idea: "Randomly zeroing units during training keeps neurons from co-adapting and trains an implicit ensemble of thinned networks; scaling the survivors at training time keeps expected activations equal, so inference simply runs the full network."
 parent: "05-deep-learning"
 level: intermediate
 built_from: ["feedforward-networks", "regularization"]
@@ -105,7 +106,10 @@ Here is the crucial twist that makes this cheap: **all $2^n$ sub-networks share 
 
 Dropout is therefore **training an exponentially large ensemble of weight-sharing sub-networks by stochastic gradient descent** — sampling a different ensemble member each step, and letting weight-sharing knit them into one. This is a form of **bagging**, with two differences from textbook bagging: (1) the models are not independent — they share weights — and (2) you don't train each to convergence, you take one SGD step on a fresh sample each iteration. But the variance-reduction intuition carries over: at test time you want to *average over the ensemble*, and averaging an ensemble reduces variance.
 
-> *Where this comes from: both interpretations are in the original dropout papers — **Improving neural networks by preventing co-adaptation of feature detectors** (Hinton et al. 2012) and **Dropout: A Simple Way to Prevent Overfitting** (Srivastava et al. 2014), which frames test-time inference as approximate model averaging over the $2^n$ thinned networks. **Deep Learning** (Goodfellow et al.) §7.12 develops the bagging view rigorously. All in the references.*
+> **Reference:**
+> - Both interpretations are in the original dropout papers — **Improving neural networks by preventing co-adaptation of feature detectors** (Hinton et al. 2012) and **Dropout: A Simple Way to Prevent Overfitting** (Srivastava et al. 2014), which frames test-time inference as approximate model averaging over the $2^n$ thinned networks.
+> - **Deep Learning** (Goodfellow et al.) §7.12 develops the bagging view rigorously.
+> - All in the references.
 
 > **Note:** the $2^n$ count is for the *number of units you apply dropout to*, summed across all dropout layers — not the number of weights and not the number of layers. If you put dropout on two hidden layers with 500 units each, that's $n=1000$ droppable units and $2^{1000}$ sub-networks sampled from the single shared weight set.
 
@@ -160,7 +164,9 @@ graph TD
     classDef out fill:#2E7A5A,stroke:#1E6A4A,color:#fff
 ```
 
-> *Where this comes from: inverted dropout (scale at train time so inference is unscaled) is the standard implementation in **d2l.ai** §5.6 and the **CS231n** notes (both in the references). It is exactly what `nn.Dropout` does — the code section below confirms that in train mode it scales survivors by precisely $\frac{1}{1-p}$ and that eval mode is the identity.*
+> **Reference:**
+> - Inverted dropout (scale at train time so inference is unscaled) is the standard implementation in **d2l.ai** §5.6 and the **CS231n** notes (both in the references).
+> - It is exactly what `nn.Dropout` does — the code section below confirms that in train mode it scales survivors by precisely $\frac{1}{1-p}$ and that eval mode is the identity.
 
 > **Gotcha:** this is the **#1 dropout bug**, identical in spirit to the BatchNorm one — **forgetting `model.eval()`** at inference. Leave the model in train mode and dropout keeps randomly zeroing units (and scaling survivors), so your predictions become *noisy and non-deterministic* — the same input gives different outputs on repeated calls. Always switch to eval mode before evaluating (which conveniently also freezes BatchNorm's running statistics). Conversely, forgetting `model.train()` after an eval loop silently turns regularization *off* for the rest of training.
 
@@ -180,7 +186,9 @@ That is *precisely* the full network with its weights scaled by $q$ — i.e. the
 
 A concrete tiny instance makes the "exact" claim tangible. Take a single linear score $z(\mathbf m) = w_1 m_1 a_1 + w_2 m_2 a_2$ with two droppable inputs at keep prob $q=\tfrac12$, so there are $2^2=4$ equally-likely masks. Their scores are $0$ (both dropped), $w_1 a_1$, $w_2 a_2$, and $w_1 a_1 + w_2 a_2$. The *arithmetic* mean of these four scores is $\tfrac14\big(0 + w_1 a_1 + w_2 a_2 + (w_1 a_1 + w_2 a_2)\big) = \tfrac12 w_1 a_1 + \tfrac12 w_2 a_2 = q\,(w_1 a_1 + w_2 a_2)$ — exactly the full network with weights scaled by $q=\tfrac12$. Because the score is *linear* in the mask, averaging the masked scores equals scaling by the mean mask $q$; pushing this through the softmax's exponential is what turns "average score" into "geometric mean of probabilities," and the weight-scaled full network reproduces it with one forward pass.
 
-> *Where this comes from: the geometric-mean / weight-scaling argument and its exactness for a single softmax layer are in **Srivastava et al. (2014) §7** and **Deep Learning** (Goodfellow et al.) §7.12 — the references. The takeaway worth memorizing: weight-scaling inference is *exact* model averaging for one linear layer and a strong approximation otherwise.*
+> **Reference:**
+> - The geometric-mean / weight-scaling argument and its exactness for a single softmax layer are in **Srivastava et al. (2014) §7** and **Deep Learning** (Goodfellow et al.) §7.12 — the references.
+> - The takeaway worth memorizing: weight-scaling inference is *exact* model averaging for one linear layer and a strong approximation otherwise.
 
 > **Tip:** this is the rigorous content behind the loose claim "dropout trains an ensemble and test time averages it." The averaging is a **geometric** mean of the sub-network distributions, and the cheap weight-scaled full network *is* that geometric mean for a linear readout. It's a genuinely beautiful result: an exponential ensemble collapsed into one deterministic forward pass.
 
@@ -196,7 +204,9 @@ $$\mathbb{E}_{\mathbf m}[\text{loss}] \;\approx\; \text{loss}_{\text{full}} \;+\
 
 Two things to read off this. First, the penalty is **quadratic in the weights** — it *is* an $L_2$ / weight-decay-like term, which is why dropout shrinks weights and improves conditioning. Second, it is **adaptive**: each weight's penalty is scaled by its feature's variance (after a normalization, by the inverse Fisher information), so dropout penalizes weights on high-variance, less-reliable features *more* than weights on stable, informative ones — something plain $L_2$ (which penalizes every weight equally) cannot do. This is one reason dropout often outperforms a tuned $L_2$: it's a *smarter*, data-dependent shrinkage. Note the coefficient $\frac{p}{1-p}$ grows with the rate $p$ — more dropping means stronger effective regularization, matching intuition and the measured sweep below.
 
-> *Where this comes from: **Dropout Training as Adaptive Regularization** (Wager, Wang & Liang 2013, in the references) derives the second-order equivalence to an adaptive $L_2$ penalty and the connection to Fisher information. The high-level takeaway — dropout ≈ a variance-scaled, data-adaptive weight penalty — is the one to carry into an interview.*
+> **Reference:**
+> - **Dropout Training as Adaptive Regularization** (Wager, Wang & Liang 2013, in the references) derives the second-order equivalence to an adaptive $L_2$ penalty and the connection to Fisher information.
+> - The high-level takeaway — dropout ≈ a variance-scaled, data-adaptive weight penalty — is the one to carry into an interview.
 
 > **Note:** these three views — *no co-adaptation*, *ensemble averaging*, *adaptive $L_2$* — are not competing theories; they're three faces of the same mechanism (multiplicative Bernoulli noise on activations). A strong interview answer names all three and notes that the adaptive-$L_2$ view is what mathematically connects dropout to ordinary weight decay.
 
@@ -298,7 +308,9 @@ One more twist turns dropout from a regularizer into an **uncertainty estimator*
 
 The remarkable result of Gal & Ghahramani (2016) is that this isn't a hack — it has a **Bayesian justification**. Training with dropout can be cast as approximate **variational inference** over a posterior on the weights: the dropout masks at test time are sampling from an approximate posterior, so MC-dropout's prediction distribution approximates the true **Bayesian predictive distribution**. You get a principled uncertainty estimate for the price of a few extra forward passes and *zero* changes to the trained model — any net trained with dropout already supports it. The code below shows it producing a non-zero, calibrated spread.
 
-> *Where this comes from: **Dropout as a Bayesian Approximation** (Gal & Ghahramani 2016, in the references) shows dropout training ≈ variational inference in a deep Gaussian process and that test-time MC sampling approximates the Bayesian posterior. The companion RNN paper (Gal & Ghahramani 2016, variational dropout) is the principled per-sequence mask above.*
+> **Reference:**
+> - **Dropout as a Bayesian Approximation** (Gal & Ghahramani 2016, in the references) shows dropout training ≈ variational inference in a deep Gaussian process and that test-time MC sampling approximates the Bayesian posterior.
+> - The companion RNN paper (Gal & Ghahramani 2016, variational dropout) is the principled per-sequence mask above.
 
 > **Gotcha:** MC-dropout uncertainty is only as good as the dropout you trained with — it captures the *epistemic* (model) uncertainty implied by your dropout approximation, not all sources of uncertainty, and it's sensitive to the rate $p$. Treat it as a cheap, useful uncertainty signal in safety-sensitive settings (medical imaging, active learning), not a calibrated probability you can take to the bank without checking calibration.
 
@@ -471,7 +483,7 @@ When you reach for dropout in a real model, here's the order of operations that 
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

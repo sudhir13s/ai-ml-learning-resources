@@ -1,6 +1,7 @@
 ---
 id: "03-supervised-learning/regression-metrics"
 topic: "Regression Metrics (MSE · RMSE · MAE · R²)"
+core_idea: "Each regression metric encodes which misses matter: squared error chases the mean and punishes outliers, absolute error chases the median, and R-squared compares against always predicting the mean, so it can go negative."
 parent: "03-supervised-learning"
 level: beginner
 built_from: ["linear-regression", "mean-squared-error", "variance"]
@@ -86,7 +87,7 @@ $$-\log \mathcal{L} = \frac{1}{2\sigma^2}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2 + \te
 
 **Minimizing squared error is exactly maximizing Gaussian likelihood.** So when you choose MSE you're implicitly assuming the errors are Gaussian — symmetric, light-tailed. When they're *not* (heavy tails, asymmetry), MSE's quadratic penalty over-weights the tail, which is precisely when you should reach for MAE or Huber instead.
 
-> *Where this comes from: the squared-error ⇄ Gaussian-MLE equivalence is the standard derivation in **ESL** (Hastie, Tibshirani & Friedman, §2.6) and **ISLR** Ch. 3 — both in the references.*
+> **Reference:** the squared-error ⇄ Gaussian-MLE equivalence is the standard derivation in **ESL** (Hastie, Tibshirani & Friedman, §2.6) and **ISLR** Ch. 3 — both in the references.
 
 ### The bias–variance–noise decomposition of MSE
 
@@ -263,7 +264,7 @@ The threshold $\delta$ marks where "small" ends. Below it, you get MSE's smooth 
 
 **Huber in numbers ($\delta = 1$).** A small residual $r = 0.5$ contributes $\tfrac12(0.5)^2 = 0.125$ — identical to MSE there. A large residual $r = 10$ contributes $\delta(\lvert r\rvert - \tfrac12\delta) = 1\cdot(10 - 0.5) = 9.5$ — *linear*, far below MSE's $\tfrac12(10)^2 = 50$ but above MAE's $10/2$ scaling. So the outlier that would have contributed 50 to a squared loss contributes only 9.5 to Huber: the catastrophe is capped, exactly like MAE, while small residuals keep MSE's smooth, fast-converging behaviour. That's the whole trick in two numbers.
 
-> *Where this comes from: the loss is **Huber (1964)**, "Robust Estimation of a Location Parameter" — the founding paper of robust statistics, in the references.*
+> **Reference:** the loss is **Huber (1964)**, "Robust Estimation of a Location Parameter" — the founding paper of robust statistics, in the references.
 
 > **Tip:** $\delta$ is a knob, not a constant. Small $\delta$ → behaves like MAE (robust, treats most points as "outliers"); large $\delta$ → behaves like MSE (smooth, treats most points as "normal"). A common default is to set $\delta$ near the noise scale of the inliers (e.g. a multiple of the residual MAD). Scikit-learn's `HuberRegressor` and the **Smooth L1 / Huber** loss in PyTorch are this, ready-made.
 
@@ -291,7 +292,7 @@ $$\frac{d}{dq}\mathbb{E}[L_\tau] = -\tau\!\int_{q}^{\infty}\! f(y)\,dy + (1-\tau
 
 Set it to zero: $-\tau + \tau F(q) + F(q) - \tau F(q) = 0 \Rightarrow F(q) = \tau$. So the optimal $q$ satisfies $F(q) = \tau$ — it is **exactly the $\tau$-quantile** of the distribution. Fit one model at $\tau = 0.05$ and another at $\tau = 0.95$ and you have a calibrated **90% prediction interval**, learned directly from data. This is the engine behind quantile regression and gradient-boosting's quantile objective.
 
-> *Where this comes from: quantile regression and the pinball (check) loss are **Koenker & Bassett (1978)**, "Regression Quantiles" — the founding paper, in the references.*
+> **Reference:** quantile regression and the pinball (check) loss are **Koenker & Bassett (1978)**, "Regression Quantiles" — the founding paper, in the references.
 
 > **Note:** the asymmetry is a *feature you choose*, identical in spirit to the precision/recall threshold in classification. If under-stocking costs you a lost sale but over-stocking costs you cheap storage, train at a high $\tau$ so the model deliberately predicts high. The metric encodes the business cost.
 
@@ -595,7 +596,7 @@ The mistakes that show up in real projects (and interview follow-ups) almost alw
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

@@ -1,6 +1,7 @@
 ---
 id: "03-supervised-learning/regularization-linear-models"
 topic: "Regularization for Linear Models (Ridge · Lasso · Elastic-Net)"
+core_idea: "Penalizing coefficient size trades a little bias for much less variance: Ridge shrinks every weight smoothly and tames correlated features, Lasso's corner-shaped penalty sets some weights exactly to zero, and Elastic-Net blends the two to keep correlated groups together."
 parent: "03-supervised-learning"
 level: intermediate
 built_from: ["linear-regression", "logistic-regression", "bias-variance", "gradient-descent"]
@@ -212,7 +213,12 @@ The mix parameter $\alpha$ (scikit-learn's `l1_ratio`) interpolates: $\alpha=1$ 
 
 > **Note:** intuitively, the L2 term rounds off the diamond's corners *just enough* to break ties between correlated features **democratically** (share the weight) rather than **arbitrarily** (winner-take-all). You keep most of Lasso's sparsity but gain Ridge's stability under collinearity — which is exactly why Elastic-Net is the safe default when you want selection **and** have correlated predictors.
 
-> *Where this comes from: **Ridge** is Hoerl & Kennard, "Ridge Regression: Biased Estimation for Nonorthogonal Problems" (Technometrics 1970) — they introduced the $\lambda I$ trick precisely to stabilize nonorthogonal (collinear) designs. **Lasso** is Tibshirani, "Regression Shrinkage and Selection via the Lasso" (JRSS-B 1996), which named it and proved the sparsity. **Elastic-Net** is Zou & Hastie, "Regularization and Variable Selection via the Elastic Net" (JRSS-B 2005), which diagnosed Lasso's correlated-feature failure and added the grouping effect. The unified textbook treatment — closed form, SVD shrinkage, geometry, and the Bayesian view — is **ESL** Ch. 3.4. All four are in the references.*
+> **Reference:**
+> - **Ridge** is Hoerl & Kennard, "Ridge Regression: Biased Estimation for Nonorthogonal Problems" (Technometrics 1970) — they introduced the $\lambda I$ trick precisely to stabilize nonorthogonal (collinear) designs.
+> - **Lasso** is Tibshirani, "Regression Shrinkage and Selection via the Lasso" (JRSS-B 1996), which named it and proved the sparsity.
+> - **Elastic-Net** is Zou & Hastie, "Regularization and Variable Selection via the Elastic Net" (JRSS-B 2005), which diagnosed Lasso's correlated-feature failure and added the grouping effect.
+> - The unified textbook treatment — closed form, SVD shrinkage, geometry, and the Bayesian view — is **ESL** Ch. 3.4.
+> - All four are in the references.
 
 ---
 
@@ -384,7 +390,7 @@ a sum of the **same SVD shrinkage factors** from the Ridge section. Read off the
 
 ---
 
-## Common pitfalls
+## Pitfalls
 
 The places regularized linear models quietly go wrong — worth internalizing before they cost you a deployment or an interview:
 
@@ -510,7 +516,7 @@ ElasticNet pair (w0,w1)=(0.81,0.82)  |w0-w1|=0.004  (shared → grouping)
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

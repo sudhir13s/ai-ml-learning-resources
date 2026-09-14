@@ -1,6 +1,7 @@
 ---
 id: "05-deep-learning/vanishing-exploding-gradients"
 topic: "Vanishing / Exploding Gradients & Gradient Clipping"
+core_idea: "The gradient reaching an early layer is a product of per-layer factors, so it vanishes or explodes when those factors sit consistently below or above one; ReLU, careful initialization, normalization, residual connections, gating, and clipping all work by keeping that product near one."
 parent: "05-deep-learning"
 level: intermediate
 built_from: ["backpropagation", "activation-functions"]
@@ -104,7 +105,10 @@ This is the whole problem in one measured picture. The blue line is vanishing, t
 
 > **Note:** there's a subtlety worth knowing for interviews. The norm bound above uses the *spectral norm* $\lVert W\rVert$ (largest singular value). A tighter statement uses the **spectral radius** $\rho(W)$ (largest eigenvalue magnitude) of the product Jacobian: the gradient grows iff $\rho>1$ and decays iff $\rho<1$. For the deep-net intuition the singular-value bound is enough; the spectral-radius view is the rigorous one and the one **Pascanu et al. (2013)** use for RNNs.
 
-> *Where this comes from: the product-of-Jacobians analysis of vanishing gradients is **Learning long-term dependencies with gradient descent is difficult** (Bengio, Simard & Frasconi 1994) and **Deep Learning** (Goodfellow, Bengio & Courville) §8.2.5 / §10.7; the exploding-gradient and spectral-radius analysis is **On the difficulty of training RNNs** (Pascanu, Mikolov & Bengio 2013) — all in the references.*
+> **Reference:**
+> - The product-of-Jacobians analysis of vanishing gradients is **Learning long-term dependencies with gradient descent is difficult** (Bengio, Simard & Frasconi 1994) and **Deep Learning** (Goodfellow, Bengio & Courville) §8.2.5 / §10.7.
+> - The exploding-gradient and spectral-radius analysis is **On the difficulty of training RNNs** (Pascanu, Mikolov & Bengio 2013).
+> - All in the references.
 
 ### A tiny numeric trace: watch one factor shrink the gradient
 
@@ -235,7 +239,7 @@ That factor of **2** is precisely the correction for ReLU killing half the signa
 
 So "use He for ReLU" cashes out as "initialize weights ~41% larger than you would for tanh." Get this backwards (Xavier weights on a deep ReLU net) and each layer passes through only ~$1/\sqrt 2$ of the variance, so after 40 layers the signal is down by $2^{-20}\approx 10^{-6}$ — vanishing, purely from a one-line init mismatch. The factor of 2 is small; at depth it is everything.
 
-> *Where this comes from: variance-preserving initialization is **Understanding the difficulty of training deep feedforward networks** (Glorot & Bengio 2010, Xavier) and **Delving Deep into Rectifiers** (He et al. 2015, He init) — references.*
+> **Reference:** variance-preserving initialization is **Understanding the difficulty of training deep feedforward networks** (Glorot & Bengio 2010, Xavier) and **Delving Deep into Rectifiers** (He et al. 2015, He init) — references.
 
 ---
 
@@ -291,7 +295,7 @@ This is exactly why ResNet could train **152 layers** in 2015 when plain nets st
 
 > **Note:** residual connections don't just *help* gradient flow — they change what the layers have to learn. With $\text{out}=\mathcal{F}(x)+x$, a layer only needs to learn a **residual correction** $\mathcal{F}(x)=\text{out}-x$ on top of identity, which is often near-zero and far easier to fit than the full mapping. Easier optimization landscape *and* a gradient highway, from the same $+1$.
 
-> *Where this comes from: the residual / identity-shortcut argument is **Deep Residual Learning for Image Recognition** (He et al. 2015) — references; see also [Residual / Skip Connections](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/residual-skip-connections/residual-skip-connections).*
+> **Reference:** the residual / identity-shortcut argument is **Deep Residual Learning for Image Recognition** (He et al. 2015) — references; see also [Residual / Skip Connections](/ai-ml/ai-ml-learning-resources/deep-learning/stabilization-and-architectural-blocks/residual-skip-connections/residual-skip-connections).
 
 ### Why normalization helps (briefly, mechanistically)
 
@@ -325,7 +329,9 @@ The figure shows the key property: clipping is a **safety valve**, not a global 
 
 > **Tip:** clipping treats the *symptom*, not the cause. It keeps a spike from killing the run, but if you're clipping on *most* steps, your real problem is elsewhere — usually a too-high learning rate, bad init, or missing normalization. Reach for clipping as a seatbelt for the occasional spike; fix init/normalization/LR for a chronically exploding model.
 
-> *Where this comes from: gradient norm clipping is **On the difficulty of training RNNs** (Pascanu et al. 2013) — references. In PyTorch it's `torch.nn.utils.clip_grad_norm_(params, max_norm)`, called between `loss.backward()` and `optimizer.step()`.*
+> **Reference:**
+> - Gradient norm clipping is **On the difficulty of training RNNs** (Pascanu et al. 2013) — references.
+> - In PyTorch it's `torch.nn.utils.clip_grad_norm_(params, max_norm)`, called between `loss.backward()` and `optimizer.step()`.
 
 ---
 
@@ -365,7 +371,11 @@ A **fully numeric** through-time example makes the spectral-radius claim concret
 
 Now the LSTM contrast: replace the multiply with the additive cell-state recurrence $c_t = f_t\,c_{t-1} + \tilde c_t$ and hold the forget gate open at $f_t = 1$. Then $\partial c_T/\partial c_0 = \prod_{t} f_t = 1^{30} = 1$ — the gradient arrives **undiminished** across all 30 steps, *regardless* of the recurrent weight, because the path it travels is addition, not repeated multiplication. That single contrast ($w^T \to 0/\infty$ vs. $\prod f_t = 1$) is the entire reason LSTMs/GRUs replaced vanilla RNNs for long sequences.
 
-> *Where this comes from: the RNN vanishing-gradient problem is **Hochreiter (1991)** and **Bengio et al. (1994)**; the LSTM cell-state cure is **Hochreiter & Schmidhuber, Long Short-Term Memory (1997)**; the spectral-radius + clipping analysis is **Pascanu et al. (2013)** — references.*
+> **Reference:**
+> - The RNN vanishing-gradient problem is **Hochreiter (1991)** and **Bengio et al. (1994)**.
+> - The LSTM cell-state cure is **Hochreiter & Schmidhuber, Long Short-Term Memory (1997)**.
+> - The spectral-radius + clipping analysis is **Pascanu et al. (2013)**.
+> - All in the references.
 
 ---
 
@@ -643,7 +653,7 @@ Read across any row and you can state, in one breath, *what* the fix does and *w
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

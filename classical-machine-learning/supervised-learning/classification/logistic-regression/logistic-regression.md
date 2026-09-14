@@ -1,6 +1,7 @@
 ---
 id: "03-supervised-learning/logistic-regression"
 topic: "Logistic Regression"
+core_idea: "Pass a linear score through the sigmoid to get a probability whose log-odds are linear in the features; maximum likelihood turns fitting into minimizing convex cross-entropy, whose gradient is simply prediction minus label times the input."
 parent: "03-supervised-learning"
 level: beginner
 built_from: ["linear-regression", "sigmoid", "maximum-likelihood", "gradient-descent"]
@@ -93,7 +94,11 @@ So $w_j$ is the **log odds-ratio** and $e^{w_j}$ is the **odds ratio** for a one
 
 > **Gotcha:** the odds-ratio reading is **multiplicative on the odds**, not additive on the probability. A coefficient of $0.7$ does *not* mean "+0.7 probability"; it means the *odds* multiply by $e^{0.7}\approx 2$. The effect on the probability itself depends on where you start on the S-curve (huge near $p=0.5$, tiny near $p=0$ or $1$).
 
-> *Where this comes from: logistic regression and the log-odds link function originate in **The Regression Analysis of Binary Sequences** (Cox 1958); the clean modern derivation is **Speech and Language Processing** (Jurafsky & Martin) Ch. 5, with the odds-ratio interpretation worked through in **An Introduction to Statistical Learning** Ch. 4 — all in the references.*
+> **Reference:**
+> - Logistic regression and the log-odds link function originate in **The Regression Analysis of Binary Sequences** (Cox 1958).
+> - The clean modern derivation is **Speech and Language Processing** (Jurafsky & Martin) Ch. 5.
+> - The odds-ratio interpretation is worked through in **An Introduction to Statistical Learning** Ch. 4.
+> - All in the references.
 
 ---
 
@@ -119,7 +124,10 @@ So **maximum likelihood and minimizing cross-entropy are literally the same obje
 
 > **Note:** cross-entropy here is the special two-class case of the general $-\sum_c y_c \log p_c$. For $K$ classes you swap the sigmoid for the softmax and get the multiclass cross-entropy of the [softmax output layer](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/loss-functions/loss-functions) — same idea, more classes. Binary logistic regression is the $K=2$ instance.
 
-> *Where this comes from: the MLE $\to$ cross-entropy derivation is **Speech and Language Processing** Ch. 5 and the **CS229** notes §1.2 (Classification and logistic regression); the convexity / IRLS treatment is **The Elements of Statistical Learning** Ch. 4 — references.*
+> **Reference:**
+> - The MLE $\to$ cross-entropy derivation is **Speech and Language Processing** Ch. 5 and the **CS229** notes §1.2 (Classification and logistic regression).
+> - The convexity / IRLS treatment is **The Elements of Statistical Learning** Ch. 4.
+> - Both in the references.
 
 ---
 
@@ -235,7 +243,7 @@ Here's a connection worth carrying into any interview. [Naive Bayes](/ai-ml/ai-m
 
 Ng & Jordan's classic result: Naive Bayes hits its (higher) error floor with **far less data**, while logistic regression starts worse but **overtakes** it as data grows. *Little data $\to$ prefer Naive Bayes; plenty of data $\to$ logistic regression usually wins.* They are the textbook **generative–discriminative pair**, and "they fit the same line two different ways" is the sentence that shows you understand both.
 
-> *Where this comes from: the generative–discriminative pairing and the "NB converges faster, LR is asymptotically better" result are **On Discriminative vs. Generative Classifiers** (Ng & Jordan, 2002) — references.*
+> **Reference:** the generative–discriminative pairing and the "NB converges faster, LR is asymptotically better" result are **On Discriminative vs. Generative Classifiers** (Ng & Jordan, 2002) — references.
 
 ---
 
@@ -349,7 +357,7 @@ sklearn train acc = 0.983
 
 ---
 
-## Pitfalls that actually bite
+## Pitfalls: the ones that actually bite
 
 - **Perfect (linear) separation $\to$ weights diverge.** If a feature (or combination) *perfectly* splits the classes, the MLE wants infinite confidence: pushing $|w|\to\infty$ makes the separable points' probabilities $\to 0/1$ and drives log-loss $\to 0$, so there is **no finite optimum** — unregularized gradient descent grows the weights forever. In a quick check, $100\to50{,}000$ steps on separable data sent $w_1$ from $3.4$ to $9.4$ and still climbing. **The fix is regularization:** any L2 penalty bounds the weights and restores a unique, finite solution (in that check, L2 with `C=1.0` pinned $w_1$ to a sane $\approx 1.0$). This is *the* reason scikit-learn regularizes by default — and why "what happens under perfect separation?" is a favorite interview probe.
 - **Unscaled features.** Gradient descent and the regularization penalty both assume comparable feature scales; a feature measured in the thousands will dominate the gradient and be penalized differently from one in $[0,1]$. **Standardize** (zero mean, unit variance) before fitting — and remember it changes the coefficients' units, so interpret odds ratios in standardized terms.
@@ -411,7 +419,7 @@ Given a fresh binary-classification problem, here's the end-to-end playbook — 
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — start-here path, videos, interactive/visual resources, courses, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

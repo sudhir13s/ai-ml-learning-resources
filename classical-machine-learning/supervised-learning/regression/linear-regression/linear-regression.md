@@ -1,6 +1,7 @@
 ---
 id: "03-supervised-learning/linear-regression"
 topic: "Linear Regression"
+core_idea: "Predict a target as a weighted sum of features and choose the weights that minimize squared error, which is maximum likelihood under Gaussian noise and is solved in closed form by projecting the target onto the span of the features."
 parent: "03-supervised-learning"
 level: beginner
 built_from: ["linear-algebra", "gradient-descent", "calculus"]
@@ -96,7 +97,11 @@ That's the entire closed-form solution: one matrix multiply, one solve. It is ex
 
 > **Gotcha:** never literally compute the inverse $(X^\top X)^{-1}$ in code — it's slower and numerically worse. **Solve the linear system** $X^\top X\, w = X^\top y$ directly (`np.linalg.solve`), or better, factor $X$ with **QR or SVD** (what `np.linalg.lstsq` and scikit-learn do), which is far more stable when $X^\top X$ is ill-conditioned. The boxed inverse is how you *derive* and *read* the answer, not how you *compute* it.
 
-> *Where this comes from: least squares and the normal equations date to Gauss and Legendre around 1805–1809 (the priority dispute is told in **Stigler 1981**); the modern matrix derivation is **CS229 notes §1** and **ISLR Ch. 3**; the projection geometry and computational care are **ESL Ch. 3** — see references.*
+> **Reference:**
+> - Least squares and the normal equations date to Gauss and Legendre around 1805–1809 (the priority dispute is told in **Stigler 1981**).
+> - The modern matrix derivation is **CS229 notes §1** and **ISLR Ch. 3**.
+> - The projection geometry and computational care are **ESL Ch. 3**.
+> - See references.
 
 ---
 
@@ -177,7 +182,7 @@ $$\arg\max_{w,b}\ \log\mathcal{L}(w,b) \;=\; \arg\min_{w,b}\ \sum_i\big(y_i - (w
 
 > **Tip:** the MLE of the noise variance falls out too: set $\partial\log\mathcal{L}/\partial\sigma^2=0$ and you get $\hat\sigma^2 = \frac{1}{n}\sum_i r_i^2$ — the mean squared residual. (Statisticians divide by $n-p-1$ instead of $n$ for an *unbiased* estimate, correcting for the degrees of freedom spent fitting the $p{+}1$ weights.)
 
-> *Where this comes from: the MLE-under-Gaussian-noise derivation is **CS229 notes §1.3** (the "probabilistic interpretation") and **Bishop PRML §3.1** — references.*
+> **Reference:** the MLE-under-Gaussian-noise derivation is **CS229 notes §1.3** (the "probabilistic interpretation") and **Bishop PRML §3.1** — references.
 
 ---
 
@@ -344,7 +349,7 @@ Everything you've derived — the loss, the gradient, the convex bowl, the stand
 
 ---
 
-## Pitfalls that actually bite
+## Pitfalls: the ones that actually bite
 
 The mistakes that cost real models, distilled:
 
@@ -448,7 +453,7 @@ OLS: singular X^T X (no unique solution)  ->  Ridge solves it: w = [-0.023  0.17
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

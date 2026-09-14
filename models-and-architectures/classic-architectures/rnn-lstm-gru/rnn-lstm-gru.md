@@ -1,6 +1,7 @@
 ---
 id: "05-deep-learning/rnn-lstm-gru"
 topic: "RNN / LSTM / GRU"
+core_idea: "A recurrent network carries a hidden state through time with shared weights, but backpropagation through time multiplies Jacobians, so gradients vanish or explode; LSTM and GRU gates add a mostly additive memory path that lets gradients survive long ranges."
 parent: "05-deep-learning"
 level: intermediate
 built_from: ["feedforward-networks", "backpropagation", "vanishing-exploding-gradients"]
@@ -85,7 +86,10 @@ This picture is the key mental model for everything that follows. Two consequenc
 
 > **Tip:** the **same** cell is drawn three times in the figure on purpose — there is physically one set of weights. "Unrolling" is a *bookkeeping* device for backprop, not three separate networks. In code, you write the cell once and call it in a Python loop.
 
-> *Where this comes from: the Elman RNN — hidden state recurrence with shared weights — is **Finding Structure in Time** (Elman 1990). Jordan's earlier net fed the *output* back; Elman fed the *hidden state* back, which is the form universally used today. See references.*
+> **Reference:**
+> - The Elman RNN — hidden state recurrence with shared weights — is **Finding Structure in Time** (Elman 1990).
+> - Jordan's earlier net fed the *output* back; Elman fed the *hidden state* back, which is the form universally used today.
+> - See references.
 
 ---
 
@@ -170,7 +174,11 @@ The effect on *modeling*, not just optimization: a vanishing through-time gradie
 
 ![Measured gradient magnitude vs how many steps back, from a real backward pass through 40 steps. The plain RNN's sensitivity to a distant input decays exponentially toward ~1e-9; the LSTM (with forget-gate-bias init) holds the gradient roughly flat across all 40 lags.](images/rnn_gradient_time.png)
 
-> *Where this comes from: the vanishing/exploding-gradient-through-time analysis is **Learning long-term dependencies with gradient descent is difficult** (Bengio et al. 1994); the singular-value / spectral-radius characterization and the gradient-clipping fix are **On the difficulty of training recurrent neural networks** (Pascanu et al. 2013); **Deep Learning** (Goodfellow et al.) Ch. 10 is the textbook treatment. See references.*
+> **Reference:**
+> - The vanishing/exploding-gradient-through-time analysis is **Learning long-term dependencies with gradient descent is difficult** (Bengio et al. 1994).
+> - The singular-value / spectral-radius characterization and the gradient-clipping fix are **On the difficulty of training recurrent neural networks** (Pascanu et al. 2013).
+> - **Deep Learning** (Goodfellow et al.) Ch. 10 is the textbook treatment.
+> - See references.
 
 > **Note:** the *forward* signal and the *backward* gradient share the same fate but they are distinct claims. Forward: the contribution of $x_k$ to $h_t$ is also $\sim\rho^\Delta$, so distant inputs barely move the late state. Backward: the gradient is $\sim\rho^\Delta$, so distant inputs barely get trained. Interviewers like you to name both.
 
@@ -272,7 +280,11 @@ This is *exactly* the residual-connection $+1$ trick, on the time axis: an addit
 
 > **Gotcha:** the LSTM does **not** make vanishing impossible — it makes it **learnable**. If the data wants a dimension to forget, the network sets $f_t<1$ there and that memory *does* decay (correctly). The win is that the network can *choose* a near-1 forget gate where long memory is needed — selectively, per-dimension, per-step — which a vanilla RNN's single shared $W_{hh}$ cannot do.
 
-> *Where this comes from: the LSTM cell and the constant-error-carousel argument are **Long Short-Term Memory** (Hochreiter & Schmidhuber 1997); the now-standard forget gate was added by **Gers et al. 2000**; Chris Olah's "Understanding LSTM Networks" is the canonical illustrated walk-through. See references.*
+> **Reference:**
+> - The LSTM cell and the constant-error-carousel argument are **Long Short-Term Memory** (Hochreiter & Schmidhuber 1997).
+> - The now-standard forget gate was added by **Gers et al. 2000**.
+> - Chris Olah's "Understanding LSTM Networks" is the canonical illustrated walk-through.
+> - See references.
 
 ---
 
@@ -307,7 +319,10 @@ The final line is the crucial one — and notice it's still **additive**: $h_t$ 
 
 Empirically they're close. Chung et al. (2014) found neither dominates across tasks; GRUs often train a bit faster and do as well, especially on smaller datasets, while LSTMs occasionally edge ahead on very long, complex dependencies. **One-line answer:** *GRU is the lighter default (2 gates, fewer params, faster); LSTM is marginally more expressive (3 gates, separate cell). Try GRU first; reach for LSTM if you need the extra capacity.*
 
-> *Where this comes from: the GRU is **Learning Phrase Representations using RNN Encoder–Decoder** (Cho et al. 2014); the LSTM-vs-GRU head-to-head is **Empirical Evaluation of Gated RNNs** (Chung et al. 2014). See references.*
+> **Reference:**
+> - The GRU is **Learning Phrase Representations using RNN Encoder–Decoder** (Cho et al. 2014).
+> - The LSTM-vs-GRU head-to-head is **Empirical Evaluation of Gated RNNs** (Chung et al. 2014).
+> - See references.
 
 ---
 
@@ -694,7 +709,7 @@ The story in three rows: at a 10-step gap both models nail it. At **30 and 50 st
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

@@ -1,6 +1,7 @@
 ---
 id: "05-deep-learning/normalization"
 topic: "Normalization (Batch · Layer · Group · RMS)"
+core_idea: "Rescaling activations to a fixed mean and variance, then restoring expressiveness with learned gamma and beta, keeps deep training stable; BatchNorm uses batch statistics, while LayerNorm and RMSNorm normalize each example on its own, which is why transformers use them."
 parent: "05-deep-learning"
 level: intermediate
 built_from: ["feedforward-networks", "backpropagation", "vanishing-exploding-gradients"]
@@ -82,7 +83,7 @@ So normalization **costs nothing** in representational terms — it can always f
 
 The histogram above is *measured*, not schematic: 4,000 sampled activations drawn from $\mathcal N(4, 2.5^2)$ (red, drifted and wide), standardized to mean 0 / std 1 (green, pulled to $\approx\mathcal N(0,1)$), then passed through a learnable $\gamma=1.4, \beta=0.5$ (purple, re-positioned). Read it left to right and you can see the entire job of a normalization layer in one picture: **take whatever distribution the layer below produced, pull it to a canonical $\mathcal N(0,1)$, then let γ/β put back exactly as much spread and offset as training wants.** The canonical-distribution step is what makes the optimization well-conditioned; the γ/β step is what keeps it expressive.
 
-> *Where this comes from: this normalize-then-scale-shift formulation, with the learnable γ/β and the identity-recovery argument, is **Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift** (Ioffe & Szegedy 2015), §3 — in the references.*
+> **Reference:** this normalize-then-scale-shift formulation, with the learnable γ/β and the identity-recovery argument, is **Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift** (Ioffe & Szegedy 2015), §3 — in the references.
 
 > **Note:** $\gamma$ and $\beta$ are **per-unit** parameters (one pair per channel for BatchNorm, one pair per feature for LayerNorm), updated by backprop. They are *not* the mean/variance — those are *statistics computed from the data on each forward pass*. Conflating "the learnable γ/β" with "the running mean/var" is a common beginner slip; they live in different places (parameters vs buffers) and update by different rules (gradient descent vs running average).
 
@@ -205,7 +206,9 @@ So BatchNorm's backward pass **projects the upstream gradient orthogonal to the 
 
 > **Tip:** in an interview, you don't need to reproduce the algebra perfectly — say the *structure*: "It's a three-term gradient because each input affects the loss directly, through the shared mean, and through the shared variance. The two correction terms re-center and re-scale the gradient, the backward mirror of the forward normalization." That sentence demonstrates you understand *why* it's not local, which is the actual point. We verify the boxed formula numerically against autograd in the code section.
 
-> *Where this comes from: the cleanest node-by-node derivation of this backward pass — drawn out as a computation graph — is **Frederik Kratzert's "Understanding the backward pass through Batch Norm"** (in the references); the vectorized form above is the simplified collapse of that graph.*
+> **Reference:**
+> - The cleanest node-by-node derivation of this backward pass — drawn out as a computation graph — is **Frederik Kratzert's "Understanding the backward pass through Batch Norm"** (in the references).
+> - The vectorized form above is the simplified collapse of that graph.
 
 ---
 
@@ -222,7 +225,7 @@ What BatchNorm *actually* does is make the **optimization landscape smoother**. 
 
 > **Tip:** in an interview, name both halves: *"BatchNorm was introduced to reduce internal covariate shift, but Santurkar et al. (2018) showed — by injecting covariate shift after BN and seeing no slowdown — that the real benefit is a smoother, better-conditioned loss landscape with more predictive gradients."* That one sentence signals you know the topic past the textbook.
 
-> *Where this comes from: **How Does Batch Normalization Help Optimization?** (Santurkar, Tsipras, Ilyas & Madry 2018) — its loss-landscape figures are the clearest visual of *why* normalization helps; in the references.*
+> **Reference:** **How Does Batch Normalization Help Optimization?** (Santurkar, Tsipras, Ilyas & Madry 2018) — its loss-landscape figures are the clearest visual of *why* normalization helps; in the references.
 
 ---
 
@@ -260,7 +263,9 @@ The RNN case makes the contrast vivid. In an RNN you'd want to normalize the hid
 
 > **Gotcha:** LayerNorm's backward pass has the *same three-term structure* as BatchNorm's — direct term, minus the gradient mean (through $\mu$), minus the $\hat x$-aligned component (through $\sigma^2$) — but the sums run **over the feature dimension of each example independently** instead of over the batch. The math is identical; only the reduction axis moves. This is the through-line of the entire page: pick the axis, and the forward *and* backward both follow.
 
-> *Where this comes from: **Layer Normalization** (Ba, Kiros & Hinton 2016). A clean LayerNorm gradient walk-through is in Lei Mao's blog (references).*
+> **Reference:**
+> - **Layer Normalization** (Ba, Kiros & Hinton 2016).
+> - A clean LayerNorm gradient walk-through is in Lei Mao's blog (references).
 
 ### LayerNorm's invariance properties (and why they help)
 
@@ -289,7 +294,7 @@ The visible consequence: RMSNorm's output is **not** zero-centered (you can see 
 
 > **Note:** the lineage is a clean story of *removing* things that turned out not to matter: BatchNorm (full standardize, over the batch) → LayerNorm (full standardize, over features — drop the batch dependence) → RMSNorm (drop the mean-centering too). Each step keeps the load-bearing operation (re-scaling) and sheds a cost. RMSNorm is the minimal norm that still stabilizes training.
 
-> *Where this comes from: **Root Mean Square Layer Normalization** (Zhang & Sennrich 2019) — the re-centering-invariance analysis and the LLM-scale efficiency case are both there; in the references.*
+> **Reference:** **Root Mean Square Layer Normalization** (Zhang & Sennrich 2019) — the re-centering-invariance analysis and the LLM-scale efficiency case are both there; in the references.
 
 ---
 
@@ -377,7 +382,10 @@ The intuition in one line: **pre-norm normalizes the *input* to each sublayer bu
 
 > **Tip:** **DeepNorm** (Wang et al. 2022) is a post-norm variant engineered for *extreme* depth (1,000-layer transformers): it up-weights the residual ($x \cdot \alpha + \text{Sublayer}(\dots)$ with a depth-dependent $\alpha$) and down-scales certain initializations to get post-LN's quality with pre-LN-like stability. **ScaleNorm** replaces LayerNorm with a single learned scalar times an L2-normalize ($g \cdot x/\lVert x\rVert$) — cheaper still, and a close relative of RMSNorm. You don't need these day-to-day, but naming them shows you know the placement-and-scaling design space, not just the two defaults.
 
-> *Where this comes from: the pre-norm vs post-norm gradient analysis is **On Layer Normalization in the Transformer Architecture** (Xiong et al. 2020); the 1,000-layer result is **DeepNet** (Wang et al. 2022) — both in the references.*
+> **Reference:**
+> - The pre-norm vs post-norm gradient analysis is **On Layer Normalization in the Transformer Architecture** (Xiong et al. 2020).
+> - The 1,000-layer result is **DeepNet** (Wang et al. 2022).
+> - Both in the references.
 
 ---
 
@@ -712,7 +720,7 @@ where $\mu(\cdot), \sigma(\cdot)$ are per-channel spatial statistics — strip t
 
 ---
 
-## Common pitfalls and interview traps
+## Pitfalls: common mistakes and interview traps
 
 A grab-bag of the mistakes that actually bite, gathered in one place:
 
@@ -747,7 +755,7 @@ A grab-bag of the mistakes that actually bite, gathered in one place:
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 

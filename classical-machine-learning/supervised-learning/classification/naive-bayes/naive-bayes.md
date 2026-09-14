@@ -1,6 +1,7 @@
 ---
 id: "03-supervised-learning/naive-bayes"
 topic: "Naive Bayes"
+core_idea: "Assuming features are independent given the class collapses Bayes' theorem into a product of count-based estimates that trains fast on little data and acts as a linear classifier whose rankings stay useful even when its probabilities are poorly calibrated."
 parent: "03-supervised-learning"
 level: beginner
 built_from: ["probability", "bayes-theorem", "supervised-learning-basics"]
@@ -94,7 +95,10 @@ $$\hat c \;=\; \arg\max_c \; P(c)\prod_{i=1}^{d} P(x_i \mid c)$$
 
 > **Note:** "conditionally independent given the class" is subtler than "independent." Words *are* correlated overall ("New"/"York"), but Naive Bayes only assumes they're independent *once you fix the class*. That weaker assumption is still usually false, but far less false than full independence — part of why the model holds up.
 
-> *Where this comes from: the bag-of-words Naive Bayes model and decision rule are derived cleanly in **Speech and Language Processing** (Jurafsky & Martin) Ch. 4; the generative-classifier framing is **CS229** notes (Generative Learning Algorithms) — references.*
+> **Reference:**
+> - The bag-of-words Naive Bayes model and decision rule are derived cleanly in **Speech and Language Processing** (Jurafsky & Martin) Ch. 4.
+> - The generative-classifier framing is **CS229** notes (Generative Learning Algorithms).
+> - Both in the references.
 
 ---
 
@@ -291,7 +295,7 @@ graph LR
 
 Ng & Jordan's classic result: Naive Bayes reaches its (higher) error floor **much faster** — with far less data — while logistic regression starts worse but overtakes it as data grows. *With little data, prefer Naive Bayes; with plenty, logistic regression usually wins.*
 
-> *Where this comes from: the generative–discriminative pairing and the "NB converges faster, LR is asymptotically better" result are **On Discriminative vs. Generative Classifiers** (Ng & Jordan, 2002) — references.*
+> **Reference:** the generative–discriminative pairing and the "NB converges faster, LR is asymptotically better" result are **On Discriminative vs. Generative Classifiers** (Ng & Jordan, 2002) — references.
 
 ---
 
@@ -507,7 +511,7 @@ correlated features: TRUE P(c1|x)=0.700  NB P(c1|x)=0.845  same argmax = True (b
 
 ---
 
-## Pitfalls that actually bite
+## Pitfalls: the ones that actually bite
 
 - **Multiplying raw probabilities** → underflow to 0 on long documents. Always work in **log-space**.
 - **No smoothing** → one unseen word zeroes a class. Always use Laplace (`alpha ≥ 0` to start, e.g. `1.0`), then **tune on validation** — the alpha curve above shows large $\alpha$ silently degrades accuracy.
@@ -599,7 +603,7 @@ A few finer points that interviewers probe and that practitioners trip over — 
 
 ---
 
-## References and further reading
+## References
 
 The curated link library for this topic — videos, courses, interactive/visual resources, articles, papers, books, and internal cross-links — lives in a companion file so it can be reused as a standalone reference list:
 
