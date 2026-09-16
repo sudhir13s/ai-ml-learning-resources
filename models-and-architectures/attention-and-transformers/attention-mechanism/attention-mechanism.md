@@ -17,9 +17,24 @@ category: attention-and-transformers
 
 # Attention: let every token look at every other token
 
-Picture translating a long sentence by first reading the whole thing, memorizing it as a **single mental snapshot**, and only *then* starting to write the translation — never allowed to glance back at the original. You'd nail short sentences and fall apart on long ones, because one snapshot can't hold everything. That was machine translation before 2014. **Attention** is the fix: instead of one frozen snapshot, the model gets to **look back at every input element and decide, for each output, which inputs matter right now** — a soft, learned spotlight. That one idea dissolved the bottleneck, then became the entire engine of the transformer, and through the transformer the entire engine of modern AI.
+Picture translating a long sentence by first reading the whole thing, memorizing it as a **single mental snapshot**, and only *then* starting to write the translation — never allowed to glance back at the original.
 
-I'm going to teach this the way I'd actually walk a strong teammate through it at a whiteboard: feel the *problem* attention was invented to solve, meet the **Query / Key / Value** abstraction as a soft dictionary lookup, then **derive** scaled dot-product attention — including the one piece of real math everyone half-remembers, *why we divide by √dₖ* — and only then layer on multi-head, masking, and the $O(n^2)$ cost that spawned an entire research field. Four worked numeric examples (each a notch harder than the last) ground every equation, and runnable PyTorch at the end proves the from-scratch numbers match the fused kernel to the last decimal. By the end you'll be able to:
+- You'd nail short sentences and fall apart on long ones, because one snapshot can't hold everything.
+- That was machine translation before 2014.
+- **Attention** is the fix: instead of one frozen snapshot, the model gets to **look back at every input element and decide, for each output, which inputs matter right now**.
+  - A soft, learned spotlight.
+- That one idea dissolved the bottleneck, then became the entire engine of the transformer, and through the transformer the entire engine of modern AI.
+
+This is the whiteboard walkthrough you'd get from a strong teammate:
+
+- feel the *problem* attention was invented to solve;
+- meet the **Query / Key / Value** abstraction as a soft dictionary lookup;
+- **derive** scaled dot-product attention — including the one piece of real math everyone half-remembers, *why we divide by √dₖ*;
+- only then layer on multi-head, masking, and the $O(n^2)$ cost that spawned an entire research field.
+
+Four worked numeric examples (each a notch harder than the last) ground every equation, and runnable PyTorch at the end proves the from-scratch numbers match the fused kernel to the last decimal.
+
+By the end you'll be able to:
 
 - explain the **seq2seq bottleneck** attention removed, and the historical lineage (**Bahdanau additive → Luong multiplicative → Vaswani scaled dot-product**);
 - **derive** $\text{Attention}(Q,K,V)=\text{softmax}(QK^\top/\sqrt{d_k})V$ from scratch, with **every shape stated**;
@@ -27,25 +42,44 @@ I'm going to teach this the way I'd actually walk a strong teammate through it a
 - distinguish **self- vs cross-attention**, **additive vs dot-product**, **bidirectional vs causal**;
 - explain **multi-head** attention, why it helps, and walk its **shapes** end to end;
 - implement **causal and padding masks** and know which silent bug each prevents;
-- analyze the **$O(n^2)$ cost** and name the variants — **KV cache**, **FlashAttention**, **MQA/GQA**, **sparse**, **linear** — that exist because of it;
-- connect attention forward to the [KV cache](/ai-ml/ai-ml-learning-resources/inference-and-serving/kv-cache/kv-cache), [FlashAttention](/ai-ml/ai-ml-learning-resources/models-and-architectures/attention-and-transformers/efficient-attention/efficient-attention), the full [Transformer](/ai-ml/ai-ml-learning-resources/models-and-architectures/attention-and-transformers/transformer-architecture/transformer-architecture), and [positional encoding](/ai-ml/ai-ml-learning-resources/models-and-architectures/attention-and-transformers/positional-encoding/positional-encoding).
+- analyze the **$O(n^2)$ cost** and name the variants that exist because of it — the **key-value (KV) cache**, **FlashAttention**, **multi-query and grouped-query attention (MQA/GQA)**, **sparse**, **linear**;
+- connect attention forward to:
+  - the [KV cache](/ai-ml/ai-ml-learning-resources/inference-and-serving/kv-cache/kv-cache);
+  - [FlashAttention](/ai-ml/ai-ml-learning-resources/models-and-architectures/attention-and-transformers/efficient-attention/efficient-attention);
+  - the full [Transformer](/ai-ml/ai-ml-learning-resources/models-and-architectures/attention-and-transformers/transformer-architecture/transformer-architecture);
+  - [positional encoding](/ai-ml/ai-ml-learning-resources/models-and-architectures/attention-and-transformers/positional-encoding/positional-encoding).
 
 Intuition first, then the math, then code you can run.
 
-> **Note:** "attention" is one mechanism with two framings that trip people up. **Cross-attention** (the original 2014 idea): queries come from one sequence (e.g. the decoder), keys/values from another (the encoder). **Self-attention** (the transformer's workhorse): queries, keys, and values all come from the *same* sequence. Identical math; different source of Q, K, V. We cover both below — and the same primitive powers each.
+> **Note:** "attention" is one mechanism with two framings that trip people up.
+> - **Cross-attention** (the original 2014 idea): queries come from one sequence (e.g. the decoder), keys/values from another (the encoder).
+> - **Self-attention** (the transformer's workhorse): queries, keys, and values all come from the *same* sequence.
+> - Identical math; different source of Q, K, V. We cover both below — and the same primitive powers each.
 
 ---
 
 ## The problem: one fixed vector can't hold a whole sequence
 
-Before attention, sequence-to-sequence models ([RNN/LSTM/GRU](/ai-ml/ai-ml-learning-resources/models-and-architectures/classic-architectures/rnn-lstm-gru/rnn-lstm-gru)) translated by having an **encoder** compress the entire input into a single fixed-length **context vector** $c$, which the **decoder** then unrolled token by token. The whole meaning of *"The agreement on the European Economic Area was signed in August 1992"* had to survive in one vector of, say, 512 numbers — and the decoder saw nothing else.
+Before attention, sequence-to-sequence models ([RNN/LSTM/GRU](/ai-ml/ai-ml-learning-resources/models-and-architectures/classic-architectures/rnn-lstm-gru/rnn-lstm-gru)) worked in two stages.
+
+- An **encoder** compressed the entire input into a single fixed-length **context vector** $c$.
+- The **decoder** then unrolled that vector token by token.
+- The whole meaning of *"The agreement on the European Economic Area was signed in August 1992"* had to survive in one vector of, say, 512 numbers — and the decoder saw nothing else.
 
 Two things break, and they break worse the longer the sentence:
 
-1. **The information bottleneck.** A fixed-size vector is a fixed-size bucket. The longer the source sentence, the more gets crushed out of that bucket, and translation quality (BLEU) falls off a cliff past ~30 tokens. You are asking 512 numbers to losslessly summarize an arbitrarily long sentence — they can't.
-2. **The distance problem.** An RNN carries information token-by-token, so a dependency between word 1 and word 30 must survive **30 sequential hops** through the hidden state. That is exactly the regime where gradients vanish (see [vanishing gradients](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients)), so the model *structurally* struggles to connect distant words.
+1. **The information bottleneck.** A fixed-size vector is a fixed-size bucket.
+   - The longer the source sentence, the more gets crushed out of that bucket, and translation quality (BLEU, the bilingual evaluation understudy score) falls off a cliff past ~30 tokens.
+   - You are asking 512 numbers to losslessly summarize an arbitrarily long sentence — they can't.
+2. **The distance problem.** A recurrent neural network (RNN) carries information token-by-token, so a dependency between word 1 and word 30 must survive **30 sequential hops** through the hidden state.
+   - That is exactly the regime where gradients vanish, so the model *structurally* struggles to connect distant words.
+   - See [vanishing gradients](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients).
 
-Attention ([Bahdanau et al., 2014](https://arxiv.org/abs/1409.0473)) removes the bucket. Keep **all** of the encoder's per-token hidden states $h_1, \dots, h_m$ — don't compress them into one vector — and at each decoding step let the decoder build a *fresh, weighted blend* of them, heavy on the words that matter for the word it's about to produce. Instead of *"here is my one summary of the source,"* the encoder now says *"here is every word's representation; reach for whichever ones you need, right now."*
+Attention ([Bahdanau et al., 2014](https://arxiv.org/abs/1409.0473)) removes the bucket.
+
+- Keep **all** of the encoder's per-token hidden states $h_1, \dots, h_m$ — don't compress them into one vector.
+- At each decoding step let the decoder build a *fresh, weighted blend* of them, heavy on the words that matter for the word it's about to produce.
+- Instead of *"here is my one summary of the source,"* the encoder now says *"here is every word's representation; reach for whichever ones you need, right now."*
 
 ```mermaid
 graph TD
@@ -73,7 +107,9 @@ graph TD
     classDef out fill:#2E7A5A,stroke:#1E6A4A,color:#fff
 ```
 
-> **Note:** Bahdanau's paper is literally titled *"Neural Machine Translation by **Jointly Learning to Align and Translate**."* That phrase is the whole idea: the model learns *what to translate* and *where to look* at the same time, end to end, with no hand-built alignment table. The attention weights *are* a soft alignment between source and target words.
+> **Note:** Bahdanau's paper is literally titled *"Neural Machine Translation by **Jointly Learning to Align and Translate**."*
+> - That phrase is the whole idea: the model learns *what to translate* and *where to look* at the same time, end to end, with no hand-built alignment table.
+> - The attention weights *are* a soft alignment between source and target words.
 
 ---
 
@@ -95,7 +131,13 @@ $$\text{Attention}(Q,K,V) = \text{softmax}\!\left(\frac{QK^\top}{\sqrt{d_k}}\rig
 > - The dot-product family was studied by **Luong et al. 2015**.
 > - All three are in the references, with a runnable build in d2l.ai Ch. 11.
 
-With $Q \in \mathbb{R}^{n \times d_k}$, $K \in \mathbb{R}^{m \times d_k}$, $V \in \mathbb{R}^{m \times d_v}$: $QK^\top$ is $n\times m$ (every query against every key), the softmax normalizes each **row**, and multiplying by $V$ gives an $n \times d_v$ output — one blended vector per query. Everything else in this page — the scaling, multi-head, masks, the KV cache — is machinery wrapped around this single core.
+With $Q \in \mathbb{R}^{n \times d_k}$, $K \in \mathbb{R}^{m \times d_k}$, $V \in \mathbb{R}^{m \times d_v}$:
+
+- $QK^\top$ is $n\times m$ (every query against every key);
+- the softmax normalizes each **row**;
+- multiplying by $V$ gives an $n \times d_v$ output — one blended vector per query.
+
+Everything else in this page — the scaling, multi-head, masks, the KV cache — is machinery wrapped around this single core.
 
 ```mermaid
 graph LR
@@ -120,41 +162,77 @@ graph LR
 
 ![Scaled dot-product attention as a dataflow with every shape labelled: Q, K, V feed QKᵀ (scores, [n,m]), which is scaled by 1/√dₖ, optionally masked, softmaxed row-wise, then multiplied by V to give the [n, d_v] output. The two matmuls (QKᵀ and ·V) are the entire cost.](images/attn_dataflow.png)
 
-> **Note:** keys and values are *separate* projections on purpose. The **key** decides *how well a token matches* a query; the **value** is *what that token contributes* if it matches. Decoupling them lets a token be retrieved on one basis (its key) while handing back different content (its value) — strictly more expressive than matching and returning the same vector, the way a search engine matches on a title but returns the article body.
+> **Note:** keys and values are *separate* projections on purpose.
+> - The **key** decides *how well a token matches* a query; the **value** is *what that token contributes* if it matches.
+> - Decoupling them lets a token be retrieved on one basis (its key) while handing back different content (its value).
+> - That is strictly more expressive than matching and returning the same vector, the way a search engine matches on a title but returns the article body.
 
 ---
 
 ## Intuition: a soft dictionary lookup
 
-A Python `dict` is a **hard** lookup: a key either matches or it doesn't, and you get back exactly one value. Attention is the **soft** version: your query partially matches *every* key, and you get back a **blend** of all the values, weighted by how well each key matched. Nothing is all-or-nothing; everything is a weighted average. Where a dict returns `d[k]`, attention returns $\sum_j \text{(match}(q,k_j)) \cdot v_j$ with the matches normalized to sum to 1.
+A Python `dict` is a **hard** lookup: a key either matches or it doesn't, and you get back exactly one value.
 
-Make it concrete. When the model processes **"it"** in *"The animal didn't cross the street because it was tired,"* its query for "it" lights up most strongly on the key for **"animal"** — so "it"'s new representation is built mostly from "animal"'s value. The model has *resolved the pronoun*, purely through weighted lookup, in a single layer, with no recurrence and no parse tree.
+- Attention is the **soft** version: your query partially matches *every* key, and you get back a **blend** of all the values, weighted by how well each key matched.
+- Nothing is all-or-nothing; everything is a weighted average.
+- Where a dict returns `d[k]`, attention returns $\sum_j \text{(match}(q,k_j)) \cdot v_j$ with the matches normalized to sum to 1.
+
+Make it concrete.
+
+- When the model processes **"it"** in *"The animal didn't cross the street because it was tired,"* its query for "it" lights up most strongly on the key for **"animal"**.
+- So "it"'s new representation is built mostly from "animal"'s value.
+- The model has *resolved the pronoun*, purely through weighted lookup, in a single layer, with no recurrence and no parse tree.
 
 ![Illustrative self-attention weights for a 10-word sentence: each query row is a softmax distribution over key columns (causal, lower-triangular). The highlighted cell shows the query 'it' placing heavy weight on the key 'animal' — the model resolving the pronoun by weighted lookup.](images/attn_heatmap.png)
 
-> **Tip:** map Q/K/V to web search and it sticks for good. **Query** = your search-box text. **Keys** = the titles of all documents. **Values** = the document bodies. Attention scores your query against every title, softmaxes the scores into relevance weights, then returns a *blended* summary weighted by relevance — instead of a single top hit. Self-attention is just the case where the documents *are* the other words in your own sentence.
+> **Tip:** map Q/K/V to web search and it sticks for good.
+> - **Query** = your search-box text.
+> - **Keys** = the titles of all documents.
+> - **Values** = the document bodies.
+> - Attention scores your query against every title, softmaxes the scores into relevance weights, then returns a *blended* summary weighted by relevance — instead of a single top hit.
+> - Self-attention is just the case where the documents *are* the other words in your own sentence.
 
-> **Note:** it's tempting to read attention weights as *explanations* ("the model looked here"), and the heatmaps are seductive. Treat them with care: different weightings can produce the same output, gradients can route influence that the weights don't show, and a high weight doesn't guarantee high causal influence. Attention maps are a useful diagnostic, not a proof of *why* the model decided something — a point made carefully in the "Attention is not Explanation" literature.
+> **Note:** it's tempting to read attention weights as *explanations* ("the model looked here"), and the heatmaps are seductive. Treat them with care.
+> - Different weightings can produce the same output.
+> - Gradients can route influence that the weights don't show.
+> - A high weight doesn't guarantee high causal influence.
+> - Attention maps are a useful diagnostic, not a proof of *why* the model decided something — a point made carefully in the "Attention is not Explanation" literature.
 
 ---
 
 ## Historical lineage: Bahdanau → Luong → Vaswani
 
-Attention did not arrive fully formed. Three papers, one year apart each, took it from a translation patch to the foundation of an architecture. The *score function* — how a query and a key produce a single number — is what changed.
+Attention did not arrive fully formed.
 
-**Bahdanau (2014) — additive / concat attention.** The original. The score between decoder state $s$ (the query) and encoder state $h$ (the key) is a small one-hidden-layer MLP:
+- Three papers, one year apart each, took it from a translation patch to the foundation of an architecture.
+- The *score function* — how a query and a key produce a single number — is what changed.
+
+**Bahdanau (2014) — additive / concat attention.** The original. The score between decoder state $s$ (the query) and encoder state $h$ (the key) is a small one-hidden-layer multi-layer perceptron (MLP):
 
 $$\text{score}(s, h) = v_a^\top \tanh(W_s\, s + W_h\, h)$$
 
-with learned $W_s, W_h, v_a$. It's called *additive* because it **adds** the two projected vectors inside a $\tanh$. It's naturally well-scaled (the $\tanh$ bounds the activations), and it works even when $s$ and $h$ have **different dimensions** — handy in the encoder–decoder setting where they might.
+with learned $W_s, W_h, v_a$.
+
+- It's called *additive* because it **adds** the two projected vectors inside a $\tanh$.
+- It's naturally well-scaled (the $\tanh$ bounds the activations).
+- It works even when $s$ and $h$ have **different dimensions** — handy in the encoder–decoder setting where they might.
 
 **Luong (2015) — multiplicative / dot-product attention.** Luong, Pham & Manning asked: do we need the MLP at all? They proposed scoring by a plain dot product (and a "general" variant with a learned matrix in between):
 
 $$\text{score}_{\text{dot}}(s,h) = s^\top h, \qquad \text{score}_{\text{general}}(s,h) = s^\top W h.$$
 
-A dot product is a single matmul — far cheaper and more GPU-friendly than a per-pair MLP. The catch they flagged: for large dimensions the dot products grow large and destabilize the softmax (foreshadowing the next paper's fix).
+A dot product is a single matmul — far cheaper and more GPU-friendly than a per-pair MLP.
 
-**Vaswani (2017) — scaled dot-product attention.** *Attention Is All You Need* took Luong's dot-product, added the crucial **$1/\sqrt{d_k}$ scaling** to tame exactly that instability, generalized "decoder reads encoder" into "every token reads every token" (**self-attention**), ran $h$ of them in parallel (**multi-head**), and threw away the RNN entirely. The result *is* the transformer.
+- The catch they flagged: for large dimensions the dot products grow large and destabilize the softmax (foreshadowing the next paper's fix).
+
+**Vaswani (2017) — scaled dot-product attention.** *Attention Is All You Need* took Luong's dot-product and changed four things:
+
+- added the crucial **$1/\sqrt{d_k}$ scaling** to tame exactly that instability;
+- generalized "decoder reads encoder" into "every token reads every token" (**self-attention**);
+- ran $h$ of them in parallel (**multi-head**);
+- threw away the RNN entirely.
+
+The result *is* the transformer.
 
 | | Bahdanau 2014 | Luong 2015 | Vaswani 2017 |
 |---|---|---|---|
@@ -164,7 +242,10 @@ A dot product is a single matmul — far cheaper and more GPU-friendly than a pe
 | **Q, K dims** | may differ | usually equal | equal ($d_k$) |
 | **Where used** | RNN seq2seq | RNN seq2seq | the transformer |
 
-> **Note:** additive vs dot-product is a recurring interview question, and the crisp answer is: *"both score a query against a key; additive uses an MLP (Bahdanau), dot-product uses a matmul (Luong/Vaswani). Modern transformers use **scaled** dot-product because a matmul is dramatically faster on GPUs, and the $1/\sqrt{d_k}$ factor undoes the variance blow-up the MLP never had."* Empirically the two score equally well at small $d_k$; dot-product wins on speed, which is decisive at scale.
+> **Note:** additive vs dot-product is a recurring interview question, and the crisp answer is:
+> - *"both score a query against a key; additive uses an MLP (Bahdanau), dot-product uses a matmul (Luong/Vaswani).*
+> - *Modern transformers use **scaled** dot-product because a matmul is dramatically faster on GPUs, and the $1/\sqrt{d_k}$ factor undoes the variance blow-up the MLP never had."*
+> - Empirically the two score equally well at small $d_k$; dot-product wins on speed, which is decisive at scale.
 
 ---
 
@@ -179,14 +260,25 @@ The mechanism is identical; only the *source* of Q, K, V changes — and that on
   $$Q = X_{\text{dec}}W_q,\quad K = X_{\text{enc}}W_k,\quad V = X_{\text{enc}}W_v.$$
   This is how a translator's decoder "reads" the source sentence, and how multimodal models let text attend to image features. Here $n$ (decoder length) and $m$ (encoder length) genuinely differ.
 
-> **Note:** the three attention blocks in a full encoder–decoder transformer are: **encoder self-attention** (bidirectional, no mask), **decoder masked self-attention** (causal), and **decoder→encoder cross-attention**. A decoder-only LLM (GPT-style) keeps only the middle one. Knowing which block is which — and which mask each carries — is a classic interview checkpoint. The full assembly is the subject of the [Transformer Architecture](/ai-ml/ai-ml-learning-resources/models-and-architectures/attention-and-transformers/transformer-architecture/transformer-architecture) page; here we stay zoomed in on the attention operation itself.
+> **Note:** the three attention blocks in a full encoder–decoder transformer are:
+> - **encoder self-attention** (bidirectional, no mask);
+> - **decoder masked self-attention** (causal);
+> - **decoder→encoder cross-attention**.
+> - A decoder-only large language model (LLM, GPT-style) keeps only the middle one.
+> - Knowing which block is which — and which mask each carries — is a classic interview checkpoint.
+> - The full assembly is the subject of the [Transformer Architecture](/ai-ml/ai-ml-learning-resources/models-and-architectures/attention-and-transformers/transformer-architecture/transformer-architecture) page.
+> - Here we stay zoomed in on the attention operation itself.
 
 ### Bidirectional vs causal — the same self-attention with one mask
 
 Cutting across self vs cross is a second axis that decides what a model is *for*: whether a token may look **forward** as well as back.
 
-- **Bidirectional** self-attention (BERT-style encoders) — *no mask*. Every token attends to every other token, past **and** future. Great for *understanding* a fixed input (classification, NER, retrieval embeddings) where the whole sequence is available at once. You cannot generate left-to-right with it, because token $i$ has already seen the answer.
-- **Causal** self-attention (GPT-style decoders) — *triangular mask*. Token $i$ attends only to $\le i$, never to the future. This is what lets the model **generate**: at each step it predicts the next token from the past alone, exactly as it will at inference. It's also what makes the [KV cache](/ai-ml/ai-ml-learning-resources/inference-and-serving/kv-cache/kv-cache) valid (past K/V never change).
+- **Bidirectional** self-attention (BERT-style encoders) — *no mask*. Every token attends to every other token, past **and** future.
+  - Great for *understanding* a fixed input (classification, named-entity recognition — NER — and retrieval embeddings) where the whole sequence is available at once.
+  - You cannot generate left-to-right with it, because token $i$ has already seen the answer.
+- **Causal** self-attention (GPT-style decoders) — *triangular mask*. Token $i$ attends only to $\le i$, never to the future.
+  - This is what lets the model **generate**: at each step it predicts the next token from the past alone, exactly as it will at inference.
+  - It's also what makes the [KV cache](/ai-ml/ai-ml-learning-resources/inference-and-serving/kv-cache/kv-cache) valid (past K/V never change).
 
 | | Bidirectional (encoder) | Causal (decoder) |
 |---|---|---|
@@ -201,7 +293,11 @@ The remarkable thing: **the only code difference is one mask.** Same projections
 
 ## How it works: Q, K, V, and the four steps
 
-> **See it live:** the **[Transformer Explainer](https://poloclub.github.io/transformer-explainer/)** (Georgia Tech / Polo Club) runs a real GPT-2 in your browser and lets you watch the attention weights light up token by token as you type; **[bbycroft.net/llm](https://bbycroft.net/llm)** shows the same Q·Kᵀ→softmax→·V flow in an animated 3D model. Either makes the four steps below click instantly — open one in a tab as you read.
+> **See it live:**
+> - The **[Transformer Explainer](https://poloclub.github.io/transformer-explainer/)** (Georgia Tech / Polo Club) runs a real GPT-2 in your browser.
+>   - Watch the attention weights light up token by token as you type.
+> - **[bbycroft.net/llm](https://bbycroft.net/llm)** shows the same Q·Kᵀ→softmax→·V flow in an animated 3D model.
+> - Either makes the four steps below click instantly — open one in a tab as you read.
 
 Self-attention projects the input $X$ (one row per token, $X \in \mathbb{R}^{n \times d_{\text{model}}}$) into three matrices, then runs four steps:
 
@@ -214,9 +310,13 @@ $$Q = XW_q,\qquad K = XW_k,\qquad V = XW_v$$
 
 That's it: two matmuls ($QK^\top$, then $AV$) with a scale, a softmax, and an optional mask between them.
 
-> **Gotcha:** the softmax is over the **key** dimension (each query's row sums to 1), *not* the query dimension. Getting this axis wrong runs without error and silently learns nothing — the single most common attention bug. In code it's `softmax(scores, dim=-1)` when scores are shaped `[..., n_queries, n_keys]`.
+> **Gotcha:** the softmax is over the **key** dimension (each query's row sums to 1), *not* the query dimension.
+> - Getting this axis wrong runs without error and silently learns nothing — the single most common attention bug.
+> - In code it's `softmax(scores, dim=-1)` when scores are shaped `[..., n_queries, n_keys]`.
 
-> **Note:** softmax is computed *stably* by subtracting the row max before exponentiating — $\text{softmax}(z)_i = e^{z_i - \max z}\big/\sum_j e^{z_j - \max z}$ — so large scores don't overflow to `inf`. This dovetails with masking: a forbidden score set to $-\infty$ becomes $e^{-\infty}=0$ after the shift, contributing exactly zero weight to the normalized sum. (This same online/streaming softmax is the trick FlashAttention exploits — more below.)
+> **Note:** softmax is computed *stably* by subtracting the row max before exponentiating — $\text{softmax}(z)_i = e^{z_i - \max z}\big/\sum_j e^{z_j - \max z}$ — so large scores don't overflow to `inf`.
+> - This dovetails with masking: a forbidden score set to $-\infty$ becomes $e^{-\infty}=0$ after the shift, contributing exactly zero weight to the normalized sum.
+> - This same online/streaming softmax is the trick FlashAttention exploits — more below.
 
 ---
 
@@ -224,7 +324,9 @@ That's it: two matmuls ($QK^\top$, then $AV$) with a scale, a softmax, and an op
 
 This is the one-line derivation most people only half-remember, so let's do it properly — it's a clean probability argument and interviewers love asking it.
 
-**Setup.** Take a query $q$ and a key $k$, each a vector in $\mathbb{R}^{d_k}$, with entries that are **independent, mean 0, variance 1** (a reasonable approximation right after initialization, when projections are small-random). Their dot product is
+**Setup.** Take a query $q$ and a key $k$, each a vector in $\mathbb{R}^{d_k}$, with entries that are **independent, mean 0, variance 1**.
+
+That is a reasonable approximation right after initialization, when projections are small-random. Their dot product is
 
 $$q\cdot k = \sum_{i=1}^{d_k} q_i\, k_i.$$
 
@@ -240,19 +342,36 @@ The $d_k$ terms are independent, so variances add:
 
 $$\boxed{\;\text{Var}(q\cdot k) = \sum_{i=1}^{d_k}\text{Var}(q_i k_i) = d_k.\;}$$
 
-**The consequence.** Raw scores therefore have **standard deviation $\sqrt{d_k}$** — they grow with head size. For $d_k = 64$ that's a spread of about ±8 between the largest and smallest scores; for $d_k = 128$, ±11. Feed scores that large into a softmax and it **saturates**: one weight → ~1, the rest → ~0, the distribution collapses to near one-hot. And a saturated softmax has a **vanishing Jacobian** — $\partial\,\text{softmax}_i/\partial z_j \approx 0$ when one output is ~1 — so essentially **no gradient flows back** through the attention weights. Early training stalls: the model can't learn *which* tokens to attend to because the gradient that would teach it is ~0.
+**The consequence.** Raw scores therefore have **standard deviation $\sqrt{d_k}$** — they grow with head size.
 
-**The fix.** Divide the scores by $\sqrt{d_k}$ *before* the softmax. This rescales the variance back to 1 (dividing a variable by $c$ divides its variance by $c^2$, and $(\sqrt{d_k})^2 = d_k$), keeping the softmax in its responsive, high-gradient regime regardless of head size. That single constant is what lets you make heads as wide as you like without the softmax going dead.
+- For $d_k = 64$ that's a spread of about ±8 between the largest and smallest scores; for $d_k = 128$, ±11.
+- Feed scores that large into a softmax and it **saturates**: one weight → ~1, the rest → ~0, the distribution collapses to near one-hot.
+- And a saturated softmax has a **vanishing Jacobian** — $\partial\,\text{softmax}_i/\partial z_j \approx 0$ when one output is ~1 — so essentially **no gradient flows back** through the attention weights.
+- Early training stalls: the model can't learn *which* tokens to attend to because the gradient that would teach it is ~0.
 
-> **Reference:** the $1/\sqrt{d_k}$ scaling and exactly this variance argument are stated in **Attention Is All You Need** (Vaswani et al. 2017, §3.2.1, footnote 4): "We suspect that for large values of $d_k$, the dot products grow large in magnitude, pushing the softmax into regions where it has extremely small gradients."
+**The fix.** Divide the scores by $\sqrt{d_k}$ *before* the softmax.
+
+- This rescales the variance back to 1 (dividing a variable by $c$ divides its variance by $c^2$, and $(\sqrt{d_k})^2 = d_k$).
+- It keeps the softmax in its responsive, high-gradient regime regardless of head size.
+- That single constant is what lets you make heads as wide as you like without the softmax going dead.
+
+> **Reference:** the $1/\sqrt{d_k}$ scaling and exactly this variance argument are stated in **Attention Is All You Need** (Vaswani et al. 2017, §3.2.1, footnote 4):
+> - "We suspect that for large values of $d_k$, the dot products grow large in magnitude, pushing the softmax into regions where it has extremely small gradients."
 
 ![Left: empirical variance of q·k grows linearly with d_k, exactly matching the theory Var = d_k (dashed line). Right: softmax over the same scores — unscaled collapses to one dominant key (saturated, tiny gradients), while dividing by √dₖ keeps a smooth, trainable distribution.](images/attn_softmax_scaling.png)
 
-We can watch the saturation happen as a *measured* function of $d_k$. Holding the score *pattern* fixed and only growing $d_k$ (so the dot-product magnitudes scale as the theory predicts), the **unscaled** softmax marches from near-uniform toward one-hot — its entropy crashing to 0 and its peak weight climbing to 1 — while the **scaled** softmax stays put at a healthy, trainable spread. This is the variance derivation, in pictures:
+We can watch the saturation happen as a *measured* function of $d_k$.
+
+- Hold the score *pattern* fixed and only grow $d_k$, so the dot-product magnitudes scale as the theory predicts.
+- The **unscaled** softmax marches from near-uniform toward one-hot — its entropy crashing to 0 and its peak weight climbing to 1.
+- The **scaled** softmax stays put at a healthy, trainable spread.
+- This is the variance derivation, in pictures:
 
 ![Measured: as d_k grows from 1 to 512 over 16 keys, the unscaled softmax's normalized entropy collapses from ~0.85 toward 0 (left) and its mean max-weight climbs from ~0.25 toward 1 (right) — i.e. it goes one-hot and stops giving gradient. The scaled-by-1/√dₖ softmax (green) is flat across all d_k: it stays high-entropy and trainable at every head size.](images/attn_softmax_entropy.png)
 
-And we can confirm the *gradient* really does vanish, not just the entropy. Take a softmax over 16 scores, push them through a trivial downstream loss, and measure the **gradient norm that reaches the scores** as we crank up the score spread (which is what large $d_k$ does):
+And we can confirm the *gradient* really does vanish, not just the entropy.
+
+- Take a softmax over 16 scores, push them through a trivial downstream loss, and measure the **gradient norm that reaches the scores** as we crank up the score spread (which is what large $d_k$ does):
 
 | score std (∝ √dₖ) | softmax max weight | gradient norm at the scores |
 |---:|---:|---:|
@@ -261,11 +380,20 @@ And we can confirm the *gradient* really does vanish, not just the entropy. Take
 | 4.0 | 0.994 | **0.037** |
 | 8.0 | 1.000 | **0.00001** |
 
-The gradient norm holds above 1.3 while the softmax is responsive, then **collapses by five orders of magnitude** once the softmax saturates (max weight → 1). That near-zero gradient is *literally* why an unscaled wide-head attention can't learn its alignments — there is no signal to update the projections with. Dividing by $\sqrt{d_k}$ keeps the scores in the std ≈ 1 row, where the gradient is healthy. (This exact table is printed by the verification script below.)
+The gradient norm holds above 1.3 while the softmax is responsive, then **collapses by five orders of magnitude** once the softmax saturates (max weight → 1).
 
-> **Tip:** an interviewer may push: *"what if you forget the scaling?"* For small $d_k$ it barely matters (the variance is small either way). For large $d_k$, early training **stalls** because every softmax is effectively one-hot and — per the table above — no gradient flows, so the model can't learn its alignments. People who skip the scaling and then see "loss won't go down at the start" are usually looking at exactly this.
+- That near-zero gradient is *literally* why an unscaled wide-head attention can't learn its alignments — there is no signal to update the projections with.
+- Dividing by $\sqrt{d_k}$ keeps the scores in the std ≈ 1 row, where the gradient is healthy.
+- This exact table is printed by the verification script below.
 
-> **Gotcha:** the unit-variance assumption is an *approximation* that holds best near initialization. As training proceeds, learned projections deliberately *shape* the score variance (some heads sharpen, some flatten). The $\sqrt{d_k}$ scaling is the right *default* normalization to start from; it doesn't pin the variance to 1 forever, and it isn't meant to.
+> **Tip:** an interviewer may push: *"what if you forget the scaling?"*
+> - For small $d_k$ it barely matters (the variance is small either way).
+> - For large $d_k$, early training **stalls** because every softmax is effectively one-hot and — per the table above — no gradient flows, so the model can't learn its alignments.
+> - People who skip the scaling and then see "loss won't go down at the start" are usually looking at exactly this.
+
+> **Gotcha:** the unit-variance assumption is an *approximation* that holds best near initialization.
+> - As training proceeds, learned projections deliberately *shape* the score variance (some heads sharpen, some flatten).
+> - The $\sqrt{d_k}$ scaling is the right *default* normalization to start from; it doesn't pin the variance to 1 forever, and it isn't meant to.
 
 ---
 
@@ -284,15 +412,24 @@ Read $k_1$ as "aligned with the query," $k_2$ as "orthogonal," $k_3$ as "partly 
 3. **Softmax** (subtract the max, 2, then exponentiate): $\;e^{0}=1,\ e^{-2}=0.135,\ e^{-1}=0.368$; sum $=1.503$. Weights $= [0.665,\,0.090,\,0.245]$ (they sum to 1).
 4. **Weighted sum** of values: $\;0.665\,v_1 + 0.090\,v_2 + 0.245\,v_3 = [7.88,\ 2.12].$
 
-So this query puts **66.5% of its weight on the aligned key**, almost ignores the orthogonal one (9%), and gives 24.5% to the partial match — and its output is a blend dominated by $v_1$'s content, nudged toward $v_3$. Change $q$ to point along $k_2$ and the weights reshuffle accordingly. **That is the entire operation.** The code section reproduces these exact numbers and checks them against PyTorch.
+So this query puts **66.5% of its weight on the aligned key**, almost ignores the orthogonal one (9%), and gives 24.5% to the partial match.
 
-> **Tip:** notice the scaling already doing its job here. The raw scores $[4,0,2]$ softmax to $[0.84,0.02,0.14]$ — sharper; after the $/\sqrt{d_k}$ scale, $[2,0,1]$ softmax to the gentler $[0.665,0.090,0.245]$. With a wider head the *unscaled* gap would be enormous and the softmax would pin to one key; the scale keeps multiple keys in play so the model can actually *blend*.
+- Its output is a blend dominated by $v_1$'s content, nudged toward $v_3$.
+- Change $q$ to point along $k_2$ and the weights reshuffle accordingly. **That is the entire operation.**
+- The code section reproduces these exact numbers and checks them against PyTorch.
+
+> **Tip:** notice the scaling already doing its job here.
+> - The raw scores $[4,0,2]$ softmax to $[0.84,0.02,0.14]$ — sharper; after the $/\sqrt{d_k}$ scale, $[2,0,1]$ softmax to the gentler $[0.665,0.090,0.245]$.
+> - With a wider head the *unscaled* gap would be enormous and the softmax would pin to one key; the scale keeps multiple keys in play so the model can actually *blend*.
 
 ---
 
 ## A second worked example (Example 2: the √dₖ effect, numerically)
 
-Let's *see* the saturation the derivation predicts, with numbers you can check. Hold a fixed score *pattern* — "one key strongly aligned, one half-aligned, one not" — but let the dot-product magnitudes grow with $d_k$ as the theory says they do (the aligned dot product scales like $d_k$). Then compare the softmax **with** and **without** the $1/\sqrt{d_k}$ scale, reading off the **max attention weight** (1.0 = fully one-hot, collapsed):
+Let's *see* the saturation the derivation predicts, with numbers you can check.
+
+- Hold a fixed score *pattern* — "one key strongly aligned, one half-aligned, one not" — but let the dot-product magnitudes grow with $d_k$ as the theory says they do (the aligned dot product scales like $d_k$).
+- Then compare the softmax **with** and **without** the $1/\sqrt{d_k}$ scale, reading off the **max attention weight** (1.0 = fully one-hot, collapsed):
 
 | $d_k$ | unscaled max weight | scaled ($/\sqrt{d_k}$) max weight |
 |---:|---:|---:|
@@ -301,9 +438,17 @@ Let's *see* the saturation the derivation predicts, with numbers you can check. 
 | 32 | 1.000 | 0.982 |
 | 128 | 1.000 | 1.000 |
 
-Read across the **unscaled** column: by $d_k = 8$ it is already 0.997 — essentially one-hot, gradients gone. The **scaled** column climbs far more gently (it eventually sharpens too, because this synthetic pattern keeps one key genuinely dominant — but it stays in the trainable regime an order of magnitude longer). The lesson the table teaches with hard numbers: **without scaling, a wide head's softmax is dead on arrival; with scaling, it stays alive.** These figures are produced and printed by the verification script below.
+Read across the **unscaled** column: by $d_k = 8$ it is already 0.997 — essentially one-hot, gradients gone.
 
-> **Note:** in real attention the scaled column doesn't march to 1.0 the way this *deliberately-dominant* synthetic does — the measured-entropy figure above (random scores) shows the scaled softmax staying *flat* across all $d_k$. The two views agree: scaling removes the *$d_k$-driven* sharpening. Any residual sharpness is the model's *learned* choice, not an artifact of head width.
+- The **scaled** column climbs far more gently: it eventually sharpens too, because this synthetic pattern keeps one key genuinely dominant.
+  - But it stays in the trainable regime an order of magnitude longer.
+- The lesson the table teaches with hard numbers: **without scaling, a wide head's softmax is dead on arrival; with scaling, it stays alive.**
+- These figures are produced and printed by the verification script below.
+
+> **Note:** in real attention the scaled column doesn't march to 1.0 the way this *deliberately-dominant* synthetic does.
+> - The measured-entropy figure above (random scores) shows the scaled softmax staying *flat* across all $d_k$.
+> - The two views agree: scaling removes the *$d_k$-driven* sharpening.
+> - Any residual sharpness is the model's *learned* choice, not an artifact of head width.
 
 ---
 
@@ -329,22 +474,40 @@ $$A = \begin{bmatrix}0.670 & 0.330\\ 0.330 & 0.670\end{bmatrix}.$$
 
 $$O = \begin{bmatrix}1.34 & 0.99\\ 0.66 & 2.01\end{bmatrix}.$$
 
-Each output token is now a **blend** of both tokens' values, tilted ~2:1 toward itself (because each query matched its own key best). Token 1's representation absorbed some of token 2's "$3$"; token 2's absorbed some of token 1's "$2$." That mutual mixing — every token folding in a weighted bit of every other — is *exactly* what self-attention does in a real model, just with $d_{\text{model}}$ in the hundreds and learned, non-identity projections. The code below confirms this $O$ matches `torch...scaled_dot_product_attention` to ~$10^{-7}$.
+Each output token is now a **blend** of both tokens' values, tilted ~2:1 toward itself (because each query matched its own key best).
 
-> **Tip:** this is the smallest example that shows the **whole** loop — projection, score, scale, softmax, mix — with the *value* projection deliberately different from $W_q/W_k$ so you can see K and V playing different roles. If you can reproduce these four matrices by hand, you understand self-attention.
+- Token 1's representation absorbed some of token 2's "$3$"; token 2's absorbed some of token 1's "$2$."
+- That mutual mixing — every token folding in a weighted bit of every other — is *exactly* what self-attention does in a real model.
+  - Just with $d_{\text{model}}$ in the hundreds and learned, non-identity projections.
+- The code below confirms this $O$ matches `torch...scaled_dot_product_attention` to ~$10^{-7}$.
+
+> **Tip:** this is the smallest example that shows the **whole** loop — projection, score, scale, softmax, mix.
+> - The *value* projection is deliberately different from $W_q/W_k$ so you can see K and V playing different roles.
+> - If you can reproduce these four matrices by hand, you understand self-attention.
 
 ---
 
 ## Multi-head attention (and Example 4: the shape walk-through)
 
-One attention is one "view" of the relationships. **Multi-head attention** runs $h$ attentions in parallel on *different learned projections*, so different heads can specialize — one head tracks subject–verb agreement, another coreference, another local position, another rare-token copying — then concatenates and output-projects the results:
+One attention is one "view" of the relationships.
+
+- **Multi-head attention** runs $h$ attentions in parallel on *different learned projections*, so different heads can specialize.
+  - One head tracks subject–verb agreement, another coreference, another local position, another rare-token copying.
+- It then concatenates and output-projects the results:
 
 $$\text{head}_i = \text{Attention}(XW_q^i,\, XW_k^i,\, XW_v^i),\qquad
 \text{MultiHead}(X) = \text{Concat}(\text{head}_1,\dots,\text{head}_h)\,W_o.$$
 
 > *Source: multi-head attention is **Attention Is All You Need** (Vaswani et al. 2017, §3.2.2). Their base model uses $h=8$ heads of $d_k=d_v=64$, summing to $d_{\text{model}}=512$.*
 
-**Why it helps (derived intuition).** A single softmax attention produces *one* weighted average per query — so a single head can only commit to *one* relationship pattern at a time. If "it" needs to simultaneously attend to its antecedent *and* to the verb it's the subject of, one head must compromise between them. Splitting $d_{\text{model}}$ into $h$ heads of dimension $d_k = d_{\text{model}}/h$ gives the model $h$ **independent** attention distributions, computed in $h$ different learned subspaces, that it then concatenates. Crucially this costs about the **same** as one full-width head: $h$ heads of width $d_{\text{model}}/h$ have the same total projection and matmul FLOPs as one head of width $d_{\text{model}}$ — you buy $h$ relationship patterns for the price of one. In practice $h$ is 8–128.
+**Why it helps (derived intuition).** A single softmax attention produces *one* weighted average per query — so a single head can only commit to *one* relationship pattern at a time.
+
+- If "it" needs to simultaneously attend to its antecedent *and* to the verb it's the subject of, one head must compromise between them.
+- Splitting $d_{\text{model}}$ into $h$ heads of dimension $d_k = d_{\text{model}}/h$ gives the model $h$ **independent** attention distributions, computed in $h$ different learned subspaces, that it then concatenates.
+- Crucially this costs about the **same** as one full-width head.
+  - $h$ heads of width $d_{\text{model}}/h$ have the same total projection and matmul floating-point operations (FLOPs) as one head of width $d_{\text{model}}$.
+  - You buy $h$ relationship patterns for the price of one.
+- In practice $h$ is 8–128.
 
 ```mermaid
 graph TD
@@ -377,32 +540,59 @@ graph TD
 
 The output is back to `[5, 16]` — same shape as the input, which is *why* you can stack attention blocks indefinitely. The verification script prints exactly these shapes.
 
-> **Gotcha:** the multi-head reshape is the classic bug. You split $d_{\text{model}}$ into `(n_heads, d_head)` and move heads to a batch-like dimension *before* attention, then concat back *after*. An off-by-one in those `view`/`transpose` calls produces wrong-but-plausible numbers that train *almost* fine — the worst kind of bug. Always `assert out.shape == (seq, d_model)` and, if you can, check one head by hand.
+> **Gotcha:** the multi-head reshape is the classic bug.
+> - You split $d_{\text{model}}$ into `(n_heads, d_head)` and move heads to a batch-like dimension *before* attention, then concat back *after*.
+> - An off-by-one in those `view`/`transpose` calls produces wrong-but-plausible numbers that train *almost* fine — the worst kind of bug.
+> - Always `assert out.shape == (seq, d_model)` and, if you can, check one head by hand.
 
-> **Note:** the final $W_o$ is not decorative — it's where information **mixes across heads**. Without it, you'd have $h$ independent subspace outputs sitting side by side with no communication; $W_o$ lets head 3's coreference signal inform the same output coordinate as head 1's syntax signal. The attention matrix is *per head*; $W_o$ is what re-fuses them.
+> **Note:** the final $W_o$ is not decorative — it's where information **mixes across heads**.
+> - Without it, you'd have $h$ independent subspace outputs sitting side by side with no communication.
+> - $W_o$ lets head 3's coreference signal inform the same output coordinate as head 1's syntax signal.
+> - The attention matrix is *per head*; $W_o$ is what re-fuses them.
 
-**Parameter count (a common follow-up).** A multi-head self-attention block has exactly four weight matrices: $W_q, W_k, W_v$, each $d_{\text{model}}\times d_{\text{model}}$, and $W_o$, also $d_{\text{model}}\times d_{\text{model}}$. (Splitting into heads is a *reshape*, not new parameters — the per-head projections are slices of the same $d_{\text{model}}\times d_{\text{model}}$ matrix.) So the block has
+**Parameter count (a common follow-up).** A multi-head self-attention block has exactly four weight matrices:
+
+- $W_q, W_k, W_v$, each $d_{\text{model}}\times d_{\text{model}}$;
+- $W_o$, also $d_{\text{model}}\times d_{\text{model}}$.
+
+Splitting into heads is a *reshape*, not new parameters — the per-head projections are slices of the same $d_{\text{model}}\times d_{\text{model}}$ matrix. So the block has
 
 $$4\,d_{\text{model}}^2 \;\;(\text{plus } 4\,d_{\text{model}} \text{ bias terms, often omitted}).$$
 
-For $d_{\text{model}}=512$ that's $4\times512^2 \approx 1.05\text{M}$ parameters per attention block — **independent of the number of heads** $h$ and of sequence length $n$. The head count changes how the *same* parameters are partitioned into subspaces, not how many there are. (The feed-forward sublayer that follows, typically $8\,d_{\text{model}}^2$, actually holds *more* parameters than attention — a frequently-missed fact.)
+For $d_{\text{model}}=512$ that's $4\times512^2 \approx 1.05\text{M}$ parameters per attention block — **independent of the number of heads** $h$ and of sequence length $n$.
 
-> **Gotcha:** "more heads = more parameters" is wrong and a common interview trap. With fixed $d_{\text{model}}$, going from 8 heads to 16 leaves the parameter count *identical* ($4 d_{\text{model}}^2$); it only makes each head **narrower** ($d_{\text{head}} = d_{\text{model}}/h$ shrinks). Too many heads and each subspace is too small to represent a useful relationship; too few and the model can't track enough relationships at once. The count is a capacity/expressiveness trade-off, not a parameter-budget one.
+- The head count changes how the *same* parameters are partitioned into subspaces, not how many there are.
+- The feed-forward sublayer that follows, typically $8\,d_{\text{model}}^2$, actually holds *more* parameters than attention — a frequently-missed fact.
+
+> **Gotcha:** "more heads = more parameters" is wrong and a common interview trap.
+> - With fixed $d_{\text{model}}$, going from 8 heads to 16 leaves the parameter count *identical* ($4 d_{\text{model}}^2$); it only makes each head **narrower** ($d_{\text{head}} = d_{\text{model}}/h$ shrinks).
+> - Too many heads and each subspace is too small to represent a useful relationship; too few and the model can't track enough relationships at once.
+> - The count is a capacity/expressiveness trade-off, not a parameter-budget one.
 
 ---
 
 ## What heads actually learn
 
-Multi-head attention is not just a theoretical nicety — probing real trained transformers shows heads **specializing** into recognizable, reusable roles, which is the empirical payoff of giving the model many independent attention distributions:
+Multi-head attention is not just a theoretical nicety.
+
+- Probing real trained transformers shows heads **specializing** into recognizable, reusable roles.
+- That is the empirical payoff of giving the model many independent attention distributions:
 
 - **Positional / local heads** attend to fixed offsets — "the previous token," "two tokens back" — effectively reconstructing the convolution-like locality an RNN gets for free.
 - **Syntactic heads** track grammatical relations: a head that reliably links verbs to their subjects, or determiners to their nouns, mirroring a dependency parse.
 - **Coreference heads** resolve pronouns — the "it → animal" link from our running example — connecting a referent to its antecedent across a long span.
-- **Induction heads** ([Olsson et al., 2022](https://transformer-circuits.pub/2022/in-context-learning-and-induction-heads/index.html)) are a famous discovery: a pair of heads that implement the rule *"I saw `[A][B]` earlier; I just saw `[A]` again, so predict `[B]`."* They are now believed to be a primary mechanism behind **in-context learning** — the ability to pick up a pattern from the prompt itself.
+- **Induction heads** ([Olsson et al., 2022](https://transformer-circuits.pub/2022/in-context-learning-and-induction-heads/index.html)) are a famous discovery.
+  - They are a pair of heads that implement the rule *"I saw `[A][B]` earlier; I just saw `[A]` again, so predict `[B]`."*
+  - They are now believed to be a primary mechanism behind **in-context learning** — the ability to pick up a pattern from the prompt itself.
 
-The lesson: the *capacity to attend differently per head* is what the model spends on these distinct jobs. A single head would have to average them into mush; $h$ heads let syntax, coreference, and position each get a dedicated channel.
+The lesson: the *capacity to attend differently per head* is what the model spends on these distinct jobs.
 
-> **Note:** this is also a caution about reading too much into any one head. Heads are *redundant* (ablate one and another often compensates) and *polysemantic* (one head can do several jobs depending on context). The clean "this head does coreference" story is real but partial — interpretability is an active research area, not a solved decoder ring. Pair this with the earlier note that attention weights are a diagnostic, not a faithful explanation.
+- A single head would have to average them into mush; $h$ heads let syntax, coreference, and position each get a dedicated channel.
+
+> **Note:** this is also a caution about reading too much into any one head.
+> - Heads are *redundant* (ablate one and another often compensates) and *polysemantic* (one head can do several jobs depending on context).
+> - The clean "this head does coreference" story is real but partial — interpretability is an active research area, not a solved decoder ring.
+> - Pair this with the earlier note that attention weights are a diagnostic, not a faithful explanation.
 
 ---
 
@@ -410,8 +600,14 @@ The lesson: the *capacity to attend differently per head* is what the model spen
 
 Two masks turn the same attention into different behaviors, by setting forbidden scores to $-\infty$ **before** the softmax (so their normalized weights become exactly 0):
 
-- **Causal (look-ahead) mask** — for autoregressive generation, token $i$ must not see tokens $>i$ (it would be cheating: peeking at the answer it's trying to predict). Mask the **upper triangle** of the $n\times n$ score matrix. This single change is the *only* structural difference between an **encoder** (bidirectional, no mask) and a **decoder** (causal) — and it is exactly what makes the [KV cache](/ai-ml/ai-ml-learning-resources/inference-and-serving/kv-cache/kv-cache) valid at inference: because token $i$'s representation never depends on future tokens, a token's K and V are frozen forever once computed.
-- **Padding mask** — batches pad shorter sequences up to a common length so they fit in one tensor; real tokens must not attend to those pad positions (they carry no information). Mask the padded **key** columns. Both masks can be applied at once (logical OR of the two forbidden sets).
+- **Causal (look-ahead) mask** — for autoregressive generation, token $i$ must not see tokens $>i$ (it would be cheating: peeking at the answer it's trying to predict).
+  - Mask the **upper triangle** of the $n\times n$ score matrix.
+  - This single change is the *only* structural difference between an **encoder** (bidirectional, no mask) and a **decoder** (causal).
+  - It is exactly what makes the [KV cache](/ai-ml/ai-ml-learning-resources/inference-and-serving/kv-cache/kv-cache) valid at inference.
+  - Because token $i$'s representation never depends on future tokens, a token's K and V are frozen forever once computed.
+- **Padding mask** — batches pad shorter sequences up to a common length so they fit in one tensor; real tokens must not attend to those pad positions (they carry no information).
+  - Mask the padded **key** columns.
+  - Both masks can be applied at once (logical OR of the two forbidden sets).
 
 ```mermaid
 graph TD
@@ -425,7 +621,9 @@ graph TD
     classDef out fill:#2E7A5A,stroke:#1E6A4A,color:#fff
 ```
 
-**Example 5 — a padding mask, by the numbers.** One query attends over four keys with raw scores $[2.0,\,1.0,\,0.5,\,3.0]$, where the **last position is padding** (and, awkwardly, has the *highest* raw score, 3.0). Softmax with no mask:
+**Example 5 — a padding mask, by the numbers.** One query attends over four keys with raw scores $[2.0,\,1.0,\,0.5,\,3.0]$, where the **last position is padding** (and, awkwardly, has the *highest* raw score, 3.0).
+
+Softmax with no mask:
 
 $$\text{softmax}([2,1,0.5,3]) = [0.232,\ 0.085,\ 0.052,\ \mathbf{0.631}].$$
 
@@ -433,11 +631,20 @@ The padding token would soak up **63% of the attention** — its garbage value w
 
 $$\text{softmax}([2,1,0.5,-\infty]) = [\mathbf{0.629},\ 0.231,\ 0.140,\ \mathbf{0.000}].$$
 
-The 63% that the pad was stealing is **redistributed** across the three real tokens, and the row still sums to 1. *This* is why the mask goes in before softmax: the renormalization happens over the allowed set only. Mask *after* softmax (zero out the 0.631 and don't renormalize) and the row sums to 0.369 — the output is silently scaled down by a third, a bug that never crashes.
+The 63% that the pad was stealing is **redistributed** across the three real tokens, and the row still sums to 1.
 
-> **Gotcha:** masking with $-\infty$ must happen **before** softmax so renormalization redistributes weight only among the *allowed* positions. Masking *after* softmax (zeroing the forbidden weights) leaves each row no longer summing to 1 — exactly the Example-5 failure — a subtle bug that quietly degrades quality without ever crashing. The principled order is: scores → scale → mask (add $-\infty$) → softmax → ·V.
+- *This* is why the mask goes in before softmax: the renormalization happens over the allowed set only.
+- Mask *after* softmax (zero out the 0.631 and don't renormalize) and the row sums to 0.369 — the output is silently scaled down by a third, a bug that never crashes.
 
-> **Note:** the causal mask is why a decoder can be **trained in parallel** (teacher forcing) yet behave autoregressively: all $n$ positions are scored at once, but the triangular mask makes position $i$'s output depend only on $\le i$, identical to having generated them one at a time. At *inference* the [KV cache](/ai-ml/ai-ml-learning-resources/inference-and-serving/kv-cache/kv-cache) drops the mask entirely — the cache only ever holds past tokens, so causality is automatic and there's nothing to mask.
+> **Gotcha:** masking with $-\infty$ must happen **before** softmax so renormalization redistributes weight only among the *allowed* positions.
+> - Masking *after* softmax (zeroing the forbidden weights) leaves each row no longer summing to 1 — exactly the Example-5 failure.
+> - That is a subtle bug that quietly degrades quality without ever crashing.
+> - The principled order is: scores → scale → mask (add $-\infty$) → softmax → ·V.
+
+> **Note:** the causal mask is why a decoder can be **trained in parallel** (teacher forcing) yet behave autoregressively.
+> - All $n$ positions are scored at once, but the triangular mask makes position $i$'s output depend only on $\le i$, identical to having generated them one at a time.
+> - At *inference* the [KV cache](/ai-ml/ai-ml-learning-resources/inference-and-serving/kv-cache/kv-cache) drops the mask entirely.
+> - The cache only ever holds past tokens, so causality is automatic and there's nothing to mask.
 
 ---
 
@@ -448,39 +655,70 @@ The score matrix $S = QK^\top$ is $n \times n$ — every token against every tok
 - **Time:** $O(n^2 d)$ — the two matmuls $QK^\top$ and $AV$ each cost $\sim n^2 d$ multiply-adds, quadratic in sequence length $n$.
 - **Memory:** $O(n^2)$ to hold the attention matrix (per head, per layer) for the backward pass.
 
-At $n = 1{,}000$ that's a million scores; at $n = 100{,}000$ it's **ten billion** — per head, per layer. Double the context and you **quadruple** the cost. This quadratic wall is *the* reason long context is expensive, and the reason an entire research area exists to get around it.
+At $n = 1{,}000$ that's a million scores; at $n = 100{,}000$ it's **ten billion** — per head, per layer.
+
+- Double the context and you **quadruple** the cost.
+- This quadratic wall is *the* reason long context is expensive, and the reason an entire research area exists to get around it.
 
 ![Measured arithmetic. Left: the attention score matrix's memory (fp16, one head) grows as O(n²) — at 32k tokens it is ~2 GiB for a single head of a single layer, vs the green O(n) line a linear/sparse method would follow. Right: attention FLOPs grow as O(n²d) — doubling the sequence length quadruples the work.](images/attn_cost_growth.png)
 
 (For **cross-attention** with $n$ queries and $m$ keys the cost is $O(nmd)$ time and $O(nm)$ memory — self-attention is just the $n=m$ case.)
 
-> **Gotcha:** be precise about *which* term is quadratic. The **matmuls** $QK^\top$ and $AV$ are $O(n^2 d)$; the **projections** $XW_q$ etc. and the feed-forward sublayer are only $O(n\,d^2)$ (linear in $n$). For short sequences ($n \ll d$) the linear $d^2$ terms actually dominate and attention feels cheap; the quadratic term only takes over once $n$ grows past $d$ — which is exactly the long-context regime everyone is fighting over.
+> **Gotcha:** be precise about *which* term is quadratic.
+> - The **matmuls** $QK^\top$ and $AV$ are $O(n^2 d)$.
+> - The **projections** $XW_q$ etc. and the feed-forward sublayer are only $O(n\,d^2)$ (linear in $n$).
+> - For short sequences ($n \ll d$) the linear $d^2$ terms actually dominate and attention feels cheap.
+> - The quadratic term only takes over once $n$ grows past $d$ — which is exactly the long-context regime everyone is fighting over.
 
 ---
 
 ## FlashAttention: same math, no n² in memory (high level)
 
-The $O(n^2)$ **memory** is more often the killer than the $O(n^2)$ compute — you simply can't fit a $100\text{k}\times100\text{k}$ score matrix in GPU memory. **FlashAttention** ([Dao et al. 2022](https://arxiv.org/abs/2205.14135)) computes *exactly the same output* **without ever materializing that matrix**. It tiles K and V into blocks, streams them through the GPU's fast on-chip SRAM, and maintains a **running (online) softmax** — keeping a running max and running normalizer per query so each output is accumulated block by block and rescaled as new blocks arrive. The full score matrix never exists in slow HBM at once.
+The $O(n^2)$ **memory** is more often the killer than the $O(n^2)$ compute — you simply can't fit a $100\text{k}\times100\text{k}$ score matrix in GPU memory.
 
-The payoff is **IO**, not FLOPs: standard attention is bottlenecked by reading/writing that $n\times n$ matrix to and from HBM ($O(n^2)$ memory traffic); FlashAttention reduces the traffic to $O(n)$, so it runs several times faster and fits far longer contexts — while being numerically *exact*, not an approximation. It's the kernel that quietly powers nearly every modern long-context model.
+- **FlashAttention** ([Dao et al. 2022](https://arxiv.org/abs/2205.14135)) computes *exactly the same output* **without ever materializing that matrix**.
+- It tiles K and V into blocks, streams them through the GPU's fast on-chip static random-access memory (SRAM), and maintains a **running (online) softmax**.
+  - It keeps a running max and running normalizer per query, so each output is accumulated block by block and rescaled as new blocks arrive.
+- The full score matrix never exists in slow high-bandwidth memory (HBM) at once.
 
-The trick that makes "never materialize the matrix" possible is the **online softmax**. Normally softmax needs the global max and global sum over *all* keys before it can normalize — which seems to require seeing the whole row at once. Instead, process keys in blocks while carrying three running quantities for each query: the running max $m$, the running normalizer $\ell$, and the running output accumulator $o$. When a new block arrives with its own local max $m'$, you **rescale** the accumulators by $e^{m - m_{\text{new}}}$ to put them on the new max's scale, then fold in the block:
+The payoff is **IO** (input/output), not FLOPs.
+
+- Standard attention is bottlenecked by reading/writing that $n\times n$ matrix to and from HBM ($O(n^2)$ memory traffic).
+- FlashAttention reduces the traffic to $O(n)$, so it runs several times faster and fits far longer contexts — while being numerically *exact*, not an approximation.
+- It's the kernel that quietly powers nearly every modern long-context model.
+
+The trick that makes "never materialize the matrix" possible is the **online softmax**.
+
+- Normally softmax needs the global max and global sum over *all* keys before it can normalize — which seems to require seeing the whole row at once.
+- Instead, process keys in blocks while carrying three running quantities for each query: the running max $m$, the running normalizer $\ell$, and the running output accumulator $o$.
+- When a new block arrives with its own local max $m'$, you **rescale** the accumulators by $e^{m - m_{\text{new}}}$ to put them on the new max's scale, then fold in the block:
 
 $$m_{\text{new}} = \max(m, m'),\quad
 \ell_{\text{new}} = e^{m-m_{\text{new}}}\ell + \textstyle\sum_{j\in\text{block}} e^{s_j - m_{\text{new}}},\quad
 o_{\text{new}} = e^{m-m_{\text{new}}}\, o + \textstyle\sum_{j\in\text{block}} e^{s_j - m_{\text{new}}} v_j.$$
 
-After the last block, $o/\ell$ is *exactly* the softmax-weighted sum you'd have gotten from the full row — no approximation, and the $n\times n$ matrix never existed in slow memory. This is the same numerically-stable subtract-the-max softmax from earlier, just computed incrementally.
+After the last block, $o/\ell$ is *exactly* the softmax-weighted sum you'd have gotten from the full row — no approximation, and the $n\times n$ matrix never existed in slow memory.
 
-> **Note:** this is checkable in a few lines: run the block recurrence above over a 20-key example and compare to a plain `softmax(scores) @ V` — they agree to `~6e-08` (float rounding), confirming FlashAttention is *exact*. The dedicated [FlashAttention](/ai-ml/ai-ml-learning-resources/models-and-architectures/attention-and-transformers/efficient-attention/efficient-attention) page builds the full tiled kernel; the takeaway here is simply that the global softmax can be computed block-by-block, which is what frees attention from the $O(n^2)$-memory materialization.
+- This is the same numerically-stable subtract-the-max softmax from earlier, just computed incrementally.
 
-> **Note:** the online-softmax trick FlashAttention is built on is the *same* numerically-stable, subtract-the-max softmax from earlier — just computed incrementally as blocks stream by, with a correction factor that fixes up the partial sums when a new block's max exceeds the old running max. FlashAttention attacks the **compute/IO** side of the cost; the [KV cache](/ai-ml/ai-ml-learning-resources/inference-and-serving/kv-cache/kv-cache) attacks the **inference-memory** side. A real long-context stack uses both. The dedicated [FlashAttention](/ai-ml/ai-ml-learning-resources/models-and-architectures/attention-and-transformers/efficient-attention/efficient-attention) page derives the tiling and online softmax in full.
+> **Note:** this is checkable in a few lines.
+> - Run the block recurrence above over a 20-key example and compare to a plain `softmax(scores) @ V` — they agree to `~6e-08` (float rounding), confirming FlashAttention is *exact*.
+> - The dedicated [FlashAttention](/ai-ml/ai-ml-learning-resources/models-and-architectures/attention-and-transformers/efficient-attention/efficient-attention) page builds the full tiled kernel.
+> - The takeaway here is simply that the global softmax can be computed block-by-block, which is what frees attention from the $O(n^2)$-memory materialization.
+
+> **Note:** the online-softmax trick FlashAttention is built on is the *same* numerically-stable, subtract-the-max softmax from earlier.
+> - It is just computed incrementally as blocks stream by, with a correction factor that fixes up the partial sums when a new block's max exceeds the old running max.
+> - FlashAttention attacks the **compute/IO** side of the cost; the [KV cache](/ai-ml/ai-ml-learning-resources/inference-and-serving/kv-cache/kv-cache) attacks the **inference-memory** side.
+> - A real long-context stack uses both.
+> - The dedicated [FlashAttention](/ai-ml/ai-ml-learning-resources/models-and-architectures/attention-and-transformers/efficient-attention/efficient-attention) page derives the tiling and online softmax in full.
 
 ---
 
 ## Efficient attention variants: which lever for which bottleneck
 
-Most modern attention research is about beating the $O(n^2)$ cost or shrinking the inference-time [KV cache](/ai-ml/ai-ml-learning-resources/inference-and-serving/kv-cache/kv-cache). Which lever you pull depends entirely on *which* bottleneck is hurting you:
+Most modern attention research is about beating the $O(n^2)$ cost or shrinking the inference-time [KV cache](/ai-ml/ai-ml-learning-resources/inference-and-serving/kv-cache/kv-cache).
+
+Which lever you pull depends entirely on *which* bottleneck is hurting you:
 
 ```mermaid
 graph TD
@@ -500,13 +738,23 @@ graph TD
     classDef data fill:#3A6B96,stroke:#2A5B86,color:#fff
 ```
 
-- **KV cache** (inference) — don't recompute past tokens' K and V each decode step; store and reuse them. Turns per-step generation cost from $O(n)$ recompute into $O(1)$. The single most important inference optimization; covered in depth on the [KV Cache](/ai-ml/ai-ml-learning-resources/inference-and-serving/kv-cache/kv-cache) page.
-- **MQA / GQA / MLA** — share K/V across query heads (or compress them to a latent) to shrink the KV cache. An *inference-memory* win, not an asymptotic one — GQA cuts the cache ~8×, the lever that makes long-context 70B models servable.
-- **[FlashAttention](/ai-ml/ai-ml-learning-resources/models-and-architectures/attention-and-transformers/efficient-attention/efficient-attention)** — computes *exact* attention but tiles the work to avoid ever materializing the $n\times n$ matrix in slow memory; a large constant-factor speedup and an $O(n)$-memory win.
-- **Sparse / local attention** (sliding-window, strided, [BigBird](https://arxiv.org/abs/2007.14062), [Longformer](https://arxiv.org/abs/2004.05150)) — each token attends to a *subset* of positions, dropping cost toward $O(n\sqrt n)$ or $O(n)$ at some quality cost on truly global dependencies.
-- **Linear attention** ([Performer](https://arxiv.org/abs/2009.14794), kernel methods) — reorder the computation $(QK^\top)V \to Q(K^\top V)$ via a feature map to avoid the $n\times n$ matrix entirely, reaching $O(n)$ — approximate, with accuracy trade-offs.
+- **KV cache** (inference) — don't recompute past tokens' K and V each decode step; store and reuse them.
+  - Turns per-step generation cost from $O(n)$ recompute into $O(1)$.
+  - The single most important inference optimization; covered in depth on the [KV Cache](/ai-ml/ai-ml-learning-resources/inference-and-serving/kv-cache/kv-cache) page.
+- **MQA / GQA / MLA** (multi-head latent attention) — share K/V across query heads, or compress them to a latent, to shrink the KV cache.
+  - An *inference-memory* win, not an asymptotic one — GQA cuts the cache ~8×, the lever that makes long-context 70B models servable.
+- **[FlashAttention](/ai-ml/ai-ml-learning-resources/models-and-architectures/attention-and-transformers/efficient-attention/efficient-attention)** — computes *exact* attention.
+  - It tiles the work to avoid ever materializing the $n\times n$ matrix in slow memory.
+  - A large constant-factor speedup and an $O(n)$-memory win.
+- **Sparse / local attention** (sliding-window, strided, [BigBird](https://arxiv.org/abs/2007.14062), [Longformer](https://arxiv.org/abs/2004.05150)) — each token attends to a *subset* of positions.
+  - Cost drops toward $O(n\sqrt n)$ or $O(n)$ at some quality cost on truly global dependencies.
+- **Linear attention** ([Performer](https://arxiv.org/abs/2009.14794), kernel methods) — reorder the computation $(QK^\top)V \to Q(K^\top V)$ via a feature map to avoid the $n\times n$ matrix entirely.
+  - Reaches $O(n)$ — approximate, with accuracy trade-offs.
 
-> **Tip:** the interview-grade summary: *"the KV cache and FlashAttention are the two you reach for first because they're **exact** — same outputs, just faster/smaller. MQA/GQA trade a sliver of quality for a big inference-memory cut. Sparse and linear attention change the asymptotics but approximate the result, so you use them only when $n$ is so large that exact attention is simply impossible."*
+> **Tip:** the interview-grade summary:
+> - *"the KV cache and FlashAttention are the two you reach for first because they're **exact** — same outputs, just faster/smaller.*
+> - *MQA/GQA trade a sliver of quality for a big inference-memory cut.*
+> - *Sparse and linear attention change the asymptotics but approximate the result, so you use them only when $n$ is so large that exact attention is simply impossible."*
 
 ---
 
@@ -516,15 +764,27 @@ It's worth seeing attention from one rung up, because it connects it to classica
 
 $$\text{out}(q) = \sum_{j} \underbrace{\frac{\exp(q\cdot k_j/\sqrt{d_k})}{\sum_{j'}\exp(q\cdot k_{j'}/\sqrt{d_k})}}_{w_j(q)}\; v_j.$$
 
-Each $w_j(q)$ is a **normalized similarity** between the query and key $j$, and the output is a similarity-weighted average of the values. That is *exactly* the form of **Nadaraya–Watson kernel regression** — predict the value at a query point as a weighted average of observed values, weighted by a kernel of distances — with an exponential (softmax) kernel and *learned* feature maps ($W_q, W_k$) defining "distance." Attention is **differentiable, learned kernel smoothing**; equivalently it's **soft, content-addressable retrieval** (a soft version of a key–value memory). This is why the same primitive shows up far beyond language: any time you want "fetch a learned blend of stored items by similarity to a query," attention is the operator.
+Each $w_j(q)$ is a **normalized similarity** between the query and key $j$, and the output is a similarity-weighted average of the values.
 
-> **Note:** this lens also explains *why values are separate from keys*. In kernel regression you weight by similarity in the **key** space but average **values** that can live in a different space — search on the title, return the article. Tying them ($v=k$) would force "what I match on" to equal "what I return," strictly less expressive. The decoupling is what makes attention a *retrieval* mechanism rather than just a smoother.
+- That is *exactly* the form of **Nadaraya–Watson kernel regression** — predict the value at a query point as a weighted average of observed values, weighted by a kernel of distances.
+- Here the kernel is exponential (softmax) and *learned* feature maps ($W_q, W_k$) define "distance."
+- Attention is **differentiable, learned kernel smoothing**; equivalently it's **soft, content-addressable retrieval** (a soft version of a key–value memory).
+- This is why the same primitive shows up far beyond language: any time you want "fetch a learned blend of stored items by similarity to a query," attention is the operator.
+
+> **Note:** this lens also explains *why values are separate from keys*.
+> - In kernel regression you weight by similarity in the **key** space but average **values** that can live in a different space — search on the title, return the article.
+> - Tying them ($v=k$) would force "what I match on" to equal "what I return," strictly less expressive.
+> - The decoupling is what makes attention a *retrieval* mechanism rather than just a smoother.
 
 ---
 
 ## Permutation invariance → why attention needs positional encoding
 
-Here is a property that surprises people: **self-attention has no inherent notion of order.** If you permute the input rows of $X$, the set of outputs permutes the same way and is otherwise unchanged — the operation is **permutation-equivariant**. Concretely, the score $S_{ij} = q_i \cdot k_j$ depends only on the *content* of tokens $i$ and $j$, never on their *positions*. To attention, *"dog bites man"* and *"man bites dog"* are the **same bag of words** — same multiset of tokens, so the same outputs up to a permutation.
+Here is a property that surprises people: **self-attention has no inherent notion of order.**
+
+- If you permute the input rows of $X$, the set of outputs permutes the same way and is otherwise unchanged — the operation is **permutation-equivariant**.
+- Concretely, the score $S_{ij} = q_i \cdot k_j$ depends only on the *content* of tokens $i$ and $j$, never on their *positions*.
+- To attention, *"dog bites man"* and *"man bites dog"* are the **same bag of words** — same multiset of tokens, so the same outputs up to a permutation.
 
 That's a problem: word order carries meaning. The fix is to inject **positional information** into the token representations *before* attention, so position becomes part of the content the scores can see:
 
@@ -533,7 +793,10 @@ That's a problem: word order carries meaning. The fix is to inject **positional 
 - **RoPE** (rotary) — rotate Q and K by a position-dependent angle so the dot product depends on *relative* position; the dominant choice in modern LLMs.
 - **ALiBi** — add a position-distance bias straight to the attention scores, with strong length extrapolation.
 
-> **Gotcha:** because attention is permutation-equivariant, **forget positional encoding and the model treats your sentence as a bag of words** — it will train and the loss will go down, but it can't distinguish "dog bites man" from "man bites dog." This is the single most consequential thing attention *can't* do on its own, and exactly why every transformer adds position. The four schemes above are the subject of the [Positional Encoding](/ai-ml/ai-ml-learning-resources/models-and-architectures/attention-and-transformers/positional-encoding/positional-encoding) page.
+> **Gotcha:** because attention is permutation-equivariant, **forget positional encoding and the model treats your sentence as a bag of words**.
+> - It will train and the loss will go down, but it can't distinguish "dog bites man" from "man bites dog."
+> - This is the single most consequential thing attention *can't* do on its own, and exactly why every transformer adds position.
+> - The four schemes above are the subject of the [Positional Encoding](/ai-ml/ai-ml-learning-resources/models-and-architectures/attention-and-transformers/positional-encoding/positional-encoding) page.
 
 ---
 
@@ -541,15 +804,27 @@ That's a problem: word order carries meaning. The fix is to inject **positional 
 
 Step back: attention changed what neural sequence models *can* do, on three axes that together explain why it replaced the RNN and enabled the scaling era.
 
-**1. Any-to-any in one hop.** In an RNN, two tokens $n$ apart are $n$ sequential steps apart. In self-attention, **every token reads every other token directly** — maximum path length $O(1)$. Long-range dependencies stop being a game of telephone through a vanishing-gradient channel.
+**1. Any-to-any in one hop.** In an RNN, two tokens $n$ apart are $n$ sequential steps apart.
 
-**2. Full parallelism.** An RNN must finish token 1 before token 2. Self-attention computes all interactions as **two matrix multiplies** ($QK^\top$, then $AV$), so the whole sequence flows through at once on a GPU. *This* is the property that made training billion-parameter models on trillions of tokens practical — you can't parallelize an RNN over its own time dimension, but you can parallelize attention completely.
+- In self-attention, **every token reads every other token directly** — maximum path length $O(1)$.
+- Long-range dependencies stop being a game of telephone through a vanishing-gradient channel.
 
-**3. Dynamic, content-based routing.** The weights are computed from the data every forward pass, so the same layer routes information differently for every input — unlike a fixed convolution kernel that applies the same filter regardless of content.
+**2. Full parallelism.** An RNN must finish token 1 before token 2.
+
+- Self-attention computes all interactions as **two matrix multiplies** ($QK^\top$, then $AV$), so the whole sequence flows through at once on a GPU.
+- *This* is the property that made training billion-parameter models on trillions of tokens practical.
+- You can't parallelize an RNN over its own time dimension, but you can parallelize attention completely.
+
+**3. Dynamic, content-based routing.** The weights are computed from the data every forward pass.
+
+- So the same layer routes information differently for every input — unlike a fixed convolution kernel that applies the same filter regardless of content.
 
 ![Left: max path length between two tokens — RNN is O(n), self-attention is O(1). Right: RNN vs self-attention on sequential ops, path length, and parallelizability.](images/attn_path_parallel.png)
 
-> **Note:** the costs of these gains are the rest of this page: self-attention is **$O(n^2)$ in sequence length**, and it has **no inherent notion of order** (permutation-equivariance) — which is exactly why transformers bolt on **positional encodings** and why an entire efficiency literature (FlashAttention, sparse, linear, KV cache) exists. Every superpower has its tax.
+> **Note:** the costs of these gains are the rest of this page.
+> - Self-attention is **$O(n^2)$ in sequence length**, and it has **no inherent notion of order** (permutation-equivariance).
+> - That is exactly why transformers bolt on **positional encodings** and why an entire efficiency literature (FlashAttention, sparse, linear, KV cache) exists.
+> - Every superpower has its tax.
 
 Put the three sequence primitives side by side and the trade attention makes is stark — it pays a quadratic cost to buy a constant path length and full parallelism:
 
@@ -561,17 +836,26 @@ Put the three sequence primitives side by side and the trade attention makes is 
 | **Receptive field** | unbounded (in theory) | local (kernel $k$) | global, every layer |
 | **Order awareness** | built in (sequential) | built in (local) | none — needs positional encoding |
 
-This is the table from §6 of *Attention Is All You Need*, and it's the one-slide argument for the transformer: attention is the only one of the three that gives **global receptive field, $O(1)$ path length, and full parallelism at once** — at the price of an $O(n^2)$ term the efficiency literature then chips away at.
+This is the table from §6 of *Attention Is All You Need*, and it's the one-slide argument for the transformer:
+
+- attention is the only one of the three that gives **global receptive field, $O(1)$ path length, and full parallelism at once**;
+- the price is an $O(n^2)$ term the efficiency literature then chips away at.
 
 ---
 
 ## Where it is used
 
-- **Every transformer.** Encoder self-attention (BERT), decoder causal self-attention (GPT), and encoder–decoder cross-attention (T5, the original NMT model) are all this one mechanism, differing only in the source of Q/K/V and the mask.
-- **Beyond text.** Vision Transformers (ViT) attend over image patches; attention drives speech models (Whisper), protein structure (AlphaFold's Evoformer), diffusion-model backbones, graph networks, and recommender systems.
-- **Cross-attention as the universal "read" primitive.** Anywhere one stream pulls relevant information from another — multimodal models grounding text on images, [retrieval-augmented generation](/ai-ml/practitioner-workflows/llm-applications/rag-foundations/rag-foundations) attending over fetched documents — cross-attention is the glue.
+- **Every transformer.** Encoder self-attention (BERT), decoder causal self-attention (GPT), and encoder–decoder cross-attention (T5, the original neural machine translation — NMT — model) are all this one mechanism.
+  - They differ only in the source of Q/K/V and the mask.
+- **Beyond text.** Vision Transformers (ViT) attend over image patches.
+  - Attention drives speech models (Whisper), protein structure (AlphaFold's Evoformer), diffusion-model backbones, graph networks, and recommender systems.
+- **Cross-attention as the universal "read" primitive.** Anywhere one stream pulls relevant information from another, cross-attention is the glue.
+  - Multimodal models ground text on images.
+  - And [retrieval-augmented generation](/ai-ml/practitioner-workflows/llm-applications/rag-foundations/rag-foundations) attends over fetched documents.
 
-> **Tip:** the heuristic for *when* to reach for attention: if a model needs to relate *every* element to *every* other and you can afford $O(n^2)$ (or its efficient approximations), attention is almost always the right primitive. When $n$ is huge, that "can you afford it" is precisely when you reach for the efficiency variants above.
+> **Tip:** the heuristic for *when* to reach for attention.
+> - If a model needs to relate *every* element to *every* other and you can afford $O(n^2)$ (or its efficient approximations), attention is almost always the right primitive.
+> - When $n$ is huge, that "can you afford it" is precisely when you reach for the efficiency variants above.
 
 ---
 
@@ -579,17 +863,35 @@ This is the table from §6 of *Attention Is All You Need*, and it's the one-slid
 
 A practical playbook for putting attention into real code:
 
-**Step 1 — use the fused kernel.** `torch.nn.functional.scaled_dot_product_attention(Q, K, V, is_causal=...)` implements the equation with a FlashAttention-style memory-efficient kernel (auto-selecting Flash/memory-efficient/math backends); `nn.MultiheadAttention` wraps the projections + heads + output projection. Reach for these in production before hand-rolling — they're faster and battle-tested. Hand-roll only to *learn* (as we do below) or to do something the API can't.
+**Step 1 — use the fused kernel.**
 
-**Step 2 — get the mask right.** Causal generation → causal mask (`is_causal=True`); padded batches → a key-padding mask; both at once when you have both. A wrong mask is a *silent correctness bug*, not a crash — verify it explicitly (e.g. assert the upper triangle of a causal weight matrix is zero).
+- `torch.nn.functional.scaled_dot_product_attention(Q, K, V, is_causal=...)` implements the equation with a FlashAttention-style memory-efficient kernel (auto-selecting Flash/memory-efficient/math backends).
+- `nn.MultiheadAttention` wraps the projections + heads + output projection.
+- Reach for these in production before hand-rolling — they're faster and battle-tested.
+- Hand-roll only to *learn* (as we do below) or to do something the API can't.
 
-> **Tip:** during **training**, dropout is applied to the attention weights right *after* the softmax — a standard regularizer that stops the model leaning on any single attention edge. It's disabled at inference (`model.eval()`), so it never affects generation. If your train/eval numbers diverge oddly, check you toggled it.
+**Step 2 — get the mask right.**
 
-**Step 3 — pick the efficiency lever** from the variants map by your actual bottleneck: shrink the KV cache (MQA/GQA) if you're inference-memory-bound, speed the compute and fit longer context (FlashAttention) if you're throughput- or memory-traffic-bound, or cut the asymptotic cost (sparse/linear) only when $n$ is so large that exact attention is impossible.
+- Causal generation → causal mask (`is_causal=True`); padded batches → a key-padding mask; both at once when you have both.
+- A wrong mask is a *silent correctness bug*, not a crash — verify it explicitly (e.g. assert the upper triangle of a causal weight matrix is zero).
+
+> **Tip:** during **training**, dropout is applied to the attention weights right *after* the softmax — a standard regularizer that stops the model leaning on any single attention edge.
+> - It's disabled at inference (`model.eval()`), so it never affects generation.
+> - If your train/eval numbers diverge oddly, check you toggled it.
+
+**Step 3 — pick the efficiency lever** from the variants map by your actual bottleneck:
+
+- shrink the KV cache (MQA/GQA) if you're inference-memory-bound;
+- speed the compute and fit longer context (FlashAttention) if you're throughput- or memory-traffic-bound;
+- cut the asymptotic cost (sparse/linear) only when $n$ is so large that exact attention is impossible.
 
 **Step 4 — don't forget position.** Add a positional scheme (sinusoidal/learned/RoPE/ALiBi) *before* attention, or the model is order-blind (see the gotcha above). Modern stacks default to RoPE.
 
-> **Gotcha:** when you stack attention into a real block, it never rides alone — it's wrapped in a **residual connection** and **layer norm** (`x = x + attn(norm(x))`), then followed by a **feed-forward** sublayer with its own residual. Attention *moves information between tokens*; the FFN *transforms each token independently*. Drop the residual/norm and deep transformers won't train. That full block is the [Transformer Architecture](/ai-ml/ai-ml-learning-resources/models-and-architectures/attention-and-transformers/transformer-architecture/transformer-architecture) page.
+> **Gotcha:** when you stack attention into a real block, it never rides alone.
+> - It's wrapped in a **residual connection** and **layer norm** (`x = x + attn(norm(x))`), then followed by a **feed-forward** sublayer with its own residual.
+> - Attention *moves information between tokens*; the feed-forward network (FFN) *transforms each token independently*.
+> - Drop the residual/norm and deep transformers won't train.
+> - That full block is the [Transformer Architecture](/ai-ml/ai-ml-learning-resources/models-and-architectures/attention-and-transformers/transformer-architecture/transformer-architecture) page.
 
 ---
 
@@ -709,9 +1011,18 @@ score std | softmax max w | grad-norm at scores
    8.0    |    1.0000    |    0.00001
 ```
 
-> **Note:** the from-scratch numbers match the **worked examples exactly** (Ex1 weights `[0.665, 0.09, 0.245]`; Ex3 weights `[[0.67,0.33],[0.33,0.67]]`) and match PyTorch's fused kernel to `2.98e-07` — the residual is just float32 rounding, confirming our hand math *is* the operation PyTorch runs. One `attention` function powers **self-attention** (Q,K,V from one sequence), **causal** self-attention (add the triangular mask), **cross-attention** (Q from decoder, K/V from encoder), and **multi-head** (run it per head, concat). That reuse is the whole point: attention is a single primitive the transformer arranges in different ways.
+> **Note:** the from-scratch numbers match the **worked examples exactly** (Ex1 weights `[0.665, 0.09, 0.245]`; Ex3 weights `[[0.67,0.33],[0.33,0.67]]`).
+> - They match PyTorch's fused kernel to `2.98e-07` — the residual is just float32 rounding, confirming our hand math *is* the operation PyTorch runs.
+> - One `attention` function powers every variant:
+>   - **self-attention** (Q,K,V from one sequence);
+>   - **causal** self-attention (add the triangular mask);
+>   - **cross-attention** (Q from decoder, K/V from encoder);
+>   - **multi-head** (run it per head, concat).
+> - That reuse is the whole point: attention is a single primitive the transformer arranges in different ways.
 
-> **Tip:** to feel the $O(n^2)$ wall yourself, wrap the generic check in a loop over `seq = 512, 1024, 2048, 4096` and time it — wall-clock and peak memory roughly **quadruple** each doubling. Then swap in `F.scaled_dot_product_attention` (Flash backend) and watch the memory stop blowing up while the answer stays identical: exact attention, $O(n)$ memory.
+> **Tip:** to feel the $O(n^2)$ wall yourself, wrap the generic check in a loop over `seq = 512, 1024, 2048, 4096` and time it.
+> - Wall-clock and peak memory roughly **quadruple** each doubling.
+> - Then swap in `F.scaled_dot_product_attention` (Flash backend) and watch the memory stop blowing up while the answer stays identical: exact attention, $O(n)$ memory.
 
 ---
 
@@ -729,7 +1040,12 @@ score std | softmax max w | grad-norm at scores
 
 ## Recap and rapid-fire
 
-**If you remember nothing else:** attention is a soft dictionary lookup — score a **query** against all **keys**, scale by $1/\sqrt{d_k}$, softmax into weights, return the weighted sum of **values**: $\text{softmax}(QK^\top/\sqrt{d_k})V$. It gives every token an $O(1)$, fully parallel, content-dependent path to every other token, which is why it replaced the RNN and became the core of the transformer — at an $O(n^2)$ cost the KV cache, FlashAttention, and sparse/linear variants exist to tame, and with no sense of order, which is why positional encoding exists.
+**If you remember nothing else:** attention is a soft dictionary lookup — $\text{softmax}(QK^\top/\sqrt{d_k})V$.
+
+- Score a **query** against all **keys**, scale by $1/\sqrt{d_k}$, softmax into weights, return the weighted sum of **values**.
+- It gives every token an $O(1)$, fully parallel, content-dependent path to every other token, which is why it replaced the RNN and became the core of the transformer.
+- The price is an $O(n^2)$ cost the KV cache, FlashAttention, and sparse/linear variants exist to tame.
+- And it has no sense of order, which is why positional encoding exists.
 
 **Quick-fire — say these out loud:**
 
