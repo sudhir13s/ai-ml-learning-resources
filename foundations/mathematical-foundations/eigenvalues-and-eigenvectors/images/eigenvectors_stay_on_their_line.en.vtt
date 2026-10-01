@@ -1,0 +1,33 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:03.000
+The matrix A = [[2, 1], [1, 2]] is about to transform the whole plane.
+
+2
+00:00:03.000 --> 00:00:06.000
+Four vectors start on their own dashed lines: two ordinary ones and two special ones.
+
+3
+00:00:06.000 --> 00:00:11.000
+A moves every grid line. Watch where each vector lands.
+
+4
+00:00:11.000 --> 00:00:18.000
+(1, 0) lands on (2, 1) and (−1, 2) lands on (0, 3): each turns 26.6°, off its own line.
+
+5
+00:00:18.000 --> 00:00:22.500
+(1, 1) lands on (3, 3), which is 3 × (1, 1): it stays on its line, stretched by λ = 3.
+
+6
+00:00:22.500 --> 00:00:27.000
+(−1, 1) lands on (−1, 1), which is 1 × (−1, 1): same line, eigenvalue λ = 1.
+
+7
+00:00:27.000 --> 00:00:31.000
+Eigenvectors are the directions a matrix only scales, never turns. The eigenvalue is the scale.
+
+8
+00:00:31.000 --> 00:00:35.000
+Because A is symmetric, its two eigenvector lines are perpendicular: the fact PCA relies on.

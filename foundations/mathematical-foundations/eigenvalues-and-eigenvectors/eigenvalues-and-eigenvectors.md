@@ -11,6 +11,7 @@ est_minutes: 10
 title: "Eigenvalues & Eigenvectors"
 minutes: 10
 category: mathematical-foundations
+core_idea: "An eigenvector is a direction a matrix only scales and never turns, Av = λv, with the eigenvalue λ as the scale factor; a matrix's eigenvectors are its natural axes, the idea behind PCA, spectral methods and the stability of repeated multiplication."
 ---
 
 # Eigenvalues & Eigenvectors
@@ -23,6 +24,26 @@ category: mathematical-foundations
 covariance matrices have orthogonal principal axes, what the Graph Laplacian's spectrum encodes,
 and why repeated multiplication by a matrix converges to its dominant eigenvector. Expect "derive
 PCA from the covariance eigenvectors" and "what does a negative/zero eigenvalue mean?"
+
+**Watch it move**: one matrix bends the whole grid — most vectors are **turned off their line**, while the two eigenvectors **stay on their line** and are only scaled by their eigenvalue.
+
+```video
+src: images/eigenvectors_stay_on_their_line.mp4
+poster: images/eigenvectors_stay_on_their_line_poster.png
+captions: images/eigenvectors_stay_on_their_line.en.vtt
+title: Eigenvectors stay on their line while the plane transforms
+caption: A = [[2, 1], [1, 2]] applied to the plane; eigenpairs from numpy (λ = 3 along (1, 1), λ = 1 along (−1, 1)), rendered with Manim Community Edition; regenerate with tools/gen_eigenvectors_video.py in the ai-ml-learning-resources repository.
+duration: 0:35
+transcript: |
+  The matrix A = [[2, 1], [1, 2]] is about to transform the whole plane.
+  Four vectors start on their own dashed lines: two ordinary ones and two special ones.
+  A moves every grid line. Watch where each vector lands.
+  (1, 0) lands on (2, 1) and (−1, 2) lands on (0, 3): each turns 26.6°, off its own line.
+  (1, 1) lands on (3, 3), which is 3 × (1, 1): it stays on its line, stretched by λ = 3.
+  (−1, 1) lands on (−1, 1), which is 1 × (−1, 1): same line, eigenvalue λ = 1.
+  Eigenvectors are the directions a matrix only scales, never turns. The eigenvalue is the scale.
+  Because A is symmetric, its two eigenvector lines are perpendicular: the fact PCA relies on.
+```
 
 ## How to work through it
 
