@@ -154,6 +154,41 @@ Now the more surprising part — *why directions mean things*.
 - The relationship isn't stored in any single word; it's a **direction you can travel** that means the same thing everywhere on the map.
 - So `king − man + woman ≈ queen` is not a parlor trick but a *structural* property: when a corpus uses "king/man" and "queen/woman" in parallel ways, gradient descent has no choice but to place them in a parallelogram.
 
+```svg
+<svg viewBox="0 0 760 376" xmlns="http://www.w3.org/2000/svg" font-family="ui-sans-serif, system-ui, sans-serif" data-legend="focus: the offset from man to king, repeated from woman">
+<title>The map of meaning: the man-to-king step, repeated from woman, lands on queen</title>
+<desc>Six words from the page's GloVe-50 data — man, woman, king, queen, prince, princess — drawn on the plane spanned by the royalty direction (king minus man) and the gender direction (woman minus man). An arrow draws from man to king; the same arrow slides to start at woman; its tip lands closest to queen, the nearest word to king minus man plus woman.</desc>
+<defs>
+<marker id="wm-head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--diagram-teal, #075e6b)"/></marker>
+</defs>
+<text x="24" y="40" font-size="14" font-weight="700" fill="currentColor" opacity="1">A map of meaning: GloVe vectors on the royalty and gender plane<animate attributeName="opacity" dur="14s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2143;0.4286;0.6429" values="1;0;0;0"/></text>
+<text x="24" y="40" font-size="14" font-weight="700" fill="currentColor" opacity="0">Walk from man to king: the step adds “royalty”<animate attributeName="opacity" dur="14s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2143;0.4286;0.6429" values="0;1;0;0"/></text>
+<text x="24" y="40" font-size="14" font-weight="700" fill="currentColor" opacity="0">Take the same step, starting from woman<animate attributeName="opacity" dur="14s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2143;0.4286;0.6429" values="0;0;1;0"/></text>
+<text x="24" y="40" font-size="14" font-weight="700" fill="currentColor" opacity="0">It lands closest to queen<animate attributeName="opacity" dur="14s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2143;0.4286;0.6429" values="0;0;0;1"/></text>
+<circle cx="184.1" cy="279.9" r="4" fill="currentColor"/>
+<text x="174.1" y="284.9" text-anchor="end" font-size="13" font-weight="600" fill="currentColor">man</text>
+<circle cx="181.7" cy="129.2" r="4" fill="currentColor"/>
+<text x="171.7" y="134.2" text-anchor="end" font-size="13" font-weight="600" fill="currentColor">woman</text>
+<circle cx="578.3" cy="279.9" r="4" fill="currentColor"/>
+<text x="588.3" y="284.9" text-anchor="start" font-size="13" font-weight="600" fill="currentColor">king</text>
+<circle cx="485.1" cy="159.6" r="4" fill="currentColor"/>
+<text x="475.1" y="177.6" text-anchor="end" font-size="13" font-weight="700" fill="currentColor">queen</text>
+<circle cx="514.1" cy="246.8" r="4" fill="currentColor"/>
+<text x="524.1" y="264.8" text-anchor="start" font-size="13" font-weight="600" fill="currentColor">prince</text>
+<circle cx="449.1" cy="112.1" r="4" fill="currentColor"/>
+<text x="439.1" y="102.1" text-anchor="end" font-size="13" font-weight="600" fill="currentColor">princess</text>
+<path d="M184.1,279.9 L192.0,279.9" fill="none" stroke-width="2.5" marker-end="url(#wm-head)" opacity="0" style="stroke:var(--diagram-teal, #075e6b)"><animate attributeName="opacity" dur="14s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2143;0.4286;0.6429" values="0;1;1;1"/><animate attributeName="d" dur="14s" repeatCount="indefinite" keyTimes="0;0.2143;0.3571;1" values="M184.1,279.9 L192.0,279.9;M184.1,279.9 L192.0,279.9;M184.1,279.9 L578.3,279.9;M184.1,279.9 L578.3,279.9"/></path>
+<g opacity="0"><animate attributeName="opacity" dur="14s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2143;0.4286;0.6429" values="0;0;1;1"/><path d="M184.1,279.9 L578.3,279.9" fill="none" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#wm-head)" style="stroke:var(--diagram-teal, #075e6b)"/><animateTransform attributeName="transform" type="translate" dur="14s" repeatCount="indefinite" keyTimes="0;0.4286;0.5714;1" values="0 0;0 0;-2.4 -150.7;-2.4 -150.7"/></g>
+<g opacity="0"><animate attributeName="opacity" dur="14s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2143;0.4286;0.6429" values="0;0;0;1"/><line x1="575.9" y1="129.2" x2="485.1" y2="159.6" stroke-width="1.5" stroke-dasharray="1.5 4" stroke-linecap="round" style="stroke:var(--diagram-muted, #475569)"/><circle cx="575.9" cy="129.2" r="9" fill="none" stroke-width="2.5" style="stroke:var(--diagram-teal, #075e6b)"/><text x="575.9" y="155.2" text-anchor="middle" font-size="12" font-weight="500" style="fill:var(--diagram-teal, #075e6b)">king − man + woman</text></g>
+<text x="24" y="356" font-size="12" font-weight="500" style="fill:var(--diagram-muted, #475569)" opacity="1">Real GloVe-50 vectors, projected onto the plane of king − man (across) and woman − man (up).<animate attributeName="opacity" dur="14s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2143;0.4286;0.6429" values="1;0;0;0"/></text>
+<text x="24" y="356" font-size="12" font-weight="500" style="fill:var(--diagram-muted, #475569)" opacity="0">The arrow is the offset king − man: one direction that means the same thing everywhere on the map.<animate attributeName="opacity" dur="14s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2143;0.4286;0.6429" values="0;1;0;0"/></text>
+<text x="24" y="356" font-size="12" font-weight="500" style="fill:var(--diagram-muted, #475569)" opacity="0">Same length, same direction — only the starting point changes.<animate attributeName="opacity" dur="14s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2143;0.4286;0.6429" values="0;0;1;0"/></text>
+<text x="24" y="356" font-size="12" font-weight="500" style="fill:var(--diagram-muted, #475569)" opacity="0">Nearest word to king − man + woman: queen, cosine 0.852 in 50 dimensions. The dotted gap is the residual.<animate attributeName="opacity" dur="14s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2143;0.4286;0.6429" values="0;0;0;1"/></text>
+</svg>
+```
+
+The map, drawn from the course's own GloVe-50 data. The idea of a learned map of meaning, in depth: the [Dense Embeddings intuition](/ai-ml/ai-ml-intuitions/representation/embedding-spaces/dense-embeddings-intuition).
+
 > [!NOTE]
 > **Why a few hundred dimensions?**
 >

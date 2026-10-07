@@ -145,6 +145,98 @@ Hold a follow-up question to this analogy — *"what if two dishes tie at the 90
 - We'll see that exact rule in the math.
 - The analogy maps cleanly: **menu = distribution, score = probability, shortlist = the truncation set, how-much-you-trust-scores = temperature.**
 
+```svg
+<svg viewBox="0 0 760 376" xmlns="http://www.w3.org/2000/svg" font-family="ui-sans-serif, system-ui, sans-serif" data-legend="focus: the dishes this ordering rule lets you order">
+<title>The dinner-party menu: greedy, top-k, top-p and temperature on one distribution</title>
+<desc>A menu card lists the ten dishes of the page's PEAKED next-token distribution with the chef's score as a bar. Five scenes step through the ordering rules: the full menu, greedy keeping only cat, top-k keeping three, top-p keeping the one dish that already covers 90%, and temperature 2 flattening every score.</desc>
+<rect x="24" y="24" width="712" height="328" rx="12" fill="none" stroke-width="1" style="stroke:var(--diagram-muted, #475569)"/>
+<text x="48" y="56" font-size="14" font-weight="700" fill="currentColor" opacity="1">The menu: every dish with the chef's score<animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="1;0;0;0;0"/></text>
+<text x="48" y="56" font-size="14" font-weight="700" fill="currentColor" opacity="0">Greedy: always order the top dish<animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="0;1;0;0;0"/></text>
+<text x="48" y="56" font-size="14" font-weight="700" fill="currentColor" opacity="0">Top-k, k = 3: shortlist the three best<animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="0;0;1;0;0"/></text>
+<text x="48" y="56" font-size="14" font-weight="700" fill="currentColor" opacity="0">Top-p, p = 0.9: the shortest list covering 90%<animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="0;0;0;1;0"/></text>
+<text x="48" y="56" font-size="14" font-weight="700" fill="currentColor" opacity="0">Temperature T = 2: trust the scores less<animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="0;0;0;0;1"/></text>
+<text x="56" y="84" font-size="11" style="fill:var(--diagram-muted, #475569)">dish (token)</text>
+<text x="168" y="84" font-size="11" style="fill:var(--diagram-muted, #475569)">chef's score (probability)</text>
+<g opacity="1"><animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="1;1;1;1;1"/>
+<rect x="40" y="92" width="680" height="22" rx="4" fill-opacity="0" style="fill:var(--diagram-teal, #075e6b)"><animate attributeName="fill-opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="0;0.16;0.16;0.16;0"/></rect>
+<text x="56" y="108" font-size="13" font-weight="600" fill="currentColor" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">cat</text>
+<rect x="168" y="97" width="401.6" height="12" rx="2" fill="currentColor" fill-opacity="0.35"><animate attributeName="width" dur="15s" repeatCount="indefinite" keyTimes="0;0.8;0.84;1" values="401.6;401.6;251.1;251.1"/></rect>
+<text x="704" y="108" text-anchor="end" font-size="12" font-weight="500" fill="currentColor" opacity="1">91.3%<animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="1;1;1;1;0"/></text>
+<text x="704" y="108" text-anchor="end" font-size="12" font-weight="500" fill="currentColor" opacity="0">57.1%<animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="0;0;0;0;1"/></text>
+</g>
+<g opacity="1"><animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="1;0.3;1;0.3;1"/>
+<rect x="40" y="114" width="680" height="22" rx="4" fill-opacity="0" style="fill:var(--diagram-teal, #075e6b)"><animate attributeName="fill-opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="0;0;0.16;0;0"/></rect>
+<text x="56" y="130" font-size="13" font-weight="600" fill="currentColor" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">the</text>
+<rect x="168" y="119" width="20.0" height="12" rx="2" fill="currentColor" fill-opacity="0.35"><animate attributeName="width" dur="15s" repeatCount="indefinite" keyTimes="0;0.8;0.84;1" values="20.0;20.0;56.0;56.0"/></rect>
+<text x="704" y="130" text-anchor="end" font-size="12" font-weight="500" fill="currentColor" opacity="1">4.5%<animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="1;1;1;1;0"/></text>
+<text x="704" y="130" text-anchor="end" font-size="12" font-weight="500" fill="currentColor" opacity="0">12.7%<animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="0;0;0;0;1"/></text>
+</g>
+<g opacity="1"><animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="1;0.3;1;0.3;1"/>
+<rect x="40" y="136" width="680" height="22" rx="4" fill-opacity="0" style="fill:var(--diagram-teal, #075e6b)"><animate attributeName="fill-opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="0;0;0.16;0;0"/></rect>
+<text x="56" y="152" font-size="13" font-weight="600" fill="currentColor" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">sat</text>
+<rect x="168" y="141" width="7.4" height="12" rx="2" fill="currentColor" fill-opacity="0.35"><animate attributeName="width" dur="15s" repeatCount="indefinite" keyTimes="0;0.8;0.84;1" values="7.4;7.4;34.0;34.0"/></rect>
+<text x="704" y="152" text-anchor="end" font-size="12" font-weight="500" fill="currentColor" opacity="1">1.7%<animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="1;1;1;1;0"/></text>
+<text x="704" y="152" text-anchor="end" font-size="12" font-weight="500" fill="currentColor" opacity="0">7.7%<animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="0;0;0;0;1"/></text>
+</g>
+<g opacity="1"><animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="1;0.3;0.3;0.3;1"/>
+<rect x="40" y="158" width="680" height="22" rx="4" fill-opacity="0" style="fill:var(--diagram-teal, #075e6b)"><animate attributeName="fill-opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="0;0;0;0;0"/></rect>
+<text x="56" y="174" font-size="13" font-weight="600" fill="currentColor" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">on</text>
+<rect x="168" y="163" width="4.5" height="12" rx="2" fill="currentColor" fill-opacity="0.35"><animate attributeName="width" dur="15s" repeatCount="indefinite" keyTimes="0;0.8;0.84;1" values="4.5;4.5;26.5;26.5"/></rect>
+<text x="704" y="174" text-anchor="end" font-size="12" font-weight="500" fill="currentColor" opacity="1">1.0%<animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="1;1;1;1;0"/></text>
+<text x="704" y="174" text-anchor="end" font-size="12" font-weight="500" fill="currentColor" opacity="0">6.0%<animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="0;0;0;0;1"/></text>
+</g>
+<g opacity="1"><animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="1;0.3;0.3;0.3;1"/>
+<rect x="40" y="180" width="680" height="22" rx="4" fill-opacity="0" style="fill:var(--diagram-teal, #075e6b)"><animate attributeName="fill-opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="0;0;0;0;0"/></rect>
+<text x="56" y="196" font-size="13" font-weight="600" fill="currentColor" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">mat</text>
+<rect x="168" y="185" width="2.7" height="12" rx="2" fill="currentColor" fill-opacity="0.35"><animate attributeName="width" dur="15s" repeatCount="indefinite" keyTimes="0;0.8;0.84;1" values="2.7;2.7;20.6;20.6"/></rect>
+<text x="704" y="196" text-anchor="end" font-size="12" font-weight="500" fill="currentColor" opacity="1">0.6%<animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="1;1;1;1;0"/></text>
+<text x="704" y="196" text-anchor="end" font-size="12" font-weight="500" fill="currentColor" opacity="0">4.7%<animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="0;0;0;0;1"/></text>
+</g>
+<g opacity="1"><animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="1;0.3;0.3;0.3;1"/>
+<rect x="40" y="202" width="680" height="22" rx="4" fill-opacity="0" style="fill:var(--diagram-teal, #075e6b)"><animate attributeName="fill-opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="0;0;0;0;0"/></rect>
+<text x="56" y="218" font-size="13" font-weight="600" fill="currentColor" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">dog</text>
+<rect x="168" y="207" width="1.6" height="12" rx="2" fill="currentColor" fill-opacity="0.35"><animate attributeName="width" dur="15s" repeatCount="indefinite" keyTimes="0;0.8;0.84;1" values="1.6;1.6;16.1;16.1"/></rect>
+<text x="704" y="218" text-anchor="end" font-size="12" font-weight="500" fill="currentColor" opacity="1">0.4%<animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="1;1;1;1;0"/></text>
+<text x="704" y="218" text-anchor="end" font-size="12" font-weight="500" fill="currentColor" opacity="0">3.6%<animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="0;0;0;0;1"/></text>
+</g>
+<g opacity="1"><animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="1;0.3;0.3;0.3;1"/>
+<rect x="40" y="224" width="680" height="22" rx="4" fill-opacity="0" style="fill:var(--diagram-teal, #075e6b)"><animate attributeName="fill-opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="0;0;0;0;0"/></rect>
+<text x="56" y="240" font-size="13" font-weight="600" fill="currentColor" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">ran</text>
+<rect x="168" y="229" width="1.0" height="12" rx="2" fill="currentColor" fill-opacity="0.35"><animate attributeName="width" dur="15s" repeatCount="indefinite" keyTimes="0;0.8;0.84;1" values="1.0;1.0;12.5;12.5"/></rect>
+<text x="704" y="240" text-anchor="end" font-size="12" font-weight="500" fill="currentColor" opacity="1">0.2%<animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="1;1;1;1;0"/></text>
+<text x="704" y="240" text-anchor="end" font-size="12" font-weight="500" fill="currentColor" opacity="0">2.8%<animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="0;0;0;0;1"/></text>
+</g>
+<g opacity="1"><animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="1;0.3;0.3;0.3;1"/>
+<rect x="40" y="246" width="680" height="22" rx="4" fill-opacity="0" style="fill:var(--diagram-teal, #075e6b)"><animate attributeName="fill-opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="0;0;0;0;0"/></rect>
+<text x="56" y="262" font-size="13" font-weight="600" fill="currentColor" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">fast</text>
+<rect x="168" y="251" width="0.6" height="12" rx="2" fill="currentColor" fill-opacity="0.35"><animate attributeName="width" dur="15s" repeatCount="indefinite" keyTimes="0;0.8;0.84;1" values="0.6;0.6;9.7;9.7"/></rect>
+<text x="704" y="262" text-anchor="end" font-size="12" font-weight="500" fill="currentColor" opacity="1">0.1%<animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="1;1;1;1;0"/></text>
+<text x="704" y="262" text-anchor="end" font-size="12" font-weight="500" fill="currentColor" opacity="0">2.2%<animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="0;0;0;0;1"/></text>
+</g>
+<g opacity="1"><animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="1;0.3;0.3;0.3;1"/>
+<rect x="40" y="268" width="680" height="22" rx="4" fill-opacity="0" style="fill:var(--diagram-teal, #075e6b)"><animate attributeName="fill-opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="0;0;0;0;0"/></rect>
+<text x="56" y="284" font-size="13" font-weight="600" fill="currentColor" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">blue</text>
+<rect x="168" y="273" width="0.4" height="12" rx="2" fill="currentColor" fill-opacity="0.35"><animate attributeName="width" dur="15s" repeatCount="indefinite" keyTimes="0;0.8;0.84;1" values="0.4;0.4;7.6;7.6"/></rect>
+<text x="704" y="284" text-anchor="end" font-size="12" font-weight="500" fill="currentColor" opacity="1">0.1%<animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="1;1;1;1;0"/></text>
+<text x="704" y="284" text-anchor="end" font-size="12" font-weight="500" fill="currentColor" opacity="0">1.7%<animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="0;0;0;0;1"/></text>
+</g>
+<g opacity="1"><animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="1;0.3;0.3;0.3;1"/>
+<rect x="40" y="290" width="680" height="22" rx="4" fill-opacity="0" style="fill:var(--diagram-teal, #075e6b)"><animate attributeName="fill-opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="0;0;0;0;0"/></rect>
+<text x="56" y="306" font-size="13" font-weight="600" fill="currentColor" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">sky</text>
+<rect x="168" y="295" width="0.2" height="12" rx="2" fill="currentColor" fill-opacity="0.35"><animate attributeName="width" dur="15s" repeatCount="indefinite" keyTimes="0;0.8;0.84;1" values="0.2;0.2;5.9;5.9"/></rect>
+<text x="704" y="306" text-anchor="end" font-size="12" font-weight="500" fill="currentColor" opacity="1">0.1%<animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="1;1;1;1;0"/></text>
+<text x="704" y="306" text-anchor="end" font-size="12" font-weight="500" fill="currentColor" opacity="0">1.3%<animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="0;0;0;0;1"/></text>
+</g>
+<text x="48" y="340" font-size="12" font-weight="500" style="fill:var(--diagram-muted, #475569)" opacity="1">The page's PEAKED next-token distribution at temperature 1, most to least likely.<animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="1;0;0;0;0"/></text>
+<text x="48" y="340" font-size="12" font-weight="500" style="fill:var(--diagram-muted, #475569)" opacity="0">Greedy orders cat every time — 91.3% of the score, and no other dish is ever tried.<animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="0;1;0;0;0"/></text>
+<text x="48" y="340" font-size="12" font-weight="500" style="fill:var(--diagram-muted, #475569)" opacity="0">k = 3 keeps cat, the and sat; renormalized they become 93.6%, 4.7% and 1.7%.<animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="0;0;1;0;0"/></text>
+<text x="48" y="340" font-size="12" font-weight="500" style="fill:var(--diagram-muted, #475569)" opacity="0">cat alone already covers 91.3% ≥ 90%, so the shortlist is a single dish.<animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="0;0;0;1;0"/></text>
+<text x="48" y="340" font-size="12" font-weight="500" style="fill:var(--diagram-muted, #475569)" opacity="0">At T = 2 cat falls to 57.1%; the same p = 0.9 shortlist would now hold 6 dishes.<animate attributeName="opacity" dur="15s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.2;0.4;0.6;0.8" values="0;0;0;0;1"/></text>
+</svg>
+```
+
+The menu, played on this course's own `PEAKED` distribution: greedy, top-k, top-p, then temperature. The same picture with every knob in your hands is the [Autoregressive Generation and Sampling Controls intuition](/ai-ml/ai-ml-intuitions/generation/autoregressive-generation/autoregressive-generation-and-sampling-controls-intuition).
+
 ![Animated — the temperature dial, swept. The same peaked next-token distribution reshapes as T moves: at T<1 nearly all mass collapses onto the single top token (low entropy — almost greedy); at T=1 it is the model's own distribution; at T>1 the mass spreads toward uniform (entropy climbs) and the bars turn amber. Temperature is the dial between "trust the top" and "spread it around." Hand-authored animated SVG (loops).](images/dec_temperature_softmax.svg)
 
 ---
