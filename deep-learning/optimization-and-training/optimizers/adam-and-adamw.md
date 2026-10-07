@@ -132,7 +132,11 @@ Now the decay a weight receives is $\propto \lambda\theta/\sqrt{\hat v}$ — **i
 
 $$\boxed{\;\theta_t \leftarrow \theta_{t-1} - \eta\left(\frac{\hat m_t}{\sqrt{\hat v_t}+\epsilon} + \lambda\,\theta_{t-1}\right)\;}$$
 
-Now **every** weight is decayed by the same factor $\eta\lambda$ regardless of its gradient size, while the *gradient* still gets the adaptive treatment. This decoupling measurably improves generalization and is why AdamW is the default for transformers, LLMs, and diffusion models.
+Now **every** weight is decayed by the same factor $\eta\lambda$ regardless of its gradient size, while the *gradient* still gets the adaptive treatment. What the decoupling buys:
+
+- It **measurably improves generalization**.
+- The best $\lambda$ **no longer moves with the learning rate**, so the two are tuned independently.
+- It is why AdamW is the default for transformers, LLMs, and diffusion models.
 
 > [!WARNING]
 > Because of this, the `weight_decay` argument means *different things* in two optimizers.

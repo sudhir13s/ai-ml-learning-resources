@@ -274,36 +274,7 @@ $$\hat w_i = \frac{\lambda_i^H}{\lambda_i^H + \alpha}\,w^*_i.$$
 
 ### The AdamW subtlety: L2 penalty ≠ weight decay under Adam
 
-For plain SGD, "add an L2 penalty" and "decay the weights" are identical — we just derived it. For **adaptive** optimizers like Adam, they are **not**:
-
-- Adam divides the gradient by a per-parameter running scale $\hat v$ (a second-moment estimate).
-- So if you fold the L2 term *into the gradient* it gets divided too:
-
-$$\theta \leftarrow \theta - \eta\,\frac{\nabla L_{\text{data}} + \lambda\theta}{\sqrt{\hat v} + \epsilon}$$
-
-**What that does to the decay:**
-
-- The *effective* decay on weight $i$ is now $\eta\lambda\theta_i / \sqrt{\hat v_i}$ — **weights with large gradient history ($\hat v_i$ large) get *less* decay**.
-- That is backwards: those are often exactly the weights you'd want to keep in check.
-- The intended "shrink everything by the same multiplicative factor" is destroyed by the per-parameter rescaling.
-
-**AdamW** fixes this by **decoupling** weight decay from the gradient — applying the $(1-\eta\lambda)\theta$ shrink *directly*, outside the adaptive step:
-
-$$\theta \leftarrow (1-\eta\lambda)\,\theta \;-\; \eta\,\frac{\nabla L_{\text{data}}}{\sqrt{\hat v} + \epsilon}$$
-
-Now every weight decays by the same factor regardless of its gradient scale — the behavior you actually wanted:
-
-- This single fix measurably improves generalization and decouples the optimal $\lambda$ from the optimal learning rate.
-- That is why **AdamW is the standard optimizer for transformers**.
-- See [Optimizers](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/optimizers) for the full Adam/AdamW derivation.
-
-> **Reference:** **Decoupled Weight Decay Regularization** (Loshchilov & Hutter 2019, ICLR) — the AdamW paper; in the references.
-
-> **Gotcha:** if you ever see someone "add weight decay" to Adam by writing an L2 term in the loss, that's the *buggy* version — the thing AdamW was invented to fix.
->
-> - In PyTorch, `torch.optim.Adam(weight_decay=...)` does the coupled (L2-in-gradient) thing.
-> - `torch.optim.AdamW(weight_decay=...)` does the decoupled thing.
-> - For transformers, you want **AdamW**.
+For plain SGD, an L2 penalty and weight decay are the same operation, as derived above; under **Adam** they are not, because the L2 term is divided by each weight's gradient scale. **AdamW** decays the weights directly, outside the adaptive step — the derivation and the PyTorch `weight_decay` trap live on [Adam and AdamW](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/adam-and-adamw).
 
 ---
 
