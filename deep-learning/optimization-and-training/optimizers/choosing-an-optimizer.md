@@ -93,49 +93,15 @@ graph TD
 
 ---
 
-## Gradient clipping
+## The guards around the optimizer: clipping, schedules, batch size
 
-Sometimes a single unlucky batch (or an instability early in training) produces an **enormous** gradient.
+Three neighbours of the optimizer have their own pages; this is what the recipe takes from each:
 
-- Taken at face value it blows the weights to `NaN` in one step — the **exploding-gradient** failure, common in RNNs and early/large LLM training.
-- **Gradient clipping** caps the gradient *before* the optimizer sees it:
-
-
-- **Clip-by-global-norm (standard).** Compute the norm of the *entire* gradient vector (all parameters concatenated). If $\lVert g\rVert > c$, rescale $g \leftarrow c\,g/\lVert g\rVert$.
-  - Keeps the *direction* intact and only caps the *magnitude* — the right thing to do.
-  - LLMs almost universally clip the global norm to $\sim1.0$.
-- **Clip-by-value.** Clamp each component into $[-c,c]$ independently.
-  - Cruder, and it *changes the direction* (it can rotate the gradient), so it's rarely the first choice.
-
-> [!TIP]
-> Clip-by-**global-norm** over *all* parameters at once is the near-universal choice for transformer training.
-> - Apply it *after* backprop and *before* `optimizer.step()`.
-> - If your loss occasionally spikes to `NaN`, turning on (or tightening) gradient clipping is the very first thing to try — before touching the learning rate or the architecture.
-
----
-
-## Learning-rate schedules and warmup (pointer)
-
-The optimizer sets the *direction and per-parameter scaling*; the **schedule** sets how the global $\eta$ changes over training — and you almost never use a constant rate.
-
-- The standard recipe is **warmup then decay**: ramp $\eta$ up from ~0 over the first few hundred/thousand steps, then anneal it down (cosine, linear, or inverse-sqrt).
-- Warmup exists *specifically because* Adam's $\hat v$ estimate is unreliable in the very first steps (precisely where bias correction is working hardest).
-- Big early steps are dangerous, and a gentle ramp keeps them safe.
-
-This page deliberately stops here — the schedule has its own full treatment.
-
-**→ [Learning-Rate Schedules & Warmup](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/learning-rate-schedules-and-warmup/learning-rate-schedules-and-warmup)** covers cosine/linear/inverse-sqrt decay, warmup length, and restarts in depth.
-
-> [!NOTE]
-> **Batch size and learning rate move together.**
-> - The **linear scaling rule** (Goyal et al. 2017): multiply the batch size by $k$ and multiply $\eta$ by $\sim k$ (with warmup for stability).
-> - The justification is the $1/B$ noise law derived earlier.
-> - A $k\times$ larger batch gives a $\sqrt k\times$ less-noisy gradient, which can tolerate (and needs) a proportionally bigger step to make the same progress per epoch.
-
-> [!TIP]
-> Can't fit a big batch in memory? **Gradient accumulation** sums the gradients over several micro-batches before one optimizer step.
-> - It simulates a larger *effective* batch — then apply the linear-scaling LR as if the batch really were that size.
-> - It's how small-GPU setups train with large effective batch sizes.
+- **Gradient clipping** caps the **global** gradient norm (about 1.0 for LLMs) after backprop and before `optimizer.step()`, so one unlucky batch cannot blow the weights to `NaN`.
+  - Global-norm versus by-value clipping, and why, is on [Vanishing & Exploding Gradients](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients).
+- **The learning-rate schedule** moves the global $\eta$ over training: **warmup, then decay**, because Adam's $\hat v$ is unreliable in the first steps.
+  - The decays, warmup length and the **linear scaling rule** that ties $\eta$ to batch size (justified by the [$1/B$ noise law](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/optimizers)) are on [Learning-Rate Schedules & Warmup](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/learning-rate-schedules-and-warmup/learning-rate-schedules-and-warmup).
+- **Gradient accumulation** sums gradients over micro-batches to fake a larger batch on a small GPU — see [Pretraining: batching, precision and memory](/ai-ml/ai-ml-learning-resources/model-building/pretraining/pretraining-batching-precision-and-memory).
 
 ---
 
