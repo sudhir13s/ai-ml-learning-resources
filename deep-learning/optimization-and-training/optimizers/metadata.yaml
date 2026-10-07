@@ -1,0 +1,15 @@
+title: Optimizers
+type: lesson
+section: deep-learning/optimization-and-training/optimizers
+# The why page, then one rung of the optimizer ladder per page, then the
+# comparison, the frontier and the capstone, in course.yaml's declared order
+# (section `lr-optimizers`). The `.references.md` companion is not listed: the
+# app appends it to its primary page, so it is never an orderable peer.
+page-order:
+  - optimizers
+  - momentum-and-nesterov
+  - adaptive-learning-rates
+  - adam-and-adamw
+  - comparing-optimizers
+  - beyond-adam
+  - choosing-an-optimizer
