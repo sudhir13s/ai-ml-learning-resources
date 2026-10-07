@@ -720,6 +720,36 @@ The three hand-traced rules above, run for real over 80 steps on the ravine, pro
 > - Adam's headline advantage is **robustness across learning rates and gradient scales**, not raw speed on a toy bowl.
 > - The shapes are what teach: SGD's smooth geometric decay, Momentum's overshoot-and-ring, the adaptive methods' per-axis rescaling.
 
+### Race them yourself
+
+The same four rules on the same ravine $L=\tfrac12(12x^2+y^2)$ from the same start $(-9, -4.5)$ — change one knob and watch who converges, rings, or blows up.
+
+<!-- EXPLORER: optimizer-race {
+  "heading": "SGD, Momentum, RMSprop and Adam on the ravine",
+  "surface": { "kind": "ravine", "a": 12, "b": 1 },
+  "domain": { "xMin": -10, "xMax": 10, "yMin": -6, "yMax": 6 },
+  "start": [-9, -4.5],
+  "steps": 80,
+  "heightScale": "log",
+  "colormap": "theme",
+  "optimizers": [
+    { "kind": "sgd", "lr": 0.13, "lrRange": [0.005, 0.3] },
+    { "kind": "momentum", "lr": 0.012, "lrRange": [0.001, 0.3], "beta": 0.9 },
+    { "kind": "rmsprop", "lr": 0.2, "lrRange": [0.005, 2], "rho": 0.9 },
+    { "kind": "adam", "lr": 0.3, "lrRange": [0.005, 2], "beta1": 0.9, "beta2": 0.999 }
+  ],
+  "caption": "curvature 12 in x, 1 in y"
+} -->
+> **Interactive explorer — the optimizer race.** Four optimizers start together on the ravine; press Play or Step, drag to rotate the 3D surface, and read the paths on the contour map and the loss curves beside it. Each card has its optimizer's learning rate (and β, ρ, β₁, β₂) and its live verdict. Without the widget, the trajectory, loss-curve and learning-rate-sweep figures on this page show the same runs.
+
+What to try, and what each move proves:
+
+- **Start at the defaults (the figures' rates).** SGD, RMSprop and Adam converge (final loss $2.1\times10^{-9}$, $4.3\times10^{-9}$, $2.0\times10^{-3}$); Momentum is still ringing at 0.10.
+- **Push SGD's η past $2/12 \approx 0.167$.** The steep-axis factor $|1-12\eta|$ passes 1, the zig-zag grows, and the card flips to **diverged** — the stability limit derived above.
+- **Raise Momentum's η and watch the loop.** Velocity overshoots the walls; lower β toward 0 and it turns back into plain SGD.
+- **Sweep Adam's η from 0.005 to 2.** It slows or rings but never diverges — the wide band in the learning-rate sweep figure.
+- **Untick bias correction.** Adam's first step jumps about 30× too far, exactly as the derivation predicts.
+
 ---
 
 ## The family at a glance
