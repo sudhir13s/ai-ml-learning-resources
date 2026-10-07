@@ -24,7 +24,7 @@ Word2vec learns from one window at a time; GloVe counts every co-occurrence firs
 
 ## The deep result: SGNS is implicitly factorizing a PMI matrix
 
-Here is the unification that ties this page together and that strong candidates love to drop. **Levy & Goldberg (2014)** proved that skip-gram with negative sampling (SGNS), at its optimum, is **implicitly factorizing** a word–context matrix whose entries are the **shifted pointwise mutual information**:
+Here is the unification that ties this course together and that strong candidates love to drop. **Levy & Goldberg (2014)** proved that skip-gram with negative sampling (SGNS), at its optimum, is **implicitly factorizing** a word–context matrix whose entries are the **shifted pointwise mutual information**:
 
 $$u_o^\top v_c \;=\; \text{PMI}(o, c) - \log k, \qquad \text{where}\quad \text{PMI}(o,c) = \log \frac{P(o, c)}{P(o)\,P(c)}.$$
 
@@ -45,7 +45,7 @@ In words:
 
 ## GloVe: the count-based cousin
 
-[GloVe](https://nlp.stanford.edu/pubs/glove.pdf) (Pennington, Socher & Manning, 2014) reaches the same destination from the *opposite* direction.
+[GloVe](https://nlp.stanford.edu/pubs/glove.pdf) (Global Vectors; Pennington, Socher & Manning, 2014) reaches the same destination from the *opposite* direction.
 
 - Instead of *predicting* one local window at a time, it first builds the **global co-occurrence matrix** $X$ in one pass over the corpus — $X_{ij}$ = how often word $j$ appears in the context of word $i$.
 - Then it factorizes $X$ so that vector dot products match **log co-occurrence counts**.

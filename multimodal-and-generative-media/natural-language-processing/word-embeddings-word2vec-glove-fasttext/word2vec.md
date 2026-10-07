@@ -22,6 +22,8 @@ category: natural-language-processing
 
 The [map of meaning](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/word-embeddings-word2vec-glove-fasttext/word-embeddings-word2vec-glove-fasttext) needs a way to place words; word2vec places them by training on which words appear together.
 
+The picture before the algebra is the [Word2vec and Skip-gram intuition](/ai-ml/ai-ml-intuitions/representation/embedding-spaces/word2vec-and-skip-gram-intuition).
+
 ## Word2Vec: learn vectors by predicting neighbours
 
 [Word2Vec](https://arxiv.org/abs/1301.3781) (Mikolov et al., 2013) makes the distributional hypothesis **trainable**.
@@ -108,7 +110,7 @@ The roles of $u$ and $v$ swap and the context is **pooled** before the softmax. 
 - **Smoother on frequent words** — averaging washes out noise.
 - **Worse on rare words** — a rare word's signal gets diluted in the average instead of being its own training example.
 
-One mental model: **skip-gram makes $2c$ noisy predictions per window; CBOW makes one averaged prediction.** Same softmax bottleneck, same negative-sampling cure — everything below applies to both.
+One mental model: **skip-gram makes $2c$ noisy predictions per window; CBOW makes one averaged prediction.** Same softmax bottleneck, same [negative-sampling cure](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/word-embeddings-word2vec-glove-fasttext/negative-sampling) — it applies to both.
 
 | | skip-gram | CBOW |
 |---|---|---|

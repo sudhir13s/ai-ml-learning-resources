@@ -92,13 +92,13 @@ Know both names; reach for negative sampling.
 >
 > - It's a related **binary-classification surrogate**, not an approximation that converges to the same objective.
 > - In an interview, say "it approximates the softmax *cheaply* by learning to separate real pairs from noise" — never "it *is* the softmax."
-> - The precise relationship is the gem in the next section.
+> - The precise relationship — SGNS implicitly factorizes a PMI matrix — opens the [GloVe page](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/word-embeddings-word2vec-glove-fasttext/glove).
 
 ---
 
-## Code 4: negative-sampling loss, one triple, by hand
+## Code: the negative-sampling loss, one triple, by hand
 
-Finally, the smallest possible end-to-end check: one (center, true context, negative) triple, computed both as a full-softmax probability and as the negative-sampling loss + gradient — matching the by-hand algebra above so you can trace every number.
+The smallest possible end-to-end check: one (center, true context, negative) triple, computed both as a full-softmax probability and as the negative-sampling loss + gradient — matching the by-hand algebra above so you can trace every number.
 
 ```step
 ///FILE negative_sampling_by_hand.py
@@ -154,7 +154,7 @@ unigram^0.75 : [0.5236 0.3113 0.0931 0.0554 0.0166]
 
 ---
 
-## Code 1: train skip-gram with negative sampling from scratch
+## Code: train skip-gram with negative sampling from scratch
 
 A from-scratch skip-gram-with-negative-sampling on a tiny but **structured** corpus (royalty words share contexts; animal words share contexts).
 
@@ -165,7 +165,7 @@ A from-scratch skip-gram-with-negative-sampling on a tiny but **structured** cor
 > **Runnable project and a step-by-step notebook:**
 >
 > - The same verified code lives as a clean, seeded source-of-truth script and an executed teaching notebook next to this page — see the [step-by-step teaching notebook](code/word-embeddings-word2vec-glove-fasttext.ipynb) and the [runnable demo script](code/word_embeddings.py) (run it with `python word_embeddings.py`).
-> - Every number on this page is produced by that file, and [`make_figures_05.py`](code/make_figures_05.py) regenerates every figure by importing the *same* functions, so nothing here can drift.
+> - Every number in this course is produced by that file, and [`make_figures_05.py`](code/make_figures_05.py) regenerates every figure by importing the *same* functions, so nothing here can drift.
 
 ```step
 ///FILE skipgram_negative_sampling.py

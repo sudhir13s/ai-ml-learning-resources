@@ -20,13 +20,13 @@ category: natural-language-processing
 
 # The embedding space: similarity, analogies and bias
 
-With the three methods built, this page reads the space they produce: what near means, how analogies work, and what else the space absorbed.
+With the three methods built — [word2vec](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/word-embeddings-word2vec-glove-fasttext/word2vec), [GloVe](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/word-embeddings-word2vec-glove-fasttext/glove), [FastText](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/word-embeddings-word2vec-glove-fasttext/fasttext) — this page reads the space they produce: what near means, how analogies work, and what else the space absorbed.
 
 ## The embedding space: similarity, analogies, and bias
 
 ### Cosine similarity — why angle, not distance
 
-Two embeddings are compared by **cosine similarity** — the cosine of the angle between them, which ignores their lengths:
+Two embeddings are compared by **cosine similarity** — the cosine of the angle between them, which ignores their lengths (pictured in the [Cosine vs Euclidean Distance intuition](/ai-ml/ai-ml-intuitions/representation/similarity-and-distance/cosine-vs-euclidean-distance-intuition)):
 
 $$\cos(a, b) = \frac{a \cdot b}{\lVert a\rVert\,\lVert b\rVert} \in [-1, 1].$$
 
@@ -64,10 +64,10 @@ The same real GloVe-50 vectors, as a cloud you can turn — pick a word to see i
 
 What to try, and what each move proves:
 
-- **Pick `cat`.** `dog` is its nearest neighbour at 0.9218 — the number Code 2 prints — then `rabbit` at 0.8488; the animals sit together.
-- **Pick `king`.** `prince` (0.8236) edges out `queen` (0.7839, as in Code 2), then `emperor` — royalty and family words share contexts.
+- **Pick `cat`.** `dog` is its nearest neighbour at 0.9218 — the number the GloVe code below prints — then `rabbit` at 0.8488; the animals sit together.
+- **Pick `king`.** `prince` (0.8236) edges out `queen` (0.7839, as in the GloVe code below), then `emperor` — royalty and family words share contexts.
 - **Pick `good`.** `better` leads at 0.9284, then `going` and `happy` — frequent words used in the same slots, not synonyms; distributional similarity is relatedness, not meaning.
-- **Run `king − man + woman`.** `queen` comes first at 0.8524, and the full-vocabulary line matches Code 2 (`throne` 0.7664, `prince` 0.7592).
+- **Run `king − man + woman`.** `queen` comes first at 0.8524, and the full-vocabulary line matches the GloVe code below (`throne` 0.7664, `prince` 0.7592).
 - **Run `bigger − big + small`.** `larger` beats the expected `smaller`, which ranks 2nd — the brittleness the warning above describes.
 - **Rotate the cloud.** Countries and their capitals sit in separate regions with the capital offset running roughly the same way, and two dots that look close can still have a low cosine — the picture is a shadow.
 
@@ -94,7 +94,7 @@ You measure embedding quality two ways, and good answers name both:
 - **Intrinsic** — does the geometry match human judgment, *directly*? Fast to compute, but a proxy. Two standard probes:
   - **Analogy accuracy:** the king/queen task over a benchmark of thousands of analogies (Google's analogy set).
   - **Word-similarity correlation:** does cosine rank pairs the way humans do, scored by Spearman correlation against human ratings on **WordSim-353**, **SimLex-999**, etc.
-- **Extrinsic** — does plugging the embeddings into a *downstream* task (NER, named-entity recognition; sentiment; parsing; retrieval) actually improve it?
+- **Extrinsic** — does plugging the embeddings into a *downstream* task (named-entity recognition (NER), sentiment, parsing, retrieval) actually improve it?
   - This is what ultimately matters.
   - Intrinsic scores are a quick sniff test that doesn't always predict downstream gains.
 
@@ -104,9 +104,9 @@ You measure embedding quality two ways, and good answers name both:
 
 ---
 
-## Code 2: measure the real magic on pretrained GloVe
+## Code: measure the real magic on pretrained GloVe
 
-The from-scratch model proves the *mechanism*; **real pretrained vectors** prove the *magic*. This loads GloVe-50 (66 MB, downloads once) and measures the analogy, the cosines, and a capital-city analogy — every number quoted on this page comes from here.
+The [from-scratch model](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/word-embeddings-word2vec-glove-fasttext/negative-sampling) proves the *mechanism*; **real pretrained vectors** prove the *magic*. This loads GloVe-50 (66 MB, downloads once) and measures the analogy, the cosines, and a capital-city analogy — every GloVe number quoted in this course comes from here.
 
 ```step
 ///FILE glove_measure_analogies.py

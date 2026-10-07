@@ -42,13 +42,13 @@ The most famous demonstration is that, with real pretrained vectors, the arithme
 
 $$\text{king} - \text{man} + \text{woman} \approx \text{queen}$$
 
-actually works (we'll *measure* it later in this page — GloVe-50 returns `queen` at cosine **0.852**, the nearest word). Embeddings turned text into geometry, and they are the direct conceptual ancestor of every modern token-embedding layer at the bottom of every transformer.
+actually works (measured on [The Embedding Space](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/word-embeddings-word2vec-glove-fasttext/the-embedding-space) — GloVe-50 returns `queen` at cosine **0.852**, the nearest word). Embeddings turned text into geometry, and they are the direct conceptual ancestor of every modern token-embedding layer at the bottom of every transformer.
 
 I'm going to teach this the way I'd explain it at a whiteboard:
 
 - **Why one-hot has to die** (feel the waste), then the 1950s idea that rescues us.
-- **word2vec** end to end: both objectives, the softmax bottleneck, and the negative-sampling trick that made it scale.
-- **GloVe** (the count-based cousin), the deep result that *unifies* the two, and **FastText** (words made of pieces).
+- **[word2vec](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/word-embeddings-word2vec-glove-fasttext/word2vec)** end to end: both objectives, the softmax bottleneck, and the [negative-sampling](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/word-embeddings-word2vec-glove-fasttext/negative-sampling) trick that made it scale.
+- **[GloVe](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/word-embeddings-word2vec-glove-fasttext/glove)** (the count-based cousin), the deep result that *unifies* the two, and **[FastText](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/word-embeddings-word2vec-glove-fasttext/fasttext)** (words made of pieces).
 - **Four numeric examples** worked by hand and by measurement, closing on the one limitation that ended the era and gave us BERT.
 
 By the end you'll be able to:
@@ -103,7 +103,7 @@ The fix rests on a simple 1950s idea, the **distributional hypothesis**, capture
 
 - Words that appear in similar contexts (you *ruled* a *kingdom*; you *wore* a *crown*; you *sat* on a *throne*) tend to mean similar things.
 - The recipe: **learn a dense vector per word such that words sharing contexts get similar vectors.**
-- That single sentence is the entire research program of this page — word2vec, GloVe, and FastText are three different ways to carry it out.
+- That single sentence is the entire research program of this course — word2vec, GloVe, and FastText are three different ways to carry it out.
 
 > [!NOTE]
 > **Source:**
@@ -118,7 +118,7 @@ The fix rests on a simple 1950s idea, the **distributional hypothesis**, capture
 A **word embedding** maps each word to a dense vector — typically 50–300 dimensions — learned so that the *geometry* reflects meaning. Two properties make it feel like magic:
 
 1. **Similar words cluster.** Cosine similarity between vectors tracks semantic similarity.
-   - With real GloVe-50 vectors (measured later): $\cos(\text{cat}, \text{dog}) = 0.92$, $\cos(\text{cat}, \text{kitten}) = 0.64$, but $\cos(\text{cat}, \text{democracy}) = 0.04$.
+   - With real GloVe-50 vectors (measured on [The Embedding Space](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/word-embeddings-word2vec-glove-fasttext/the-embedding-space)): $\cos(\text{cat}, \text{dog}) = 0.92$, $\cos(\text{cat}, \text{kitten}) = 0.64$, but $\cos(\text{cat}, \text{democracy}) = 0.04$.
    - Related words are close; unrelated words are near-orthogonal.
 2. **Meaning becomes arithmetic.** Consistent relationships show up as consistent *directions*.
    - The vector from *man* to *king* is roughly the same as from *woman* to *queen* — the displacement *encodes* "royalty."
@@ -160,14 +160,14 @@ Now the more surprising part — *why directions mean things*.
 > - **Too few** (say 2): you can't fit all the independent "directions of meaning" a language needs — gender, tense, plurality, formality, topic, sentiment — so they collide.
 > - **Too many** (say 50,000, i.e. one-hot): you're back to no sharing.
 > - **A few hundred** is the empirical sweet spot: enough axes to disentangle the major factors of variation, few enough that words must *share* structure (which is what forces similar words together).
-> - The 2-D pictures on this page are PCA *shadows* of that richer space — useful, but lossy.
+> - The 2-D pictures in this course are PCA *shadows* of that richer space — useful, but lossy.
 
 > [!TIP]
 > **The one-sentence interview answer.** If asked "what is a word embedding, in one breath?":
 >
 > *"A learned dense vector per word, trained so that words appearing in similar contexts get similar vectors — which turns semantic similarity into cosine distance and analogies into vector arithmetic."*
 >
-> Everything else on this page is the *how* behind that sentence.
+> Everything else in this course is the *how* behind that sentence.
 
 ---
 

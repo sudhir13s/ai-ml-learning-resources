@@ -47,7 +47,7 @@ How it works:
 
 - The word `kingdom`, padded with boundary markers `<kingdom>`, is decomposed into all character n-grams of length 3–6 (`<ki`, `kin`, `ing`, `ngd`, ..., plus the special whole-word token).
 - Each n-gram has its *own* learned vector, and the word's vector is their **sum**.
-- Then SGNS runs exactly as before, but on n-gram vectors.
+- Then skip-gram with negative sampling (SGNS, from the [negative-sampling page](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/word-embeddings-word2vec-glove-fasttext/negative-sampling)) runs exactly as before, but on n-gram vectors.
 
 Two payoffs fall out:
 
@@ -67,7 +67,7 @@ This is the *same instinct* that **subword tokenization** (BPE, byte-pair encodi
 
 ---
 
-## Code 3: FastText handles a word it never saw
+## Code: FastText handles a word it never saw
 
 This trains a tiny FastText model and queries it for `kingdoms` — a word that is **not in the training vocabulary**. Word2vec/GloVe would crash with a `KeyError`; FastText returns a sensible vector built from the subword n-grams of `kingdom`.
 

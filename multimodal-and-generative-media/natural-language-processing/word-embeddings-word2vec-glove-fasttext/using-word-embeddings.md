@@ -23,14 +23,14 @@ This page turns the course into decisions: where static embeddings still fit, ho
 
 ## Where they're used
 
-- **Initializing NLP models.** For years, the first layer of nearly every NLP network was a matrix of pretrained word vectors (GloVe/word2vec) — a free injection of "the model already knows which words are related."
-- **Retrieval and similarity.** Semantic search, recommendation, deduplication, clustering: embed everything, compare by cosine, retrieve nearest neighbours (with FAISS / a vector DB at scale).
+- **Initializing natural language processing (NLP) models.** For years, the first layer of nearly every NLP network was a matrix of pretrained word vectors (GloVe/word2vec) — a free injection of "the model already knows which words are related."
+- **Retrieval and similarity.** Semantic search, recommendation, deduplication, clustering: embed everything, compare by cosine, retrieve nearest neighbours (with FAISS or a vector database at scale; [Vector Search](/ai-ml/ai-ml-learning-resources/data-and-representation/vector-search/vector-search) teaches the index, and the [Embeddings and Vector Search workflow](/ai-ml/practitioner-workflows/data-and-inputs/embeddings-and-vector-search) builds one).
   - Modern systems use *sentence/document* embeddings (see [Sentence & Document Embeddings](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/sentence-and-document-embeddings/sentence-and-document-embeddings)).
   - The principle — meaning is geometry, similarity is cosine — is identical.
 - **Beyond words.** The embedding idea generalizes far past language:
   - **users/items** (recommender systems);
   - **nodes** (graph embeddings like node2vec, which literally reuse skip-gram on random walks);
-  - most importantly, the **token-embedding layer** at the bottom of *every* transformer. When GPT or Llama maps a token id to a vector, that lookup table is a learned embedding; this page is its origin story.
+  - most importantly, the **token-embedding layer** at the bottom of *every* transformer. When GPT or Llama maps a token id to a vector, that lookup table is a learned embedding; this course is its origin story.
 
 > [!TIP]
 > You rarely *train* word2vec yourself anymore — you'd download pretrained GloVe/FastText vectors, or (far more likely) use a **contextual** model.
@@ -45,13 +45,13 @@ If you actually had to *use* static embeddings on a task, here's the end-to-end 
 1. **Pretrained or train your own?** Almost always **pretrained** — GloVe (Common Crawl / Wikipedia) or FastText (157 languages) give you general-purpose vectors for free.
    - Train your own only when your domain vocabulary is far from general text (legal, biomedical, code, product SKUs, stock-keeping units) *and* you have a large in-domain corpus.
    - Rule of thumb: pretrained for general language, in-domain training when the jargon dominates.
-2. **Pick the method by your constraints.** OOV/typos/morphology or non-English → **FastText**. Pure speed on a known vocabulary → word2vec or GloVe. (See the side-by-side table below.)
+2. **Pick the method by your constraints.** Out-of-vocabulary (OOV) words, typos, rich morphology or non-English → **FastText**. Pure speed on a known vocabulary → word2vec or GloVe. (See the side-by-side table below.)
 3. **Preprocess *consistently*.** Tokenize, lowercase (usually), and handle punctuation the **same way at train time and lookup time** — a mismatch silently turns known words into OOVs.
    - For multi-word units ("New York"), decide up front whether to phrase them (word2vec's phrase detection) or keep tokens separate.
 4. **Build the document/sentence vector.** The cheap, shockingly-strong baseline is **mean-pooling** the word vectors.
    - Optionally weight by TF-IDF (term frequency–inverse document frequency), or by SIF — Arora et al.'s "smooth inverse frequency," which down-weights frequent words and removes the top principal component.
    - For anything serious today, jump to a real [sentence embedding model](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/sentence-and-document-embeddings/sentence-and-document-embeddings).
-5. **Compare by cosine, retrieve by ANN.** L2-normalize, then cosine similarity; at scale use an approximate-nearest-neighbour (ANN) index (FAISS, HNSW) instead of brute force.
+5. **Compare by cosine, retrieve by ANN.** L2-normalize, then cosine similarity; at scale use an approximate-nearest-neighbour (ANN) index (FAISS, or hierarchical navigable small world (HNSW) graphs) instead of brute force.
 6. **Audit before you ship.** Probe for bias on your sensitive axes (the Bolukbasi-style "gender direction" projection is a quick check), and sanity-check nearest neighbours on a few domain words — embeddings fail *quietly*, so look before you trust.
 
 > [!NOTE]
@@ -96,26 +96,13 @@ The honest practitioner summary:
 
 ---
 
-## The limit that ended the era: static vs contextual
+## Where static embeddings stop: one vector per word
 
-Every embedding on this page is **static** — *one fixed vector per word, forever, no matter the sentence.* That is a fatal limitation for **polysemy** (words with multiple meanings). Consider:
+Every embedding in this course is **static**: one fixed vector per word, whatever the sentence.
 
-- "I sat on the river **bank**." (the land beside water)
-- "I deposited cash at the **bank**." (the financial institution)
-
-Static embeddings give the **identical** vector to both `bank`s.
-
-- The representation was baked in *before* the model ever saw your sentence, so it can't disambiguate.
-- The best a single vector can do is land at a blurry *average* of all senses, which is wrong for each of them.
-
-![Left: a static embedding collapses both senses of 'bank' onto one vector — a blurry average that sits between the river-bank and money-bank meanings and is wrong for each. Right: a contextual embedding (ELMo/BERT) computes a different vector for 'bank' depending on its sentence, so 'river bank' and 'savings bank' finally separate. This single failure of static embeddings is what motivated contextual ones.](images/we_static_vs_contextual.png)
-
-That one limitation is exactly what motivated **contextual embeddings** — [ELMo and BERT](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert) — which compute a *different* vector for a word **depending on its surrounding sentence**. "river bank" and "savings bank" finally get different vectors.
-
-Static embeddings didn't disappear, though:
-
-- When you need **cheap, fixed, precomputed** vectors (classic retrieval, cold-start features, on-device NLP, billions of items to embed once), they're still exactly the right tool.
-- The progression static → contextual is one of the cleanest "why did the field move" stories in NLP, and a very common interview arc.
+- That breaks on **polysemy**: "river **bank**" and "savings **bank**" get the identical vector, a blurry average of both senses.
+- **Contextual embeddings** compute a vector per word *per sentence*; the measured fix, ELMo and BERT, is on [Contextual Embeddings (ELMo · BERT)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert).
+- Static vectors still win when you need **cheap, fixed, precomputed** vectors: classic retrieval, cold-start features, on-device language processing, billions of items embedded once.
 
 ```mermaid
 ---
