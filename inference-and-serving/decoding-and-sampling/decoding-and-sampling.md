@@ -383,6 +383,34 @@ What each part of the rule does, and where it stops helping:
 > [!NOTE]
 > The penalty treats the symptom. If output still loops at $\rho = 1.2$, the cause is almost always greedy decoding or a temperature set too low — switch on sampling before raising the penalty.
 
+### Turn every knob yourself
+
+Every decoder above, on this page's own `PEAKED` and `FLAT` distributions — move one knob and watch the **kept set** (the shaded corridor) resize.
+
+<!-- EXPLORER: softmax-temperature {
+  "title": "Decoding and sampling, live",
+  "prompt": "next token:",
+  "distributions": [
+    { "id": "peaked", "label": "PEAKED (cat dominates)", "tokens": ["the", "cat", "sat", "on", "mat", "dog", "ran", "fast", "blue", "sky"], "logits": [5.0, 8.0, 4.0, 3.5, 3.0, 2.5, 2.0, 1.5, 1.0, 0.5] },
+    { "id": "flat", "label": "FLAT (spread out)", "tokens": ["the", "cat", "sat", "on", "mat", "dog", "ran", "fast", "blue", "sky"], "logits": [2.20, 2.05, 1.95, 2.10, 1.80, 2.00, 1.70, 1.90, 1.85, 1.75] }
+  ],
+  "initial": { "distribution": "peaked", "temperature": 1.0, "topK": null, "topP": 0.9 },
+  "entropyUnit": "bits",
+  "repetition": { "generated": ["the", "the", "on"] },
+  "showOrder": true,
+  "compareDraws": 5,
+  "caption": "Bars run most to least likely. Dashed outline = the model's softmax at T; filled bar = the renormalized survivors; hatched grey = cut. Entropy is measured on the model's softmax at T, in bits, as in the temperature table above. Draws are seeded, so re-draw changes them and a replay repeats them."
+} -->
+> **Interactive explorer — the decoder on one distribution.** Switch between `PEAKED` and `FLAT`, flip greedy against sampled, and drag temperature, top-k, top-p and the repetition penalty $\rho$. Without the widget, the same numbers are in the tables and the demo output on this page.
+
+What to try, and what each move proves:
+
+- **Hold top-p at 0.9 and switch PEAKED → FLAT.** The corridor jumps from 1 token to 9; set top-k to 3 and it stays at 3 on both — **top-p adapts, top-k cannot**.
+- **Drag T on PEAKED.** The top-token readout shows `cat` at 99.7% (T = 0.5), 91.3% (1.0) and 57.1% (2.0), with entropy 0.032, 0.611 and 2.203 bits — the table above, live.
+- **Flip the filter order with T at 2.** Temperature-first lets the hot tail into the nucleus; top-p-first keeps the model's own one-token nucleus.
+- **On FLAT at T = 1, set ρ to 1.2.** `the` and `on` drop out of the top four, and greedy switches from `the` to `cat` at 12.0%.
+- **Compare the two rows of draws.** Greedy says `the` five times on FLAT; sampled picks several different tokens from the same distribution.
+
 ---
 
 ## Neural text degeneration: why the corridor exists
