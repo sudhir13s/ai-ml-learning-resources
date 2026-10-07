@@ -6,7 +6,7 @@ page-order:
   - tokenization-and-subword-algorithms/tokenization-and-subword-algorithms
   - bag-of-words-and-tf-idf/bag-of-words-and-tf-idf
   - n-gram-language-models-and-smoothing/n-gram-language-models-and-smoothing
-  - word-embeddings-word2vec-glove-fasttext/word-embeddings-word2vec-glove-fasttext
+  - word-embeddings-word2vec-glove-fasttext
   - contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert
   - sentence-and-document-embeddings/sentence-and-document-embeddings
   - sequence-to-sequence-and-encoder-decoder/sequence-to-sequence-and-encoder-decoder
