@@ -31,7 +31,7 @@ The task's shape dictates the strategy. One row per task you will actually ship:
 | **Code generation** | correct and parseable | $T\approx0.2$, top-p $\approx0.95$, plus grammar or JSON constraints | a small valid space; determinism and structure matter |
 | **Machine translation** | faithful and complete | beam search, $b$ = 4–8, with length normalization | closed-ended; the likeliest complete output wins BLEU |
 | **Summarization** | faithful and fluent | beam $b$ = 4, length normalization, `no_repeat_ngram_size=3` | closed-ended; block repeated phrases |
-| **Chat, assistants, RAG answers** | helpful, varied, grounded | nucleus top-p $\approx0.9$ with $T\approx0.7$, repetition penalty $\approx1.1$ | cut the tail tightly, keep a little variety |
+| **Chat, assistants, retrieval-augmented generation (RAG) answers** | helpful, varied, grounded | nucleus top-p $\approx0.9$ with $T\approx0.7$, repetition penalty $\approx1.1$ | cut the tail tightly, keep a little variety |
 | **Stories, brainstorming, dialogue** | creative and human-like | nucleus top-p $\approx0.92$–$0.95$ with $T\approx0.9$–$1.0$ | a wider nucleus for range; it still stays coherent |
 | **Evals and unit tests** | deterministic | greedy (`do_sample=False`, $T = 0$) | same input, same output, no seed |
 | **Structured output for tools** | valid JSON or enum | constrained decoding with a low temperature | the grammar guarantees the output parses |
@@ -54,7 +54,7 @@ The two-line summary that fits in your head:
 A few realities of how this is deployed:
 
 - **Defaults that ship.** Most chat APIs default to **nucleus sampling around $p=0.9$–$1.0$ with $T=0.7$–$1.0$**.
-  - OpenAI, Anthropic, and open-source serving stacks (vLLM, Text Generation Inference, TGI) all expose `temperature` + `top_p` as request parameters.
+  - OpenAI, Anthropic, and open-source serving stacks (vLLM, Text Generation Inference (TGI)) all expose `temperature` + `top_p` as request parameters.
   - Often they also expose `top_k`, `min_p`, and frequency/presence penalties.
 - **Decoders compose with serving optimizations.** [Speculative decoding](/ai-ml/ai-ml-learning-resources/inference-and-serving/speculative-decoding/speculative-decoding) accelerates *whatever* decoder you chose.
   - Its rejection-sampling correction makes the sped-up output **distributionally identical** to plain sampling from your chosen strategy.
@@ -89,7 +89,8 @@ print(tokenizer.decode(output_ids[0], skip_special_tokens=True))
 
 When one `.generate()` loop is not enough, the same knobs become vLLM `SamplingParams`, and the engine adds PagedAttention and continuous batching ([Inference Optimization & Serving](/ai-ml/ai-ml-learning-resources/inference-and-serving/inference-optimization/inference-optimization)). Also shown, not run — it needs a GPU:
 
-```python
+```step
+///FILE serve_with_vllm.py
 from vllm import LLM, SamplingParams
 
 llm = LLM(model="mistralai/Mistral-7B-Instruct-v0.3")
@@ -120,12 +121,12 @@ The vocabulary differs; the operation is identical everywhere: reshape the logit
 
 ## How decoding interacts with alignment and evaluation
 
-Two connections tie the decoder into the larger LLM picture.
+Two connections tie the decoder into the wider large-language-model (LLM) picture.
 
 **Alignment changes the distribution the decoder samples from.**
 
 - A base model's next-token distribution often has a heavy, ragged tail, so it leans hard on truncation to stay coherent.
-- [Instruction tuning and RLHF](/ai-ml/ai-ml-learning-resources/model-adaptation/preference-and-alignment-training/preference-and-alignment-training) **sharpen** that distribution toward helpful continuations, so aligned chat models are far more forgiving of decoding settings.
+- [Instruction tuning and reinforcement learning from human feedback (RLHF)](/ai-ml/ai-ml-learning-resources/model-adaptation/preference-and-alignment-training/preference-and-alignment-training) **sharpen** that distribution toward helpful continuations, so aligned chat models are far more forgiving of decoding settings.
 - Over-optimized RLHF can make a model **too** peaked: even nucleus sampling then gives near-identical, mode-collapsed answers.
 - When a chat model feels robotic and same-y, the cause may be the **training**, not the decoder — no temperature recovers diversity the model no longer has.
 
@@ -191,7 +192,7 @@ The mechanisms behind those symptoms, and the bugs that bite implementers:
   - Mechanism: locally-optimal tokens reinforce themselves into a loop; maximizing likelihood maximizes the wrong thing (Holtzman 2019).
   - Fix: switch to nucleus sampling for open-ended generation; reserve greedy/beam for closed-ended tasks (translation, extraction, math).
 - **Temperature too high → gibberish.**
-  - At $T=2$+ the distribution flattens so far that nonsense tokens become probable (entropy 2.2 of a max 3.32 bits, in our demo).
+  - At $T=2$+ the distribution flattens so far that nonsense tokens become probable (entropy 2.2 of a max 3.32 bits, in the [sampling page's demo](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/sampling-temperature-top-k-top-p)).
   - Fix: keep $T \le 1$ for factual work; if you want creativity, raise $T$ *and* tighten top-p so the flattened tail is still truncated.
 - **Temperature too low → repetition.**
   - As $T \to 0$ you converge to greedy and inherit its loops.
@@ -200,7 +201,7 @@ The mechanisms behind those symptoms, and the bugs that bite implementers:
   - Too small when the model is uncertain (chops good tokens), too large when it's confident (admits junk).
   - Fix: prefer top-p, which adapts; or combine `top_k` and `top_p` (most libraries apply both — top-k as a hard cap, top-p as the adaptive cutoff).
 - **The nucleus off-by-one / empty-nucleus crash.**
-  - Covered above — shift the mask, always keep the top-1 token, and check kept mass $\ge p$, not $> p$.
+  - Covered on the [sampling page](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/sampling-temperature-top-k-top-p) — shift the mask, always keep the top-1 token, and check kept mass $\ge p$, not $> p$.
 - **Repetition penalty side effects.**
   - Penalizing *all* previously-seen tokens suppresses legitimately-frequent words ("the", "is", "a") and can degrade fluency.
   - In code generation it can break syntax (you *need* to repeat `}` and `;`).
@@ -208,7 +209,7 @@ The mechanisms behind those symptoms, and the bugs that bite implementers:
   - Treat it as a band-aid: if loops persist at 1.2, fix the decoder (sampling on, temperature up) before pushing the penalty past ~1.3.
 - **Forgetting the seed → irreproducible bugs.**
   - Sampling is stochastic; without a fixed random number generator (RNG) seed the same prompt yields different outputs, and a bug you saw once won't reproduce.
-  - Fix: seed the generator (the demo passes an explicit `torch.Generator`), and log it. Greedy and beam are deterministic and need no seed.
+  - Fix: seed the generator (the [repetition page's demo](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/repetition-and-degeneration-controls) passes an explicit `torch.Generator`), and log it. Greedy and beam are deterministic and need no seed.
 - **"Temperature does nothing."**
   - With `do_sample=False`, temperature and top-p are **ignored**: greedy takes the argmax regardless.
   - Fix: temperature only matters when you are sampling — turn sampling on, or stop tuning a knob that is switched off.

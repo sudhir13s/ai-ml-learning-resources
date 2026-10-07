@@ -31,7 +31,7 @@ A trained language model does **not** output text. At every step it outputs a *p
 - **Decoding** is the separate, deliberate algorithm that turns that distribution into one actual token, and then the next, and the next.
 - The model proposes; the *decoder* disposes.
 
-This is the most under-appreciated lever in all of LLM usage. The *exact same model*, with the *exact same weights*, can produce very different text.
+This is the most under-appreciated lever in all of large language model (LLM) usage. The *exact same model*, with the *exact same weights*, can produce very different text.
 
 - It can give a crisp factual answer, a repetitive broken loop, or fluent creative prose.
 - The only thing that changed was **how you picked tokens from its distributions**.
@@ -40,7 +40,7 @@ This is the most under-appreciated lever in all of LLM usage. The *exact same mo
 
 The art is the narrow corridor between these two failures. Each setting in that corridor has a name: **greedy**, **beam search**, **temperature**, **top-k**, and **top-p (nucleus)**.
 
-By the end of this page you'll be able to:
+By the end of this course you'll be able to:
 
 - explain **why** the choice of decoder changes coherence, diversity, and repetition so dramatically;
 - derive how **temperature** reshapes the softmax, and predict the effect of $T=0.5$ vs $T=2.0$;
@@ -54,15 +54,15 @@ By the end of this page you'll be able to:
 > - [Speculative decoding](/ai-ml/ai-ml-learning-resources/inference-and-serving/speculative-decoding/speculative-decoding) is a pure speed trick: its output is provably **distributionally identical** to plain sampling.
 > - Decoding *strategy*, the subject here, is the choice that **changes what text you get**. Speculation makes a strategy faster; it never changes which one you chose.
 
-**The strategies at a glance.** Every decoder below reads the same logits; they differ in what they keep and how they pick. The axis that decides between them is **closed-ended vs open-ended**:
+**The strategies at a glance.** Every decoder in this course reads the same logits; they differ in what they keep and how they pick. The axis that decides between them is **closed-ended vs open-ended**:
 
 | Strategy | What it does | Output feel | Task shape it fits |
 |---|---|---|---|
-| **Greedy** (argmax) | always the single most likely token | deterministic; loops on long text | closed-ended and short: extraction, arithmetic, a label |
-| **Beam search** | keeps the $b$ most probable *sequences* | high-likelihood, low-diversity, slower | closed-ended with one best sequence: translation, summarization |
-| **Temperature** | rescales the logits before the softmax | the dial from focused to adventurous | both; it is combined with every sampling decoder |
-| **Top-k** | keeps a fixed $k$ best tokens, then samples | bounded randomness, blind to confidence | open-ended, when a hard cap on candidates is enough |
-| **Top-p (nucleus)** | keeps the smallest set covering mass $p$ | adaptive: tight when sure, wide when unsure | the open-ended default: chat, dialogue, stories |
+| **[Greedy](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/greedy-and-beam-search)** (argmax) | always the single most likely token | deterministic; loops on long text | closed-ended and short: extraction, arithmetic, a label |
+| **[Beam search](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/greedy-and-beam-search)** | keeps the $b$ most probable *sequences* | high-likelihood, low-diversity, slower | closed-ended with one best sequence: translation, summarization |
+| **[Temperature](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/sampling-temperature-top-k-top-p)** | rescales the logits before the softmax | the dial from focused to adventurous | both; it is combined with every sampling decoder |
+| **[Top-k](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/sampling-temperature-top-k-top-p)** | keeps a fixed $k$ best tokens, then samples | bounded randomness, blind to confidence | open-ended, when a hard cap on candidates is enough |
+| **[Top-p (nucleus)](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/sampling-temperature-top-k-top-p)** | keeps the smallest set covering mass $p$ | adaptive: tight when sure, wide when unsure | the open-ended default: chat, dialogue, stories |
 
 ---
 
@@ -107,7 +107,7 @@ graph LR
 
 *The two naïve rules fail at opposite extremes (the red nodes name the failures: loops and incoherence). Every good decoder lives in between: keep the plausible tokens, discard the tail, sample with controlled randomness.*
 
-So we need a rule that is **random enough to be diverse and non-repetitive, but constrained enough to never wander into the nonsense tail.** That single sentence is the design brief for everything below.
+So we need a rule that is **random enough to be diverse and non-repetitive, but constrained enough to never wander into the nonsense tail.** That single sentence is the design brief for the rest of the course.
 
 ---
 

@@ -24,7 +24,7 @@ Even a well-chosen sampler can drift into repeats; this page covers the controls
 
 ## Repetition penalty: a loop breaker, not a cure
 
-Greedy and low-temperature decoding loop because a phrase already in the context makes itself likelier. The **repetition penalty** $\rho \ge 1$ pushes back on exactly the tokens already emitted:
+[Greedy and low-temperature decoding](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/greedy-and-beam-search) loop because a phrase already in the context makes itself likelier. The **repetition penalty** $\rho \ge 1$ pushes back on exactly the tokens already emitted:
 
 $$z'_i = \begin{cases} z_i / \rho & \text{if } i \text{ was generated and } z_i > 0 \\ z_i \cdot \rho & \text{if } i \text{ was generated and } z_i \le 0 \\ z_i & \text{otherwise} \end{cases}$$
 
@@ -35,7 +35,7 @@ What each part of the rule does, and where it stops helping:
 
 - **Two branches, one direction.** Dividing a negative logit by $\rho$ would move it *toward zero* and make the token likelier; multiplying it pushes it further down instead.
 - **A presence test, not a count.** A token said once and a token said ten times get the same penalty.
-  - OpenAI-style `presence_penalty` and `frequency_penalty` are the subtractive cousins.
+  - OpenAI-style `presence_penalty` and `frequency_penalty` are the subtractive cousins (below).
   - The frequency form does scale with the count.
 - **The safe band is $\rho \approx 1.1$–$1.2$.** On the flat toy distribution, $\rho = 1.2$ after emitting `the`, `the`, `on` drops both tokens out of the top four and greedy switches to `cat` — the demo prints it below.
 - **Past about 1.3 it garbles text.** A sentence genuinely needs "the" and "a"; code needs `}` and `;` again and again.
@@ -69,7 +69,7 @@ The repetition penalty is one of four direct controls; each edits the logits or 
 
 ## Loops broken, and greedy set against sampling
 
-The same script adds the two knobs harvested above: the repetition penalty, and five draws from one distribution, greedy against sampled. Both run on the **flat** toy distribution, where no token dominates:
+The [sampling page's script](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/sampling-temperature-top-k-top-p) — its `VOCAB`, `FLAT` and `top_p_filter` — gains two more blocks: the repetition penalty, and five draws from one distribution, greedy against sampled. Both run on the **flat** toy distribution, where no token dominates:
 
 ```step
 ///FILE decoding_sampling_loops.py

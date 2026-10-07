@@ -20,11 +20,13 @@ category: inference-and-serving
 
 # Sampling: temperature, top-k and top-p
 
-Search decoders loop on open-ended text; this page builds the sampling decoders that keep variety without drawing nonsense.
+[Search decoders](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/greedy-and-beam-search) loop on open-ended text; this page builds the sampling decoders that keep variety without drawing nonsense.
+
+The picture before the derivations is the [Autoregressive Generation and Sampling Controls intuition](/ai-ml/ai-ml-intuitions/generation/autoregressive-generation/autoregressive-generation-and-sampling-controls-intuition).
 
 ## Neural text degeneration: why the corridor exists
 
-It's worth pausing on *why* both extremes fail, because Holtzman et al. (2019) turned the folklore into a precise observation, and it's the conceptual heart of the topic.
+It's worth pausing on *why* both extremes from the [first page](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/decoding-and-sampling) — greedy's loops and pure sampling's nonsense — fail, because Holtzman et al. (2019) turned the folklore into a precise observation, and it's the conceptual heart of the topic.
 
 Their finding: **maximizing likelihood produces degenerate text.**
 
@@ -274,10 +276,10 @@ A handful of refinements you'll meet in practice, each a small twist on the abov
   - Grounded in information theory: human text tends to be "typically" surprising, not maximally probable.
 - **Epsilon and eta sampling** ([Hewitt et al. 2022](https://arxiv.org/abs/2210.15191)) — cut every token below an absolute probability floor (epsilon), or below a floor that moves with the distribution's entropy (eta).
   - Same goal as top-p — drop the unreliable tail — with a more principled threshold than a fixed $k$ or $p$.
-- **Contrastive search** ([Su et al. 2022](https://arxiv.org/abs/2202.06417)) — pick the token that is both high-probability *and* dissimilar (in hidden-state space) to tokens already generated.
+- **Contrastive search** ([Su et al. 2022](https://arxiv.org/abs/2202.06417); in full on [Repetition and Degeneration Controls](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/repetition-and-degeneration-controls)) — pick the token that is both high-probability *and* dissimilar (in hidden-state space) to tokens already generated.
   - It explicitly penalizes the representation-space repetition that causes degeneration.
 - **Repetition penalty** — push down the logits of tokens already generated, before the softmax.
-  - It is the one knob here aimed at a symptom rather than the distribution, so it gets its own subsection next.
+  - It is the one knob here aimed at a symptom rather than the distribution, so it has its own page: [Repetition and Degeneration Controls](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/repetition-and-degeneration-controls).
 
 > [!NOTE]
 > **Source:** typical sampling is from [Meister, Pimentel, Wiher & Cotterell, *Locally Typical Sampling* (2022)](https://arxiv.org/abs/2202.00666). Contrastive search and the degeneration-as-anisotropy analysis are from [Su, Lan, Wang, Yogatama, Kong & Collier, *A Contrastive Framework for Neural Text Generation* (2022)](https://arxiv.org/abs/2202.06417). Epsilon and eta sampling are from [Hewitt, Manning & Liang, *Truncation Sampling as Language Model Desmoothing* (2022)](https://arxiv.org/abs/2210.15191); min-p is from [Nguyen et al., *Turning Up the Heat: Min-p Sampling* (2024)](https://arxiv.org/abs/2407.01082).

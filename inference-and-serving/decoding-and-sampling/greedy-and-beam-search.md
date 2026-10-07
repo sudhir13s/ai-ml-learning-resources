@@ -37,7 +37,7 @@ Generating text is a **search over sequences**, and it cannot be solved exactly:
 There are two families.
 
 - **Search** decoders (greedy, beam) try to find the *most probable sequence*.
-- **Sampling** decoders (temperature / top-k / top-p) *draw* from the distribution with controlled randomness.
+- **Sampling** decoders (temperature / top-k / top-p) *draw* from the distribution with controlled randomness — the [next page](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/sampling-temperature-top-k-top-p).
 
 ### Greedy: argmax, and why it's myopic
 
@@ -55,7 +55,7 @@ The flaw is structural, not incidental.
 
 - Greedy maximizes $p(x_t \mid x_{<t})$ at each step, but the **product** $\prod_t p(x_t \mid x_{<t})$ — the probability of the whole sequence — is *not* maximized by a chain of locally-greedy choices.
 - A token that looks slightly worse now can open up a far more probable continuation later, and greedy can never see it.
-- Worse, on open-ended text the locally-optimal choice **reinforces itself into a loop** (the repetition above).
+- Worse, on open-ended text the locally-optimal choice **reinforces itself into a loop** (the repetition the [first page](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/decoding-and-sampling) describes).
 - Greedy is the right tool only when the answer is essentially deterministic: "2 + 2 = ___", or extracting a field from a document.
 
 **A two-step tree shows the myopia in numbers.** After the prompt the model gives $P(A) = 0.55$ and $P(B) = 0.45$, so greedy commits to **A**.
@@ -101,7 +101,7 @@ graph TD
 
 Beam search shines on **closed-ended** tasks and fails on open-ended ones:
 
-- **Closed-ended** — [machine translation](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/machine-translation/machine-translation) (MT), [summarization](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/text-summarization/text-summarization), constrained generation. There *is* a single best answer, and beam with length normalization and $b$ of 4–8 reliably beats greedy on BLEU and ROUGE.
+- **Closed-ended** — [machine translation](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/machine-translation/machine-translation) (MT), [summarization](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/text-summarization/text-summarization), constrained generation. There *is* a single best answer, and beam with length normalization and $b$ of 4–8 reliably beats greedy on the BLEU and ROUGE overlap scores (bilingual evaluation understudy; recall-oriented understudy for gisting evaluation).
 - **Open-ended** — it fails in a surprising way: **maximum-probability text is bland and repetitive.**
 
 Why the open-ended case goes wrong:
@@ -116,7 +116,7 @@ For closed-ended use, one practical fix targets beam's bias toward *short* seque
 
 - Every log-probability is **negative**, so raw cumulative log-prob only ever *subtracts* with each extra token.
 - Raw beam search therefore prefers to stop early, which **truncates** translations and summaries.
-- **Length normalization** divides the score by a length penalty $\text{lp}(y)$, the Google NMT form:
+- **Length normalization** divides the score by a length penalty $\text{lp}(y)$, the Google neural machine translation (NMT) form:
 
 $$\text{score}(y) = \frac{1}{\text{lp}(y)} \sum_{i=1}^{|y|} \log p_\theta(y_i \mid y_{<i}), \qquad \text{lp}(y) = \frac{(5 + |y|)^\alpha}{(5 + 1)^\alpha}$$
 
