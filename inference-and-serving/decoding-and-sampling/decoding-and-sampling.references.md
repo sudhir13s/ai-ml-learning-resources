@@ -54,17 +54,23 @@ updated: 2026-09-13
 - [A Contrastive Framework for Neural Text Generation (Contrastive Search)](https://arxiv.org/abs/2202.06417) — **Su, Lan, Wang, Yogatama, Kong & Collier (2022)** — picks tokens that are probable *and* dissimilar to the context in representation space.
 - [CTRL: A Conditional Transformer Language Model for Controllable Generation](https://arxiv.org/abs/1909.05858) — **Keskar, McCann, Varshney, Xiong & Socher (2019)** — introduces the penalized sampling that became the repetition penalty.
 - [Distilling the Knowledge in a Neural Network](https://arxiv.org/abs/1503.02531) — **Hinton, Vinyals & Dean (2015)** — origin of the temperature-scaled softmax, §2.
+- [Diverse Beam Search: Decoding Diverse Solutions from Neural Sequence Models](https://arxiv.org/abs/1610.02424) — **Vijayakumar et al. (2018)** — groups of beams with a dissimilarity penalty, so the n-best list is genuinely varied.
 - [Efficient Memory Management for LLM Serving with PagedAttention](https://arxiv.org/abs/2309.06180) — **Kwon et al. (2023)** — the vLLM engine behind the production sampling parameters on the page.
 - [Fast Inference from Transformers via Speculative Decoding](https://arxiv.org/abs/2211.17192) — **Leviathan, Kalman & Matias (2023)** — proves draft-and-verify output is distributionally identical to plain sampling.
 - [Google's Neural Machine Translation System (GNMT)](https://arxiv.org/abs/1609.08144) — **Wu et al. (2016)** — §7 gives the length-normalized beam-search score.
 - [Hierarchical Neural Story Generation (top-k sampling)](https://arxiv.org/abs/1805.04833) — **Fan, Lewis & Dauphin (2018)** — introduces top-k truncated sampling for open-ended generation.
 - [Language Models are Few-Shot Learners (GPT-3)](https://arxiv.org/abs/2005.14165) — **Brown et al. (2020)** — temperature and sampling settings used at scale.
 - [Locally Typical Sampling](https://arxiv.org/abs/2202.00666) — **Meister, Pimentel, Wiher & Cotterell (2022)** — keep tokens whose information content is typical, an information-theoretic alternative to top-p.
+- [Six Challenges for Neural Machine Translation](https://arxiv.org/abs/1706.03872) — **Koehn & Knowles (2017)** — documents the "beam search curse": quality falls as the beam grows past a small width.
 - [The Curious Case of Neural Text Degeneration (Nucleus Sampling)](https://arxiv.org/abs/1904.09751) — **Holtzman, Buys, Du, Forbes & Choi (2019)** — introduces top-p sampling and the degeneration analysis; the most important paper for this topic.
+- [Truncation Sampling as Language Model Desmoothing](https://arxiv.org/abs/2210.15191) — **Hewitt, Manning & Liang (2022)** — epsilon and eta sampling, tail cuts with absolute and entropy-dependent floors.
 - [Turning Up the Heat: Min-p Sampling for Creative and Coherent LLM Outputs](https://arxiv.org/abs/2407.01082) — **Nguyen et al. (2024, ICLR 2025)** — the cutoff that scales with the top token's probability, now a standard knob in vLLM, llama.cpp and Transformers.
 
 **Documentation**:
+- [GBNF grammars](https://github.com/ggml-org/llama.cpp/blob/master/grammars/README.md) — **llama.cpp** — the grammar format that constrains local-model generation token by token.
 - [Generation strategies](https://huggingface.co/docs/transformers/en/generation_strategies) — **Hugging Face Transformers** — every `.generate()` decoding argument, with defaults.
+- [Guidance](https://github.com/guidance-ai/guidance) — **Guidance AI** — interleaves generation with regular-expression and grammar constraints.
+- [Outlines](https://github.com/dottxt-ai/outlines) — **.txt (dottxt)** — structured generation against JSON schemas, regular expressions and grammars.
 - [Sampling parameters](https://docs.vllm.ai/en/latest/api/vllm/sampling_params/) — **vLLM** — `SamplingParams`: temperature, top-p, top-k, min-p and the penalties as a serving engine exposes them.
 
 **Books**:

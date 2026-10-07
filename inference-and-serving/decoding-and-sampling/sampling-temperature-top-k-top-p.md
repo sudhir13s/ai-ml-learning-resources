@@ -32,6 +32,65 @@ Their finding: **maximizing likelihood produces degenerate text.**
 - The longer they run, the *more* confident the model becomes in continuing the loop (a positive-feedback trap).
 - Meanwhile, the **probability mass in the unreliable tail** is the source of incoherence under pure sampling: integrate over thousands of tail tokens and you draw a derailing one too often.
 
+Their sharpest observation: **human text is not the most probable text.**
+
+- Scored by the model, real human continuations are full of dips: people keep choosing tokens that are *not* the model's top pick.
+- Natural language lives in a band of **moderate** probability, not at the ceiling, so a decoder that chases the ceiling slides into robotic, looping text.
+
+**The loop, mechanically.** Once the model emits a phrase, the phrase sits in its own context and *raises* the probability of saying it again.
+
+- Greedy takes that now-likeliest token, which strengthens the pattern further — a self-reinforcing loop.
+- Sampling breaks the loop by sometimes *not* taking the top token.
+
+**Measured: same weights, different decoders.**
+
+- GPT-2 continuing *"I love pizza. I love pizza."* greedily loops forever: **distinct-2 = 0.103**, so only about 10% of its bigrams are unique.
+- The same model with nucleus sampling (top-p = 0.92) never repeats a bigram: **distinct-2 = 1.0**.
+- A toy self-reinforcing model, with no download, shows the same slide: 0.125 under greedy, 0.175 at $T = 0.3$, 0.450 at $T = 1.0$.
+
+![Neural text degeneration on a toy self-reinforcing model (the mechanism behind the GPT-2 demo, with no model download needed). distinct-2 — the fraction of unique bigrams — collapses to 0.125 under greedy (which falls into the 'I love pizza .' loop), rises slightly to 0.175 at temperature 0.3, and reaches 0.450 at temperature 1.0. The model is identical across all three bars; only the decoding changes. Numbers from `code/decoding_strategies.py`.](images/decode_degeneration.png)
+
+The GPT-2 measurement, end to end. It downloads the 124M-parameter GPT-2 once and runs on CPU:
+
+```step
+///FILE gpt2_degeneration.py
+"""Measured: greedy degenerates, nucleus stays diverse (GPT-2, Python 3.12).
+distinct-2 = fraction of unique bigrams; lower = more repetitive."""
+import torch
+from transformers import GPT2LMHeadModel, GPT2TokenizerFast
+
+tokenizer = GPT2TokenizerFast.from_pretrained("gpt2")
+model = GPT2LMHeadModel.from_pretrained("gpt2").eval()
+torch.manual_seed(0)
+
+def distinct_2(text):
+    words = text.split()
+    bigrams = [tuple(words[i:i + 2]) for i in range(len(words) - 1)]
+    return len(set(bigrams)) / max(len(bigrams), 1)
+
+prompt_ids = tokenizer("I love pizza. I love pizza.", return_tensors="pt").input_ids
+with torch.no_grad():
+    greedy = model.generate(prompt_ids, max_new_tokens=40, do_sample=False,
+                            pad_token_id=tokenizer.eos_token_id)
+    nucleus = model.generate(prompt_ids, max_new_tokens=40, do_sample=True,
+                             top_p=0.92, top_k=0, temperature=1.0,
+                             pad_token_id=tokenizer.eos_token_id)
+greedy_text = tokenizer.decode(greedy[0, prompt_ids.shape[1]:], skip_special_tokens=True)
+nucleus_text = tokenizer.decode(nucleus[0, prompt_ids.shape[1]:], skip_special_tokens=True)
+print("GREEDY  distinct-2 =", round(distinct_2(greedy_text), 3), "->", greedy_text[:80])
+print("NUCLEUS distinct-2 =", round(distinct_2(nucleus_text), 3), "->", nucleus_text[:80])
+```
+
+Output (the nucleus continuation varies with the seed and the `transformers` version; the distinct-2 gap is the stable result):
+
+```text
+GREEDY  distinct-2 = 0.103 ->  I love pizza. I love pizza. I love pizza. I love pizza. I love pizza. I love pi
+NUCLEUS distinct-2 = 1.000 ->  I love pizza.
+```
+
+> [!NOTE]
+> **Source:** the degeneration result, the "human text is not the most probable text" finding, and nucleus sampling itself are from [Holtzman et al., *The Curious Case of Neural Text Degeneration*](https://arxiv.org/abs/1904.09751) (ICLR 2020). The toy distinct-2 numbers come from `code/decoding_strategies.py`.
+
 The resolution is to **truncate the unreliable tail, then sample from what remains.**
 
 - That keeps the diversity that defeats repetition while discarding the tail that causes incoherence.
@@ -196,6 +255,12 @@ And the adaptivity is monotone — as a distribution flattens (entropy rises), t
 
 That is the crux: **top-p adapts its cutoff to the model's confidence; top-k cannot.** It's why nucleus sampling (often $p \in [0.9, 0.95]$) is the default decoder in most production chat systems, and why the original paper named it for the *nucleus* of probability mass.
 
+> [!NOTE]
+> Greedy, top-k and top-p are **one operation with different cutoffs**: truncate, renormalize, sample.
+> - Greedy keeps 1 token; top-k keeps $k$; top-p keeps tokens until their mass reaches $p$.
+> - Temperature joins the family as a limit: $T \to 0$ is greedy.
+> - Seeing one parameterized truncate-and-sample procedure, not four unrelated tricks, is what makes the topic click.
+
 ---
 
 ## The other knobs, briefly
@@ -204,16 +269,33 @@ A handful of refinements you'll meet in practice, each a small twist on the abov
 
 - **Min-p sampling** — keep tokens whose probability is at least $p_{\min} \times p_{\max}$ (a fraction of the *top* token's probability).
   - Like top-p it's adaptive, but it's anchored to the peak rather than to cumulative mass.
-  - That anchoring keeps it stable at high temperature.
+  - That anchoring keeps it stable at high temperature, where top-p can still admit junk.
 - **Typical sampling** ([Meister et al. 2022](https://arxiv.org/abs/2202.00666)) — keep tokens whose information content $-\log p_i$ is *close to the distribution's expected* information content (its entropy), rather than simply the most probable.
   - Grounded in information theory: human text tends to be "typically" surprising, not maximally probable.
+- **Epsilon and eta sampling** ([Hewitt et al. 2022](https://arxiv.org/abs/2210.15191)) — cut every token below an absolute probability floor (epsilon), or below a floor that moves with the distribution's entropy (eta).
+  - Same goal as top-p — drop the unreliable tail — with a more principled threshold than a fixed $k$ or $p$.
 - **Contrastive search** ([Su et al. 2022](https://arxiv.org/abs/2202.06417)) — pick the token that is both high-probability *and* dissimilar (in hidden-state space) to tokens already generated.
   - It explicitly penalizes the representation-space repetition that causes degeneration.
 - **Repetition penalty** — push down the logits of tokens already generated, before the softmax.
   - It is the one knob here aimed at a symptom rather than the distribution, so it gets its own subsection next.
 
 > [!NOTE]
-> **Source:** typical sampling is from [Meister, Pimentel, Wiher & Cotterell, *Locally Typical Sampling* (2022)](https://arxiv.org/abs/2202.00666). Contrastive search and the degeneration-as-anisotropy analysis are from [Su, Lan, Wang, Yogatama, Kong & Collier, *A Contrastive Framework for Neural Text Generation* (2022)](https://arxiv.org/abs/2202.06417).
+> **Source:** typical sampling is from [Meister, Pimentel, Wiher & Cotterell, *Locally Typical Sampling* (2022)](https://arxiv.org/abs/2202.00666). Contrastive search and the degeneration-as-anisotropy analysis are from [Su, Lan, Wang, Yogatama, Kong & Collier, *A Contrastive Framework for Neural Text Generation* (2022)](https://arxiv.org/abs/2202.06417). Epsilon and eta sampling are from [Hewitt, Manning & Liang, *Truncation Sampling as Language Model Desmoothing* (2022)](https://arxiv.org/abs/2210.15191); min-p is from [Nguyen et al., *Turning Up the Heat: Min-p Sampling* (2024)](https://arxiv.org/abs/2407.01082).
+
+---
+
+## The quality–diversity trade-off: one picture for all of it
+
+Every knob on this page moves the decoder along one trade-off — **quality** (coherence, factuality, staying on topic) against **diversity** (variety, surprise, distinct n-grams).
+
+![The quality-diversity plane (illustrative placement — axes are conceptual, not measured). Greedy and beam sit at low diversity (repetitive, dull). Pure unrestricted sampling at T=1 sits at high diversity but low quality (incoherent, off-topic). Low-temperature top-p and nucleus sampling near p=0.9 land in the shaded human-like band — high quality with enough diversity. Raising temperature trades quality for diversity along the curve.](images/decode_quality_diversity.png)
+
+Reading the picture:
+
+- **Greedy and beam** (bottom-left): maximal model-probability, **low diversity**, so they degenerate on open-ended tasks — and are right for closed-ended ones with one answer.
+- **Pure sampling at $T = 1$, no truncation** (bottom-right): maximal diversity, but the noisy tail sinks coherence.
+- **Nucleus near $p = 0.9$** (the human-like band): diverse enough to read as human, truncated enough to stay coherent.
+- **Temperature slides you along the curve**: up toward diversity, down toward quality. No point is best for every task; the task decides where to sit.
 
 ---
 

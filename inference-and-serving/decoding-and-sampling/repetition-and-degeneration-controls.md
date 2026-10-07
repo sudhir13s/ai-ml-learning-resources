@@ -45,6 +45,28 @@ What each part of the rule does, and where it stops helping:
 
 ---
 
+## The other repetition controls
+
+The repetition penalty is one of four direct controls; each edits the logits or the search before a token is picked:
+
+- **Frequency and presence penalties** (the OpenAI API knobs) are additive adjustments to the logits, tuned independently.
+  - **Frequency penalty** subtracts an amount proportional to how many times a token has already appeared, escalating against overused words.
+  - **Presence penalty** subtracts a flat amount once a token has appeared at all, nudging toward new topics.
+- **No-repeat n-gram blocking** (`no_repeat_ngram_size = n`) is a hard constraint: no n-gram that has already occurred may be emitted.
+  - With $n = 3$ the model can never repeat a trigram — blunt but effective.
+  - The risk is blocking phrases that legitimately recur, such as names and technical terms.
+- **Contrastive search** is a *deterministic* decoder that attacks repetition at the representation level.
+  - Each candidate's score is its model probability **minus** a degeneration penalty: its highest cosine similarity to the hidden states of tokens already generated.
+  - With $k = 4$–$8$ candidates and penalty weight $\alpha \approx 0.6$ it gives coherent, non-repeating text, often the best quality without sampling.
+  - **Source:** [Su et al., *A Contrastive Framework for Neural Text Generation* (2022)](https://arxiv.org/abs/2202.06417).
+
+> [!TIP]
+> These controls stack with the sampling knobs, so stack them lightly.
+> - A robust chat default is `temperature ≈ 0.7, top_p ≈ 0.9, repetition_penalty ≈ 1.1` — sample for variety, discourage exact repeats a little.
+> - Each control removes probability mass; all of them at full strength gives stilted, word-avoiding text.
+
+---
+
 ## Loops broken, and greedy set against sampling
 
 The same script adds the two knobs harvested above: the repetition penalty, and five draws from one distribution, greedy against sampled. Both run on the **flat** toy distribution, where no token dominates:

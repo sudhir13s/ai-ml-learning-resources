@@ -153,19 +153,13 @@ Hold a follow-up question to this analogy — *"what if two dishes tie at the 90
 
 The crux for practitioners: **the decoder is a product decision, not just a hyperparameter.** Match it to the task.
 
-| Task type | Example | Recommended decoder | Why |
-|---|---|---|---|
-| **Closed-ended, one right answer** | translation, summarization, field extraction, math | beam search (b=4–8) or greedy / low T | there *is* a best sequence; search for it |
-| **Factual / reliable open-ended** | retrieval-augmented generation (RAG) answers, assistants, tool use | nucleus $p\approx0.9$ + $T\approx0.7$ | truncate the tail tightly, low temperature for focus |
-| **Creative open-ended** | story, brainstorming, dialogue | nucleus $p\approx0.95$ + $T\approx1.0$ | wider nucleus, full temperature for diversity |
-| **Deterministic / testable** | unit-tested pipelines, evals | greedy ($T=0$) | reproducible, no seed dependence |
-| **Open-ended output that loops** | long answers repeating a phrase | keep nucleus sampling; add a repetition penalty of 1.1–1.2 | treats the symptom once the decoder itself is right |
-
 This is why API providers expose `temperature`, `top_p`, `top_k`, `frequency_penalty`, and `presence_penalty` as first-class parameters — they *are* the behaviour controls.
 
 - A coding assistant runs near-greedy ($T\approx0.2$) for correctness.
 - A brainstorming tool runs $T\approx1.0$ with $p\approx0.95$ for range.
 - **Same model, different decoder, completely different product.**
+
+The per-task settings — which decoder and which knob values for extraction, code, translation, summarization, chat, stories, evals and tool calls — are the playbook in [Decoding in Production](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/decoding-in-production).
 
 ---
 

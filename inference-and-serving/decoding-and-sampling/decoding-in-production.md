@@ -21,6 +21,34 @@ category: inference-and-serving
 
 This page carries the course into a serving stack: the defaults that ship, the same knobs in code, and how to diagnose bad output.
 
+## The playbook: which decoder for which task
+
+The task's shape dictates the strategy. One row per task you will actually ship:
+
+| Task | Goal | Recommended decoding | Why |
+|---|---|---|---|
+| **Factual QA, extraction** | one correct answer | greedy, or $T\approx0.1$ with top-p $\approx0.9$ | the most probable answer is the one you want |
+| **Code generation** | correct and parseable | $T\approx0.2$, top-p $\approx0.95$, plus grammar or JSON constraints | a small valid space; determinism and structure matter |
+| **Machine translation** | faithful and complete | beam search, $b$ = 4–8, with length normalization | closed-ended; the likeliest complete output wins BLEU |
+| **Summarization** | faithful and fluent | beam $b$ = 4, length normalization, `no_repeat_ngram_size=3` | closed-ended; block repeated phrases |
+| **Chat, assistants, RAG answers** | helpful, varied, grounded | nucleus top-p $\approx0.9$ with $T\approx0.7$, repetition penalty $\approx1.1$ | cut the tail tightly, keep a little variety |
+| **Stories, brainstorming, dialogue** | creative and human-like | nucleus top-p $\approx0.92$–$0.95$ with $T\approx0.9$–$1.0$ | a wider nucleus for range; it still stays coherent |
+| **Evals and unit tests** | deterministic | greedy (`do_sample=False`, $T = 0$) | same input, same output, no seed |
+| **Structured output for tools** | valid JSON or enum | constrained decoding with a low temperature | the grammar guarantees the output parses |
+| **Open-ended output that loops** | stop the repeat | keep nucleus sampling, add a repetition penalty of 1.1–1.2 | treats the symptom once the decoder itself is right |
+
+The two-line summary that fits in your head:
+
+- **Closed-ended, faithfulness-first** tasks use **search** (greedy or beam); **open-ended, creativity-first** tasks use **sampling** (temperature plus top-p).
+- Turn temperature **down** toward the factual end and **up** toward the creative end, and reach for [constraints](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/constrained-and-guided-decoding) whenever structure must be guaranteed.
+
+> [!WARNING]
+> "Lower temperature is always safer" is wrong for open-ended tasks.
+> - Push $T$ too low there and you slide straight back into greedy's repetition.
+> - There is no globally safe setting; the safe setting is the one matched to the task's place on the quality–diversity curve.
+
+---
+
 ## In production
 
 A few realities of how this is deployed:
@@ -28,7 +56,7 @@ A few realities of how this is deployed:
 - **Defaults that ship.** Most chat APIs default to **nucleus sampling around $p=0.9$–$1.0$ with $T=0.7$–$1.0$**.
   - OpenAI, Anthropic, and open-source serving stacks (vLLM, Text Generation Inference, TGI) all expose `temperature` + `top_p` as request parameters.
   - Often they also expose `top_k`, `min_p`, and frequency/presence penalties.
-- **Decoders compose with serving optimizations.** [Speculative decoding](/ai-ml/ai-ml-learning-resources/inference-and-serving/inference-optimization/inference-optimization) accelerates *whatever* decoder you chose.
+- **Decoders compose with serving optimizations.** [Speculative decoding](/ai-ml/ai-ml-learning-resources/inference-and-serving/speculative-decoding/speculative-decoding) accelerates *whatever* decoder you chose.
   - Its rejection-sampling correction makes the sped-up output **distributionally identical** to plain sampling from your chosen strategy.
   - The two are orthogonal: this page picks the strategy, the serving stack makes it fast.
 - **Beam search is fading for chat, alive for MT.** As models got better at open-ended generation, beam search's blandness made it a poor fit for assistants.
@@ -72,6 +100,47 @@ for request_output in llm.generate(["Summarize: ...", "Translate: ...", "Q: ..."
 
 ---
 
+## Mapping the knobs to real APIs
+
+The same concepts carry slightly different names across stacks:
+
+- **Hugging Face `transformers`** (`model.generate`):
+  - `do_sample` (False is greedy or beam, True is sampling), `num_beams`, `temperature`, `top_k`, `top_p`.
+  - `repetition_penalty`, `no_repeat_ngram_size`, `length_penalty` (the $\alpha$ of beam's length normalization), `penalty_alpha` with `top_k` (contrastive search), `min_new_tokens`.
+- **OpenAI and Anthropic chat APIs**:
+  - `temperature`, `top_p`, plus `frequency_penalty` and `presence_penalty` where offered; `logit_bias` for token-level steering; a structured-output or JSON mode for constrained decoding.
+  - No beam search is exposed — these endpoints sample. Conventionally you tune **either** `temperature` **or** `top_p`, not both.
+- **vLLM and Text Generation Inference** (serving):
+  - The full sampling set (`temperature`, `top_p`, `top_k`, `min_p`, the penalties) as per-request `SamplingParams`, plus guided-decoding back ends for grammars, JSON and regular expressions.
+  - Speculative decoding is configured on the engine, invisible to the request.
+
+The vocabulary differs; the operation is identical everywhere: reshape the logits, optionally truncate the tail, then sample or take the argmax.
+
+---
+
+## How decoding interacts with alignment and evaluation
+
+Two connections tie the decoder into the larger LLM picture.
+
+**Alignment changes the distribution the decoder samples from.**
+
+- A base model's next-token distribution often has a heavy, ragged tail, so it leans hard on truncation to stay coherent.
+- [Instruction tuning and RLHF](/ai-ml/ai-ml-learning-resources/model-adaptation/preference-and-alignment-training/preference-and-alignment-training) **sharpen** that distribution toward helpful continuations, so aligned chat models are far more forgiving of decoding settings.
+- Over-optimized RLHF can make a model **too** peaked: even nucleus sampling then gives near-identical, mode-collapsed answers.
+- When a chat model feels robotic and same-y, the cause may be the **training**, not the decoder — no temperature recovers diversity the model no longer has.
+
+**The decoder changes your evaluation numbers.** It is part of the system under test, so it must match the [metric](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/nlp-evaluation-metrics/nlp-evaluation-metrics):
+
+- **Reference-overlap metrics** (BLEU for translation, ROUGE for summarization) reward matching one reference, so they favour **beam search**; BLEU from a high-temperature sample understates a system.
+- **Diversity and human-likeness metrics** (distinct-n, MAUVE, the perplexity of human text) reward variety, so they favour **nucleus sampling**; reported from greedy output, a good model looks degenerate.
+- **Reproducibility**: a benchmark meant to be deterministic must fix the decoder — greedy, or a fixed seed — or the same model scores differently run to run.
+
+> [!WARNING]
+> Comparing two models under *different* decoders — one with beam, one with sampling — and crediting the gap to the models is a classic evaluation mistake.
+> - The decoder is a confound: hold it fixed, or report both.
+
+---
+
 ## Recap and rapid-fire
 
 **If you remember nothing else:** the model emits a *distribution*; the **decoder** turns it into text, and that choice — not the weights — controls coherence, diversity, and repetition.
@@ -106,13 +175,15 @@ Runnable services in this estate that put these decoding knobs behind a real ser
 
 ## Pitfalls: symptoms, causes and fixes
 
-Start from what you see in the generated text. Three symptoms cover most decoding complaints:
+Decoding is where many "the model is broken" tickets start. Start from what you see in the generated text — five symptoms cover most complaints:
 
 | Symptom in the text | Likely cause | First fix |
 |---|---|---|
 | **Loops** — "the the the", repeated phrases | greedy decoding, or temperature too low | turn on sampling ($T\approx0.7$, top-p 0.9); only then add a repetition penalty of 1.1–1.2 |
 | **Gibberish** — off-topic or invented words | temperature too high with no tail cut | lower $T$, and add top-p 0.9 to truncate the tail |
 | **Bland** — the same safe answer every time | greedy, or $T$ near 0 | raise $T$ toward 0.8 and set top-p to 0.95 |
+| **Too short** — truncated translations or summaries | beam search without length normalization, or an early end-of-sequence token | add length normalization ($\alpha\approx0.6$); for sampling set `min_new_tokens` |
+| **Invalid structure** — JSON that won't parse, an invented enum value | unconstrained decoding | constrain the decoder with a grammar or schema; never regex-repair the output afterwards |
 
 The mechanisms behind those symptoms, and the bugs that bite implementers:
 
@@ -138,9 +209,20 @@ The mechanisms behind those symptoms, and the bugs that bite implementers:
 - **Forgetting the seed → irreproducible bugs.**
   - Sampling is stochastic; without a fixed random number generator (RNG) seed the same prompt yields different outputs, and a bug you saw once won't reproduce.
   - Fix: seed the generator (the demo passes an explicit `torch.Generator`), and log it. Greedy and beam are deterministic and need no seed.
+- **"Temperature does nothing."**
+  - With `do_sample=False`, temperature and top-p are **ignored**: greedy takes the argmax regardless.
+  - Fix: temperature only matters when you are sampling — turn sampling on, or stop tuning a knob that is switched off.
+- **Settings that don't transfer between models.**
+  - A top-p tuned on a base model can be wrong for an aligned one, whose distribution is sharper, and the reverse.
+  - Fix: re-tune per model; never copy magic numbers across checkpoints.
 - **`float16` softmax overflow at extreme logits.**
   - Very large logits (or very low temperature, which *multiplies* them) can overflow in half precision before the softmax's max-subtraction kicks in.
   - Fix: compute the softmax in `float32`, or rely on a numerically-stable `log_softmax` — the same max-subtraction trick covered in [Loss Functions (softmax & cross-entropy stability)](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/loss-functions/loss-functions).
+
+> [!TIP]
+> When debugging generation, change **one** knob at a time and read a few samples.
+> - Decoding bugs masquerade as model bugs, and the fix is usually a single parameter.
+> - That only works if each symptom can be traced to the knob that caused it.
 
 ---
 
