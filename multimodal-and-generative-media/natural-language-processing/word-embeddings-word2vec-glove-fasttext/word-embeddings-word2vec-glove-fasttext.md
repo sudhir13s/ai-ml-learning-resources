@@ -520,6 +520,22 @@ The analogy "$a$ is to $b$ as $c$ is to **?**" is solved by the **vector offset 
 >
 > It's a *property* of the space, not a reliable reasoning engine.
 
+### Explore the space yourself
+
+The same real GloVe-50 vectors, as a cloud you can turn — pick a word to see its neighbours, or build an analogy and watch the parallelogram close.
+
+<!-- EXPLORER: embedding-space {"data": "assets/glove-embedding-space.json", "initialWord": "king"} -->
+> **Interactive explorer — the GloVe embedding space.** 167 curated words (royalty and gendered pairs, countries, capitals, numbers, verb tenses, animals, adjectives, and the page's own examples) in a rotatable 3-D view. Type or click a word for its nearest neighbours with their cosines, or switch to analogy mode for $a - b + c$ with the answer's rank. The dots are a PCA projection keeping 35.5% of the variance; every number is computed in the full 50-dimensional space. Without the widget, the Code 2 output and the PCA and parallelogram figures above show the same vectors.
+
+What to try, and what each move proves:
+
+- **Pick `cat`.** `dog` is its nearest neighbour at 0.9218 — the number Code 2 prints — then `rabbit` at 0.8488; the animals sit together.
+- **Pick `king`.** `prince` (0.8236) edges out `queen` (0.7839, as in Code 2), then `emperor` — royalty and family words share contexts.
+- **Pick `good`.** `better` leads at 0.9284, then `going` and `happy` — frequent words used in the same slots, not synonyms; distributional similarity is relatedness, not meaning.
+- **Run `king − man + woman`.** `queen` comes first at 0.8524, and the full-vocabulary line matches Code 2 (`throne` 0.7664, `prince` 0.7592).
+- **Run `bigger − big + small`.** `larger` beats the expected `smaller`, which ranks 2nd — the brittleness the warning above describes.
+- **Rotate the cloud.** Countries and their capitals sit in separate regions with the capital offset running roughly the same way, and two dots that look close can still have a low cosine — the picture is a shadow.
+
 ### Embeddings inherit bias
 
 > [!WARNING]
