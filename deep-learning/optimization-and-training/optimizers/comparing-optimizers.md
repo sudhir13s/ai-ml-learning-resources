@@ -56,7 +56,9 @@ The same four rules on the same ravine $L=\tfrac12(12x^2+y^2)$ from the same sta
   ],
   "caption": "curvature 12 in x, 1 in y"
 } -->
-> **Interactive explorer — the optimizer race.** Four optimizers start together on the ravine; press Play or Step, drag to rotate the 3D surface, and read the paths on the contour map and the loss curves beside it. Each card has its optimizer's learning rate (and β, ρ, β₁, β₂) and its live verdict. Without the widget, the trajectory, loss-curve and learning-rate-sweep figures on this page show the same runs.
+> [!EXPLORER]
+> **The optimizer race**
+> Four optimizers start together on the ravine; press Play or Step, drag to rotate the 3D surface, and read the paths on the contour map and the loss curves beside it. Each card has its optimizer's learning rate (and β, ρ, β₁, β₂) and its live verdict. Without the widget, the loss-curve and learning-rate-sweep figures on this page and the trajectory figure on the [first page](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/optimizers) show the same runs.
 
 What to try, and what each move proves:
 

@@ -98,13 +98,11 @@ $$\frac{\hat m_t}{\sqrt{\hat v_t}} \;\to\; \frac{c\,\hat m_t}{\sqrt{c^2\,\hat v_
 - That is why SGD needs careful per-layer tuning (or normalization) where Adam just works.
 
 > [!NOTE]
-> The "$\sqrt{\hat v}$" is per-parameter, so Adam effectively gives the steep ravine axis a small rate and the shallow axis a large one *automatically*.
+> **One optimizer, all three problems.** The "$\sqrt{\hat v}$" is per-parameter, so Adam effectively gives the steep ravine axis a small rate and the shallow axis a large one *automatically*.
 > - It solves the conditioning problem without you ever computing a Hessian.
 > - The momentum $\hat m$ simultaneously handles the noise and saddles.
-> - One optimizer, all three problems.
-
-> [!NOTE]
-> Adam is **not guaranteed to converge**.
+>
+> **But not guaranteed to converge.** Adam can still fail on some problems.
 > - Reddi et al. (2018) built convex cases where the EMA of $v$ "forgets" a rare but informative large gradient and the step *grows* when it should shrink, causing divergence.
 > - **AMSGrad** patches this by using the running **max** of $\hat v$ (instead of the current $\hat v$), forcing a non-increasing per-parameter step.
 > - Plain Adam/AdamW is fine in practice, but naming AMSGrad and *why* it exists is interview gold.

@@ -118,8 +118,7 @@ GloVe is engineered so that **vector differences reproduce these ratios**:
 > - Levy & Goldberg (2015) showed that, tuned well, this classic method is *competitive* with word2vec/GloVe.
 > - All four (SVD-PPMI, SGNS, GloVe, and even good old LSA, latent semantic analysis) are variations on **factorize a co-occurrence-association matrix**.
 > - The neural framing was a faster, online way to do something statistics had been doing for decades.
-
-> [!NOTE]
+>
 > **Source:** the weighted-least-squares objective and the $f(x)$ weighting are [Pennington, Socher & Manning, *GloVe: Global Vectors for Word Representation* (EMNLP 2014)](https://nlp.stanford.edu/pubs/glove.pdf).
 >
 > - §3 derives $w_i^\top\tilde w_j \approx \log X_{ij}$ from the ratio requirement.

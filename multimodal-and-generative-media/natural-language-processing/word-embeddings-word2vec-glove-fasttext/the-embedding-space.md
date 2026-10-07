@@ -60,7 +60,9 @@ The analogy "$a$ is to $b$ as $c$ is to **?**" is solved by the **vector offset 
 The same real GloVe-50 vectors, as a cloud you can turn — pick a word to see its neighbours, or build an analogy and watch the parallelogram close.
 
 <!-- EXPLORER: embedding-space {"data": "assets/glove-embedding-space.json", "initialWord": "king"} -->
-> **Interactive explorer — the GloVe embedding space.** 167 curated words (royalty and gendered pairs, countries, capitals, numbers, verb tenses, animals, adjectives, and the page's own examples) in a rotatable 3-D view. Type or click a word for its nearest neighbours with their cosines, or switch to analogy mode for $a - b + c$ with the answer's rank. The dots are a PCA projection keeping 35.5% of the variance; every number is computed in the full 50-dimensional space. Without the widget, the Code 2 output and the PCA and parallelogram figures above show the same vectors.
+> [!EXPLORER]
+> **The GloVe embedding space**
+> 167 curated words (royalty and gendered pairs, countries, capitals, numbers, verb tenses, animals, adjectives, and the course's own examples) in a rotatable 3-D view. Type or click a word for its nearest neighbours with their cosines, or switch to analogy mode for $a - b + c$ with the answer's rank. The dots are a principal component analysis (PCA) projection keeping 35.5% of the variance; every number is computed in the full 50-dimensional space. Without the widget, the GloVe code output below, the parallelogram figure above and the PCA figure on the [first page](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/word-embeddings-word2vec-glove-fasttext/word-embeddings-word2vec-glove-fasttext) show the same vectors.
 
 What to try, and what each move proves:
 

@@ -409,7 +409,9 @@ Every decoder above, on this page's own `PEAKED` and `FLAT` distributions — mo
   "compareDraws": 5,
   "caption": "Bars run most to least likely. Dashed outline = the model's softmax at T; filled bar = the renormalized survivors; hatched grey = cut. Entropy is measured on the model's softmax at T, in bits, as in the temperature table above. Draws are seeded, so re-draw changes them and a replay repeats them."
 } -->
-> **Interactive explorer — the decoder on one distribution.** Switch between `PEAKED` and `FLAT`, flip greedy against sampled, and drag temperature, top-k, top-p and the repetition penalty $\rho$. Without the widget, the same numbers are in the tables and the demo output on this page.
+> [!EXPLORER]
+> **The decoder on one distribution**
+> Switch between `PEAKED` and `FLAT`, flip greedy against sampled, and drag temperature, top-k, top-p and the repetition penalty $\rho$. Without the widget, the same numbers are in the tables and the demo output on this page.
 
 What to try, and what each move proves:
 
