@@ -3,7 +3,7 @@ id: "06-nlp/evaluation-metrics"
 topic: "NLP Evaluation Metrics (BLEU · ROUGE · METEOR · chrF · perplexity · BERTScore · F1/EM · LLM-as-judge)"
 parent: "06-nlp"
 level: intermediate
-built_from: ["ngram-language-models", "classification-metrics", "decoding-strategies"]
+built_from: ["ngram-language-models", "classification-metrics", "09-llms/decoding-and-sampling"]
 interview_frequency: high
 template: concept-deep
 updated: 2026-06-27
@@ -230,7 +230,7 @@ Lower is better; PP = 20 means the model is, on average, as uncertain as choosin
 
 > **Source / derivation:** the perplexity ↔ cross-entropy identity is in Jurafsky & Martin, [*Speech and Language Processing* (3rd ed.), Ch. 3 §"Perplexity"](https://web.stanford.edu/~jurafsky/slp3/3.pdf). Full worked derivation: [N-gram Language Models](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/n-gram-language-models-and-smoothing/n-gram-language-models-and-smoothing).
 
-> **Gotcha:** perplexity is **intrinsic**, not a generation-quality metric. A model can have low perplexity and still generate repetitive or off-task text (see [Decoding Strategies](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/decoding-strategies/decoding-strategies)). Never quote perplexity as evidence that *generated* text is good; quote it as evidence the model *fits the distribution*.
+> **Gotcha:** perplexity is **intrinsic**, not a generation-quality metric. A model can have low perplexity and still generate repetitive or off-task text (see [Repetition and Degeneration Controls](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/repetition-and-degeneration-controls)). Never quote perplexity as evidence that *generated* text is good; quote it as evidence the model *fits the distribution*.
 
 ---
 

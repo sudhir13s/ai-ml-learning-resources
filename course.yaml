@@ -621,7 +621,6 @@ spec:
         - path: multimodal-and-generative-media/natural-language-processing/coreference-resolution/coreference-resolution.md
         - path: multimodal-and-generative-media/natural-language-processing/topic-modeling-lda-nmf/topic-modeling-lda-nmf.md
         - path: multimodal-and-generative-media/natural-language-processing/information-retrieval-and-semantic-search/information-retrieval-and-semantic-search.md
-        - path: multimodal-and-generative-media/natural-language-processing/decoding-strategies/decoding-strategies.md
         - path: multimodal-and-generative-media/natural-language-processing/nlp-evaluation-metrics/nlp-evaluation-metrics.md
         # computer-vision
         - path: multimodal-and-generative-media/computer-vision/image-representation-and-filtering/image-representation-and-filtering.md

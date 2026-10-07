@@ -59,7 +59,7 @@ speaker-consent verification are part of the system design, not an afterthought.
 
 ## In this platform
 - Prerequisites: [TTS Fundamentals](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/audio-and-speech/tts-fundamentals-tacotron-vits-vocoders/tts-fundamentals-tacotron-vits-vocoders) · [Audio Tokenization & Neural Codecs](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/audio-and-speech/audio-tokenization-and-neural-codecs/audio-tokenization-and-neural-codecs)
-- Sampling controls carry over from text: [Decoding Strategies](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/decoding-strategies/decoding-strategies)
+- Sampling controls carry over from text: [Sampling: Temperature, Top-k and Top-p](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/sampling-temperature-top-k-top-p)
 - Flow matching and diffusion background: [Diffusion Models](/ai-ml/ai-ml-learning-resources/models-and-architectures/generative-model-families/diffusion-models/readme)
 - Next: [Realtime & Streaming Voice Agents](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/audio-and-speech/realtime-and-streaming-voice-agents/realtime-and-streaming-voice-agents)
 - Sub-area index: [Audio & Speech](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/audio-and-speech/readme)

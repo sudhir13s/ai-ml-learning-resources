@@ -1,10 +1,10 @@
 """From-scratch decoding strategies: greedy, beam search, temperature, top-k, top-p (nucleus).
 
-This is the ONE seeded source of truth for the chapter. The concept page, the teaching
-notebook (17-Decoding-Strategies.ipynb), and the figure generator (make_figures_17.py) all
-import the functions and constants below, so every quoted number -- joint probabilities,
-beam scores, entropies, nucleus sizes, repetition rates -- is computed in exactly one place
-and cannot silently drift between the prose, the notebook, and the figures.
+This is the seeded source of truth for the numbers the decoding course harvested from the
+retired NLP decoding page: the greedy-vs-beam tree, the log-space beam trace, length
+normalization and the toy degeneration rates quoted on the greedy-and-beam-search and
+sampling pages, and drawn in their decode_* figures. Every quoted number is computed here
+and asserted before it prints.
 
 It is the GENERAL sequence-generation view of decoding (beam search for closed-ended tasks
 like machine translation / summarization + sampling for open-ended generation). The

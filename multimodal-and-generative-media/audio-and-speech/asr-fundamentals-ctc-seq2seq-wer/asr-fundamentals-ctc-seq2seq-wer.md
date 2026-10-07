@@ -63,6 +63,6 @@ on read speech can be 25% on a noisy phone call.
 
 ## In this platform
 - Prerequisites: [Audio Representations](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/audio-and-speech/audio-representations-waveform-spectrogram-mel-mfcc/audio-representations-waveform-spectrogram-mel-mfcc) · [Sequence-to-Sequence & Encoder-Decoder](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/sequence-to-sequence-and-encoder-decoder/sequence-to-sequence-and-encoder-decoder)
-- Decoding (canonical home): [Decoding Strategies](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/decoding-strategies/decoding-strategies) — beam search and its variants, shared with ASR
+- Decoding (canonical home): [Greedy and Beam Search](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/greedy-and-beam-search) — beam search and its variants, shared with ASR
 - Next: [Self-Supervised Speech](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/audio-and-speech/self-supervised-speech-wav2vec2-hubert/self-supervised-speech-wav2vec2-hubert) · [Whisper & Weakly-Supervised ASR](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/audio-and-speech/whisper-and-weakly-supervised-asr/whisper-and-weakly-supervised-asr)
 - Sub-area index: [Audio & Speech](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/audio-and-speech/readme)

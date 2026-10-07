@@ -18,5 +18,4 @@ page-order:
   - coreference-resolution/coreference-resolution
   - topic-modeling-lda-nmf/topic-modeling-lda-nmf
   - information-retrieval-and-semantic-search/information-retrieval-and-semantic-search
-  - decoding-strategies/decoding-strategies
   - nlp-evaluation-metrics/nlp-evaluation-metrics

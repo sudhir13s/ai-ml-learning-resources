@@ -44,7 +44,7 @@ Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its p
 - **Flow matching & rectified flow** — the continuous-normalizing-flow formulation that current image and video models train with → [Diffusion Models · Flow Matching & Rectified Flow](/ai-ml/ai-ml-learning-resources/models-and-architectures/generative-model-families/diffusion-models/flow-matching-and-rectified-flow/flow-matching-and-rectified-flow)
 - **Autoencoders (plain / denoising / sparse)** — the deterministic precursor to the VAE → [Deep Learning · Autoencoders](/ai-ml/ai-ml-learning-resources/models-and-architectures/classic-architectures/autoencoders/autoencoders)
 - **LLM text generation & autoregressive language models** — GPT-style next-token generation → [LLMs](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/readme)
-- **Decoding strategies for text** (greedy · beam · top-k · top-p) → [NLP · Decoding Strategies](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/decoding-strategies/decoding-strategies)
+- **Decoding strategies for text** (greedy · beam · top-k · top-p) → [Decoding and Sampling](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/decoding-and-sampling)
 - **Gaussian Mixture Models & the EM algorithm** — the classic latent-variable model → [Unsupervised Learning · GMM & EM](/ai-ml/ai-ml-learning-resources/classical-machine-learning/unsupervised-learning/clustering/gaussian-mixture-models-and-em/gaussian-mixture-models-and-em)
 - **Information theory** (entropy · cross-entropy · KL divergence) — the objective under every likelihood model → [Foundations](/ai-ml/ai-ml-learning-resources/foundations/mathematical-foundations/readme)
 

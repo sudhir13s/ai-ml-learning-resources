@@ -39,7 +39,7 @@ Every chapter is a self-contained folder (`<topic>/<topic>.md`) with its page.
 
 ### Related concepts (covered in another section)
 > Kept in their canonical home to avoid repetition.
-- **Sequence decoding (beam search · sampling controls)** → [Decoding Strategies](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/decoding-strategies/decoding-strategies)
+- **Sequence decoding (beam search · sampling controls)** → [Decoding and Sampling](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/decoding-and-sampling)
 - **Encoder-decoder sequence models** → [Sequence-to-Sequence & Encoder-Decoder](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/sequence-to-sequence-and-encoder-decoder/sequence-to-sequence-and-encoder-decoder)
 - **Diffusion mechanics for audio** → [Diffusion](/ai-ml/ai-ml-learning-resources/models-and-architectures/generative-model-families/diffusion-models/readme)
 - **Audio in multimodal LLMs** → [Multimodal](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/multimodal-learning/readme)

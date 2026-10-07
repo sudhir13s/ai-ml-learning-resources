@@ -20,7 +20,6 @@ updated: 2026-09-13
 **In this platform**:
 - [Chain-of-Thought Reasoning](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/chain-of-thought-and-reasoning/chain-of-thought-and-reasoning) — sampled reasoning paths, where the decoder choice changes answer quality.
 - [Decoder-only Architecture](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/decoder-only-models/decoder-only-models) — the model whose logits every decoder consumes.
-- [Decoding Strategies](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/decoding-strategies/decoding-strategies) — the same strategies in the sequence-to-sequence framing of classic NLP.
 - [Inference Optimization & Serving](/ai-ml/ai-ml-learning-resources/inference-and-serving/inference-optimization/inference-optimization) — the engine that runs the decode loop, and what makes it fast.
 - [Language Modeling Objectives](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/language-modeling-objectives/language-modeling-objectives) — why the model outputs a next-token distribution in the first place.
 - [LLM Evaluation & Benchmarks](/ai-ml/ai-ml-learning-resources/evaluation/model-evaluation-and-benchmarks/model-evaluation-and-benchmarks) — why benchmarks decode greedily, and how sampled metrics report a seed.
