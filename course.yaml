@@ -517,7 +517,6 @@ spec:
       title: Inference and Serving
       kind: lesson
       pages:
-        - path: inference-and-serving/decoding-and-sampling/decoding-and-sampling.md
         - path: inference-and-serving/speculative-decoding/speculative-decoding.md
         - path: inference-and-serving/quantization/quantization.md
         - path: inference-and-serving/quantization/quantization-in-serving.md
@@ -535,6 +534,19 @@ spec:
             - path: inference-and-serving/kv-cache/kv-cache-optimization-stack.md
             - path: inference-and-serving/kv-cache/kv-cache-flashattention-and-flashdecoding.md
             - path: inference-and-serving/kv-cache/kv-cache-in-production.md
+        # The decoding topic package (T-2648.1): why decoding matters, then the
+        # search decoders, the sampling decoders, the repetition and constraint
+        # controls, and the production capstone.
+        - id: lr-decoding-and-sampling
+          title: Decoding and Sampling
+          kind: lesson
+          pages:
+            - path: inference-and-serving/decoding-and-sampling/decoding-and-sampling.md
+            - path: inference-and-serving/decoding-and-sampling/greedy-and-beam-search.md
+            - path: inference-and-serving/decoding-and-sampling/sampling-temperature-top-k-top-p.md
+            - path: inference-and-serving/decoding-and-sampling/repetition-and-degeneration-controls.md
+            - path: inference-and-serving/decoding-and-sampling/constrained-and-guided-decoding.md
+            - path: inference-and-serving/decoding-and-sampling/decoding-in-production.md
         - id: lr-inference-optimization
           title: Inference Optimization
           kind: lesson
