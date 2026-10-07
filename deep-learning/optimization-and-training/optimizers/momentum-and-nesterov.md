@@ -22,9 +22,11 @@ category: optimization-and-training
 
 The [ravine](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/optimizers) defeats a memoryless step; this page gives the step a memory of past gradients, then makes that memory look ahead.
 
+The picture behind the algebra — a heavy ball that keeps rolling — is the [Momentum intuition](/ai-ml/ai-ml-intuitions/learning-and-optimization/first-order-optimization/momentum-intuition).
+
 ## Momentum, derived
 
-Plain SGD reacts to *this* step's gradient and nothing else. Momentum gives it memory. Define a **velocity** $v_t$ as an exponentially-weighted accumulation of gradients, then step along the velocity:
+Plain stochastic gradient descent (SGD) reacts to *this* step's gradient and nothing else. Momentum gives it memory. Define a **velocity** $v_t$ as an exponentially-weighted accumulation of gradients, then step along the velocity:
 
 $$\boxed{\;v_t = \beta\, v_{t-1} + g_t, \qquad \theta_t = \theta_{t-1} - \eta\, v_t\;}$$
 
@@ -86,11 +88,11 @@ $$v_t = \beta\, v_{t-1} + \nabla L\big(\underbrace{\theta_{t-1} - \eta\beta\,v_{
 
 ---
 
-## Example 1 — momentum vs plain GD on a ravine, one step at a time
+## Worked example: momentum against plain gradient descent, one step at a time
 
 Take the ravine $L=\tfrac12(10x^2 + y^2)$, so $g=(10x,\,y)$, start at $\theta_0=(1,\,1)$, and use $\eta=0.18$ (just *below* the steep-axis stability limit $2/10=0.2$, so stable but close — exactly where the zig-zag is most visible).
 
-**Plain GD.** Each axis: $x_{t+1}=(1-0.18\cdot10)x_t = (1-1.8)x_t = -0.8\,x_t$; $y_{t+1}=(1-0.18)y_t=0.82\,y_t$.
+**Plain gradient descent (GD).** Each axis: $x_{t+1}=(1-0.18\cdot10)x_t = (1-1.8)x_t = -0.8\,x_t$; $y_{t+1}=(1-0.18)y_t=0.82\,y_t$.
 
 | step | $x$ (steep) | $y$ (shallow) |
 |---|---|---|

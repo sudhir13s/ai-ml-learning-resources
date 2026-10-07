@@ -22,9 +22,9 @@ category: optimization-and-training
 
 With every rule derived, this page runs them side by side and asks which one actually wins.
 
-## Example 4 — the measured trajectory comparison
+## The measured comparison: four rules on one ravine
 
-The three hand-traced rules above, run for real over 80 steps on the ravine, produce the measured loss curves below — the quantitative version of the trajectory plot.
+Stochastic gradient descent (SGD), momentum, RMSprop and Adam — the rules derived on the previous pages — run for real over 80 steps on the ravine and produce the measured loss curves below, the quantitative version of the [trajectory plot](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/optimizers).
 
 ![Loss versus iteration for SGD, Momentum, RMSprop, and Adam on the same ill-conditioned ravine (log-scale loss). SGD descends steadily; Momentum overshoots and rings before settling; RMSprop and Adam rescale each axis and drive the loss down many orders of magnitude. The relative ordering is surface- and LR-dependent — the point is the qualitatively different shapes, all measured by actually running each optimizer.](images/opt_loss_curves.png)
 
@@ -61,27 +61,27 @@ The same four rules on the same ravine $L=\tfrac12(12x^2+y^2)$ from the same sta
 What to try, and what each move proves:
 
 - **Start at the defaults (the figures' rates).** SGD, RMSprop and Adam converge (final loss $2.1\times10^{-9}$, $4.3\times10^{-9}$, $2.0\times10^{-3}$); Momentum is still ringing at 0.10.
-- **Push SGD's η past $2/12 \approx 0.167$.** The steep-axis factor $|1-12\eta|$ passes 1, the zig-zag grows, and the card flips to **diverged** — the stability limit derived above.
+- **Push SGD's η past $2/12 \approx 0.167$.** The steep-axis factor $|1-12\eta|$ passes 1, the zig-zag grows, and the card flips to **diverged** — the stability limit derived on the [first page](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/optimizers).
 - **Raise Momentum's η and watch the loop.** Velocity overshoots the walls; lower β toward 0 and it turns back into plain SGD.
 - **Sweep Adam's η from 0.005 to 2.** It slows or rings but never diverges — the wide band in the learning-rate sweep figure.
-- **Untick bias correction.** Adam's first step jumps about 30× too far, exactly as the derivation predicts.
+- **Untick bias correction.** Adam's first step jumps about 30× too far, exactly as the [bias-correction derivation](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/adam-and-adamw) predicts.
 
 ---
 
 ## The family at a glance
 
-Every rule on this page, side by side — what state it keeps, what it adds, and where it lands.
+Every rule in this course, side by side — what state it keeps, what it adds, and where it lands.
 
 | Optimizer | Update (core) | State / param | Adds over the previous rung | Best at | Watch out for |
 |---|---|---|---|---|---|
-| **SGD** | $\theta -= \eta g$ | none | the baseline | clean, well-conditioned problems | zig-zags on ravines; one rate for all |
-| **+ Momentum** | $v=\beta v+g;\ \theta-=\eta v$ | 1 vector ($v$) | velocity (low-pass filter) | ravines, saddles, noisy gradients | inertia overshoots — lower $\eta$ |
+| **[SGD](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/optimizers)** | $\theta -= \eta g$ | none | the baseline | clean, well-conditioned problems | zig-zags on ravines; one rate for all |
+| **+ [Momentum](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/momentum-and-nesterov)** | $v=\beta v+g;\ \theta-=\eta v$ | 1 vector ($v$) | velocity (low-pass filter) | ravines, saddles, noisy gradients | inertia overshoots — lower $\eta$ |
 | **+ Nesterov** | lookahead gradient | 1 vector | brakes a step early | convex / vision SGD | same as momentum |
-| **AdaGrad** | $\theta-=\eta g/\sqrt{\sum g^2}$ | 1 vector ($G$) | per-parameter rates | sparse features, convex | rate **decays to 0** (death) |
-| **RMSprop** | $\theta-=\eta g/\sqrt{\mathrm{EMA}[g^2]}$ | 1 vector | EMA fixes the decay | RNNs, non-stationary | no momentum, no bias-correct |
-| **Adam** | $\theta-=\eta\,\hat m/(\sqrt{\hat v}+\epsilon)$ | 2 vectors ($m,v$) | momentum + adaptive + bias-correct | transformers, default everywhere | not always convergent (→ AMSGrad) |
-| **AdamW** | Adam $+\ \lambda\theta$ decoupled | 2 vectors | decoupled weight decay | **the LLM/transformer default** | use AdamW, not coupled-L2 Adam |
-| **Lion** | $\theta-=\eta\,\mathrm{sign}(\cdots)$ | 1 vector | half the memory of Adam | huge models, memory-bound | needs re-tuning vs Adam |
+| **[AdaGrad](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/adaptive-learning-rates)** | $\theta-=\eta g/\sqrt{\sum g^2}$ | 1 vector ($G$) | per-parameter rates | sparse features, convex | rate **decays to 0** (death) |
+| **[RMSprop](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/adaptive-learning-rates)** | $\theta-=\eta g/\sqrt{\mathrm{EMA}[g^2]}$ | 1 vector | a moving average (EMA) fixes the decay | recurrent networks (RNNs), non-stationary | no momentum, no bias-correct |
+| **[Adam](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/adam-and-adamw)** | $\theta-=\eta\,\hat m/(\sqrt{\hat v}+\epsilon)$ | 2 vectors ($m,v$) | momentum + adaptive + bias-correct | transformers, default everywhere | not always convergent (→ AMSGrad) |
+| **[AdamW](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/adam-and-adamw)** | Adam $+\ \lambda\theta$ decoupled | 2 vectors | decoupled weight decay | **the large language model (LLM) and transformer default** | use AdamW, not coupled-L2 Adam |
+| **[Lion](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/beyond-adam)** | $\theta-=\eta\,\mathrm{sign}(\cdots)$ | 1 vector | half the memory of Adam | huge models, memory-bound | needs re-tuning vs Adam |
 
 > [!NOTE]
 > Read the table top-to-bottom and you've recovered the whole ladder.
@@ -96,16 +96,16 @@ A genuine open question worth understanding, because interviewers love it and th
 
 **The phenomenon.** Adam trains *faster* and is far more forgiving of the learning rate, yet a well-tuned **SGD + momentum** often *generalizes better*.
 
-- Lower **test** error, especially on vision/CNN tasks (which is why ResNets are still trained with SGD+momentum to this day).
+- Lower **test** error, especially on vision tasks with convolutional networks (CNNs) (which is why ResNets are still trained with SGD+momentum to this day).
 - Adam can reach a lower *training* loss while landing at a slightly *worse* test loss.
 
 **Why (the leading explanations).** An active research area, not a settled law.
 
-- SGD's update is a noisier, more "uniform" step that tends to settle in **flat, wide minima**, which generalize better than the **sharp** minima adaptive methods can be drawn toward.
+- SGD's update is a noisier, more "uniform" step that tends to settle in **flat, wide minima** (the [SGD intuition](/ai-ml/ai-ml-intuitions/learning-and-optimization/first-order-optimization/gradient-descent-and-stochastic-gradient-descent-intuition) pictures why), which generalize better than the **sharp** minima adaptive methods can be drawn toward.
 - Adam's per-parameter rescaling can also interact badly with naive L2 (the very problem AdamW fixes — and AdamW closes much of the historical gap).
 
 **So why does Adam *dominate* transformers and LLMs?** Three reasons that flip the trade-off:
-1. **Heterogeneous, sparse gradients.** Token-embedding rows, attention projections, LayerNorm gains, and MLP weights have *wildly* different gradient scales.
+1. **Heterogeneous, sparse gradients.** Token-embedding rows, attention projections, LayerNorm gains, and multilayer-perceptron (MLP) weights have *wildly* different gradient scales.
    - Adam's per-parameter rescaling is essential; one global SGD rate simply cannot serve them all.
    - SGD often won't even *converge* on a transformer at a usable rate.
 2. **Robustness at scale.** You get *one* shot at a multi-million-dollar pretraining run.

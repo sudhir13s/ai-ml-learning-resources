@@ -20,11 +20,13 @@ category: optimization-and-training
 
 # Adam and AdamW: both ideas at once, then weight decay done right
 
-Adam combines the two previous pages — momentum for direction, adaptive rates for size — and AdamW fixes how it regularizes.
+Adam combines the two previous pages — [momentum](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/momentum-and-nesterov) for direction, [adaptive rates](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/adaptive-learning-rates) for size — and AdamW fixes how it regularizes.
+
+The pictures before the algebra are the [Adam intuition](/ai-ml/ai-ml-intuitions/learning-and-optimization/adaptive-optimization/adam-intuition) and the [AdamW intuition](/ai-ml/ai-ml-intuitions/learning-and-optimization/adaptive-optimization/adamw-intuition).
 
 ## Adam, derived fully
 
-**Adam** (Kingma & Ba 2015) — "adaptive moment estimation" — is just **momentum + RMSprop**, made rigorous with a bias correction. It maintains *two* EMAs per parameter:
+**Adam** (Kingma & Ba 2015) — "adaptive moment estimation" — is just **momentum + RMSprop** (root-mean-square propagation), made rigorous with a bias correction. It maintains *two* exponential moving averages (EMAs) per parameter:
 
 - the first moment (mean of gradients = smoothed *direction*, the momentum part);
 - the second moment (mean of squared gradients = *volatility*, the RMSprop part).
@@ -92,7 +94,7 @@ $$\frac{\hat m_t}{\sqrt{\hat v_t}} \;\to\; \frac{c\,\hat m_t}{\sqrt{c^2\,\hat v_
 — **unchanged.** Adam's step magnitude is invariant to any constant rescaling of the gradient (and approximately to the loss scale).
 
 - This is why it copes with transformers' wildly different per-tensor gradient scales: a layer whose gradients are 100× larger doesn't get a 100× bigger step, because the $\sqrt{\hat v}$ in the denominator divides it back out.
-- Plain SGD has no such invariance — rescale a gradient and its step scales right along with it.
+- Plain stochastic gradient descent (SGD) has no such invariance — rescale a gradient and its step scales right along with it.
 - That is why SGD needs careful per-layer tuning (or normalization) where Adam just works.
 
 > [!NOTE]
@@ -111,7 +113,7 @@ $$\frac{\hat m_t}{\sqrt{\hat v_t}} \;\to\; \frac{c\,\hat m_t}{\sqrt{c^2\,\hat v_
 
 ## AdamW: why L2 ≠ weight decay for adaptive optimizers (derived)
 
-This is the single most important refinement on top of Adam, and the reason **AdamW** — not Adam — is the transformer/LLM default. The subtlety: two things people treat as identical, **L2 regularization** and **weight decay**, are *not* the same once the optimizer is adaptive.
+This is the single most important refinement on top of Adam, and the reason **AdamW** — not Adam — is the default for transformers and large language models (LLMs). The subtlety: two things people treat as identical, **L2 regularization** and **weight decay**, are *not* the same once the optimizer is adaptive.
 
 **They're identical for plain SGD.** L2 regularization adds $\tfrac{\lambda}{2}\lVert\theta\rVert^2$ to the loss, so the gradient gains a $\lambda\theta$ term: $\nabla(L + \tfrac\lambda2\lVert\theta\rVert^2)=g+\lambda\theta$. Plug into the SGD update:
 
@@ -152,7 +154,7 @@ Now **every** weight is decayed by the same factor $\eta\lambda$ regardless of i
 
 ---
 
-## Example 2 — Adam's m, v, and bias correction for the first 3 steps
+## Worked example: Adam's m, v and bias correction for the first three steps
 
 Single parameter, constant gradient $g=0.1$ every step, $\beta_1=0.9,\ \beta_2=0.999,\ \eta=0.001,\ \epsilon=10^{-8}$. Trace the EMAs and corrections.
 
@@ -172,7 +174,7 @@ Two things to see.
 
 ## Code: the update rules, and Adam matching PyTorch
 
-From-scratch SGD/Momentum/AdaGrad/Adam, with the from-scratch Adam verified against `torch.optim.Adam` step for step, plus the hand-traced momentum and AdaGrad numbers from the worked examples. Runs on CPU in about a second.
+From-scratch SGD/Momentum/AdaGrad/Adam, with the from-scratch Adam verified against `torch.optim.Adam` step for step, plus the hand-traced Adam numbers above and the AdaGrad table from [Adaptive Learning Rates](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/adaptive-learning-rates). Runs on CPU in about a second.
 
 ```step
 ///FILE optimizers_from_scratch.py
@@ -207,7 +209,7 @@ _ = adam(torch.zeros(1), g1, st)
 print("Adam step 1 - m raw:", round(st["m"].item(), 3),
       "| m_hat (bias-corrected):", round((st["m"] / (1 - 0.9)).item(), 3), "= true gradient 4.0")
 
-# --- worked Example 2: Adam's m, v, m_hat, v_hat for g=0.1, first 3 steps ---
+# --- the worked example above: Adam's m, v, m_hat, v_hat for g=0.1, first 3 steps ---
 st = {}; g = torch.tensor([0.1])
 print("\nAdam trace (g=0.1 constant):  t |   m_t   |   v_t    |  m_hat | v_hat")
 for t in range(1, 4):
@@ -215,7 +217,7 @@ for t in range(1, 4):
     mh = st["m"] / (1 - 0.9 ** t); vh = st["v"] / (1 - 0.999 ** t)
     print(f"   {t} | {st['m'].item():.4f} | {st['v'].item():.2e} | {mh.item():.4f} | {vh.item():.4f}")
 
-# --- worked Example 3: AdaGrad effective LR shrinking like 1/sqrt(t) ---
+# --- the AdaGrad table (adaptive learning rates): effective LR shrinking like 1/sqrt(t) ---
 st = {}; g = torch.tensor([0.1]); print("\nAdaGrad effective LR (g=0.1, eta=0.1):")
 for t in range(1, 401):
     _ = adagrad(torch.zeros(1), g, st, lr=0.1)
@@ -258,7 +260,7 @@ our Adam matches torch: True | max diff: 4.77e-07
 > [!NOTE]
 > Every worked-example number above is reproduced by code.
 > - The first line *is* bias correction (raw $m_1=0.4$ biased toward 0, $\hat m_1=4.0$ recovers the true gradient).
-> - The Adam trace matches Example 2 row-for-row, and the AdaGrad table matches Example 3's $1/\sqrt t$ decay exactly.
+> - The Adam trace matches the worked example row-for-row, and the AdaGrad table matches the adaptive-learning-rates page's $1/\sqrt t$ decay exactly.
 > - The final line confirms these ~12 lines reproduce PyTorch's Adam to $\sim10^{-6}$.
 
 > [!TIP]

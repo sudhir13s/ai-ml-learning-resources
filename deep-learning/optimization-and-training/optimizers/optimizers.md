@@ -56,7 +56,7 @@ Intuition first (a ball rolling downhill), then the rules in full, then code tha
 > - **Gradient descent** is the *strategy* — move against the gradient.
 > - The **optimizer** is the *specific update rule* implementing it: how it uses the current gradient *plus a memory of past gradients and their sizes* to decide each step.
 >
-> Every optimizer on this page is "gradient descent"; they differ only in how cleverly they use that memory.
+> Every optimizer in this course is "gradient descent"; they differ only in how cleverly they use that memory.
 
 ---
 
@@ -148,7 +148,7 @@ So **the gradient-noise variance falls like $1/B$** — and the noise *standard 
 > The $1/\sqrt B$ noise-vs-$1/B$ variance distinction is interview gold.
 > - Doubling the batch only cuts the gradient *noise* (std-dev) by $\sqrt2\approx1.41$, not by 2.
 > - That sub-linear payoff is exactly why there is a "critical batch size" beyond which bigger batches buy almost nothing.
-> - It's also the quantitative backbone of the **linear-scaling rule** later.
+> - It's also the quantitative backbone of the **linear-scaling rule** for batch size and learning rate ([Learning-Rate Schedules & Warmup](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/learning-rate-schedules-and-warmup/learning-rate-schedules-and-warmup)).
 
 > [!TIP]
 > The noise isn't purely a cost — it's a *feature*.
@@ -195,10 +195,10 @@ The number that governs everything is the eigenvalue ratio $\kappa = a/b$. The b
 An optimizer is a pure function `(weights, gradient, state) → (new weights, new state)`. The family is a short ladder; each rung adds **exactly one idea** to the rung below:
 
 - **SGD** — step downhill. (No state.)
-- **+ Momentum / Nesterov** — accumulate a *velocity* so consistent directions build speed and oscillations cancel. (State: one vector.)
-- **+ Adaptive rates (AdaGrad → RMSprop)** — give *each parameter its own* effective step from the size of its recent gradients. (State: one vector.)
-- **Adam** — momentum **and** per-parameter adaptive rates together, bias-corrected. (State: two vectors.)
-- **AdamW** — Adam with **decoupled weight decay**; the default for transformers, LLMs, and diffusion models.
+- **+ [Momentum / Nesterov](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/momentum-and-nesterov)** — accumulate a *velocity* so consistent directions build speed and oscillations cancel. (State: one vector.)
+- **+ [Adaptive rates (AdaGrad → RMSprop)](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/adaptive-learning-rates)** — give *each parameter its own* effective step from the size of its recent gradients. (State: one vector.)
+- **[Adam](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/adam-and-adamw)** — momentum **and** per-parameter adaptive rates together, bias-corrected. (State: two vectors.)
+- **[AdamW](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/adam-and-adamw)** — Adam with **decoupled weight decay**; the default for transformers, LLMs, and diffusion models.
 
 ```mermaid
 ---

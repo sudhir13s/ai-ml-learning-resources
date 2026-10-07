@@ -24,7 +24,7 @@ AdamW is the default, not the end of the story; this page places the methods tha
 
 ## A glimpse of second order: why we don't use the Hessian
 
-Every adaptive method above is secretly chasing something a **second-order** method would compute exactly. The gold standard for using curvature is **Newton's method**:
+Every adaptive method in this course is secretly chasing something a **second-order** method would compute exactly. The gold standard for using curvature is **Newton's method** (pictured in the [Newton's method and L-BFGS intuition](/ai-ml/ai-ml-intuitions/learning-and-optimization/curvature-aware-optimization/newton-method-and-lbfgs-intuition)):
 
 $$\theta_{t+1} = \theta_t - H_t^{-1} g_t,$$
 
@@ -33,7 +33,7 @@ where $H=\nabla^2 L$ is the **Hessian** (the matrix of second derivatives / curv
 *See it on our ravine.* For $L=\tfrac12(a x^2+b y^2)$ the gradient is $g=(ax, by)$ and the Hessian is the constant diagonal $H=\operatorname{diag}(a,b)$, so $H^{-1}g = (ax/a,\ by/b) = (x, y) = \theta$.
 
 - The Newton step is therefore $\theta - H^{-1}g = \theta - \theta = 0$ — it lands **exactly** on the minimum in a *single* step, for *any* starting point and *any* condition number $\kappa$.
-- That is the power we're approximating: where SGD took dozens of zig-zag steps and Adam took ~50, Newton needs **one**.
+- That is the power we're approximating: where stochastic gradient descent (SGD) took dozens of zig-zag steps and Adam took ~50, Newton needs **one**.
 - So why doesn't everyone use it?
 
 **Because $H$ is hopeless at scale.** For a model with $n$ parameters, $H$ is $n\times n$.
@@ -45,11 +45,11 @@ where $H=\nabla^2 L$ is the **Hessian** (the matrix of second derivatives / curv
 - **Adam itself** is the cheapest one: its $1/\sqrt{\hat v}$ is a **diagonal** approximation to $H^{-1}$.
   - It captures per-parameter curvature (the diagonal of $H$) but ignores all the off-diagonal coupling between parameters.
   - "A poor man's second-order method." 
-- **K-FAC** approximates $H$ as block-diagonal Kronecker factors per layer — far cheaper to invert than the full matrix, capturing within-layer curvature.
+- **K-FAC** (Kronecker-factored approximate curvature) approximates $H$ as block-diagonal Kronecker factors per layer — far cheaper to invert than the full matrix, capturing within-layer curvature.
 - **Shampoo** keeps small *full-matrix* preconditioners per tensor dimension (a structured, layer-wise curvature).
   - Strong but heavier per step; it and its variants have been used to speed up large-scale training.
-- **Sophia** estimates a cheap **diagonal Hessian** via a Hutchinson-style probe and clips it, aiming to roughly halve the steps needed to pretrain an LLM.
-- **L-BFGS** builds an implicit low-rank inverse-Hessian from a *history* of gradients (no matrix stored).
+- **Sophia** estimates a cheap **diagonal Hessian** via a Hutchinson-style probe and clips it, aiming to roughly halve the steps needed to pretrain a large language model (LLM).
+- **L-BFGS** (limited-memory Broyden–Fletcher–Goldfarb–Shanno) builds an implicit low-rank inverse-Hessian from a *history* of gradients (no matrix stored).
   - Excellent for **small, full-batch, deterministic** problems.
   - Doesn't tolerate mini-batch noise, so it's rare in deep learning.
 
@@ -69,7 +69,7 @@ Beyond the AdamW default, a few directions appear in modern recipes and intervie
   - The sign makes every coordinate's step the same size — a different normalization than Adam's $1/\sqrt{\hat v}$.
 - **Adafactor** (Shazeer & Stern 2018) — factorizes the second-moment matrix into row and column statistics to use **sublinear** memory (it doesn't store a full per-parameter $v$).
   - Built for training huge models where Adam's two full states won't fit; used for large T5.
-- **8-bit Adam** (Dettmers et al.) — stores Adam's two states in 8-bit with block-wise quantization, cutting optimizer memory ~4× with negligible quality loss; a staple of memory-constrained fine-tuning.
+- **8-bit Adam** (Dettmers et al.) — stores Adam's two states in 8-bit with block-wise quantization, cutting optimizer memory ~4× with negligible quality loss; a staple of memory-constrained fine-tuning (the memory bill itself is on [Choosing an Optimizer](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/choosing-an-optimizer)).
 - **Shampoo / Sophia** — the second-order-ish methods above, aimed at faster large-scale pretraining.
 
 ### Where the frontier actually moved (2024–2026)
@@ -81,7 +81,7 @@ AdamW is still the safe default and still what most teams ship, but it is no lon
   - Jeremy Bernstein derives this as steepest descent under a **spectral-norm** trust region, which is exactly what Adam's per-*element* rescaling cannot do: Adam normalizes coordinates, Muon normalizes the matrix.
   - It applies only to 2-D hidden weights (embeddings, biases and norm gains stay on AdamW).
   - It holds the NanoGPT speedrun records, and Moonshot AI scaled it to a 16B mixture-of-experts model at roughly **2× AdamW's compute efficiency**.
-- **SOAP** (Vyas, Morwani et al. 2024) closes the loop with the second-order family above.
+- **SOAP** (Shampoo with Adam in the preconditioner's eigenbasis; Vyas, Morwani et al. 2024) closes the loop with the second-order family above.
   - It shows **Shampoo is Adafactor run in Shampoo's eigenbasis**, then runs *Adam* in that eigenbasis instead — keeping the preconditioner's rotation while dropping most of its per-step cost.
   - If "Adam is a diagonal approximation to $H^{-1}$" landed, SOAP is "run Adam in a better-chosen basis." 
 - **Schedule-free** methods (Defazio et al. 2024) attack a different knob: hold the learning rate constant and recover the benefit of decay by **averaging the iterates**, removing the schedule — and its committed step budget — from the recipe entirely.

@@ -23,11 +23,11 @@ This page turns the course into decisions: which optimizer, which knobs, and wha
 
 ## Where each optimizer is used
 
-- **AdamW** — the default for **transformers, LLMs, and diffusion models**. Heterogeneous/sparse gradients and huge parameter counts are its sweet spot, and its robustness de-risks expensive runs.
-- **SGD + momentum / Nesterov** — still standard for **CNNs / vision** (ResNets), where a tuned SGD generalizes better.
-- **Adafactor / 8-bit Adam / ZeRO** — when **optimizer-state memory** is the binding constraint (huge models, limited VRAM).
-- **Lion** — when you want Adam-like results at half the optimizer memory and are willing to retune.
-- **L-BFGS** — small, full-batch, low-noise problems (classical ML, some physics-informed nets), almost never deep nets.
+- **[AdamW](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/adam-and-adamw)** — the default for **transformers, large language models (LLMs), and diffusion models**. Heterogeneous/sparse gradients and huge parameter counts are its sweet spot, and its robustness de-risks expensive runs.
+- **Stochastic gradient descent (SGD) + [momentum / Nesterov](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/momentum-and-nesterov)** — still standard for **convolutional networks (CNNs) and vision** (ResNets), where a tuned SGD generalizes better.
+- **[Adafactor / 8-bit Adam](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/beyond-adam) / ZeRO** (the Zero Redundancy Optimizer) — when **optimizer-state memory** is the binding constraint (huge models, limited GPU memory).
+- **[Lion](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/beyond-adam)** — when you want Adam-like results at half the optimizer memory and are willing to retune.
+- **L-BFGS** (limited-memory Broyden–Fletcher–Goldfarb–Shanno) — small, full-batch, low-noise problems (classical machine learning, some physics-informed nets), almost never deep nets.
 
 ---
 
@@ -35,7 +35,7 @@ This page turns the course into decisions: which optimizer, which knobs, and wha
 
 A point worth its own section because it dominates LLM-training cost. Adam/AdamW stores **two extra full-precision states per parameter** — $m$ and $v$ — on top of the weights and gradients.
 
-In mixed-precision training the standard accounting (per parameter) is roughly:
+In mixed-precision training — 16-bit floating point (FP16) for compute, 32-bit (FP32) where precision matters — the standard accounting per parameter is roughly:
 
 - FP16 weights: 2 bytes, plus an FP32 master copy: 4 bytes,
 - FP32 gradient: 4 bytes,
@@ -48,7 +48,7 @@ That's **~16–18 bytes per parameter** before activations — and the **optimiz
 - It is the direct motivation for **8-bit Adam, Adafactor, ZeRO state-sharding**, and parameter-efficient methods.
 
 > [!TIP]
-> This is exactly why [LoRA/PEFT](/ai-ml/ai-ml-learning-resources/model-adaptation/lora-and-parameter-efficient-fine-tuning/lora-and-parameter-efficient-fine-tuning) saves so much memory.
+> This is exactly why [low-rank adaptation and parameter-efficient fine-tuning (LoRA, PEFT)](/ai-ml/ai-ml-learning-resources/model-adaptation/lora-and-parameter-efficient-fine-tuning/lora-and-parameter-efficient-fine-tuning) save so much memory.
 > - By training only a few million low-rank adapter parameters instead of all 7B, you only pay Adam's $2\times$ state overhead on the *adapters*.
 > - That shrinks optimizer memory from tens of GB to a fraction of a GB.
 > - The optimizer-state cost is the bridge between "optimizers" and "why PEFT exists." 
@@ -57,16 +57,16 @@ That's **~16–18 bytes per parameter** before activations — and the **optimiz
 
 ## Application: choosing and configuring an optimizer
 
-**Step 1 — pick it.** Transformer / LLM / diffusion → **AdamW**. CNN/vision tuned for best test accuracy → **SGD + Nesterov momentum**. Memory-bound huge model → **Adafactor / 8-bit Adam**. Prototyping anything → AdamW (robust by default).
+**Pick it.** Transformer / LLM / diffusion → **AdamW**. CNN/vision tuned for best test accuracy → **SGD + Nesterov momentum**. Memory-bound huge model → **Adafactor / 8-bit Adam**. Prototyping anything → AdamW (robust by default).
 
-**Step 2 — set the knobs.** AdamW defaults are stable:
+**Set the knobs.** AdamW defaults are stable:
 
 - $\beta_1=0.9$, $\beta_2=0.999$ (drop $\beta_2$ to $0.95$ for large LLMs, which makes $v$ more responsive to recent gradient scale).
 - $\epsilon=10^{-8}$ (raise to $10^{-6}$ in mixed precision).
 - Weight decay $0.01$–$0.1$ (excluding biases and norm params).
 - The **one** knob you must always tune is the **learning rate**.
 
-**Step 3 — pair it with a schedule and guards.** Warmup + cosine decay, gradient clipping at global-norm $\sim1.0$, and the batch-size↔LR linear-scaling rule. The decision map when training misbehaves:
+**Pair it with a schedule and guards.** Warmup + cosine decay, gradient clipping at global-norm $\sim1.0$, and the batch-size↔learning-rate (LR) linear-scaling rule. The decision map when training misbehaves:
 
 ```mermaid
 ---
@@ -89,7 +89,7 @@ graph TD
 > [!WARNING]
 > In mixed-precision (FP16) training, the default $\epsilon=10^{-8}$ can **underflow** inside $\sqrt{\hat v}+\epsilon$ when $\hat v$ is tiny, making the denominator collapse and the step explode.
 > - If FP16 diverges early while FP32 is fine, **raise $\epsilon$** (to $10^{-6}$) before suspecting anything else.
-> - BF16, with its larger exponent range, mostly sidesteps this.
+> - BF16 (bfloat16), with its larger exponent range, mostly sidesteps this.
 
 ---
 

@@ -20,7 +20,7 @@ category: optimization-and-training
 
 # Adaptive learning rates: a step size for every parameter
 
-Momentum fixes the direction of the step; this page fixes its size, one parameter at a time.
+[Momentum](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/momentum-and-nesterov) fixes the direction of the step; this page fixes its size, one parameter at a time.
 
 ## Adaptive per-parameter rates: AdaGrad, derived
 
@@ -30,7 +30,7 @@ Momentum fixes *direction* but still uses one global $\eta$ for every parameter.
 
 $$G_{t,j} = G_{t-1,j} + g_{t,j}^2 = \sum_{\tau=1}^{t} g_{\tau,j}^2, \qquad \theta_{t,j} = \theta_{t-1,j} - \frac{\eta}{\sqrt{G_{t,j}}+\epsilon}\, g_{t,j}.$$
 
-The **effective learning rate** for parameter $j$ is $\eta/(\sqrt{G_{t,j}}+\epsilon)$.
+The **effective learning rate** (LR) for parameter $j$ is $\eta/(\sqrt{G_{t,j}}+\epsilon)$.
 
 - A parameter that has seen big gradients has a large $G$ and so a *small* step; one with tiny, infrequent gradients (a rare embedding row) keeps a *large* step.
 - This is precisely what the ravine wants: the steep axis (big $g$) gets throttled, the shallow axis (small $g$) keeps moving.
@@ -48,7 +48,7 @@ The learning rate **decays monotonically to zero** — it shrinks like $1/\sqrt 
 
 ## RMSprop, derived
 
-The fix is one word: replace the **growing sum** with a **decaying average**. **RMSprop** (Tieleman & Hinton, Coursera lecture 2012) keeps an **exponential moving average** of squared gradients instead of their cumulative sum:
+The fix is one word: replace the **growing sum** with a **decaying average**. **RMSprop** (Tieleman & Hinton, Coursera lecture 2012) keeps an **exponential moving average** (EMA) of squared gradients instead of their cumulative sum:
 
 $$E[g^2]_t = \rho\, E[g^2]_{t-1} + (1-\rho)\, g_t^2, \qquad \theta_t = \theta_{t-1} - \frac{\eta}{\sqrt{E[g^2]_t}+\epsilon}\, g_t,$$
 
@@ -56,7 +56,7 @@ with decay $\rho$ (typically $0.9$ or $0.99$).
 
 - Because old squared gradients **fade** instead of accumulating, $E[g^2]_t$ tracks the *recent* gradient magnitude rather than the all-time total.
 - On a constant gradient $g$ it converges to a *fixed point* $E[g^2]_\infty = g^2$ (not $t\,g^2$), so the effective rate **settles at a stable nonzero value** $\eta/|g|$ and never starves — exactly the green curve above.
-- RMSprop made adaptive methods practical for deep nets, and its EMA-of-$g^2$ is the second moment that Adam inherits wholesale.
+- RMSprop made adaptive methods practical for deep nets, and its EMA-of-$g^2$ is the second moment that [Adam](/ai-ml/ai-ml-learning-resources/deep-learning/optimization-and-training/optimizers/adam-and-adamw) inherits wholesale.
 
 > [!WARNING]
 > AdaGrad vs RMSprop is a favorite interview contrast — give the one-line reason.
@@ -66,9 +66,9 @@ with decay $\rho$ (typically $0.9$ or $0.99$).
 
 ---
 
-## Example 3 — AdaGrad's effective rate shrinking over steps
+## Worked example: AdaGrad's effective rate shrinking over steps
 
-Same constant gradient $g=0.1$, $\eta=0.1$, AdaGrad's $G_t=\sum g^2 = t\cdot0.01$:
+Take a constant gradient $g=0.1$ and $\eta=0.1$, so AdaGrad's $G_t=\sum g^2 = t\cdot0.01$:
 
 | $t$ | $G_t = t\cdot0.01$ | $\sqrt{G_t}$ | effective LR $=\eta/\sqrt{G_t}$ | step $=\text{effLR}\cdot g$ |
 |---|---|---|---|---|
