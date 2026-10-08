@@ -170,7 +170,9 @@ The word "append" hides a production detail worth knowing:
 > **Watch it grow:** this [interactive KV-cache explainer](https://mbrenndoerfer.com/writing/kv-cache-transformer-attention-optimization) animates the cache filling during prefill and growing by one token per decode step.
 
 <!-- STEP-PLAYER: kv-cache-decode-trace -->
-> **Step player — prefill to decode, tensor by tensor.** Steps through the full lifecycle on a toy config (1 layer, 2 KV heads, $d_{head}=4$): tokenized prompt → prefill's parallel Q/K/V projection under the causal mask → the filled cache `[1, 2, 4, 4]` → a decode step's single-token $q,k,v$ projection → the in-place append (`seq_len` 4 → 5) → the score row $qK^\top/\sqrt{d}$ with live numbers → softmax weights → the weighted sum of cached values that becomes the next token's representation. Every step shows the exact tensor shapes, what is **written** (new) versus **read** (reused), and the FLOPs/bytes it moves. Without the interactive player, the numbered lifecycle above tells the same story.
+> [!EXPLORER]
+> **Prefill to decode, tensor by tensor**
+> Steps through the full lifecycle on a toy config (1 layer, 2 KV heads, $d_{head}=4$): tokenized prompt → prefill's parallel Q/K/V projection under the causal mask → the filled cache `[1, 2, 4, 4]` → a decode step's single-token $q,k,v$ projection → the in-place append (`seq_len` 4 → 5) → the score row $qK^\top/\sqrt{d}$ with live numbers → softmax weights → the weighted sum of cached values that becomes the next token's representation. Every step shows the exact tensor shapes, what is **written** (new) versus **read** (reused), and the FLOPs/bytes it moves. Without the interactive player, the numbered lifecycle above tells the same story.
 
 ---
 
@@ -207,7 +209,9 @@ $$2 \times 32 \times 32 \times 128 \times 2 \;=\; 524{,}288 \text{ bytes} \;\app
 - "128K context" is served by **the whole stack at once** (GQA + quantized cache + paging), never one trick — the stack is [chapter 2](/ai-ml/ai-ml-learning-resources/inference-and-serving/kv-cache/kv-cache-optimization-stack).
 
 <!-- EXPLORER: kv-cache-memory -->
-> **Interactive explorer — the KV-cache memory calculator.** The formula as sliders: pick a model preset, drag **KV heads** (MHA 32 → GQA 8 → MQA 1), **cache dtype** (FP16 → FP8 → INT4), **context length**, and **batch size** — watch cache-per-token, total cache vs the weights, and **how many concurrent requests fit on an 80 GB GPU** respond instantly. Without the widget, work the formula by hand as in the three examples above.
+> [!EXPLORER]
+> **The KV-cache memory calculator**
+> The formula as sliders: pick a model preset, drag **KV heads** (MHA 32 → GQA 8 → MQA 1), **cache dtype** (FP16 → FP8 → INT4), **context length**, and **batch size** — watch cache-per-token, total cache vs the weights, and **how many concurrent requests fit on an 80 GB GPU** respond instantly. Without the widget, work the formula by hand as in the three examples above.
 
 ---
 

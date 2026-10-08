@@ -1,0 +1,16 @@
+title: Word Embeddings
+type: lesson
+section: multimodal-and-generative-media/natural-language-processing/word-embeddings-word2vec-glove-fasttext
+# Meaning as location, then the three methods with the training trick between
+# them, then the space they produce and the capstone, in course.yaml's declared
+# order (section `lr-word-embeddings`). The `.references.md` companion is not
+# listed: the app appends it to its primary page, so it is never an orderable
+# peer.
+page-order:
+  - word-embeddings-word2vec-glove-fasttext
+  - word2vec
+  - negative-sampling
+  - glove
+  - fasttext
+  - the-embedding-space
+  - using-word-embeddings

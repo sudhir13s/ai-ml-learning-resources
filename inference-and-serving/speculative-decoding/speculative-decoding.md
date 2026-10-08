@@ -70,7 +70,7 @@ category: inference-and-serving
 
 ## In this platform
 
-- Prerequisite: [Decoding and Sampling](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/decoding-and-sampling) (the sampler speculation must reproduce exactly) · [KV Cache](/ai-ml/ai-ml-learning-resources/inference-and-serving/kv-cache/kv-cache)
+- Prerequisite: [Decoding and Sampling](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/sampling-temperature-top-k-top-p) (the sampler speculation must reproduce exactly) · [KV Cache](/ai-ml/ai-ml-learning-resources/inference-and-serving/kv-cache/kv-cache)
 - Canonical home of the serving mechanism and its other levers: [Inference Optimization](/ai-ml/ai-ml-learning-resources/inference-and-serving/inference-optimization/inference-optimization) · [vLLM and PagedAttention](/ai-ml/ai-ml-learning-resources/inference-and-serving/inference-optimization/vllm-and-paged-attention)
 - The scheduler that decides whether speculation pays: [Continuous Batching and Scheduling](/ai-ml/ai-ml-learning-resources/inference-and-serving/continuous-batching-and-scheduling/continuous-batching-and-scheduling)
 - Stacks with: [Quantization](/ai-ml/ai-ml-learning-resources/inference-and-serving/quantization/quantization) · [Caching and Cost Optimization](/ai-ml/ai-ml-learning-resources/inference-and-serving/caching-and-cost-optimization/caching-and-cost-optimization)

@@ -3,7 +3,7 @@ id: "06-nlp/text-summarization"
 topic: "Text Summarization (extractive & abstractive)"
 parent: "06-nlp"
 level: intermediate
-built_from: ["seq2seq-encoder-decoder", "attention", "contextual-embeddings", "decoding-strategies", "tf-idf"]
+built_from: ["seq2seq-encoder-decoder", "attention", "contextual-embeddings", "09-llms/decoding-and-sampling", "tf-idf"]
 interview_frequency: medium
 template: concept-deep
 updated: 2026-09-07
@@ -283,7 +283,7 @@ A modern decoder-only LLM (GPT-4-class, Llama, Claude) summarizes with **no fine
 2. **In-context learning.** Give two or three example (document, summary) pairs in the prompt and the LLM matches their style and granularity — few-shot control without gradient updates.
 3. **Faithfulness improves but doesn't vanish.** Large instruction-tuned models hallucinate *less* than the old seq2seq summarizers (they're better grounded and RLHF-tuned to be honest), but they **still invent** plausible-sounding facts, especially on long or technical inputs. The hallucination problem *changes shape* — it gets subtler and harder to catch — it does not go away. (See the faithfulness section.)
 
-> **Note:** the *decoding strategy* matters as much as the model. Summarization wants **faithful, focused** output, so it leans on **beam search** (or low-temperature / greedy) rather than the high-temperature sampling used for creative text — you want the *most likely faithful* summary, not a diverse one. This is the direct tie-in to [17 Decoding Strategies](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/decoding-strategies/decoding-strategies): the same model summarizes very differently under beam search vs. nucleus sampling. Length penalties and `no_repeat_ngram` constraints in beam search are the modern descendants of the coverage mechanism.
+> **Note:** the *decoding strategy* matters as much as the model. Summarization wants **faithful, focused** output, so it leans on **beam search** (or low-temperature / greedy) rather than the high-temperature sampling used for creative text — you want the *most likely faithful* summary, not a diverse one. This is the direct tie-in to [Greedy and Beam Search](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/greedy-and-beam-search): the same model summarizes very differently under beam search vs. nucleus sampling. Length penalties and `no_repeat_ngram` constraints in beam search are the modern descendants of the coverage mechanism.
 
 > **Gotcha:** "just use an LLM" is not a free lunch. LLMs are *expensive per token* (a problem when you summarize millions of documents), *opaque* (hard to know *why* a fact appeared), and **context-window-bounded** — which is exactly the wall the next section is about. A cheap extractive pass is often the right *pre-filter* before an LLM, or the right answer outright when faithfulness must be guaranteed.
 

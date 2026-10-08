@@ -37,7 +37,7 @@ Every chapter is a self-contained folder (`NN-Concept/NN-Concept.md`) with its p
 16. ✅ [Information Retrieval & Semantic Search](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/information-retrieval-and-semantic-search/information-retrieval-and-semantic-search)
 
 ### Generation & evaluation
-17. ✅ [Decoding Strategies (greedy · beam · top-k · top-p/nucleus · temperature)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/decoding-strategies/decoding-strategies)
+17. ✅ [Decoding and Sampling (greedy · beam · temperature · top-k · top-p)](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/decoding-and-sampling) *(a course of its own under Inference and Serving)*
 18. ✅ [NLP Evaluation Metrics (BLEU · ROUGE · METEOR · perplexity · BERTScore · F1/EM)](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/nlp-evaluation-metrics/nlp-evaluation-metrics)
 
 ### Related concepts (canonical home is another section)

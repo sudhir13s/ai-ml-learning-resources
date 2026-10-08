@@ -59,6 +59,6 @@ accuracy leader, but it is still the best-understood open reference point.
 ## In this platform
 - Prerequisite: [ASR Fundamentals](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/audio-and-speech/asr-fundamentals-ctc-seq2seq-wer/asr-fundamentals-ctc-seq2seq-wer)
 - Contrast: [Self-Supervised Speech](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/audio-and-speech/self-supervised-speech-wav2vec2-hubert/self-supervised-speech-wav2vec2-hubert) — the other way to escape labeled data
-- Decoding (canonical home): [Decoding Strategies](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/decoding-strategies/decoding-strategies) — temperature fallback and beam search as Whisper uses them
+- Decoding (canonical home): [Decoding and Sampling](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/decoding-and-sampling) — temperature fallback and beam search as Whisper uses them
 - Next: [Realtime & Streaming Voice Agents](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/audio-and-speech/realtime-and-streaming-voice-agents/realtime-and-streaming-voice-agents) · [Speaker Identification & Diarization](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/audio-and-speech/speaker-identification-and-diarization/speaker-identification-and-diarization)
 - Sub-area index: [Audio & Speech](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/audio-and-speech/readme)

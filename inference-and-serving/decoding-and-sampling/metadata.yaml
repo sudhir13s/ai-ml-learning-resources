@@ -1,0 +1,15 @@
+title: Decoding and Sampling
+type: lesson
+section: inference-and-serving/decoding-and-sampling
+# Why decoding matters, then the search decoders, the sampling decoders, the
+# repetition and constraint controls, and the production capstone, in
+# course.yaml's declared order (section `lr-decoding-and-sampling`). The
+# `.references.md` companion is not listed: the app appends it to its primary
+# page, so it is never an orderable peer.
+page-order:
+  - decoding-and-sampling
+  - greedy-and-beam-search
+  - sampling-temperature-top-k-top-p
+  - repetition-and-degeneration-controls
+  - constrained-and-guided-decoding
+  - decoding-in-production

@@ -129,11 +129,11 @@ graph LR
 
 **2. Training-distribution gaps.** The model's "knowledge" is whatever statistical regularities its weights captured from pretraining. For a fact seen **often and consistently** (the capital of France), the supported token's logit dominates. For a fact seen **rarely, inconsistently, or never** (a niche author, a post-cutoff event, a made-up entity in your prompt), there is no dominant token — the distribution is flat over plausible candidates, and *any* sample is a guess. This is why hallucination correlates with **long-tail and rare entities**, and why a model will confidently answer about a person who does not exist: nothing in its weights says "this entity is unknown," so it interpolates from similar-looking names.
 
-**3. Decoding temperature.** From [decoding & sampling](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/decoding-and-sampling): temperature $T$ rescales logits before the softmax, $p_i = \text{softmax}(z_i / T)$.
+**3. Decoding temperature.** From [decoding & sampling](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/sampling-temperature-top-k-top-p): temperature $T$ rescales logits before the softmax, $p_i = \text{softmax}(z_i / T)$.
 
 $$p_i(T) = \frac{e^{z_i/T}}{\sum_j e^{z_j/T}}.$$
 
-> **Source / derivation:** temperature-scaled softmax is standard sampling, formalized in [*The Curious Case of Neural Text Degeneration*](https://arxiv.org/abs/1904.09751) (Holtzman et al. 2019) and unpacked in this platform's [Decoding & Sampling](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/decoding-and-sampling). $T \to 0$ concentrates all mass on the argmax (greedy); $T > 1$ flattens the distribution toward uniform, **raising the mass on every wrong token**.
+> **Source / derivation:** temperature-scaled softmax is standard sampling, formalized in [*The Curious Case of Neural Text Degeneration*](https://arxiv.org/abs/1904.09751) (Holtzman et al. 2019) and unpacked in this platform's [Decoding & Sampling](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/sampling-temperature-top-k-top-p). $T \to 0$ concentrates all mass on the argmax (greedy); $T > 1$ flattens the distribution toward uniform, **raising the mass on every wrong token**.
 
 Higher $T$ flattens the distribution → more probability bleeds off the supported token onto distractors → the unsupported-claim rate climbs. We measure this exactly in the code: as $T$ goes $0.3 \to 2.0$, our toy sampler's unsupported-claim rate climbs from **0.005 to 0.627**. The mechanism, visualized:
 

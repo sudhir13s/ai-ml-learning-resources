@@ -22,7 +22,7 @@ updated: 2026-09-14
 - Field overview: [9. Generative AI](/ai-ml/ai-ml-learning-resources/models-and-architectures/generative-model-families/generative-models/readme)
 - Concept depth (the *why*): [ai-ml-intuitions 5.05 Autoregressive Generation & Sampling](/ai-ml/ai-ml-intuitions/generation/autoregressive-generation/autoregressive-generation-and-sampling-controls-intuition)
 - Prereq: [Deep Learning — CNNs & Convolution](/ai-ml/ai-ml-learning-resources/models-and-architectures/classic-architectures/cnns-and-convolution/cnns-and-convolution) (masked convolutions are the core trick)
-- Related (text analogue): [LLMs](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/readme) · [NLP — Decoding Strategies](/ai-ml/ai-ml-learning-resources/multimodal-and-generative-media/natural-language-processing/decoding-strategies/decoding-strategies) (sampling from autoregressive conditionals)
+- Related (text analogue): [LLMs](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/readme) · [Sampling: Temperature, Top-k and Top-p](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/sampling-temperature-top-k-top-p) (sampling from autoregressive conditionals)
 
 **Videos**:
 - [Autoregressive Generative Models with Deep Learning](https://www.youtube.com/watch?v=R8fx2b8Asg0) — **Hugo Larochelle (Google Brain)** — the foundations talk (NADE/MADE) by an originator of neural AR models.

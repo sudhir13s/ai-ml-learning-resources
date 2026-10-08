@@ -320,7 +320,6 @@ spec:
         - path: deep-learning/optimization-and-training/loss-functions/loss-functions.md
         - path: deep-learning/optimization-and-training/weight-initialization/weight-initialization.md
         - path: deep-learning/optimization-and-training/vanishing-exploding-gradients/vanishing-exploding-gradients.md
-        - path: deep-learning/optimization-and-training/optimizers/optimizers.md
         - path: deep-learning/optimization-and-training/learning-rate-schedules-and-warmup/learning-rate-schedules-and-warmup.md
         - path: deep-learning/optimization-and-training/regularization/regularization.md
         - path: deep-learning/optimization-and-training/hyperparameter-tuning/hyperparameter-tuning.md
@@ -340,6 +339,21 @@ spec:
         - path: deep-learning/interpretability-and-analysis/superposition-and-sparse-autoencoders/superposition-and-sparse-autoencoders.md
         - path: deep-learning/interpretability-and-analysis/probing-attribution-and-feature-visualization/probing-attribution-and-feature-visualization.md
         - path: deep-learning/interpretability-and-analysis/interpretability-for-vision-and-classic-models/interpretability-for-vision-and-classic-models.md
+      sections:
+        # The optimizers topic package (T-2648.1): the why page, then the ladder
+        # one rung per page, then the comparison, the frontier and the capstone.
+        # Its pages keep `category: optimization-and-training`.
+        - id: lr-optimizers
+          title: Optimizers
+          kind: lesson
+          pages:
+            - path: deep-learning/optimization-and-training/optimizers/optimizers.md
+            - path: deep-learning/optimization-and-training/optimizers/momentum-and-nesterov.md
+            - path: deep-learning/optimization-and-training/optimizers/adaptive-learning-rates.md
+            - path: deep-learning/optimization-and-training/optimizers/adam-and-adamw.md
+            - path: deep-learning/optimization-and-training/optimizers/comparing-optimizers.md
+            - path: deep-learning/optimization-and-training/optimizers/beyond-adam.md
+            - path: deep-learning/optimization-and-training/optimizers/choosing-an-optimizer.md
     - id: models-and-architectures
       title: Models and Architectures
       kind: lesson
@@ -503,7 +517,6 @@ spec:
       title: Inference and Serving
       kind: lesson
       pages:
-        - path: inference-and-serving/decoding-and-sampling/decoding-and-sampling.md
         - path: inference-and-serving/speculative-decoding/speculative-decoding.md
         - path: inference-and-serving/quantization/quantization.md
         - path: inference-and-serving/quantization/quantization-in-serving.md
@@ -521,6 +534,19 @@ spec:
             - path: inference-and-serving/kv-cache/kv-cache-optimization-stack.md
             - path: inference-and-serving/kv-cache/kv-cache-flashattention-and-flashdecoding.md
             - path: inference-and-serving/kv-cache/kv-cache-in-production.md
+        # The decoding topic package (T-2648.1): why decoding matters, then the
+        # search decoders, the sampling decoders, the repetition and constraint
+        # controls, and the production capstone.
+        - id: lr-decoding-and-sampling
+          title: Decoding and Sampling
+          kind: lesson
+          pages:
+            - path: inference-and-serving/decoding-and-sampling/decoding-and-sampling.md
+            - path: inference-and-serving/decoding-and-sampling/greedy-and-beam-search.md
+            - path: inference-and-serving/decoding-and-sampling/sampling-temperature-top-k-top-p.md
+            - path: inference-and-serving/decoding-and-sampling/repetition-and-degeneration-controls.md
+            - path: inference-and-serving/decoding-and-sampling/constrained-and-guided-decoding.md
+            - path: inference-and-serving/decoding-and-sampling/decoding-in-production.md
         - id: lr-inference-optimization
           title: Inference Optimization
           kind: lesson
@@ -584,7 +610,6 @@ spec:
         - path: multimodal-and-generative-media/natural-language-processing/tokenization-and-subword-algorithms/tokenization-and-subword-algorithms.md
         - path: multimodal-and-generative-media/natural-language-processing/bag-of-words-and-tf-idf/bag-of-words-and-tf-idf.md
         - path: multimodal-and-generative-media/natural-language-processing/n-gram-language-models-and-smoothing/n-gram-language-models-and-smoothing.md
-        - path: multimodal-and-generative-media/natural-language-processing/word-embeddings-word2vec-glove-fasttext/word-embeddings-word2vec-glove-fasttext.md
         - path: multimodal-and-generative-media/natural-language-processing/contextual-embeddings-elmo-bert/contextual-embeddings-elmo-bert.md
         - path: multimodal-and-generative-media/natural-language-processing/sentence-and-document-embeddings/sentence-and-document-embeddings.md
         - path: multimodal-and-generative-media/natural-language-processing/sequence-to-sequence-and-encoder-decoder/sequence-to-sequence-and-encoder-decoder.md
@@ -596,7 +621,6 @@ spec:
         - path: multimodal-and-generative-media/natural-language-processing/coreference-resolution/coreference-resolution.md
         - path: multimodal-and-generative-media/natural-language-processing/topic-modeling-lda-nmf/topic-modeling-lda-nmf.md
         - path: multimodal-and-generative-media/natural-language-processing/information-retrieval-and-semantic-search/information-retrieval-and-semantic-search.md
-        - path: multimodal-and-generative-media/natural-language-processing/decoding-strategies/decoding-strategies.md
         - path: multimodal-and-generative-media/natural-language-processing/nlp-evaluation-metrics/nlp-evaluation-metrics.md
         # computer-vision
         - path: multimodal-and-generative-media/computer-vision/image-representation-and-filtering/image-representation-and-filtering.md
@@ -647,6 +671,22 @@ spec:
         - path: multimodal-and-generative-media/audio-and-speech/speaker-identification-and-diarization/speaker-identification-and-diarization.md
         - path: multimodal-and-generative-media/audio-and-speech/realtime-and-streaming-voice-agents/realtime-and-streaming-voice-agents.md
         - path: multimodal-and-generative-media/audio-and-speech/music-and-audio-generation-overview/music-and-audio-generation-overview.md
+      sections:
+        # The word-embeddings topic package (T-2648.1): meaning as location, then
+        # word2vec, negative sampling, GloVe and FastText, then the space they
+        # produce and the capstone. Its pages keep
+        # `category: natural-language-processing`.
+        - id: lr-word-embeddings
+          title: Word Embeddings
+          kind: lesson
+          pages:
+            - path: multimodal-and-generative-media/natural-language-processing/word-embeddings-word2vec-glove-fasttext/word-embeddings-word2vec-glove-fasttext.md
+            - path: multimodal-and-generative-media/natural-language-processing/word-embeddings-word2vec-glove-fasttext/word2vec.md
+            - path: multimodal-and-generative-media/natural-language-processing/word-embeddings-word2vec-glove-fasttext/negative-sampling.md
+            - path: multimodal-and-generative-media/natural-language-processing/word-embeddings-word2vec-glove-fasttext/glove.md
+            - path: multimodal-and-generative-media/natural-language-processing/word-embeddings-word2vec-glove-fasttext/fasttext.md
+            - path: multimodal-and-generative-media/natural-language-processing/word-embeddings-word2vec-glove-fasttext/the-embedding-space.md
+            - path: multimodal-and-generative-media/natural-language-processing/word-embeddings-word2vec-glove-fasttext/using-word-embeddings.md
     - id: world-models-and-embodied-ai
       title: World Models and Embodied AI
       kind: lesson

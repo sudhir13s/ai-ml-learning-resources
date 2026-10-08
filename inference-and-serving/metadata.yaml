@@ -7,7 +7,7 @@ page-order:
   - kv-cache/kv-cache-optimization-stack
   - kv-cache/kv-cache-flashattention-and-flashdecoding
   - kv-cache/kv-cache-in-production
-  - decoding-and-sampling/decoding-and-sampling
+  - decoding-and-sampling
   - speculative-decoding/speculative-decoding
   - quantization/quantization
   - quantization/quantization-in-serving

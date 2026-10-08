@@ -19,7 +19,7 @@ updated: 2026-09-14
 
 **In this platform**:
 - Canonical home of chain-of-thought, self-consistency and tree-of-thoughts (this page does not repeat them): [Chain-of-Thought and Reasoning](/ai-ml/ai-ml-learning-resources/models-and-architectures/large-language-models/chain-of-thought-and-reasoning/chain-of-thought-and-reasoning)
-- What makes the samples diverge: [Decoding and Sampling](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/decoding-and-sampling)
+- What makes the samples diverge: [Decoding and Sampling](/ai-ml/ai-ml-learning-resources/inference-and-serving/decoding-and-sampling/sampling-temperature-top-k-top-p)
 - What thinking costs to serve: [Inference Optimization](/ai-ml/ai-ml-learning-resources/inference-and-serving/inference-optimization/inference-optimization) · [Continuous Batching and Scheduling](/ai-ml/ai-ml-learning-resources/inference-and-serving/continuous-batching-and-scheduling/continuous-batching-and-scheduling) · [Caching and Cost Optimization](/ai-ml/ai-ml-learning-resources/inference-and-serving/caching-and-cost-optimization/caching-and-cost-optimization)
 - Measuring it honestly: [LLM Evaluation](/ai-ml/ai-ml-learning-resources/evaluation/model-evaluation-and-benchmarks/model-evaluation-and-benchmarks) · [Hallucination and Grounding](/ai-ml/ai-ml-learning-resources/evaluation/hallucination-and-grounding/hallucination-and-grounding)
 - Search over steps is also how agents plan: [Planning](/ai-ml/practitioner-workflows/agentic-systems/planning/planning) · [Reflection](/ai-ml/practitioner-workflows/agentic-systems/reflection/reflection)

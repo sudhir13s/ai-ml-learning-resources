@@ -5,7 +5,7 @@ page-order:
   - loss-functions/loss-functions
   - weight-initialization/weight-initialization
   - vanishing-exploding-gradients/vanishing-exploding-gradients
-  - optimizers/optimizers
+  - optimizers
   - learning-rate-schedules-and-warmup/learning-rate-schedules-and-warmup
   - regularization/regularization
   - hyperparameter-tuning/hyperparameter-tuning
