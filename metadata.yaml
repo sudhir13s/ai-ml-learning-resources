@@ -3,7 +3,7 @@
 # Spec:    docs/plans/structure-rework/commons/declaration-schema.md
 # Charter: docs/plans/structure-rework/ai-ml-blueprints/ai-ml-learning-resources-structure.md
 # Declaration: docs/plans/structure-rework/ai-ml-blueprints/ai-ml-blueprint-index.md
-#   section "Course declaration - AI-ML/AI-ML-study-notes/ai-ml-learning-resources/course.yaml".
+#   section "Course declaration — AI-ML/AI-ML-study-notes/ai-ml-learning-resources/metadata.yaml".
 # Placement rule: docs/plans/aiml-layer-restructure/2026-09-12T23-38-aiml-layer-restructure-plan.md
 # Validate from interview-prep-app/:
 #   npx tsx scripts/validate-structure.ts --root <this module root>
