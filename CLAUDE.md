@@ -18,7 +18,7 @@ Doubles as a **dataset** for the interview-prep app, so formats must stay consis
 - **The tree is `section/sub-area/topic-package/`, all kebab-case** — the chartered shape
   landed by T-86 (`docs/plans/structure-rework/ai-ml-blueprints/ai-ml-learning-resources-structure.md`).
   No ordinal prefixes, no spaces, no underscores, nothing about order or difficulty in a name.
-- **`course.yaml` at the repo root declares every section**; a `metadata.yaml` carrying
+- **The root `metadata.yaml` (`kind: Course`) declares every section**; a `metadata.yaml` carrying
   `page-order:` (the ONE ordering key estate-wide) fixes reading order inside every sub-area.
 - **A topic package is a folder**: `<topic>/<topic>.md` plus its `<topic>.references.md`
   companion and its own `images/`, `code/` and `notebooks/`.
@@ -127,7 +127,7 @@ This **intentionally inverts** the old "curated links only — don't duplicate d
 deep home. (Topic-level `README.md`s stay link-only as described above.)
 
 ## Sections (chartered, kebab-case — the ordinal `NN. Name` folders are gone)
-Ordered by learning progression, each declared as a section in `course.yaml`:
+Ordered by learning progression, each declared as a section in the root `metadata.yaml`:
 
 The library is the **model layer** of the AI/ML hub (owner ruling 2026-09-12, layer plan
 `docs/plans/aiml-layer-restructure/`): anything that makes, changes, measures or serves a model,
@@ -224,7 +224,7 @@ chartered sections, after which it is deleted. The root `README.md` is the maste
   content + separate `<topic>.references.md`). These *are* allowed to carry full depth; they're
   the canonical deep home for a concept when no `ai-ml-intuitions` page exists.
 - **Adding a topic**: create `<section>/<sub-area>/<topic>/<topic>.md`, give it `title`,
-  `minutes` and a `category` equal to its sub-area folder, add the path to `course.yaml`, and
-  add it to that sub-area's `metadata.yaml` `page-order:` at the right position.
+  `minutes` and a `category` equal to its sub-area folder, add the path to the root
+  `metadata.yaml` (`kind: Course`), and add it to that sub-area's `metadata.yaml` `page-order:` at the right position.
 - Cross-link into [`ai-ml-intuitions`](../ai-ml-intuitions/) (the *why*) and
   [`AI-ML-problemsets`](../AI-ML-problemsets/) (the *practice*) where those pages exist.
